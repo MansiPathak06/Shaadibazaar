@@ -68,9 +68,9 @@ function WatchHero() {
           <div className="relative flex justify-center">
             <div className="relative">
               <img
-                src="/images/watch-hero.png"
+                src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1761897780/main_image_ov6seq.png"
                 alt="Michael Kors Blake Black Tone Watch"
-                className="w-full max-w-md h-auto object-contain drop-shadow-2xl transform hover:scale-105 transition-transform duration-500 rotate-290"
+                className="w-full max-w-lg h-auto object-contain drop-shadow-2xl transform hover:scale-105 transition-transform duration-500 rotate-300"
               />
               {/* Subtle glow effect */}
               <div className="absolute inset-0 bg-gradient-radial from-white/5 via-transparent to-transparent rounded-full blur-3xl"></div>
@@ -103,28 +103,28 @@ function PremiumWatchSection() {
       name: 'ASHEZ',
       subtitle: 'The Minimalist',
       price: '$295',
-      image: 'https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=400&q=80'
+      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895591/image1_yhmi3e.jpg'
     },
     {
       id: 2,
       name: 'MANARO',
       subtitle: 'The Classic',
       price: '$450',
-      image: 'https://images.unsplash.com/photo-1539874754764-5a96559165b0?w=400&q=80'
+      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895591/image2_qigpbp.jpg'
     },
     {
       id: 3,
       name: 'BLING',
       subtitle: 'The Elegant',
       price: '$599',
-      image: 'https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?w=400&q=80'
+      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895591/image3_gclaxe.jpg'
     },
     {
       id: 4,
       name: 'MANARO',
       subtitle: 'The Classic',
       price: '$450',
-      image: 'https://images.unsplash.com/photo-1539874754764-5a96559165b0?w=400&q=80'
+      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895591/image4_bawcw1.jpg'
     }
   ];
 
@@ -175,7 +175,7 @@ function PremiumWatchSection() {
             <div className="order-2 lg:order-1">
               <div className="rounded-lg overflow-hidden shadow-2xl aspect-[4/3]">
                 <img
-                  src="https://i.pinimg.com/1200x/db/57/cf/db57cfcd8ff3d13000a22a52aaf1e8a0.jpg"
+                  src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895593/image5_vsahvh.jpg"
                   alt="Metropolitan moods watch"
                   className="w-full h-full object-cover object-center"
                 />
@@ -214,35 +214,35 @@ function WatchCollectionGrid() {
       id: 1,
       title: 'Perfection',
       subtitle: 'Shop the latest watches',
-      image: 'https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=400&q=80',
+      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895592/image6_sc9zxk.jpg',
       height: 'medium'
     },
     {
       id: 2,
       title: 'Gold Collection',
       subtitle: 'Luxury timepieces',
-      image: 'https://images.unsplash.com/photo-1609587312208-cea54be969e7?w=400&q=80',
+      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895792/gold_collection_watches_ikpkie.jpg',
       height: 'tall'
     },
     {
       id: 3,
       title: 'Crafts manship',
       subtitle: 'Handcrafted excellence',
-      image: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=400&q=80',
+      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895896/Crafts_manship_watches_jegoiu.jpg',
       height: 'extra-tall'
     },
     {
       id: 4,
       title: 'Latest',
       subtitle: 'New arrivals collection',
-      image: 'https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=400&q=80',
+      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895594/image16_jcogef.jpg',
       height: 'tall'
     },
     {
       id: 5,
       title: 'Pieces',
       subtitle: 'Timeless designs',
-      image: 'https://images.unsplash.com/photo-1533139502658-0198f920d8e8?w=400&q=80',
+      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895593/image14_xwwx1w.avif',
       height: 'medium'
     }
   ];
@@ -319,37 +319,37 @@ function WatchBrandsGrid() {
     {
       name: "Rolex",
       description: "Crown of watchmaking excellence",
-      image: "https://images.unsplash.com/photo-1622434641406-a158123450f9?w=600&h=600&fit=crop&auto=format",
+      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895968/rolex_u2dpsh.jpg",
       textShadow: "drop-shadow-lg"
     },
     {
       name: "Patek Philippe",
       description: "Timeless Swiss perfection",
-      image: "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=600&h=600&fit=crop&auto=format",
+      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895593/image10_xsin1f.jpg",
       textShadow: "drop-shadow-lg"
     },
     {
       name: "Omega",
       description: "Precision since 1848",
-      image: "https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?w=600&h=600&fit=crop&auto=format",
+      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895593/image12_xnyy2s.avif",
       textShadow: "drop-shadow-lg"
     },
     {
       name: "Audemars Piguet",
       description: "Royal Oak innovation",
-      image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=600&h=600&fit=crop&auto=format",
+      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895592/image6_sc9zxk.jpg",
       textShadow: "drop-shadow-lg"
     },
     {
       name: "Breitling",
       description: "Aviation heritage precision",
-      image: "https://i.pinimg.com/1200x/27/01/ff/2701ff8c578798959a004847e138b5f2.jpg",
+      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895591/image3_gclaxe.jpg",
       textShadow: "drop-shadow-lg"
     },
     {
       name: "TAG Heuer",
       description: "Swiss avant-garde craftsmanship",
-      image: "https://i.pinimg.com/1200x/df/37/0f/df370fbeed458ee8dedbe96f7f02de94.jpg",
+      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895593/image17_vxzwgl.jpg",
       textShadow: "drop-shadow-lg"
     }
   ];
@@ -435,7 +435,7 @@ function BestSellers() {
       id: 1,
       name: "Expedition Premier Black",
       price: 540.00,
-      image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=300&h=300&fit=crop",
+      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895593/image13_lpoi6c.avif",
       rating: 5,
       badge: "Hot",
       badgeColor: "bg-red-500"
@@ -444,7 +444,7 @@ function BestSellers() {
       id: 2,
       name: "The Fragnance of Capricorn Staff",
       price: 83.00,
-      image: "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=300&h=300&fit=crop",
+      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895593/image12_xnyy2s.avif",
       rating: 4,
       badge: "Hot",
       badgeColor: "bg-red-500"
@@ -454,7 +454,7 @@ function BestSellers() {
       name: "The Cosmos Genuine Leather Mascle Tons",
       price: 97.00,
       originalPrice: 125.00,
-      image: "https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?w=300&h=300&fit=crop",
+      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895593/image5_vsahvh.jpg",
       rating: 5,
       badge: "Sale",
       badgeColor: "bg-green-500"
@@ -464,7 +464,7 @@ function BestSellers() {
       name: "The Cosmos Genuine Leather Mascle Tons",
       price: 97.00,
       originalPrice: 125.00,
-      image: "https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?w=300&h=300&fit=crop",
+      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895591/image1_yhmi3e.jpg",
       rating: 5,
       badge: "Sale",
       badgeColor: "bg-green-500"
@@ -474,7 +474,7 @@ function BestSellers() {
       name: "The Cosmos Genuine Leather Mascle Tons",
       price: 97.00,
       originalPrice: 125.00,
-      image: "https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?w=300&h=300&fit=crop",
+      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895598/image20_k89pji.jpg",
       rating: 5,
       badge: "Sale",
       badgeColor: "bg-green-500"
@@ -484,7 +484,7 @@ function BestSellers() {
       name: "The Cosmos Genuine Leather Mascle Tons",
       price: 97.00,
       originalPrice: 125.00,
-      image: "https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?w=300&h=300&fit=crop",
+      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895594/image15_iruqxw.jpg",
       rating: 5,
       badge: "Sale",
       badgeColor: "bg-green-500"
@@ -493,7 +493,7 @@ function BestSellers() {
       id: 7,
       name: "Asymmetric Rose Gold Bracelet",
       price: 257.00,
-      image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=300&h=300&fit=crop",
+      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761896203/Rose_Gold_Bracelet_s8otri.jpg",
       rating: 5,
       badge: "Hot",
       badgeColor: "bg-red-500"
@@ -502,7 +502,7 @@ function BestSellers() {
       id: 8,
       name: "Asymmetric Rose Gold Bracelet",
       price: 257.00,
-      image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=300&h=300&fit=crop",
+      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761896275/bracelet_watch_zcjxri.jpg",
       rating: 5,
       badge: "Hot",
       badgeColor: "bg-red-500"
@@ -625,16 +625,16 @@ function Sellers() {
       id: 1,
       name: "Expedition Premier Black",
       price: 540.00,
-      image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=300&h=300&fit=crop",
+      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895594/image16_jcogef.jpg",
       rating: 5,
       badge: "Hot",
       badgeColor: "bg-red-500"
     },
     {
       id: 2,
-      name: "The Fragnance of Capricorn Staff",
+      name: "Premium Watches",
       price: 83.00,
-      image: "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=300&h=300&fit=crop",
+      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761896824/premium_watch_pukwcw.jpg",
       rating: 4,
       badge: "Hot",
       badgeColor: "bg-red-500"
@@ -644,7 +644,7 @@ function Sellers() {
       name: "The Cosmos Genuine Leather Mascle Tons",
       price: 97.00,
       originalPrice: 125.00,
-      image: "https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?w=300&h=300&fit=crop",
+      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895593/image17_vxzwgl.jpg",
       rating: 5,
       badge: "Sale",
       badgeColor: "bg-green-500"
@@ -653,7 +653,7 @@ function Sellers() {
       id: 4,
       name: "Asymmetric Rose Gold Bracelet",
       price: 257.00,
-      image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=300&h=300&fit=crop",
+      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761896275/bracelet_watch_zcjxri.jpg",
       rating: 5,
       badge: "Hot",
       badgeColor: "bg-red-500"
@@ -662,7 +662,7 @@ function Sellers() {
       id: 5,
       name: "Asymmetric Rose Gold Bracelet",
       price: 257.00,
-      image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=300&h=300&fit=crop",
+      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761896275/bracelet_watch_zcjxri.jpg",
       rating: 5,
       badge: "Hot",
       badgeColor: "bg-red-500"
@@ -671,7 +671,7 @@ function Sellers() {
       id: 6,
       name: "Asymmetric Rose Gold Bracelet",
       price: 257.00,
-      image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=300&h=300&fit=crop",
+      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761896203/Rose_Gold_Bracelet_s8otri.jpg",
       rating: 5,
       badge: "Hot",
       badgeColor: "bg-red-500"
@@ -680,7 +680,7 @@ function Sellers() {
       id: 7,
       name: "Asymmetric Rose Gold Bracelet",
       price: 257.00,
-      image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=300&h=300&fit=crop",
+      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895792/gold_collection_watches_ikpkie.jpg",
       rating: 5,
       badge: "Hot",
       badgeColor: "bg-red-500"
@@ -689,7 +689,7 @@ function Sellers() {
       id: 8,
       name: "Asymmetric Rose Gold Bracelet",
       price: 257.00,
-      image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=300&h=300&fit=crop",
+      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761896275/bracelet_watch_zcjxri.jpg",
       rating: 5,
       badge: "Hot",
       badgeColor: "bg-red-500"
