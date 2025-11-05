@@ -204,7 +204,7 @@ export default function WeddingPlanning() {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
-                  <span className="text-white font-semibold text-lg">View Gallery</span>
+                  <span className="text-white font-medium text-lg">View Gallery</span>
                 </div>
               </div>
             ))}
@@ -384,8 +384,6 @@ export default function WeddingPlanning() {
     animation-delay: 4s;
   }
 `}</style>
-
-
     </div>
   );
 }

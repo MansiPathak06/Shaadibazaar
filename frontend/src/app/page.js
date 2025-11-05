@@ -20,7 +20,6 @@ const page = () => {
     <div className="bg-linear-to-b from-rose-100 to-white">
       <ModernWeddingGate />
       {/* <WeddingNavigation /> */}
-
     </div>
   );
 };
