@@ -103,8 +103,8 @@ export default function Lounges() {
     'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761458120/image8_g0ph3w.jpg'
   ];
 
-  const filteredServices = selectedCategory === 'all' 
-    ? loungeServices 
+  const filteredServices = selectedCategory === 'all'
+    ? loungeServices
     : loungeServices.filter(service => service.category === selectedCategory);
 
   return (
@@ -112,7 +112,7 @@ export default function Lounges() {
       {/* Hero Section */}
       <section className="relative h-[60vh] md:h-[70vh] lg:h-[80vh] overflow-hidden">
         <div className="absolute inset-0 bg-black/40 z-10" />
-        
+
         {/* Background Video */}
         <video
           autoPlay
@@ -133,7 +133,7 @@ export default function Lounges() {
               Create Perfect Relaxation Spaces for Your Guests
             </p>
             <p className="text-sm md:text-base lg:text-lg max-w-2xl mx-auto mb-8">
-              Transform your wedding venue with elegant lounge setups that provide comfort, 
+              Transform your wedding venue with elegant lounge setups that provide comfort,
               style, and the perfect atmosphere for your guests to relax and celebrate
             </p>
             <button className="bg-white text-rose-500 px-8 py-3 md:px-10 md:py-4 rounded-full font-semibold 
@@ -153,8 +153,8 @@ export default function Lounges() {
             </h2>
             <div className="w-20 md:w-24 h-1 bg-rose-400 mx-auto mb-6"></div>
             <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              At ShadiBazaar, we specialize in creating stunning lounge spaces that add elegance and 
-              comfort to your wedding celebration. Our expertly designed lounge setups provide your guests 
+              At ShadiBazaar, we specialize in creating stunning lounge spaces that add elegance and
+              comfort to your wedding celebration. Our expertly designed lounge setups provide your guests
               with a cozy retreat to relax, socialize, and enjoy the festivities in style.
             </p>
           </div>
@@ -399,44 +399,63 @@ export default function Lounges() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 md:py-16 lg:py-20 px-4 bg-gradient-to-r from-rose-400 to-pink-500">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6">
-            Ready to Create Your Dream Lounge?
-          </h2>
-          <p className="text-base md:text-lg lg:text-xl text-white/90 mb-8 md:mb-10 max-w-2xl mx-auto">
-            Let us help you design the perfect relaxation space for your wedding guests. 
-            Contact us today for a free consultation and quote!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="w-full sm:w-auto bg-white text-rose-500 px-8 md:px-10 py-3 md:py-4 rounded-full 
-              font-semibold hover:bg-rose-50 transition-all duration-300 transform hover:scale-105 shadow-xl">
-              Book Consultation
-            </button>
-            <button className="w-full sm:w-auto bg-transparent border-2 border-white text-white px-8 md:px-10 
-              py-3 md:py-4 rounded-full font-semibold hover:bg-white hover:text-rose-500 transition-all 
-              duration-300 transform hover:scale-105">
-              View Packages
-            </button>
-          </div>
+      <section className="py-16 md:py-24 lg:py-28 px-4 bg-gradient-to-r from-rose-400 to-pink-500">
+        <div className="max-w-5xl mx-auto">
+          {/* Split Layout */}
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            {/* Left Side - Content */}
+            <div className="text-white">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                Your Perfect Wedding Lounge Awaits
+              </h2>
+              <p className="text-lg text-white/90 mb-4 leading-relaxed">
+                Every detail matters. Every moment counts. Let us craft a relaxation sanctuary that reflects your love story and creates lasting memories for you and your guests.
+              </p>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-center gap-3 text-white/80">
+                  <span className="w-6 h-6 bg-white/30 rounded-full flex items-center justify-center">✓</span>
+                  Custom design consultation
+                </li>
+                <li className="flex items-center gap-3 text-white/80">
+                  <span className="w-6 h-6 bg-white/30 rounded-full flex items-center justify-center">✓</span>
+                  Flexible packages for all budgets
+                </li>
+                <li className="flex items-center gap-3 text-white/80">
+                  <span className="w-6 h-6 bg-white/30 rounded-full flex items-center justify-center">✓</span>
+                  Professional installation & styling
+                </li>
+              </ul>
+            </div>
 
-          {/* Contact Info */}
-          <div className="mt-10 md:mt-12 flex flex-col sm:flex-row justify-center items-center gap-4 md:gap-8 text-white">
-            <div className="flex items-center gap-2">
-              <span className="text-xl md:text-2xl">📞</span>
-              <span className="text-sm md:text-base">+91 XXXXX XXXXX</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-xl md:text-2xl">📧</span>
-              <span className="text-sm md:text-base">info@shadibazaar.com</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-xl md:text-2xl">💬</span>
-              <span className="text-sm md:text-base">WhatsApp Available</span>
+            {/* Right Side - CTA Stack */}
+            <div className="flex flex-col gap-4">
+              <button className="relative group w-full bg-white text-rose-500 px-8 py-4 rounded-xl font-bold text-lg overflow-hidden transition-all duration-300 hover:shadow-2xl">
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  Book Consultation
+                  <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                </span>
+                <div className="absolute inset-0 bg-rose-50 -z-10 group-hover:scale-105 transition-transform duration-300"></div>
+              </button>
+
+              <button className="relative group w-full bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:bg-white/10">
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  View Packages
+                  <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                </span>
+              </button>
+
+              <div className="pt-6 border-t border-white/20">
+                <p className="text-white/70 text-sm mb-4">Quick Contact</p>
+                <div className="space-y-2">
+                  <p className="text-white font-semibold">📞 +91 XXXXX XXXXX</p>
+                  <p className="text-white font-semibold">💬 WhatsApp Available</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
     </div>
   );
 }

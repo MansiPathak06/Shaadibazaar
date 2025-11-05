@@ -1,6 +1,6 @@
 "use client";
 import { useState } from 'react';
-import { ChevronRight, MapPin, Waves, Star, Play, X, Sun, Anchor } from 'lucide-react';
+import { ChevronRight, MapPin, Waves, Star, Play, X, Sun, z } from 'lucide-react';
 
 export default function BeachVenues() {
   const [selectedVideo, setSelectedVideo] = useState(null);
