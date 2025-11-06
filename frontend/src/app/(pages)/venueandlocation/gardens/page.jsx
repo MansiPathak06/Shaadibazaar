@@ -11,28 +11,28 @@ export default function GardensVenue() {
       id: 1,
       name: 'Flower Gardens',
       description: 'Blooming paradise with colorful flowers and natural beauty',
-      image: 'https://i.pinimg.com/1200x/62/fc/f0/62fcf0a2930a6d068171e4c0cdd3ddcf.jpg',
+      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1762330427/image1_nla3sv.jpg',
       icon: '🌸',
     },
     {
       id: 2,
       name: 'Rose Gardens',
       description: 'Elegant rose landscapes perfect for romantic celebrations',
-      image: 'https://i.pinimg.com/1200x/3a/b8/9e/3ab89e8915cb68ef38e8ba2ab133b080.jpg',
+      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1762330429/image2_vvsqrx.jpg',
       icon: '🌹',
     },
     {
       id: 3,
       name: 'Manicured Lawns',
       description: 'Perfect open spaces for grand wedding setups',
-      image: 'https://i.pinimg.com/1200x/8a/98/37/8a983737ba5cf9ec7918512e9b4a3723.jpg',
+      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1762330429/image3_rhgv3w.jpg',
       icon: '🌿',
     },
     {
       id: 4,
       name: 'Water Gardens',
       description: 'Serene garden settings with water features and fountains',
-      image: 'https://i.pinimg.com/736x/96/21/ed/9621ed50560667b90e29ba4cd83c81ad.jpg',
+      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1762330428/image4_yexfoh.jpg',
       icon: '💧',
     },
   ];
@@ -41,30 +41,30 @@ export default function GardensVenue() {
     {
       id: 1,
       title: 'Grand Garden Wedding',
-      thumbnail: 'https://i.pinimg.com/736x/68/3f/98/683f98f81122f6b2749daff8c5918a2b.jpg',
+      thumbnail: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1762330430/image5_cgmtpu.jpg',
       url: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     },
     {
       id: 2,
       title: 'Rose Garden Ceremony',
-      thumbnail: 'https://i.pinimg.com/736x/b8/14/db/b814db14106e4e71799c17920e01d880.jpg',
+      thumbnail: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1762330429/image6_pkzzod.jpg',
       url: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     },
     {
       id: 3,
       title: 'Evening Reception Setup',
-      thumbnail: 'https://i.pinimg.com/1200x/fe/c3/ca/fec3ca18922c1549c42e84516b8faaa5.jpg',
+      thumbnail: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1762330429/image7_djidmu.jpg',
       url: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     },
   ];
 
   const gallery = [
-    'https://i.pinimg.com/1200x/fc/9b/81/fc9b8188d6dd041e253160257318ed06.jpg',
-    'https://i.pinimg.com/736x/4d/a9/62/4da9628cd59c14d7fc0602ca37ad05ad.jpg',
-    'https://i.pinimg.com/736x/ec/c5/6f/ecc56f21d2b1e7c01cda3e537d11576c.jpg',
-    'https://i.pinimg.com/736x/e2/b6/ad/e2b6ad0334b1a4095feae5f5c77971a0.jpg',
-    'https://i.pinimg.com/1200x/96/ee/23/96ee2335cd543af3ec9771345c3a70f3.jpg',
-    'https://i.pinimg.com/736x/29/2d/7d/292d7d81369b3815a84c05b3ee6fff9b.jpg',
+    'https://res.cloudinary.com/dewxpvl5s/image/upload/v1762330430/image8_mbkiub.jpg',
+    'https://res.cloudinary.com/dewxpvl5s/image/upload/v1762330431/image9_mwuskp.jpg',
+    'https://res.cloudinary.com/dewxpvl5s/image/upload/v1762330431/image10_ajyjg5.jpg',
+    'https://res.cloudinary.com/dewxpvl5s/image/upload/v1762330431/image11_akpbxu.jpg',
+    'https://res.cloudinary.com/dewxpvl5s/image/upload/v1762330432/image12_pdpzqd.jpg',
+    'https://res.cloudinary.com/dewxpvl5s/image/upload/v1762330432/image13_xjnhjw.jpg',
   ];
 
   const features = [
@@ -80,7 +80,7 @@ export default function GardensVenue() {
       <div className="relative h-screen bg-gradient-to-br from-white via-rose-50 to-rose-100">
         <div className="absolute inset-0 overflow-hidden">
           <img
-            src="https://i.pinimg.com/736x/21/08/62/210862d8a7c7d390f545bf91b70314d0.jpg"
+            src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762330432/image14_xcg9qq.jpg"
             alt="Garden Wedding"
             className="w-full h-full object-cover opacity-70"
           />

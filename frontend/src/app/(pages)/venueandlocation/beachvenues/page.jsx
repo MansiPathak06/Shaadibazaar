@@ -1,6 +1,7 @@
 "use client";
 import { useState } from 'react';
-import { ChevronRight, MapPin, Waves, Star, Play, X, Sun, z } from 'lucide-react';
+import { ChevronRight, MapPin, Star, Waves, Sunset, Umbrella, Users, Play, X, Sun, z } from 'lucide-react';
+import {  } from "lucide-react";
 
 export default function BeachVenues() {
   const [selectedVideo, setSelectedVideo] = useState(null);
@@ -11,28 +12,28 @@ export default function BeachVenues() {
       id: 1,
       name: 'Sunset Beaches',
       description: 'Golden hour ceremonies with breathtaking sunset views',
-      image: 'https://i.pinimg.com/736x/b5/e1/23/b5e123ddde321aff293a3204da474dfb.jpg',
+      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1762326573/image1_xf8fv8.jpg',
       icon: '🌅',
     },
     {
       id: 2,
       name: 'Private Beach Coves',
       description: 'Exclusive intimate celebrations away from crowds',
-      image: 'https://i.pinimg.com/736x/96/21/ed/9621ed50560667b90e29ba4cd83c81ad.jpg',
+      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1762326573/image2_mg8yfa.jpg',
       icon: '🏝️',
     },
     {
       id: 3,
       name: 'Tropical Paradise Venues',
       description: 'Lush seaside settings with palm trees and clear waters',
-      image: 'https://i.pinimg.com/736x/71/37/0f/71370feedc999160da17d8a3d2dcf149.jpg',
+      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1762326573/image3_qkraxk.jpg',
       icon: '🌴',
     },
     {
       id: 4,
       name: 'Beachfront Pavilions',
       description: 'Modern structures with sea breeze and ocean backdrop',
-      image: 'https://i.pinimg.com/736x/97/eb/52/97eb52369fbfa35e77dc468e790daa90.jpg',
+      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1762326572/image4_zgclx8.jpg',
       icon: '🏖️',
     },
   ];
@@ -41,38 +42,55 @@ export default function BeachVenues() {
     {
       id: 1,
       title: 'Sunset Beach Ceremony',
-      thumbnail: 'https://i.pinimg.com/736x/c3/0d/a6/c30da6c5cd1c66f2d56fed504b6d46ae.jpg',
+      thumbnail: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1762326573/image5_bbuhy3.jpg',
       url: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     },
     {
       id: 2,
       title: 'Beachfront Reception Glow',
-      thumbnail: 'https://i.pinimg.com/1200x/ec/f8/a2/ecf8a233449c8a99cd4be1be155588b5.jpg',
+      thumbnail: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1762326573/image6_vbewut.jpg',
       url: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     },
     {
       id: 3,
       title: 'Tropical Paradise Wedding',
-      thumbnail: 'https://i.pinimg.com/1200x/e5/25/12/e525125b88266920a1843feb79679cb3.jpg',
+      thumbnail: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1762327104/image7_dthhp6.jpg',
       url: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     },
   ];
 
   const gallery = [
-    'https://i.pinimg.com/736x/36/6e/db/366edbde3d26c9ec6cd6cef8834c0b1b.jpg',
-    'https://i.pinimg.com/736x/87/e3/59/87e3591ad6481b16081214f059953016.jpg',
-    'https://i.pinimg.com/736x/b1/b0/ec/b1b0ec4a02fa9baecdab296bff8a5c3f.jpg',
-    'https://i.pinimg.com/736x/ec/4d/a7/ec4da755320dd807b534e12acd48bdd9.jpg',
-    'https://i.pinimg.com/1200x/05/38/3e/05383e05d38d0d24026c2b75a7f5e496.jpg',
-    'https://i.pinimg.com/1200x/75/b6/20/75b6201188aed5c63f35b39f52c999de.jpg',
+    'https://res.cloudinary.com/dewxpvl5s/image/upload/v1762326574/image8_rzqxgc.jpg',
+    'https://res.cloudinary.com/dewxpvl5s/image/upload/v1762326576/image9_ydjq8t.jpg',
+    'https://res.cloudinary.com/dewxpvl5s/image/upload/v1762326577/image10_wfyrfa.jpg',
+    'https://res.cloudinary.com/dewxpvl5s/image/upload/v1762326576/image11_bckzga.jpg',
+    'https://res.cloudinary.com/dewxpvl5s/image/upload/v1762327192/image12_gzgygd.jpg',
+    'https://res.cloudinary.com/dewxpvl5s/image/upload/v1762327218/image13_f8eyqp.jpg',
   ];
 
-  const features = [
-    { icon: '🌊', title: 'Ocean Views', desc: 'Stunning seascape backdrops for perfect moments' },
-    { icon: '🌅', title: 'Golden Hour Magic', desc: 'Magical sunset lighting for ceremonies' },
-    { icon: '⛱️', title: 'Complete Setup', desc: 'Beach pavilions and decorated spaces' },
-    { icon: '👥', title: 'Capacity Range', desc: 'From intimate 50-guest to grand 5000+ events' },
-  ];
+const features = [
+  {
+    icon: <Waves className="w-12 h-12 text-rose-500 mx-auto mb-4" />,
+    title: "Ocean Views",
+    desc: "Stunning seascape backdrops that set the tone for unforgettable celebrations.",
+  },
+  {
+    icon: <Sunset className="w-12 h-12 text-amber-500 mx-auto mb-4" />,
+    title: "Golden Hour Magic",
+    desc: "Experience the enchanting glow of sunset lighting for romantic ceremonies.",
+  },
+  {
+    icon: <Umbrella className="w-12 h-12 text-sky-500 mx-auto mb-4" />,
+    title: "Complete Setup",
+    desc: "Luxurious beach pavilions, elegant seating, and decor designed to impress.",
+  },
+  {
+    icon: <Users className="w-12 h-12 text-rose-400 mx-auto mb-4" />,
+    title: "Capacity Range",
+    desc: "Perfect for intimate 50-guest weddings to grand 5000+ guest celebrations.",
+  },
+];
+
 
   const amenities = [
     { icon: '🏊', label: 'Water Sports' },
@@ -89,7 +107,7 @@ export default function BeachVenues() {
       <div className="relative h-screen bg-gradient-to-br from-white via-rose-50 to-blue-50">
         <div className="absolute inset-0 overflow-hidden">
           <img
-            src="https://i.pinimg.com/736x/b5/e1/23/b5e123ddde321aff293a3204da474dfb.jpg"
+            src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762326577/image14_mao1nr.jpg"
             alt="Beach Wedding"
             className="w-full h-full object-cover opacity-80"
           />
@@ -116,23 +134,25 @@ export default function BeachVenues() {
         </div>
       </div>
 
-      {/* Features Section */}
-      <div className="py-16 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">
-            Why Choose ShaadiBazaar Beach Venues?
-          </h2>
-          <div className="grid md:grid-cols-4 gap-8">
-            {features.map((feature, idx) => (
-              <div key={idx} className="p-6 text-center border-2 border-rose-100 rounded-lg hover:border-rose-400 transition hover:shadow-lg">
-                <div className="text-5xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-gray-600">{feature.desc}</p>
-              </div>
-            ))}
-          </div>
+      <section className="py-20 px-6 bg-gradient-to-b from-rose-50 to-white">
+      <div className="max-w-7xl mx-auto text-center">
+        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12">
+          Why Choose ShaadiBazaar Beach Venues?
+        </h2>
+        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-10">
+          {features.map((feature, idx) => (
+            <div
+              key={idx}
+              className="p-8 bg-white border border-rose-100 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="flex justify-center">{feature.icon}</div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">{feature.title}</h3>
+              <p className="text-gray-600 leading-relaxed">{feature.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
+    </section>
 
       {/* Beach Types Section */}
       <div className="py-16 px-4 bg-gradient-to-br from-blue-50 to-rose-50">

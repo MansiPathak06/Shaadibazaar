@@ -30,12 +30,12 @@ export default function WeddingService() {
 
   // Sample gallery images - Add your image URLs here
   const galleryImages = [
-    { id: 1, src: "/images/portfolio-1.jpg", alt: "Wedding moment 1" },
-    { id: 2, src: "/images/portfolio-2.jpg", alt: "Wedding moment 2" },
-    { id: 3, src: "/images/portfolio-3.jpg", alt: "Wedding moment 3" },
-    { id: 4, src: "/images/portfolio-4.jpg", alt: "Wedding moment 4" },
-    { id: 5, src: "/images/portfolio-5.jpg", alt: "Wedding moment 5" },
-    { id: 6, src: "/images/portfolio-6.jpg", alt: "Wedding moment 6" },
+    { id: 1, src: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762322061/portfolio-1_uu2ehu.jpg", alt: "Wedding moment 1" },
+    { id: 2, src: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762322061/portfolio-2_ixjxa0.jpg", alt: "Wedding moment 2" },
+    { id: 3, src: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762322062/portfolio-3_uivqhw.jpg", alt: "Wedding moment 3" },
+    { id: 4, src: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762322061/portfolio-4_pep7dl.jpg", alt: "Wedding moment 4" },
+    { id: 5, src: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762322062/portfolio-5_xqnsfm.jpg", alt: "Wedding moment 5" },
+    { id: 6, src: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762322061/portfolio-6_qvevbn.jpg", alt: "Wedding moment 6" },
   ];
 
   return (
@@ -65,7 +65,7 @@ export default function WeddingService() {
   className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
   style={{
     backgroundImage:
-      "url('https://i.pinimg.com/1200x/a8/b6/b2/a8b6b24e3f6a32952735a02180129556.jpg')",
+      "url('https://res.cloudinary.com/dewxpvl5s/image/upload/v1762322200/bg-image_wqr8x3.jpg')",
   }}
 >
   {/* Optional soft gradient overlay */}
