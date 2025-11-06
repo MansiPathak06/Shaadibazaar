@@ -38,7 +38,7 @@ export default function ConferenceHalls() {
       eventType: 'wedding',
       description: 'Elegant hall designed for weddings, receptions, and celebrations with customizable decor and excellent catering facilities.',
       features: ['Bridal Suite', 'Dance Floor', 'Premium Lighting', 'Decorative Ceiling', 'Full Kitchen', 'Parking Space'],
-      cloudinaryImage:'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761462889/Celebration_Banquet_Hall_gba1ku.jpg' ,
+      cloudinaryImage: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761462889/Celebration_Banquet_Hall_gba1ku.jpg',
     },
     {
       id: 4,
@@ -93,34 +93,34 @@ export default function ConferenceHalls() {
   ];
 
   const eventTypes = [
-    { 
-      label: 'All Events', 
-      value: 'all', 
+    {
+      label: 'All Events',
+      value: 'all',
       image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761462882/All_Events_zywrki.jpg'
     },
-    { 
-      label: 'Corporate Events', 
-      value: 'corporate', 
+    {
+      label: 'Corporate Events',
+      value: 'corporate',
       image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761463150/Corporate_Events_xvtahf.jpg'
     },
-    { 
-      label: 'Weddings', 
-      value: 'wedding', 
+    {
+      label: 'Weddings',
+      value: 'wedding',
       image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761463188/Weddings_f3dtvk.jpg'
     },
-    { 
-      label: 'Seminars', 
-      value: 'seminar', 
+    {
+      label: 'Seminars',
+      value: 'seminar',
       image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761463180/Seminars_ult8rz.jpg'
     },
-    { 
-      label: 'Social Events', 
-      value: 'social', 
+    {
+      label: 'Social Events',
+      value: 'social',
       image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761463183/Social_Events_flgvwm.jpg'
     },
-    { 
-      label: 'Exhibitions', 
-      value: 'exhibition', 
+    {
+      label: 'Exhibitions',
+      value: 'exhibition',
       image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761463160/Exhibitions_mxeslh.jpg'
     }
   ];
@@ -174,62 +174,62 @@ export default function ConferenceHalls() {
   ];
 
   const seatingLayouts = [
-    { 
-      name: 'Theater', 
+    {
+      name: 'Theater',
       capacity: '500+',
       image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761463184/Theater_mnatq5.jpg'
     },
-    { 
-      name: 'Classroom', 
+    {
+      name: 'Classroom',
       capacity: '200+',
       image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761462937/Classroom_u96cgj.jpg'
     },
-    { 
-      name: 'Banquet', 
+    {
+      name: 'Banquet',
       capacity: '400+',
       image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761462885/Banquet_vgmqgn.jpg'
     },
-    { 
-      name: 'U-Shape', 
+    {
+      name: 'U-Shape',
       capacity: '50+',
       image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761463187/U-Shape_ytkqu5.jpg'
     },
-    { 
-      name: 'Boardroom', 
+    {
+      name: 'Boardroom',
       capacity: '30+',
       image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761462886/Boardroom_c9ggwe.jpg'
     }
   ];
 
   const processSteps = [
-    { 
-      step: '01', 
-      title: 'Inquiry', 
+    {
+      step: '01',
+      title: 'Inquiry',
       desc: 'Share your event requirements with us',
       image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761463173/Inquiry_rejmj5.jpg'
     },
-    { 
-      step: '02', 
-      title: 'Site Visit', 
+    {
+      step: '02',
+      title: 'Site Visit',
       desc: 'Visit venues and finalize your choice',
       image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761463180/Site_Visit_zumznw.jpg'
     },
-    { 
-      step: '03', 
-      title: 'Customize', 
+    {
+      step: '03',
+      title: 'Customize',
       desc: 'Personalize services and amenities',
       image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761463153/Customize_yz1mxt.jpg'
     },
-    { 
-      step: '04', 
-      title: 'Execute', 
+    {
+      step: '04',
+      title: 'Execute',
       desc: 'We handle everything on event day',
       image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761463156/Execute_b6w06s.jpg'
     }
   ];
 
-  const filteredHalls = selectedEvent === 'all' 
-    ? conferenceHalls 
+  const filteredHalls = selectedEvent === 'all'
+    ? conferenceHalls
     : conferenceHalls.filter(hall => hall.eventType === selectedEvent);
 
   return (
@@ -237,7 +237,7 @@ export default function ConferenceHalls() {
       {/* Hero Section with Image */}
       <section className="relative h-[60vh] md:h-[70vh] lg:h-[80vh] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-rose-200/40 to-rose-200/40 z-10" />
-        
+
         {/* Cloudinary Background Image */}
         <Image
           src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1761463150/Conference_Halls_Hero_f53mkf.jpg"
@@ -256,7 +256,7 @@ export default function ConferenceHalls() {
               Premium Venues for Corporate Meetings, Weddings & Celebrations
             </p>
             <p className="text-sm md:text-base lg:text-lg max-w-2xl mx-auto mb-8">
-              Experience world-class conference facilities with state-of-the-art amenities, 
+              Experience world-class conference facilities with state-of-the-art amenities,
               flexible spaces, and exceptional service for all your event needs through ShadiBazaar
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -282,8 +282,8 @@ export default function ConferenceHalls() {
             </h2>
             <div className="w-20 md:w-24 h-1 bg-rose-400 mx-auto mb-6"></div>
             <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Whether you're planning a corporate conference, wedding reception, seminar, or social gathering, 
-              our versatile conference halls provide the perfect setting. With flexible spaces ranging from 
+              Whether you're planning a corporate conference, wedding reception, seminar, or social gathering,
+              our versatile conference halls provide the perfect setting. With flexible spaces ranging from
               intimate boardrooms to grand ballrooms, we cater to events of all sizes with professional service.
             </p>
           </div>
@@ -361,7 +361,7 @@ export default function ConferenceHalls() {
                   />
                   {/* Subtle hover overlay */}
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300" />
-                  
+
                   <div className="absolute top-4 left-4 right-4 flex justify-between items-start">
                     <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-rose-500">
                       {hall.capacity}
@@ -402,7 +402,7 @@ export default function ConferenceHalls() {
         </div>
       </section>
 
-      
+
       {/* Services Section with Images */}
       <section className="py-12 md:py-16 lg:py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
@@ -423,7 +423,7 @@ export default function ConferenceHalls() {
                     src={service.image}
                     alt={service.title}
                     fill
-                    className="object-contain" 
+                    className="object-contain"
                   />
                 </div>
                 <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-3 text-center">{service.title}</h3>
@@ -550,68 +550,19 @@ export default function ConferenceHalls() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-12 md:py-16 lg:py-20 px-4 bg-gradient-to-r from-rose-500 to-rose-400">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6">
-            Ready to Book Your Perfect Venue?
-          </h2>
-          <p className="text-base md:text-lg lg:text-xl text-white/90 mb-8 md:mb-10 max-w-2xl mx-auto">
-            From intimate boardrooms to grand ballrooms, we have the perfect conference hall 
-            for your next event. Contact us today for availability and custom packages!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="w-full sm:w-auto bg-white text-rose-500 px-8 md:px-10 py-3 md:py-4 
-              rounded-full font-semibold hover:bg-rose-50 transition-all duration-300 transform 
-              hover:scale-105 shadow-xl">
-              Check Availability
-            </button>
-            <button className="w-full sm:w-auto bg-transparent border-2 border-white text-white 
-              px-8 md:px-10 py-3 md:py-4 rounded-full font-semibold hover:bg-white hover:text-rose-500 
-              transition-all duration-300 transform hover:scale-105">
-              Download Brochure
-            </button>
-          </div>
 
-          {/* Contact Info */}
-          <div className="mt-10 md:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 text-white">
-      {/* Call Us */}
-      <div className="flex flex-col items-center gap-2">
-        <div className="w-12 h-12 flex items-center justify-center bg-white/10 rounded-full">
-          <Phone className="w-7 h-7 text-white" />
-        </div>
-        <span className="font-semibold">Call Us</span>
-        <span className="text-sm">+91 XXXXX XXXXX</span>
-      </div>
-
-      {/* Email Us */}
-      <div className="flex flex-col items-center gap-2">
-        <div className="w-12 h-12 flex items-center justify-center bg-white/10 rounded-full">
-          <Mail className="w-7 h-7 text-white" />
-        </div>
-        <span className="font-semibold">Email Us</span>
-        <span className="text-sm">halls@shadibazaar.com</span>
-      </div>
-
-      {/* WhatsApp */}
-      <div className="flex flex-col items-center gap-2">
-        <div className="w-12 h-12 flex items-center justify-center bg-white/10 rounded-full">
-          <MessageCircle className="w-7 h-7 text-white" />
-        </div>
-        <span className="font-semibold">WhatsApp</span>
-        <span className="text-sm">Quick Response 24/7</span>
-      </div>
-    </div>
-        </div>
-      </section>
 
       {/* Testimonials */}
       <section className="py-12 md:py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8 md:mb-12">
-            What Our Clients Say
-          </h2>
-          
+
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
+              What Our Clients Say
+            </h2>
+            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Voices That Inspire Our Journey</p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               { name: 'Rajesh Kumar', role: 'Corporate Event Manager', text: 'Perfect venue for our annual conference. Professional setup and excellent service!', image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465006/profile_icon_xbozqj.jpg' },
@@ -629,7 +580,7 @@ export default function ConferenceHalls() {
                     />
                   </div>
                   <div>
-                    <div className="font-bold text-gray-800">{testimonial.name}</div>
+                    <div className="font-medium text-gray-800">{testimonial.name}</div>
                     <div className="text-sm text-gray-600">{testimonial.role}</div>
                   </div>
                 </div>

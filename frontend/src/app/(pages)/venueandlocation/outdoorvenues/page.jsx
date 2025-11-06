@@ -1,53 +1,43 @@
-"use client";
-
-"use client";
+'use client';
 
 import React, { useState } from "react";
 import { useEffect, useRef } from "react";
 import {
-  Star,
-  Headphones,
-  Leaf,
-  Sparkles,
-  Target,
-  Lightbulb,
-  Umbrella,
-  Eye,
-  CircleDollarSign,
-  CircleDollar, // ← Fixed: was CircleDollar
-} from "lucide-react";
-import {
-  Flower2,
-  Castle,
-  Waves,
-  Home,
-  TreePine,
-  Grape,
-  MapPin,
-  Users,
-  DollarSign,
-  Check,
-  Calendar,
-  MessageCircle,
-  ClipboardList,
-  ChefHat,
-  Palette,
-  Camera,
-  Music,
-  Car,
-  ArrowRight,
-  Play,
-  ChevronLeft,
-  ChevronRight,
-  Heart,
-  Quote,
-  Send,
-  Mail,
-  Phone,
-  CheckCircle,
-  Award,
-  Clock,
-} from "lucide-react";
+    Star,
+    Headphones,
+    Leaf,
+    Sparkles,
+    Target,
+    Lightbulb,
+    Umbrella,
+    Eye,
+    CircleDollarSign, Flower2,
+    Castle,
+    Waves,
+    Home,
+    TreePine,
+    Grape,
+    MapPin,
+    Users,
+    DollarSign,
+    Check,
+    Calendar,
+    MessageCircle,
+    ClipboardList,
+    ChefHat,
+    Palette,
+    Camera,
+    Music,
+    Car,
+    ArrowRight,
+    Play,
+    ChevronLeft,
+    ChevronRight,
+    Heart,
+    Quote,
+    Award, CircleDollar // ← Fixed: was CircleDollar
+} from 'lucide-react';
+
 
 function Hero() {
   const HERO = {
@@ -1629,368 +1619,18 @@ function TestimonialCard({ testimonial, index }) {
   );
 }
 
-function BookingForm() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    eventDate: "",
-    venueType: "",
-    guestCount: "",
-    message: "",
-  });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        eventDate: "",
-        venueType: "",
-        guestCount: "",
-        message: "",
-      });
-    }, 3000);
-  };
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  return (
-    <section
-      id="booking"
-      className="relative bg-gradient-to-br from-white via-blue-50 to-indigo-100 overflow-hidden"
-    >
-      {/* Background Elements */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-10 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-r from-blue-300 to-indigo-300 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-56 sm:w-80 h-56 sm:h-80 bg-gradient-to-r from-purple-300 to-pink-300 rounded-full blur-3xl animate-pulse delay-1000"></div>
-      </div>
-
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-        {/* Header */}
-        <div className="text-center mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 bg-white/40 backdrop-blur-md rounded-full px-4 sm:px-6 py-2 sm:py-3 border border-white/30 mb-6 sm:mb-8 shadow-lg">
-            <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-indigo-500" />
-            <span className="text-xs sm:text-sm font-semibold text-gray-700 tracking-wide">
-              Start Your Journey
-            </span>
-          </div>
-
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-            Book Your Dream
-            <span className="block bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-              Venue
-            </span>
-          </h2>
-
-          <p className="text-lg sm:text-xl lg:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            Ready to start planning? Fill out the form below and we'll get back
-            to you within 24 hours.
-          </p>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 items-start">
-          {/* Form */}
-          <div className="relative">
-            <div className="bg-white/70 backdrop-blur-xl border border-white/30 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl">
-              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 flex items-center gap-3">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl sm:rounded-2xl flex items-center justify-center">
-                  <Send className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-                </div>
-                Get Started Today
-              </h3>
-
-              {isSubmitted ? (
-                <div className="text-center py-8 sm:py-12">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
-                    <CheckCircle className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
-                  </div>
-                  <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
-                    Thank You!
-                  </h4>
-                  <p className="text-gray-600">
-                    We've received your request and will contact you within 24
-                    hours.
-                  </p>
-                </div>
-              ) : (
-                <form
-                  onSubmit={handleSubmit}
-                  className="space-y-4 sm:space-y-6"
-                >
-                  <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
-                    <div className="relative">
-                      <div className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2">
-                        <Users className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
-                      </div>
-                      <input
-                        type="text"
-                        name="name"
-                        placeholder="Your Name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        className="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 rounded-xl sm:rounded-2xl border border-gray-200 bg-white/80 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-300 text-sm sm:text-base"
-                        required
-                      />
-                    </div>
-                    <div className="relative">
-                      <div className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2">
-                        <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
-                      </div>
-                      <input
-                        type="email"
-                        name="email"
-                        placeholder="Email Address"
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 rounded-xl sm:rounded-2xl border border-gray-200 bg-white/80 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-300 text-sm sm:text-base"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
-                    <div className="relative">
-                      <div className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2">
-                        <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
-                      </div>
-                      <input
-                        type="tel"
-                        name="phone"
-                        placeholder="Phone Number"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        className="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 rounded-xl sm:rounded-2xl border border-gray-200 bg-white/80 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-300 text-sm sm:text-base"
-                        required
-                      />
-                    </div>
-                    <div className="relative">
-                      <div className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2">
-                        <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
-                      </div>
-                      <input
-                        type="date"
-                        name="eventDate"
-                        value={formData.eventDate}
-                        onChange={handleChange}
-                        className="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 rounded-xl sm:rounded-2xl border border-gray-200 bg-white/80 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-300 text-sm sm:text-base"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
-                    <div className="relative">
-                      <div className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2">
-                        <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
-                      </div>
-                      <select
-                        name="venueType"
-                        value={formData.venueType}
-                        onChange={handleChange}
-                        className="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 rounded-xl sm:rounded-2xl border border-gray-200 bg-white/80 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-300 appearance-none text-sm sm:text-base"
-                        required
-                      >
-                        <option value="">Select Venue Type</option>
-                        <option value="garden">Garden Venues</option>
-                        <option value="palace">Palace Lawns</option>
-                        <option value="beach">Beachfront Venues</option>
-                        <option value="farmhouse">Farmhouse Gardens</option>
-                        <option value="resort">Resort Venues</option>
-                        <option value="vineyard">Vineyard Venues</option>
-                      </select>
-                    </div>
-                    <div className="relative">
-                      <div className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2">
-                        <Users className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
-                      </div>
-                      <input
-                        type="number"
-                        name="guestCount"
-                        placeholder="Expected Guests"
-                        value={formData.guestCount}
-                        onChange={handleChange}
-                        className="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 rounded-xl sm:rounded-2xl border border-gray-200 bg-white/80 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-300 text-sm sm:text-base"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="relative">
-                    <div className="absolute left-3 sm:left-4 top-5 sm:top-6">
-                      <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
-                    </div>
-                    <textarea
-                      name="message"
-                      placeholder="Tell us about your dream event..."
-                      value={formData.message}
-                      onChange={handleChange}
-                      rows={4}
-                      className="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 rounded-xl sm:rounded-2xl border border-gray-200 bg-white/80 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-300 resize-none text-sm sm:text-base"
-                    ></textarea>
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 sm:gap-3"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                        Submitting...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="w-4 h-4 sm:w-5 sm:h-5" />
-                        Request Information
-                      </>
-                    )}
-                  </button>
-                </form>
-              )}
-            </div>
-          </div>
-
-          {/* Info Panels */}
-          <div className="space-y-6 sm:space-y-8">
-            {/* Process Steps */}
-            <div className="bg-white/70 backdrop-blur-xl border border-white/30 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-lg">
-              <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8 flex items-center gap-3">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl sm:rounded-2xl flex items-center justify-center">
-                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-                </div>
-                What Happens Next?
-              </h4>
-              <div className="space-y-4 sm:space-y-6">
-                {[
-                  {
-                    icon: MessageCircle,
-                    title: "Consultation Call",
-                    desc: "We'll discuss your vision and requirements",
-                    gradient: "from-blue-500 to-indigo-500",
-                  },
-                  {
-                    icon: MapPin,
-                    title: "Venue Tour",
-                    desc: "Visit our recommended venues",
-                    gradient: "from-purple-500 to-violet-500",
-                  },
-                  {
-                    icon: Award,
-                    title: "Custom Proposal",
-                    desc: "Receive a detailed quote and timeline",
-                    gradient: "from-pink-500 to-rose-500",
-                  },
-                ].map((step, i) => (
-                  <div
-                    key={i}
-                    className="flex items-start gap-3 sm:gap-4 group"
-                  >
-                    <div
-                      className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${step.gradient} rounded-xl sm:rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}
-                    >
-                      <span className="text-white font-bold text-base sm:text-lg">
-                        {i + 1}
-                      </span>
-                    </div>
-                    <div>
-                      <p className="font-bold text-gray-900 mb-0.5 sm:mb-1 flex items-center gap-2 text-sm sm:text-base">
-                        <step.icon className="w-3 h-3 sm:w-4 sm:h-4" />
-                        {step.title}
-                      </p>
-                      <p className="text-gray-600 text-xs sm:text-sm">
-                        {step.desc}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Contact Info */}
-            <div className="bg-white/70 backdrop-blur-xl border border-white/30 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-lg">
-              <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8 flex items-center gap-3">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-amber-500 to-orange-500 rounded-xl sm:rounded-2xl flex items-center justify-center">
-                  <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-                </div>
-                Contact Information
-              </h4>
-              <div className="space-y-3 sm:space-y-4">
-                {[
-                  {
-                    icon: Phone,
-                    text: "+1 (555) 123-4567",
-                    gradient: "from-green-500 to-emerald-500",
-                  },
-                  {
-                    icon: Mail,
-                    text: "hello@outdoorvenues.com",
-                    gradient: "from-blue-500 to-indigo-500",
-                  },
-                  {
-                    icon: MapPin,
-                    text: "123 Garden Lane, Nature Valley",
-                    gradient: "from-purple-500 to-violet-500",
-                  },
-                  {
-                    icon: Clock,
-                    text: "Mon-Sun: 9AM-7PM",
-                    gradient: "from-amber-500 to-orange-500",
-                  },
-                ].map((contact, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-white/50 rounded-xl sm:rounded-2xl backdrop-blur-sm group hover:bg-white/70 transition-all duration-300"
-                  >
-                    <div
-                      className={`w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r ${contact.gradient} rounded-lg sm:rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
-                    >
-                      <contact.icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-                    </div>
-                    <span className="text-gray-800 font-medium text-xs sm:text-sm">
-                      {contact.text}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 export default function OutdoorVenuesPage() {
-  return (
-    <main className="bg-sand text-gray-900">
-      <Hero />
-      <Stats />
-      <Highlights />
-      <Categories />
-      <Services />
-      <Gallery />
-      <Testimonials />
-      <BookingForm />
-    </main>
-  );
+    return (
+        <main className="bg-sand text-gray-900">
+            <Hero />
+            <Stats />
+            <Highlights />
+            <Categories />
+            <Services />
+            <Gallery />
+            <Testimonials />
+        </main>
+    );
 }

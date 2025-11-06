@@ -3,10 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import {
     StarIcon,
-    MapPinIcon,
-    PhoneIcon,
-    MailIcon,
-    BuildingOffice2Icon,
     SparklesIcon,
     CalendarIcon,
     UsersIcon,
@@ -86,7 +82,7 @@ const BanquetHallWebpage = () => {
                                         Premium Event Venues
                                     </span>
                                 </div>
-                                <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+                                <h1 className="text-5xl md:text-7xl font-mdeium leading-tight">
                                     Celebrate Life's
                                     <span className="block bg-gradient-to-r from-amber-300 to-yellow-300 bg-clip-text text-transparent">
                                         Finest Moments
@@ -103,13 +99,13 @@ const BanquetHallWebpage = () => {
                             </div>
 
                             <div className="flex flex-col sm:flex-row gap-6">
-                                <button className="group bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-700 hover:to-amber-600 text-white px-10 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-amber-500/25">
+                                <button className="group bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-700 hover:to-amber-600 text-white px-10 py-4 cursor-pointer rounded-full text-lg font-light transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-amber-500/25">
                                     <span className="flex items-center space-x-2">
                                         <span>Explore Our Halls</span>
                                         <SparklesIcon className="h-5 w-5 group-hover:rotate-12 transition-transform" />
                                     </span>
                                 </button>
-                                <button className="border-2 border-white/50 text-white hover:bg-white hover:text-amber-800 px-10 py-4 rounded-full text-lg font-semibold transition-all duration-300 backdrop-blur-sm">
+                                <button className="border-2 cursor-pointer font-light border-white/50 text-white hover:bg-white hover:text-amber-800 px-10 py-4 rounded-full text-lg transition-all duration-300 backdrop-blur-sm">
                                     Plan Your Event
                                 </button>
                             </div>
@@ -117,15 +113,15 @@ const BanquetHallWebpage = () => {
                             {/* Stats Cards */}
                             <div className="grid grid-cols-3 gap-6 pt-8">
                                 <div className="text-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4">
-                                    <div className="text-3xl font-bold text-amber-300">500+</div>
+                                    <div className="text-3xl font-medium text-amber-300">500+</div>
                                     <div className="text-white/80 text-sm">Events Hosted</div>
                                 </div>
                                 <div className="text-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4">
-                                    <div className="text-3xl font-bold text-amber-300">4.9★</div>
+                                    <div className="text-3xl font-medium text-amber-300">4.9★</div>
                                     <div className="text-white/80 text-sm">Guest Rating</div>
                                 </div>
                                 <div className="text-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4">
-                                    <div className="text-3xl font-bold text-amber-300">800</div>
+                                    <div className="text-3xl font-medium text-amber-300">800</div>
                                     <div className="text-white/80 text-sm">Max Capacity</div>
                                 </div>
                             </div>
@@ -136,14 +132,14 @@ const BanquetHallWebpage = () => {
                             <div className="absolute top-0 right-0 bg-white/95 backdrop-blur-sm p-8 rounded-3xl shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
                                 <div className="text-center">
                                     <HeartIcon className="h-12 w-12 text-red-500 mx-auto mb-4" />
-                                    <div className="text-2xl font-bold text-gray-800">Perfect</div>
+                                    <div className="text-2xl font-normal text-gray-800">Perfect</div>
                                     <div className="text-gray-600">Wedding Venue</div>
                                 </div>
                             </div>
                             <div className="absolute bottom-20 right-20 bg-gradient-to-r from-amber-500 to-amber-400 text-white p-6 rounded-2xl shadow-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-500">
                                 <div className="text-center">
                                     <CakeIcon className="h-10 w-10 mx-auto mb-2" />
-                                    <div className="font-bold">Celebrations</div>
+                                    <div className="font-normal">Celebrations</div>
                                     <div className="text-sm opacity-90">Made Special</div>
                                 </div>
                             </div>
@@ -164,7 +160,7 @@ const BanquetHallWebpage = () => {
                                         About Our Venues
                                     </span>
                                 </div>
-                                <h2 className="text-4xl md:text-6xl font-bold text-gray-800 leading-tight">
+                                <h2 className="text-4xl md:text-6xl font-medium text-gray-800 leading-tight">
                                     Designed to
                                     <span className="bg-gradient-to-r from-amber-600 to-amber-500 bg-clip-text text-transparent"> Dazzle</span>,
                                     Crafted to Celebrate
@@ -180,18 +176,18 @@ const BanquetHallWebpage = () => {
                             </div>
 
                             <div className="bg-gradient-to-r from-amber-50 to-yellow-50 border-l-4 border-amber-500 p-8 rounded-2xl">
-                                <p className="text-2xl text-amber-800 font-semibold italic">
+                                <p className="text-2xl text-amber-800 font-normal italic">
                                     "Every celebration deserves a space as special as the moment itself."
                                 </p>
                             </div>
 
                             <div className="grid grid-cols-2 gap-6">
                                 <div className="text-center p-6 bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl">
-                                    <div className="text-3xl font-bold text-amber-600">4</div>
+                                    <div className="text-3xl font-light text-amber-600">4</div>
                                     <div className="text-gray-700 font-medium">Premium Halls</div>
                                 </div>
                                 <div className="text-center p-6 bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl">
-                                    <div className="text-3xl font-bold text-amber-600">24/7</div>
+                                    <div className="text-3xl font-light text-amber-600">24/7</div>
                                     <div className="text-gray-700 font-medium">Event Support</div>
                                 </div>
                             </div>
@@ -241,20 +237,12 @@ const BanquetHallWebpage = () => {
             {/* Venues Section with Interactive Cards */}
             <section id="venues" className="py-24 bg-gradient-to-br from-gray-50 to-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
                     <div className="text-center mb-20">
-                        <span className="bg-gradient-to-r from-amber-100 to-amber-50 border border-amber-200 px-6 py-2 rounded-full text-amber-800 font-medium">
-                            Our Venues
-                        </span>
-                        <h2 className="text-4xl md:text-6xl font-bold text-gray-800 mt-6 mb-8">
-                            Spaces That Reflect Your
-                            <span className="bg-gradient-to-r from-amber-600 to-amber-500 bg-clip-text text-transparent"> Style</span>
+                        <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
+                            Spaces That Reflect Your life
                         </h2>
-                        <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                            Choose from a range of beautifully designed halls — each offering a unique ambience and capacity to suit your guest list and event vision.
-                        </p>
-                        <div className="mt-8 inline-block bg-gradient-to-r from-amber-50 to-yellow-50 px-8 py-3 rounded-full border border-amber-200">
-                            <p className="text-amber-800 font-semibold">"From majestic ballrooms to cozy lounges — your perfect venue awaits."</p>
-                        </div>
+                        <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Choose from elegant halls, each uniquely suited to your event</p>
                     </div>
 
                     {/* Interactive Venue Selector */}
@@ -267,12 +255,12 @@ const BanquetHallWebpage = () => {
                                             key={index}
                                             onClick={() => setActiveVenue(index)}
                                             className={`p-6 rounded-2xl cursor-pointer transition-all duration-300 ${activeVenue === index
-                                                    ? 'bg-gradient-to-r from-amber-500 to-amber-400 text-white shadow-xl transform scale-105'
-                                                    : 'bg-gray-50 hover:bg-gray-100 text-gray-800'
+                                                ? 'bg-gradient-to-r from-amber-500 to-amber-400 text-white shadow-xl transform scale-105'
+                                                : 'bg-gray-50 hover:bg-gray-100 text-gray-800'
                                                 }`}
                                         >
                                             <div className="flex items-center justify-between mb-3">
-                                                <h3 className="text-xl font-bold">{venue.name}</h3>
+                                                <h3 className="text-xl font-medium">{venue.name}</h3>
                                                 <span className={`text-sm font-medium ${activeVenue === index ? 'text-amber-200' : 'text-amber-600'}`}>
                                                     {venue.capacity}
                                                 </span>
@@ -285,8 +273,8 @@ const BanquetHallWebpage = () => {
                                                     <span
                                                         key={featureIndex}
                                                         className={`px-3 py-1 rounded-full text-xs font-medium ${activeVenue === index
-                                                                ? 'bg-white/20 text-amber-100'
-                                                                : 'bg-amber-100 text-amber-800'
+                                                            ? 'bg-white/20 text-amber-100'
+                                                            : 'bg-amber-100 text-amber-800'
                                                             }`}
                                                     >
                                                         {feature}
@@ -315,12 +303,13 @@ const BanquetHallWebpage = () => {
             </section>
 
             {/* Services Grid */}
-            <section id="services" className="py-24 bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-20">
-                        <h2 className="text-4xl md:text-6xl font-bold text-gray-800 mb-8">
+            <section id="services" className=" bg-white">
+                <div className=" py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
                             Complete Event Solutions
                         </h2>
+                        <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Everything You Need for a Perfect Celebration</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -329,7 +318,7 @@ const BanquetHallWebpage = () => {
                             <div className="bg-gradient-to-r from-amber-600 to-amber-500 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                                 <CakeIcon className="h-8 w-8 text-white" />
                             </div>
-                            <h3 className="text-2xl font-bold text-gray-800 mb-4">Catering & Cuisine</h3>
+                            <h3 className="text-2xl font-medium text-gray-800 mb-4">Catering & Cuisine</h3>
                             <p className="text-gray-600 mb-6">Flavors that elevate every celebration with customizable menus and live counters.</p>
                             <ul className="space-y-2 text-gray-600">
                                 <li className="flex items-center space-x-2">
@@ -352,7 +341,7 @@ const BanquetHallWebpage = () => {
                             <div className="bg-gradient-to-r from-purple-600 to-purple-500 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                                 <SparklesIcon className="h-8 w-8 text-white" />
                             </div>
-                            <h3 className="text-2xl font-bold text-gray-800 mb-4">Décor & Styling</h3>
+                            <h3 className="text-2xl font-medium text-gray-800 mb-4">Décor & Styling</h3>
                             <p className="text-gray-600 mb-6">Transforming spaces into spectacles with elegant themes and personalized touches.</p>
                             <ul className="space-y-2 text-gray-600">
                                 <li className="flex items-center space-x-2">
@@ -375,7 +364,7 @@ const BanquetHallWebpage = () => {
                             <div className="bg-gradient-to-r from-emerald-600 to-emerald-500 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                                 <CalendarIcon className="h-8 w-8 text-white" />
                             </div>
-                            <h3 className="text-2xl font-bold text-gray-800 mb-4">Event Management</h3>
+                            <h3 className="text-2xl font-medium text-gray-800 mb-4">Event Management</h3>
                             <p className="text-gray-600 mb-6">Seamless planning and flawless execution for unforgettable experiences.</p>
                             <ul className="space-y-2 text-gray-600">
                                 <li className="flex items-center space-x-2">
@@ -397,46 +386,45 @@ const BanquetHallWebpage = () => {
             </section>
 
             {/* Event Types */}
-            <section className="py-24 bg-gradient-to-br from-gray-50 to-white">
+            <section className="py-28 bg-gradient-to-br from-gray-50 to-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-20">
-                        <h2 className="text-4xl md:text-6xl font-bold text-gray-800 mb-8">
-                            A Perfect Setting for
-                            <span className="bg-gradient-to-r from-amber-600 to-amber-500 bg-clip-text text-transparent"> Every Occasion</span>
-                        </h2>
-                        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                            Whatever your occasion, our team ensures seamless planning, flawless execution, and unforgettable memories.
-                        </p>
+                        <div className="text-center mb-16">
+                            <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
+                                A Perfect Setting for
+                            </h2>
+                            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2"> Seamless planning, flawless execution, unforgettable moments</p>
+                        </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
                         <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-red-500 to-pink-600 p-8 text-white hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
                             <HeartIcon className="h-12 w-12 mb-4 group-hover:scale-110 transition-transform duration-300" />
-                            <h3 className="text-xl font-bold mb-2">Weddings</h3>
+                            <h3 className="text-xl font-medium mb-2">Weddings</h3>
                             <p className="text-red-100 text-sm">Dream ceremonies & receptions</p>
                         </div>
 
                         <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-500 to-indigo-600 p-8 text-white hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
                             <BriefcaseIcon className="h-12 w-12 mb-4 group-hover:scale-110 transition-transform duration-300" />
-                            <h3 className="text-xl font-bold mb-2">Corporate</h3>
+                            <h3 className="text-xl font-medium mb-2">Corporate</h3>
                             <p className="text-blue-100 text-sm">Events & conferences</p>
                         </div>
 
                         <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-purple-500 to-violet-600 p-8 text-white hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
                             <CakeIcon className="h-12 w-12 mb-4 group-hover:scale-110 transition-transform duration-300" />
-                            <h3 className="text-xl font-bold mb-2">Celebrations</h3>
+                            <h3 className="text-xl font-medium mb-2">Celebrations</h3>
                             <p className="text-purple-100 text-sm">Birthdays & anniversaries</p>
                         </div>
 
                         <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-green-500 to-emerald-600 p-8 text-white hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
                             <UsersIcon className="h-12 w-12 mb-4 group-hover:scale-110 transition-transform duration-300" />
-                            <h3 className="text-xl font-bold mb-2">Social</h3>
+                            <h3 className="text-xl font-medium mb-2">Social</h3>
                             <p className="text-green-100 text-sm">Gatherings & reunions</p>
                         </div>
 
                         <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-orange-500 to-amber-600 p-8 text-white hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
                             <MicrophoneIcon className="h-12 w-12 mb-4 group-hover:scale-110 transition-transform duration-300" />
-                            <h3 className="text-xl font-bold mb-2">Cultural</h3>
+                            <h3 className="text-xl font-medium mb-2">Cultural</h3>
                             <p className="text-orange-100 text-sm">Programs & exhibitions</p>
                         </div>
                     </div>
@@ -444,12 +432,15 @@ const BanquetHallWebpage = () => {
             </section>
 
             {/* Testimonials */}
-            <section className="py-24 bg-white">
+            <section className="bg-white pb-24">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-20">
-                        <h2 className="text-4xl md:text-6xl font-bold text-gray-800 mb-8">
+
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
                             Stories That Inspire Us
                         </h2>
+                        <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">ChatGPT said:
+                            Trusted by thousands of brides for their big day</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -467,7 +458,7 @@ const BanquetHallWebpage = () => {
                                     <span className="text-white font-bold text-lg">R</span>
                                 </div>
                                 <div>
-                                    <div className="font-bold text-gray-800">Rhea & Arjun</div>
+                                    <div className="font-medium text-gray-800">Rhea & Arjun</div>
                                     <div className="text-gray-600">Delhi</div>
                                 </div>
                             </div>
@@ -487,7 +478,7 @@ const BanquetHallWebpage = () => {
                                     <span className="text-white font-bold text-lg">A</span>
                                 </div>
                                 <div>
-                                    <div className="font-bold text-gray-800">Anita Sharma</div>
+                                    <div className="font-medium text-gray-800">Anita Sharma</div>
                                     <div className="text-gray-600">Event Planner</div>
                                 </div>
                             </div>
@@ -507,7 +498,7 @@ const BanquetHallWebpage = () => {
                                     <span className="text-white font-bold text-lg">K</span>
                                 </div>
                                 <div>
-                                    <div className="font-bold text-gray-800">Karan Mehta</div>
+                                    <div className="font-medium text-gray-800">Karan Mehta</div>
                                     <div className="text-gray-600">Noida</div>
                                 </div>
                             </div>
@@ -517,7 +508,7 @@ const BanquetHallWebpage = () => {
             </section>
 
             {/* Contact/Booking Section */}
-            <section id="contact" className="py-24 bg-gradient-to-br from-amber-600 to-amber-500 relative overflow-hidden">
+            {/* <section id="contact" className="py-24 bg-gradient-to-br from-amber-600 to-amber-500 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-r from-amber-800/20 to-transparent"></div>
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                     <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
@@ -580,7 +571,7 @@ const BanquetHallWebpage = () => {
                         </form>
                     </div>
                 </div>
-            </section>
+            </section> */}
         </div>
     );
 };
