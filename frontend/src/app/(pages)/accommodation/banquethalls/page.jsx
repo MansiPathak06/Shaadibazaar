@@ -240,7 +240,7 @@ const BanquetHallWebpage = () => {
 
                     <div className="text-center mb-20">
                         <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-                         Spaces That Reflect Your life
+                            Spaces That Reflect Your life
                         </h2>
                         <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Choose from elegant halls, each uniquely suited to your event</p>
                     </div>
@@ -303,12 +303,13 @@ const BanquetHallWebpage = () => {
             </section>
 
             {/* Services Grid */}
-            <section id="services" className="py-24 bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-20">
-                        <h2 className="text-4xl md:text-6xl font-bold text-gray-800 mb-8">
+            <section id="services" className=" bg-white">
+                <div className=" py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
                             Complete Event Solutions
                         </h2>
+                        <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Everything You Need for a Perfect Celebration</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -317,7 +318,7 @@ const BanquetHallWebpage = () => {
                             <div className="bg-gradient-to-r from-amber-600 to-amber-500 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                                 <CakeIcon className="h-8 w-8 text-white" />
                             </div>
-                            <h3 className="text-2xl font-bold text-gray-800 mb-4">Catering & Cuisine</h3>
+                            <h3 className="text-2xl font-medium text-gray-800 mb-4">Catering & Cuisine</h3>
                             <p className="text-gray-600 mb-6">Flavors that elevate every celebration with customizable menus and live counters.</p>
                             <ul className="space-y-2 text-gray-600">
                                 <li className="flex items-center space-x-2">
@@ -340,7 +341,7 @@ const BanquetHallWebpage = () => {
                             <div className="bg-gradient-to-r from-purple-600 to-purple-500 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                                 <SparklesIcon className="h-8 w-8 text-white" />
                             </div>
-                            <h3 className="text-2xl font-bold text-gray-800 mb-4">Décor & Styling</h3>
+                            <h3 className="text-2xl font-medium text-gray-800 mb-4">Décor & Styling</h3>
                             <p className="text-gray-600 mb-6">Transforming spaces into spectacles with elegant themes and personalized touches.</p>
                             <ul className="space-y-2 text-gray-600">
                                 <li className="flex items-center space-x-2">
@@ -363,7 +364,7 @@ const BanquetHallWebpage = () => {
                             <div className="bg-gradient-to-r from-emerald-600 to-emerald-500 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                                 <CalendarIcon className="h-8 w-8 text-white" />
                             </div>
-                            <h3 className="text-2xl font-bold text-gray-800 mb-4">Event Management</h3>
+                            <h3 className="text-2xl font-medium text-gray-800 mb-4">Event Management</h3>
                             <p className="text-gray-600 mb-6">Seamless planning and flawless execution for unforgettable experiences.</p>
                             <ul className="space-y-2 text-gray-600">
                                 <li className="flex items-center space-x-2">
@@ -385,46 +386,45 @@ const BanquetHallWebpage = () => {
             </section>
 
             {/* Event Types */}
-            <section className="py-24 bg-gradient-to-br from-gray-50 to-white">
+            <section className="py-28 bg-gradient-to-br from-gray-50 to-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-20">
-                        <h2 className="text-4xl md:text-6xl font-bold text-gray-800 mb-8">
-                            A Perfect Setting for
-                            <span className="bg-gradient-to-r from-amber-600 to-amber-500 bg-clip-text text-transparent"> Every Occasion</span>
-                        </h2>
-                        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                            Whatever your occasion, our team ensures seamless planning, flawless execution, and unforgettable memories.
-                        </p>
+                        <div className="text-center mb-16">
+                            <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
+                                A Perfect Setting for
+                            </h2>
+                            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2"> Seamless planning, flawless execution, unforgettable moments</p>
+                        </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
                         <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-red-500 to-pink-600 p-8 text-white hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
                             <HeartIcon className="h-12 w-12 mb-4 group-hover:scale-110 transition-transform duration-300" />
-                            <h3 className="text-xl font-bold mb-2">Weddings</h3>
+                            <h3 className="text-xl font-medium mb-2">Weddings</h3>
                             <p className="text-red-100 text-sm">Dream ceremonies & receptions</p>
                         </div>
 
                         <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-500 to-indigo-600 p-8 text-white hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
                             <BriefcaseIcon className="h-12 w-12 mb-4 group-hover:scale-110 transition-transform duration-300" />
-                            <h3 className="text-xl font-bold mb-2">Corporate</h3>
+                            <h3 className="text-xl font-medium mb-2">Corporate</h3>
                             <p className="text-blue-100 text-sm">Events & conferences</p>
                         </div>
 
                         <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-purple-500 to-violet-600 p-8 text-white hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
                             <CakeIcon className="h-12 w-12 mb-4 group-hover:scale-110 transition-transform duration-300" />
-                            <h3 className="text-xl font-bold mb-2">Celebrations</h3>
+                            <h3 className="text-xl font-medium mb-2">Celebrations</h3>
                             <p className="text-purple-100 text-sm">Birthdays & anniversaries</p>
                         </div>
 
                         <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-green-500 to-emerald-600 p-8 text-white hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
                             <UsersIcon className="h-12 w-12 mb-4 group-hover:scale-110 transition-transform duration-300" />
-                            <h3 className="text-xl font-bold mb-2">Social</h3>
+                            <h3 className="text-xl font-medium mb-2">Social</h3>
                             <p className="text-green-100 text-sm">Gatherings & reunions</p>
                         </div>
 
                         <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-orange-500 to-amber-600 p-8 text-white hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
                             <MicrophoneIcon className="h-12 w-12 mb-4 group-hover:scale-110 transition-transform duration-300" />
-                            <h3 className="text-xl font-bold mb-2">Cultural</h3>
+                            <h3 className="text-xl font-medium mb-2">Cultural</h3>
                             <p className="text-orange-100 text-sm">Programs & exhibitions</p>
                         </div>
                     </div>
@@ -432,12 +432,15 @@ const BanquetHallWebpage = () => {
             </section>
 
             {/* Testimonials */}
-            <section className="py-24 bg-white">
+            <section className="bg-white pb-24">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-20">
-                        <h2 className="text-4xl md:text-6xl font-bold text-gray-800 mb-8">
+
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
                             Stories That Inspire Us
                         </h2>
+                        <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">ChatGPT said:
+                            Trusted by thousands of brides for their big day</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -455,7 +458,7 @@ const BanquetHallWebpage = () => {
                                     <span className="text-white font-bold text-lg">R</span>
                                 </div>
                                 <div>
-                                    <div className="font-bold text-gray-800">Rhea & Arjun</div>
+                                    <div className="font-medium text-gray-800">Rhea & Arjun</div>
                                     <div className="text-gray-600">Delhi</div>
                                 </div>
                             </div>
@@ -475,7 +478,7 @@ const BanquetHallWebpage = () => {
                                     <span className="text-white font-bold text-lg">A</span>
                                 </div>
                                 <div>
-                                    <div className="font-bold text-gray-800">Anita Sharma</div>
+                                    <div className="font-medium text-gray-800">Anita Sharma</div>
                                     <div className="text-gray-600">Event Planner</div>
                                 </div>
                             </div>
@@ -495,7 +498,7 @@ const BanquetHallWebpage = () => {
                                     <span className="text-white font-bold text-lg">K</span>
                                 </div>
                                 <div>
-                                    <div className="font-bold text-gray-800">Karan Mehta</div>
+                                    <div className="font-medium text-gray-800">Karan Mehta</div>
                                     <div className="text-gray-600">Noida</div>
                                 </div>
                             </div>
@@ -505,7 +508,7 @@ const BanquetHallWebpage = () => {
             </section>
 
             {/* Contact/Booking Section */}
-            <section id="contact" className="py-24 bg-gradient-to-br from-amber-600 to-amber-500 relative overflow-hidden">
+            {/* <section id="contact" className="py-24 bg-gradient-to-br from-amber-600 to-amber-500 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-r from-amber-800/20 to-transparent"></div>
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                     <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
@@ -568,7 +571,7 @@ const BanquetHallWebpage = () => {
                         </form>
                     </div>
                 </div>
-            </section>
+            </section> */}
         </div>
     );
 };

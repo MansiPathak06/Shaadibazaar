@@ -79,11 +79,11 @@ export default function WeddingCateringWebsite() {
             </section>
 
             {/* NEW: Traditional Indian Wedding Cuisine Section */}
-            <section className="py-20 px-6 bg-linear-to-br from-red-50 to-orange-50">
+            <section className="pt-20 px-6 bg-linear-to-br from-red-50 to-orange-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-                            Traditional Indian Delicacies
+                            Traditional <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Indian Delicacies</span>
                         </h2>
                         <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Authentic flavors from across India</p>
                     </div>
@@ -1439,11 +1439,11 @@ export default function WeddingCateringWebsite() {
 
 
             {/* NEW: International & Fusion Cuisine Section */}
-            <section className="py-20 px-6 bg-linear-to-br from-blue-50 to-indigo-50">
+            <section className="py-26 px-6 bg-linear-to-br from-blue-50 to-indigo-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-                            International Cuisines
+                            International <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Cuisines</span>
                         </h2>
                         <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Global flavors for modern weddings</p>
                     </div>
@@ -1757,7 +1757,7 @@ export default function WeddingCateringWebsite() {
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-                            Beverages & Refreshments
+                            Beverages & <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Refreshments</span>
                         </h2>
                         <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Quench your guests' thirst in style</p>
                     </div>
@@ -1995,7 +1995,7 @@ export default function WeddingCateringWebsite() {
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-                            Wedding Catering Essentials
+                            Wedding <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Catering Essentials</span>
                         </h2>
                         <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Everything you need for a perfect celebration</p>
                     </div>
@@ -2419,7 +2419,7 @@ export default function WeddingCateringWebsite() {
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-                            Food Stalls & Live Counters
+                            Food <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Stalls</span> & Live <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Counters</span>
                         </h2>
                         <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Crafted Live, Served with Love</p>
                     </div>
@@ -2638,7 +2638,7 @@ export default function WeddingCateringWebsite() {
                 <div className="max-w-6xl mx-auto">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-                            Love & Happy Endings
+                            <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Love</span> & <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Happy</span>  Endings
                         </h2>
                         <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Moments cherished forever</p>
                     </div>
@@ -2664,7 +2664,7 @@ export default function WeddingCateringWebsite() {
                 <div className="max-w-6xl mx-auto">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-                            Elegance for Every Couple
+                            Elegance for <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Every Couple</span>
                         </h2>
                         <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Packages crafted to match your dream day</p>
                     </div>
@@ -2701,7 +2701,7 @@ export default function WeddingCateringWebsite() {
                 <div className="max-w-4xl mx-auto text-center">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-                            Every Celebration Deserves Beauty
+                            Every <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Celebration <br /> Deserves</span> Beauty
                         </h2>
                         <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">We craft every detail — from traditional delicacies to international fusion — to make your day truly unique</p>
                     </div>

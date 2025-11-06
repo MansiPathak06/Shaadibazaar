@@ -4,7 +4,6 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-
 export default function Lounges() {
   const [selectedCategory, setSelectedCategory] = useState('all');
 
@@ -126,7 +125,7 @@ export default function Lounges() {
 
         <div className="relative z-20 h-full flex items-center justify-center px-4">
           <div className="text-center text-white max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 animate-fade-in">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium mb-4 md:mb-6 animate-fade-in">
               Wedding Lounge Services
             </h1>
             <p className="text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 font-light">
@@ -136,7 +135,7 @@ export default function Lounges() {
               Transform your wedding venue with elegant lounge setups that provide comfort,
               style, and the perfect atmosphere for your guests to relax and celebrate
             </p>
-            <button className="bg-white text-rose-500 px-8 py-3 md:px-10 md:py-4 rounded-full font-semibold 
+            <button className="bg-white text-rose-500 px-8 py-3 md:px-10 md:py-4 rounded-full font-normal cursor-pointer 
               hover:bg-rose-50 transition-all duration-300 transform hover:scale-105 shadow-xl">
               Book Consultation
             </button>
@@ -145,37 +144,72 @@ export default function Lounges() {
       </section>
 
       {/* Introduction Section */}
-      <section className="py-12 md:py-16 lg:py-20 px-4">
+      <section className="md:pt-32 md:pb-28 py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4 md:mb-6">
+
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
               Welcome to ShadiBazaar Lounges
             </h2>
-            <div className="w-20 md:w-24 h-1 bg-rose-400 mx-auto mb-6"></div>
-            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              At ShadiBazaar, we specialize in creating stunning lounge spaces that add elegance and
-              comfort to your wedding celebration. Our expertly designed lounge setups provide your guests
-              with a cozy retreat to relax, socialize, and enjoy the festivities in style.
-            </p>
+            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">         At ShadiBazaar, we craft elegant lounge spaces that blend comfort and style, giving your guests a cozy spot to relax and enjoy the celebration.</p>
           </div>
 
           {/* Stats Section */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8 mb-12">
-            <div className="bg-white p-6 rounded-xl shadow-lg text-center transform hover:scale-105 transition-all">
-              <div className="text-3xl md:text-4xl font-bold text-rose-400 mb-2">500+</div>
-              <div className="text-sm md:text-base text-gray-600">Weddings Served</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8 ">
+            {/* Weddings Served Card */}
+            <div className="relative group bg-gradient-to-br from-rose-50 to-white p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-2xl text-center overflow-hidden transition-all duration-500 hover:-translate-y-2">
+              <div className="absolute inset-0 bg-gradient-to-br from-rose-400/20 to-pink-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10">
+                <div className="text-4xl md:text-5xl font-medium bg-gradient-to-r from-rose-500 to-pink-500 bg-clip-text text-transparent mb-3">
+                  500+
+                </div>
+                <div className="text-sm md:text-base font-medium text-gray-700 group-hover:text-gray-900 transition-colors">
+                  Weddings Served
+                </div>
+              </div>
+              <div className="absolute -bottom-1 -right-1 w-20 h-20 bg-rose-200/30 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
             </div>
-            <div className="bg-white p-6 rounded-xl shadow-lg text-center transform hover:scale-105 transition-all">
-              <div className="text-3xl md:text-4xl font-bold text-rose-400 mb-2">50+</div>
-              <div className="text-sm md:text-base text-gray-600">Lounge Designs</div>
+
+            {/* Lounge Designs Card */}
+            <div className="relative group bg-gradient-to-br from-purple-50 to-white p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-2xl text-center overflow-hidden transition-all duration-500 hover:-translate-y-2">
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-400/20 to-indigo-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10">
+                <div className="text-4xl md:text-5xl font-medium bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent mb-3">
+                  50+
+                </div>
+                <div className="text-sm md:text-base font-medium text-gray-700 group-hover:text-gray-900 transition-colors">
+                  Lounge Designs
+                </div>
+              </div>
+              <div className="absolute -bottom-1 -right-1 w-20 h-20 bg-purple-200/30 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
             </div>
-            <div className="bg-white p-6 rounded-xl shadow-lg text-center transform hover:scale-105 transition-all">
-              <div className="text-3xl md:text-4xl font-bold text-rose-400 mb-2">100%</div>
-              <div className="text-sm md:text-base text-gray-600">Satisfaction</div>
+
+            {/* Satisfaction Card */}
+            <div className="relative group bg-gradient-to-br from-emerald-50 to-white p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-2xl text-center overflow-hidden transition-all duration-500 hover:-translate-y-2">
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/20 to-teal-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10">
+                <div className="text-4xl md:text-5xl font-medium bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent mb-3">
+                  100%
+                </div>
+                <div className="text-sm md:text-base font-medium text-gray-700 group-hover:text-gray-900 transition-colors">
+                  Satisfaction
+                </div>
+              </div>
+              <div className="absolute -bottom-1 -right-1 w-20 h-20 bg-emerald-200/30 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
             </div>
-            <div className="bg-white p-6 rounded-xl shadow-lg text-center transform hover:scale-105 transition-all">
-              <div className="text-3xl md:text-4xl font-bold text-rose-400 mb-2">24/7</div>
-              <div className="text-sm md:text-base text-gray-600">Support</div>
+
+            {/* 24/7 Support Card */}
+            <div className="relative group bg-gradient-to-br from-amber-50 to-white p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-2xl text-center overflow-hidden transition-all duration-500 hover:-translate-y-2">
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-400/20 to-orange-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10">
+                <div className="text-4xl md:text-5xl font-medium bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent mb-3">
+                  24/7
+                </div>
+                <div className="text-sm md:text-base font-medium text-gray-700 group-hover:text-gray-900 transition-colors">
+                  Support
+                </div>
+              </div>
+              <div className="absolute -bottom-1 -right-1 w-20 h-20 bg-amber-200/30 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
             </div>
           </div>
         </div>
@@ -184,9 +218,13 @@ export default function Lounges() {
       {/* Services Filter Section */}
       <section className="py-12 md:py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8 md:mb-12">
-            Our Lounge Collections
-          </h2>
+
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
+              Our Lounge Collections
+            </h2>
+            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Where Comfort Meets Celebration"</p>
+          </div>
 
           {/* Filter Buttons */}
           <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-12">
@@ -201,7 +239,7 @@ export default function Lounges() {
               <button
                 key={filter.value}
                 onClick={() => setSelectedCategory(filter.value)}
-                className={`px-4 md:px-6 py-2 md:py-3 rounded-full font-semibold transition-all duration-300 text-sm md:text-base
+                className={`px-4 md:px-6 py-2 md:py-3 rounded-full font-medium cursor-pointer transition-all duration-300 text-sm md:text-base
                   ${selectedCategory === filter.value
                     ? 'bg-rose-400 text-white shadow-lg transform scale-105'
                     : 'bg-gray-100 text-gray-700 hover:bg-rose-100'
@@ -236,7 +274,7 @@ export default function Lounges() {
                 </div>
 
                 <div className="p-6">
-                  <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-3">
+                  <h3 className="text-xl md:text-2xl font-medium text-gray-800 mb-3">
                     {service.title}
                   </h3>
                   <p className="text-sm md:text-base text-gray-600 mb-4 leading-relaxed">
@@ -253,7 +291,7 @@ export default function Lounges() {
                     ))}
                   </div>
 
-                  <button className="w-full bg-rose-400 text-white py-3 rounded-lg font-semibold 
+                  <button className="w-full bg-rose-400 text-white py-3 rounded-lg font-normal cursor-pointer 
                     hover:bg-rose-500 transition-all duration-300 transform hover:scale-105">
                     View Details
                   </button>
@@ -267,10 +305,13 @@ export default function Lounges() {
       {/* Video Gallery Section */}
       <section className="py-12 md:py-16 lg:py-20 px-4 bg-gradient-to-b from-white to-rose-50">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4">
-            Experience Our Work
-          </h2>
-          <div className="w-20 md:w-24 h-1 bg-rose-400 mx-auto mb-8 md:mb-12"></div>
+
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
+              Experience Our Work
+            </h2>
+            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Where Creativity Meets Perfection</p>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {/* Video Card 1 */}
@@ -284,7 +325,7 @@ export default function Lounges() {
                 Your browser does not support video playback.
               </video>
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 md:p-6">
-                <h3 className="text-white font-bold text-lg md:text-xl">Luxury Lounge Setup</h3>
+                <h3 className="text-white font-medium text-lg md:text-xl">Luxury Lounge Setup</h3>
                 <p className="text-white/90 text-sm">Complete setup process & final result</p>
               </div>
             </div>
@@ -300,7 +341,7 @@ export default function Lounges() {
                 Your browser does not support video playback.
               </video>
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 md:p-6">
-                <h3 className="text-white font-bold text-lg md:text-xl">Boho Chic Design</h3>
+                <h3 className="text-white font-medium text-lg md:text-xl">Boho Chic Design</h3>
                 <p className="text-white/90 text-sm">Behind the scenes & guest experience</p>
               </div>
             </div>
@@ -309,44 +350,23 @@ export default function Lounges() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-12 md:py-16 lg:py-20 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4">
-            Why Choose ShadiBazaar?
-          </h2>
-          <div className="w-20 md:w-24 h-1 bg-rose-400 mx-auto mb-8 md:mb-12"></div>
+    
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {whyChooseUs.map((item, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-br from-rose-50 to-white p-6 md:p-8 rounded-2xl shadow-lg 
-                  transform hover:scale-105 transition-all duration-300 hover:shadow-xl"
-              >
-                <div className="relative w-16 h-16 md:w-20 md:h-20 mb-4">
-                  <Image
-                    src={item.icon}
-                    alt={item.title}
-                    fill
-                    sizes="80px"
-                    className="object-contain"
-                  />
-                </div>
-                <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-3">{item.title}</h3>
-                <p className="text-sm md:text-base text-gray-600 leading-relaxed">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
+
+
 
       {/* Gallery Section */}
       <section className="py-12 md:py-16 lg:py-20 px-4 bg-gradient-to-b from-white to-rose-50">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4">
-            Our Lounge Gallery
-          </h2>
-          <div className="w-20 md:w-24 h-1 bg-rose-400 mx-auto mb-8 md:mb-12"></div>
+
+          <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
+                     Our Lounge Gallery
+              </h2>
+              <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Where Elegance Finds Expression</p>
+            </div>
+   
 
           {/* Image Grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
@@ -371,12 +391,16 @@ export default function Lounges() {
       </section>
 
       {/* Process Section */}
-      <section className="py-12 md:py-16 lg:py-20 px-4 bg-white">
+      <section className="md:py-24 py-26 mb-12  px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4">
-            Our Simple Process
-          </h2>
-          <div className="w-20 md:w-24 h-1 bg-rose-400 mx-auto mb-8 md:mb-12"></div>
+
+
+          <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
+                 Our Simple Process
+              </h2>
+              <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Your Vision, Made Easy</p>
+            </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
             {[
@@ -390,72 +414,13 @@ export default function Lounges() {
                   justify-center text-2xl md:text-3xl font-bold mx-auto mb-4 shadow-lg">
                   {item.step}
                 </div>
-                <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2">{item.title}</h3>
+                <h3 className="text-lg md:text-xl font-medium text-gray-800 mb-2">{item.title}</h3>
                 <p className="text-sm md:text-base text-gray-600">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
-
-      {/* CTA Section */}
-      <section className="py-16 md:py-24 lg:py-28 px-4 bg-gradient-to-r from-rose-400 to-pink-500">
-        <div className="max-w-5xl mx-auto">
-          {/* Split Layout */}
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-            {/* Left Side - Content */}
-            <div className="text-white">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Your Perfect Wedding Lounge Awaits
-              </h2>
-              <p className="text-lg text-white/90 mb-4 leading-relaxed">
-                Every detail matters. Every moment counts. Let us craft a relaxation sanctuary that reflects your love story and creates lasting memories for you and your guests.
-              </p>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center gap-3 text-white/80">
-                  <span className="w-6 h-6 bg-white/30 rounded-full flex items-center justify-center">✓</span>
-                  Custom design consultation
-                </li>
-                <li className="flex items-center gap-3 text-white/80">
-                  <span className="w-6 h-6 bg-white/30 rounded-full flex items-center justify-center">✓</span>
-                  Flexible packages for all budgets
-                </li>
-                <li className="flex items-center gap-3 text-white/80">
-                  <span className="w-6 h-6 bg-white/30 rounded-full flex items-center justify-center">✓</span>
-                  Professional installation & styling
-                </li>
-              </ul>
-            </div>
-
-            {/* Right Side - CTA Stack */}
-            <div className="flex flex-col gap-4">
-              <button className="relative group w-full bg-white text-rose-500 px-8 py-4 rounded-xl font-bold text-lg overflow-hidden transition-all duration-300 hover:shadow-2xl">
-                <span className="relative z-10 flex items-center justify-center gap-2">
-                  Book Consultation
-                  <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-                </span>
-                <div className="absolute inset-0 bg-rose-50 -z-10 group-hover:scale-105 transition-transform duration-300"></div>
-              </button>
-
-              <button className="relative group w-full bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:bg-white/10">
-                <span className="relative z-10 flex items-center justify-center gap-2">
-                  View Packages
-                  <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-                </span>
-              </button>
-
-              <div className="pt-6 border-t border-white/20">
-                <p className="text-white/70 text-sm mb-4">Quick Contact</p>
-                <div className="space-y-2">
-                  <p className="text-white font-semibold">📞 +91 XXXXX XXXXX</p>
-                  <p className="text-white font-semibold">💬 WhatsApp Available</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
     </div>
   );
 }

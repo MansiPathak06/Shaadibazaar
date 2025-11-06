@@ -6,45 +6,13 @@ import {
   Sparkles,
   Camera,
   Phone,
-  Mail,
   MapPin,
-  Menu,
-  X,
-  ChefHat,
   Crown,
   Gem,
-  Users,
-  Calendar,
-  Award,
-  CheckCircle,
-  Star,
-  Utensils,
   FlowerIcon as Flower,
-  Clock,
-  Send,
   ArrowRight,
 } from "lucide-react";
 
-const LowerHeading = ({ title, tagline }) => (
-  <div className="text-center mb-16">
-    <h2 className="text-4xl md:text-5xl font-light text-gray-800 mb-4">
-      {title.split(" ").map((word, index) => {
-        const isLastWord = index === title.split(" ").length - 1;
-        return isLastWord ? (
-          <span key={index} className="font-semibold text-rose-500">
-            {word}
-          </span>
-        ) : (
-          <span key={index}>{word} </span>
-        );
-      })}
-    </h2>
-    <div className="w-24 h-1 bg-rose-400 mx-auto mb-8"></div>
-    <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
-      {tagline}
-    </p>
-  </div>
-);
 
 export default function FloralDecorWebsite() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -68,7 +36,7 @@ export default function FloralDecorWebsite() {
       title: "Royal Stage Backdrop",
       subtitle: "Majestic floral arrangements",
       image:
-        "https://i.pinimg.com/736x/d0/09/80/d00980758dae79cdad708a073454a2bd.jpg",
+        "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762340122/floral-gallery-1_oofhxr.jpg",
       size: "large",
     },
     {
@@ -77,7 +45,7 @@ export default function FloralDecorWebsite() {
       title: "Minimalist Stage Design",
       subtitle: "Clean elegant florals",
       image:
-        "https://images.unsplash.com/photo-1587271636175-90d58cdad458?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+        "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762340122/floral-gallery-2_uqtyfi.avif",
       size: "medium",
     },
     {
@@ -86,7 +54,7 @@ export default function FloralDecorWebsite() {
       title: "Traditional Stage Setup",
       subtitle: "Cultural floral elements",
       image:
-        "https://i.pinimg.com/736x/3d/dc/cd/3ddccdc7e4b2466912b2e2a4b5623dd9.jpg",
+        "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762340122/floral-gallery-3_ruvbxu.jpg",
       size: "medium",
     },
 
@@ -97,7 +65,7 @@ export default function FloralDecorWebsite() {
       title: "Grand Banquet Hall",
       subtitle: "Luxurious table arrangements",
       image:
-        "https://i.pinimg.com/736x/ae/91/8d/ae918d723bcc84209d38b97d0a368819.jpg",
+        "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762340122/floral-gallery-4_olxtqr.jpg",
       size: "large",
     },
     {
@@ -106,7 +74,7 @@ export default function FloralDecorWebsite() {
       title: "Elegant Centerpieces",
       subtitle: "Refined dining décor",
       image:
-        "https://i.pinimg.com/736x/c7/51/8a/c7518a8fa4a37cd7825195d490f13f6a.jpg",
+        "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762340121/floral-gallery-5_pgbiqu.jpg",
       size: "medium",
     },
     {
@@ -115,7 +83,7 @@ export default function FloralDecorWebsite() {
       title: "Floral Table Runners",
       subtitle: "Cascading arrangements",
       image:
-        "https://i.pinimg.com/736x/82/59/d7/8259d79bb4096775500c0b41b5facb4a.jpg",
+        "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762340121/floral-gallery-6_apm6ta.jpg",
       size: "small",
     },
 
@@ -126,7 +94,7 @@ export default function FloralDecorWebsite() {
       title: "Traditional Mandap",
       subtitle: "Sacred floral canopy",
       image:
-        "https://i.pinimg.com/1200x/f9/c5/c2/f9c5c2a56103cd0e1d61931b07b6b84a.jpg",
+        "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762340120/floral-gallery-7_bi0bba.jpg",
       size: "wide",
     },
     {
@@ -135,7 +103,7 @@ export default function FloralDecorWebsite() {
       title: "Modern Mandap Design",
       subtitle: "Contemporary sacred space",
       image:
-        "https://i.pinimg.com/736x/d0/95/17/d0951711f28bd3e8e38a0bd842b241a7.jpg",
+        "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762340121/floral-gallery-8_lgfedu.jpg",
       size: "medium",
     },
     {
@@ -144,7 +112,7 @@ export default function FloralDecorWebsite() {
       title: "Floral Arch Mandap",
       subtitle: "Blooming sacred entrance",
       image:
-        "https://i.pinimg.com/736x/f1/4a/dc/f14adcbd0e27f151fe2706f2f7412dff.jpg",
+        "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762340121/floral-gallery-9_gsn441.jpg",
       size: "medium",
     },
 
@@ -155,7 +123,7 @@ export default function FloralDecorWebsite() {
       title: "Floral Bridal Throne",
       subtitle: "Ornate seating arrangements",
       image:
-        "https://i.pinimg.com/1200x/22/30/f0/2230f05b81ccf258c1776d7ff7f3887c.jpg",
+        "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762340121/floral-gallery-10_tp513z.jpg",
       size: "large",
     },
     {
@@ -164,7 +132,7 @@ export default function FloralDecorWebsite() {
       title: "Decorated Lounge Sets",
       subtitle: "Comfortable floral seating",
       image:
-        "https://i.pinimg.com/1200x/b7/9e/1d/b79e1d33c4fcaf633a1ca372ba3b0c69.jpg",
+        "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762340121/floral-gallery-11_fvgplp.jpg",
       size: "medium",
     },
 
@@ -175,7 +143,7 @@ export default function FloralDecorWebsite() {
       title: "Grand Entrance Arch",
       subtitle: "Welcoming floral gateway",
       image:
-        "https://i.pinimg.com/736x/e5/f7/d4/e5f7d4b15cb30c097951b3bfff66f017.jpg",
+        "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762340120/floral-gallery-12_xmobt1.jpg",
       size: "wide",
     },
     {
@@ -184,7 +152,7 @@ export default function FloralDecorWebsite() {
       title: "Floral Welcome Pathway",
       subtitle: "Petal-strewn walkways",
       image:
-        "https://i.pinimg.com/1200x/46/be/90/46be904629f12c5496a9d2f88eab1bd5.jpg",
+        "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762340120/floral-gallery-13_xfftpm.jpg",
       size: "medium",
     },
 
@@ -195,7 +163,7 @@ export default function FloralDecorWebsite() {
       title: "Hanging Installations",
       subtitle: "Suspended floral art",
       image:
-        "https://i.pinimg.com/736x/da/82/b4/da82b4a41c2a053684c7ba283a1bb555.jpg",
+        "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762340120/floral-gallery-14_jchjks.jpg",
       size: "tall",
     },
     {
@@ -204,7 +172,7 @@ export default function FloralDecorWebsite() {
       title: "Photo Booth Backdrops",
       subtitle: "Instagram-worthy setups",
       image:
-        "https://i.pinimg.com/736x/ca/7c/0b/ca7c0b2a2188b26165c04c21798ae53d.jpg",
+        "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762340120/floral-gallery-15_m7ae2w.jpg",
       size: "square",
     },
   ];
@@ -243,7 +211,7 @@ export default function FloralDecorWebsite() {
         {/* Full Background Image */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://i.pinimg.com/1200x/a2/53/fc/a253fc965d6bcff7b014d412770e7ab8.jpg"
+            src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762340362/floral-hero_defzwi.jpg"
             alt="Elegant Wedding Flowers"
             className="w-full h-full object-cover"
           />
@@ -327,23 +295,26 @@ export default function FloralDecorWebsite() {
 
       {/* About Section */}
       {/* Welcome Decoration Section */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-28 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
-          <LowerHeading
-            title="Welcome Floral Decorations"
-            tagline="First impressions matter. Our welcome decorations set the tone for your celebration with grand entrance arrangements that leave guests in awe from the moment they arrive."
-          />
+
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
+              Welcome To <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Floral Decorations</span>
+            </h2>
+            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Create unforgettable first impressions with elegant entrance décor</p>
+          </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative group">
               <img
-                src="https://images.unsplash.com/photo-1587271636175-90d58cdad458?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762340428/floral-about_kqmxe9.avif"
                 alt="Welcome Arch"
                 className="w-full h-96 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-2xl"></div>
               <div className="absolute bottom-6 left-6 right-6 text-white">
-                <h3 className="text-2xl font-semibold mb-2">
+                <h3 className="text-2xl font-medium mb-2">
                   Grand Welcome Arch
                 </h3>
                 <p className="text-white/90">
@@ -356,7 +327,7 @@ export default function FloralDecorWebsite() {
               <div>
                 <h3 className="text-3xl font-light text-gray-800 mb-4">
                   First Moments,{" "}
-                  <span className="font-semibold text-rose-500">
+                  <span className="font-medium text-rose-500">
                     Lasting Memories
                   </span>
                 </h3>
@@ -371,7 +342,7 @@ export default function FloralDecorWebsite() {
                 <div className="flex items-start gap-4 p-4 bg-rose-50 rounded-lg">
                   <MapPin className="w-6 h-6 text-rose-500 flex-shrink-0 mt-1" />
                   <div>
-                    <h4 className="font-semibold text-gray-800 mb-1">
+                    <h4 className="font-medium text-gray-800 mb-1">
                       Entrance Pathways
                     </h4>
                     <p className="text-gray-600 text-sm">
@@ -384,7 +355,7 @@ export default function FloralDecorWebsite() {
                 <div className="flex items-start gap-4 p-4 bg-rose-50 rounded-lg">
                   <Crown className="w-6 h-6 text-rose-500 flex-shrink-0 mt-1" />
                   <div>
-                    <h4 className="font-semibold text-gray-800 mb-1">
+                    <h4 className="font-medium text-gray-800 mb-1">
                       Welcome Signage
                     </h4>
                     <p className="text-gray-600 text-sm">
@@ -397,7 +368,7 @@ export default function FloralDecorWebsite() {
                 <div className="flex items-start gap-4 p-4 bg-rose-50 rounded-lg">
                   <Sparkles className="w-6 h-6 text-rose-500 flex-shrink-0 mt-1" />
                   <div>
-                    <h4 className="font-semibold text-gray-800 mb-1">
+                    <h4 className="font-medium text-gray-800 mb-1">
                       Greeting Areas
                     </h4>
                     <p className="text-gray-600 text-sm">
@@ -412,12 +383,15 @@ export default function FloralDecorWebsite() {
         </div>
       </section>
 
-      <section id="gallery" className="py-20 px-6 bg-white">
+      <section id="gallery" className="py-8 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
-          <LowerHeading
-            title="A Symphony of Blooms"
-            tagline="Step into a world where flowers, colors, and textures create breathtaking experiences across every aspect of your celebration."
-          />
+
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
+              A <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Symphony</span> of <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Blooms</span>
+            </h2>
+            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Celebrate amidst a world of color, beauty, and artistry</p>
+          </div>
 
           {/* Gallery Filter Tabs */}
           <div className="flex flex-wrap justify-center gap-4 mb-12">
@@ -425,11 +399,10 @@ export default function FloralDecorWebsite() {
               <button
                 key={category.id}
                 onClick={() => setSelectedCategory(category.id)}
-                className={`px-6 py-3 rounded-full text-sm font-medium transition-all ${
-                  selectedCategory === category.id
-                    ? "bg-rose-500 text-white shadow-lg"
-                    : "bg-rose-50 text-rose-600 hover:bg-rose-100"
-                }`}
+                className={`px-6 py-3 rounded-full text-sm cursor-pointer font-medium transition-all ${selectedCategory === category.id
+                  ? "bg-rose-500 text-white shadow-lg"
+                  : "bg-rose-50 text-rose-600 hover:bg-rose-100"
+                  }`}
               >
                 {category.name}
               </button>
@@ -457,7 +430,7 @@ export default function FloralDecorWebsite() {
                 {/* Content Overlay */}
                 <div className="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                    <h3 className="text-white font-semibold text-lg mb-1">
+                    <h3 className="text-white font-medium text-lg mb-1">
                       {item.title}
                     </h3>
                     <p className="text-white/80 text-sm">{item.subtitle}</p>
@@ -478,7 +451,7 @@ export default function FloralDecorWebsite() {
 
           {/* Load More Button */}
           <div className="text-center mt-12">
-            <button className="bg-rose-500 text-white px-8 py-4 rounded-lg hover:bg-rose-600 transition flex items-center gap-2 mx-auto">
+            <button className="bg-rose-500 cursor-pointer text-white px-8 py-4 rounded-lg hover:bg-rose-600 transition flex items-center gap-2 mx-auto">
               <Camera className="w-5 h-5" />
               View Complete Portfolio
             </button>
@@ -487,89 +460,92 @@ export default function FloralDecorWebsite() {
       </section>
 
       {/* Popular Wedding Flowers Showcase */}
-      <section className="py-20 px-6 bg-gradient-to-br from-rose-50 to-pink-50">
+      <section className="py-24 px-6 bg-gray-100">
         <div className="max-w-7xl mx-auto">
-          <LowerHeading
-            title="Popular Wedding Flower Varieties"
-            tagline="Discover the most beloved blooms for your special day. Each flower brings its own charm, fragrance, and symbolism to your celebration."
-          />
+
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
+              Popular <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Wedding Flower</span> Varieties
+            </h2>
+            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Find the blooms that tell your story with charm, fragrance, and symbolism</p>
+          </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-16">
             <div className="group text-center">
               <div className="relative overflow-hidden rounded-full w-32 h-32 mx-auto mb-4">
                 <img
-                  src="https://i.pinimg.com/1200x/5c/a6/d7/5ca6d7b6bad5967c3d825498f903ca65.jpg"
+                  src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762340721/flower-varities-1_qnghkt.jpg"
                   alt="Red Roses"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-rose-500/10 group-hover:bg-rose-500/20 transition-colors duration-300"></div>
               </div>
-              <h3 className="font-semibold text-gray-800 mb-1">Roses</h3>
+              <h3 className="font-medium text-xl text-gray-800 mb-1">Roses</h3>
               <p className="text-gray-600 text-xs">Classic & Romantic</p>
             </div>
 
             <div className="group text-center">
               <div className="relative overflow-hidden rounded-full w-32 h-32 mx-auto mb-4">
                 <img
-                  src="https://i.pinimg.com/736x/95/c5/58/95c558a0d81eb7c3aef966ced59a8dca.jpg"
+                  src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762340719/flower-varities-2_x430ew.jpg"
                   alt="White Orchids"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-rose-500/10 group-hover:bg-rose-500/20 transition-colors duration-300"></div>
               </div>
-              <h3 className="font-semibold text-gray-800 mb-1">Orchids</h3>
+              <h3 className="font-medium text-xl text-gray-800 mb-1">Orchids</h3>
               <p className="text-gray-600 text-xs">Exotic & Elegant</p>
             </div>
 
             <div className="group text-center">
               <div className="relative overflow-hidden rounded-full w-32 h-32 mx-auto mb-4">
                 <img
-                  src="https://i.pinimg.com/1200x/77/14/6f/77146f859dc8bf2dc585d992e3b2173f.jpg"
+                  src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762340717/flower-varities-3_tnvtkr.jpg"
                   alt="Pink Peonies"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-rose-500/10 group-hover:bg-rose-500/20 transition-colors duration-300"></div>
               </div>
-              <h3 className="font-semibold text-gray-800 mb-1">Peonies</h3>
+              <h3 className="font-medium text-xl text-gray-800 mb-1">Peonies</h3>
               <p className="text-gray-600 text-xs">Soft & Luxurious</p>
             </div>
 
             <div className="group text-center">
               <div className="relative overflow-hidden rounded-full w-32 h-32 mx-auto mb-4">
                 <img
-                  src="https://i.pinimg.com/1200x/9f/e2/04/9fe204909ea5717806240a47afd1068b.jpg"
+                  src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762340713/flower-varities-4_dtbts5.jpg"
                   alt="White Hydrangeas"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-rose-500/10 group-hover:bg-rose-500/20 transition-colors duration-300"></div>
               </div>
-              <h3 className="font-semibold text-gray-800 mb-1">Hydrangeas</h3>
+              <h3 className="font-medium text-xl text-gray-800 mb-1">Hydrangeas</h3>
               <p className="text-gray-600 text-xs">Full & Abundant</p>
             </div>
 
             <div className="group text-center">
               <div className="relative overflow-hidden rounded-full w-32 h-32 mx-auto mb-4">
                 <img
-                  src="https://i.pinimg.com/736x/e9/f0/ac/e9f0ac7b637fec4db04979af4fe16b2f.jpg"
+                  src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762340713/flower-varities-5_evu0sr.jpg"
                   alt="White Lilies"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-rose-500/10 group-hover:bg-rose-500/20 transition-colors duration-300"></div>
               </div>
-              <h3 className="font-semibold text-gray-800 mb-1">Lilies</h3>
+              <h3 className="font-medium text-xl text-gray-800 mb-1">Lilies</h3>
               <p className="text-gray-600 text-xs">Pure & Sacred</p>
             </div>
 
             <div className="group text-center">
               <div className="relative overflow-hidden rounded-full w-32 h-32 mx-auto mb-4">
                 <img
-                  src="https://i.pinimg.com/736x/67/44/4e/67444e3e4f08054c56e8e2a50b0533e0.jpg"
+                  src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762340714/flower-varities-6_gcp6se.jpg"
                   alt="Mixed Flowers"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-rose-500/10 group-hover:bg-rose-500/20 transition-colors duration-300"></div>
               </div>
-              <h3 className="font-semibold text-gray-800 mb-1">Mixed Blooms</h3>
+              <h3 className="font-medium text-xl text-gray-800 mb-1">Mixed Blooms</h3>
               <p className="text-gray-600 text-xs">Vibrant & Diverse</p>
             </div>
           </div>
@@ -579,7 +555,7 @@ export default function FloralDecorWebsite() {
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg group hover:shadow-xl transition-shadow">
               <div className="h-48 relative overflow-hidden">
                 <img
-                  src="https://i.pinimg.com/736x/a6/0e/70/a60e7001c205c54fc79feb2e8e6901fa.jpg"
+                  src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762340712/flower-varities-7_d0koea.jpg"
                   alt="Spring Flowers"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
@@ -588,7 +564,7 @@ export default function FloralDecorWebsite() {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                <h3 className="text-xl font-medium text-gray-800 mb-2">
                   Spring Collection
                 </h3>
                 <p className="text-gray-600 text-sm">
@@ -600,7 +576,7 @@ export default function FloralDecorWebsite() {
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg group hover:shadow-xl transition-shadow">
               <div className="h-48 relative overflow-hidden">
                 <img
-                  src="https://i.pinimg.com/1200x/27/69/2b/27692b5a3883a8278eec32c51eb296a4.jpg"
+                  src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762340715/flower-varities-8_zlnp4a.jpg"
                   alt="Summer Flowers"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
@@ -609,7 +585,7 @@ export default function FloralDecorWebsite() {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                <h3 className="text-xl font-medium text-gray-800 mb-2">
                   Summer Blooms
                 </h3>
                 <p className="text-gray-600 text-sm">
@@ -621,7 +597,7 @@ export default function FloralDecorWebsite() {
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg group hover:shadow-xl transition-shadow">
               <div className="h-48 relative overflow-hidden">
                 <img
-                  src="https://i.pinimg.com/736x/8d/00/17/8d001702fac4843270ce8cdd51541ff8.jpg"
+                  src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762340712/flower-varities-9_odxwdt.jpg"
                   alt="Autumn Flowers"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
@@ -630,7 +606,7 @@ export default function FloralDecorWebsite() {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                <h3 className="text-xl font-medium text-gray-800 mb-2">
                   Autumn Harvest
                 </h3>
                 <p className="text-gray-600 text-sm">
@@ -642,7 +618,7 @@ export default function FloralDecorWebsite() {
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg group hover:shadow-xl transition-shadow">
               <div className="h-48 relative overflow-hidden">
                 <img
-                  src="https://i.pinimg.com/736x/b8/a2/c9/b8a2c9426e590a0a3c37836a886b2321.jpg"
+                  src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762340711/flower-varities-10_hjkqxv.jpg"
                   alt="Winter Flowers"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
@@ -651,7 +627,7 @@ export default function FloralDecorWebsite() {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                <h3 className="text-xl font-medium text-gray-800 mb-2">
                   Winter Elegance
                 </h3>
                 <p className="text-gray-600 text-sm">
@@ -666,16 +642,19 @@ export default function FloralDecorWebsite() {
       {/* Bouquet Gallery Section */}
       <section className="py-20 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
-          <LowerHeading
-            title="Bridal Bouquet Collection"
-            tagline="Your bouquet is more than flowers—it's a reflection of your personality, style, and the beginning of your forever story."
-          />
+
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
+              Bridal <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Bouquet Collection</span>
+            </h2>
+            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Each bouquet tells your story—personal, stylish, and timeless</p>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="group">
               <div className="relative overflow-hidden rounded-2xl mb-6">
                 <img
-                  src="https://i.pinimg.com/1200x/71/0c/7d/710c7de672a2567f2ad905a69b359cf2.jpg"
+                  src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762341039/bridal-bouquet-collection-1_oo2yye.jpg"
                   alt="Classic White Rose Bouquet"
                   className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700"
                 />
@@ -683,7 +662,7 @@ export default function FloralDecorWebsite() {
                   <div className="absolute bottom-6 left-6 right-6 text-white">
                     <div className="flex items-center justify-between">
                       <div>
-                        <h3 className="text-xl font-semibold mb-1">
+                        <h3 className="text-xl font-medium mb-1">
                           Classic White Roses
                         </h3>
                         <p className="text-white/90 text-sm">
@@ -696,7 +675,7 @@ export default function FloralDecorWebsite() {
                 </div>
               </div>
               <div className="text-center">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                <h3 className="text-2xl font-medium text-gray-800 mb-2">
                   Traditional Beauty
                 </h3>
                 <p className="text-gray-600 text-sm">
@@ -708,7 +687,7 @@ export default function FloralDecorWebsite() {
             <div className="group">
               <div className="relative overflow-hidden rounded-2xl mb-6">
                 <img
-                  src="https://i.pinimg.com/736x/a3/69/79/a36979a77b29b064c14670276eeaf213.jpg"
+                  src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762341040/bridal-bouquet-collection-2_llr80m.jpg"
                   alt="Mixed Flower Bouquet"
                   className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700"
                 />
@@ -716,7 +695,7 @@ export default function FloralDecorWebsite() {
                   <div className="absolute bottom-6 left-6 right-6 text-white">
                     <div className="flex items-center justify-between">
                       <div>
-                        <h3 className="text-xl font-semibold mb-1">
+                        <h3 className="text-xl font-medium mb-1">
                           Garden Mix
                         </h3>
                         <p className="text-white/90 text-sm">
@@ -729,7 +708,7 @@ export default function FloralDecorWebsite() {
                 </div>
               </div>
               <div className="text-center">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                <h3 className="text-2xl font-medium text-gray-800 mb-2">
                   Wildflower Romance
                 </h3>
                 <p className="text-gray-600 text-sm">
@@ -741,7 +720,7 @@ export default function FloralDecorWebsite() {
             <div className="group">
               <div className="relative overflow-hidden rounded-2xl mb-6">
                 <img
-                  src="https://i.pinimg.com/1200x/a8/c3/f2/a8c3f23fdb0fe5c35c08dbb9c45e9aed.jpg"
+                  src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762341038/bridal-bouquet-collection-3_hpnl8g.jpg"
                   alt="Orchid Bouquet"
                   className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700"
                 />
@@ -749,7 +728,7 @@ export default function FloralDecorWebsite() {
                   <div className="absolute bottom-6 left-6 right-6 text-white">
                     <div className="flex items-center justify-between">
                       <div>
-                        <h3 className="text-xl font-semibold mb-1">
+                        <h3 className="text-xl font-medium mb-1">
                           Exotic Orchids
                         </h3>
                         <p className="text-white/90 text-sm">
@@ -762,7 +741,7 @@ export default function FloralDecorWebsite() {
                 </div>
               </div>
               <div className="text-center">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                <h3 className="text-2xl font-medium text-gray-800 mb-2">
                   Tropical Elegance
                 </h3>
                 <p className="text-gray-600 text-sm">
@@ -777,12 +756,12 @@ export default function FloralDecorWebsite() {
             <div className="text-center">
               <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
                 <img
-                  src="https://i.pinimg.com/1200x/7c/bc/e9/7cbce9a50c7aca98aae64495591ab3ca.jpg"
+                  src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762341038/bridal-bouquet-collection-4_tmxgyp.jpg"
                   alt="Cascade Bouquet"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h4 className="font-semibold text-gray-800 mb-1">
+              <h4 className="font-medium text-lg text-gray-800 mb-1">
                 Cascade Style
               </h4>
               <p className="text-gray-600 text-xs">Flowing waterfall design</p>
@@ -791,36 +770,36 @@ export default function FloralDecorWebsite() {
             <div className="text-center">
               <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
                 <img
-                  src="https://i.pinimg.com/736x/0f/56/f0/0f56f00a19eb15e26d5cad8dab94ad0b.jpg"
+                  src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762341036/bridal-bouquet-collection-5_z1qqwj.jpg"
                   alt="Round Bouquet"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h4 className="font-semibold text-gray-800 mb-1">Round Shape</h4>
+              <h4 className="font-medium text-lg text-gray-800 mb-1">Round Shape</h4>
               <p className="text-gray-600 text-xs">Classic compact design</p>
             </div>
 
             <div className="text-center">
               <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
                 <img
-                  src="https://i.pinimg.com/1200x/13/64/fa/1364fa0bb7cd08a670e093b3d6890bdb.jpg"
+                  src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762341038/bridal-bouquet-collection-6_wgnm4k.jpg"
                   alt="Posy Bouquet"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h4 className="font-semibold text-gray-800 mb-1">Posy Style</h4>
+              <h4 className="font-medium text-lg text-gray-800 mb-1">Posy Style</h4>
               <p className="text-gray-600 text-xs">Small & delicate</p>
             </div>
 
             <div className="text-center">
               <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
                 <img
-                  src="https://i.pinimg.com/1200x/56/85/81/568581d7a9ac0f8e7806e4b3e639ac7c.jpg"
+                  src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762341037/bridal-bouquet-collection-7_zqi5ur.jpg"
                   alt="Hand-tied Bouquet"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h4 className="font-semibold text-gray-800 mb-1">Hand-Tied</h4>
+              <h4 className="font-medium text-lg text-gray-800 mb-1">Hand-Tied</h4>
               <p className="text-gray-600 text-xs">Natural & organic</p>
             </div>
           </div>
@@ -830,21 +809,24 @@ export default function FloralDecorWebsite() {
       {/* Stage Floral Décor Section */}
       <section className="py-20 px-6 bg-gradient-to-br from-rose-50 to-pink-50">
         <div className="max-w-6xl mx-auto">
-          <LowerHeading
-            title="Center Stage for Your Love"
-            tagline="The wedding stage is the heart of your celebration. We design floral arrangements that create wow moments — cascading flowers, elegant drapes, and creative lighting to make your vows unforgettable."
-          />
+
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
+              Center <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Stage</span> for <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Your Love</span>
+            </h2>
+            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Create unforgettable moments with a floral stage that radiates beauty and emotion</p>
+          </div>
 
           <div className="grid md:grid-cols-2 gap-8">
             <div className="relative group">
               <img
-                src="https://images.unsplash.com/photo-1606800052052-a08af7148866?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762341331/royal-stage-decoration_q9uuzm.jpg"
                 alt="Royal Stage Setup"
                 className="w-full h-80 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-2xl"></div>
               <div className="absolute bottom-6 left-6 right-6 text-white">
-                <h3 className="text-2xl font-semibold mb-2">
+                <h3 className="text-2xl font-medium mb-2">
                   Royal Stage Backdrop
                 </h3>
                 <p className="text-white/90">
@@ -856,7 +838,7 @@ export default function FloralDecorWebsite() {
             <div className="space-y-6">
               <div className="bg-white rounded-xl p-6 shadow-lg">
                 <Crown className="w-8 h-8 text-rose-500 mb-4" />
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                <h3 className="text-2xl font-medium text-gray-800 mb-3">
                   Flower Walls & Backdrops
                 </h3>
                 <p className="text-gray-600 text-sm">
@@ -867,7 +849,7 @@ export default function FloralDecorWebsite() {
 
               <div className="bg-white rounded-xl p-6 shadow-lg">
                 <Sparkles className="w-8 h-8 text-rose-500 mb-4" />
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                <h3 className="text-2xl font-medium text-gray-800 mb-3">
                   Hanging Installations
                 </h3>
                 <p className="text-gray-600 text-sm">
@@ -885,23 +867,26 @@ export default function FloralDecorWebsite() {
       {/* Custom Furniture Section */}
       <section className="py-20 px-6 bg-gradient-to-br from-rose-50 to-pink-50">
         <div className="max-w-6xl mx-auto">
-          <LowerHeading
-            title="Customized Chairs and Sofas"
-            tagline="Comfort meets elegance with our specially designed seating arrangements. Each piece is adorned with floral accents and luxurious fabrics to match your wedding theme."
-          />
+
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
+              Customized <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>chairs</span> and <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>sofas</span>
+            </h2>
+            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Beautifully crafted seating that combines comfort, luxury, and floral artistry</p>
+          </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
               <div className="h-64 overflow-hidden">
                 <img
-                  src="https://i.pinimg.com/1200x/22/30/f0/2230f05b81ccf258c1776d7ff7f3887c.jpg"
+                  src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762341427/bridal-throne_wmudwe.jpg"
                   alt="Bridal Throne"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
               <div className="p-6">
                 <Crown className="w-6 h-6 text-rose-500 mb-3" />
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                <h3 className="text-xl font-medium text-gray-800 mb-2">
                   Bridal Throne Sets
                 </h3>
                 <p className="text-gray-600 text-sm">
@@ -914,14 +899,14 @@ export default function FloralDecorWebsite() {
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
               <div className="h-64 overflow-hidden">
                 <img
-                  src="https://i.pinimg.com/736x/d0/09/80/d00980758dae79cdad708a073454a2bd.jpg"
+                  src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762341427/lounge-sittong_yd6lg6.jpg"
                   alt="Lounge Seating"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
               <div className="p-6">
                 <Gem className="w-6 h-6 text-rose-500 mb-3" />
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                <h3 className="text-xl font-medium text-gray-800 mb-2">
                   Elegant Lounge Sets
                 </h3>
                 <p className="text-gray-600 text-sm">
@@ -934,14 +919,14 @@ export default function FloralDecorWebsite() {
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
               <div className="h-64 overflow-hidden">
                 <img
-                  src="https://i.pinimg.com/736x/83/08/35/8308351f720bec2c8121d9bc6e1436ef.jpg"
+                  src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762341427/decorated-chair_kmtkyc.jpg"
                   alt="Decorated Chairs"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
               <div className="p-6">
                 <Flower className="w-6 h-6 text-rose-500 mb-3" />
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                <h3 className="text-xl font-medium text-gray-800 mb-2">
                   Floral Chair Covers
                 </h3>
                 <p className="text-gray-600 text-sm">
@@ -955,19 +940,21 @@ export default function FloralDecorWebsite() {
       </section>
 
       {/* Special Installations Section */}
-      <section className="py-20 px-6 bg-gradient-to-br from-rose-50 to-pink-50">
+      <section className="py-12 px-6 bg-gradient-to-br from-rose-50 to-pink-50">
         <div className="max-w-6xl mx-auto">
-          <LowerHeading
-            title="Create Moments That Wow"
-            tagline="From floral arches to hanging installations and photo zones, we craft unique experiences for your guests. Every arrangement is designed to leave a lasting impression and create Instagram-worthy moments."
-          />
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
+              Create <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Moments</span> That <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Wow</span>
+            </h2>
+            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Floral designs that wow guests and create picture-perfect moments</p>
+          </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-shadow group">
               <div className="w-20 h-20 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                 <Crown className="w-10 h-10 text-rose-500" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">
+              <h3 className="text-xl font-medium text-gray-800 mb-3">
                 Flower Tunnels
               </h3>
               <p className="text-gray-600 text-sm">
@@ -980,7 +967,7 @@ export default function FloralDecorWebsite() {
               <div className="w-20 h-20 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                 <Sparkles className="w-10 h-10 text-rose-500" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">
+              <h3 className="text-xl font-medium text-gray-800 mb-3">
                 Hanging Chandeliers
               </h3>
               <p className="text-gray-600 text-sm">
@@ -993,7 +980,7 @@ export default function FloralDecorWebsite() {
               <div className="w-20 h-20 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                 <Camera className="w-10 h-10 text-rose-500" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">
+              <h3 className="text-xl font-medium text-gray-800 mb-3">
                 Photo Zones
               </h3>
               <p className="text-gray-600 text-sm">
@@ -1006,42 +993,13 @@ export default function FloralDecorWebsite() {
               <div className="w-20 h-20 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                 <Gem className="w-10 h-10 text-rose-500" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">
+              <h3 className="text-xl font-mediu text-gray-800 mb-3">
                 Ceiling Drapes
               </h3>
               <p className="text-gray-600 text-sm">
                 Ethereal overhead arrangements with flowing fabrics and
                 cascading flowers for dramatic effect.
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Statistics Section */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <LowerHeading
-            title="Floral Design Beyond Expectations"
-            tagline="Every bloom is handpicked and designed to create unforgettable memories. Our commitment to excellence shows in every arrangement we create."
-          />
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-rose-500 mb-2">500+</div>
-              <div className="text-gray-600 text-sm">Weddings Decorated</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-rose-500 mb-2">50+</div>
-              <div className="text-gray-600 text-sm">Floral Varieties</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-rose-500 mb-2">24/7</div>
-              <div className="text-gray-600 text-sm">Event Support</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-rose-500 mb-2">100%</div>
-              <div className="text-gray-600 text-sm">Fresh Flowers</div>
             </div>
           </div>
         </div>

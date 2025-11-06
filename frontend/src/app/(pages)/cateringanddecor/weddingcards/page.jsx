@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { Sparkles, Clock, Leaf, RefreshCw, Users, Heart } from 'lucide-react';
 
 export default function WeddingCardsPage() {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -15,7 +16,7 @@ export default function WeddingCardsPage() {
     },
     {
       id: 2,
-      name: 'Royal & Grand Wedding Cards',
+      name: 'Royal & Grand',
       description: 'Luxurious scroll invitations with premium finishes',
       features: ['Embossing & debossing', 'Velvet boxes', 'Wax seals', 'Premium materials'],
       image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761300003/royal-wedding-card_mokhg6.jpg'
@@ -74,117 +75,141 @@ export default function WeddingCardsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section with Image Background */}
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-rose-50/20 to-purple-50/10">
+      {/* Hero Section - Modern Glassmorphism */}
       <section className="relative h-[70vh] md:h-[80vh] overflow-hidden">
-        <img 
-          src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1761368613/weddingcards-hero_sue7c8.jpg" 
+        <img
+          src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1761368613/weddingcards-hero_sue7c8.jpg"
           alt="Wedding Cards Hero"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover scale-105 blur-[2px]"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-rose-400/70 via-rose-300/60 to-pink-200/50"></div>
-        
+        <div className="absolute inset-0 bg-gradient-to-br from-rose-500/40 via-pink-500/30 to-purple-500/40"></div>
+        <div className="absolute inset-0 backdrop-blur-[1px]"></div>
+
         <div className="relative z-10 h-full flex items-center justify-center text-center px-4">
-          <div className="max-w-4xl">
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg">
-              Crafting Your Perfect Wedding Invitation
-            </h1>
-            <p className="text-xl md:text-2xl text-white mb-8 drop-shadow-md">
-              From Traditional to Modern - Your Dream Card Awaits
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-rose-400 px-8 py-4 rounded-full font-semibold text-lg hover:bg-rose-50 transition-all shadow-xl">
-                View Our Collection
-              </button>
-              <button className="bg-rose-400 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-rose-500 transition-all shadow-xl border-2 border-white">
-                Get Free Sample
-              </button>
+          <div className="max-w-5xl">
+            {/* Glassmorphic container */}
+            <div className="relative">
+              <div className="absolute inset-0 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 shadow-2xl"></div>
+              <div className="relative p-12 md:p-16">
+                <h1 className="text-6xl md:text-8xl font-medium bg-gradient-to-r from-white via-rose-50 to-white bg-clip-text text-transparent mb-6 drop-shadow-2xl leading-tight">
+                  Crafting Your Perfect Wedding Invitation
+                </h1>
+                <p className="text-2xl md:text-3xl text-white/95 mb-10 drop-shadow-lg font-light">
+                  From Traditional to Modern - Your Dream Card Awaits
+                </p>
+                <div className="flex flex-col sm:flex-row gap-5 justify-center">
+                  <button className="group relative bg-white/90 backdrop-blur-sm text-rose-500 px-10 py-5 rounded-2xl font-normal cursor-pointer text-lg hover:bg-white transition-all shadow-2xl overflow-hidden">
+                    <span className="relative z-10">View Our Collection</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-rose-400/0 via-rose-400/10 to-rose-400/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                  </button>
+                  <button className="group relative bg-gradient-to-r from-rose-500 to-pink-500 text-white px-10 py-5 rounded-2xl font-normal cursor-pointer text-lg hover:shadow-2xl transition-all shadow-xl border-2 border-white/30 overflow-hidden">
+                    <span className="relative z-10">Get Free Sample</span>
+                    <div className="absolute inset-0 bg-white/20 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300"></div>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
+        {/* Modern Wave */}
         <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
+          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
+            <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="url(#wave-gradient)" />
+            <defs>
+              <linearGradient id="wave-gradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="rgba(251, 207, 232, 0.1)" />
+                <stop offset="100%" stopColor="rgb(248, 250, 252)" />
+              </linearGradient>
+            </defs>
           </svg>
         </div>
       </section>
 
-      {/* Introduction Section */}
-      <section className="py-16 px-4 max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-rose-400 mb-4">
-            Welcome to ShaadiBAzaar Wedding Cards
+      {/* Introduction Section - Glassmorphic Cards */}
+      <section className=" lg:pt-28 px-4 max-w-7xl mx-auto">
+
+        <div className="text-center md:mb-20 mb-16">
+          <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
+            Welcome to <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>ShaadiBAzaar</span> <br /> Wedding Cards
           </h2>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-            Your wedding invitation is the first glimpse your guests get of your special day. At ShaadiBAzaar, we create stunning, personalized wedding cards that reflect your unique love story and cultural heritage.
-          </p>
+          <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">At ShaadiBAzaar, we design personalized wedding cards that reflect your love and culture</p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-          <div className="text-center p-6 bg-rose-50 rounded-2xl">
-            <div className="text-4xl font-bold text-rose-400 mb-2">5000+</div>
-            <div className="text-gray-600">Designs</div>
-          </div>
-          <div className="text-center p-6 bg-rose-50 rounded-2xl">
-            <div className="text-4xl font-bold text-rose-400 mb-2">10000+</div>
-            <div className="text-gray-600">Happy Couples</div>
-          </div>
-          <div className="text-center p-6 bg-rose-50 rounded-2xl">
-            <div className="text-4xl font-bold text-rose-400 mb-2">100%</div>
-            <div className="text-gray-600">Customizable</div>
-          </div>
-          <div className="text-center p-6 bg-rose-50 rounded-2xl">
-            <div className="text-4xl font-bold text-rose-400 mb-2">24/7</div>
-            <div className="text-gray-600">Support</div>
-          </div>
+          {[
+            { value: '5000+', label: 'Designs', gradient: 'from-rose-500 to-pink-500' },
+            { value: '10000+', label: 'Happy Couples', gradient: 'from-pink-500 to-purple-500' },
+            { value: '100%', label: 'Customizable', gradient: 'from-purple-500 to-rose-500' },
+            { value: '24/7', label: 'Support', gradient: 'from-rose-500 to-orange-500' }
+          ].map((stat, index) => (
+            <div key={index} className="group relative">
+              <div className={`absolute inset-0 bg-gradient-to-br ${stat.gradient} opacity-10 rounded-3xl blur-xl group-hover:opacity-20 transition-opacity`}></div>
+              <div className="relative text-center p-8 bg-white/60 backdrop-blur-lg rounded-3xl border border-white/40 shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+                <div className={`text-5xl font-medium bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-3`}>
+                  {stat.value}
+                </div>
+                <div className="text-gray-600 font-light">{stat.label}</div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Card Categories Grid */}
-      <section className="py-16 px-4 bg-gradient-to-b from-white to-rose-50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-rose-400 mb-4">
-            Explore Our Collections
-          </h2>
-          <p className="text-center text-gray-600 mb-12 text-lg">
-            Choose from our diverse range of wedding card styles
-          </p>
+      {/* Card Categories Grid - Modern Cards */}
+      <section className="px-4 py-24 relative overflow-hidden">
+        {/* Background decoration */}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="relative max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
+              Explore Our <span className='bg-gradient-to-r from-rose-500 to-pink-500 text-transparent bg-clip-text'>Collections</span>
+            </h2>
+            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">    Choose from our diverse range of wedding card styles</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {cardCategories.map((category) => (
-              <div 
+              <div
                 key={category.id}
-                className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group cursor-pointer transform hover:-translate-y-2"
+                className="group relative cursor-pointer"
               >
-                <div className="relative h-72 overflow-hidden">
-                  <img 
-                    src={category.image} 
-                    alt={category.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-rose-400/80 to-transparent flex items-end">
-                    <h3 className="text-lg font-bold text-white p-4 w-full">{category.name}</h3>
-                  </div>
-                </div>
-                
-                <div className="p-4">
-                  <p className="text-gray-600 mb-2 text-xs leading-relaxed">{category.description}</p>
-                  
-                  <div className="flex flex-wrap gap-1 mb-3">
-                    {category.features.map((feature, idx) => (
-                      <span
-                        key={idx}
-                        className="bg-rose-50 text-rose-400 text-xs px-2 py-1 rounded-full whitespace-nowrap"
-                      >
-                        {feature}
-                      </span>
-                    ))}
+                {/* Glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-rose-400/30 to-purple-400/30 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+
+                {/* Main card */}
+                <div className="relative bg-white/70 backdrop-blur-md rounded-3xl border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden group-hover:scale-[1.02]">
+                  <div className="relative h-80 overflow-hidden">
+                    <img
+                      src={category.image}
+                      alt={category.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent"></div>
+                    <h3 className="absolute bottom-6 left-6 right-6 text-2xl font-medium text-white">{category.name}</h3>
                   </div>
 
-                  <button className="w-full bg-rose-400 text-white py-2 rounded-full font-semibold hover:bg-rose-500 transition-colors text-sm">
-                    Explore Designs
-                  </button>
+                  <div className="p-6">
+                    <p className="text-gray-600 mb-4 leading-relaxed">{category.description}</p>
+
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {category.features.map((feature, idx) => (
+                        <span
+                          key={idx}
+                          className="bg-gradient-to-r from-rose-100 to-pink-100 text-rose-600 text-sm px-3 py-1.5 rounded-full border border-rose-200/50 whitespace-nowrap font-medium"
+                        >
+                          {feature}
+                        </span>
+                      ))}
+                    </div>
+
+                    <button className="w-full relative bg-gradient-to-r from-rose-500 to-pink-500 text-white py-3.5 rounded-2xl font-normal hover:shadow-lg transition-all overflow-hidden group/btn">
+                      <span className="relative z-10">Explore Designs</span>
+                      <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 opacity-0 group-hover/btn:opacity-100 transition-opacity"></div>
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -192,329 +217,236 @@ export default function WeddingCardsPage() {
         </div>
       </section>
 
-      {/* NEW SECTION: Digital Wedding Cards for Social Media */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-rose-400 mb-4">
-              Digital Wedding Cards for Social Media
+      {/* Digital Wedding Cards - Modern Glassmorphic */}
+      <section className="md:py-24 px-4 relative overflow-hidden">
+        {/* Animated background */}
+
+
+        <div className="relative max-w-7xl mx-auto">
+
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
+              Digital <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Wedding Cards</span> for <br /> Social Media
             </h2>
-            <p className="text-lg text-gray-700 max-w-3xl mx-auto mb-8">
-              Go digital with stunning animated video invitations perfect for WhatsApp, Instagram, and Facebook. Eco-friendly, instant, and interactive - the modern way to invite your guests!
-            </p>
+            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">ChatGPT said:
+
+              Go digital with eco-friendly animated invites, perfect for WhatsApp, Instagram, and Facebook</p>
           </div>
 
-          {/* Features Grid with Cloudinary Images */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <div className="bg-gradient-to-br from-rose-50 to-pink-50 p-6 rounded-2xl text-center hover:shadow-lg transition-all">
-              <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden border-4 border-rose-200">
-                <img 
-                  src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1761473683/whatsapp-icon_scts6l.jpg" 
-                  alt="WhatsApp Ready"
-                  className="w-full h-full object-cover"
-                />
+          {/* Features Grid - Glassmorphic Icons */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            {[
+              { img: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761473683/whatsapp-icon_scts6l.jpg', title: 'WhatsApp Ready', desc: 'Optimized for instant sharing on WhatsApp groups and status', gradient: 'from-green-400 to-emerald-500' },
+              { img: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761473680/video-icon_xayo7f.jpg', title: 'Animated Videos', desc: 'Beautiful motion graphics and cinematic transitions', gradient: 'from-blue-400 to-cyan-500' },
+              { img: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000002/music-icon_digital.jpg', title: 'Custom Music', desc: 'Add your favorite songs or traditional wedding music', gradient: 'from-purple-400 to-pink-500' },
+              { img: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761473679/rsvp-icon_b8zzho.jpg', title: 'Interactive RSVP', desc: 'Track guest responses with built-in RSVP links', gradient: 'from-orange-400 to-rose-500' }
+            ].map((feature, idx) => (
+              <div key={idx} className="group relative">
+                <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-20 rounded-3xl blur-xl group-hover:opacity-30 transition-opacity`}></div>
+                <div className="relative bg-white/60 backdrop-blur-lg p-8 rounded-3xl border border-white/40 text-center hover:shadow-2xl transition-all hover:scale-105">
+                  <div className="relative w-24 h-24 mx-auto mb-6">
+                    <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} rounded-2xl rotate-6 group-hover:rotate-12 transition-transform`}></div>
+                    <div className="relative w-full h-full rounded-2xl overflow-hidden border-4 border-white shadow-lg">
+                      <img
+                        src={feature.img}
+                        alt={feature.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                  <h3 className={`font-medium text-xl bg-gradient-to-r ${feature.gradient} bg-clip-text text-transparent mb-3`}>{feature.title}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">{feature.desc}</p>
+                </div>
               </div>
-              <h3 className="font-bold text-rose-400 mb-2">WhatsApp Ready</h3>
-              <p className="text-sm text-gray-600">Optimized for instant sharing on WhatsApp groups and status</p>
-            </div>
-            <div className="bg-gradient-to-br from-rose-50 to-pink-50 p-6 rounded-2xl text-center hover:shadow-lg transition-all">
-              <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden border-4 border-rose-200">
-                <img 
-                  src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1761473680/video-icon_xayo7f.jpg" 
-                  alt="Animated Videos"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="font-bold text-rose-400 mb-2">Animated Videos</h3>
-              <p className="text-sm text-gray-600">Beautiful motion graphics and cinematic transitions</p>
-            </div>
-            <div className="bg-gradient-to-br from-rose-50 to-pink-50 p-6 rounded-2xl text-center hover:shadow-lg transition-all">
-              <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden border-4 border-rose-200">
-                <img 
-                  src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000002/music-icon_digital.jpg" 
-                  alt="Custom Music"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="font-bold text-rose-400 mb-2">Custom Music</h3>
-              <p className="text-sm text-gray-600">Add your favorite songs or traditional wedding music</p>
-            </div>
-            <div className="bg-gradient-to-br from-rose-50 to-pink-50 p-6 rounded-2xl text-center hover:shadow-lg transition-all">
-              <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden border-4 border-rose-200">
-                <img 
-                  src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1761473679/rsvp-icon_b8zzho.jpg" 
-                  alt="Interactive RSVP"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="font-bold text-rose-400 mb-2">Interactive RSVP</h3>
-              <p className="text-sm text-gray-600">Track guest responses with built-in RSVP links</p>
-            </div>
+            ))}
           </div>
 
-          {/* Digital Card Types with Cloudinary Images */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <div className="bg-white border-2 border-rose-100 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all group">
-              <div className="relative h-64 overflow-hidden">
-                <img 
-                  src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000010/video-invite-card_main.jpg" 
-                  alt="Video Invites"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-rose-400/90 to-transparent flex items-center justify-center">
-                  <div className="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                    <img 
-                      src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000011/video-camera-icon.png" 
-                      alt="Video Icon"
-                      className="w-16 h-16 object-contain"
+          {/* Digital Card Types - Modern 3D Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+            {[
+              {
+                img: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000010/video-invite-card_main.jpg',
+                icon: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000011/video-camera-icon.png',
+                title: 'Video Invites',
+                subtitle: 'Cinematic Video Cards',
+                features: ['30-60 second video invitations', 'Professional animations & effects', 'Photo slideshow integration', 'HD quality for all platforms'],
+                btnText: 'Create Video Invite',
+                gradient: 'from-rose-500 to-pink-500'
+              },
+              {
+                img: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000012/gif-invite-card_main.jpg',
+                icon: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000013/gif-icon.png',
+                title: 'Animated GIF',
+                subtitle: 'GIF E-Cards',
+                features: ['Lightweight & fast loading', 'Auto-play in chat apps', 'Looping animations', 'Works on all devices'],
+                btnText: 'Design GIF Card',
+                gradient: 'from-purple-500 to-pink-500'
+              },
+              {
+                img: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000014/web-invite-card_main.jpg',
+                icon: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000015/web-icon.png',
+                title: 'Web Invites',
+                subtitle: 'Interactive Websites',
+                features: ['Personalized wedding website', 'Event timeline & venue details', 'Live RSVP tracking', 'Photo gallery & registry links'],
+                btnText: 'Build Website',
+                gradient: 'from-orange-500 to-rose-500'
+              }
+            ].map((card, idx) => (
+              <div key={idx} className="group relative">
+                <div className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all`}></div>
+
+                <div className="relative bg-white/70 backdrop-blur-md border-2 border-white/50 rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all group-hover:scale-[1.02]">
+                  <div className="relative h-72 overflow-hidden">
+                    <img
+                      src={card.img}
+                      alt={card.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
+                    <div className={`absolute inset-0 bg-gradient-to-t ${card.gradient.replace('from', 'from')}/90 via-gray-900/50 to-transparent`}></div>
+
+                    {/* Floating icon */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="relative w-28 h-28">
+                        <div className="absolute inset-0 bg-white/20 backdrop-blur-md rounded-3xl group-hover:scale-110 transition-transform"></div>
+                        <div className="relative w-full h-full flex items-center justify-center">
+                          <img
+                            src={card.icon}
+                            alt={`${card.title} Icon`}
+                            className="w-20 h-20 object-contain drop-shadow-2xl"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="absolute bottom-0 left-0 right-0 p-8">
+                      <h3 className="text-3xl font-medium text-white text-center drop-shadow-lg">{card.title}</h3>
+                    </div>
+                  </div>
+
+                  <div className="p-8">
+                    <h4 className={`font-bold text-2xl bg-gradient-to-r ${card.gradient} bg-clip-text text-transparent mb-4`}>{card.subtitle}</h4>
+                    <ul className="space-y-3 mb-6">
+                      {card.features.map((feature, fIdx) => (
+                        <li key={fIdx} className="flex items-start gap-3 text-gray-700">
+                          <span className={`text-lg bg-gradient-to-r ${card.gradient} bg-clip-text text-transparent font-normal`}>✓</span>
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <button className={`w-full relative bg-gradient-to-r ${card.gradient} text-white py-4 rounded-2xl font-normal hover:shadow-xl text-lg transition-all overflow-hidden group/btn`}>
+                      <span className="relative z-10">{card.btnText}</span>
+                      <div className="absolute inset-0 bg-white/20 translate-y-[100%] group-hover/btn:translate-y-0 transition-transform duration-300"></div>
+                    </button>
                   </div>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="text-2xl font-bold text-white text-center">Video Invites</h3>
-                </div>
               </div>
-              <div className="p-6">
-                <h4 className="font-bold text-lg text-rose-400 mb-3">Cinematic Video Cards</h4>
-                <ul className="space-y-2 text-sm text-gray-600 mb-4">
-                  <li>✓ 30-60 second video invitations</li>
-                  <li>✓ Professional animations & effects</li>
-                  <li>✓ Photo slideshow integration</li>
-                  <li>✓ HD quality for all platforms</li>
-                </ul>
-                <button className="w-full bg-rose-400 text-white py-3 rounded-full font-semibold hover:bg-rose-500 transition-colors">
-                  Create video invite....
-                </button>
-              </div>
-            </div>
-
-            <div className="bg-white border-2 border-rose-100 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all group">
-              <div className="relative h-64 overflow-hidden">
-                <img 
-                  src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000012/gif-invite-card_main.jpg" 
-                  alt="Animated GIF"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-purple-400/90 to-transparent flex items-center justify-center">
-                  <div className="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                    <img 
-                      src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000013/gif-icon.png" 
-                      alt="GIF Icon"
-                      className="w-16 h-16 object-contain"
-                    />
-                  </div>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="text-2xl font-bold text-white text-center">Animated GIF</h3>
-                </div>
-              </div>
-              <div className="p-6">
-                <h4 className="font-bold text-lg text-rose-400 mb-3">GIF E-Cards</h4>
-                <ul className="space-y-2 text-sm text-gray-600 mb-4">
-                  <li>✓ Lightweight & fast loading</li>
-                  <li>✓ Auto-play in chat apps</li>
-                  <li>✓ Looping animations</li>
-                  <li>✓ Works on all devices</li>
-                </ul>
-                <button className="w-full bg-rose-400 text-white py-3 rounded-full font-semibold hover:bg-rose-500 transition-colors">
-                  Design GIF Card
-                </button>
-              </div>
-            </div>
-
-            <div className="bg-white border-2 border-rose-100 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all group">
-              <div className="relative h-64 overflow-hidden">
-                <img 
-                  src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000014/web-invite-card_main.jpg" 
-                  alt="Web Invites"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-orange-400/90 to-transparent flex items-center justify-center">
-                  <div className="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                    <img 
-                      src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000015/web-icon.png" 
-                      alt="Web Icon"
-                      className="w-16 h-16 object-contain"
-                    />
-                  </div>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="text-2xl font-bold text-white text-center">Web Invites</h3>
-                </div>
-              </div>
-              <div className="p-6">
-                <h4 className="font-bold text-lg text-rose-400 mb-3">Interactive Websites</h4>
-                <ul className="space-y-2 text-sm text-gray-600 mb-4">
-                  <li>✓ Personalized wedding website</li>
-                  <li>✓ Event timeline & venue details</li>
-                  <li>✓ Live RSVP tracking</li>
-                  <li>✓ Photo gallery & registry links</li>
-                </ul>
-                <button className="w-full bg-rose-400 text-white py-3 rounded-full font-semibold hover:bg-rose-500 transition-colors">
-                  Build Website
-                </button>
-              </div>
-            </div>
+            ))}
           </div>
 
-          {/* Why Choose Digital with Cloudinary Images */}
-          <div className="bg-gradient-to-br from-rose-400 to-pink-400 rounded-3xl p-8 md:p-12 text-white">
-            <h3 className="text-3xl md:text-4xl font-bold mb-6 text-center">
-              Why Choose Digital Invitations?
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="bg-white/20 backdrop-blur-sm rounded-xl p-6">
-                <div className="w-16 h-16 mx-auto mb-3 rounded-full overflow-hidden border-3 border-white/50">
-                  <img 
-                    src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000020/instant-delivery-icon.jpg" 
-                    alt="Instant Delivery"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h4 className="font-bold text-xl mb-2">Instant Delivery</h4>
-                <p className="text-sm opacity-90">Send to thousands of guests in seconds across the globe</p>
-              </div>
-              <div className="bg-white/20 backdrop-blur-sm rounded-xl p-6">
-                <div className="w-16 h-16 mx-auto mb-3 rounded-full overflow-hidden border-3 border-white/50">
-                  <img 
-                    src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000021/cost-effective-icon.jpg" 
-                    alt="Cost Effective"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h4 className="font-bold text-xl mb-2">Cost Effective</h4>
-                <p className="text-sm opacity-90">Save up to 70% compared to traditional printed cards</p>
-              </div>
-              <div className="bg-white/20 backdrop-blur-sm rounded-xl p-6">
-                <div className="w-16 h-16 mx-auto mb-3 rounded-full overflow-hidden border-3 border-white/50">
-                  <img 
-                    src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000022/eco-friendly-icon.jpg" 
-                    alt="Eco-Friendly"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h4 className="font-bold text-xl mb-2">Eco-Friendly</h4>
-                <p className="text-sm opacity-90">Zero paper waste, helping save trees for future generations</p>
-              </div>
-              <div className="bg-white/20 backdrop-blur-sm rounded-xl p-6">
-                <div className="w-16 h-16 mx-auto mb-3 rounded-full overflow-hidden border-3 border-white/50">
-                  <img 
-                    src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000023/easy-updates-icon.jpg" 
-                    alt="Easy Updates"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h4 className="font-bold text-xl mb-2">Easy Updates</h4>
-                <p className="text-sm opacity-90">Change details anytime without reprinting costs</p>
-              </div>
-              <div className="bg-white/20 backdrop-blur-sm rounded-xl p-6">
-                <div className="w-16 h-16 mx-auto mb-3 rounded-full overflow-hidden border-3 border-white/50">
-                  <img 
-                    src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000024/rsvp-tracking-icon.jpg" 
-                    alt="RSVP Tracking"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h4 className="font-bold text-xl mb-2">RSVP Tracking</h4>
-                <p className="text-sm opacity-90">Real-time guest response tracking and analytics</p>
-              </div>
-              <div className="bg-white/20 backdrop-blur-sm rounded-xl p-6">
-                <div className="w-16 h-16 mx-auto mb-3 rounded-full overflow-hidden border-3 border-white/50">
-                  <img 
-                    src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000025/creativity-icon.jpg" 
-                    alt="Unlimited Creativity"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h4 className="font-bold text-xl mb-2">Unlimited Creativity</h4>
-                <p className="text-sm opacity-90">Animation, music, videos - possibilities are endless</p>
+          {/* Why Choose Digital - Modern Glassmorphic Grid */}
+          <div className="relative rounded-[2.5rem] overflow-hidden py-6">
+            <div className="absolute inset-0 bg-gradient-to-br from-rose-500 via-pink-500 to-purple-500"></div>
+            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjEiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-30"></div>
+
+            <div className="relative p-12 md:p-16 text-white">
+              <h3 className="text-4xl md:text-5xl font-medium mb-12 text-center drop-shadow-lg">
+                Why Choose Digital Invitations?
+              </h3>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[
+                  { icon: <Clock className="w-8 h-8" />, img: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000020/instant-delivery-icon.jpg', title: 'Instant Delivery', desc: 'Send to thousands of guests in seconds across the globe' },
+                  { icon: <Sparkles className="w-8 h-8" />, img: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000021/cost-effective-icon.jpg', title: 'Cost Effective', desc: 'Save up to 70% compared to traditional printed cards' },
+                  { icon: <Leaf className="w-8 h-8" />, img: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000022/eco-friendly-icon.jpg', title: 'Eco-Friendly', desc: 'Zero paper waste, helping save trees for future generations' },
+                  { icon: <RefreshCw className="w-8 h-8" />, img: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000023/easy-updates-icon.jpg', title: 'Easy Updates', desc: 'Change details anytime without reprinting costs' },
+                  { icon: <Users className="w-8 h-8" />, img: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000024/rsvp-tracking-icon.jpg', title: 'RSVP Tracking', desc: 'Real-time guest response tracking and analytics' },
+                  { icon: <Heart className="w-8 h-8" />, img: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000025/creativity-icon.jpg', title: 'Unlimited Creativity', desc: 'Animation, music, videos - possibilities are endless' }
+                ].map((item, idx) => (
+                  <div key={idx} className="group relative">
+                    <div className="absolute inset-0 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 group-hover:bg-white/20 transition-all"></div>
+                    <div className="relative p-8">
+                      <div className="relative w-20 h-20 mx-auto mb-5">
+                        <div className="absolute inset-0 bg-white/20 rounded-2xl rotate-6 group-hover:rotate-12 transition-transform"></div>
+                        <div className="relative w-full h-full rounded-2xl overflow-hidden border-4 border-white/60 shadow-xl">
+                          <img
+                            src={item.img}
+                            alt={item.title}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      </div>
+                      <h4 className="font-bold text-2xl mb-3 drop-shadow">{item.title}</h4>
+                      <p className="text-white/90 leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
-
-          {/* CTA */}
-          <div className="text-center mt-12">
-            <button className="bg-rose-400 text-white px-12 py-4 rounded-full font-bold text-lg hover:bg-rose-500 transition-all shadow-xl hover:shadow-2xl transform hover:scale-105">
-              Start Creating Your Digital Invite
-            </button>
-            <p className="text-gray-600 mt-4">Free preview • No credit card required</p>
           </div>
         </div>
       </section>
 
-      {/* Portfolio/Gallery Section */}
-      <section className="py-16 px-4 bg-rose-50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-rose-400 mb-4">
-            Our Featured Designs
-          </h2>
-          <p className="text-center text-gray-600 mb-12 text-lg">
-            Handpicked designs loved by our couples
-          </p>
+      {/* Portfolio/Gallery Section - Modern Filter */}
+      <section className="py-14 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-rose-50/50 via-purple-50/30 to-rose-50/50"></div>
 
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <button 
-              onClick={() => setSelectedCategory('all')}
-              className={`px-6 py-3 rounded-full font-semibold transition-all ${
-                selectedCategory === 'all' 
-                  ? 'bg-rose-400 text-white shadow-lg' 
-                  : 'bg-white text-rose-400 hover:bg-rose-100'
-              }`}
-            >
-              All Designs
-            </button>
-            <button 
-              onClick={() => setSelectedCategory('traditional')}
-              className={`px-6 py-3 rounded-full font-semibold transition-all ${
-                selectedCategory === 'traditional' 
-                  ? 'bg-rose-400 text-white shadow-lg' 
-                  : 'bg-white text-rose-400 hover:bg-rose-100'
-              }`}
-            >
-              Traditional
-            </button>
-            <button 
-              onClick={() => setSelectedCategory('modern')}
-              className={`px-6 py-3 rounded-full font-semibold transition-all ${
-                selectedCategory === 'modern' 
-                  ? 'bg-rose-400 text-white shadow-lg' 
-                  : 'bg-white text-rose-400 hover:bg-rose-100'
-              }`}
-            >
-              Modern
-            </button>
-            <button 
-              onClick={() => setSelectedCategory('royal')}
-              className={`px-6 py-3 rounded-full font-semibold transition-all ${
-                selectedCategory === 'royal' 
-                  ? 'bg-rose-400 text-white shadow-lg' 
-                  : 'bg-white text-rose-400 hover:bg-rose-100'
-              }`}
-            >
-              Royal
-            </button>
+        <div className="relative max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
+              Our Featured <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Designs</span>
+            </h2>
+            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">            Handpicked designs loved by our couples</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Modern Pill Buttons */}
+          <div className="flex flex-wrap justify-center gap-4 mb-16">
+            {[
+              { id: 'all', label: 'All Designs' },
+              { id: 'traditional', label: 'Traditional' },
+              { id: 'modern', label: 'Modern' },
+              { id: 'royal', label: 'Royal' }
+            ].map((filter) => (
+              <button
+                key={filter.id}
+                onClick={() => setSelectedCategory(filter.id)}
+                className={`relative px-8 py-4 rounded-2xl font-normal cursor-pointer transition-all overflow-hidden ${selectedCategory === filter.id
+                  ? 'bg-gradient-to-r from-rose-500 to-pink-500 text-white shadow-xl scale-105'
+                  : 'bg-white/70 backdrop-blur-sm text-gray-700 hover:bg-white border border-gray-200'
+                  }`}
+              >
+                <span className="relative z-10">{filter.label}</span>
+                {selectedCategory === filter.id && (
+                  <div className="absolute inset-0 bg-white/20 animate-pulse"></div>
+                )}
+              </button>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {portfolioItems
               .filter(item => selectedCategory === 'all' || item.category === selectedCategory)
               .map((item) => (
-                <div 
+                <div
                   key={item.id}
-                  className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                  className="group relative cursor-pointer"
                 >
-                  <img 
-                    src={item.image} 
-                    alt={item.title}
-                    className="w-full h-full object-cover aspect-[3/4]"
-                  />
-                  
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                      <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                      <button className="bg-white text-rose-400 px-6 py-2 rounded-full font-semibold hover:bg-rose-50 transition-colors">
-                        View Details
-                      </button>
+                  <div className="absolute inset-0 bg-gradient-to-br from-rose-400/30 to-purple-400/30 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+
+                  <div className="relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-4 border-white">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover aspect-[3/4] group-hover:scale-110 transition-transform duration-700"
+                    />
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
+                      <div className="absolute bottom-0 left-0 right-0 p-8 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <h3 className="text-2xl font-medium mb-4 drop-shadow-lg">{item.title}</h3>
+                        <button className="relative bg-white text-rose-500 px-8 py-3 rounded-2xl font-normal hover:bg-rose-50 transition-all shadow-xl overflow-hidden group/btn">
+                          <span className="relative z-10 ">View Details</span>
+                          <div className="absolute inset-0 bg-gradient-to-r from-rose-100 to-pink-100 opacity-0 group-hover/btn:opacity-100 transition-opacity"></div>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -523,27 +455,40 @@ export default function WeddingCardsPage() {
         </div>
       </section>
 
-      {/* Process Timeline */}
-      <section className="py-16 px-4 bg-white">
+      {/* Process Timeline - Modern Steps */}
+      <section className="px-4 py-24 bg-white">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-rose-400 mb-12">
-            How It Works
-          </h2>
+
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
+              How It <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Works</span>
+            </h2>
+            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Trusted by thousands of happy brides for their special day</p>
+          </div>
 
           <div className="space-y-8">
             {[
-              { step: '01', title: 'Choose Your Design', desc: 'Browse our collection or request a custom design' },
-              { step: '02', title: 'Customize Details', desc: 'Add your wedding information, colors, and personal touches' },
-              { step: '03', title: 'Approve Sample', desc: 'Review and approve your digital or physical sample' },
-              { step: '04', title: 'Print & Deliver', desc: 'We print and deliver your cards to your doorstep' }
+              { step: '01', title: 'Choose Your Design', desc: 'Browse our collection or request a custom design', gradient: 'from-rose-500 to-pink-500' },
+              { step: '02', title: 'Customize Details', desc: 'Add your wedding information, colors, and personal touches', gradient: 'from-pink-500 to-purple-500' },
+              { step: '03', title: 'Approve Sample', desc: 'Review and approve your digital or physical sample', gradient: 'from-purple-500 to-rose-500' },
+              { step: '04', title: 'Print & Deliver', desc: 'We print and deliver your cards to your doorstep', gradient: 'from-rose-500 to-orange-500' }
             ].map((item, index) => (
-              <div key={index} className="flex items-center gap-6 group">
-                <div className="flex-shrink-0 w-20 h-20 bg-rose-400 text-white rounded-full flex items-center justify-center text-2xl font-bold group-hover:scale-110 transition-transform">
-                  {item.step}
+              <div key={index} className="group flex items-center gap-8">
+                {/* Number Circle */}
+                <div className="relative flex-shrink-0">
+                  <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-30 rounded-full blur-xl group-hover:opacity-50 transition-all`}></div>
+                  <div className={`relative w-24 h-24 bg-gradient-to-br ${item.gradient} text-white rounded-full flex items-center justify-center text-3xl font-bold group-hover:scale-110 transition-all shadow-xl`}>
+                    {item.step}
+                  </div>
                 </div>
-                <div className="flex-1 bg-rose-50 p-6 rounded-2xl group-hover:bg-rose-100 transition-colors">
-                  <h3 className="text-xl font-bold text-rose-400 mb-2">{item.title}</h3>
-                  <p className="text-gray-600">{item.desc}</p>
+
+                {/* Content Card */}
+                <div className="flex-1 relative">
+                  <div className={`absolute inset-0 bg-gradient-to-r ${item.gradient} opacity-10 rounded-3xl blur-lg group-hover:opacity-20 transition-all`}></div>
+                  <div className="relative bg-white/80 backdrop-blur-sm p-8 rounded-3xl border border-gray-100 shadow-lg group-hover:shadow-xl transition-all">
+                    <h3 className={`text-2xl font-medium bg-gradient-to-r ${item.gradient} bg-clip-text text-transparent mb-3`}>{item.title}</h3>
+                    <p className="text-gray-600 text-lg">{item.desc}</p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -551,30 +496,45 @@ export default function WeddingCardsPage() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-16 px-4 bg-rose-50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-rose-400 mb-12">
-            What Our Couples Say
-          </h2>
+      {/* Testimonials - Modern Glassmorphic */}
+      <section className="py-24 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-rose-50 via-purple-50/50 to-pink-50"></div>
+        <div className="absolute top-20 left-20 w-96 h-96 bg-rose-300/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-300/20 rounded-full blur-3xl"></div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="relative max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
+              What Our <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Couples Say</span>
+            </h2>
+            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Real words from real love stories</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
-              { name: 'Priya & Rahul', review: 'The laser-cut designs were absolutely stunning! Our guests loved the intricate details.', image: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=200&h=200&fit=crop' },
-              { name: 'Anjali & Vikram', review: 'ShaadiBAzaar made our dream cards a reality. The customization options were endless!', image: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=200&h=200&fit=crop' },
-              { name: 'Neha & Arjun', review: 'From consultation to delivery, the service was impeccable. Highly recommended!', image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=200&h=200&fit=crop' }
+              { name: 'Priya & Rahul', review: 'The laser-cut designs were absolutely stunning! Our guests loved the intricate details.', image: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=200&h=200&fit=crop', gradient: 'from-rose-500 to-pink-500' },
+              { name: 'Anjali & Vikram', review: 'ShaadiBAzaar made our dream cards a reality. The customization options were endless!', image: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=200&h=200&fit=crop', gradient: 'from-pink-500 to-purple-500' },
+              { name: 'Neha & Arjun', review: 'From consultation to delivery, the service was impeccable. Highly recommended!', image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=200&h=200&fit=crop', gradient: 'from-purple-500 to-rose-500' }
             ].map((testimonial, index) => (
-              <div key={index} className="bg-white p-8 rounded-2xl shadow-lg">
-                <div className="flex justify-center mb-4">
-                  <img 
-                    src={testimonial.image} 
-                    alt={testimonial.name}
-                    className="w-16 h-16 rounded-full object-cover border-4 border-rose-400"
-                  />
+              <div key={index} className="group relative">
+                <div className={`absolute inset-0 bg-gradient-to-br ${testimonial.gradient} opacity-20 rounded-3xl blur-xl group-hover:opacity-30 transition-all`}></div>
+
+                <div className="relative bg-white/70 backdrop-blur-lg p-10 rounded-3xl border border-white/50 shadow-xl hover:shadow-2xl transition-all group-hover:scale-105">
+                  <div className="flex justify-center mb-6">
+                    <div className="relative">
+                      <div className={`absolute inset-0 bg-gradient-to-br ${testimonial.gradient} rounded-full blur-md`}></div>
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className={`relative w-20 h-20 rounded-full object-cover border-4 border-white shadow-xl ring-4 ring-transparent group-hover:ring-opacity-50 transition-all`}
+                        style={{ borderImage: `linear-gradient(to right, var(--tw-gradient-stops)) 1` }}
+                      />
+                    </div>
+                  </div>
+                  <div className={`text-6xl mb-6 text-center bg-gradient-to-r ${testimonial.gradient} bg-clip-text text-transparent`}>"</div>
+                  <p className="text-gray-700 mb-8 italic text-center leading-relaxed text-lg">{testimonial.review}</p>
+                  <p className={`font-medium text-center text-xl bg-gradient-to-r ${testimonial.gradient} bg-clip-text text-transparent`}>- {testimonial.name}</p>
                 </div>
-                <div className="text-rose-400 text-4xl mb-4 text-center">"</div>
-                <p className="text-gray-700 mb-6 italic text-center">{testimonial.review}</p>
-                <p className="text-rose-400 font-bold text-center">- {testimonial.name}</p>
               </div>
             ))}
           </div>

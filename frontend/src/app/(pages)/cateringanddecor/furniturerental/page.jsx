@@ -6,54 +6,54 @@ export default function WeddingFurnitureSite() {
         {
             title: "Lounge & Seating",
             description: "Cozy sofas, ottomans, and chairs — perfect for reception and cocktail zones.",
-            image: "https://i.pinimg.com/1200x/cc/c4/a7/ccc4a762e724c4f023bf800aca24cead.jpg"
+            image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762342334/category-1_lfwrso.jpg"
         },
         {
             title: "Tables & Dining",
             description: "From rustic wood to mirror-top elegance, our tables create unforgettable setups.",
-            image: "https://i.pinimg.com/736x/35/3d/e1/353de1afe68a8907787d6510efbe4845.jpg"
+            image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762342333/category-2_tgo48r.jpg"
         },
         {
             title: "Stage & Backdrop Décor",
             description: "Royal chairs, arches, and backdrop pieces that define your 'I do' moment.",
-            image: "https://i.pinimg.com/736x/de/17/10/de1710c6edf0023bd35449e58de8f239.jpg"
+            image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762342333/category-3_bqb0vm.jpg"
         },
         {
             title: "Accent & Lighting",
             description: "Add charm with side tables, floral stands, and mood lighting.",
-            image: "https://i.pinimg.com/1200x/e8/c4/98/e8c49881b0ee1de1aa62577b003e1a44.jpg"
+            image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762342334/category-4_jbvtph.jpg"
         }
     ];
 
     const galleryImages = [
         {
 
-            url: "https://i.pinimg.com/1200x/a7/73/46/a773463f74c012f0edefa1c774983279.jpg",
+            url: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762342451/gallery-images-1_usconu.jpg",
             label: "Rustic Outdoor Setup"
         },
         {
 
-            url: "https://i.pinimg.com/1200x/e3/d8/fb/e3d8fbc585add0ae821b550da54c3e03.jpg",
+            url: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762342450/gallery-images-2_oja3do.jpg",
             label: "Royal Gold Stage"
         },
         {
 
-            url: "https://i.pinimg.com/736x/4b/2c/85/4b2c8549d3055c83d31e25c8e17fbdcc.jpg",
+            url: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762342448/gallery-images-3_yzb3ca.jpg",
             label: "Elegant Reception"
         },
         {
 
-            url: "https://i.pinimg.com/736x/6a/93/ba/6a93bac58b201ba55a70963a7d275550.jpg",
+            url: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762342454/gallery-images-4_awlo5a.jpg",
             label: "Garden Party Setup"
         },
         {
 
-            url: "https://i.pinimg.com/736x/70/8f/cf/708fcf635ffe887d8bfd96b8f1e2ff0e.jpg",
+            url: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762342446/gallery-images-5_zhzteo.jpg",
             label: "Intimate Ceremony"
         },
         {
 
-            url: "https://i.pinimg.com/736x/a2/45/fb/a245fb3f7c72c15b91438855ced34043.jpg",
+            url: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1762342445/gallery-images-6_squt62.jpg",
             label: "Grand Celebration"
         }
     ];
@@ -66,7 +66,7 @@ export default function WeddingFurnitureSite() {
                 <div
                     className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                     style={{
-                        backgroundImage: `url('https://i.pinimg.com/1200x/be/b4/bd/beb4bdef953253d6f0b3d7519a3aaf93.jpg')`,
+                        backgroundImage: `url('https://res.cloudinary.com/dewxpvl5s/image/upload/v1762342551/furniture-hero_kzy3vd.jpg')`,
                     }}
                 >
                     {/* Dark Overlay for better text readability */}
@@ -84,7 +84,7 @@ export default function WeddingFurnitureSite() {
                         </h1>
 
                         {/* CTA Button */}
-                        <button className="inline-flex items-center gap-3 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+                        <button className="inline-flex cursor-pointer items-center gap-3 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
                             <span>Furniture Gallery</span>
                             <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
                                 <svg
@@ -100,9 +100,6 @@ export default function WeddingFurnitureSite() {
                     </div>
                 </div>
             </section>
-
-
-
 
 
 
@@ -122,12 +119,12 @@ export default function WeddingFurnitureSite() {
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                         <img
-                            src="https://i.pinimg.com/736x/0a/b4/72/0ab4722b73d4103733982aa9c2e0a95a.jpg"
+                            src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762342648/craftman_abvopf.jpg"
                             alt="Craftsmanship"
                             className="rounded-lg shadow-lg w-full h-64 object-cover"
                         />
                         <img
-                            src="https://i.pinimg.com/736x/62/5d/9a/625d9a9ea458923a2f156d5ff9f1219b.jpg"
+                            src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762342648/wedding-setup_gdjvml.jpg"
                             alt="Wedding Setup"
                             className="rounded-lg shadow-lg w-full h-64 object-cover mt-8"
                         />
@@ -138,17 +135,11 @@ export default function WeddingFurnitureSite() {
             {/* Categories Section */}
             <section className="py-20 px-4 bg-white">
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <div className="inline-flex items-center gap-2 mb-4 text-amber-700">
-                            <Heart size={20} />
-                            <span className="text-sm tracking-widest uppercase">Find Your Style</span>
-                        </div>
-                        <h2 className="text-4xl md:text-5xl font-serif text-stone-800 mb-4">
-                            Explore Our Collection
+                    <div className="text-center mb-18">
+                        <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
+                            Explore Our <span className='text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-pink-500'>Collection</span>
                         </h2>
-                        <p className="text-stone-600 max-w-2xl mx-auto">
-                            Choose from our curated range of wedding furniture categories, each crafted to fit your unique style.
-                        </p>
+                        <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">                            Choose from our curated range of wedding furniture categories, each crafted to fit your unique style</p>
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -191,24 +182,24 @@ export default function WeddingFurnitureSite() {
                             <p className="text-stone-700 font-medium mb-8">
                                 Share your inspiration, and we'll bring it to life.
                             </p>
-                            <button className="bg-stone-800 hover:bg-stone-900 text-white px-8 py-4 rounded-full w-fit transition-all transform hover:scale-105 inline-flex items-center gap-2">
+                            <button className="bg-stone-800 cursor-pointer hover:bg-stone-900 text-white px-8 py-4 rounded-full w-fit transition-all transform hover:scale-105 inline-flex items-center gap-2">
                                 Start Customizing
                                 <ChevronRight size={20} />
                             </button>
                         </div>
                         <div className="grid grid-cols-2 gap-4 p-8">
                             <img
-                                src="https://i.pinimg.com/736x/18/88/a9/1888a9cfed564d9664dfbbab792f1120.jpg"
+                                src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762342754/customized-furniture-1_fs6pgb.jpg"
                                 alt="Design Process"
                                 className="rounded-lg shadow-lg w-full h-48 object-cover"
                             />
                             <img
-                                src="https://i.pinimg.com/736x/3a/2a/7d/3a2a7dca517f5e48252a1a814898ef02.jpg"
+                                src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762342751/customized-furniture-2_yoqnyx.jpg"
                                 alt="Crafting"
                                 className="rounded-lg shadow-lg w-full h-48 object-cover mt-8"
                             />
                             <img
-                                src="https://i.pinimg.com/1200x/f4/4a/59/f44a59e3efcef15c7e5134834157b630.jpg"
+                                src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762342750/customized-furniture-3_qwmb5x.jpg"
                                 alt="Final Setup"
                                 className="rounded-lg shadow-lg w-full h-48 object-cover col-span-2"
                             />
@@ -220,13 +211,12 @@ export default function WeddingFurnitureSite() {
             {/* Gallery Section */}
             <section className="py-20 px-4 bg-white">
                 <div className="max-w-7xl mx-auto">
+
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl font-serif text-stone-800 mb-4">
-                            Our Past Creations
+                        <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
+                            Our Past <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Creations</span>
                         </h2>
-                        <p className="text-stone-600 max-w-2xl mx-auto">
-                            A glimpse into the weddings we've transformed — every detail handcrafted with love.
-                        </p>
+                        <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">                   A glimpse into the weddings we've transformed — every detail handcrafted with love</p>
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -248,26 +238,6 @@ export default function WeddingFurnitureSite() {
                                 </div>
                             </div>
                         ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Contact Section */}
-            <section className="py-20 px-4 bg-stone-800 text-white">
-                <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-4xl md:text-5xl font-serif mb-6">
-                        Let's Create Your Dream Setup
-                    </h2>
-                    <p className="text-stone-300 text-lg mb-10 max-w-2xl mx-auto">
-                        Reach out to book your rentals or discuss custom designs for your celebration.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <button className="bg-white hover:bg-stone-100 text-stone-800 px-8 py-4 rounded-full text-lg font-medium transition-all transform hover:scale-105">
-                            View Catalog
-                        </button>
-                        <button className="bg-amber-700 hover:bg-amber-800 text-white px-8 py-4 rounded-full text-lg font-medium transition-all transform hover:scale-105">
-                            Contact Us
-                        </button>
                     </div>
                 </div>
             </section>

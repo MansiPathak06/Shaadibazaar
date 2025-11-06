@@ -1,6 +1,6 @@
 "use client";
 import { useState } from 'react';
-import { ChevronRight, MapPin, Leaf, Star, Play, X } from 'lucide-react';
+import { ChevronRight, Play, X } from 'lucide-react';
 
 export default function GardensVenue() {
   const [selectedVideo, setSelectedVideo] = useState(null);
