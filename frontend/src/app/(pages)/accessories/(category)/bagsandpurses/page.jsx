@@ -283,7 +283,7 @@ const BagsAndPurses = () => {
 
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-                our full line
+                our <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>full line</span>
               </h2>
               <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Handcrafted bags and accessories for every occasion</p>
             </div>
@@ -355,7 +355,7 @@ const BagsAndPurses = () => {
 
               <div className="text-center mb-12">
                 <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-                  just of the line
+                  just <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>of the</span> line
                 </h2>
                 <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Discover our latest handcrafted collections</p>
               </div>

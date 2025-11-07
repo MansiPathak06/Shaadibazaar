@@ -219,10 +219,10 @@ const Jewellery = () => {
             src={heroData.image}
             alt="Jewellery Collection"
             className="w-full h-full object-cover"
-            // onError={(e) => {
-            //   e.target.src =
-            //     "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1920&q=80";
-            // }}
+          // onError={(e) => {
+          //   e.target.src =
+          //     "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1920&q=80";
+          // }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent"></div>
         </div>
@@ -256,7 +256,7 @@ const Jewellery = () => {
           <div className="text-center mb-6 mt-12">
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-                shop by seller
+                shop by <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">seller</span>
               </h2>
               <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Your Favorite Sellers, all in one place</p>
             </div>
@@ -277,22 +277,27 @@ const Jewellery = () => {
           {/* Product Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {bestSellers.map((product) => (
-              <div
-                key={product.id}
+              <Link
+                key={product.id}  // ✅ Fix: key goes here
+                href={`/accessories/${product.id}`} // ✅ Fix: href goes here
                 className="group relative bg-white rounded-sm overflow-hidden hover:shadow-xl transition-all duration-300"
               >
-                {/* Product Image Container */}
+                {/* ✅ Product Image Container */}
                 <div className="relative aspect-[3/4] bg-gray-50 overflow-hidden">
-                  {/* Badge */}
+
+                  {/* ✅ Badge (if product has one) */}
                   {product.badge && (
                     <div className="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-sm z-10">
                       {product.badge}
                     </div>
                   )}
 
-                  {/* Favorite Button */}
+                  {/* ✅ Favorite (Heart) Button */}
                   <button
-                    onClick={() => toggleFavorite(product.id)}
+                    onClick={(e) => {
+                      e.preventDefault(); // ✅ Prevent Link navigation when clicking heart
+                      toggleFavorite(product.id);
+                    }}
                     className="absolute top-3 right-3 bg-white p-2 rounded-full shadow-md z-10 hover:bg-rose-50 transition-colors"
                     aria-label="Add to favorites"
                   >
@@ -306,31 +311,32 @@ const Jewellery = () => {
                     />
                   </button>
 
-                  {/* Product Image */}
+                  {/* ✅ Product Image */}
                   <img
                     src={product.image}
                     alt={product.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    onError={(e) => {
-                      e.target.src =
-                        "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400";
-                    }}
+                    // onError={(e) => {
+                    //   e.target.src =
+                    //     "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400";
+                    // }}
                   />
                 </div>
 
-                {/* Product Info */}
+                {/* ✅ Product Info */}
                 <div className="p-4">
+                  {/* ✅ Product Name */}
                   <h3 className="text-base font-medium text-gray-800 mb-2 line-clamp-1">
                     {product.name}
                   </h3>
 
-                  {/* Rating */}
+                  {/* ✅ Rating */}
                   <div className="flex items-center gap-1 mb-3">
                     <Star size={14} className="text-amber-400 fill-amber-400" />
                     <span className="text-sm text-gray-600">{product.rating}</span>
                   </div>
 
-                  {/* Price */}
+                  {/* ✅ Price, Discount, Original Price */}
                   <div className="flex items-center gap-2">
                     <span className="text-lg font-semibold text-gray-800">
                       {product.price}
@@ -343,7 +349,7 @@ const Jewellery = () => {
                     </span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -386,7 +392,7 @@ const Jewellery = () => {
 
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Jewellery Collection
+              Jewellery <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">collection</span>
             </h2>
             <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2"> Discover our stunning range of jewellery crafted to perfection for your special moments</p>
           </div>
@@ -508,7 +514,7 @@ const Jewellery = () => {
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Discover Our Range
+              Discover <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Our Range</span>
             </h2>
             <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Where elegance meets sparkle</p>
           </div>
@@ -526,10 +532,10 @@ const Jewellery = () => {
                   src={collection.image}
                   alt={collection.name}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  // onError={(e) => {
-                  //   e.target.src =
-                  //     "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=500";
-                  // }}
+                // onError={(e) => {
+                //   e.target.src =
+                //     "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=500";
+                // }}
                 />
 
                 {/* Overlay */}
