@@ -34,8 +34,8 @@ const HeroSection = () => {
                   Off Premium
                 </span>
                 <br />
-                <span className="text-slate-600 font-light text-4xl md:text-5xl">
-                  Perfumes
+                <span className="text-slate-600 font-normal text-4xl md:text-6xl">
+                  <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>perfumes</span>
                 </span>
               </h1>
             </div>
@@ -44,7 +44,7 @@ const HeroSection = () => {
             <div className="space-y-4">
               <div className="text-xl md:text-2xl text-slate-600">
                 Free shipping on orders over{' '}
-                <span className="font-bold text-yellow-600 text-2xl md:text-3xl">
+                <span className="font-light text-yellow-600 text-2xl md:text-3xl">
                   ₹990
                 </span>
               </div>
@@ -80,12 +80,19 @@ const HeroSection = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
+<<<<<<< HEAD
                <Link href={ALL_PRODUCTS_URL} prefetch={false}>
               <button className="bg-linear-to-r from-yellow-500 to-yellow-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
                 SHOP NOW
               </button>
               </Link>
               <button className="border-2 border-slate-300 text-slate-700 px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-slate-50 hover:border-slate-400 transition-all duration-300">
+=======
+              <button className="bg-linear-to-r from-yellow-500 to-yellow-600 text-white px-8 py-4 rounded-2xl font-normal cursor-pointer text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                SHOP NOW
+              </button>
+              <button className="border-2 border-slate-300 text-slate-700 px-8 py-4 rounded-2xl font-normal cursor-pointer text-lg hover:bg-slate-50 hover:border-slate-400 transition-all duration-300">
+>>>>>>> bb43073841318833c5671540de4a1e1af324d510
                 View Catalog
               </button>
             </div>
@@ -234,7 +241,7 @@ const ProductCard = () => {
 
       <div className="text-center mb-16">
         <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-          Signature Scents
+          Signature <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Scents</span>
         </h2>
         <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Where Elegance Meets Essence</p>
       </div>
@@ -314,7 +321,7 @@ const ProductCard = () => {
                     </div>
 
                     {/* Product Name */}
-                    <h3 className="text-2xl font-bold text-slate-800 leading-tight">
+                    <h3 className="text-2xl font-medium text-slate-800 leading-tight">
                       {product.name}
                     </h3>
 
@@ -328,18 +335,18 @@ const ProductCard = () => {
                   <div className="space-y-4">
                     {/* Price */}
                     <div className="flex items-center gap-3">
-                      <span className="text-3xl font-bold text-slate-800">
+                      <span className="text-3xl font-medium text-slate-800">
                         ₹{product.price}
                       </span>
                       {product.originalPrice && (
                         <span className="text-lg text-slate-400 line-through">
-                          ${product.originalPrice}
+                          ₹{product.originalPrice}
                         </span>
                       )}
                     </div>
 
                     {/* Action Button */}
-                    <button className="w-full  bg-linear-to-r from-rose-500 to-pink-500 text-white py-3 px-6 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl hover:from-rose-600 hover:to-pink-600 transform hover:scale-[1.02] transition-all duration-300 cursor-pointer">
+                    <button className="w-full  bg-linear-to-r from-rose-500 to-pink-500 text-white py-3 px-6 rounded-2xl font-normal text-lg shadow-lg hover:shadow-xl hover:from-rose-600 hover:to-pink-600 transform hover:scale-[1.02] transition-all duration-300 cursor-pointer">
                       Add to Cart
                     </button>
                   </div>
@@ -351,7 +358,7 @@ const ProductCard = () => {
 
         {/* Load More Button */}
         <Fragment>
-          <div className='flex justify-center py-12'>
+          <div className='flex justify-center pt-22 pb-8'>
             <button
               className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900"
             >
@@ -402,7 +409,7 @@ const PromoBanner = () => {
 
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-            Luxury Fragrance Collection
+            Luxury Fragrance <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Collection</span>
           </h2>
           <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Premium perfumes crafted for modern sophistication</p>
         </div>
@@ -602,7 +609,7 @@ const SpecialOffers = () => {
 
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-            Featured Fragrances
+            Featured <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Fragrances</span>
           </h2>
           <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Experience rose-inspired elegance with a touch of romance</p>
         </div>
@@ -628,11 +635,11 @@ const SpecialOffers = () => {
                   <div className="absolute inset-0 bg-linear-to-t from-black/30 via-transparent to-transparent"></div>
 
                   {/* Badges */}
-                  <div className="absolute top-4 left-4 bg-linear-to-r from-rose-500 to-pink-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                  <div className="absolute top-4 left-4 bg-linear-to-r from-rose-500 to-pink-500 text-white text-xs font-normal px-3 py-1.5 rounded-full shadow-lg">
                     {product.discount}
                   </div>
 
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-rose-600 text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg">
+                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-rose-600 text-xs font-normal px-3 py-1.5 rounded-full shadow-lg">
                     {product.badge}
                   </div>
 
@@ -674,7 +681,7 @@ const SpecialOffers = () => {
                   </div>
 
                   {/* Product Name */}
-                  <h3 className="text-xl font-bold text-slate-800 mb-3 leading-tight">
+                  <h3 className="text-xl font-medium text-slate-800 mb-3 leading-tight">
                     {product.name}
                   </h3>
 
@@ -715,12 +722,12 @@ const SpecialOffers = () => {
             </div>
 
             <div className="relative z-10 space-y-6">
-              <div className="inline-flex items-center gap-2 bg-rose-100 border border-rose-200 rounded-full px-4 py-2 text-sm font-bold text-rose-700">
+              <div className="inline-flex items-center gap-2 bg-rose-100 border border-rose-200 rounded-full px-4 py-2 text-sm font-normal text-rose-700">
                 <span className="w-2 h-2 bg-rose-500 rounded-full animate-pulse"></span>
                 LIMITED TIME OFFER
               </div>
 
-              <h3 className="text-3xl md:text-4xl font-bold leading-tight text-gray-800">
+              <h3 className="text-3xl md:text-4xl font-medium leading-tight text-gray-800">
                 Rose Collection
                 <br />
                 <span className="bg-linear-to-r from-rose-500 to-rose-600 bg-clip-text text-transparent">
@@ -732,7 +739,7 @@ const SpecialOffers = () => {
                 Save up to 50% on all rose-inspired fragrances. Limited stock available.
               </p>
 
-              <button className="group bg-linear-to-r from-rose-500 to-rose-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-lg hover:shadow-xl hover:from-rose-600 hover:to-rose-700 transition-all duration-300 hover:scale-105 cursor-pointer">
+              <button className="group bg-linear-to-r from-rose-500 to-rose-600 text-white px-8 py-4 rounded-2xl font-medium text-lg shadow-lg hover:shadow-xl hover:from-rose-600 hover:to-rose-700 transition-all duration-300 hover:scale-105 cursor-pointer">
                 <span className="flex items-center gap-2">
                   SHOP ROSES
                   <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -756,12 +763,12 @@ const SpecialOffers = () => {
             </div>
 
             <div className="relative z-10 space-y-6">
-              <div className="inline-flex items-center gap-2 bg-pink-100 border border-pink-200 rounded-full px-4 py-2 text-sm font-bold text-pink-700">
+              <div className="inline-flex items-center gap-2 bg-pink-100 border border-pink-200 rounded-full px-4 py-2 text-sm font-medium text-pink-700">
                 <span className="w-2 h-2 bg-pink-500 rounded-full animate-pulse"></span>
                 PREMIUM COLLECTION
               </div>
 
-              <h3 className="text-3xl md:text-4xl font-bold leading-tight text-gray-800">
+              <h3 className="text-3xl md:text-4xl font-medium leading-tight text-gray-800">
                 Pink Paradise
                 <br />
                 <span className="bg-linear-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">
@@ -773,7 +780,7 @@ const SpecialOffers = () => {
                 Get 2 premium pink fragrances and receive the 3rd one absolutely free this month.
               </p>
 
-              <button className="group bg-linear-to-r from-yellow-400 to-orange-400 text-gray-800 px-8 py-4 rounded-2xl font-bold text-lg shadow-lg hover:shadow-xl hover:from-yellow-500 hover:to-orange-500 transition-all duration-300 hover:scale-105 cursor-pointer">
+              <button className="group bg-linear-to-r from-yellow-400 to-orange-400 text-gray-800 px-8 py-4 rounded-2xl font-medium text-lg shadow-lg hover:shadow-xl hover:from-yellow-500 hover:to-orange-500 transition-all duration-300 hover:scale-105 cursor-pointer">
                 <span className="flex items-center gap-2">
                   SHOP PINK
                   <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -872,7 +879,7 @@ const FeaturedProducts = () => {
           {/* Header Section */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              The Essence of Elegance
+              The <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Essence</span> of <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Elegance</span>
             </h2>
             <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">
               Let your scent tell a story of passion and allure
@@ -894,13 +901,13 @@ const FeaturedProducts = () => {
                     {/* Image Section */}
                     <div className={`relative overflow-hidden ${isLarge ? 'h-80' : 'h-48'} flex-shrink-0`}>
                       {/* Category Badge */}
-                      <div className="absolute top-4 left-4 bg-gradient-to-r from-black/70 to-black/50 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-full z-10 shadow-lg">
+                      <div className="absolute top-4 left-4 bg-gradient-to-r from-black/70 to-black/50 backdrop-blur-sm text-white text-xs font-normal px-3 py-1.5 rounded-full z-10 shadow-lg">
                         {product.category}
                       </div>
 
                       {/* Special Badge */}
                       {product.badge && (
-                        <div className="absolute top-4 right-4 bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-xs font-bold px-3 py-1.5 rounded-full z-10 shadow-lg animate-pulse">
+                        <div className="absolute top-4 right-4 bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-xs font-normal px-3 py-1.5 rounded-full z-10 shadow-lg animate-pulse">
                           {product.badge}
                         </div>
                       )}
@@ -958,7 +965,7 @@ const FeaturedProducts = () => {
                       </div>
 
                       {/* Product Name */}
-                      <h3 className={`font-bold text-slate-800 mb-3 leading-tight ${isLarge ? 'text-2xl' : 'text-lg'}`}>
+                      <h3 className={`font-medium text-slate-800 mb-3 leading-tight ${isLarge ? 'text-2xl' : 'text-lg'}`}>
                         {product.name}
                       </h3>
 
@@ -970,12 +977,12 @@ const FeaturedProducts = () => {
                       {/* Price and Action */}
                       <div className="flex items-center justify-between mt-auto gap-4">
                         <div className="flex items-center gap-2">
-                          <span className={`font-bold text-slate-800 ${isLarge ? 'text-2xl' : 'text-xl'}`}>
-                            ${product.price}
+                          <span className={`font-normal text-slate-800 ${isLarge ? 'text-2xl' : 'text-xl'}`}>
+                            ₹{product.price}
                           </span>
                           {product.originalPrice && (
                             <span className={`text-slate-400 line-through ${isLarge ? 'text-lg' : 'text-sm'}`}>
-                              ${product.originalPrice}
+                              ₹{product.originalPrice}
                             </span>
                           )}
                         </div>
@@ -992,7 +999,7 @@ const FeaturedProducts = () => {
           </div>
 
           {/* Bottom CTA Section */}
-          <div className='flex justify-center py-12'>
+          <div className='flex justify-center pt-22'>
             <button
               className="group relative px-10 py-4 bg-neutral-900 text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900 hover:bg-neutral-800 hover:border-neutral-800"
             >

@@ -349,11 +349,7 @@ export default function Lounges() {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
     
-
-
-
 
 
       {/* Gallery Section */}

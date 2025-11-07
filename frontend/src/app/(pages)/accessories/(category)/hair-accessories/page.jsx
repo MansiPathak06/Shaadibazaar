@@ -226,7 +226,7 @@ const HairAccessoriesPage = () => {
 
             <div className="text-center mt-10 ">
               <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-                featured collection
+                featured <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>collection</span>
               </h2>
               <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Handpicked accessories to complete your bridal look</p>
             </div>
@@ -364,7 +364,7 @@ const HairAccessoriesPage = () => {
             {/* Header */}
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-                why brides love us
+                why <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>brides love</span> us
               </h2>
               <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Trusted by thousands of happy brides for their special day</p>
             </div>

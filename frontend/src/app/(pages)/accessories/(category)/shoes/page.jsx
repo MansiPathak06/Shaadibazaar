@@ -384,7 +384,7 @@ export default function FootwearShop() {
       <div className="max-w-7xl mx-auto pt-16 pb-6 px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-            step in style
+            step in <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>style</span>
           </h2>
           <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Showcasing this season’s most loved shoes</p>
         </div>
@@ -429,7 +429,7 @@ export default function FootwearShop() {
 
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-            the perfect pair collection
+            the <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>perfect</span> pair <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>collection</span>
           </h2>
           <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Complementary designs for the modern bride and groom</p>
         </div>
@@ -478,7 +478,7 @@ export default function FootwearShop() {
 
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-            Groom collection
+            Groom <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>collection</span>
           </h2>
           <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">style for the Aisle</p>
         </div>
@@ -521,7 +521,7 @@ export default function FootwearShop() {
 
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-            Bride Collection
+            Bride <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Collection</span>
           </h2>
           <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Grace in Every Step</p>
         </div>
@@ -667,7 +667,7 @@ const HeroSection = () => {
 
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              shop by category
+              shop by<span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'> category</span>
             </h2>
             <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Find the perfect pair for every occasion</p>
           </div>

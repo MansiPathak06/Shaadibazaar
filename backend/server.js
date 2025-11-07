@@ -5,11 +5,10 @@ require('dotenv').config();
 // Import routes
 const authRoutes = require('./routes/authRoutes');
 const vendorRoutes = require('./routes/vendorRoutes');
+const adminRoutes = require('./routes/adminRoutes'); // 👈 ADD THIS LINE
 const passport = require('passport');
 const session = require('express-session');
 require('./config/googleStrategy');
-
-
 
 const app = express();
 
@@ -19,14 +18,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(session({
-  secret: 'abcdefghijklmnopqrstuvwxyz', // Change to something secure!
+  secret: 'abcdefghijklmnopqrstuvwxyz',
   resave: false,
   saveUninitialized: false
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-
-
 
 // Request logging middleware
 app.use((req, res, next) => {
@@ -37,6 +34,7 @@ app.use((req, res, next) => {
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/vendor', vendorRoutes);
+app.use('/api/admin', adminRoutes); // 👈 ADD THIS LINE
 
 // Test route
 app.get('/', (req, res) => {
@@ -45,7 +43,8 @@ app.get('/', (req, res) => {
     version: '1.0.0',
     endpoints: {
       auth: '/api/auth',
-      vendor: '/api/vendor'
+      vendor: '/api/vendor',
+      admin: '/api/admin' // 👈 ADD THIS
     }
   });
 });
@@ -64,7 +63,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ 
     success: false, 
     message: 'Internal server error' 
-    });
+  });
 });
 
 // Start server
@@ -72,4 +71,5 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
   console.log(`📝 API Documentation: http://localhost:${PORT}/`);
+  console.log(`✅ Admin routes: /api/admin/*`); // 👈 ADD THIS
 });

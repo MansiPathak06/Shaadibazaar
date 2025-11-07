@@ -138,7 +138,7 @@ function PremiumWatchSection() {
         <div className="text-center mb-16">
           <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">discover</p>
           <h2 className="text-4xl md:text-6xl font-light text-neutral-800 tracking-tight uppercase">
-            trending products
+            trending <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>products</span>
           </h2>
         </div>
 
@@ -192,7 +192,7 @@ function PremiumWatchSection() {
                   Exploring new luxury living
                 </p>
                 <h2 className="text-4xl md:text-5xl font-light text-neutral-800 leading-tight">
-                  Metropolitan<br />moods
+                  Metropolitan<br /><span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>moods</span>
                 </h2>
               </div>
 
@@ -271,7 +271,7 @@ function WatchCollectionGrid() {
       <div className="text-center mb-16">
         <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">best sellers</p>
         <h2 className="text-4xl md:text-6xl font-light text-neutral-800 tracking-tight uppercase">
-          combined collection
+          combined <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>collection</span>
         </h2>
       </div>
 
@@ -360,7 +360,7 @@ function WatchBrandsGrid() {
         <div className="text-center mb-16">
           <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">your choice</p>
           <h2 className="text-4xl md:text-6xl font-light text-neutral-800 tracking-tight uppercase">
-            watch brands
+            watch <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>brands</span>
           </h2>
         </div>
 
@@ -535,7 +535,7 @@ function BestSellers() {
         <div className="text-center mb-16">
           <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">royal precision</p>
           <h2 className="text-4xl md:text-6xl font-light text-neutral-800 tracking-tight uppercase">
-            groom's collection
+            groom's <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>collection</span>
           </h2>
         </div>
 
@@ -724,7 +724,7 @@ function Sellers() {
         <div className="text-center mb-16 mt-6">
           <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">radiant moments</p>
           <h2 className="text-4xl md:text-6xl font-light text-neutral-800 tracking-tight uppercase">
-            bride's collection
+            bride's <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>collection</span>
           </h2>
         </div>
 

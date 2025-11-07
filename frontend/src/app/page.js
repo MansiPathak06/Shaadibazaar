@@ -13,11 +13,13 @@ import AccessoriesCollection from "../components/AccessoriesCollection";
 import CateringCollection from "../components/CateringCollection";
 import ModernWeddingGate from "../components/Herosection";
 import WeddingNavigation from '../components/Hero2'
+import Navbar from "@/components/Navbar";
 
 
 const page = () => {
   return (
     <div className="bg-linear-to-b from-rose-100 to-white">
+      <Navbar/>
       <ModernWeddingGate />
       {/* <WeddingNavigation /> */}
     </div>
