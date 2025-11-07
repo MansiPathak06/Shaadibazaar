@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
-import { Mail, Lock, User, Eye, EyeOff, Apple, Loader2 } from "lucide-react";
+import { Mail, Lock, User, Eye, EyeOff, Loader2 } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 
 // --- Your AuthPage component code ---
@@ -85,9 +85,24 @@ const AuthPage = () => {
           confirmPassword: "",
         });
 
-        setTimeout(() => {
-          window.location.href = "/";
-        }, 1500);
+        // ========== ADMIN REDIRECT LOGIC ==========
+        if (data.user.role === 'admin' && data.user.email === "team.zentrixinfotech@gmail.com") {
+          setTimeout(() => {
+            window.location.href = "/admin-dashboard";
+          }, 1500);
+        } 
+        // ========== VENDOR REDIRECT LOGIC ==========
+        else if (data.user.role === 'vendor') {
+          setTimeout(() => {
+            window.location.href = "/vendor-dashboard"; // You can create this later
+          }, 1500);
+        } 
+        // ========== REGULAR USER REDIRECT ==========
+        else {
+          setTimeout(() => {
+            window.location.href = "/";
+          }, 1500);
+        }
       } else {
         setError(data.message || "Something went wrong. Please try again.");
       }

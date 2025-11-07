@@ -6,6 +6,7 @@ import Image from "next/image"; // Add this import
 import { Heart, Star } from "lucide-react";
 import { Fragment } from "react";
 
+const CATEGORY_SLUG = "jewellery"; 
 
 const Jewellery = () => {
   const [favorites, setFavorites] = useState([]);
@@ -209,6 +210,9 @@ const Jewellery = () => {
     );
   };
 
+  // Build the single destination URL once
+  const ALL_PRODUCTS_URL = "/accessories/all-products?category=jewellery";
+
   return (
     <div className="w-full bg-white">
       {/* Hero Section */}
@@ -350,6 +354,7 @@ const Jewellery = () => {
 
         <Fragment>
           <div className='flex justify-center py-18'>
+            <Link href={ALL_PRODUCTS_URL} prefetch={false}></Link>
             <button
               className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900"
             >
@@ -357,6 +362,7 @@ const Jewellery = () => {
               <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
 
               {/* Button text */}
+              <Link href={ALL_PRODUCTS_URL} prefetch={false}>
               <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
                 View More Products
                 <svg
@@ -373,6 +379,7 @@ const Jewellery = () => {
                   />
                 </svg>
               </span>
+              </Link>
             </button>
           </div>
         </Fragment>
@@ -398,6 +405,12 @@ const Jewellery = () => {
                 key={category.id}
                 className="group relative bg-white rounded-sm overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer"
               >
+                 <Link
+                key={category.id}
+                href={ALL_PRODUCTS_URL}
+                prefetch={false}
+                className="group relative bg-white rounded-sm overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer"
+              ></Link>
                 {/* Image Container */}
                 <div className="relative aspect-[3/4] bg-gray-50 overflow-hidden">
                   {/* HOT Badge */}
