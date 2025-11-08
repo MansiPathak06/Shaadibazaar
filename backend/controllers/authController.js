@@ -38,10 +38,10 @@ exports.signup = async (req, res) => {
       });
     }
 
-    // Check if user already exists
+    // Check if email already exists in any table
     const [existingUsers] = await db.query(
-      'SELECT * FROM users WHERE email = ?',
-      [email]
+      'SELECT email FROM users WHERE email = ? UNION SELECT email FROM vendors WHERE email = ? UNION SELECT email FROM admins WHERE email = ?',
+      [email, email, email]
     );
 
     if (existingUsers.length > 0) {
@@ -89,7 +89,7 @@ exports.signup = async (req, res) => {
   }
 };
 
-// User/Admin Sign In Controller
+// User/Admin/Vendor Sign In Controller
 exports.signin = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -102,7 +102,7 @@ exports.signin = async (req, res) => {
       });
     }
 
-    // Check in admins table first
+    // ========== CHECK ADMINS TABLE FIRST ==========
     const [admins] = await db.query(
       'SELECT * FROM admins WHERE email = ?',
       [email]
@@ -139,48 +139,99 @@ exports.signin = async (req, res) => {
       });
     }
 
-    // Check in users table
+    // ========== CHECK USERS TABLE ==========
     const [users] = await db.query(
       'SELECT * FROM users WHERE email = ?',
       [email]
     );
 
-    if (users.length === 0) {
-      return res.status(401).json({ 
-        success: false, 
-        message: 'Invalid email or password' 
+    if (users.length > 0) {
+      const user = users[0];
+      
+      // Verify password
+      const isPasswordValid = await bcrypt.compare(password, user.password);
+
+      if (!isPasswordValid) {
+        return res.status(401).json({ 
+          success: false, 
+          message: 'Invalid email or password' 
+        });
+      }
+
+      // Create JWT token for user
+      const token = jwt.sign(
+        { id: user.id, email: user.email, role: user.role },
+        process.env.JWT_SECRET,
+        { expiresIn: '7d' }
+      );
+
+      return res.status(200).json({
+        success: true,
+        message: 'Login successful',
+        token,
+        user: {
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          role: user.role
+        }
       });
     }
 
-    const user = users[0];
-
-    // Verify password
-    const isPasswordValid = await bcrypt.compare(password, user.password);
-
-    if (!isPasswordValid) {
-      return res.status(401).json({ 
-        success: false, 
-        message: 'Invalid email or password' 
-      });
-    }
-
-    // Create JWT token for user
-    const token = jwt.sign(
-      { id: user.id, email: user.email, role: 'user' },
-      process.env.JWT_SECRET,
-      { expiresIn: '7d' }
+    // ========== CHECK VENDORS TABLE ==========
+    const [vendors] = await db.query(
+      'SELECT * FROM vendors WHERE email = ?',
+      [email]
     );
 
-    res.status(200).json({
-      success: true,
-      message: 'Login successful',
-      token,
-      user: {
-        id: user.id,
-        name: user.name,
-        email: user.email,
-        role: 'user'
+    if (vendors.length > 0) {
+      const vendor = vendors[0];
+      
+      // Verify password
+      const isPasswordValid = await bcrypt.compare(password, vendor.password);
+
+      if (!isPasswordValid) {
+        return res.status(401).json({ 
+          success: false, 
+          message: 'Invalid email or password' 
+        });
       }
+
+      // Check if vendor is approved
+      if (vendor.is_approved === 0 || vendor.is_approved === false) {
+        return res.status(403).json({ 
+          success: false, 
+          message: 'Your vendor account is pending admin approval. Please wait for approval to access your account.' 
+        });
+      }
+
+      // Create JWT token for vendor
+      const token = jwt.sign(
+        { id: vendor.id, email: vendor.email, role: 'vendor' },
+        process.env.JWT_SECRET,
+        { expiresIn: '7d' }
+      );
+
+      return res.status(200).json({
+        success: true,
+        message: 'Vendor login successful',
+        token,
+        user: {
+          id: vendor.id,
+          name: vendor.business_name || vendor.owner_name,
+          email: vendor.email,
+          role: 'vendor',
+          businessName: vendor.business_name,
+          businessType: vendor.business_type,
+          isApproved: vendor.is_approved
+        }
+      });
+    }
+
+    // ========== USER NOT FOUND IN ANY TABLE ==========
+    return res.status(401).json({ 
+      success: false, 
+      message: 'Invalid email or password. Please check your credentials.' 
     });
 
   } catch (error) {
@@ -205,7 +256,7 @@ exports.getProfile = async (req, res) => {
       query = 'SELECT id, name, email, role, created_at FROM admins WHERE id = ?';
     } else if (userRole === 'vendor') {
       tableName = 'vendors';
-      query = 'SELECT id, business_name, owner_name, email, phone, business_type, city, is_approved, role, created_at FROM vendors WHERE id = ?';
+      query = 'SELECT id, business_name, owner_name, email, phone, business_type, address, city, state, pincode, is_approved, role, created_at FROM vendors WHERE id = ?';
     } else {
       tableName = 'users';
       query = 'SELECT id, name, email, role, created_at FROM users WHERE id = ?';
