@@ -75,26 +75,30 @@ exports.getProductById = async (req, res) => {
 
 exports.createProduct = async (req, res) => {
   try {
-    const { name, description, price, rating, category, images, vendor_id } = req.body;
+    const { name, description, price, mrp, discount, rating, category, images, vendor_id, stock, featured } = req.body;
     
     // Validate required fields
-    if (!name || !description || !price || !category) {
+    if (!name || !description || !price || !category || !mrp) {
       return res.status(400).json({
         success: false,
-        message: 'Name, description, price, and category are required'
+        message: 'Name, description, price, MRP, and category are required'
       });
     }
     
     const [result] = await db.query(
-      'INSERT INTO products (name, description, price, rating, category, images, vendor_id) VALUES (?, ?, ?, ?, ?, ?, ?)',
+      'INSERT INTO products (name, description, price, mrp, discount, rating, category, images, vendor_id, stock, featured) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
       [
         name, 
         description, 
-        price, 
+        price,
+        mrp || price,
+        discount || 0,
         rating || 0, 
         category, 
         JSON.stringify(images || []), 
-        vendor_id || null
+        vendor_id || null,
+        stock || 0,
+        featured ? 1 : 0
       ]
     );
     
@@ -108,6 +112,7 @@ exports.createProduct = async (req, res) => {
     res.status(500).json({ success: false, message: error.message });
   }
 };
+
 
 exports.updateProduct = async (req, res) => {
   try {
@@ -225,6 +230,140 @@ exports.deleteUser = async (req, res) => {
     res.status(500).json({ success: false, message: error.message });
   }
 };
+
+// ==================== BULK IMPORT PRODUCTS ====================
+exports.bulkImportProducts = async (req, res) => {
+  try {
+    const products = req.body.products; // Array of products from Excel
+    
+    if (!Array.isArray(products) || products.length === 0) {
+      return res.status(400).json({
+        success: false,
+        message: 'No products data provided'
+      });
+    }
+
+    const insertedProducts = [];
+    const errors = [];
+
+    // Insert each product
+    for (let i = 0; i < products.length; i++) {
+      const product = products[i];
+      
+      try {
+        // Validate required fields
+        if (!product.name || !product.category || !product.price) {
+          errors.push({
+            row: i + 2, // Excel row (1 is header)
+            error: 'Missing required fields (name, category, price)'
+          });
+          continue;
+        }
+
+        // Parse images (can be comma-separated URLs)
+        let images = [];
+        if (product.images) {
+          if (typeof product.images === 'string') {
+            images = product.images.split(',').map(img => img.trim());
+          } else if (Array.isArray(product.images)) {
+            images = product.images;
+          }
+        }
+
+        // Insert into database
+        const [result] = await db.query(
+          'INSERT INTO products (name, description, price, mrp, discount, rating, category, images, vendor_id, stock, featured) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+          [
+            product.name,
+            product.description || '',
+            product.price,
+            product.mrp || product.price,
+            product.discount || 0,
+            product.rating || 0,
+            product.category,
+            JSON.stringify(images),
+            product.vendor_id || null,
+            product.stock || 0,
+            product.featured ? 1 : 0
+          ]
+        );
+
+        insertedProducts.push({
+          id: result.insertId,
+          name: product.name
+        });
+      } catch (error) {
+        errors.push({
+          row: i + 2,
+          name: product.name,
+          error: error.message
+        });
+      }
+    }
+
+    res.json({
+      success: true,
+      message: `Successfully imported ${insertedProducts.length} products`,
+      imported: insertedProducts.length,
+      failed: errors.length,
+      products: insertedProducts,
+      errors: errors
+    });
+  } catch (error) {
+    console.error('Bulk import error:', error);
+    res.status(500).json({ 
+      success: false, 
+      message: error.message 
+    });
+  }
+};
+
+// ==================== DOWNLOAD TEMPLATE ====================
+exports.downloadTemplate = async (req, res) => {
+  try {
+    const templateData = {
+      headers: [
+        'name',
+        'description',
+        'price',
+        'mrp',
+        'discount',
+        'rating',
+        'category',
+        'images',
+        'stock',
+        'featured',
+        'vendor_id'
+      ],
+      example: [
+        'Premium Diamond Necklace',
+        'Exquisite diamond necklace with 18k gold',
+        '250000',
+        '300000',
+        '17',
+        '4.8',
+        'jewellery',
+        'https://res.cloudinary.com/image1.jpg, https://res.cloudinary.com/image2.jpg',
+        '50',
+        '1',
+        ''
+      ]
+    };
+
+    res.json({
+      success: true,
+      template: templateData
+    });
+  } catch (error) {
+    console.error('Template download error:', error);
+    res.status(500).json({ 
+      success: false, 
+      message: error.message 
+    });
+  }
+};
+
+
 
 // ==================== VENDORS CRUD ====================
 exports.getAllVendors = async (req, res) => {

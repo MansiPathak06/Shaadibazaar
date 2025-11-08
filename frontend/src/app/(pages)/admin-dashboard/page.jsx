@@ -15,6 +15,9 @@ import {
   CheckCircle,
   XCircle,
   Loader2,
+  Upload,
+  Download,
+  FileSpreadsheet,
 } from "lucide-react";
 
 export default function AdminDashboard() {
@@ -30,15 +33,25 @@ export default function AdminDashboard() {
   const [searchTerm, setSearchTerm] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  
+  // ✅ Bulk Import States
+  const [showBulkImport, setShowBulkImport] = useState(false);
+  const [excelFile, setExcelFile] = useState(null);
+  const [importing, setImporting] = useState(false);
+  const [importResults, setImportResults] = useState(null);
 
   const [productForm, setProductForm] = useState({
     name: "",
     description: "",
     price: "",
+    mrp: "",
+    discount: "",
     rating: "",
     category: "",
     images: "",
     vendor_id: "",
+    stock: "",
+    featured: false,
   });
 
   // Check admin authentication
@@ -129,10 +142,14 @@ export default function AdminDashboard() {
           name: "",
           description: "",
           price: "",
+          mrp: "",
+          discount: "",
           rating: "",
           category: "",
           images: "",
           vendor_id: "",
+          stock: "",
+          featured: false,
         });
         fetchDashboardData();
       } else {
@@ -144,6 +161,131 @@ export default function AdminDashboard() {
     } finally {
       setLoading(false);
     }
+  };
+
+  // ✅ BULK IMPORT FUNCTIONS
+  const handleExcelUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      if (file.type !== 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' && 
+          file.type !== 'application/vnd.ms-excel' &&
+          file.type !== 'text/csv') {
+        setError('Please upload a valid Excel (.xlsx, .xls) or CSV file');
+        return;
+      }
+      setExcelFile(file);
+      setError('');
+      setImportResults(null);
+    }
+  };
+
+  const handleBulkImport = async () => {
+    if (!excelFile) {
+      setError('Please select a file first');
+      return;
+    }
+
+    setImporting(true);
+    setError('');
+    setSuccess('');
+
+    try {
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        try {
+          const data = new Uint8Array(e.target.result);
+          const XLSX = await import('xlsx');
+          const workbook = XLSX.read(data, { type: 'array' });
+          
+          const sheetName = workbook.SheetNames[0];
+          const worksheet = workbook.Sheets[sheetName];
+          const jsonData = XLSX.utils.sheet_to_json(worksheet);
+
+          if (jsonData.length === 0) {
+            setError('Excel file is empty');
+            setImporting(false);
+            return;
+          }
+
+          const token = localStorage.getItem('token');
+          const response = await fetch('http://localhost:5000/api/admin/products/bulk-import', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({ products: jsonData })
+          });
+
+          const result = await response.json();
+
+          if (result.success) {
+            setSuccess(`Successfully imported ${result.imported} products!`);
+            setImportResults(result);
+            setExcelFile(null);
+            fetchDashboardData();
+          } else {
+            setError(result.message);
+          }
+        } catch (err) {
+          console.error('Parse error:', err);
+          setError('Failed to parse Excel file: ' + err.message);
+        } finally {
+          setImporting(false);
+        }
+      };
+
+      reader.readAsArrayBuffer(excelFile);
+    } catch (error) {
+      console.error('Bulk import error:', error);
+      setError('Failed to import products');
+      setImporting(false);
+    }
+  };
+
+  const downloadTemplate = () => {
+    const templateData = [
+      {
+        name: 'Premium Diamond Necklace',
+        description: 'Exquisite diamond necklace with 18k gold',
+        price: 250000,
+        mrp: 300000,
+        discount: 17,
+        rating: 4.8,
+        category: 'jewellery',
+        images: 'https://res.cloudinary.com/image1.jpg, https://res.cloudinary.com/image2.jpg',
+        stock: 50,
+        featured: 1,
+        vendor_id: ''
+      },
+      {
+        name: 'Gold Earrings',
+        description: 'Beautiful gold earrings with intricate design',
+        price: 45000,
+        mrp: 55000,
+        discount: 18,
+        rating: 4.9,
+        category: 'jewellery',
+        images: 'https://res.cloudinary.com/image3.jpg',
+        stock: 100,
+        featured: 0,
+        vendor_id: ''
+      }
+    ];
+
+    const headers = Object.keys(templateData[0]).join(',');
+    const rows = templateData.map(row => Object.values(row).map(v => `"${v}"`).join(',')).join('\n');
+    const csv = headers + '\n' + rows;
+
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'products_template.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
   };
 
   const handleDeleteProduct = async (id) => {
@@ -181,14 +323,19 @@ export default function AdminDashboard() {
       name: product.name,
       description: product.description,
       price: product.price,
+      mrp: product.mrp || product.price,
+      discount: product.discount || '',
       rating: product.rating,
       category: product.category,
       images: Array.isArray(product.images)
         ? product.images.join(", ")
         : product.images,
       vendor_id: product.vendor_id || "",
+      stock: product.stock || '',
+      featured: product.featured || false,
     });
     setShowProductForm(true);
+    setShowBulkImport(false);
   };
 
   const handleDeleteUser = async (id) => {
@@ -470,26 +617,165 @@ export default function AdminDashboard() {
                   <h2 className="text-2xl font-bold text-gray-900">
                     Products Management
                   </h2>
-                  <button
-                    onClick={() => {
-                      setShowProductForm(!showProductForm);
-                      setEditingProduct(null);
-                      setProductForm({
-                        name: "",
-                        description: "",
-                        price: "",
-                        rating: "",
-                        category: "",
-                        images: "",
-                        vendor_id: "",
-                      });
-                    }}
-                    className="flex items-center gap-2 px-4 py-2 bg-rose-500 text-white rounded-lg hover:bg-rose-600 transition-colors"
-                  >
-                    <Plus className="w-4 h-4" />
-                    Add Product
-                  </button>
+                  <div className="flex gap-3">
+                    {/* ✅ Bulk Import Button */}
+                    <button
+                      onClick={() => {
+                        setShowBulkImport(!showBulkImport);
+                        setShowProductForm(false);
+                      }}
+                      className="flex items-center gap-2 px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
+                    >
+                      <Upload className="w-4 h-4" />
+                      Bulk Import
+                    </button>
+
+                    {/* Add Product Button */}
+                    <button
+                      onClick={() => {
+                        setShowProductForm(!showProductForm);
+                        setShowBulkImport(false);
+                        setEditingProduct(null);
+                        setProductForm({
+                          name: "",
+                          description: "",
+                          price: "",
+                          mrp: "",
+                          discount: "",
+                          rating: "",
+                          category: "",
+                          images: "",
+                          vendor_id: "",
+                          stock: "",
+                          featured: false,
+                        });
+                      }}
+                      className="flex items-center gap-2 px-4 py-2 bg-rose-500 text-white rounded-lg hover:bg-rose-600 transition-colors"
+                    >
+                      <Plus className="w-4 h-4" />
+                      Add Product
+                    </button>
+                  </div>
                 </div>
+
+                {/* ✅ Bulk Import Section */}
+                {showBulkImport && (
+                  <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
+                    <h3 className="text-lg font-semibold mb-4">Bulk Import Products</h3>
+                    
+                    {/* Download Template */}
+                    <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                      <div className="flex items-start gap-3">
+                        <FileSpreadsheet className="w-5 h-5 text-blue-600 mt-1" />
+                        <div className="flex-1">
+                          <h4 className="font-medium text-gray-900 mb-1">
+                            First time using bulk import?
+                          </h4>
+                          <p className="text-sm text-gray-600 mb-3">
+                            Download our template to see the required format with example data
+                          </p>
+                          <button
+                            onClick={downloadTemplate}
+                            className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm"
+                          >
+                            <Download className="w-4 h-4" />
+                            Download Template (CSV)
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* File Upload */}
+                    <div className="mb-4">
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Upload Excel/CSV File
+                      </label>
+                      <div className="flex items-center gap-3">
+                        <input
+                          type="file"
+                          accept=".xlsx,.xls,.csv"
+                          onChange={handleExcelUpload}
+                          className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-400 focus:border-transparent"
+                        />
+                        {excelFile && (
+                          <span className="text-sm text-green-600 font-medium flex items-center gap-2">
+                            <CheckCircle className="w-4 h-4" />
+                            {excelFile.name}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-xs text-gray-500 mt-2">
+                        Supported formats: .xlsx, .xls, .csv (Max 500 products per file)
+                      </p>
+                    </div>
+
+                    {/* Import Results */}
+                    {importResults && (
+                      <div className="mb-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+                        <h4 className="font-medium text-green-900 mb-2">
+                          Import Results
+                        </h4>
+                        <div className="text-sm text-green-700">
+                          <p className="flex items-center gap-2">
+                            <CheckCircle className="w-4 h-4" />
+                            Successfully imported: {importResults.imported} products
+                          </p>
+                          {importResults.failed > 0 && (
+                            <p className="text-red-600 mt-1 flex items-center gap-2">
+                              <XCircle className="w-4 h-4" />
+                              Failed: {importResults.failed} products
+                            </p>
+                          )}
+                        </div>
+                        {importResults.errors && importResults.errors.length > 0 && (
+                          <details className="mt-3">
+                            <summary className="cursor-pointer text-sm font-medium text-red-600 hover:text-red-700">
+                              View Errors ({importResults.errors.length})
+                            </summary>
+                            <div className="mt-2 text-xs text-red-600 space-y-1 max-h-40 overflow-y-auto">
+                              {importResults.errors.map((err, idx) => (
+                                <div key={idx} className="p-2 bg-red-50 rounded">
+                                  Row {err.row}: {err.name || 'Unknown'} - {err.error}
+                                </div>
+                              ))}
+                            </div>
+                          </details>
+                        )}
+                      </div>
+                    )}
+
+                    {/* Action Buttons */}
+                    <div className="flex gap-3">
+                      <button
+                        onClick={handleBulkImport}
+                        disabled={!excelFile || importing}
+                        className="px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                      >
+                        {importing ? (
+                          <>
+                            <Loader2 className="w-4 h-4 animate-spin" />
+                            Importing...
+                          </>
+                        ) : (
+                          <>
+                            <Upload className="w-4 h-4" />
+                            Import Products
+                          </>
+                        )}
+                      </button>
+                      <button
+                        onClick={() => {
+                          setShowBulkImport(false);
+                          setExcelFile(null);
+                          setImportResults(null);
+                        }}
+                        className="px-6 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </div>
+                )}
 
                 {/* Search */}
                 <div className="mb-6">
@@ -507,163 +793,291 @@ export default function AdminDashboard() {
 
                 {/* Product Form */}
                 {showProductForm && (
-                  <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
-                    <h3 className="text-lg font-semibold mb-4">
-                      {editingProduct ? "Edit Product" : "Add New Product"}
-                    </h3>
-                    <form onSubmit={handleProductSubmit} className="space-y-4">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-2">
-                            Product Name *
-                          </label>
-                          <input
-                            type="text"
-                            required
-                            value={productForm.name}
-                            onChange={(e) =>
-                              setProductForm({
-                                ...productForm,
-                                name: e.target.value,
-                              })
-                            }
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-400 focus:border-transparent"
-                          />
-                        </div>
+  <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
+    <h3 className="text-lg font-semibold mb-4">
+      {editingProduct ? "Edit Product" : "Add New Product"}
+    </h3>
+    <form onSubmit={handleProductSubmit} className="space-y-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* Product Name */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Product Name *
+          </label>
+          <input
+            type="text"
+            required
+            value={productForm.name}
+            onChange={(e) =>
+              setProductForm({
+                ...productForm,
+                name: e.target.value,
+              })
+            }
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-400 focus:border-transparent"
+            placeholder="Premium Wireless Headphones"
+          />
+        </div>
 
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-2">
-                            Category *
-                          </label>
-                          <input
-                            type="text"
-                            required
-                            value={productForm.category}
-                            onChange={(e) =>
-                              setProductForm({
-                                ...productForm,
-                                category: e.target.value,
-                              })
-                            }
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-400 focus:border-transparent"
-                          />
-                        </div>
+        {/* Category */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Category *
+          </label>
+          <select
+            required
+            value={productForm.category}
+            onChange={(e) =>
+              setProductForm({
+                ...productForm,
+                category: e.target.value,
+              })
+            }
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-400 focus:border-transparent"
+          >
+            <option value="">Select Category</option>
+            <option value="jewellery">Jewellery</option>
+            <option value="clothing">Clothing</option>
+            <option value="electronics">Electronics</option>
+            <option value="decoration">Decoration</option>
+            <option value="catering">Catering</option>
+            <option value="photography">Photography</option>
+            <option value="venue">Venue</option>
+            <option value="accessories">Accessories</option>
+          </select>
+        </div>
 
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-2">
-                            Price *
-                          </label>
-                          <input
-                            type="number"
-                            step="0.01"
-                            required
-                            value={productForm.price}
-                            onChange={(e) =>
-                              setProductForm({
-                                ...productForm,
-                                price: e.target.value,
-                              })
-                            }
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-400 focus:border-transparent"
-                          />
-                        </div>
+        {/* MRP (Original Price) */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            MRP (Original Price) *
+          </label>
+          <input
+            type="number"
+            step="0.01"
+            required
+            value={productForm.mrp}
+            onChange={(e) =>
+              setProductForm({
+                ...productForm,
+                mrp: e.target.value,
+              })
+            }
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-400 focus:border-transparent"
+            placeholder="2999"
+          />
+        </div>
 
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-2">
-                            Rating (0-5)
-                          </label>
-                          <input
-                            type="number"
-                            step="0.1"
-                            min="0"
-                            max="5"
-                            value={productForm.rating}
-                            onChange={(e) =>
-                              setProductForm({
-                                ...productForm,
-                                rating: e.target.value,
-                              })
-                            }
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-400 focus:border-transparent"
-                          />
-                        </div>
-                      </div>
+        {/* Selling Price */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Selling Price *
+          </label>
+          <input
+            type="number"
+            step="0.01"
+            required
+            value={productForm.price}
+            onChange={(e) =>
+              setProductForm({
+                ...productForm,
+                price: e.target.value,
+              })
+            }
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-400 focus:border-transparent"
+            placeholder="1999"
+          />
+        </div>
 
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Description *
-                        </label>
-                        <textarea
-                          required
-                          rows="4"
-                          value={productForm.description}
-                          onChange={(e) =>
-                            setProductForm({
-                              ...productForm,
-                              description: e.target.value,
-                            })
-                          }
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-400 focus:border-transparent"
-                        />
-                      </div>
+        {/* Discount Percentage */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Discount (%)
+          </label>
+          <input
+            type="number"
+            min="0"
+            max="100"
+            value={productForm.discount}
+            onChange={(e) =>
+              setProductForm({
+                ...productForm,
+                discount: e.target.value,
+              })
+            }
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-400 focus:border-transparent"
+            placeholder="33"
+          />
+        </div>
 
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Images (comma-separated URLs)
-                        </label>
-                        <input
-                          type="text"
-                          value={productForm.images}
-                          onChange={(e) =>
-                            setProductForm({
-                              ...productForm,
-                              images: e.target.value,
-                            })
-                          }
-                          placeholder="https://example.com/image1.jpg, https://example.com/image2.jpg"
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-400 focus:border-transparent"
-                        />
-                      </div>
+        {/* Rating */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Rating (0-5)
+          </label>
+          <input
+            type="number"
+            step="0.1"
+            min="0"
+            max="5"
+            value={productForm.rating}
+            onChange={(e) =>
+              setProductForm({
+                ...productForm,
+                rating: e.target.value,
+              })
+            }
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-400 focus:border-transparent"
+            placeholder="4.5"
+          />
+        </div>
 
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Vendor ID (optional)
-                        </label>
-                        <input
-                          type="number"
-                          value={productForm.vendor_id}
-                          onChange={(e) =>
-                            setProductForm({
-                              ...productForm,
-                              vendor_id: e.target.value,
-                            })
-                          }
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-400 focus:border-transparent"
-                        />
-                      </div>
+        {/* Stock Quantity */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Stock Quantity
+          </label>
+          <input
+            type="number"
+            min="0"
+            value={productForm.stock}
+            onChange={(e) =>
+              setProductForm({
+                ...productForm,
+                stock: e.target.value,
+              })
+            }
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-400 focus:border-transparent"
+            placeholder="100"
+          />
+        </div>
 
-                      <div className="flex gap-3">
-                        <button
-                          type="submit"
-                          disabled={loading}
-                          className="px-6 py-2 bg-rose-500 text-white rounded-lg hover:bg-rose-600 transition-colors disabled:opacity-50"
-                        >
-                          {loading ? "Saving..." : "Save Product"}
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setShowProductForm(false);
-                            setEditingProduct(null);
-                          }}
-                          className="px-6 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors"
-                        >
-                          Cancel
-                        </button>
-                      </div>
-                    </form>
-                  </div>
-                )}
+        {/* Vendor ID */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Vendor ID (optional)
+          </label>
+          <input
+            type="number"
+            value={productForm.vendor_id}
+            onChange={(e) =>
+              setProductForm({
+                ...productForm,
+                vendor_id: e.target.value,
+              })
+            }
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-400 focus:border-transparent"
+            placeholder="Leave empty for admin products"
+          />
+        </div>
+      </div>
+
+      {/* Description - Full Width */}
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-2">
+          Description *
+        </label>
+        <textarea
+          required
+          rows="4"
+          value={productForm.description}
+          onChange={(e) =>
+            setProductForm({
+              ...productForm,
+              description: e.target.value,
+            })
+          }
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-400 focus:border-transparent"
+          placeholder="Premium Wireless Bluetooth Headphones with Active Noise Cancellation. High-quality sound, comfortable fit, long battery life."
+        />
+      </div>
+
+      {/* Images - Full Width */}
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-2">
+          Images (comma-separated URLs) *
+        </label>
+        <textarea
+          required
+          rows="3"
+          value={productForm.images}
+          onChange={(e) =>
+            setProductForm({
+              ...productForm,
+              images: e.target.value,
+            })
+          }
+          placeholder="https://res.cloudinary.com/image1.jpg, https://res.cloudinary.com/image2.jpg"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-400 focus:border-transparent"
+        />
+        <p className="text-xs text-gray-500 mt-1">
+          Add multiple image URLs separated by commas. First image will be the main image.
+        </p>
+      </div>
+
+      {/* Featured Product Checkbox */}
+      <div className="flex items-center">
+        <input
+          type="checkbox"
+          id="featured"
+          checked={productForm.featured}
+          onChange={(e) =>
+            setProductForm({
+              ...productForm,
+              featured: e.target.checked,
+            })
+          }
+          className="w-4 h-4 text-rose-600 bg-gray-100 border-gray-300 rounded focus:ring-rose-500"
+        />
+        <label htmlFor="featured" className="ml-2 text-sm font-medium text-gray-700">
+          Mark as Featured Product
+        </label>
+      </div>
+
+      {/* Action Buttons */}
+      <div className="flex gap-3 pt-4">
+        <button
+          type="submit"
+          disabled={loading}
+          className="px-6 py-2 bg-rose-500 text-white rounded-lg hover:bg-rose-600 transition-colors disabled:opacity-50 flex items-center gap-2"
+        >
+          {loading ? (
+            <>
+              <Loader2 className="w-4 h-4 animate-spin" />
+              Saving...
+            </>
+          ) : (
+            "Save Product"
+          )}
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            setShowProductForm(false);
+            setEditingProduct(null);
+            setProductForm({
+              name: "",
+              description: "",
+              price: "",
+              mrp: "",
+              discount: "",
+              rating: "",
+              category: "",
+              images: "",
+              vendor_id: "",
+              stock: "",
+              featured: false,
+            });
+          }}
+          className="px-6 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+)}
+
 
                 {/* Products Table */}
                 <div className="bg-white rounded-lg shadow-sm overflow-hidden">

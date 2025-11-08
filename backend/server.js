@@ -6,6 +6,7 @@ require('dotenv').config();
 const authRoutes = require('./routes/authRoutes');
 const vendorRoutes = require('./routes/vendorRoutes');
 const adminRoutes = require('./routes/adminRoutes'); // 👈 ADD THIS LINE
+const productRoutes = require('./routes/productRoutes');
 const passport = require('passport');
 const session = require('express-session');
 require('./config/googleStrategy');
@@ -35,6 +36,7 @@ app.use((req, res, next) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/vendor', vendorRoutes);
 app.use('/api/admin', adminRoutes); // 👈 ADD THIS LINE
+app.use('/api/products', productRoutes);
 
 // Test route
 app.get('/', (req, res) => {

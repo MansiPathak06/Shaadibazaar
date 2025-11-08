@@ -15,6 +15,11 @@ router.get('/products/:id', adminController.getProductById);
 router.post('/products', adminController.createProduct);
 router.put('/products/:id', adminController.updateProduct);
 router.delete('/products/:id', adminController.deleteProduct);
+// ==================== BULK IMPORT ====================
+router.post('/products/bulk-import', adminController.bulkImportProducts);
+router.get('/products/template', adminController.downloadTemplate);
+
+
 
 // ==================== USERS ROUTES ====================
 router.get('/users', adminController.getAllUsers);

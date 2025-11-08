@@ -1052,7 +1052,7 @@ const ProductBuyPage = ({ params }) => {
     const [isZoomed, setIsZoomed] = useState(false);
     const [quantity, setQuantity] = useState(1);
     const [selectedSize, setSelectedSize] = useState('');
-    const [selectedColor, setSelectedColor] = useState('');
+    
     const [pincode, setPincode] = useState('');
     const [isPincodeValid, setIsPincodeValid] = useState(null);
     const [activeTab, setActiveTab] = useState('description');
@@ -1089,12 +1089,7 @@ const ProductBuyPage = ({ params }) => {
             '/api/placeholder/600/600',
             '/api/placeholder/600/600'
         ],
-        colors: [
-            { name: 'Midnight Black', code: '#000000', available: true },
-            { name: 'Ocean Blue', code: '#0066CC', available: true },
-            { name: 'Rose Gold', code: '#B76E79', available: true },
-            { name: 'Silver', code: '#C0C0C0', available: false }
-        ],
+       
         sizes: ['One Size'],
         features: [
             'Active Noise Cancellation (ANC) Technology',
@@ -1409,7 +1404,7 @@ const ProductBuyPage = ({ params }) => {
                                 >
                                     <img
                                         src={img}
-                                        alt={Product `${index + 1}`}
+                                        alt={`Product ${index + 1}`}
                                         className="w-full h-full object-contain bg-gray-100 rounded-lg"
                                     />
                                 </div>
@@ -1512,93 +1507,7 @@ const ProductBuyPage = ({ params }) => {
                             ))}
                         </div>
 
-                        {/* Color Selection */}
-                        {product.colors.length > 0 && (
-                            <div className="space-y-3">
-                                <div className="font-semibold text-gray-900">
-                                    Color: <span className="text-gray-600 font-normal">{selectedColor || 'Select'}</span>
-                                </div>
-                                <div className="flex gap-3 flex-wrap">
-                                    {product.colors.map((color) => (
-                                        <button
-                                            key={color.name}
-                                            onClick={() => color.available && setSelectedColor(color.name)}
-                                            disabled={!color.available}
-                                            className={`relative group ${!color.available ? 'opacity-40 cursor-not-allowed' : ''
-                                                }`}
-                                        >
-                                            <div
-                                                className={`w-12 h-12 rounded-full border-4 transition ${selectedColor === color.name
-                                                        ? 'border-blue-500 scale-110'
-                                                        : 'border-gray-300 hover:border-gray-400'
-                                                    }`}
-                                                style={{ backgroundColor: color.code }}
-                                            >
-                                                {!color.available && (
-                                                    <div className="absolute inset-0 flex items-center justify-center">
-                                                        <div className="w-full h-0.5 bg-gray-400 rotate-45" />
-                                                    </div>
-                                                )}
-                                            </div>
-                                            <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
-                                                {color.name}
-                                            </div>
-                                        </button>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
-
-                        {/* Size Selection */}
-                        {product.sizes.length > 1 && (
-                            <div className="space-y-3">
-                                <div className="font-semibold text-gray-900">Size</div>
-                                <div className="flex gap-3 flex-wrap">
-                                    {product.sizes.map((size) => (
-                                        <button
-                                            key={size}
-                                            onClick={() => setSelectedSize(size)}
-                                            className={`px-6 py-2 border-2 rounded-lg font-semibold transition ${selectedSize === size
-                                                    ? 'border-blue-500 bg-blue-50 text-blue-600'
-                                                    : 'border-gray-300 hover:border-gray-400'
-                                                }`}
-                                        >
-                                            {size}
-                                        </button>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
-
-                        {/* Quantity Selector */}
-                        <div className="space-y-3">
-                            <div className="font-semibold text-gray-900">Quantity</div>
-                            <div className="flex items-center gap-4">
-                                <div className="flex items-center border-2 rounded-lg">
-                                    <button
-                                        onClick={() => handleQuantityChange('decrease')}
-                                        disabled={quantity <= 1}
-                                        className="px-4 py-2 hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed transition"
-                                    >
-                                        <Minus size={18} />
-                                    </button>
-                                    <div className="px-6 py-2 font-bold border-x-2">{quantity}</div>
-                                    <button
-                                        onClick={() => handleQuantityChange('increase')}
-                                        disabled={quantity >= product.stockCount}
-                                        className="px-4 py-2 hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed transition"
-                                    >
-                                        <Plus size={18} />
-                                    </button>
-                                </div>
-                                {product.stockCount < 50 && (
-                                    <div className="text-sm text-orange-600 font-semibold flex items-center gap-1">
-                                        <AlertCircle size={16} />
-                                        Only {product.stockCount} left in stock
-                                    </div>
-                                )}
-                            </div>
-                        </div>
+                        
 
                         {/* Delivery Check */}
                         <div className="space-y-3 border-t pt-4">
@@ -1679,32 +1588,6 @@ const ProductBuyPage = ({ params }) => {
                             ))}
                         </div>
 
-                        {/* Trust Badges */}
-                        <div className="flex items-center justify-around py-4 border-t border-b bg-gray-50 rounded-lg">
-                            <div className="text-center">
-                                <div className="flex justify-center mb-1">
-                                    <Award className="text-yellow-500" size={24} />
-                                </div>
-                                <div className="text-xs font-semibold">Certified</div>
-                                <div className="text-xs text-gray-600">Product</div>
-                            </div>
-                            <div className="w-px h-12 bg-gray-300" />
-                            <div className="text-center">
-                                <div className="flex justify-center mb-1">
-                                    <Users className="text-blue-500" size={24} />
-                                </div>
-                                <div className="text-xs font-semibold">3.5k+</div>
-                                <div className="text-xs text-gray-600">Sold</div>
-                            </div>
-                            <div className="w-px h-12 bg-gray-300" />
-                            <div className="text-center">
-                                <div className="flex justify-center mb-1">
-                                    <ThumbsUp className="text-green-500" size={24} />
-                                </div>
-                                <div className="text-xs font-semibold">98%</div>
-                                <div className="text-xs text-gray-600">Positive</div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -1753,29 +1636,9 @@ const ProductBuyPage = ({ params }) => {
                                     </div>
                                 </div>
 
-                                <div>
-                                    <h3 className="text-xl font-bold mb-4">Best For</h3>
-                                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                                        {product.bestFor.map((use, index) => (
-                                            <div key={index} className="flex items-center gap-2 p-3 border-2 rounded-lg">
-                                                <div className="w-2 h-2 bg-blue-600 rounded-full" />
-                                                <span className="text-sm font-medium">{use}</span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
+                               
 
-                                <div>
-                                    <h3 className="text-xl font-bold mb-4">What's in the Box</h3>
-                                    <div className="space-y-2">
-                                        {product.whatsInBox.map((item, index) => (
-                                            <div key={index} className="flex items-center gap-3 p-2">
-                                                <Package className="text-gray-400" size={18} />
-                                                <span className="text-gray-700">{item}</span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
+                                
                             </div>
                         )}
 
