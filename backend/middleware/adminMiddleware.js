@@ -1,4 +1,5 @@
 const adminMiddleware = (req, res, next) => {
+  
   try {
     // Check if user is admin
     if (req.user.role !== 'admin') {
