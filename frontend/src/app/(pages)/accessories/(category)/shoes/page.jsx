@@ -85,7 +85,7 @@ export default function FootwearShop() {
       oldPrice: 455.67,
       rating: 4,
       sale: true,
-      image: ''
+      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761391984/nike_air_1_ovm7xy.jpg'
     },
 
     {
@@ -96,7 +96,7 @@ export default function FootwearShop() {
       oldPrice: 799.00,
       rating: 4.5,
       sale: true,
-      image: ''
+      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761391984/nike_air_1_ovm7xy.jpg'
     },
 
     {
@@ -105,7 +105,7 @@ export default function FootwearShop() {
       price: 899.00,
       oldPrice: 1109.00,
       rating: 4.8, sale: true,
-      image: ''
+      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761391984/nike_air_1_ovm7xy.jpg'
     },
 
     {
@@ -114,7 +114,7 @@ export default function FootwearShop() {
       price: 459.00,
       oldPrice: 559.00,
       rating: 4.2, sale: true,
-      image: ''
+      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761391984/nike_air_1_ovm7xy.jpg'
     },
 
     {
@@ -124,7 +124,7 @@ export default function FootwearShop() {
       oldPrice: 1809.00,
       rating: 5.0,
       sale: true,
-      image: ''
+      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761391984/nike_air_1_ovm7xy.jpg'
     },
 
 
@@ -135,7 +135,7 @@ export default function FootwearShop() {
       oldPrice: 959.00,
       rating: 4.6,
       sale: true,
-      image: ''
+      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761391984/nike_air_1_ovm7xy.jpg'
     }
 
 
@@ -150,7 +150,7 @@ export default function FootwearShop() {
       oldPrice: 455.67,
       rating: 4,
       sale: true,
-      image: ''
+      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761308854/yellow-man-shooes_cw95ly.jpg'
     },
 
     {
@@ -160,7 +160,7 @@ export default function FootwearShop() {
       oldPrice: 799.00,
       rating: 4.5,
       sale: true,
-      image: ''
+      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761308854/yellow-man-shooes_cw95ly.jpg'
     },
 
     {
@@ -170,7 +170,7 @@ export default function FootwearShop() {
       oldPrice: 1109.00,
       rating: 4.8,
       sale: true,
-      image: ''
+      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761308854/yellow-man-shooes_cw95ly.jpg'
     },
 
     {
@@ -180,7 +180,7 @@ export default function FootwearShop() {
       oldPrice: 559.00,
       rating: 4.2,
       sale: true,
-      image: ''
+      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761308854/yellow-man-shooes_cw95ly.jpg'
     },
 
     {
@@ -190,7 +190,7 @@ export default function FootwearShop() {
       oldPrice: 1809.00,
       rating: 5.0,
       sale: true,
-      image: ''
+      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761308854/yellow-man-shooes_cw95ly.jpg'
     },
 
     {
@@ -200,7 +200,7 @@ export default function FootwearShop() {
       oldPrice: 959.00,
       rating: 4.6,
       sale: true,
-      image: ''
+      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761308854/yellow-man-shooes_cw95ly.jpg'
     }
 
   ];
@@ -259,7 +259,7 @@ export default function FootwearShop() {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className=" bg-gray-50">
       {/* Hero Section */}
       <div className=" bg-gray-50">
         <HeroSection />
@@ -566,7 +566,7 @@ export default function FootwearShop() {
 
 const HeroSection = () => {
   return (
-    <div className="bg-linear-to-br from-pink-50 to-pink-100 min-h-screen">
+    <div className="bg-linear-to-br from-pink-50 to-pink-100 ">
       {/* Main Hero Container */}
       <div className="max-w-7xl mx-auto px-6 py-12 lg:py-16">
         {/* Top Content with Split Layout */}

@@ -9,6 +9,9 @@ const adminRoutes = require('./routes/adminRoutes'); // 👈 ADD THIS LINE
 const productRoutes = require('./routes/productRoutes');
 const passport = require('passport');
 const session = require('express-session');
+const vendorProductRoutes = require('./routes/vendorProductRoutes');
+
+
 require('./config/googleStrategy');
 
 const app = express();
@@ -37,6 +40,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/vendor', vendorRoutes);
 app.use('/api/admin', adminRoutes); // 👈 ADD THIS LINE
 app.use('/api/products', productRoutes);
+app.use('/api/vendor/products', vendorProductRoutes);
 
 // Test route
 app.get('/', (req, res) => {

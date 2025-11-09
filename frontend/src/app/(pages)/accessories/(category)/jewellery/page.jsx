@@ -100,6 +100,8 @@ const Jewellery = () => {
     }
   };
 
+  
+
   const toggleFavorite = (productId) => {
     setFavorites((prev) =>
       prev.includes(productId)
@@ -107,6 +109,7 @@ const Jewellery = () => {
         : [...prev, productId]
     );
   };
+  
 
   const formatINR = (price) => {
     return new Intl.NumberFormat("en-IN", {

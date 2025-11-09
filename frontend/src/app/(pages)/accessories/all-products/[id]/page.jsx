@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
+import { useCart } from "@/context/CartContext";
+
 import Link from "next/link";
 import {
   Star,
@@ -28,6 +30,36 @@ export default function ProductDetail() {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [addedToCart, setAddedToCart] = useState(false);
+  const { addToCart } = useCart();
+
+  const [similarProducts, setSimilarProducts] = useState([]);
+const [loadingSimilar, setLoadingSimilar] = useState(true);
+
+useEffect(() => {
+  if (productId) {
+    fetchSimilarProducts();
+  }
+}, [productId]);
+
+const fetchSimilarProducts = async () => {
+  try {
+    setLoadingSimilar(true);
+    const resp = await fetch(`http://localhost:5000/api/products/similar/${productId}`);
+    const data = await resp.json();
+    if (data.success && Array.isArray(data.products)) {
+      // Randomize the returned array and pick 4
+      const shuffled = data.products.sort(() => 0.5 - Math.random());
+      setSimilarProducts(shuffled.slice(0, 4));
+    } else {
+      setSimilarProducts([]);
+    }
+  } catch (err) {
+    setSimilarProducts([]);
+  } finally {
+    setLoadingSimilar(false);
+  }
+};
+
 
   useEffect(() => {
     if (productId) {
@@ -71,25 +103,18 @@ export default function ProductDetail() {
       setQuantity(quantity - 1);
     }
   };
+  
 
-  const handleAddToCart = () => {
-    // Add to cart logic here
-    setAddedToCart(true);
-    setTimeout(() => setAddedToCart(false), 2000);
-  };
+const handleAddToCart = () => {
+  addToCart(product, quantity);
+  setAddedToCart(true);
+  setTimeout(() => setAddedToCart(false), 2000);
+};
+const handleBuyNow = () => {
+  addToCart(product, quantity);
+  router.push(`/checkout?product=${productId}&quantity=${quantity}`);
+};
 
-  const handleBuyNow = () => {
-    // Navigate to checkout with product details
-    router.push(`/checkout?product=${productId}&quantity=${quantity}`);
-  };
-
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-rose-500"></div>
-      </div>
-    );
-  }
 
   if (error || !product) {
     return (
@@ -300,22 +325,23 @@ export default function ProductDetail() {
                   Buy Now
                 </button>
                 <button
-                  onClick={handleAddToCart}
-                  disabled={product.stock === 0}
-                  className="w-full bg-white text-rose-500 border-2 border-rose-500 py-4 rounded-lg font-semibold hover:bg-rose-50 transition-colors disabled:border-gray-300 disabled:text-gray-300 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                >
-                  {addedToCart ? (
-                    <>
-                      <Check className="w-5 h-5" />
-                      Added to Cart
-                    </>
-                  ) : (
-                    <>
-                      <ShoppingCart className="w-5 h-5" />
-                      Add to Cart
-                    </>
-                  )}
-                </button>
+  onClick={handleAddToCart}
+  disabled={product.stock === 0}
+  className="w-full bg-white text-rose-500 border-2 border-rose-500 py-4 rounded-lg font-semibold hover:bg-rose-50 transition-colors disabled:border-gray-300 disabled:text-gray-300 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+>
+  {addedToCart ? (
+    <>
+      <Check className="w-5 h-5" />
+      Added to Cart
+    </>
+  ) : (
+    <>
+      <ShoppingCart className="w-5 h-5" />
+      Add to Cart
+    </>
+  )}
+</button>
+
               </div>
 
               {/* Additional Actions */}
@@ -430,6 +456,58 @@ export default function ProductDetail() {
             </div>
           </div>
         </div>
+        {/* Similar Products Section */}
+<div className="max-w-7xl mx-auto mt-16 px-4">
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">
+    Similar Products
+  </h2>
+  {loadingSimilar ? (
+    <div className="flex justify-center items-center py-16">
+      <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-rose-500"></div>
+    </div>
+  ) : similarProducts.length > 0 ? (
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      {similarProducts.map(sp => {
+        const images = Array.isArray(sp.images)
+          ? sp.images
+          : JSON.parse(sp.images || "[]");
+        const img = images[0] || "/placeholder.jpg";
+        return (
+          <Link
+            key={sp.id}
+            href={`/accessories/all-products/${sp.id}`}
+            className="block bg-white rounded-lg shadow hover:shadow-xl transition-shadow duration-200 cursor-pointer group"
+          >
+            <div className="aspect-[4/5] bg-gray-50 rounded-t-lg overflow-hidden">
+              <img
+                src={img}
+                alt={sp.name}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                onError={e => { e.target.src = "/placeholder.jpg"; }}
+              />
+            </div>
+            <div className="p-4">
+              <h3 className="text-base font-medium text-gray-800 mb-2 line-clamp-1">{sp.name}</h3>
+              <div className="flex items-center gap-1 mb-1">
+                <Star size={14} className="text-amber-400 fill-amber-400" />
+                <span className="text-sm text-gray-600">{sp.rating || "4.5"}</span>
+              </div>
+              <span className="text-lg font-semibold text-gray-900">
+                {formatINR(sp.price)}
+              </span>
+              {sp.mrp && sp.mrp > sp.price && (
+                <span className="text-xs ml-2 text-gray-400 line-through">{formatINR(sp.mrp)}</span>
+              )}
+            </div>
+          </Link>
+        );
+      })}
+    </div>
+  ) : (
+    <div className="text-gray-500 text-center">No similar products found.</div>
+  )}
+</div>
+
       </div>
     </div>
   );

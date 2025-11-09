@@ -1,5 +1,7 @@
 "use client";
 import Link from "next/link";
+import { useCart } from "@/context/CartContext";
+
 
 import React, { useState } from "react";
 import {
@@ -29,6 +31,7 @@ import {
 const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+   const { totalItems } = useCart();
 
   const navigationLinks = [
     {
@@ -352,11 +355,14 @@ const Navbar = () => {
                 </button>
               </Link>
 
-              {/* Cart Button */}
-              <button className="flex items-center space-x-1 text-gray-700 hover:text-rose-500">
-                <ShoppingCart size={20} />
-                <span className="text-sm font-medium">Cart</span>
-              </button>
+                <Link href="/cart" className="relative ml-4">
+      <ShoppingCart className="w-6 h-6" />
+      {totalItems > 0 && (
+        <span className="absolute -top-2 -right-3 bg-rose-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+          {totalItems}
+        </span>
+      )}
+    </Link>
 
               {/* Wedding Website Button */}
               <Link href="/wedding-website">
