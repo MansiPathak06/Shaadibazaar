@@ -1,10 +1,17 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Sparkles, Heart, Star } from "lucide-react";
+import Link from "next/link";
+import { ChevronLeft, ChevronRight, Sparkles, Heart, Star, Loader2, ShoppingCart } from "lucide-react";
+
+const CATEGORY_SLUG = "pujaitem";
 
 export default function RitualsSection() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [fadeIn, setFadeIn] = useState(false);
+  const [favorites, setFavorites] = useState([]);
+  const [realProducts, setRealProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   const backgroundImages = [
     "https://i.pinimg.com/1200x/90/81/2a/90812a4109da4b27973b02fb537ae36d.jpg",
@@ -83,13 +90,55 @@ export default function RitualsSection() {
     },
   ];
 
+  // Fetch real products from database
   useEffect(() => {
     setFadeIn(true);
+    fetchRealProducts();
     const timer = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % backgroundImages.length);
     }, 6000);
     return () => clearInterval(timer);
   }, []);
+
+  const fetchRealProducts = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch(
+        "http://localhost:5000/api/products?category=pujaitem"
+      );
+      const data = await response.json();
+
+      if (data.success) {
+        setRealProducts(data.products);
+      } else {
+        setError(data.message);
+      }
+    } catch (err) {
+      console.error("Fetch error:", err);
+      setError("Failed to load products");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const toggleFavorite = (productId) => {
+    setFavorites((prev) =>
+      prev.includes(productId)
+        ? prev.filter((id) => id !== productId)
+        : [...prev, productId]
+    );
+  };
+
+  const formatINR = (price) => {
+    return new Intl.NumberFormat("en-IN", {
+      style: "currency",
+      currency: "INR",
+      maximumFractionDigits: 0,
+    }).format(price);
+  };
+
+  // URL for "View More" - Goes to all products list page
+  const ALL_PRODUCTS_URL = "/accessories/all-products?category=pujaitem";
 
   const goToPrevious = () => {
     setCurrentImageIndex(
@@ -179,7 +228,138 @@ export default function RitualsSection() {
         </div>
       </div>
 
-      
+      {/* ======= Puja Items Products Section ======= */}
+      <div className="bg-white py-20">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-14">
+            <h3 className="text-4xl md:text-5xl font-semibold text-rose-500 mb-4">
+              Sacred Puja Items
+            </h3>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Authentic pooja samagri and devotional products for your spiritual needs
+            </p>
+          </div>
+
+          {/* Loading State */}
+          {loading ? (
+            <div className="flex justify-center items-center py-20">
+              <Loader2 className="w-10 h-10 animate-spin text-rose-500" />
+            </div>
+          ) : error ? (
+            <div className="text-center py-12">
+              <p className="text-red-600 mb-4">{error}</p>
+              <button
+                onClick={fetchRealProducts}
+                className="px-6 py-2 bg-rose-500 text-white rounded-lg hover:bg-rose-600"
+              >
+                Retry
+              </button>
+            </div>
+          ) : (
+            <>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                {realProducts.map((product) => {
+                  const images = Array.isArray(product.images)
+                    ? product.images
+                    : JSON.parse(product.images || "[]");
+                  const mainImage = images[0] || "/placeholder.jpg";
+
+                  return (
+                    <Link
+                      key={product.id}
+                      href={`/accessories/all-products/${product.id}`}
+                      className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group"
+                    >
+                      <div className="relative h-64 bg-gray-50 overflow-hidden">
+                        {product.featured && (
+                          <span className="absolute top-4 left-4 bg-rose-500 text-white px-3 py-1 rounded-full text-xs font-bold uppercase z-10">
+                            FEATURED
+                          </span>
+                        )}
+                        <img
+                          src={mainImage}
+                          alt={product.name}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          onError={(e) => {
+                            e.target.src = "/placeholder.jpg";
+                          }}
+                        />
+                        
+                        {/* Hover Action Buttons */}
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100">
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              toggleFavorite(product.id);
+                            }}
+                            className="bg-white p-3 rounded-full shadow-lg hover:bg-rose-500 hover:text-white transition-colors"
+                            aria-label="Add to wishlist"
+                          >
+                            <Heart
+                              className={`w-5 h-5 ${
+                                favorites.includes(product.id)
+                                  ? "text-rose-500 fill-rose-500"
+                                  : ""
+                              }`}
+                            />
+                          </button>
+                          <button
+                            onClick={(e) => e.preventDefault()}
+                            className="bg-white p-3 rounded-full shadow-lg hover:bg-rose-500 hover:text-white transition-colors"
+                            aria-label="Add to cart"
+                          >
+                            <ShoppingCart className="w-5 h-5" />
+                          </button>
+                        </div>
+                      </div>
+
+                      <div className="p-6">
+                        <h4 className="text-xl font-semibold text-gray-800 mb-2 line-clamp-2 min-h-[56px]">
+                          {product.name}
+                        </h4>
+                        
+                        {/* Rating */}
+                        <div className="flex items-center gap-1 mb-3">
+                          <Star size={16} className="text-amber-400 fill-amber-400" />
+                          <span className="text-sm text-gray-600">
+                            ({product.rating || "4.8"})
+                          </span>
+                        </div>
+
+                        {/* Price */}
+                        <div className="flex items-center gap-3">
+                          <span className="text-xl font-bold text-rose-500">
+                            {formatINR(product.price)}
+                          </span>
+                          {product.mrp && product.mrp > product.price && (
+                            <>
+                              <span className="text-sm text-gray-400 line-through">
+                                {formatINR(product.mrp)}
+                              </span>
+                              <span className="text-sm text-red-500 font-medium">
+                                -{product.discount}%
+                              </span>
+                            </>
+                          )}
+                        </div>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+
+              {/* View More Button */}
+              <div className="flex justify-center mt-12">
+                <Link href={ALL_PRODUCTS_URL}>
+                  <button className="px-10 py-4 bg-rose-500 text-white font-semibold text-lg rounded-full shadow-lg hover:shadow-2xl hover:bg-rose-600 transition-all duration-300 transform hover:scale-105">
+                    View More Puja Items →
+                  </button>
+                </Link>
+              </div>
+            </>
+          )}
+        </div>
+      </div>
 
       {/* ======= Ritual Services Section ======= */}
       <div className="bg-gradient-to-r from-rose-100 via-pink-50 to-rose-100 py-20">

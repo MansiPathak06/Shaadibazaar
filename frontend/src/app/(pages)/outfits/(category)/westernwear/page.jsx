@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { Heart, ShoppingCart, Star, RefreshCw, CreditCard, Headphones, TrendingUp, Award, Package } from "lucide-react";
+import Link from "next/link";
+import { Heart, ShoppingCart, Star, RefreshCw, CreditCard, Headphones, TrendingUp, Award, Package, Loader2 } from "lucide-react";
 import { Fragment } from "react";
 import { 
   Sparkles, 
- 
   ShoppingBag, 
   ArrowRight, 
   Tag, 
@@ -15,9 +15,14 @@ import {
   BadgePercent 
 } from "lucide-react";
 
+const CATEGORY_SLUG = "westernwear";
 
 const WesternWear = () => {
   const [selectedCategory, setSelectedCategory] = useState("Popular");
+  const [favorites, setFavorites] = useState([]);
+  const [realProducts, setRealProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   // Circular Category Cards - EXPANDED
   const categories = [
@@ -58,130 +63,6 @@ const WesternWear = () => {
 
   // Product Categories
   const productCategories = ["Popular", "Best Rated", "Featured", "New Arrivals"];
-
-  // All Products - MASSIVELY EXPANDED WITH HD IMAGES
-  const allProducts = [
-    {
-      id: 1,
-      name: "Classic Denim Jacket",
-      category: "Popular",
-      price: 79.0,
-      originalPrice: 120.0,
-      rating: 4.8,
-      reviews: 124,
-      image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=80&fit=crop",
-    },
-    {
-      id: 2,
-      name: "Women's White Blazer",
-      category: "Popular",
-      price: 95.0,
-      originalPrice: 145.0,
-      rating: 4.7,
-      reviews: 89,
-      image: "https://images.unsplash.com/photo-1591369822096-ffd140ec948f?w=600&q=80&fit=crop",
-    },
-    {
-      id: 3,
-      name: "Black Leather Jacket",
-      category: "Featured",
-      price: 135.0,
-      originalPrice: 200.0,
-      rating: 4.9,
-      reviews: 156,
-      image: "https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?w=600&q=80&fit=crop",
-    },
-    {
-      id: 4,
-      name: "Casual Blue Jeans",
-      category: "Popular",
-      price: 62.0,
-      originalPrice: 95.0,
-      rating: 4.6,
-      reviews: 203,
-      image: "https://images.unsplash.com/photo-1542272604-787c3835535d?w=600&q=80&fit=crop",
-    },
-    {
-      id: 5,
-      name: "Premium Wool Coat",
-      category: "Best Rated",
-      price: 185.0,
-      originalPrice: 275.0,
-      rating: 4.9,
-      reviews: 98,
-      image: "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=600&q=80&fit=crop",
-    },
-    {
-      id: 6,
-      name: "Striped Cotton Shirt",
-      category: "New Arrivals",
-      price: 45.0,
-      originalPrice: 68.0,
-      rating: 4.5,
-      reviews: 76,
-      image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&q=80&fit=crop",
-    },
-    {
-      id: 7,
-      name: "Designer Sneakers",
-      category: "Featured",
-      price: 110.0,
-      originalPrice: 165.0,
-      rating: 4.8,
-      reviews: 187,
-      image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&q=80&fit=crop",
-    },
-    {
-      id: 8,
-      name: "Knit Sweater",
-      category: "Popular",
-      price: 58.0,
-      originalPrice: 85.0,
-      rating: 4.7,
-      reviews: 143,
-      image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80&fit=crop",
-    },
-    {
-      id: 9,
-      name: "Plaid Flannel Shirt",
-      category: "New Arrivals",
-      price: 52.0,
-      originalPrice: 78.0,
-      rating: 4.6,
-      reviews: 91,
-      image: "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=600&q=80&fit=crop",
-    },
-    {
-      id: 10,
-      name: "Slim Fit Chinos",
-      category: "Best Rated",
-      price: 68.0,
-      originalPrice: 100.0,
-      rating: 4.8,
-      reviews: 167,
-      image: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=600&q=80&fit=crop",
-    },
-    {
-      id: 11,
-      name: "Bomber Jacket",
-      category: "Featured",
-      price: 125.0,
-      originalPrice: 185.0,
-      rating: 4.7,
-      reviews: 134,
-      image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=80&fit=crop",
-    },
-    {
-      id: 12,
-      name: "Canvas Sneakers",
-      category: "Popular",
-      price: 72.0,
-      originalPrice: 105.0,
-      rating: 4.5,
-      reviews: 198,
-      image: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=600&q=80&fit=crop",
-    },
-  ];
 
   // Feature Icons - EXPANDED
   const features = [
@@ -268,10 +149,60 @@ const WesternWear = () => {
     { icon: Package, title: "Gift Wrapping", description: "Free on request" },
   ];
 
-  const filteredProducts =
-    selectedCategory === "Popular"
-      ? allProducts
-      : allProducts.filter((product) => product.category === selectedCategory);
+  // Fetch real products from database
+  useEffect(() => {
+    fetchRealProducts();
+  }, []);
+
+  const fetchRealProducts = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch(
+        "http://localhost:5000/api/products?category=westernwear"
+      );
+      const data = await response.json();
+
+      if (data.success) {
+        setRealProducts(data.products);
+      } else {
+        setError(data.message);
+      }
+    } catch (err) {
+      console.error("Fetch error:", err);
+      setError("Failed to load products");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const toggleFavorite = (productId) => {
+    setFavorites((prev) =>
+      prev.includes(productId)
+        ? prev.filter((id) => id !== productId)
+        : [...prev, productId]
+    );
+  };
+
+  const formatINR = (price) => {
+    return new Intl.NumberFormat("en-IN", {
+      style: "currency",
+      currency: "INR",
+      maximumFractionDigits: 0,
+    }).format(price);
+  };
+
+  // URL for "View More" - Goes to all products list page
+  const ALL_PRODUCTS_URL = "/accessories/all-products?category=westernwear";
+
+  // Filter products based on selected category
+  const filteredProducts = selectedCategory === "Popular"
+    ? realProducts
+    : realProducts.filter(product => 
+        product.subcategory === selectedCategory ||
+        product.tags?.includes(selectedCategory) ||
+        (selectedCategory === "Featured" && product.featured) ||
+        (selectedCategory === "Best Rated" && product.rating >= 4.8)
+      );
 
   return (
     <div className="min-h-screen bg-white">
@@ -286,7 +217,6 @@ const WesternWear = () => {
                   <Tag size={16} className="text-rose-500" />
                   Best Deals Available
                 </span>
-
               </div>
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium text-gray-900 leading-tight">
                 Limited Edition For Queen
@@ -325,8 +255,6 @@ const WesternWear = () => {
 
       {/* Best For Your Categories */}
       <section className="container mx-auto px-6 sm:px-8 lg:px-16 py-16 ">
-
-
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
             Best For Your Categories
@@ -358,8 +286,6 @@ const WesternWear = () => {
 
       {/* NEW: Trending Collections Banner */}
       <section className="container mx-auto px-6 sm:px-8 lg:px-16 py-12">
-
-
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
             Trending Collections
@@ -439,7 +365,7 @@ const WesternWear = () => {
           <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
             Fashion Lookbook
           </h2>
-          <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Your Guide to the Season’s Most Stunning Styles</p>
+          <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Your Guide to the Season's Most Stunning Styles</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {lookbook.map((item) => (
@@ -464,22 +390,22 @@ const WesternWear = () => {
       {/* Popular Products Section */}
       <section className="container mx-auto px-6 sm:px-8 lg:px-16 py-20 bg-gradient-to-b from-gray-50 to-white rounded-3xl my-12">
         <div className="text-center mb-16">
-
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
               Popular Products
             </h2>
-            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">            Discover our handpicked selection of trending western wear pieces</p>
+            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Discover our handpicked selection of trending western wear pieces</p>
           </div>
           <div className="flex justify-center gap-5 flex-wrap">
             {productCategories.map((category) => (
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-8 py-4 rounded-full font-light cursor-pointer text-sm transition-all duration-300 ${selectedCategory === category
-                  ? "bg-rose-500 text-white shadow-xl scale-105"
-                  : "bg-white text-gray-700 hover:bg-gray-100 shadow-md"
-                  }`}
+                className={`px-8 py-4 rounded-full font-light cursor-pointer text-sm transition-all duration-300 ${
+                  selectedCategory === category
+                    ? "bg-rose-500 text-white shadow-xl scale-105"
+                    : "bg-white text-gray-700 hover:bg-gray-100 shadow-md"
+                }`}
               >
                 {category}
               </button>
@@ -487,111 +413,139 @@ const WesternWear = () => {
           </div>
         </div>
 
-        {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
-          {filteredProducts.map((product) => (
-            <div
-              key={product.id}
-              className="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden"
-            >
-              {/* Product Image */}
-              <div className="relative h-80 bg-gray-50 overflow-hidden">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-700"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                />
-
-                {/* Hover Action Buttons */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100">
-                  <button
-                    className="bg-white p-4 rounded-full shadow-lg hover:bg-rose-500 hover:text-white transition-colors"
-                    aria-label="Add to wishlist"
-                  >
-                    <Heart className="w-6 h-6" />
-                  </button>
-                  <button
-                    className="bg-white p-4 rounded-full shadow-lg hover:bg-rose-500 hover:text-white transition-colors"
-                    aria-label="Add to cart"
-                  >
-                    <ShoppingCart className="w-6 h-6" />
-                  </button>
-                </div>
-              </div>
-
-              {/* Product Info */}
-              <div className="p-6">
-                <h3 className="text-lg font-medium text-gray-800 mb-3 line-clamp-2 min-h-[56px]">
-                  {product.name}
-                </h3>
-
-                {/* Rating */}
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(5)].map((_, idx) => (
-                    <Star
-                      key={idx}
-                      className={`w-5 h-5 ${idx < Math.floor(product.rating)
-                        ? "fill-yellow-400 text-yellow-400"
-                        : "text-gray-300"
-                        }`}
-                    />
-                  ))}
-                  <span className="text-sm text-gray-600 ml-2">
-                    ({product.reviews})
-                  </span>
-                </div>
-
-                {/* Price */}
-                <div className="flex items-center gap-4">
-                  <span className="text-2xl font-light text-gray-900">
-                    ${product.price.toFixed(2)}
-                  </span>
-                  {product.originalPrice && (
-                    <span className="text-base text-gray-400 line-through">
-                      ${product.originalPrice.toFixed(2)}
-                    </span>
-                  )}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-        <Fragment>
-          <div className='flex justify-center pt-16'>
+        {/* Loading State */}
+        {loading ? (
+          <div className="flex justify-center items-center py-20">
+            <Loader2 className="w-10 h-10 animate-spin text-rose-500" />
+          </div>
+        ) : error ? (
+          <div className="text-center py-12">
+            <p className="text-red-600 mb-4">{error}</p>
             <button
-              className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900"
+              onClick={fetchRealProducts}
+              className="px-6 py-2 bg-rose-500 text-white rounded-lg hover:bg-rose-600"
             >
-              {/* Background slide effect */}
-              <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
-
-              {/* Button text */}
-              <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
-                View More Products
-                <svg
-                  className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </span>
+              Retry
             </button>
           </div>
-        </Fragment>
+        ) : (
+          <>
+            {/* Products Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
+              {filteredProducts.map((product) => {
+                const images = Array.isArray(product.images)
+                  ? product.images
+                  : JSON.parse(product.images || "[]");
+                const mainImage = images[0] || "/placeholder.jpg";
+
+                return (
+                  <Link
+                    key={product.id}
+                    href={`/accessories/all-products/${product.id}`}
+                    className="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden"
+                  >
+                    {/* Product Image */}
+                    <div className="relative h-80 bg-gray-50 overflow-hidden">
+                      <img
+                        src={mainImage}
+                        alt={product.name}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        onError={(e) => {
+                          e.target.src = "/placeholder.jpg";
+                        }}
+                      />
+
+                      {/* Hover Action Buttons */}
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100">
+                        <button
+                          onClick={(e) => {
+                            e.preventDefault();
+                            toggleFavorite(product.id);
+                          }}
+                          className="bg-white p-4 rounded-full shadow-lg hover:bg-rose-500 hover:text-white transition-colors"
+                          aria-label="Add to wishlist"
+                        >
+                          <Heart
+                            className={`w-6 h-6 ${
+                              favorites.includes(product.id)
+                                ? "text-rose-500 fill-rose-500"
+                                : ""
+                            }`}
+                          />
+                        </button>
+                        <button
+                          onClick={(e) => e.preventDefault()}
+                          className="bg-white p-4 rounded-full shadow-lg hover:bg-rose-500 hover:text-white transition-colors"
+                          aria-label="Add to cart"
+                        >
+                          <ShoppingCart className="w-6 h-6" />
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Product Info */}
+                    <div className="p-6">
+                      <h3 className="text-lg font-medium text-gray-800 mb-3 line-clamp-2 min-h-[56px]">
+                        {product.name}
+                      </h3>
+
+                      {/* Rating */}
+                      <div className="flex items-center gap-1 mb-4">
+                        <Star size={16} className="text-amber-400 fill-amber-400" />
+                        <span className="text-sm text-gray-600 ml-2">
+                          ({product.rating || "4.8"})
+                        </span>
+                      </div>
+
+                      {/* Price */}
+                      <div className="flex items-center gap-4">
+                        <span className="text-2xl font-light text-gray-900">
+                          {formatINR(product.price)}
+                        </span>
+                        {product.mrp && product.mrp > product.price && (
+                          <span className="text-base text-gray-400 line-through">
+                            {formatINR(product.mrp)}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+
+            <Fragment>
+              <div className='flex justify-center pt-16'>
+                <Link href={ALL_PRODUCTS_URL}>
+                  <button className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900">
+                    <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
+                    <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
+                      View More Products
+                      <svg
+                        className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={1.5}
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </Link>
+              </div>
+            </Fragment>
+          </>
+        )}
       </section>
 
       {/* Deal Of The Week Section */}
       <section className="bg-gradient-to-r from-gray-50 to-gray-100 py-20">
         <div className="container mx-auto px-6 sm:px-8 lg:px-16">
-
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
               Deal Of The Week
@@ -619,8 +573,6 @@ const WesternWear = () => {
           </div>
         </div>
       </section>
-
-
 
       {/* Enhanced Explore More Collections Section */}
       <section className="container mx-auto px-6 sm:px-8 lg:px-16 py-8">
@@ -668,16 +620,18 @@ const WesternWear = () => {
 
             {/* CTA Button with Advanced Hover Effects */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="group relative bg-white text-rose-600 px-12 py-5 rounded-full font-bold uppercase tracking-wider transition-all duration-300 shadow-2xl hover:shadow-white/30 text-lg overflow-hidden hover:scale-105 transform">
-                {/* Shine Effect */}
-                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
+              <Link href={ALL_PRODUCTS_URL}>
+                <button className="group relative bg-white text-rose-600 px-12 py-5 rounded-full font-bold uppercase tracking-wider transition-all duration-300 shadow-2xl hover:shadow-white/30 text-lg overflow-hidden hover:scale-105 transform">
+                  {/* Shine Effect */}
+                  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
 
-                <span className="relative flex items-center gap-3 font-normal">
-                  <ShoppingBag size={22} className="group-hover:rotate-12 transition-transform duration-300 font-normal" />
-                  Shop All Products
-                  <ArrowRight size={22} className="group-hover:translate-x-2 transition-transform duration-300" />
-                </span>
-              </button>
+                  <span className="relative flex items-center gap-3 font-normal">
+                    <ShoppingBag size={22} className="group-hover:rotate-12 transition-transform duration-300 font-normal" />
+                    Shop All Products
+                    <ArrowRight size={22} className="group-hover:translate-x-2 transition-transform duration-300" />
+                  </span>
+                </button>
+              </Link>
 
               <button className="group bg-white/10 backdrop-blur-md border-2 border-white text-white px-10 py-5 rounded-full font-normal uppercase tracking-wider transition-all duration-300 hover:bg-white hover:text-rose-600 shadow-xl text-lg flex items-center gap-3 hover:scale-105 transform">
                 <Tag size={20} className="group-hover:rotate-12 transition-transform duration-300" />
@@ -720,7 +674,6 @@ const WesternWear = () => {
           <div className="absolute bottom-1/4 right-1/4 w-2 h-2 bg-white/60 rounded-full animate-ping animation-delay-2000"></div>
         </div>
       </section>
-
     </div>
   );
 };

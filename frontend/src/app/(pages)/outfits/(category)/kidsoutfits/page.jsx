@@ -1,11 +1,18 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { Heart, ShoppingCart, Star, Truck, Shield, Headphones, RefreshCw, Award, Package, Sparkles } from "lucide-react";
+import Link from "next/link";
+import { Heart, ShoppingCart, Star, Truck, Shield, Headphones, RefreshCw, Award, Package, Sparkles, Loader2 } from "lucide-react";
+
+const CATEGORY_SLUG = "kidsoutfit";
 
 const KidsOutfits = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [favorites, setFavorites] = useState([]);
+  const [realProducts, setRealProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   // Category Cards
   const categories = [
@@ -15,6 +22,7 @@ const KidsOutfits = () => {
       description: "Spring Collection",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761466206/Girls_outfit_tm0aoz.jpg",
       bgColor: "bg-pink-200",
+       path: "/accessories/all-products?category=Girls"
     },
     {
       id: 2,
@@ -22,6 +30,7 @@ const KidsOutfits = () => {
       description: "Summer Collection",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465706/boys_vzenzk.jpg",
       bgColor: "bg-blue-200",
+       path: "/accessories/all-products?category=Boys"
     },
     {
       id: 3,
@@ -29,195 +38,11 @@ const KidsOutfits = () => {
       description: "Cute & Cozy",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465704/babies_mffvmu.jpg",
       bgColor: "bg-yellow-400",
-    },
-  ];
-
-  // Products with categories - MASSIVELY EXPANDED
-  const allProducts = [
-    // Accessories
-    {
-      id: 1,
-      name: "Kids Jewelry Set - Colorful Accessories",
-      category: "Accessories",
-      price: 29.99,
-      originalPrice: 39.99,
-      rating: 4.5,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465703/Kids_Jewelry_Set_-_Colorful_Accessories-main_rqzls5.jpg",
-      colors: ["#FFB6C1", "#87CEEB", "#FFF"],
-      thumbnail: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465701/Kids_Jewelry_Set_-_Colorful_Accessories-thumbnail_r6myfi.jpg",
-    },
-    {
-      id: 9,
-      name: "Colorful Hair Clips Set",
-      category: "Accessories",
-      price: 14.99,
-      originalPrice: 19.99,
-      rating: 4.7,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465700/Colorful_Hair_Clips_Set_mro7so.jpg",
-    },
-    {
-      id: 10,
-      name: "Kids Sunglasses Collection",
-      category: "Accessories",
-      price: 19.99,
-      originalPrice: 29.99,
-      rating: 4.6,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465699/Kids_Sunglasses_Collection_zlyppl.jpg",
-    },
-    {
-      id: 15,
-      name: "Cartoon Character Backpack",
-      category: "Accessories",
-      price: 32.99,
-      originalPrice: 42.99,
-      rating: 4.8,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465698/Cartoon_Character_Backpack_h9pzza.jpg",
-    },
-    {
-      id: 16,
-      name: "Cute Kids Watch",
-      category: "Accessories",
-      price: 24.99,
-      originalPrice: 34.99,
-      rating: 4.5,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465697/Cute_Kids_Watch_rjfoo6.jpg",
-    },
-    // Clothes
-    {
-      id: 2,
-      name: "Boy's Casual T-Shirt",
-      category: "Clothes",
-      price: 24.99,
-      originalPrice: 34.99,
-      rating: 4.8,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465696/Boy_s_Casual_T-Shirt_nuj6jb.jpg",
-    },
-    {
-      id: 3,
-      name: "Colorful Kids T-Shirt",
-      category: "Clothes",
-      price: 12.99,
-      originalPrice: 19.99,
-      rating: 4.3,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465694/Colorful_Kids_T-Shirt_dnib41.jpg",
-    },
-    {
-      id: 4,
-      name: "Girl's Stylish Top",
-      category: "Clothes",
-      price: 18.99,
-      originalPrice: 25.99,
-      rating: 4.6,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465694/oy_s_Stylish_Top_ks8q6h.jpg",
-    },
-    {
-      id: 5,
-      name: "Boy's Denim Jeans",
-      category: "Clothes",
-      price: 15.99,
-      originalPrice: 22.99,
-      rating: 4.4,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465692/Boy_s_Denim_Jeans_npio2u.jpg",
-    },
-    {
-      id: 6,
-      name: "Girl's Summer Dress",
-      category: "Clothes",
-      price: 21.99,
-      originalPrice: 29.99,
-      rating: 4.7,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465691/Girl_s_Summer_Dress_q2bfp8.jpg",
-    },
-    {
-      id: 7,
-      name: "Kids Sneakers Collection",
-      category: "Clothes",
-      price: 16.99,
-      originalPrice: 23.99,
-      rating: 4.5,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465690/Kids_Sneakers_Collection_jmsvzb.jpg",
-    },
-    {
-      id: 11,
-      name: "Girl's Party Dress",
-      category: "Clothes",
-      price: 34.99,
-      originalPrice: 44.99,
-      rating: 4.8,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465688/Girl_s_Party_Dress_kh4gpi.jpg",
-    },
-    {
-      id: 12,
-      name: "Boy's Hoodie",
-      category: "Clothes",
-      price: 27.99,
-      originalPrice: 37.99,
-      rating: 4.6,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465687/Boy_s_Hoodie_cd3pa8.jpg",
-    },
-    {
-      id: 17,
-      name: "Girl's Floral Dress",
-      category: "Clothes",
-      price: 29.99,
-      originalPrice: 39.99,
-      rating: 4.7,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465686/Girl_s_Floral_Dress_n6rg30.jpg",
-    },
-    {
-      id: 18,
-      name: "Boy's Sports Outfit",
-      category: "Clothes",
-      price: 33.99,
-      originalPrice: 43.99,
-      rating: 4.6,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465685/Boy_s_Sports_Outfit_enlu1n.jpg",
-    },
-    // New Collection
-    {
-      id: 8,
-      name: "New Summer Outfit",
-      category: "New Collection",
-      price: 28.99,
-      originalPrice: 38.99,
-      rating: 4.9,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465684/New_Summer_Outfit_sltbq6.jpg",
-    },
-    {
-      id: 13,
-      name: "Trendy Kids Jacket",
-      category: "New Collection",
-      price: 39.99,
-      originalPrice: 54.99,
-      rating: 4.9,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465682/Trendy_Kids_Jacket_juodep.jpg",
-    },
-    {
-      id: 14,
-      name: "Designer Kids Set",
-      category: "New Collection",
-      price: 45.99,
-      originalPrice: 59.99,
-      rating: 5.0,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465681/Designer_Kids_Set_exzp0r.jpg",
-    },
-    {
-      id: 19,
-      name: "Premium Kids Collection",
-      category: "New Collection",
-      price: 52.99,
-      originalPrice: 69.99,
-      rating: 4.9,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465680/Premium_Kids_Collection_utu9hd.jpg",
+       path: "/accessories/all-products?category=Babies"
     },
   ];
 
   const categories_filter = ["All", "Accessories", "Clothes", "New Collection"];
-
-  const filteredProducts =
-    selectedCategory === "All"
-      ? allProducts
-      : allProducts.filter((product) => product.category === selectedCategory);
 
   // Features - ENHANCED
   const features = [
@@ -298,30 +123,87 @@ const KidsOutfits = () => {
       id: 1,
       title: "Newborn (0-12 months)",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465673/Newborn_0-12_months_gtbpze.jpg",
-      count: "150+ Items"
+      count: "150+ Items",
+      path: "/accessories/all-products?category=New Born"
     },
     {
       id: 2,
       title: "Toddler (1-3 years)",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465674/Toddler_1-3_years_kmgjek.jpg",
-      count: "200+ Items"
+      count: "200+ Items",
+       path: "/accessories/all-products?category=Toddler"
     },
     {
       id: 3,
       title: "Kids (4-8 years)",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465673/Kids_4-8_years_i1mnl5.jpg",
-      count: "300+ Items"
+      count: "300+ Items",
+       path: "/accessories/all-products?category=Kids"
     },
     {
       id: 4,
       title: "Teens (9-14 years)",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465673/Teens_9-14_years_t3z8lv.jpg",
-      count: "250+ Items"
+      count: "250+ Items",
+       path: "/accessories/all-products?category=Teens"
     },
   ];
 
+  // Fetch real products from database
+  useEffect(() => {
+    fetchRealProducts();
+  }, []);
+
+  const fetchRealProducts = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch(
+        "http://localhost:5000/api/products?category=kidsoutfit"
+      );
+      const data = await response.json();
+
+      if (data.success) {
+        setRealProducts(data.products);
+      } else {
+        setError(data.message);
+      }
+    } catch (err) {
+      console.error("Fetch error:", err);
+      setError("Failed to load products");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const toggleFavorite = (productId) => {
+    setFavorites((prev) =>
+      prev.includes(productId)
+        ? prev.filter((id) => id !== productId)
+        : [...prev, productId]
+    );
+  };
+
+  const formatINR = (price) => {
+    return new Intl.NumberFormat("en-IN", {
+      style: "currency",
+      currency: "INR",
+      maximumFractionDigits: 0,
+    }).format(price);
+  };
+
+  // URL for "View More" - Goes to all products list page
+  const ALL_PRODUCTS_URL = "/accessories/all-products?category=kidsoutfit";
+
+  // Filter products based on selected category
+  const filteredProducts = selectedCategory === "All"
+    ? realProducts
+    : realProducts.filter(product =>
+      product.subcategory === selectedCategory ||
+      product.tags?.includes(selectedCategory)
+    );
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className="bg-white">
       {/* Hero Section */}
       <section className="relative w-full h-[550px] md:h-[650px] lg:h-[700px] bg-linear-to-r from-rose-50 to-orange-50 overflow-hidden mb-12 md:mb-16">
         <div className="container mx-auto px-6 sm:px-8 lg:px-16 h-full">
@@ -342,9 +224,11 @@ const KidsOutfits = () => {
                 Explore the perfect outfit for every occasion with style and
                 comfort in mind. Shop now and save big!
               </p>
-              <button className="bg-rose-500 hover:bg-rose-600 text-white px-10 py-4 rounded-full font-thin transition-all duration-300 shadow-xl hover:shadow-2xl">
-                Shop Now
-              </button>
+              <Link href={ALL_PRODUCTS_URL}>
+                <button className="bg-rose-500 cursor-pointer hover:bg-rose-600 text-white px-10 py-4 rounded-full font-thin transition-all duration-300 shadow-xl hover:shadow-2xl">
+                  Shop Now
+                </button>
+              </Link>
             </div>
 
             <div className="relative flex justify-center py-8">
@@ -361,7 +245,6 @@ const KidsOutfits = () => {
                 <div className="absolute bottom-6 -right-6 w-14 h-14 bg-yellow-200 rounded-full opacity-50 animate-pulse"></div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -369,9 +252,6 @@ const KidsOutfits = () => {
       {/* Features Section */}
       <section className="relative py-8 bg-linear-to-b from-white via-gray-50 to-white overflow-hidden">
         <div className="container mx-auto px-6 sm:px-8 lg:px-16 relative z-10">
-
-
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
             {features.map((feature, index) => (
               <div
@@ -402,7 +282,7 @@ const KidsOutfits = () => {
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-gray-900 transition-colors">
+                  <h3 className="text-2xl font-medium text-gray-800 mb-3 group-hover:text-gray-900 transition-colors">
                     {feature.title}
                   </h3>
                   <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors">
@@ -427,20 +307,18 @@ const KidsOutfits = () => {
         </div>
       </section>
 
-
-
       {/* NEW: Shop By Age Group */}
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-6 sm:px-8 lg:px-16">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Shop By Age
+              Shop By <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Age</span>
             </h2>
-            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">  Find the perfect fit for your little ones at every stage</p>
+            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Find the perfect fit for your little ones at every stage</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {ageGroups.map((group) => (
-              <div key={group.id} className="group relative h-96 rounded-3xl overflow-hidden shadow-xl cursor-pointer">
+              <div key={group.id} className="group relative h-96 rounded-3xl overflow-hidden shadow-xl">
                 <Image
                   src={group.image}
                   alt={group.title}
@@ -452,9 +330,11 @@ const KidsOutfits = () => {
                   <div className="absolute bottom-8 left-6 right-6 text-white">
                     <h3 className="text-2xl font-normal mb-2">{group.title}</h3>
                     <p className="text-gray-200 text-sm mb-4">{group.count}</p>
-                    <button className="bg-rose-500 hover:bg-rose-600 px-6 py-2 rounded-full font-thin transition-all text-sm">
-                      Shop Now
-                    </button>
+                    <Link href={group.path}>
+                      <button className="bg-rose-500 hover:bg-rose-600 px-6 py-2 rounded-full cursor-pointer font-thin transition-all text-sm">
+                        Shop Now
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -468,7 +348,7 @@ const KidsOutfits = () => {
         <div className="container mx-auto px-6 sm:px-8 lg:px-16">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Shop By Category
+              Shop By <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>category</span>
             </h2>
             <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Tiny Trends for Every Little Star</p>
           </div>
@@ -476,7 +356,7 @@ const KidsOutfits = () => {
             {categories.map((category) => (
               <div
                 key={category.id}
-                className={`${category.bgColor} rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer group relative h-80`}
+                className={`${category.bgColor} rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group relative h-80`}
               >
                 <div className="absolute inset-0 flex items-center justify-between p-8">
                   <div className="z-10 space-y-4">
@@ -486,9 +366,11 @@ const KidsOutfits = () => {
                     <p className="text-gray-700 text-xl mb-5">
                       {category.description}
                     </p>
-                    <button className="bg-white text-gray-800 px-8 py-3 rounded-full font-thin hover:bg-gray-100 transition-colors shadow-md">
+                   <Link href={category.path}>
+                    <button className="bg-white text-gray-800 cursor-pointer px-8 py-3 rounded-full font-thin hover:bg-gray-100 transition-colors shadow-md">
                       See More
                     </button>
+                   </Link>
                   </div>
                   <div className="relative w-44 h-full">
                     <Image
@@ -509,11 +391,9 @@ const KidsOutfits = () => {
       {/* NEW: Trending Kids Fashion Gallery */}
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-6 sm:px-8 lg:px-16">
-
-
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Trending Kids Fashion
+              Trending Kids <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>fashion</span>
             </h2>
             <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Adorable Looks, Fresh Trends!</p>
           </div>
@@ -572,7 +452,6 @@ const KidsOutfits = () => {
       <section className="py-20 md:py-24 bg-linear-to-b from-gray-50 to-white">
         <div className="container mx-auto px-6 sm:px-8 lg:px-16">
           <div className="text-center mb-16">
-
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
                 New Collections
@@ -595,109 +474,121 @@ const KidsOutfits = () => {
             </div>
           </div>
 
-          {/* Products Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
-            {filteredProducts.map((product) => (
-              <div
-                key={product.id}
-                className="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden"
+          {/* Loading State */}
+          {loading ? (
+            <div className="flex justify-center items-center py-20">
+              <Loader2 className="w-10 h-10 animate-spin text-rose-500" />
+            </div>
+          ) : error ? (
+            <div className="text-center py-12">
+              <p className="text-red-600 mb-4">{error}</p>
+              <button
+                onClick={fetchRealProducts}
+                className="px-6 py-2 bg-rose-500 text-white rounded-lg hover:bg-rose-600"
               >
-                {/* Product Image */}
-                <div className="relative h-80 bg-gray-100 overflow-hidden">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    className="object-cover object-top group-hover:scale-110 transition-transform duration-500"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  />
+                Retry
+              </button>
+            </div>
+          ) : (
+            <>
+              {/* Products Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
+                {filteredProducts.map((product) => {
+                  const images = Array.isArray(product.images)
+                    ? product.images
+                    : JSON.parse(product.images || "[]");
+                  const mainImage = images[0] || "/placeholder.jpg";
 
-                  {/* Wishlist & Cart Icons */}
-                  <div className="absolute top-4 right-4 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <button
-                      className="bg-white p-3 rounded-full shadow-lg hover:bg-rose-50 transition-colors"
-                      aria-label="Add to wishlist"
+                  return (
+                    <Link
+                      key={product.id}
+                      href={`/accessories/all-products/${product.id}`}
+                      className="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden"
                     >
-                      <Heart className="w-6 h-6 text-rose-500" />
-                    </button>
-                    <button
-                      className="bg-white p-3 rounded-full shadow-lg hover:bg-rose-50 transition-colors"
-                      aria-label="Add to cart"
-                    >
-                      <ShoppingCart className="w-6 h-6 text-rose-500" />
-                    </button>
-                  </div>
-
-                  {/* Thumbnail Preview (for first product) */}
-                  {product.thumbnail && (
-                    <div className="absolute bottom-4 left-4 flex gap-2">
-                      {[1, 2, 3].map((idx) => (
-                        <div
-                          key={idx}
-                          className="w-14 h-14 bg-white rounded-lg border-2 border-gray-300 overflow-hidden cursor-pointer hover:border-rose-500 transition-colors"
-                        >
-                          <Image
-                            src={product.thumbnail}
-                            alt={`Thumbnail ${idx}`}
-                            width={56}
-                            height={56}
-                            className="object-cover"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                {/* Product Info */}
-                <div className="p-6">
-                  <h3 className="text-base font-normal text-gray-800 mb-3 line-clamp-2 min-h-[48px]">
-                    {product.name}
-                  </h3>
-
-                  {/* Rating */}
-                  <div className="flex items-center gap-1 mb-3">
-                    {[...Array(5)].map((_, idx) => (
-                      <Star
-                        key={idx}
-                        className={`w-5 h-5 ${idx < Math.floor(product.rating)
-                          ? "fill-yellow-400 text-yellow-400"
-                          : "text-gray-300"
-                          }`}
-                      />
-                    ))}
-                    <span className="text-sm text-gray-600 ml-2">
-                      ({product.rating})
-                    </span>
-                  </div>
-
-                  {/* Price */}
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-xl font-bold text-rose-500">
-                      ₹{product.price.toFixed(2)}
-                    </span>
-                    <span className="text-base text-gray-400 line-through">
-                      ₹{product.originalPrice.toFixed(2)}
-                    </span>
-                  </div>
-
-                  {/* Color Options */}
-                  {product.colors && (
-                    <div className="flex gap-2">
-                      {product.colors.map((color, idx) => (
-                        <button
-                          key={idx}
-                          className="w-7 h-7 rounded-full border-2 border-gray-300 hover:border-rose-500 transition-colors"
-                          style={{ backgroundColor: color }}
-                          aria-label={`Select color ${color}`}
+                      {/* Product Image */}
+                      <div className="relative h-80 bg-gray-100 overflow-hidden">
+                        <img
+                          src={mainImage}
+                          alt={product.name}
+                          className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
+                          onError={(e) => {
+                            e.target.src = "/placeholder.jpg";
+                          }}
                         />
-                      ))}
-                    </div>
-                  )}
-                </div>
+
+                        {/* Wishlist & Cart Icons */}
+                        <div className="absolute top-4 right-4 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              toggleFavorite(product.id);
+                            }}
+                            className="bg-white p-3 rounded-full shadow-lg hover:bg-rose-50 transition-colors"
+                            aria-label="Add to wishlist"
+                          >
+                            <Heart
+                              className={`w-6 h-6 ${favorites.includes(product.id)
+                                ? "text-rose-500 fill-rose-500"
+                                : "text-rose-500"
+                                }`}
+                            />
+                          </button>
+                          <button
+                            onClick={(e) => e.preventDefault()}
+                            className="bg-white p-3 rounded-full shadow-lg hover:bg-rose-50 transition-colors"
+                            aria-label="Add to cart"
+                          >
+                            <ShoppingCart className="w-6 h-6 text-rose-500" />
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Product Info */}
+                      <div className="p-6">
+                        <h3 className="text-base font-normal text-gray-800 mb-3 line-clamp-2 min-h-[48px]">
+                          {product.name}
+                        </h3>
+
+                        {/* Rating */}
+                        <div className="flex items-center gap-1 mb-3">
+                          <Star size={16} className="text-amber-400 fill-amber-400" />
+                          <span className="text-sm text-gray-600 ml-2">
+                            ({product.rating || "4.8"})
+                          </span>
+                        </div>
+
+                        {/* Price */}
+                        <div className="flex items-center gap-3 mb-4">
+                          <span className="text-xl font-bold text-rose-500">
+                            {formatINR(product.price)}
+                          </span>
+                          {product.mrp && product.mrp > product.price && (
+                            <>
+                              <span className="text-base text-gray-400 line-through">
+                                {formatINR(product.mrp)}
+                              </span>
+                              <span className="text-sm text-red-500 font-medium">
+                                -{product.discount}%
+                              </span>
+                            </>
+                          )}
+                        </div>
+                      </div>
+                    </Link>
+                  );
+                })}
               </div>
-            ))}
-          </div>
+
+              {/* View More Button */}
+              <div className="flex justify-center mt-12">
+                <Link href={ALL_PRODUCTS_URL}>
+                  <button className="bg-rose-500 hover:bg-rose-600 text-white px-14 py-5 rounded-full font-thin uppercase tracking-wider transition-all duration-300 shadow-2xl hover:shadow-3xl text-lg">
+                    View More Products
+                  </button>
+                </Link>
+              </div>
+            </>
+          )}
         </div>
       </section>
 
@@ -714,8 +605,6 @@ const KidsOutfits = () => {
         <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-pink-400 rounded-full opacity-40 animate-float animation-delay-2000"></div>
 
         <div className="container mx-auto px-6 sm:px-8 lg:px-16 relative z-10">
-
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
             {additionalFeatures.map((feature, index) => (
               <div
@@ -783,42 +672,39 @@ const KidsOutfits = () => {
               </div>
             ))}
           </div>
-
         </div>
 
         {/* CSS for Custom Animations */}
         <style jsx>{`
-    @keyframes blob {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(30px, -50px) scale(1.1); }
-      66% { transform: translate(-20px, 20px) scale(0.9); }
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes twinkle {
-      0%, 100% { opacity: 0; transform: scale(0); }
-      50% { opacity: 1; transform: scale(1); }
-    }
-    @keyframes ping-slow {
-      75%, 100% { transform: scale(2); opacity: 0; }
-    }
-    .animate-blob { animation: blob 7s infinite; }
-    .animate-float { animation: float 3s ease-in-out infinite; }
-    .animate-twinkle { animation: twinkle 2s ease-in-out infinite; }
-    .animate-ping-slow { animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite; }
-    .animation-delay-1000 { animation-delay: 1s; }
-    .animation-delay-2000 { animation-delay: 2s; }
-    .animation-delay-4000 { animation-delay: 4s; }
-  `}</style>
+          @keyframes blob {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+          }
+          @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+          }
+          @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          @keyframes twinkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+          }
+          @keyframes ping-slow {
+            75%, 100% { transform: scale(2); opacity: 0; }
+          }
+          .animate-blob { animation: blob 7s infinite; }
+          .animate-float { animation: float 3s ease-in-out infinite; }
+          .animate-twinkle { animation: twinkle 2s ease-in-out infinite; }
+          .animate-ping-slow { animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite; }
+          .animation-delay-1000 { animation-delay: 1s; }
+          .animation-delay-2000 { animation-delay: 2s; }
+          .animation-delay-4000 { animation-delay: 4s; }
+        `}</style>
       </section>
-
-
 
       {/* CTA Section */}
       <section className="py-12 md:py-12">
@@ -831,9 +717,11 @@ const KidsOutfits = () => {
               <p className="text-gray-700 text-xl mb-10 max-w-3xl mx-auto leading-relaxed">
                 Discover our extensive range of kids fashion for every age and occasion
               </p>
-              <button className="bg-rose-500 hover:bg-rose-600 text-white px-14 py-5 rounded-full font-thin uppercase tracking-wider transition-all duration-300 shadow-2xl hover:shadow-3xl text-lg">
-                Shop All Products
-              </button>
+              <Link href={ALL_PRODUCTS_URL}>
+                <button className="bg-rose-500 hover:bg-rose-600 text-white px-14 py-5 rounded-full font-thin uppercase tracking-wider transition-all duration-300 shadow-2xl hover:shadow-3xl text-lg">
+                  Shop All Products
+                </button>
+              </Link>
             </div>
             {/* Decorative Elements */}
             <div className="absolute top-0 right-0 w-72 h-72 bg-rose-300 rounded-full opacity-20 -mr-36 -mt-36"></div>

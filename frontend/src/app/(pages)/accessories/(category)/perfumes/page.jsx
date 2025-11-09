@@ -8,7 +8,9 @@ import { Fragment } from 'react';
 const CATEGORY_SLUG = "perfumes";
 
 const HeroSection = () => {
+  
   const ALL_PRODUCTS_URL = "/accessories/all-products?category=perfumes";
+
   return (
     <section className="relative bg-linear-to-br from-slate-50 via-purple-50 to-yellow-50 overflow-hidden">
       {/* Background Elements */}
@@ -84,20 +86,17 @@ const HeroSection = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-               <Link href={ALL_PRODUCTS_URL} prefetch={false}>
-              <button className="bg-linear-to-r from-yellow-500 to-yellow-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+              <button className="bg-linear-to-r from-yellow-500 to-yellow-600 text-white px-8 py-4 rounded-2xl font-normal cursor-pointer text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
                 SHOP NOW
               </button>
-              </Link>
-              <button className="border-2 border-slate-300 text-slate-700 px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-slate-50 hover:border-slate-400 transition-all duration-300">
+              <button className="border-2 border-slate-300 text-slate-700 px-8 py-4 rounded-2xl font-normal cursor-pointer text-lg hover:bg-slate-50 hover:border-slate-400 transition-all duration-300">
                 View Catalog
               </button>
             </div>
-
-          </div>
+          </div >
 
           {/* Image Collage - Right Side */}
-          <div className="relative lg:order-2">
+          < div className="relative lg:order-2" >
             <div className="relative">
               {/* Main Large Image Container */}
               <div className="relative h-[600px] w-full max-w-lg mx-auto">
@@ -167,10 +166,10 @@ const HeroSection = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div >
 
-        </div>
-      </div>
+        </div >
+      </div >
 
       {/* Scroll Indicator */}
       {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
@@ -178,7 +177,7 @@ const HeroSection = () => {
           <div className="w-1 h-3 bg-slate-400 rounded-full mt-2"></div>
         </div>
       </div> */}
-    </section>
+    </section >
   );
 };
 
@@ -863,7 +862,7 @@ const FeaturedProducts = () => {
     },
   ];
 
-    
+
 
   return (
     <>
