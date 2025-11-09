@@ -1,15 +1,18 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { ShoppingCart, Heart, Star, ArrowRight } from "lucide-react";
+import { ShoppingCart, Heart, Star, ArrowRight, Loader2 } from "lucide-react";
 import { Fragment } from "react";
 
-
-
+const CATEGORY_SLUG = "bags";
 
 const BagsAndPurses = () => {
   const [activeCategory, setActiveCategory] = useState("all");
+  const [favorites, setFavorites] = useState([]);
+  const [realProducts, setRealProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   // Hero Banner Data
   const heroBanners = [
@@ -51,84 +54,42 @@ const BagsAndPurses = () => {
       name: "Tote Bags",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761306595/tote-bag_cz0wg9.jpg",
       category: "tote",
+      categorylink: '/accessories/all-products?category=Tote Bags'
     },
     {
       id: 2,
       name: "Backpacks",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761306606/backpack_o3guva.jpg",
       category: "backpack",
+      categorylink: '/accessories/all-products?category=Backpacks'
     },
     {
       id: 3,
       name: "Clutches and Pouches",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761306648/clutch_pigsrw.jpg",
       category: "clutch",
+      categorylink: '/accessories/all-products?category=Clutches and Pouches'
     },
     {
       id: 4,
       name: "Crossbody",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761306680/crossbody_yvktqh.jpg",
       category: "crossbody",
+      categorylink: '/accessories/all-products?category=Crossbody'
     },
     {
       id: 5,
       name: "Messenger Bags",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761306695/messenger_uqjlar.jpg",
       category: "messenger",
+      categorylink: '/accessories/all-products?category=Messenger Bags'
     },
     {
       id: 6,
       name: "Accessories",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761306715/accessories_ipthcg.jpg",
       category: "accessories",
-    },
-  ];
-
-  // Featured Products
-  const featuredProducts = [
-    {
-      id: 1,
-      name: "Classic Leather Tote",
-      price: 1999.99,
-      rating: 4.8,
-      reviews: 245,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761306786/product-1_gyiczr.jpg",
-      badge: "BESTSELLER",
-      category: "tote",
-      colors: ["#8B4513", "#000000", "#D2691E"],
-    },
-    {
-      id: 2,
-      name: "Travel Backpack Pro",
-      price: 4599.99,
-      rating: 4.9,
-      reviews: 189,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761306784/product-2_jxdt3w.jpg",
-      badge: "NEW",
-      category: "backpack",
-      colors: ["#2F4F4F", "#8B4513", "#696969"],
-    },
-    {
-      id: 3,
-      name: "Evening Clutch Elegant",
-      price: 6999.99,
-      rating: 4.7,
-      reviews: 156,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761306782/product-3_r1vgij.jpg",
-      badge: null,
-      category: "clutch",
-      colors: ["#FFD700", "#C0C0C0", "#000000"],
-    },
-    {
-      id: 4,
-      name: "Crossbody Messenger",
-      price: 2899.99,
-      rating: 4.6,
-      reviews: 203,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761306779/product-4_fr0y1o.jpg",
-      badge: "SALE",
-      category: "crossbody",
-      colors: ["#8B4513", "#556B2F", "#000000"],
+      categorylink: '/accessories/all-products?category=Accessories'
     },
   ];
 
@@ -149,20 +110,61 @@ const BagsAndPurses = () => {
       id: 4,
       link: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761306329/accessory-4_dkt5fk.jpg"
     },
+  ];
 
-  ]
+  useEffect(() => {
+    fetchRealProducts();
+  }, []);
 
-  const filteredProducts =
-    activeCategory === "all"
-      ? featuredProducts
-      : featuredProducts.filter((p) => p.category === activeCategory);
+  const fetchRealProducts = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch(
+        "http://localhost:5000/api/products?category=bags"
+      );
+      const data = await response.json();
+
+      if (data.success) {
+        setRealProducts(data.products);
+      } else {
+        setError(data.message);
+      }
+    } catch (err) {
+      console.error("Fetch error:", err);
+      setError("Failed to load products");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const toggleFavorite = (id) => {
+    setFavorites(prev =>
+      prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]
+    );
+  };
+
+  const formatINR = (price) => {
+    return new Intl.NumberFormat("en-IN", {
+      style: "currency",
+      currency: "INR",
+      maximumFractionDigits: 0,
+    }).format(price);
+  };
+
+  const ALL_PRODUCTS_URL = "/accessories/all-products?category=Bags And Purse";
+
+  const filteredProducts = activeCategory === "all"
+    ? realProducts
+    : realProducts.filter((p) =>
+      p.subcategory === activeCategory ||
+      p.tags?.includes(activeCategory)
+    );
 
   return (
     <>
-
       <div className="w-full">
         {/* Hero Banner Section - Bags & Purses */}
-        <section className="relative w-full  py-16 md:py-16">
+        <section className="relative w-full py-16 md:py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {/* Left Content */}
@@ -187,9 +189,11 @@ const BagsAndPurses = () => {
                 </p>
 
                 <div className="flex flex-wrap gap-4 pt-4">
-                  <button className="px-8 py-4 bg-rose-600 text-white cursor-pointer rounded-lg font-light hover:bg-rose-700 transition-colors duration-300 shadow-lg hover:shadow-xl">
-                    Shop Collection
-                  </button>
+                  <Link href={ALL_PRODUCTS_URL}>
+                    <button className="px-8 py-4 bg-rose-600 text-white cursor-pointer rounded-lg font-light hover:bg-rose-700 transition-colors duration-300 shadow-lg hover:shadow-xl">
+                      Shop Now
+                    </button>
+                  </Link>
                   <button className="px-8 py-4 bg-white text-rose-600 border-2 cursor-pointer border-rose-600 rounded-lg font-light hover:bg-rose-50 transition-colors duration-300">
                     View Lookbook
                   </button>
@@ -280,7 +284,6 @@ const BagsAndPurses = () => {
         {/* Our Full Line Section */}
         <section className="py-12 md:py-14 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
                 our <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>full line</span>
@@ -292,7 +295,7 @@ const BagsAndPurses = () => {
               {fullLineProducts.map((product) => (
                 <Link
                   key={product.id}
-                  href={`/products/₹{product.category}`}
+                  href={product.categorylink}
                   className="group text-center"
                 >
                   <div className="relative aspect-square bg-gray-100 rounded-xl overflow-hidden mb-3 shadow-md hover:shadow-xl transition-all duration-300">
@@ -303,7 +306,7 @@ const BagsAndPurses = () => {
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
-                  <h3 className="text-sm md:text-base font-medium text-gray-800 group-hover:text-rose-600 transition-colors">
+                  <h3 className="text-lg font-medium text-gray-800 group-hover:text-rose-600 transition-colors">
                     {product.name}
                   </h3>
                 </Link>
@@ -339,10 +342,12 @@ const BagsAndPurses = () => {
                   skilled artisans. Each piece tells a story of dedication,
                   quality, and timeless craftsmanship.
                 </p>
-                <button className="bg-white text-rose-600 px-8 py-3 rounded-full font-normal cursor-pointer hover:bg-rose-50 transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                  ABOUT US
-                  <ArrowRight size={18} />
-                </button>
+                <Link href={ALL_PRODUCTS_URL}>
+                  <button className="bg-white text-rose-600 px-8 py-3 rounded-full font-normal cursor-pointer hover:bg-rose-50 transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    VIEW MORE
+                    <ArrowRight size={18} />
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -352,154 +357,164 @@ const BagsAndPurses = () => {
         <section className="py-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="text-center ">
-
               <div className="text-center mb-12">
                 <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-                  just <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>of the</span> line
+                  just <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>of</span> the <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>line </span>
                 </h2>
                 <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Discover our latest handcrafted collections</p>
               </div>
+            </div>
 
-              {/* Category Filter */}
-              <div className="flex flex-wrap justify-center gap-2 md:gap-3">
-                {categories.map((cat) => (
-                  <button
-                    key={cat.id}
-                    onClick={() => setActiveCategory(cat.id)}
-                    className={`px-4 md:px-6 py-2 rounded-full text-sm md:text-base font-medium transition-all duration-300 ₹{
-                      activeCategory === cat.id
-                        ? "bg-rose-500 text-white shadow-lg"
-                        : "bg-gray-100 hover:bg-rose-100 hover:text-rose-600"
-                    }`}
-                  >
-                    {cat.name}
-                  </button>
-                ))}
+            {/* Loading State */}
+            {loading ? (
+              <div className="flex justify-center items-center py-20">
+                <Loader2 className="w-10 h-10 animate-spin text-rose-500" />
               </div>
-            </div>
-
-            {/* Products Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-              {filteredProducts.map((product) => (
-                <div
-                  key={product.id}
-                  className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+            ) : error ? (
+              <div className="text-center py-12">
+                <p className="text-red-600 mb-4">{error}</p>
+                <button
+                  onClick={fetchRealProducts}
+                  className="px-6 py-2 bg-rose-500 text-white rounded-lg hover:bg-rose-600"
                 >
-                  {/* Product Image */}
-                  <div className="relative aspect-[3/4] overflow-hidden bg-gray-100">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    // onError={(e) => {
-                    //   e.target.src =
-                    //     "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400";
-                    // }}
-                    />
+                  Retry
+                </button>
+              </div>
+            ) : (
+              <>
+                {/* Products Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mt-12">
+                  {filteredProducts.map((product) => {
+                    const images = Array.isArray(product.images)
+                      ? product.images
+                      : JSON.parse(product.images || "[]");
+                    const mainImage = images[0] || "/placeholder.jpg";
 
-                    {/* Badge */}
-                    {product.badge && (
-                      <div
-                        className={`absolute top-4 right-4 px-3 py-1 rounded-full bg-gray-500 text-xs font-extralight text-white shadow-lg ₹{
-                          product.badge === "SALE"
-                            ? "bg-red-500"
-                            : product.badge === "NEW"
-                            ? "bg-green-500"
-                            : "bg-rose-500"
-                        }`}
+                    return (
+                      <Link
+                        key={product.id}
+                        href={`/accessories/all-products/${product.id}`}
+                        className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
                       >
-                        {product.badge}
-                      </div>
-                    )}
-
-                    {/* Quick Action Buttons */}
-                    <div className="absolute top-4 left-4 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <button className="bg-white p-2 rounded-full shadow-lg hover:bg-rose-500 hover:text-white transition-all duration-300">
-                        <Heart size={18} />
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Product Info */}
-                  <div className="p-4 md:p-5">
-                    <h3 className="text-base md:text-lg font-medium text-gray-900 mb-2 group-hover:text-rose-600 transition-colors">
-                      {product.name}
-                    </h3>
-
-                    {/* Rating */}
-                    <div className="flex items-center gap-2 mb-3">
-                      <div className="flex">
-                        {[...Array(5)].map((_, i) => (
-                          <Star
-                            key={i}
-                            size={14}
-                            className={
-                              i < Math.floor(product.rating)
-                                ? "text-yellow-400 fill-yellow-400"
-                                : "text-gray-300"
-                            }
+                        {/* Product Image */}
+                        <div className="relative aspect-[3/4] overflow-hidden bg-gray-100">
+                          <img
+                            src={mainImage}
+                            alt={product.name}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            onError={(e) => {
+                              e.target.src = "/placeholder.jpg";
+                            }}
                           />
-                        ))}
-                      </div>
-                      <span className="text-xs text-gray-500">
-                        ({product.reviews})
-                      </span>
-                    </div>
 
-                    {/* Colors */}
-                    <div className="flex gap-2 mb-4">
-                      {product.colors.map((color, index) => (
-                        <button
-                          key={index}
-                          className="w-6 h-6 rounded-full border-2 border-gray-300 hover:border-rose-500 transition-colors"
-                          style={{ backgroundColor: color }}
-                          aria-label={`Color option ₹{index + 1}`}
-                        />
-                      ))}
-                    </div>
+                          {/* Badge */}
+                          {product.featured && (
+                            <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-rose-500 text-xs font-extralight text-white shadow-lg">
+                              BESTSELLER
+                            </div>
+                          )}
+                          {product.discount > 0 && (
+                            <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-red-500 text-xs font-extralight text-white shadow-lg">
+                              SALE
+                            </div>
+                          )}
 
-                    {/* Price and Cart */}
-                    <div className="flex items-center justify-between">
-                      <span className="text-xl md:text-2xl font-light text-rose-600">
-                        ₹{product.price}
-                      </span>
-                      <button className="bg-rose-500 text-white p-2 md:p-3 rounded-full hover:bg-rose-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110">
-                        <ShoppingCart size={18} />
-                      </button>
-                    </div>
-                  </div>
+                          {/* Quick Action Buttons */}
+                          <div className="absolute top-4 left-4 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button
+                              onClick={(e) => {
+                                e.preventDefault();
+                                toggleFavorite(product.id);
+                              }}
+                              className="bg-white p-2 rounded-full shadow-lg hover:bg-rose-500 hover:text-white transition-all duration-300"
+                            >
+                              <Heart
+                                size={18}
+                                className={favorites.includes(product.id) ? "fill-rose-500" : ""}
+                              />
+                            </button>
+                          </div>
+                        </div>
+
+                        {/* Product Info */}
+                        <div className="p-4 md:p-5">
+                          <h3 className="text-base md:text-lg font-medium text-gray-900 mb-2 group-hover:text-rose-600 transition-colors line-clamp-2">
+                            {product.name}
+                          </h3>
+
+                          {/* Rating */}
+                          <div className="flex items-center gap-2 mb-3">
+                            <div className="flex">
+                              {[...Array(5)].map((_, i) => (
+                                <Star
+                                  key={i}
+                                  size={14}
+                                  className={
+                                    i < Math.floor(product.rating || 4.5)
+                                      ? "text-yellow-400 fill-yellow-400"
+                                      : "text-gray-300"
+                                  }
+                                />
+                              ))}
+                            </div>
+                            <span className="text-xs text-gray-500">
+                              ({product.rating || "4.5"})
+                            </span>
+                          </div>
+
+                          {/* Price and Cart */}
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                              <span className="text-xl md:text-2xl font-light text-rose-600">
+                                {formatINR(product.price)}
+                              </span>
+                              {product.mrp && product.mrp > product.price && (
+                                <span className="text-sm text-gray-400 line-through">
+                                  {formatINR(product.mrp)}
+                                </span>
+                              )}
+                            </div>
+                            <button
+                              onClick={(e) => e.preventDefault()}
+                              className="bg-rose-500 text-white p-2 md:p-3 rounded-full hover:bg-rose-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110"
+                            >
+                              <ShoppingCart size={18} />
+                            </button>
+                          </div>
+                        </div>
+                      </Link>
+                    );
+                  })}
                 </div>
-              ))}
-            </div>
-          </div>
-          <Fragment>
-            <div className='flex justify-center py-16'>
-              <button
-                className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900"
-              >
-                {/* Background slide effect */}
-                <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
 
-                {/* Button text */}
-                <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
-                  View More Products
-                  <svg
-                    className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
-          </Fragment>
+                <Fragment>
+                  <div className='flex justify-center py-16'>
+                    <Link href={'/accessories/all-products?category=Trending Collection'}>
+                      <button className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900">
+                        <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
+                        <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
+                          DIscover our trending Bags 
+                          <svg
+                            className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={1.5}
+                              d="M17 8l4 4m0 0l-4 4m4-4H3"
+                            />
+                          </svg>
+                        </span>
+                      </button>
+                    </Link>
+                  </div>
+                </Fragment>
+              </>
+            )}
+          </div>
         </section>
 
         {/* Max Protection Section */}
@@ -517,8 +532,8 @@ const BagsAndPurses = () => {
                   safe and secure, no matter where life takes you.
                 </p>
                 <Link
-                  href="/products"
-                  className="inline-flex items-center gap-2 text-rose-600 font-semibold hover:text-rose-700 transition-colors group"
+                  href='/'
+                  className="inline-flex items-center gap-2 text-rose-600 font-normal cursor-pointer hover:text-rose-700 transition-colors group"
                 >
                   Visit site
                   <ArrowRight
@@ -537,7 +552,7 @@ const BagsAndPurses = () => {
                   >
                     <img
                       src={item.link}
-                      alt={`Accessory ${item}`}
+                      alt={`Accessory ${item.id}`}
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -547,7 +562,6 @@ const BagsAndPurses = () => {
           </div>
         </section>
       </div>
-
     </>
   );
 };

@@ -1,0 +1,436 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
+import { useParams, useRouter } from "next/navigation";
+import Link from "next/link";
+import {
+  Star,
+  ShoppingCart,
+  Heart,
+  Share2,
+  Minus,
+  Plus,
+  Truck,
+  Shield,
+  RefreshCw,
+  ChevronLeft,
+  Check,
+} from "lucide-react";
+
+export default function ProductDetail() {
+  const params = useParams();
+  const router = useRouter();
+  const productId = params.id;
+
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [selectedImage, setSelectedImage] = useState(0);
+  const [quantity, setQuantity] = useState(1);
+  const [addedToCart, setAddedToCart] = useState(false);
+
+  useEffect(() => {
+    if (productId) {
+      fetchProductDetails();
+    }
+  }, [productId]);
+
+  const fetchProductDetails = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch(
+        `http://localhost:5000/api/products/${productId}`
+      );
+      const data = await response.json();
+
+      if (data.success) {
+        setProduct(data.product);
+      } else {
+        setError(data.message);
+      }
+    } catch (err) {
+      console.error("Fetch product error:", err);
+      setError("Failed to load product details");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const formatINR = (price) => {
+    return new Intl.NumberFormat("en-IN", {
+      style: "currency",
+      currency: "INR",
+      maximumFractionDigits: 0,
+    }).format(price);
+  };
+
+  const handleQuantityChange = (action) => {
+    if (action === "increase" && quantity < (product?.stock || 100)) {
+      setQuantity(quantity + 1);
+    } else if (action === "decrease" && quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
+  const handleAddToCart = () => {
+    // Add to cart logic here
+    setAddedToCart(true);
+    setTimeout(() => setAddedToCart(false), 2000);
+  };
+
+  const handleBuyNow = () => {
+    // Navigate to checkout with product details
+    router.push(`/checkout?product=${productId}&quantity=${quantity}`);
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-rose-500"></div>
+      </div>
+    );
+  }
+
+  if (error || !product) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
+        <div className="text-6xl mb-4">😞</div>
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">
+          Product Not Found
+        </h2>
+        <p className="text-gray-600 mb-6">{error || "This product does not exist"}</p>
+        <Link
+          href="/accessories/all-products?category=jewellery"
+          className="px-6 py-3 bg-rose-500 text-white rounded-lg hover:bg-rose-600 transition-colors"
+        >
+          Back to Products
+        </Link>
+      </div>
+    );
+  }
+
+  const images = Array.isArray(product.images)
+    ? product.images
+    : JSON.parse(product.images || "[]");
+
+  const discount = product.mrp && product.price
+    ? Math.round(((product.mrp - product.price) / product.mrp) * 100)
+    : product.discount || 0;
+
+  return (
+    <div className="min-h-screen bg-gray-50 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Breadcrumb */}
+        <div className="mb-6 flex items-center gap-2 text-sm">
+          <Link href="/" className="text-gray-600 hover:text-rose-500">
+            Home
+          </Link>
+          <span className="text-gray-400">/</span>
+          <Link
+            href={`/accessories/all-products?category=${product.category}`}
+            className="text-gray-600 hover:text-rose-500 capitalize"
+          >
+            {product.category}
+          </Link>
+          <span className="text-gray-400">/</span>
+          <span className="text-gray-900 font-medium truncate max-w-xs">
+            {product.name}
+          </span>
+        </div>
+
+        {/* Back Button */}
+        <button
+          onClick={() => router.back()}
+          className="mb-6 flex items-center gap-2 text-gray-600 hover:text-rose-500 transition-colors"
+        >
+          <ChevronLeft className="w-5 h-5" />
+          <span>Back to Products</span>
+        </button>
+
+        <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6 lg:p-8">
+            {/* Left Side - Images */}
+            <div className="space-y-4">
+              {/* Main Image */}
+              <div className="relative aspect-square bg-gray-100 rounded-lg overflow-hidden">
+                <img
+                  src={images[selectedImage] || images[0] || "/placeholder.jpg"}
+                  alt={product.name}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.src = "/placeholder.jpg";
+                  }}
+                />
+                {discount > 0 && (
+                  <div className="absolute top-4 right-4 bg-rose-500 text-white px-3 py-1 rounded-md text-sm font-semibold">
+                    {discount}% OFF
+                  </div>
+                )}
+                {product.featured && (
+                  <div className="absolute top-4 left-4 bg-yellow-500 text-white px-3 py-1 rounded-md text-sm font-semibold">
+                    ⭐ FEATURED
+                  </div>
+                )}
+              </div>
+
+              {/* Thumbnail Images */}
+              {images.length > 1 && (
+                <div className="grid grid-cols-4 gap-3">
+                  {images.map((image, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setSelectedImage(index)}
+                      className={`aspect-square rounded-lg overflow-hidden border-2 transition-all ${
+                        selectedImage === index
+                          ? "border-rose-500"
+                          : "border-gray-200 hover:border-gray-300"
+                      }`}
+                    >
+                      <img
+                        src={image}
+                        alt={`${product.name} - ${index + 1}`}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.target.src = "/placeholder.jpg";
+                        }}
+                      />
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Right Side - Product Details */}
+            <div className="space-y-6">
+              {/* Product Name */}
+              <div>
+                <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                  {product.name}
+                </h1>
+                <p className="text-sm text-gray-500 capitalize">
+                  Category: {product.category}
+                </p>
+              </div>
+
+              {/* Rating */}
+              {product.rating && (
+                <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1 bg-green-600 text-white px-2 py-1 rounded">
+                    <span className="font-semibold">{product.rating}</span>
+                    <Star className="w-4 h-4 fill-white" />
+                  </div>
+                  <span className="text-sm text-gray-600">
+                    ({Math.floor(Math.random() * 1000) + 100} ratings)
+                  </span>
+                </div>
+              )}
+
+              {/* Price */}
+              <div className="border-t border-b border-gray-200 py-4">
+                <div className="flex items-baseline gap-3 mb-2">
+                  <span className="text-4xl font-bold text-gray-900">
+                    {formatINR(product.price)}
+                  </span>
+                  {product.mrp && product.mrp > product.price && (
+                    <>
+                      <span className="text-xl text-gray-500 line-through">
+                        {formatINR(product.mrp)}
+                      </span>
+                      <span className="text-lg text-green-600 font-semibold">
+                        {discount}% off
+                      </span>
+                    </>
+                  )}
+                </div>
+                <p className="text-sm text-gray-600">Inclusive of all taxes</p>
+              </div>
+
+              {/* Stock Status */}
+              <div>
+                {product.stock > 0 ? (
+                  <div className="flex items-center gap-2 text-green-600">
+                    <Check className="w-5 h-5" />
+                    <span className="font-medium">
+                      In Stock ({product.stock} available)
+                    </span>
+                  </div>
+                ) : (
+                  <div className="flex items-center gap-2 text-red-600">
+                    <span className="font-medium">Out of Stock</span>
+                  </div>
+                )}
+              </div>
+
+              {/* Quantity Selector */}
+              {product.stock > 0 && (
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Quantity
+                  </label>
+                  <div className="flex items-center gap-3">
+                    <button
+                      onClick={() => handleQuantityChange("decrease")}
+                      className="w-10 h-10 rounded-lg border border-gray-300 flex items-center justify-center hover:bg-gray-50 transition-colors"
+                      disabled={quantity <= 1}
+                    >
+                      <Minus className="w-4 h-4" />
+                    </button>
+                    <span className="text-xl font-semibold w-12 text-center">
+                      {quantity}
+                    </span>
+                    <button
+                      onClick={() => handleQuantityChange("increase")}
+                      className="w-10 h-10 rounded-lg border border-gray-300 flex items-center justify-center hover:bg-gray-50 transition-colors"
+                      disabled={quantity >= product.stock}
+                    >
+                      <Plus className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* Action Buttons */}
+              <div className="space-y-3">
+                <button
+                  onClick={handleBuyNow}
+                  disabled={product.stock === 0}
+                  className="w-full bg-rose-500 text-white py-4 rounded-lg font-semibold hover:bg-rose-600 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                >
+                  <ShoppingCart className="w-5 h-5" />
+                  Buy Now
+                </button>
+                <button
+                  onClick={handleAddToCart}
+                  disabled={product.stock === 0}
+                  className="w-full bg-white text-rose-500 border-2 border-rose-500 py-4 rounded-lg font-semibold hover:bg-rose-50 transition-colors disabled:border-gray-300 disabled:text-gray-300 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                >
+                  {addedToCart ? (
+                    <>
+                      <Check className="w-5 h-5" />
+                      Added to Cart
+                    </>
+                  ) : (
+                    <>
+                      <ShoppingCart className="w-5 h-5" />
+                      Add to Cart
+                    </>
+                  )}
+                </button>
+              </div>
+
+              {/* Additional Actions */}
+              <div className="flex gap-4 pt-4">
+                <button className="flex items-center gap-2 text-gray-600 hover:text-rose-500 transition-colors">
+                  <Heart className="w-5 h-5" />
+                  <span>Add to Wishlist</span>
+                </button>
+                <button className="flex items-center gap-2 text-gray-600 hover:text-rose-500 transition-colors">
+                  <Share2 className="w-5 h-5" />
+                  <span>Share</span>
+                </button>
+              </div>
+
+              {/* Delivery Information */}
+              <div className="border-t border-gray-200 pt-6 space-y-4">
+                <h3 className="font-semibold text-gray-900">
+                  Delivery & Services
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <Truck className="w-5 h-5 text-gray-600 mt-0.5" />
+                    <div>
+                      <p className="font-medium text-gray-900">
+                        Free Delivery
+                      </p>
+                      <p className="text-sm text-gray-600">
+                        On orders above ₹999
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <RefreshCw className="w-5 h-5 text-gray-600 mt-0.5" />
+                    <div>
+                      <p className="font-medium text-gray-900">
+                        7 Days Return Policy
+                      </p>
+                      <p className="text-sm text-gray-600">
+                        Easy returns and exchange
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Shield className="w-5 h-5 text-gray-600 mt-0.5" />
+                    <div>
+                      <p className="font-medium text-gray-900">
+                        Secure Payment
+                      </p>
+                      <p className="text-sm text-gray-600">
+                        100% secure transactions
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Vendor Information */}
+              {product.vendor_name && (
+                <div className="border-t border-gray-200 pt-6">
+                  <h3 className="font-semibold text-gray-900 mb-2">
+                    Sold By
+                  </h3>
+                  <p className="text-gray-700">{product.vendor_name}</p>
+                  {product.vendor_email && (
+                    <p className="text-sm text-gray-600">{product.vendor_email}</p>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Product Description */}
+          <div className="border-t border-gray-200 p-6 lg:p-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              Product Description
+            </h2>
+            <div className="prose max-w-none">
+              <p className="text-gray-700 leading-relaxed whitespace-pre-line">
+                {product.description}
+              </p>
+            </div>
+          </div>
+
+          {/* Product Specifications */}
+          <div className="border-t border-gray-200 p-6 lg:p-8 bg-gray-50">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              Specifications
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="bg-white p-4 rounded-lg">
+                <span className="text-sm text-gray-600">Product ID</span>
+                <p className="font-semibold text-gray-900">#{product.id}</p>
+              </div>
+              <div className="bg-white p-4 rounded-lg">
+                <span className="text-sm text-gray-600">Category</span>
+                <p className="font-semibold text-gray-900 capitalize">
+                  {product.category}
+                </p>
+              </div>
+              <div className="bg-white p-4 rounded-lg">
+                <span className="text-sm text-gray-600">Rating</span>
+                <p className="font-semibold text-gray-900">
+                  {product.rating || "Not rated yet"}
+                </p>
+              </div>
+              <div className="bg-white p-4 rounded-lg">
+                <span className="text-sm text-gray-600">Availability</span>
+                <p className="font-semibold text-gray-900">
+                  {product.stock > 0 ? `${product.stock} in stock` : "Out of stock"}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

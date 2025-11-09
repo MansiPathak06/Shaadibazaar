@@ -1,10 +1,11 @@
 'use client'
 
-import { useState } from 'react'
-import { Twitter, Instagram, Facebook, ChevronDown } from 'lucide-react';
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import { Twitter, Instagram, Facebook, ChevronDown, Loader2, Heart, ShoppingCart } from 'lucide-react';
 import { Fragment } from 'react';
 
-
+const CATEGORY_SLUG = "watches";
 
 export default function WatchesPage() {
   return (
@@ -19,16 +20,11 @@ export default function WatchesPage() {
   )
 }
 
-
-
 function WatchHero() {
   return (
     <div className=" bg-neutral-900 text-white relative overflow-hidden font-sans">
       {/* Background texture overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-neutral-800/30 to-neutral-950/50"></div>
-
-
-
 
       {/* Main content */}
       <div className="relative z-10 container mx-auto px-8 lg:px-16 min-h-screen flex items-center">
@@ -97,44 +93,56 @@ function WatchHero() {
 }
 
 function PremiumWatchSection() {
-  const products = [
-    {
-      id: 1,
-      name: 'ASHEZ',
-      subtitle: 'The Minimalist',
-      price: '$295',
-      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895591/image1_yhmi3e.jpg'
-    },
-    {
-      id: 2,
-      name: 'MANARO',
-      subtitle: 'The Classic',
-      price: '$450',
-      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895591/image2_qigpbp.jpg'
-    },
-    {
-      id: 3,
-      name: 'BLING',
-      subtitle: 'The Elegant',
-      price: '$599',
-      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895591/image3_gclaxe.jpg'
-    },
-    {
-      id: 4,
-      name: 'MANARO',
-      subtitle: 'The Classic',
-      price: '$450',
-      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895591/image4_bawcw1.jpg'
+  const [realProducts, setRealProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [favorites, setFavorites] = useState([]);
+
+  useEffect(() => {
+    fetchRealProducts();
+  }, []);
+
+  const fetchRealProducts = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch(
+        "http://localhost:5000/api/products?category=watches&limit=4"
+      );
+      const data = await response.json();
+
+      if (data.success) {
+        setRealProducts(data.products.slice(0, 4));
+      } else {
+        setError(data.message);
+      }
+    } catch (err) {
+      console.error("Fetch error:", err);
+      setError("Failed to load products");
+    } finally {
+      setLoading(false);
     }
-  ];
+  };
+
+  const toggleFavorite = (productId) => {
+    setFavorites((prev) =>
+      prev.includes(productId)
+        ? prev.filter((id) => id !== productId)
+        : [...prev, productId]
+    );
+  };
+
+  const formatINR = (price) => {
+    return new Intl.NumberFormat("en-IN", {
+      style: "currency",
+      currency: "INR",
+      maximumFractionDigits: 0,
+    }).format(price);
+  };
 
   return (
     <div>
       {/* Trending Products Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        {/* Heading */}
-
-
         <div className="text-center mb-16">
           <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">discover</p>
           <h2 className="text-4xl md:text-6xl font-light text-neutral-800 tracking-tight uppercase">
@@ -142,29 +150,115 @@ function PremiumWatchSection() {
           </h2>
         </div>
 
+        {loading ? (
+          <div className="flex justify-center items-center py-20">
+            <Loader2 className="w-10 h-10 animate-spin text-rose-500" />
+          </div>
+        ) : error ? (
+          <div className="text-center py-12">
+            <p className="text-red-600 mb-4">{error}</p>
+            <button
+              onClick={fetchRealProducts}
+              className="px-6 py-2 bg-rose-500 text-white rounded-lg hover:bg-rose-600"
+            >
+              Retry
+            </button>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 mb-10">
+            {realProducts.map((product) => {
+              const images = Array.isArray(product.images)
+                ? product.images
+                : JSON.parse(product.images || "[]");
+              const mainImage = images[0] || "/placeholder.jpg";
 
+              return (
+                <Link
+                  key={product.id}
+                  href={`/accessories/all-products/${product.id}`}
+                  className="group cursor-pointer"
+                >
+                  <div className="bg-neutral-50 rounded-lg overflow-hidden mb-6 aspect-square relative group-hover:bg-neutral-100 transition-colors">
+                    <img
+                      src={mainImage}
+                      alt={product.name}
+                      className="absolute inset-0 w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500"
+                      onError={(e) => {
+                        e.target.src = "/placeholder.jpg";
+                      }}
+                    />
 
-        {/* Products Grid - Mobile: 1 col, Tablet: 2 cols, Desktop: 3 cols */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 mb-10">
-          {products.map((product) => (
-            <div key={product.id} className="group cursor-pointer">
-              {/* Fixed aspect ratio container with perfect image fitting */}
-              <div className="bg-neutral-50 rounded-lg overflow-hidden mb-6 aspect-square relative group-hover:bg-neutral-100 transition-colors">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="absolute inset-0 w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="text-center space-y-2">
-                <h3 className="text-3xl font-light tracking-[0.15em] text-neutral-800 uppercase">{product.name}</h3>
-                <p className="text-lg text-neutral-500 font-light tracking-wide">{product.subtitle}</p>
-                <p className="text-xl font-medium text-neutral-900 pt-1 tracking-wide">{product.price}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+                    {/* Hover Action Buttons */}
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100">
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          toggleFavorite(product.id);
+                        }}
+                        className="bg-white p-3 rounded-full shadow-lg hover:bg-rose-500 hover:text-white transition-colors"
+                      >
+                        <Heart
+                          className={`w-5 h-5 ${favorites.includes(product.id)
+                            ? "text-rose-500 fill-rose-500"
+                            : ""
+                            }`}
+                        />
+                      </button>
+                      <button
+                        onClick={(e) => e.preventDefault()}
+                        className="bg-white p-3 rounded-full shadow-lg hover:bg-rose-500 hover:text-white transition-colors"
+                      >
+                        <ShoppingCart className="w-5 h-5" />
+                      </button>
+                    </div>
+                  </div>
+                  <div className="text-center space-y-2">
+                    <h3 className="text-2xl font-light tracking-[0.15em] text-neutral-800 uppercase line-clamp-1">
+                      {product.name}
+                    </h3>
+                    <p className="text-lg text-neutral-500 font-light tracking-wide line-clamp-1">
+                      {product.description || "Premium Timepiece"}
+                    </p>
+                    <p className="text-xl font-medium text-neutral-900 pt-1 tracking-wide">
+                      {formatINR(product.price)}
+                    </p>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        )}
       </div>
+      <Fragment>
+        <div className='flex justify-center py-16'>
+          <Link href={'/accessories/all-products?category=Trending Watches'}>
+            <button
+              className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900"
+            >
+              {/* Background slide effect */}
+              <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
+
+              {/* Button text */}
+              <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
+                View Trending Watches
+                <svg
+                  className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </span>
+            </button>
+          </Link>
+        </div>
+      </Fragment>
 
       {/* Metropolitan Moods Section */}
       <div className="bg-gradient-to-r from-amber-50 to-orange-50">
@@ -196,9 +290,11 @@ function PremiumWatchSection() {
                 </h2>
               </div>
 
-              <button className="inline-block px-8 py-3 border border-neutral-300 text-neutral-700 text-sm tracking-widest uppercase hover:bg-neutral-800 hover:text-white hover:border-neutral-800 transition-all">
-                Discover
-              </button>
+              <Link href={'/accessories/all-products?category=ALL Watches'}>
+                <button className="inline-block px-8 py-3 border border-neutral-300 text-neutral-700 text-sm tracking-widest uppercase hover:bg-neutral-800 hover:text-white hover:border-neutral-800 transition-all">
+                  Discover
+                </button>
+              </Link>
             </div>
 
           </div>
@@ -215,59 +311,67 @@ function WatchCollectionGrid() {
       title: 'Perfection',
       subtitle: 'Shop the latest watches',
       image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895592/image6_sc9zxk.jpg',
-      height: 'medium'
+      height: 'medium',
+      path: '/accessories/all-products?category=Perfection'
     },
     {
       id: 2,
       title: 'Gold Collection',
       subtitle: 'Luxury timepieces',
       image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895792/gold_collection_watches_ikpkie.jpg',
-      height: 'tall'
+      height: 'tall',
+      path: '/accessories/all-products?category=Gold Collection'
+
+
     },
     {
       id: 3,
       title: 'Crafts manship',
       subtitle: 'Handcrafted excellence',
       image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895896/Crafts_manship_watches_jegoiu.jpg',
-      height: 'extra-tall'
+      height: 'extra-tall',
+      path: '/accessories/all-products?category=Crafts Manships'
+
     },
     {
       id: 4,
       title: 'Latest',
       subtitle: 'New arrivals collection',
       image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895594/image16_jcogef.jpg',
-      height: 'tall'
+      height: 'tall',
+      path: '/accessories/all-products?category=Latest'
+
     },
     {
       id: 5,
       title: 'Pieces',
       subtitle: 'Timeless designs',
       image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895593/image14_xwwx1w.avif',
-      height: 'medium'
+      height: 'medium',
+      path: '/accessories/all-products?category=Places'
+
     }
   ];
 
   const getHeightClass = (height) => {
     switch (height) {
       case 'short':
-        return 'h-48 md:h-56'; // Shorter cards for variety
+        return 'h-48 md:h-56';
       case 'medium':
-        return 'h-64 md:h-80'; // Standard medium height
+        return 'h-64 md:h-80';
       case 'tall':
-        return 'h-80 md:h-[450px]'; // Taller for featured content
+        return 'h-80 md:h-[450px]';
       case 'extra-tall':
-        return 'h-96 md:h-[550px]'; // Extra height for hero images
+        return 'h-96 md:h-[550px]';
       case 'compact':
-        return 'h-40 md:h-48'; // Very compact cards
+        return 'h-40 md:h-48';
       default:
-        return 'h-64 md:h-72'; // Default balanced height
+        return 'h-64 md:h-72';
     }
   };
 
   return (
     <div className="bg-neutral-50 my-24">
-
-
       <div className="text-center mb-16">
         <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">best sellers</p>
         <h2 className="text-4xl md:text-6xl font-light text-neutral-800 tracking-tight uppercase">
@@ -275,15 +379,14 @@ function WatchCollectionGrid() {
         </h2>
       </div>
 
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         {/* Grid Layout */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-12">
           {collections.map((collection) => (
-            <div
+            <Link
               key={collection.id}
               className={`relative group cursor-pointer overflow-hidden rounded-lg ${getHeightClass(collection.height)}`}
+              href={collection.path}
             >
               {/* Image */}
               <img
@@ -304,7 +407,7 @@ function WatchCollectionGrid() {
                   {collection.subtitle}
                 </p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -320,37 +423,43 @@ function WatchBrandsGrid() {
       name: "Rolex",
       description: "Crown of watchmaking excellence",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895968/rolex_u2dpsh.jpg",
-      textShadow: "drop-shadow-lg"
+      textShadow: "drop-shadow-lg",
+      path: '/accessories/all-products?category=Rolex'
     },
     {
       name: "Patek Philippe",
       description: "Timeless Swiss perfection",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895593/image10_xsin1f.jpg",
-      textShadow: "drop-shadow-lg"
+      textShadow: "drop-shadow-lg",
+        path: '/accessories/all-products?category=Patek Philippe'
     },
     {
       name: "Omega",
       description: "Precision since 1848",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895593/image12_xnyy2s.avif",
-      textShadow: "drop-shadow-lg"
+      textShadow: "drop-shadow-lg",
+        path: '/accessories/all-products?category=Omega'
     },
     {
       name: "Audemars Piguet",
       description: "Royal Oak innovation",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895592/image6_sc9zxk.jpg",
-      textShadow: "drop-shadow-lg"
+      textShadow: "drop-shadow-lg",
+        path: '/accessories/all-products?category=Audemars Piguet'
     },
     {
       name: "Breitling",
       description: "Aviation heritage precision",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895591/image3_gclaxe.jpg",
-      textShadow: "drop-shadow-lg"
+      textShadow: "drop-shadow-lg",
+        path: '/accessories/all-products?category=Breitling'
     },
     {
       name: "TAG Heuer",
       description: "Swiss avant-garde craftsmanship",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895593/image17_vxzwgl.jpg",
-      textShadow: "drop-shadow-lg"
+      textShadow: "drop-shadow-lg",
+        path: '/accessories/all-products?category=TAG Heuer'
     }
   ];
 
@@ -366,13 +475,13 @@ function WatchBrandsGrid() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {brands.map((brand, index) => (
-            <div
+            <Link
               key={index}
+              href={brand.path}
               className="group aspect-square rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-700 ease-out hover:scale-105 hover:-translate-y-2 flex flex-col items-center justify-center p-8 cursor-pointer relative overflow-hidden bg-white/10 backdrop-blur-sm border border-white/20"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              {/* Watch image as img element - starts blurred, clears on hover */}
               <img
                 src={brand.image}
                 alt={brand.name}
@@ -380,19 +489,16 @@ function WatchBrandsGrid() {
                   }`}
               />
 
-              {/* Enhanced dark overlay for better text readability */}
               <div
                 className={`absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent transition-all duration-700 ease-out ${hoveredIndex === index ? 'opacity-100' : 'opacity-60'
                   }`}
               />
 
-              {/* Subtle glow effect on hover */}
               <div
                 className={`absolute inset-0 bg-linear-to-r from-white/5 via-white/10 to-white/5 transition-all duration-700 ${hoveredIndex === index ? 'opacity-100' : 'opacity-0'
                   }`}
               />
 
-              {/* Text content with enhanced styling */}
               <div className="relative z-10 text-center flex flex-col justify-end h-full transform transition-all duration-500">
                 <h4
                   className={`text-3xl font-semibold text-white mb-4 ${brand.textShadow} transition-all duration-500 ${hoveredIndex === index ? 'transform -translate-y-1' : ''
@@ -407,7 +513,6 @@ function WatchBrandsGrid() {
                   {brand.description}
                 </p>
 
-                {/* Premium indicator that appears on hover */}
                 <div
                   className={`mt-4 transition-all duration-500 delay-200 ${hoveredIndex === index ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'
                     }`}
@@ -418,9 +523,8 @@ function WatchBrandsGrid() {
                 </div>
               </div>
 
-              {/* Corner accent for premium feel */}
               <div className="absolute top-4 right-4 w-3 h-3 bg-linear-to-br from-yellow-400 to-yellow-600 rounded-full opacity-80"></div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -428,86 +532,54 @@ function WatchBrandsGrid() {
   );
 }
 
-
 function BestSellers() {
-  const products = [
-    {
-      id: 1,
-      name: "Expedition Premier Black",
-      price: 540.00,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895593/image13_lpoi6c.avif",
-      rating: 5,
-      badge: "Hot",
-      badgeColor: "bg-red-500"
-    },
-    {
-      id: 2,
-      name: "The Fragnance of Capricorn Staff",
-      price: 83.00,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895593/image12_xnyy2s.avif",
-      rating: 4,
-      badge: "Hot",
-      badgeColor: "bg-red-500"
-    },
-    {
-      id: 3,
-      name: "The Cosmos Genuine Leather Mascle Tons",
-      price: 97.00,
-      originalPrice: 125.00,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895593/image5_vsahvh.jpg",
-      rating: 5,
-      badge: "Sale",
-      badgeColor: "bg-green-500"
-    },
-    {
-      id: 4,
-      name: "The Cosmos Genuine Leather Mascle Tons",
-      price: 97.00,
-      originalPrice: 125.00,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895591/image1_yhmi3e.jpg",
-      rating: 5,
-      badge: "Sale",
-      badgeColor: "bg-green-500"
-    },
-    {
-      id: 5,
-      name: "The Cosmos Genuine Leather Mascle Tons",
-      price: 97.00,
-      originalPrice: 125.00,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895598/image20_k89pji.jpg",
-      rating: 5,
-      badge: "Sale",
-      badgeColor: "bg-green-500"
-    },
-    {
-      id: 6,
-      name: "The Cosmos Genuine Leather Mascle Tons",
-      price: 97.00,
-      originalPrice: 125.00,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895594/image15_iruqxw.jpg",
-      rating: 5,
-      badge: "Sale",
-      badgeColor: "bg-green-500"
-    },
-    {
-      id: 7,
-      name: "Asymmetric Rose Gold Bracelet",
-      price: 257.00,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761896203/Rose_Gold_Bracelet_s8otri.jpg",
-      rating: 5,
-      badge: "Hot",
-      badgeColor: "bg-red-500"
-    },
-    {
-      id: 8,
-      name: "Asymmetric Rose Gold Bracelet",
-      price: 257.00,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761896275/bracelet_watch_zcjxri.jpg",
-      rating: 5,
-      badge: "Hot",
-      badgeColor: "bg-red-500"
+  const [realProducts, setRealProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [favorites, setFavorites] = useState([]);
+
+  useEffect(() => {
+    fetchRealProducts();
+  }, []);
+
+  const fetchRealProducts = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch(
+        "http://localhost:5000/api/products?category=watches&subcategory=groom"
+      );
+      const data = await response.json();
+
+      if (data.success) {
+        setRealProducts(data.products.slice(0, 8));
+      } else {
+        setError(data.message);
+      }
+    } catch (err) {
+      console.error("Fetch error:", err);
+      setError("Failed to load products");
+    } finally {
+      setLoading(false);
     }
-  ];
+  };
+
+  const toggleFavorite = (productId) => {
+    setFavorites((prev) =>
+      prev.includes(productId)
+        ? prev.filter((id) => id !== productId)
+        : [...prev, productId]
+    );
+  };
+
+  const formatINR = (price) => {
+    return new Intl.NumberFormat("en-IN", {
+      style: "currency",
+      currency: "INR",
+      maximumFractionDigits: 0,
+    }).format(price);
+  };
+
+  const ALL_PRODUCTS_URL = "/accessories/all-products?category=watches&subcategory=groom";
 
   const StarRating = ({ rating }) => {
     return (
@@ -515,7 +587,7 @@ function BestSellers() {
         {[...Array(5)].map((_, index) => (
           <svg
             key={index}
-            className={`w-4 h-4 ${index < rating ? 'text-yellow-400 fill-current' : 'text-gray-300 fill-current'
+            className={`w-4 h-4 ${index < Math.floor(rating || 4.5) ? 'text-yellow-400 fill-current' : 'text-gray-300 fill-current'
               }`}
             viewBox="0 0 20 20"
           >
@@ -529,172 +601,190 @@ function BestSellers() {
   return (
     <div className="px-4">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
-
-
         <div className="text-center mb-16">
           <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">royal precision</p>
           <h2 className="text-4xl md:text-6xl font-light text-neutral-800 tracking-tight uppercase">
-            groom's <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>collection</span>
+            men's <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>collection</span>
           </h2>
         </div>
 
-        {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {products.map((product) => (
-            <div
-              key={product.id}
-              className="group cursor-pointer"
+        {loading ? (
+          <div className="flex justify-center items-center py-20">
+            <Loader2 className="w-10 h-10 animate-spin text-rose-500" />
+          </div>
+        ) : error ? (
+          <div className="text-center py-12">
+            <p className="text-red-600 mb-4">{error}</p>
+            <button
+              onClick={fetchRealProducts}
+              className="px-6 py-2 bg-rose-500 text-white rounded-lg hover:bg-rose-600"
             >
-              {/* Image Container */}
-              <div className="relative bg-neutral-50 rounded-lg overflow-hidden mb-4 aspect-square">
-                {/* Badge */}
-                <div className={`absolute top-3 left-3 ${product.badgeColor} text-white text-xs font-semibold px-3 py-1 rounded z-10`}>
-                  {product.badge}
-                </div>
+              Retry
+            </button>
+          </div>
+        ) : (
+          <>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {realProducts.map((product) => {
+                const images = Array.isArray(product.images)
+                  ? product.images
+                  : JSON.parse(product.images || "[]");
+                const mainImage = images[0] || "/placeholder.jpg";
 
-                {/* Product Image */}
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
+                return (
+                  <Link
+                    key={product.id}
+                    href={`/accessories/all-products/${product.id}`}
+                    className="group cursor-pointer"
+                  >
+                    <div className="relative bg-neutral-50 rounded-lg overflow-hidden mb-4 aspect-square">
+                      {product.featured && (
+                        <div className="absolute top-3 left-3 bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded z-10">
+                          Hot
+                        </div>
+                      )}
+                      {product.discount > 0 && (
+                        <div className="absolute top-3 left-3 bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded z-10">
+                          Sale
+                        </div>
+                      )}
 
-              {/* Product Info */}
-              <div className="text-center">
-                {/* Rating */}
-                <StarRating rating={product.rating} />
+                      <img
+                        src={mainImage}
+                        alt={product.name}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        onError={(e) => {
+                          e.target.src = "/placeholder.jpg";
+                        }}
+                      />
 
-                {/* Product Name */}
-                <h3 className="text-neutral-700 text-sm mb-2 px-2 line-clamp-2">
-                  {product.name}
-                </h3>
+                      {/* Hover Actions */}
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100">
+                        <button
+                          onClick={(e) => {
+                            e.preventDefault();
+                            toggleFavorite(product.id);
+                          }}
+                          className="bg-white p-3 rounded-full shadow-lg hover:bg-rose-500 hover:text-white transition-colors"
+                        >
+                          <Heart
+                            className={`w-5 h-5 ${favorites.includes(product.id)
+                              ? "text-rose-500 fill-rose-500"
+                              : ""
+                              }`}
+                          />
+                        </button>
+                        <button
+                          onClick={(e) => e.preventDefault()}
+                          className="bg-white p-3 rounded-full shadow-lg hover:bg-rose-500 hover:text-white transition-colors"
+                        >
+                          <ShoppingCart className="w-5 h-5" />
+                        </button>
+                      </div>
+                    </div>
 
-                {/* Price */}
-                <div className="flex items-center justify-center gap-2">
-                  <span className="text-lg font-bold text-neutral-800">
-                    ${product.price.toFixed(2)}
-                  </span>
-                  {product.originalPrice && (
-                    <span className="text-sm text-neutral-400 line-through">
-                      ${product.originalPrice.toFixed(2)}
-                    </span>
-                  )}
-                </div>
-              </div>
+                    <div className="text-center">
+                      <StarRating rating={product.rating} />
+                      <h3 className="text-neutral-700 text-sm mb-2 px-2 line-clamp-2">
+                        {product.name}
+                      </h3>
+
+                      <div className="flex items-center justify-center gap-2">
+                        <span className="text-lg font-bold text-neutral-800">
+                          {formatINR(product.price)}
+                        </span>
+                        {product.mrp && product.mrp > product.price && (
+                          <span className="text-sm text-neutral-400 line-through">
+                            {formatINR(product.mrp)}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
-          ))}
-        </div>
-      </div>
-      <Fragment>
-        <div className='flex justify-center py-12'>
-          <button
-            className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900"
-          >
-            {/* Background slide effect */}
-            <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
 
-            {/* Button text */}
-            <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
-              View More Products
-              <svg
-                className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </span>
-          </button>
-        </div>
-      </Fragment>
+            <Fragment>
+              <div className='flex justify-center py-12'>
+                <Link href={"/accessories/all-products?category=Men's Watches"}>
+                  <button className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900">
+                    <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
+                    <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
+                      View nore men watches
+                      <svg
+                        className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={1.5}
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </Link>
+              </div>
+            </Fragment>
+          </>
+        )}
+      </div>
     </div>
   );
 }
 
 function Sellers() {
-  const products = [
-    {
-      id: 1,
-      name: "Expedition Premier Black",
-      price: 540.00,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895594/image16_jcogef.jpg",
-      rating: 5,
-      badge: "Hot",
-      badgeColor: "bg-red-500"
-    },
-    {
-      id: 2,
-      name: "Premium Watches",
-      price: 83.00,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761896824/premium_watch_pukwcw.jpg",
-      rating: 4,
-      badge: "Hot",
-      badgeColor: "bg-red-500"
-    },
-    {
-      id: 3,
-      name: "The Cosmos Genuine Leather Mascle Tons",
-      price: 97.00,
-      originalPrice: 125.00,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895593/image17_vxzwgl.jpg",
-      rating: 5,
-      badge: "Sale",
-      badgeColor: "bg-green-500"
-    },
-    {
-      id: 4,
-      name: "Asymmetric Rose Gold Bracelet",
-      price: 257.00,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761896275/bracelet_watch_zcjxri.jpg",
-      rating: 5,
-      badge: "Hot",
-      badgeColor: "bg-red-500"
-    },
-    {
-      id: 5,
-      name: "Asymmetric Rose Gold Bracelet",
-      price: 257.00,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761896275/bracelet_watch_zcjxri.jpg",
-      rating: 5,
-      badge: "Hot",
-      badgeColor: "bg-red-500"
-    },
-    {
-      id: 6,
-      name: "Asymmetric Rose Gold Bracelet",
-      price: 257.00,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761896203/Rose_Gold_Bracelet_s8otri.jpg",
-      rating: 5,
-      badge: "Hot",
-      badgeColor: "bg-red-500"
-    },
-    {
-      id: 7,
-      name: "Asymmetric Rose Gold Bracelet",
-      price: 257.00,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895792/gold_collection_watches_ikpkie.jpg",
-      rating: 5,
-      badge: "Hot",
-      badgeColor: "bg-red-500"
-    },
-    {
-      id: 8,
-      name: "Asymmetric Rose Gold Bracelet",
-      price: 257.00,
-      image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761896275/bracelet_watch_zcjxri.jpg",
-      rating: 5,
-      badge: "Hot",
-      badgeColor: "bg-red-500"
+  const [realProducts, setRealProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [favorites, setFavorites] = useState([]);
+
+  useEffect(() => {
+    fetchRealProducts();
+  }, []);
+
+  const fetchRealProducts = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch(
+        "http://localhost:5000/api/products?category=watches&subcategory=bride"
+      );
+      const data = await response.json();
+
+      if (data.success) {
+        setRealProducts(data.products.slice(0, 8));
+      } else {
+        setError(data.message);
+      }
+    } catch (err) {
+      console.error("Fetch error:", err);
+      setError("Failed to load products");
+    } finally {
+      setLoading(false);
     }
-  ];
+  };
+
+  const toggleFavorite = (productId) => {
+    setFavorites((prev) =>
+      prev.includes(productId)
+        ? prev.filter((id) => id !== productId)
+        : [...prev, productId]
+    );
+  };
+
+  const formatINR = (price) => {
+    return new Intl.NumberFormat("en-IN", {
+      style: "currency",
+      currency: "INR",
+      maximumFractionDigits: 0,
+    }).format(price);
+  };
+
+  const ALL_PRODUCTS_URL = "/accessories/all-products?category=watches&subcategory=bride";
 
   const StarRating = ({ rating }) => {
     return (
@@ -702,7 +792,7 @@ function Sellers() {
         {[...Array(5)].map((_, index) => (
           <svg
             key={index}
-            className={`w-4 h-4 ${index < rating ? 'text-yellow-400 fill-current' : 'text-gray-300 fill-current'
+            className={`w-4 h-4 ${index < Math.floor(rating || 4.5) ? 'text-yellow-400 fill-current' : 'text-gray-300 fill-current'
               }`}
             viewBox="0 0 20 20"
           >
@@ -716,95 +806,138 @@ function Sellers() {
   return (
     <div className="py-16 px-4">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
-
-
-
-
         <div className="text-center mb-16 mt-6">
           <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">radiant moments</p>
           <h2 className="text-4xl md:text-6xl font-light text-neutral-800 tracking-tight uppercase">
-            bride's <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>collection</span>
+            women's <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>collection</span>
           </h2>
         </div>
 
-        {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {products.map((product) => (
-            <div
-              key={product.id}
-              className="group cursor-pointer"
+        {loading ? (
+          <div className="flex justify-center items-center py-20">
+            <Loader2 className="w-10 h-10 animate-spin text-rose-500" />
+          </div>
+        ) : error ? (
+          <div className="text-center py-12">
+            <p className="text-red-600 mb-4">{error}</p>
+            <button
+              onClick={fetchRealProducts}
+              className="px-6 py-2 bg-rose-500 text-white rounded-lg hover:bg-rose-600"
             >
-              {/* Image Container */}
-              <div className="relative bg-neutral-50 rounded-lg overflow-hidden mb-4 aspect-square">
-                {/* Badge */}
-                <div className={`absolute top-3 left-3 ${product.badgeColor} text-white text-xs font-semibold px-3 py-1 rounded z-10`}>
-                  {product.badge}
-                </div>
+              Retry
+            </button>
+          </div>
+        ) : (
+          <>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {realProducts.map((product) => {
+                const images = Array.isArray(product.images)
+                  ? product.images
+                  : JSON.parse(product.images || "[]");
+                const mainImage = images[0] || "/placeholder.jpg";
 
-                {/* Product Image */}
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
+                return (
+                  <Link
+                    key={product.id}
+                    href={`/accessories/all-products/${product.id}`}
+                    className="group cursor-pointer"
+                  >
+                    <div className="relative bg-neutral-50 rounded-lg overflow-hidden mb-4 aspect-square">
+                      {product.featured && (
+                        <div className="absolute top-3 left-3 bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded z-10">
+                          Hot
+                        </div>
+                      )}
+                      {product.discount > 0 && (
+                        <div className="absolute top-3 left-3 bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded z-10">
+                          Sale
+                        </div>
+                      )}
 
-              {/* Product Info */}
-              <div className="text-center">
-                {/* Rating */}
-                <StarRating rating={product.rating} />
+                      <img
+                        src={mainImage}
+                        alt={product.name}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        onError={(e) => {
+                          e.target.src = "/placeholder.jpg";
+                        }}
+                      />
 
-                {/* Product Name */}
-                <h3 className="text-neutral-700 text-sm mb-2 px-2 line-clamp-2">
-                  {product.name}
-                </h3>
+                      {/* Hover Actions */}
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100">
+                        <button
+                          onClick={(e) => {
+                            e.preventDefault();
+                            toggleFavorite(product.id);
+                          }}
+                          className="bg-white p-3 rounded-full shadow-lg hover:bg-rose-500 hover:text-white transition-colors"
+                        >
+                          <Heart
+                            className={`w-5 h-5 ${favorites.includes(product.id)
+                              ? "text-rose-500 fill-rose-500"
+                              : ""
+                              }`}
+                          />
+                        </button>
+                        <button
+                          onClick={(e) => e.preventDefault()}
+                          className="bg-white p-3 rounded-full shadow-lg hover:bg-rose-500 hover:text-white transition-colors"
+                        >
+                          <ShoppingCart className="w-5 h-5" />
+                        </button>
+                      </div>
+                    </div>
 
-                {/* Price */}
-                <div className="flex items-center justify-center gap-2">
-                  <span className="text-lg font-bold text-neutral-800">
-                    ${product.price.toFixed(2)}
-                  </span>
-                  {product.originalPrice && (
-                    <span className="text-sm text-neutral-400 line-through">
-                      ${product.originalPrice.toFixed(2)}
-                    </span>
-                  )}
-                </div>
-              </div>
+                    <div className="text-center">
+                      <StarRating rating={product.rating} />
+                      <h3 className="text-neutral-700 text-sm mb-2 px-2 line-clamp-2">
+                        {product.name}
+                      </h3>
+
+                      <div className="flex items-center justify-center gap-2">
+                        <span className="text-lg font-bold text-neutral-800">
+                          {formatINR(product.price)}
+                        </span>
+                        {product.mrp && product.mrp > product.price && (
+                          <span className="text-sm text-neutral-400 line-through">
+                            {formatINR(product.mrp)}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
-          ))}
-        </div>
-        <Fragment>
-        <div className='flex justify-center py-12'>
-          <button
-            className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900"
-          >
-            {/* Background slide effect */}
-            <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
 
-            {/* Button text */}
-            <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
-              View More Products
-              <svg
-                className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </span>
-          </button>
-        </div>
-      </Fragment>
+            <Fragment>
+              <div className='flex justify-center py-12'>
+                <Link href={"/accessories/all-products?category=Women's Watches"}>
+                  <button className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900">
+                    <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
+                    <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
+                      View More women watches
+                      <svg
+                        className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={1.5}
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </Link>
+              </div>
+            </Fragment>
+          </>
+        )}
       </div>
     </div>
   );
 }
-

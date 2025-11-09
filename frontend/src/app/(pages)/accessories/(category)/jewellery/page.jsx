@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Heart, Star, Loader2 } from "lucide-react";
@@ -19,6 +19,7 @@ const Jewellery = () => {
     subtitle: "GIFALA DESIGNER",
     description: "Discover timeless elegance with our curated collection of fine jewellery",
     buttonText: "Shop Best Seller",
+    category: "/accessories/all-products?category=Best Sellers",
     image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761305991/jewelry-hero_d4yak4.jpg",
   };
 
@@ -29,48 +30,56 @@ const Jewellery = () => {
       name: "Bridal Collection",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761305883/bridal-collection_lmpktm.jpg",
       link: "/collections/bridal",
+      category: '/accessories/all-products?category=Bridal Collection'
     },
     {
       id: 2,
       name: "Diamond Classics",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761305883/diamond-collection_p0wtap.jpg",
       link: "/collections/diamond",
+      category: '/accessories/all-products?category=Diamond Classics'
     },
     {
       id: 3,
       name: "Gold Elegance",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761305215/gold-collection_mfarn4.jpg",
       link: "/collections/gold",
+      category: '/accessories/all-products?category=Gold Elegance'
     },
     {
       id: 4,
       name: "Pearl Treasures",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761305396/pearl-collection_xpybkd.jpg",
       link: "/collections/pearl",
+      category: '/accessories/all-products?category=Pearl Treasures'
     },
     {
       id: 5,
       name: "Gemstone Beauty",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761305544/gemstone-beauty_bhxlfr.jpg",
       link: "/collections/gemstone",
+      category: '/accessories/all-products?category=Gemstone Beauty'
     },
     {
       id: 6,
       name: "Contemporary",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761305543/Contemporary_ptgyjt.jpg",
       link: "/collections/contemporary",
+      category: '/accessories/all-products?category=Contemporary'
     },
     {
       id: 7,
       name: "Vintage Style",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761305546/vintage-style_xgatg3.jpg",
       link: "/collections/vintage",
+      category: '/accessories/all-products?category=Vintage Style'
     },
     {
       id: 8,
       name: "Temple Jewellery",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761305546/temple-style_pcspeh.jpg",
       link: "/collections/temple",
+      category: '/accessories/all-products?category=Temple Jewellery'
     },
   ];
 
@@ -149,9 +158,11 @@ const Jewellery = () => {
               <p className="text-base md:text-lg text-white/90 mb-8 max-w-md">
                 {heroData.description}
               </p>
-              <button className="bg-rose-400 text-white px-8 py-3 rounded-sm font-medium text-sm tracking-wider hover:bg-rose-500 transition-all duration-300 shadow-lg">
-                {heroData.buttonText}
-              </button>
+              <Link href={heroData.category}>
+                <button className="bg-rose-400 cursor-pointer text-white px-8 py-3 rounded-sm font-medium text-sm tracking-wider hover:bg-rose-500 transition-all duration-300 shadow-lg">
+                  {heroData.buttonText}
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -168,7 +179,7 @@ const Jewellery = () => {
               <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Your Favorite Sellers, all in one place</p>
             </div>
 
-            <div className="flex justify-center gap-4 md:gap-8 mb-8">
+            {/* <div className="flex justify-center gap-4 md:gap-8 mb-8">
               <button className="text-sm md:text-base font-medium text-gray-800 border-b-2 border-rose-400 pb-2 px-2">
                 Women
               </button>
@@ -178,7 +189,7 @@ const Jewellery = () => {
               <button className="text-sm md:text-base font-medium text-gray-500 hover:text-gray-800 pb-2 px-2">
                 Luxury
               </button>
-            </div>
+            </div> */}
           </div>
 
           {/* Loading State */}
@@ -196,10 +207,10 @@ const Jewellery = () => {
                 Retry
               </button>
             </div>
-          ) : (
+          ) : bestSellers.length > 0 ? (
             <>
               {/* Best Sellers Grid - First 4 products */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-12">
                 {bestSellers.map((product) => {
                   const images = Array.isArray(product.images)
                     ? product.images
@@ -278,36 +289,49 @@ const Jewellery = () => {
                 })}
               </div>
 
-              {/* View More Button */}
-              <div className='flex justify-center py-18 mt-8'>
-                <Link href={ALL_PRODUCTS_URL}>
-                  <button className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900 hover:bg-neutral-800">
-                    <span className="relative z-10 flex items-center gap-3">
-                      View More Products
-                      <svg
-                        className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={1.5}
-                          d="M17 8l4 4m0 0l-4 4m4-4H3"
-                        />
-                      </svg>
-                    </span>
-                  </button>
-                </Link>
-              </div>
+
+
             </>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-gray-600">No products available</p>
+            </div>
           )}
         </div>
       </section>
+      <Fragment>
+        <div className='flex justify-center py-12'>
+          <Link href={ALL_PRODUCTS_URL}>
+            <button
+              className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900"
+            >
+              {/* Background slide effect */}
+              <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
+
+              {/* Button text */}
+              <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
+                View More Products
+                <svg
+                  className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </span>
+            </button>
+          </Link>
+        </div>
+      </Fragment>
 
       {/* Jewellery Categories Section */}
-      <section className="px-4 bg-white">
+      <section className="py-12 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
@@ -325,7 +349,7 @@ const Jewellery = () => {
             </div>
           ) : jewelleryCollection.length > 0 ? (
             <>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 mb-12">
                 {jewelleryCollection.map((category) => {
                   const images = Array.isArray(category.images)
                     ? category.images
@@ -353,13 +377,14 @@ const Jewellery = () => {
                           className="absolute top-3 right-3 bg-white p-2 rounded-full shadow-md z-10 hover:bg-rose-50 transition-colors"
                           aria-label="Add to favorites"
                         >
-                          <svg
-                            className={`w-5 h-5 ${favorites.includes(category.id) ? "text-rose-500 fill-rose-500" : "text-gray-600"}`}
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                          >
-                            <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
-                          </svg>
+                          <Heart
+                            size={18}
+                            className={
+                              favorites.includes(category.id)
+                                ? "text-rose-500 fill-rose-500"
+                                : "text-gray-600"
+                            }
+                          />
                         </button>
 
                         <img
@@ -378,9 +403,7 @@ const Jewellery = () => {
                         </h3>
 
                         <div className="flex items-center gap-1 mb-3">
-                          <svg className="w-4 h-4 text-amber-400 fill-amber-400" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                          </svg>
+                          <Star size={14} className="text-amber-400 fill-amber-400" />
                           <span className="text-sm text-gray-600">{category.rating || "4.8"}</span>
                         </div>
 
@@ -404,41 +427,43 @@ const Jewellery = () => {
                   );
                 })}
               </div>
-
-              {/* View More Button */}
-              <div className='flex justify-center py-18 mt-8'>
-                <Link href={ALL_PRODUCTS_URL}>
-                  <button className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900 hover:bg-neutral-800">
-                    <span className="relative z-10 flex items-center gap-3">
-                      View More Products
-                      <svg
-                        className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={1.5}
-                          d="M17 8l4 4m0 0l-4 4m4-4H3"
-                        />
-                      </svg>
-                    </span>
-                  </button>
-                </Link>
-              </div>
             </>
-          ) : (
-            <div className="text-center py-12">
-              <p className="text-gray-600">No more products to show</p>
-            </div>
-          )}
+          ) : null}
         </div>
       </section>
+      <Fragment>
+        <div className='flex justify-center py-16'>
+          <Link href={ALL_PRODUCTS_URL}>
+            <button
+              className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900"
+            >
+              {/* Background slide effect */}
+              <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
+
+              {/* Button text */}
+              <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
+                Dicosver our Collection 
+                <svg
+                  className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </span>
+            </button>
+          </Link>
+        </div>
+      </Fragment>
 
       {/* Collections Section (Static) */}
-      <section className="pt-8 pb-30 px-4 sm:px-6 lg:px-8">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
@@ -451,7 +476,7 @@ const Jewellery = () => {
             {collections.map((collection) => (
               <Link
                 key={collection.id}
-                href={collection.link}
+                href={collection.category}
                 className="group relative aspect-[3/4] overflow-hidden rounded-sm shadow-md hover:shadow-xl transition-all duration-300"
               >
                 <img
