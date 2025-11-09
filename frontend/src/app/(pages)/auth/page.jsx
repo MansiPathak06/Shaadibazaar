@@ -100,7 +100,7 @@ const AuthPage = () => {
         // ========== REGULAR USER REDIRECT ==========
         else {
           setTimeout(() => {
-            window.location.href = "/";
+            window.location.href = "/user-dashboard";
           }, 1500);
         }
       } else {

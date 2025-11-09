@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
-
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 import React, { useState } from "react";
 import {
@@ -31,7 +32,26 @@ import {
 const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-   const { totalItems } = useCart();
+  const { totalItems } = useCart();
+
+  const [userRole, setUserRole] = useState(null);
+  const [userName, setUserName] = useState("");
+  const router = useRouter();
+
+  useEffect(() => {
+    // Always sync with localStorage
+    if (typeof window !== "undefined") {
+      const token = localStorage.getItem("token");
+      const user = JSON.parse(localStorage.getItem("user"));
+      if (token && user) {
+        setUserRole(user.role); // 'user', 'admin', or 'vendor'
+        setUserName(user.name || user.email);
+      } else {
+        setUserRole(null);
+        setUserName("");
+      }
+    }
+  }, []);
 
   const navigationLinks = [
     {
@@ -348,21 +368,56 @@ const Navbar = () => {
             {/* Right Icons */}
             <div className="flex items-center space-x-6">
               {/* Sign In Button - Updated with Link */}
-              <Link href="/auth">
-                <button className="hidden md:flex items-center space-x-1 text-gray-700 hover:text-rose-500">
-                  <User size={20} />
-                  <span className="text-sm font-medium">Sign in</span>
+              {userRole ? (
+                <div className="flex items-center space-x-4">
+                  <button
+                    onClick={() => {
+                      if (userRole === "user") router.push("/user-dashboard");
+                      else if (userRole === "admin")
+                        router.push("/admin-dashboard");
+                      else if (userRole === "vendor")
+                        router.push("/vendor-dashboard");
+                    }}
+                    className="flex items-center space-x-2 px-4 py-2 font-medium text-rose-500 hover:text-rose-700"
+                  >
+                    <span>My Account</span>
+                  </button>
+                  <button
+                    onClick={() => {
+                      localStorage.removeItem("token");
+                      localStorage.removeItem("user");
+                      setUserRole(null);
+                      setUserName("");
+                      router.push("/auth");
+                    }}
+                    className="text-gray-500 hover:text-red-600"
+                  >
+                    Logout
+                  </button>
+                </div>
+              ) : (
+                <button
+                  onClick={() => router.push("/auth")}
+                  className="flex items-center space-x-1 text-gray-700 hover:text-rose-500"
+                >
+                  <span>Sign in</span>
                 </button>
-              </Link>
+              )}
 
-                <Link href="/cart" className="relative ml-4">
-      <ShoppingCart className="w-6 h-6" />
-      {totalItems > 0 && (
-        <span className="absolute -top-2 -right-3 bg-rose-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-          {totalItems}
-        </span>
-      )}
-    </Link>
+              <Link
+                href="/cart"
+                className="relative ml-4 flex items-center gap-1"
+              >
+                <ShoppingCart className="w-6 h-6" />
+                <span className="text-base font-medium text-gray-700">
+                  Cart
+                </span>
+                {totalItems > 0 && (
+                  <span className="absolute -top-2 -right-3 bg-rose-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                    {totalItems}
+                  </span>
+                )}
+              </Link>
 
               {/* Wedding Website Button */}
               <Link href="/wedding-website">
