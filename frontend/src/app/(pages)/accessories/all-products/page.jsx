@@ -2,13 +2,13 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { ShoppingCart, Star } from "lucide-react";
+import { ShoppingCart, Star, Filter } from "lucide-react";
 import { useSearchParams } from "next/navigation"; // ✅ Add this import
 
 export default function AllProducts() {
   const searchParams = useSearchParams(); // ✅ Use hook instead of props
   const category = searchParams.get("category") || "jewellery"; // ✅ Get from hook
-  
+
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -58,12 +58,37 @@ export default function AllProducts() {
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 capitalize">
-            {category}
-          </h1>
-          <p className="text-gray-600 mt-2">{products.length} items</p>
+        <div className="mb-8 border-b border-gray-200 pb-6 animate-in fade-in slide-in-from-top-4 duration-700">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+            <div className="space-y-2">
+              <h1 className="text-3xl md:text-6xl font-medium text-gray-900 capitalize group relative w-max">
+                {category}
+                <span className="absolute -bottom-1 left-0 w-0 transition-all duration-500 h-1 bg-gradient-to-r from-rose-500 to-pink-500 group-hover:w-full"></span>
+              </h1>
+              <p className="text-sm md:text-lg text-gray-600 transition-colors duration-300 hover:text-gray-900">
+                {products.length} {products.length === 1 ? 'item' : 'items'} available
+              </p>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <button className="group relative flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md overflow-hidden transition-all duration-300 hover:border-rose-500 hover:text-rose-600 hover:shadow-md hover:-translate-y-0.5">
+                <span className="absolute inset-0 bg-gradient-to-r from-rose-50 to-pink-50 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
+                <Filter size={16} className="relative z-10 transition-transform duration-300 group-hover:rotate-12" />
+                <span className="relative z-10">Filter</span>
+              </button>
+
+              <select className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md cursor-pointer transition-all duration-300 hover:border-rose-500 hover:shadow-md hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-transparent">
+                <option value="featured">Featured</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="newest">Newest First</option>
+                <option value="rating">Top Rated</option>
+              </select>
+            </div>
+          </div>
         </div>
+
+
 
         {error && (
           <div className="mb-6 p-4 bg-red-50 border-l-4 border-red-500 text-red-700 rounded">
@@ -95,12 +120,12 @@ export default function AllProducts() {
                     }}
                   />
                   {product.discount > 0 && (
-                    <div className="absolute top-2 right-2 bg-rose-500 text-white px-2 py-1 rounded-md text-sm font-semibold">
+                    <div className="absolute top-2 right-2 bg-rose-500 text-white px-2 py-1 rounded-md text-sm font-medium">
                       {product.discount}% OFF
                     </div>
                   )}
-                  {product.featured && (
-                    <div className="absolute top-2 left-2 bg-yellow-500 text-white px-2 py-1 rounded-md text-xs font-semibold">
+                  {product.featured === true && (
+                    <div className="absolute top-2 left-2 bg-yellow-500 text-white px-2 py-1 rounded-md text-xs font-medium">
                       FEATURED
                     </div>
                   )}
@@ -108,7 +133,7 @@ export default function AllProducts() {
 
                 {/* Product Info */}
                 <div className="p-4">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
+                  <h3 className="text-lg md:text-2xl font-medium text-gray-900 mb-2 line-clamp-2">
                     {product.name}
                   </h3>
 
@@ -116,7 +141,7 @@ export default function AllProducts() {
                   {product.rating && (
                     <div className="flex items-center gap-1 mb-2">
                       <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                      <span className="text-sm font-medium text-gray-700">
+                      <span className="text-lg font-medium text-gray-700">
                         {product.rating}
                       </span>
                     </div>
@@ -124,7 +149,7 @@ export default function AllProducts() {
 
                   {/* Price */}
                   <div className="flex items-center gap-2 mb-4">
-                    <span className="text-2xl font-bold text-gray-900">
+                    <span className="text-xl font-normal text-gray-900">
                       {formatINR(product.price)}
                     </span>
                     {product.mrp && product.mrp > product.price && (
@@ -138,7 +163,7 @@ export default function AllProducts() {
                   {product.stock !== undefined && (
                     <div className="mb-4">
                       {product.stock > 0 ? (
-                        <span className="text-xs text-green-600 font-medium">
+                        <span className="text-sm text-green-600 font-medium">
                           In Stock ({product.stock} available)
                         </span>
                       ) : (
