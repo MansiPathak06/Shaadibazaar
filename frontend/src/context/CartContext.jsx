@@ -29,13 +29,23 @@ export function CartProvider({ children }) {
       }
     });
   };
+
+  const updateQuantity = (id, newQuantity) => {
+  setCartItems((prev) =>
+    prev.map((item) =>
+      item.id === id ? { ...item, quantity: newQuantity } : item
+    )
+  );
+};
+
+
   const removeFromCart = (id) =>
     setCartItems((prev) => prev.filter((item) => item.id !== id));
   const clearCart = () => setCartItems([]);
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, clearCart, totalItems }}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, clearCart, totalItems, updateQuantity }}>
       {children}
     </CartContext.Provider>
   );

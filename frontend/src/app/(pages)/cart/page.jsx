@@ -140,7 +140,7 @@ export default function CartPage() {
               </div>
               <h2 className="text-2xl font-bold text-gray-900 mb-3">Your cart is empty</h2>
               <p className="text-gray-600 mb-8">Add items to get started with your shopping</p>
-              <Link href="/accessories/all-products">
+              <Link href="/">
                 <button className="px-8 py-4 bg-gradient-to-r from-[#422B6B] to-[#B4468E] text-white rounded-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 font-semibold flex items-center gap-2 mx-auto">
                   Start Shopping
                   <ArrowRight className="w-5 h-5" />

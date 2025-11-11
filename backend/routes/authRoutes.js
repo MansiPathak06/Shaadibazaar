@@ -29,6 +29,22 @@ router.get('/google/callback',
   }
 );
 
+
+// --- Facebook OAuth routes ---
+// Redirect user to Facebook for consent
+router.get('/facebook',
+  passport.authenticate('facebook', { scope: ['email'] })
+);
+
+// Facebook callback url (called by Facebook after login)
+router.get('/facebook/callback',
+  passport.authenticate('facebook', { failureRedirect: '/' }),
+  (req, res) => {
+    // Auth successful, redirect to your frontend
+    res.redirect('http://localhost:3000/auth?login=success');
+  }
+);
+
 // --- Forgot Password Routes ---
 
 // Request password reset

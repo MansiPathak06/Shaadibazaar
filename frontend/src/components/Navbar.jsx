@@ -378,7 +378,7 @@ const Navbar = () => {
                       else if (userRole === "vendor")
                         router.push("/vendor-dashboard");
                     }}
-                    className="flex items-center space-x-2 px-4 py-2 font-medium text-rose-500 hover:text-rose-700"
+                    className="flex items-center cursor-pointer space-x-2 px-4 py-2 font-medium text-rose-500 hover:text-rose-700"
                   >
                     <span>My Account</span>
                   </button>
@@ -390,7 +390,7 @@ const Navbar = () => {
                       setUserName("");
                       router.push("/auth");
                     }}
-                    className="text-gray-500 hover:text-red-600"
+                    className="text-gray-500 cursor-pointer hover:text-red-600"
                   >
                     Logout
                   </button>
@@ -398,7 +398,7 @@ const Navbar = () => {
               ) : (
                 <button
                   onClick={() => router.push("/auth")}
-                  className="flex items-center space-x-1 text-gray-700 hover:text-rose-500"
+                  className="flex items-center cursor-pointer space-x-1 text-gray-700 hover:text-rose-500"
                 >
                   <span>Sign in</span>
                 </button>

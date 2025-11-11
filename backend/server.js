@@ -14,7 +14,11 @@ const orderRoutes = require('./routes/orderRoutes');
 const wishlistRoutes = require('./routes/wishlistRoutes');
 
 
+
+
 require('./config/googleStrategy');
+require('./config/facebookStrategy');
+
 
 const app = express();
 

@@ -1079,7 +1079,7 @@ export default function AdminDashboard() {
                             <div className="relative group">
                               <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none z-10">
                                 {productForm.category === 'jewellery' && <Gem className="w-5 h-5 text-[#F04393]" />}
-                                {productForm.category === 'bagandpurse' && <ShoppingBag className="w-5 h-5 text-[#F04393]" />}
+                                {productForm.category === 'Bags And Purse' && <ShoppingBag className="w-5 h-5 text-[#F04393]" />}
                                 {productForm.category === 'watches' && <Watch className="w-5 h-5 text-[#F04393]" />}
                                 {productForm.category === 'hairaccessories' && <Scissors className="w-5 h-5 text-[#F04393]" />}
                                 {productForm.category === 'shoes' && <Footprints className="w-5 h-5 text-[#F04393]" />}
@@ -1106,7 +1106,7 @@ export default function AdminDashboard() {
                               >
                                 <option value="">Select Category</option>
                                 <option value="jewellery">Jewellery</option>
-                                <option value="bagandpurse">Bag And Purse</option>
+                                <option value="Bags And Purse">Bag And Purse</option>
                                 <option value="watches">Watches</option>
                                 <option value="hairaccessories">Hair Accessories</option>
                                 <option value="shoes">Shoes</option>

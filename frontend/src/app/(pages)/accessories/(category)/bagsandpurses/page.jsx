@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ShoppingCart, Heart, Star, ArrowRight, Loader2 } from "lucide-react";
 import { Fragment } from "react";
 
-const CATEGORY_SLUG = "bags";
+const CATEGORY_SLUG = "Bags And Purse";
 
 const BagsAndPurses = () => {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -120,7 +120,7 @@ const BagsAndPurses = () => {
     try {
       setLoading(true);
       const response = await fetch(
-        "http://localhost:5000/api/products?category=bags"
+        "http://localhost:5000/api/products?category=Bags And Purse"
       );
       const data = await response.json();
 
