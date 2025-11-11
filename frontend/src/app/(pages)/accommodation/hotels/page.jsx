@@ -297,49 +297,47 @@ const RoomCard = ({ room }) => (
 
 const Rooms = () => (
   <Section id="rooms">
-    <Container>
-      <div className="mb-12 px-4">
-        < div className="text-center mb-16" >
-          <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-            Rooms Crafted for Rest & Rejuvenation
-          </h2>
-          <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Sleep well, wake inspired</p>
-        </div >
-        <p className="mt-5 text-center text-slate-600">{roomsData.tagline}</p>
+    <div className="px-4">
+      <div className="text-center mb-16">
+        <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
+          Rooms Crafted for Rest & Rejuvenation
+        </h2>
+        <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Sleep well, wake inspired</p>
       </div>
-      <div className="grid md:grid-cols-2 gap-8 lg:gap-10 px-4">
-        {roomsData.rooms.map((room) => (
-          <RoomCard key={room.id} room={room} />
-        ))}
-      </div>
-    </Container>
+    </div>
+    <div className="grid md:grid-cols-2 gap-8 lg:gap-10 px-4">
+      {roomsData.rooms.map((room) => (
+        <RoomCard key={room.id} room={room} />
+      ))}
+    </div>
   </Section>
 );
 
 const Dining = () => (
   <Section id="dining" className="bg-white">
-    <Container>
-      <div className="mb-12 px-4">
-        <SectionHeader
-          title={diningData.title}
-          subtitle={diningData.subtitle}
-          center
-        />
-        <p className="mt-5 text-center text-slate-600">{diningData.tagline}</p>
+    <div className="px-4">
+      <div>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
+            why brides love us
+          </h2>
+          <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Trusted by thousands of happy brides for their special day</p>
+        </div>
       </div>
-      <div className="grid md:grid-cols-3 gap-8 px-4">
-        {diningData.highlights.map((item, idx) => (
-          <div key={idx} className="rounded-xl overflow-hidden shadow border border-slate-100 bg-white">
-            <div className="aspect-[16/10]">
-              <img src={item.image} alt="Dining" className="h-full w-full object-cover hover:scale-110 transition duration-700" />
-            </div>
-            <div className="p-6 text-center">
-              <p className="font-medium text-slate-800">{item.title}</p>
-            </div>
+      <p className="mt-5 text-center text-slate-600">{diningData.tagline}</p>
+    </div>
+    <div className="grid md:grid-cols-3 gap-8 px-4">
+      {diningData.highlights.map((item, idx) => (
+        <div key={idx} className="rounded-xl overflow-hidden shadow border border-slate-100 bg-white">
+          <div className="aspect-[16/10]">
+            <img src={item.image} alt="Dining" className="h-full w-full object-cover hover:scale-110 transition duration-700" />
           </div>
-        ))}
-      </div>
-    </Container>
+          <div className="p-6 text-center">
+            <p className="font-medium text-slate-800">{item.title}</p>
+          </div>
+        </div>
+      ))}
+    </div>
   </Section>
 );
 

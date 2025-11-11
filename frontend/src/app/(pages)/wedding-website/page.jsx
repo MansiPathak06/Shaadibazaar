@@ -61,46 +61,46 @@ export default function WeddingService() {
       `}</style>
 
       {/* Hero Section */}
-<section
-  className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
-  style={{
-    backgroundImage:
-      "url('https://res.cloudinary.com/dewxpvl5s/image/upload/v1762322200/bg-image_wqr8x3.jpg')",
-  }}
->
-  {/* Optional soft gradient overlay */}
-  <div className="absolute inset-0 bg-gradient-to-br from-white/60 to-rose-50/40 backdrop-blur-[1px]"></div>
+      <section
+        className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage:
+            "url('https://res.cloudinary.com/dewxpvl5s/image/upload/v1762322200/bg-image_wqr8x3.jpg')",
+        }}
+      >
+        {/* Optional soft gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/60 to-rose-50/40 backdrop-blur-[1px]"></div>
 
-  {/* Animated blur circles */}
-  <div className="absolute inset-0 overflow-hidden">
-    <div className="absolute top-20 left-10 w-72 h-72 bg-rose-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse"></div>
-    <div className="absolute bottom-20 right-10 w-96 h-96 bg-rose-300 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse"></div>
-  </div>
+        {/* Animated blur circles */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-rose-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-rose-300 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse"></div>
+        </div>
 
-  {/* Main Content */}
-  <div className="relative text-center px-4 sm:px-6 lg:px-8 max-w-4xl z-10">
-    <Heart
-      className="w-16 h-16 text-rose-400 mx-auto mb-6"
-      fill="currentColor"
-    />
-    <h1 className="text-5xl sm:text-6xl lg:text-7xl font-serif text-gray-800 mb-6 drop-shadow-md">
-      Your Perfect Wedding Website
-    </h1>
-    <p className="text-xl sm:text-2xl text-gray-700 mb-4 drop-shadow-sm">
-      Create a beautiful website to share your special day
-    </p>
-    <p className="text-lg text-gray-600 mb-12 drop-shadow-sm">
-      Share all the important details about your celebration with your guests in
-      one stunning place
-    </p>
-    <a
-      href="#signup"
-      className="inline-block bg-rose-400 text-white px-8 py-3 rounded-full hover:bg-rose-500 transition transform hover:scale-105 text-lg font-medium shadow-md"
-    >
-      Create Your Website
-    </a>
-  </div>
-</section>
+        {/* Main Content */}
+        <div className="relative text-center px-4 sm:px-6 lg:px-8 max-w-4xl z-10">
+          <Heart
+            className="w-16 h-16 text-rose-400 mx-auto mb-6"
+            fill="currentColor"
+          />
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-serif text-gray-800 mb-6 drop-shadow-md">
+            Your Perfect Wedding Website
+          </h1>
+          <p className="text-xl sm:text-2xl text-gray-700 mb-4 drop-shadow-sm">
+            Create a beautiful website to share your special day
+          </p>
+          <p className="text-lg text-gray-600 mb-12 drop-shadow-sm">
+            Share all the important details about your celebration with your guests in
+            one stunning place
+          </p>
+          <a
+            href="#signup"
+            className="inline-block bg-rose-400 text-white px-8 py-3 rounded-full hover:bg-rose-500 transition transform hover:scale-105 text-lg font-medium shadow-md"
+          >
+            Create Your Website
+          </a>
+        </div>
+      </section>
 
 
       {/* Features Section */}
@@ -108,7 +108,7 @@ export default function WeddingService() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-serif text-gray-800 mb-4">
-              Everything You Need for Your Big Day
+              Everything <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>You</span> Need <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>For Your</span> Big <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Day</span>
             </h2>
             <div className="w-24 h-1 bg-rose-400 mx-auto mt-4"></div>
           </div>
@@ -163,17 +163,13 @@ export default function WeddingService() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-rose-50 to-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <div className="flex justify-center items-center space-x-2 text-rose-400">
-              <Heart className="w-6 h-6" fill="currentColor" />
-              <span className="text-3xl md:text-5xl font-semibold text-gray-800">
-                It will only take a minute of your time
-              </span>
-              <Heart className="w-6 h-6" fill="currentColor" />
+            <div className="text-center mb-16">
+              <h2 className="text-4xl sm:text-5xl font-serif text-gray-800  capitalize">
+                It will <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>only</span> take a <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>minute</span> of your <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>time</span>
+              </h2>
+              <div className="w-24 h-1 bg-rose-400 mx-auto mt-4"></div>
             </div>
-            <div className="w-24 h-1 bg-rose-400 mx-auto mt-4"></div>
-            <p className="text-gray-600 mt-6 text-lg md:text-xl">
-              Showcase your precious moments with elegant photo galleries
-            </p>
+
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -195,7 +191,7 @@ export default function WeddingService() {
             ))}
           </div>
 
-          
+
         </div>
       </section>
 
@@ -204,7 +200,7 @@ export default function WeddingService() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-serif text-gray-800 mb-4">
-              All Your Details in One Place
+              All Your <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Details</span> in One <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Place</span>
             </h2>
             <div className="w-24 h-1 bg-rose-400 mx-auto mt-4"></div>
           </div>
@@ -332,26 +328,159 @@ export default function WeddingService() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-serif text-gray-800 mb-6">
-            Simple, Beautiful, and Free
-          </h2>
-          <p className="text-lg text-gray-600 leading-relaxed mb-8">
-            No design skills needed. Our intuitive platform makes it easy to
-            create a stunning wedding website that perfectly captures your
-            style. Get started in minutes and share your joy with everyone you
-            love.
-          </p>
-          <div className="flex justify-center items-center space-x-2 text-rose-400">
-            <Heart className="w-6 h-6" fill="currentColor" />
-            <span className="text-lg font-medium">
-              It will only take a minute of your time
-            </span>
-            <Heart className="w-6 h-6" fill="currentColor" />
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-pink-50 via-white to-purple-50">
+          <div className="absolute inset-0 opacity-30">
+            <div className="absolute top-10 left-10 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+            <div className="absolute top-20 right-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+            <div className="absolute bottom-10 left-1/2 w-72 h-72 bg-rose-200 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
           </div>
         </div>
+
+        {/* Content */}
+        <div className="max-w-5xl mx-auto text-center relative z-10">
+          {/* Decorative Top Element */}
+          <div className="flex justify-center mb-8 animate-fade-in">
+            <div className="flex items-center gap-3">
+              <div className="h-px w-12 bg-gradient-to-r from-transparent to-rose-400"></div>
+              <Heart className="w-6 h-6 text-rose-400 animate-pulse" fill="currentColor" />
+              <div className="h-px w-12 bg-gradient-to-l from-transparent to-rose-400"></div>
+            </div>
+          </div>
+
+          {/* Main Heading */}
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-medium mb-6 animate-fade-in-up uppercase">
+            <span className="bg-gradient-to-r from-rose-600 via-pink-500 to-purple-600 bg-clip-text text-transparent">
+              Simple, Beautiful
+            </span>
+            <br />
+            <span className="text-gray-800">and Free</span>
+          </h2>
+
+          {/* Description */}
+          <p className="text-lg sm:text-xl text-gray-600 leading-relaxed mb-10 max-w-3xl mx-auto animate-fade-in-up animation-delay-200">
+            No design skills needed. Our intuitive platform makes it easy to create a{" "}
+            <span className="font-semibold text-rose-500">stunning wedding website</span> that perfectly captures your style. Get started in minutes and share your joy with everyone you love.
+          </p>
+
+          {/* Feature Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 animate-fade-in-up animation-delay-400">
+            <div className="group p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-pink-100">
+              <div className="w-14 h-14 bg-gradient-to-br from-rose-400 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="font-medium text-lg text-gray-800 mb-2">Lightning Fast</h3>
+              <p className="text-sm text-gray-600">Create in minutes, not hours</p>
+            </div>
+
+            <div className="group p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-purple-100">
+              <div className="w-14 h-14 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                </svg>
+              </div>
+              <h3 className="font-medium text-lg text-gray-800 mb-2">Beautiful Design</h3>
+              <p className="text-sm text-gray-600">Stunning templates included</p>
+            </div>
+
+            <div className="group p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-pink-100">
+              <div className="w-14 h-14 bg-gradient-to-br from-pink-400 to-rose-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="font-medium text-lg text-gray-800 mb-2">100% Free</h3>
+              <p className="text-sm text-gray-600">No hidden costs, ever</p>
+            </div>
+          </div>
+
+          {/* Decorative Bottom Element */}
+          <div className="flex justify-center mt-12 animate-fade-in animation-delay-800">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-rose-400 rounded-full animate-ping"></div>
+              <div className="w-2 h-2 bg-pink-400 rounded-full animate-ping animation-delay-200"></div>
+              <div className="w-2 h-2 bg-purple-400 rounded-full animate-ping animation-delay-400"></div>
+            </div>
+          </div>
+        </div>
+
+        <style jsx>{`
+    @keyframes blob {
+      0%, 100% {
+        transform: translate(0, 0) scale(1);
+      }
+      25% {
+        transform: translate(20px, -20px) scale(1.1);
+      }
+      50% {
+        transform: translate(-20px, 20px) scale(0.9);
+      }
+      75% {
+        transform: translate(20px, 20px) scale(1.05);
+      }
+    }
+
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fade-in-up {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-blob {
+      animation: blob 7s infinite;
+    }
+
+    .animation-delay-200 {
+      animation-delay: 0.2s;
+    }
+
+    .animation-delay-400 {
+      animation-delay: 0.4s;
+    }
+
+    .animation-delay-600 {
+      animation-delay: 0.6s;
+    }
+
+    .animation-delay-800 {
+      animation-delay: 0.8s;
+    }
+
+    .animation-delay-2000 {
+      animation-delay: 2s;
+    }
+
+    .animation-delay-4000 {
+      animation-delay: 4s;
+    }
+
+    .animate-fade-in {
+      animation: fade-in 0.8s ease-out forwards;
+    }
+
+    .animate-fade-in-up {
+      animation: fade-in-up 0.8s ease-out forwards;
+    }
+  `}</style>
       </section>
+
     </div>
   );
 }
