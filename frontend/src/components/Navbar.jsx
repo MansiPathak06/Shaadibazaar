@@ -27,6 +27,7 @@ import {
   Watch,
   FlaskConical,
   ChevronDown,
+  ChevronRight,
 } from "lucide-react";
 
 const Navbar = () => {
@@ -52,6 +53,17 @@ const Navbar = () => {
       }
     }
   }, []);
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (mobileMenuOpen && !e.target.closest('.mobile-menu-container')) {
+        setMobileMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [mobileMenuOpen]);
 
   const navigationLinks = [
     {
@@ -185,7 +197,6 @@ const Navbar = () => {
           icon: Plane,
           link: "/accommodation/hotels",
         },
-
         {
           name: "Resorts",
           icon: Plane,
@@ -333,31 +344,29 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-100">
+    <nav className="bg-white shadow-md sticky top-0 z-50">
       {/* Top Section */}
       <div className="border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 ">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo - Shifted more to left on mobile */}
-            <div className="flex-shrink-0 -ml-13 md:ml-0">
-              <h1 className="text-2xl font-bold text-rose-500">
-                <a href="/">
-                  <img
-                    src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1761844101/logo_sxozan.jpg"
-                    alt="Logo"
-                    className="h-14 w-16"
-                  />
-                </a>
-              </h1>
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
+          <div className="flex items-center justify-between h-16 gap-2">
+            {/* Logo */}
+            <div className="flex-shrink-0">
+              <Link href="/">
+                <img
+                  src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1761844101/logo_sxozan.jpg"
+                  alt="Logo"
+                  className="h-12 w-14 sm:h-14 sm:w-16 object-contain"
+                />
+              </Link>
             </div>
 
-            {/* Search Bar */}
-            <div className="hidden md:flex flex-1 max-w-2xl mx-8">
+            {/* Search Bar - Hidden on mobile, shown on md+ */}
+            <div className="hidden md:flex flex-1 max-w-xl lg:max-w-2xl mx-4">
               <div className="relative w-full">
                 <input
                   type="text"
                   placeholder="Search Canvas Prints"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-400 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-400 focus:border-transparent text-sm"
                 />
                 <button className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-rose-500">
                   <Search size={20} />
@@ -366,10 +375,10 @@ const Navbar = () => {
             </div>
 
             {/* Right Icons */}
-            <div className="flex items-center space-x-6">
-              {/* Sign In Button - Updated with Link */}
+            <div className="flex items-center gap-2 sm:gap-4">
+              {/* Sign In/Account Button */}
               {userRole ? (
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center gap-2 sm:gap-3">
                   <button
                     onClick={() => {
                       if (userRole === "user") router.push("/user-dashboard");
@@ -378,9 +387,23 @@ const Navbar = () => {
                       else if (userRole === "vendor")
                         router.push("/vendor-dashboard");
                     }}
-                    className="flex items-center cursor-pointer space-x-2 px-4 py-2 font-medium text-rose-500 hover:text-rose-700"
+                    className="hidden sm:flex items-center gap-2 px-3 py-2 font-medium text-rose-500 hover:text-rose-700 text-sm"
                   >
-                    <span>My Account</span>
+                    <User size={18} />
+                    <span className="hidden lg:inline">My Account</span>
+                  </button>
+                  {/* Mobile Account Icon */}
+                  <button
+                    onClick={() => {
+                      if (userRole === "user") router.push("/user-dashboard");
+                      else if (userRole === "admin")
+                        router.push("/admin-dashboard");
+                      else if (userRole === "vendor")
+                        router.push("/vendor-dashboard");
+                    }}
+                    className="sm:hidden text-rose-500 hover:text-rose-700"
+                  >
+                    <User size={22} />
                   </button>
                   <button
                     onClick={() => {
@@ -390,7 +413,7 @@ const Navbar = () => {
                       setUserName("");
                       router.push("/auth");
                     }}
-                    className="text-gray-500 cursor-pointer hover:text-red-600"
+                    className="hidden sm:block text-gray-500 hover:text-red-600 text-sm font-medium"
                   >
                     Logout
                   </button>
@@ -398,42 +421,54 @@ const Navbar = () => {
               ) : (
                 <button
                   onClick={() => router.push("/auth")}
-                  className="flex items-center cursor-pointer space-x-1 text-gray-700 hover:text-rose-500"
+                  className="flex items-center gap-1 text-gray-700 hover:text-rose-500 text-sm font-medium"
                 >
-                  <span>Sign in</span>
+                  <User size={18} className="sm:hidden" />
+                  <span className="hidden sm:inline">Sign in</span>
                 </button>
               )}
 
-              <Link
-                href="/cart"
-                className="relative ml-4 flex items-center gap-1"
-              >
-                <ShoppingCart className="w-6 h-6" />
-                <span className="text-base font-medium text-gray-700">
+              {/* Cart */}
+              <Link href="/cart" className="relative flex items-center gap-1">
+                <ShoppingCart className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700 hover:text-rose-500" />
+                <span className="hidden sm:inline text-sm font-medium text-gray-700">
                   Cart
                 </span>
                 {totalItems > 0 && (
-                  <span className="absolute -top-2 -right-3 bg-rose-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  <span className="absolute -top-2 -right-2 bg-rose-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
                     {totalItems}
                   </span>
                 )}
               </Link>
 
-              {/* Wedding Website Button */}
-              <Link href="/wedding-website">
-                <button className="items-center space-x-1 text-gray-700 hover:text-rose-500 bg-rose-500 rounded-4xl py-3 px-7 border-none cursor-pointer hidden lg:block">
-                  <span className="text-md font-semibold text-white">
-                    Wedding Website
-                  </span>
+              {/* Wedding Website Button - Hidden on smaller screens */}
+              <Link href="/wedding-website" className="hidden lg:block">
+                <button className="bg-rose-500 text-white rounded-full py-2 px-5 text-sm font-semibold hover:bg-rose-600 transition-colors duration-200 whitespace-nowrap">
+                  Wedding Website
                 </button>
               </Link>
 
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden text-gray-700 hover:text-rose-500"
+                className="lg:hidden text-gray-700 hover:text-rose-500 p-1"
+                aria-label="Toggle menu"
               >
                 {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile Search Bar - Below header on mobile only */}
+          <div className="md:hidden pb-3">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Search..."
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-400 text-sm"
+              />
+              <button className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500">
+                <Search size={18} />
               </button>
             </div>
           </div>
@@ -442,9 +477,9 @@ const Navbar = () => {
 
       {/* Bottom Navigation Links */}
       <div className="bg-gradient-to-b from-rose-50 to-white border-b border-gray-200 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center justify-center h-12 space-x-1">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
+          {/* Desktop Navigation - Hidden on mobile/tablet */}
+          <div className="hidden lg:flex items-center justify-center h-12 gap-1 overflow-x-auto">
             {navigationLinks.map((link, index) => (
               <div
                 key={index}
@@ -453,13 +488,13 @@ const Navbar = () => {
                 onMouseLeave={() => link.hasMegaMenu && setOpenDropdown(null)}
               >
                 {link.hasMegaMenu ? (
-                  <button className="px-3 py-3 text-md font-medium text-gray-700 hover:text-rose-500 hover:bg-rose-50 rounded transition-colors duration-200 cursor-pointer">
+                  <button className="px-2 xl:px-3 py-3 text-sm xl:text-base font-medium text-gray-700 hover:text-rose-500 hover:bg-rose-50 rounded transition-colors duration-200 cursor-pointer whitespace-nowrap">
                     {link.name}
                   </button>
                 ) : (
                   <Link
                     href={link.link}
-                    className="px-3 py-3 text-md font-medium text-gray-700 hover:text-rose-500 hover:bg-rose-50 rounded transition-colors duration-200 block"
+                    className="px-2 xl:px-3 py-3 text-sm xl:text-base font-medium text-gray-700 hover:text-rose-500 hover:bg-rose-50 rounded transition-colors duration-200 block whitespace-nowrap"
                   >
                     {link.name}
                   </Link>
@@ -468,75 +503,145 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Mobile Navigation */}
-          {mobileMenuOpen && (
-            <div className="md:hidden py-4">
-              {/* Mobile Search */}
-              <div className="mb-4">
-                <div className="relative">
-                  <input
-                    type="text"
-                    placeholder="Search..."
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-400"
-                  />
-                  <button className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500">
-                    <Search size={20} />
+          {/* Mobile/Tablet Slide-in Navigation Menu */}
+          <div
+            className={`mobile-menu-container lg:hidden fixed inset-y-0 left-0 w-80 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 ${
+              mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+            }`}
+          >
+            {/* Mobile Menu Header */}
+            <div className="bg-gradient-to-r from-rose-500 to-pink-500 p-4 flex items-center justify-between">
+              <h2 className="text-white font-bold text-lg">Menu</h2>
+              <button
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-white hover:bg-white/20 rounded-full p-1 transition-colors"
+              >
+                <X size={24} />
+              </button>
+            </div>
+
+            {/* Mobile Menu Content - Scrollable */}
+            <div className="overflow-y-auto h-[calc(100vh-72px)] pb-6">
+              {/* Wedding Website Button - Mobile */}
+              <div className="lg:hidden p-4 border-b border-gray-200">
+                <Link href="/wedding-website" onClick={() => setMobileMenuOpen(false)}>
+                  <button className="w-full bg-rose-500 text-white rounded-lg py-3 px-4 text-sm font-semibold hover:bg-rose-600 transition-colors duration-200">
+                    Wedding Website
                   </button>
-                </div>
+                </Link>
               </div>
 
-              {/* Mobile Links */}
-              {navigationLinks.map((link, index) => (
-                <div key={index} className="mb-2">
-                  {link.hasMegaMenu ? (
-                    <>
-                      <button
-                        onClick={() =>
-                          setOpenDropdown(openDropdown === index ? null : index)
-                        }
-                        className="w-full flex items-center justify-between px-4 py-2 text-gray-700 hover:bg-rose-50 hover:text-rose-500 font-medium rounded transition-colors duration-200"
-                      >
-                        <span>{link.name}</span>
-                        <ChevronDown
-                          size={18}
-                          className={`transition-transform duration-200 ${
-                            openDropdown === index ? "rotate-180" : ""
-                          }`}
-                        />
-                      </button>
-
-                      {openDropdown === index && (
-                        <div className="pl-4 mt-1 space-y-1">
-                          {link.dropdowns.map((item, idx) => (
-                            <a
-                              key={idx}
-                              href={item.link}
-                              className="block px-4 py-2 text-sm text-gray-600 hover:bg-rose-50 hover:text-rose-500 rounded transition-colors duration-150"
-                            >
-                              {item.name}
-                            </a>
-                          ))}
-                        </div>
-                      )}
-                    </>
-                  ) : (
-                    <Link
-                      href={link.link}
-                      className="block px-4 py-2 text-gray-700 hover:bg-rose-50 hover:text-rose-500 font-medium rounded transition-colors duration-200"
-                    >
-                      {link.name}
-                    </Link>
-                  )}
+              {/* User Account Section - Mobile */}
+              {userRole && (
+                <div className="sm:hidden p-4 border-b border-gray-200 bg-rose-50">
+                  <button
+                    onClick={() => {
+                      if (userRole === "user") router.push("/user-dashboard");
+                      else if (userRole === "admin") router.push("/admin-dashboard");
+                      else if (userRole === "vendor") router.push("/vendor-dashboard");
+                      setMobileMenuOpen(false);
+                    }}
+                    className="w-full flex items-center gap-3 px-4 py-3 bg-white rounded-lg text-rose-500 font-semibold hover:bg-rose-100 transition-colors"
+                  >
+                    <User size={20} />
+                    <span>My Account</span>
+                  </button>
+                  <button
+                    onClick={() => {
+                      localStorage.removeItem("token");
+                      localStorage.removeItem("user");
+                      setUserRole(null);
+                      setUserName("");
+                      router.push("/auth");
+                      setMobileMenuOpen(false);
+                    }}
+                    className="w-full mt-2 flex items-center justify-center gap-2 px-4 py-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors font-medium text-sm"
+                  >
+                    Logout
+                  </button>
                 </div>
-              ))}
+              )}
+
+              {/* Mobile Navigation Links */}
+              <div className="p-4">
+                {navigationLinks.map((link, index) => (
+                  <div key={index} className="mb-2">
+                    {link.hasMegaMenu ? (
+                      <div className="border border-gray-200 rounded-lg overflow-hidden">
+                        <button
+                          onClick={() =>
+                            setOpenDropdown(openDropdown === index ? null : index)
+                          }
+                          className="w-full flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-rose-50 hover:text-rose-500 font-semibold transition-colors duration-200 bg-gray-50"
+                        >
+                          <div className="flex items-center gap-3">
+                            <link.icon size={20} className="text-rose-500" />
+                            <span>{link.name}</span>
+                          </div>
+                          <ChevronDown
+                            size={20}
+                            className={`transition-transform duration-300 ${
+                              openDropdown === index ? "rotate-180" : ""
+                            }`}
+                          />
+                        </button>
+
+                        {/* Animated Dropdown */}
+                        <div
+                          className={`transition-all duration-300 ease-in-out ${
+                            openDropdown === index
+                              ? "max-h-[500px] opacity-100"
+                              : "max-h-0 opacity-0 overflow-hidden"
+                          }`}
+                        >
+                          <div className="bg-white">
+                            {link.dropdowns.map((item, idx) => {
+                              const ItemIcon = item.icon;
+                              return (
+                                <Link
+                                  key={idx}
+                                  href={item.link}
+                                  onClick={() => setMobileMenuOpen(false)}
+                                  className="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-rose-50 hover:text-rose-500 transition-colors duration-150 border-b border-gray-100 last:border-b-0"
+                                >
+                                  <ItemIcon size={18} className="text-gray-400" />
+                                  <span>{item.name}</span>
+                                  <ChevronRight size={16} className="ml-auto text-gray-400" />
+                                </Link>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <Link
+                        href={link.link}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-rose-50 hover:text-rose-500 font-semibold rounded-lg transition-colors duration-200 border border-gray-200"
+                      >
+                        <link.icon size={20} className="text-rose-500" />
+                        <span>{link.name}</span>
+                      </Link>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
+          </div>
+
+          {/* Overlay for mobile menu */}
+          {mobileMenuOpen && (
+            <div
+              className="lg:hidden fixed inset-0 bg-black/50 z-40 transition-opacity duration-300"
+              onClick={() => setMobileMenuOpen(false)}
+            />
           )}
         </div>
 
-        {/* Full Width Mega Dropdown */}
+        {/* Desktop Mega Dropdown - Unchanged */}
         {openDropdown !== null && navigationLinks[openDropdown].hasMegaMenu && (
           <div
-            className="hidden md:block absolute left-0 right-0 top-full bg-white border-t border-gray-200 shadow-xl z-50"
+            className="hidden lg:block absolute left-0 right-0 top-full bg-white border-t border-gray-200 shadow-xl z-50"
             onMouseEnter={() => setOpenDropdown(openDropdown)}
             onMouseLeave={() => setOpenDropdown(null)}
           >
@@ -547,7 +652,7 @@ const Navbar = () => {
               </h3>
 
               {/* Grid of Links with Icons */}
-              <div className="grid grid-cols-3 gap-6">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
                 {navigationLinks[openDropdown].dropdowns.map((item, idx) => {
                   const IconComponent = item.icon;
                   return (
@@ -567,7 +672,7 @@ const Navbar = () => {
                 })}
               </div>
 
-              {/* Destination Weddings Card (for Venue & Location) */}
+              {/* Destination Weddings Card */}
               {navigationLinks[openDropdown].showDestinationCard && (
                 <div className="mt-6 bg-gradient-to-r from-rose-50 to-pink-50 rounded-xl p-6 flex items-center justify-between">
                   <div>

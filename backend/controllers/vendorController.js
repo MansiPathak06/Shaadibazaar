@@ -136,7 +136,7 @@ exports.getMyProducts = async (req, res) => {
 
 exports.addProduct = async (req, res) => {
   try {
-    const { name, description, price, mrp, discount, rating, category, images, stock, featured } = req.body;
+    const { name, description, price, mrp, discount, rating, category, subCategory, images, stock, featured } = req.body;
     if (!name || !price || !category) {
       return res.status(400).json({ success: false, message: "Missing required fields" });
     }
@@ -146,8 +146,8 @@ exports.addProduct = async (req, res) => {
       ? images.split(",").map(i => i.trim())
       : [];
     const [result] = await db.query(
-      'INSERT INTO products (name, description, price, mrp, discount, rating, category, images, stock, featured, vendor_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-      [name, description || '', price, mrp || price, discount || 0, rating || 0, category, JSON.stringify(imgs), stock || 0, featured ? 1 : 0, req.user.id]
+      'INSERT INTO products (name, description, price, mrp, discount, rating, category, subCategory, images, stock, featured, vendor_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+      [name, description || '', price, mrp || price, discount || 0, rating || 0, category, subCategory || '', JSON.stringify(imgs), stock || 0, featured ? 1 : 0, req.user.id]
     );
     res.json({ success: true, message: "Product added", id: result.insertId });
   } catch (error) {
@@ -155,9 +155,10 @@ exports.addProduct = async (req, res) => {
   }
 };
 
+
 exports.updateProduct = async (req, res) => {
   try {
-    const { name, description, price, mrp, discount, rating, category, images, stock, featured } = req.body;
+    const { name, description, price, mrp, discount, rating, category, subCategory, images, stock, featured } = req.body;
     if (!name || !price || !category) {
       return res.status(400).json({ success: false, message: "Missing required fields" });
     }
@@ -167,14 +168,15 @@ exports.updateProduct = async (req, res) => {
       ? images.split(",").map(i => i.trim())
       : [];
     await db.query(
-      'UPDATE products SET name=?, description=?, price=?, mrp=?, discount=?, rating=?, category=?, images=?, stock=?, featured=? WHERE id=? AND vendor_id=?',
-      [name, description || '', price, mrp || price, discount || 0, rating || 0, category, JSON.stringify(imgs), stock || 0, featured ? 1 : 0, req.params.id, req.user.id]
+      'UPDATE products SET name=?, description=?, price=?, mrp=?, discount=?, rating=?, category=?, subCategory=?, images=?, stock=?, featured=? WHERE id=? AND vendor_id=?',
+      [name, description || '', price, mrp || price, discount || 0, rating || 0, category, subCategory || '', JSON.stringify(imgs), stock || 0, featured ? 1 : 0, req.params.id, req.user.id]
     );
     res.json({ success: true, message: "Product updated" });
   } catch (error) {
     res.status(500).json({ success: false, message: 'Failed to update product' });
   }
 };
+
 
 exports.deleteProduct = async (req, res) => {
   try {
@@ -204,8 +206,8 @@ exports.bulkImportProducts = async (req, res) => {
           ? p.images.split(",").map(v => v.trim())
           : [];
         await db.query(
-          'INSERT INTO products (name, description, price, mrp, discount, rating, category, images, stock, featured, vendor_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-          [p.name, p.description || '', p.price, p.mrp || p.price, p.discount || 0, p.rating || 0, p.category, JSON.stringify(imgs), p.stock || 0, p.featured ? 1 : 0, req.user.id]
+          'INSERT INTO products (name, description, price, mrp, discount, rating, category, subCategory, images, stock, featured, vendor_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+          [p.name, p.description || '', p.price, p.mrp || p.price, p.discount || 0, p.rating || 0, p.category, p.subCategory || '', JSON.stringify(imgs), p.stock || 0, p.featured ? 1 : 0, req.user.id]
         );
         imported++;
       } catch (e) {
@@ -217,3 +219,4 @@ exports.bulkImportProducts = async (req, res) => {
     res.status(500).json({ success: false, message: 'Bulk import server error' });
   }
 };
+

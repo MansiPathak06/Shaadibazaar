@@ -7,6 +7,9 @@ import { Heart, Star, Loader2 } from "lucide-react";
 
 const CATEGORY_SLUG = "jewellery";
 
+
+
+
 const Jewellery = () => {
   const [favorites, setFavorites] = useState([]);
   const [realProducts, setRealProducts] = useState([]);
@@ -30,7 +33,7 @@ const Jewellery = () => {
       name: "Bridal Collection",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761305883/bridal-collection_lmpktm.jpg",
       link: "/collections/bridal",
-      category: '/accessories/all-products?category=Bridal Collection'
+      category: '/accessories/all-products?category=Jewellery&subCategory=Bridal Collection'
     },
     {
       id: 2,
@@ -133,7 +136,7 @@ const Jewellery = () => {
 
   // Split products: First 4 for "Best Sellers", Rest for "Jewellery Collection"
   const bestSellers = realProducts.slice(0, 4);
-  const jewelleryCollection = realProducts.slice(4);
+  const jewelleryCollection = realProducts.slice(4,8);
 
   return (
     <div className="w-full bg-white">

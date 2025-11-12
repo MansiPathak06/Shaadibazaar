@@ -5,16 +5,24 @@ const db = require('../config/db');
 // Get all products (public, with category filter)
 router.get('/', async (req, res) => {
   try {
-    const { category } = req.query;
+    const { category, subCategory } = req.query; // Add subCategory here
     let query = `
       SELECT p.*, v.business_name as vendor_name 
       FROM products p 
       LEFT JOIN vendors v ON p.vendor_id = v.id
     `;
     const params = [];
+    const conditions = [];
     if (category) {
-      query += ' WHERE p.category = ?';
+      conditions.push('p.category = ?');
       params.push(category);
+    }
+    if (subCategory) { // Add this block
+      conditions.push('p.subCategory = ?');
+      params.push(subCategory);
+    }
+    if (conditions.length) {
+      query += ' WHERE ' + conditions.join(' AND ');
     }
     query += ' ORDER BY p.created_at DESC';
     const [products] = await db.query(query, params);
@@ -28,6 +36,7 @@ router.get('/', async (req, res) => {
     res.status(500).json({ success: false, message: error.message });
   }
 });
+
 
 // Get product by ID (public)
 router.get('/:id', async (req, res) => {

@@ -23,7 +23,7 @@ import {
   ShoppingBag,
   Menu,
   X,
-  Home
+  Home,
 } from "lucide-react";
 import {
   Gem,
@@ -36,7 +36,7 @@ import {
   Shirt,
   PartyPopper,
   Baby,
-  ChevronDown
+  ChevronDown,
 } from "lucide-react";
 
 export default function VendorDashboard() {
@@ -58,10 +58,27 @@ export default function VendorDashboard() {
     discount: "",
     rating: "",
     category: "",
+    subCategory: "",
     images: "",
     stock: "",
-    featured: false
+    featured: false,
   });
+
+  const CATEGORY_SUBCATEGORIES = {
+    Jewellery: [
+      "Bridal Collection",
+      "Diamond Classics",
+      "Gold Elegance",
+      "Pearl Treasures",
+      "Gemstone Beauty",
+      "Contemporary",
+      "Vintage Style",
+      "Temple Jewellery",
+    ],
+    Shoes: ["Women Heels", "Men Loafers", "Sneakers", "Kids Footwear"],
+    Watches: ["Luxury Watches", "Casual Watches", "Smart Watches"],
+    Perfumes: ["Men Perfumes", "Women Perfumes", "Unisex Perfumes"],
+  };
 
   // Bulk import states
   const [showBulkImport, setShowBulkImport] = useState(false);
@@ -108,10 +125,14 @@ export default function VendorDashboard() {
       const method = editingProduct ? "PUT" : "POST";
       const res = await fetch(url, {
         method,
-        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
         body: JSON.stringify({
           ...productForm,
-          images: productForm.images.split(",").map((img) => img.trim())
+          subCategory: productForm.subCategory,
+          images: productForm.images.split(",").map((img) => img.trim()),
         }),
       });
       const data = await res.json();
@@ -153,7 +174,7 @@ export default function VendorDashboard() {
       category: p.category,
       images: Array.isArray(p.images) ? p.images.join(", ") : p.images || "",
       stock: p.stock || "",
-      featured: p.featured || false
+      featured: p.featured || false,
     });
     setShowProductForm(true);
     setShowBulkImport(false);
@@ -165,10 +186,13 @@ export default function VendorDashboard() {
     setLoading(true);
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`http://localhost:5000/api/vendor/products/${id}`, {
-        method: "DELETE",
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const res = await fetch(
+        `http://localhost:5000/api/vendor/products/${id}`,
+        {
+          method: "DELETE",
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       const data = await res.json();
       if (data.success) {
         setSuccess("Product deleted successfully.");
@@ -185,7 +209,13 @@ export default function VendorDashboard() {
   const handleExcelUpload = (e) => {
     const file = e.target.files[0];
     if (!file) return;
-    if (!["application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/vnd.ms-excel", "text/csv"].includes(file.type)) {
+    if (
+      ![
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "application/vnd.ms-excel",
+        "text/csv",
+      ].includes(file.type)
+    ) {
       setError("Upload a valid Excel or CSV file.");
       return;
     }
@@ -203,7 +233,7 @@ export default function VendorDashboard() {
       reader.onload = async (e) => {
         try {
           const data = new Uint8Array(e.target.result);
-          const XLSX = (await import("xlsx")).default || await import("xlsx");
+          const XLSX = (await import("xlsx")).default || (await import("xlsx"));
           const workbook = XLSX.read(data, { type: "array" });
           const sheetName = workbook.SheetNames[0];
           const worksheet = workbook.Sheets[sheetName];
@@ -211,11 +241,17 @@ export default function VendorDashboard() {
           if (!jsonData.length) return setError("Spreadsheet is empty.");
 
           const token = localStorage.getItem("token");
-          const res = await fetch("http://localhost:5000/api/vendor/products/bulk-import", {
-            method: "POST",
-            headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-            body: JSON.stringify({ products: jsonData })
-          });
+          const res = await fetch(
+            "http://localhost:5000/api/vendor/products/bulk-import",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+              body: JSON.stringify({ products: jsonData }),
+            }
+          );
           const result = await res.json();
           if (result.success) {
             setSuccess(`Imported ${result.imported} products!`);
@@ -237,20 +273,28 @@ export default function VendorDashboard() {
   };
 
   const downloadTemplate = () => {
-    const templateData = [{
-      name: "Gold Necklace",
-      description: "Beautiful necklace",
-      price: 25000,
-      mrp: 29000,
-      discount: 14,
-      rating: 4.6,
-      category: "jewellery",
-      images: "https://link1.jpg, https://link2.jpg",
-      stock: 30,
-      featured: 1
-    }];
+    const templateData = [
+      {
+        name: "Gold Necklace",
+        description: "Beautiful necklace",
+        price: 25000,
+        mrp: 29000,
+        discount: 14,
+        rating: 4.6,
+        category: "jewellery",
+        images: "https://link1.jpg, https://link2.jpg",
+        stock: 30,
+        featured: 1,
+      },
+    ];
     const headers = Object.keys(templateData[0]).join(",");
-    const rows = templateData.map(row => Object.values(row).map(v => `"${v}"`).join(",")).join("\n");
+    const rows = templateData
+      .map((row) =>
+        Object.values(row)
+          .map((v) => `"${v}"`)
+          .join(",")
+      )
+      .join("\n");
     const csv = headers + "\n" + rows;
     const blob = new Blob([csv], { type: "text/csv" });
     const url = window.URL.createObjectURL(blob);
@@ -263,7 +307,9 @@ export default function VendorDashboard() {
     window.URL.revokeObjectURL(url);
   };
 
-  const filteredProducts = products.filter((p) => p.name?.toLowerCase().includes(searchTerm.toLowerCase()));
+  const filteredProducts = products.filter((p) =>
+    p.name?.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -273,11 +319,21 @@ export default function VendorDashboard() {
 
   // Calculate stats
   const totalProducts = products.length;
-  const totalRevenue = products.reduce((sum, p) => sum + (parseFloat(p.price) || 0), 0);
-  const avgRating = products.length > 0 ? (products.reduce((sum, p) => sum + (parseFloat(p.rating) || 0), 0) / products.length).toFixed(1) : "0.0";
-  const totalViews = products.reduce((sum, p) => sum + (parseInt(p.views) || 0), 0);
-
-
+  const totalRevenue = products.reduce(
+    (sum, p) => sum + (parseFloat(p.price) || 0),
+    0
+  );
+  const avgRating =
+    products.length > 0
+      ? (
+          products.reduce((sum, p) => sum + (parseFloat(p.rating) || 0), 0) /
+          products.length
+        ).toFixed(1)
+      : "0.0";
+  const totalViews = products.reduce(
+    (sum, p) => sum + (parseInt(p.views) || 0),
+    0
+  );
 
   const formatNumber = (num) => {
     const number = parseFloat(num);
@@ -285,13 +341,13 @@ export default function VendorDashboard() {
     // Indian numbering system with international abbreviations
     if (number >= 10000000) {
       // 1 Crore = 10,000,000
-      return (number / 10000000).toFixed(2) + ' Cr';
+      return (number / 10000000).toFixed(2) + " Cr";
     } else if (number >= 100000) {
       // 1 Lakh = 100,000
-      return (number / 100000).toFixed(2) + ' L';
+      return (number / 100000).toFixed(2) + " L";
     } else if (number >= 1000) {
       // 1 Thousand = 1,000
-      return (number / 1000).toFixed(2) + ' K';
+      return (number / 1000).toFixed(2) + " K";
     } else {
       return number.toLocaleString();
     }
@@ -301,16 +357,15 @@ export default function VendorDashboard() {
     const number = parseFloat(num);
 
     if (number >= 10000000) {
-      return '₹' + (number / 10000000).toFixed(2) + ' Cr';
+      return "₹" + (number / 10000000).toFixed(2) + " Cr";
     } else if (number >= 100000) {
-      return '₹' + (number / 100000).toFixed(2) + ' L';
+      return "₹" + (number / 100000).toFixed(2) + " L";
     } else if (number >= 1000) {
-      return '₹' + (number / 1000).toFixed(2) + ' K';
+      return "₹" + (number / 1000).toFixed(2) + " K";
     } else {
-      return '₹' + number.toLocaleString();
+      return "₹" + number.toLocaleString();
     }
   };
-
 
   return (
     <>
@@ -336,7 +391,8 @@ export default function VendorDashboard() {
         }
 
         @keyframes float {
-          0%, 100% {
+          0%,
+          100% {
             transform: translateY(0px);
           }
           50% {
@@ -363,7 +419,6 @@ export default function VendorDashboard() {
       `}</style>
 
       <div className="min-h-screen bg-gradient-to-br from-[#FFFEF7] via-[#FFF9E5] to-[#FFEDD5]">
-
         {/* Modern Header */}
         <header className="bg-white shadow-md border-b-4 border-[#FFBE00] sticky top-0 z-50 backdrop-blur-lg ">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -373,7 +428,11 @@ export default function VendorDashboard() {
                   onClick={() => setSidebarOpen(!sidebarOpen)}
                   className="lg:hidden p-2 rounded-xl hover:bg-gray-100 transition-colors"
                 >
-                  {sidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                  {sidebarOpen ? (
+                    <X className="w-6 h-6" />
+                  ) : (
+                    <Menu className="w-6 h-6" />
+                  )}
                 </button>
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 bg-gradient-to-br from-[#CA1F3D] to-[#FFBE00] rounded-2xl flex items-center justify-center shadow-lg">
@@ -430,19 +489,26 @@ export default function VendorDashboard() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex gap-6">
-
             {/* Sidebar */}
-            <aside className={`${sidebarOpen ? 'block' : 'hidden'} lg:block w-full lg:w-72 fixed lg:relative inset-0 lg:inset-auto z-40 lg:z-0`}>
+            <aside
+              className={`${
+                sidebarOpen ? "block" : "hidden"
+              } lg:block w-full lg:w-72 fixed lg:relative inset-0 lg:inset-auto z-40 lg:z-0`}
+            >
               <div className="h-full lg:h-auto bg-white rounded-2xl shadow-2xl p-6 lg:sticky lg:top-28 border-2 border-gray-100">
-
                 {/* Profile Section */}
                 <div className="mb-6 pb-6 border-b border-gray-200">
                   <div className="flex flex-col items-center text-center">
                     <div className="w-24 h-24 bg-gradient-to-br from-[#CA1F3D] to-[#FFBE00] rounded-full flex items-center justify-center text-white text-5xl font-medium mb-3 shadow-xl">
-                      {vendorInfo?.business_name?.charAt(0).toUpperCase() || "V"}
+                      {vendorInfo?.business_name?.charAt(0).toUpperCase() ||
+                        "V"}
                     </div>
-                    <h3 className="font-medium text-3xl text-gray-900">{vendorInfo?.business_name || "Vendor Name"}</h3>
-                    <p className="text-md text-gray-500">{vendorInfo?.email || "vendor@email.com"}</p>
+                    <h3 className="font-medium text-3xl text-gray-900">
+                      {vendorInfo?.business_name || "Vendor Name"}
+                    </h3>
+                    <p className="text-md text-gray-500">
+                      {vendorInfo?.email || "vendor@email.com"}
+                    </p>
                     <div className="mt-3 px-3 py-1 bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 rounded-full text-sm font-medium">
                       ✓ Verified Vendor
                     </div>
@@ -456,10 +522,11 @@ export default function VendorDashboard() {
                       setActiveTab("dashboard");
                       setSidebarOpen(false);
                     }}
-                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium cursor-pointer text-xl ${activeTab === "dashboard"
-                      ? "bg-gradient-to-r from-[#CA1F3D] to-[#25182E] text-white shadow-xl transform scale-105"
-                      : "text-gray-600 hover:bg-gradient-to-r hover:from-[#FFBE00]/20 hover:to-[#CA1F3D]/20 hover:text-[#CA1F3D]"
-                      }`}
+                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium cursor-pointer text-xl ${
+                      activeTab === "dashboard"
+                        ? "bg-gradient-to-r from-[#CA1F3D] to-[#25182E] text-white shadow-xl transform scale-105"
+                        : "text-gray-600 hover:bg-gradient-to-r hover:from-[#FFBE00]/20 hover:to-[#CA1F3D]/20 hover:text-[#CA1F3D]"
+                    }`}
                   >
                     <Home className="w-5 h-5" />
                     <span>Dashboard</span>
@@ -470,14 +537,21 @@ export default function VendorDashboard() {
                       setActiveTab("products");
                       setSidebarOpen(false);
                     }}
-                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium cursor-pointer text-xl ${activeTab === "products"
-                      ? "bg-gradient-to-r from-[#CA1F3D] to-[#25182E] text-white shadow-xl transform scale-105"
-                      : "text-gray-600 hover:bg-gradient-to-r hover:from-[#FFBE00]/20 hover:to-[#CA1F3D]/20 hover:text-[#CA1F3D]"
-                      }`}
+                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium cursor-pointer text-xl ${
+                      activeTab === "products"
+                        ? "bg-gradient-to-r from-[#CA1F3D] to-[#25182E] text-white shadow-xl transform scale-105"
+                        : "text-gray-600 hover:bg-gradient-to-r hover:from-[#FFBE00]/20 hover:to-[#CA1F3D]/20 hover:text-[#CA1F3D]"
+                    }`}
                   >
                     <Package className="w-5 h-5" />
                     <span>Products</span>
-                    <span className={`ml-auto px-2 py-1 text-xs rounded-full ${activeTab === "products" ? "bg-white/20" : "bg-[#CA1F3D] text-white"}`}>
+                    <span
+                      className={`ml-auto px-2 py-1 text-xs rounded-full ${
+                        activeTab === "products"
+                          ? "bg-white/20"
+                          : "bg-[#CA1F3D] text-white"
+                      }`}
+                    >
                       {totalProducts}
                     </span>
                   </button>
@@ -487,10 +561,11 @@ export default function VendorDashboard() {
                       setActiveTab("analytics");
                       setSidebarOpen(false);
                     }}
-                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium text-xl cursor-pointer ${activeTab === "analytics"
-                      ? "bg-gradient-to-r from-[#CA1F3D] to-[#25182E] text-white shadow-xl transform scale-105"
-                      : "text-gray-600 hover:bg-gradient-to-r hover:from-[#FFBE00]/20 hover:to-[#CA1F3D]/20 hover:text-[#CA1F3D]"
-                      }`}
+                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium text-xl cursor-pointer ${
+                      activeTab === "analytics"
+                        ? "bg-gradient-to-r from-[#CA1F3D] to-[#25182E] text-white shadow-xl transform scale-105"
+                        : "text-gray-600 hover:bg-gradient-to-r hover:from-[#FFBE00]/20 hover:to-[#CA1F3D]/20 hover:text-[#CA1F3D]"
+                    }`}
                   >
                     <BarChart3 className="w-5 h-5" />
                     <span>Analytics</span>
@@ -498,20 +573,25 @@ export default function VendorDashboard() {
                 </nav>
 
                 <div className="mt-8 p-4 bg-gradient-to-br from-[#FFBE00]/20 to-[#CA1F3D]/20 rounded-xl">
-                  <p className="text-md text-gray-800 text-center">Vendor Portal v2.0</p>
+                  <p className="text-md text-gray-800 text-center">
+                    Vendor Portal v2.0
+                  </p>
                 </div>
               </div>
             </aside>
 
             {/* Main Content */}
             <main className="flex-1 min-w-0">
-
               {/* Dashboard Tab */}
               {activeTab === "dashboard" && (
                 <div className="animate-fade-in">
                   <div className="mb-8">
-                    <h2 className="text-4xl font-medium text-gray-900 mb-2">Dashboard Overview</h2>
-                    <p className="text-gray-600 text-lg">Welcome back! Here's your store performance</p>
+                    <h2 className="text-4xl font-medium text-gray-900 mb-2">
+                      Dashboard Overview
+                    </h2>
+                    <p className="text-gray-600 text-lg">
+                      Welcome back! Here's your store performance
+                    </p>
                   </div>
 
                   {/* Stats Cards */}
@@ -526,7 +606,9 @@ export default function VendorDashboard() {
                           Active
                         </div>
                       </div>
-                      <p className="text-gray-500 text-md font-medium mb-1">Total Products</p>
+                      <p className="text-gray-500 text-md font-medium mb-1">
+                        Total Products
+                      </p>
                       <p className="text-3xl font-nromal text-gray-900 mb-2">
                         {formatNumber(totalProducts)}
                       </p>
@@ -546,7 +628,9 @@ export default function VendorDashboard() {
                           +12%
                         </div>
                       </div>
-                      <p className="text-gray-500 text-md font-medium mb-1">Total Value</p>
+                      <p className="text-gray-500 text-md font-medium mb-1">
+                        Total Value
+                      </p>
                       <p className="text-3xl font-normal text-gray-900 mb-2">
                         {formatCurrency(totalRevenue)}
                       </p>
@@ -566,7 +650,9 @@ export default function VendorDashboard() {
                           ★ {avgRating}
                         </div>
                       </div>
-                      <p className="text-gray-500 text-md font-medium mb-1">Avg Rating</p>
+                      <p className="text-gray-500 text-md font-medium mb-1">
+                        Avg Rating
+                      </p>
                       <p className="text-3xl font-normal text-gray-900 mb-2">
                         {avgRating}
                       </p>
@@ -586,7 +672,9 @@ export default function VendorDashboard() {
                           +8%
                         </div>
                       </div>
-                      <p className="text-gray-500 text-md font-medium mb-1">Total Views</p>
+                      <p className="text-gray-500 text-md font-medium mb-1">
+                        Total Views
+                      </p>
                       <p className="text-3xl font-normal text-gray-900 mb-2">
                         {formatNumber(totalViews || 0)}
                       </p>
@@ -602,7 +690,9 @@ export default function VendorDashboard() {
                     {/* Recent Products */}
                     <div className="lg:col-span-2 bg-white rounded-2xl shadow-lg p-6">
                       <div className="flex items-center justify-between mb-6">
-                        <h3 className="text-3xl font-medium text-gray-900">Recent Products</h3>
+                        <h3 className="text-3xl font-medium text-gray-900">
+                          Recent Products
+                        </h3>
                         <button
                           onClick={() => setActiveTab("products")}
                           className="text-[#CA1F3D] hover:text-[#25182E] font-medium text-md cursor-pointer"
@@ -612,17 +702,28 @@ export default function VendorDashboard() {
                       </div>
                       <div className="space-y-4">
                         {products.slice(0, 5).map((product, idx) => (
-                          <div key={idx} className="flex items-center gap-4 p-4 bg-gradient-to-r from-gray-50 to-[#FFBE00]/5 rounded-xl hover:shadow-md transition-all">
+                          <div
+                            key={idx}
+                            className="flex items-center gap-4 p-4 bg-gradient-to-r from-gray-50 to-[#FFBE00]/5 rounded-xl hover:shadow-md transition-all"
+                          >
                             <div className="w-12 h-12 bg-gradient-to-br from-[#CA1F3D]/20 to-[#FFBE00]/20 rounded-xl flex items-center justify-center flex-shrink-0">
                               <Package className="w-6 h-6 text-[#CA1F3D]" />
                             </div>
                             <div className="flex-1 min-w-0">
-                              <p className="font-medium text-xl text-gray-900 truncate">{product.name}</p>
-                              <p className="text-md text-gray-500">{product.category}</p>
+                              <p className="font-medium text-xl text-gray-900 truncate">
+                                {product.name}
+                              </p>
+                              <p className="text-md text-gray-500">
+                                {product.category}
+                              </p>
                             </div>
                             <div className="text-right">
-                              <p className="font-medium text-xl text-[#CA1F3D]">₹{product.price}</p>
-                              <p className="text-md text-gray-500">Stock: {product.stock || "N/A"}</p>
+                              <p className="font-medium text-xl text-[#CA1F3D]">
+                                ₹{product.price}
+                              </p>
+                              <p className="text-md text-gray-500">
+                                Stock: {product.stock || "N/A"}
+                              </p>
                             </div>
                           </div>
                         ))}
@@ -645,7 +746,9 @@ export default function VendorDashboard() {
                     <div className="space-y-6">
                       {/* Quick Actions */}
                       <div className="bg-gradient-to-br from-[#CA1F3D] to-[#25182E] rounded-2xl shadow-2xl p-6 text-white">
-                        <h3 className="text-3xl font-medium mb-4">Quick Actions</h3>
+                        <h3 className="text-3xl font-medium mb-4">
+                          Quick Actions
+                        </h3>
                         <div className="space-y-3">
                           <button
                             onClick={() => {
@@ -672,14 +775,18 @@ export default function VendorDashboard() {
 
                       {/* Activity */}
                       <div className="bg-white rounded-2xl shadow-lg p-6">
-                        <h3 className="text-3xl font-medium text-gray-900 mb-4">Recent Activity</h3>
+                        <h3 className="text-3xl font-medium text-gray-900 mb-4">
+                          Recent Activity
+                        </h3>
                         <div className="space-y-3">
                           <div className="flex items-start gap-3 p-3 bg-green-50 rounded-xl">
                             <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
                               <CheckCircle className="w-4 h-4 text-white" />
                             </div>
                             <div>
-                              <p className="text-md font-medium text-gray-900">Products synced</p>
+                              <p className="text-md font-medium text-gray-900">
+                                Products synced
+                              </p>
                               <p className="text-sm text-gray-600">Just now</p>
                             </div>
                           </div>
@@ -688,8 +795,12 @@ export default function VendorDashboard() {
                               <Package className="w-4 h-4 text-white" />
                             </div>
                             <div>
-                              <p className="text-md font-medium text-gray-900">Inventory updated</p>
-                              <p className="text-sm text-gray-600">2 hours ago</p>
+                              <p className="text-md font-medium text-gray-900">
+                                Inventory updated
+                              </p>
+                              <p className="text-sm text-gray-600">
+                                2 hours ago
+                              </p>
                             </div>
                           </div>
                         </div>
@@ -699,12 +810,18 @@ export default function VendorDashboard() {
 
                   {/* Chart Placeholder */}
                   <div className="bg-white rounded-2xl shadow-lg p-8">
-                    <h3 className="text-3xl font-medium text-gray-900 mb-6">Sales Overview</h3>
+                    <h3 className="text-3xl font-medium text-gray-900 mb-6">
+                      Sales Overview
+                    </h3>
                     <div className="h-64 flex items-center justify-center bg-gradient-to-br from-[#FFBE00]/10 to-[#CA1F3D]/10 rounded-xl">
                       <div className="text-center">
                         <BarChart3 className="w-16 h-16 text-[#CA1F3D] mx-auto mb-3" />
-                        <p className="text-gray-600 font-medium">Analytics chart coming soon</p>
-                        <p className="text-sm text-gray-500 mt-1">Connect your sales data to view insights</p>
+                        <p className="text-gray-600 font-medium">
+                          Analytics chart coming soon
+                        </p>
+                        <p className="text-sm text-gray-500 mt-1">
+                          Connect your sales data to view insights
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -716,8 +833,12 @@ export default function VendorDashboard() {
                 <div className="animate-fade-in">
                   <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
                     <div>
-                      <h2 className="text-4xl font-medium text-gray-900 mb-2">Products Management</h2>
-                      <p className="text-gray-600">Manage your product catalog</p>
+                      <h2 className="text-4xl font-medium text-gray-900 mb-2">
+                        Products Management
+                      </h2>
+                      <p className="text-gray-600">
+                        Manage your product catalog
+                      </p>
                     </div>
                     <div className="flex flex-wrap gap-3">
                       <button
@@ -770,9 +891,12 @@ export default function VendorDashboard() {
                             <FileSpreadsheet className="w-6 h-6 text-white" />
                           </div>
                           <div className="flex-1">
-                            <h4 className="font-medium text-gray-900 mb-2 text-xl">Download Sample Template</h4>
+                            <h4 className="font-medium text-gray-900 mb-2 text-xl">
+                              Download Sample Template
+                            </h4>
                             <p className="text-md text-gray-600 mb-4 hover:text-black cursor-pointer">
-                              Get our template with example data to ensure proper format
+                              Get our template with example data to ensure
+                              proper format
                             </p>
                             <button
                               onClick={downloadTemplate}
@@ -786,7 +910,9 @@ export default function VendorDashboard() {
                       </div>
 
                       <div className="mb-6">
-                        <label className="block text-md font-medium text-gray-700 mb-3">Upload Excel/CSV File</label>
+                        <label className="block text-md font-medium text-gray-700 mb-3">
+                          Upload Excel/CSV File
+                        </label>
                         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                           <input
                             type="file"
@@ -810,9 +936,14 @@ export default function VendorDashboard() {
                             Import Results
                           </h4>
                           <div className="text-sm text-green-700 space-y-2">
-                            <p className="font-semibold">Successfully imported: {importResults.imported} products</p>
+                            <p className="font-semibold">
+                              Successfully imported: {importResults.imported}{" "}
+                              products
+                            </p>
                             {importResults.failed > 0 && (
-                              <p className="text-red-600 font-semibold">Failed: {importResults.failed} products</p>
+                              <p className="text-red-600 font-semibold">
+                                Failed: {importResults.failed} products
+                              </p>
                             )}
                           </div>
                         </div>
@@ -856,15 +987,25 @@ export default function VendorDashboard() {
                       <h3 className="text-3xl font-medium text-gray-900 mb-6">
                         {editingProduct ? "Edit Product" : "Add New Product"}
                       </h3>
-                      <form onSubmit={handleProductSubmit} className="space-y-6">
+                      <form
+                        onSubmit={handleProductSubmit}
+                        className="space-y-6"
+                      >
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                           <div>
-                            <label className="block text-md font-medium text-gray-700 mb-2">Product Name *</label>
+                            <label className="block text-md font-medium text-gray-700 mb-2">
+                              Product Name *
+                            </label>
                             <input
                               type="text"
                               required
                               value={productForm.name}
-                              onChange={(e) => setProductForm({ ...productForm, name: e.target.value })}
+                              onChange={(e) =>
+                                setProductForm({
+                                  ...productForm,
+                                  name: e.target.value,
+                                })
+                              }
                               className="w-full px-4 py-3.5 bg-gray-50 border-2 border-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-[#CA1F3D] focus:bg-white transition-all"
                               placeholder="Premium Wedding Ring"
                             />
@@ -888,44 +1029,79 @@ export default function VendorDashboard() {
                             </label>
                             <div className="relative group">
                               <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none z-10">
-                                {productForm.category === 'jewellery' && <Gem className="w-5 h-5 text-[#F04393]" />}
-                                {productForm.category === 'Bags And Purse' && <ShoppingBag className="w-5 h-5 text-[#F04393]" />}
-                                {productForm.category === 'watches' && <Watch className="w-5 h-5 text-[#F04393]" />}
-                                {productForm.category === 'hairaccessories' && <Scissors className="w-5 h-5 text-[#F04393]" />}
-                                {productForm.category === 'shoes' && <Footprints className="w-5 h-5 text-[#F04393]" />}
-                                {productForm.category === 'perfumes' && <Sparkles className="w-5 h-5 text-[#F04393]" />}
-                                {productForm.category === 'bridalwear' && <Heart className="w-5 h-5 text-[#F04393]" />}
-                                {productForm.category === 'groomwear' && <User className="w-5 h-5 text-[#F04393]" />}
-                                {productForm.category === 'traditionalwear' && <Shirt className="w-5 h-5 text-[#F04393]" />}
-                                {productForm.category === 'partywear' && <PartyPopper className="w-5 h-5 text-[#F04393]" />}
-                                {productForm.category === 'westernwear' && <TrendingUp className="w-5 h-5 text-[#F04393]" />}
-                                {productForm.category === 'outfitkids' && <Baby className="w-5 h-5 text-[#F04393]" />}
-                                {!productForm.category && <ShoppingBag className="w-5 h-5 text-gray-400" />}
+                                {productForm.category === "jewellery" && (
+                                  <Gem className="w-5 h-5 text-[#F04393]" />
+                                )}
+                                {productForm.category === "Bags And Purse" && (
+                                  <ShoppingBag className="w-5 h-5 text-[#F04393]" />
+                                )}
+                                {productForm.category === "watches" && (
+                                  <Watch className="w-5 h-5 text-[#F04393]" />
+                                )}
+                                {productForm.category === "hairaccessories" && (
+                                  <Scissors className="w-5 h-5 text-[#F04393]" />
+                                )}
+                                {productForm.category === "shoes" && (
+                                  <Footprints className="w-5 h-5 text-[#F04393]" />
+                                )}
+                                {productForm.category === "perfumes" && (
+                                  <Sparkles className="w-5 h-5 text-[#F04393]" />
+                                )}
+                                {productForm.category === "bridalwear" && (
+                                  <Heart className="w-5 h-5 text-[#F04393]" />
+                                )}
+                                {productForm.category === "groomwear" && (
+                                  <User className="w-5 h-5 text-[#F04393]" />
+                                )}
+                                {productForm.category === "traditionalwear" && (
+                                  <Shirt className="w-5 h-5 text-[#F04393]" />
+                                )}
+                                {productForm.category === "partywear" && (
+                                  <PartyPopper className="w-5 h-5 text-[#F04393]" />
+                                )}
+                                {productForm.category === "westernwear" && (
+                                  <TrendingUp className="w-5 h-5 text-[#F04393]" />
+                                )}
+                                {productForm.category === "outfitkids" && (
+                                  <Baby className="w-5 h-5 text-[#F04393]" />
+                                )}
+                                {!productForm.category && (
+                                  <ShoppingBag className="w-5 h-5 text-gray-400" />
+                                )}
                               </div>
 
                               <select
                                 required
                                 value={productForm.category}
-                                onChange={(e) =>
+                                onChange={(e) => {
                                   setProductForm({
                                     ...productForm,
                                     category: e.target.value,
-                                  })
-                                }
+                                    subCategory: "", // Reset sub-category!
+                                  });
+                                }}
                                 className="w-full pl-14 pr-12 py-4 bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#F04393] focus:bg-white transition-all cursor-pointer appearance-none text-gray-700 font-medium shadow-sm hover:shadow-md group-hover:from-[#E8A4BC]/10 group-hover:to-[#F9C449]/10"
                               >
                                 <option value="">Select Category</option>
-                                <option value="jewellery">Jewellery</option>
-                                <option value="Bags And Purse">Bag And Purse</option>
-                                <option value="watches">Watches</option>
-                                <option value="hairaccessories">Hair Accessories</option>
-                                <option value="shoes">Shoes</option>
-                                <option value="perfumes">Perfumes</option>
-                                <option value="bridalwear">Bridal Wear</option>
-                                <option value="groomwear">Groom Wear</option>
-                                <option value="traditionalwear">Traditional Wear</option>
-                                <option value="partywear">Party Wear</option>
-                                <option value="westernwear">Western Wear</option>
+                                <option value="Jewellery">Jewellery</option>
+                                <option value="Bags And Purse">
+                                  Bag And Purse
+                                </option>
+                                <option value="Watches">Watches</option>
+                                <option value="hairaccessories">
+                                  Hair Accessories
+                                </option>
+                                <option value="Shoes">Shoes</option>
+                                <option value="Perfumes">Perfumes</option>
+                                <option value="Bridalwear">Bridal Wear</option>
+                                <option value="Groomwear">Groom Wear</option>
+                                <option value="traditionalwear">
+                                  Traditional Wear
+                                </option>
+                                <option value="Partywear">Party Wear</option>
+                                <option value="westernwear">
+                                  Western Wear
+                                </option>
                                 <option value="outfitkids">Outfit Kids</option>
                               </select>
 
@@ -940,64 +1116,126 @@ export default function VendorDashboard() {
                             </p>
                           </div>
 
+                          <label className="block text-md font-medium text-gray-700 mb-2">
+                            Sub-Category
+                          </label>
+                          <select
+                            required
+                            value={productForm.subCategory}
+                            onChange={(e) =>
+                              setProductForm({
+                                ...productForm,
+                                subCategory: e.target.value,
+                              })
+                            }
+                            disabled={!productForm.category}
+                            className={`w-full px-4 py-3 border-2 border-gray-200 rounded-xl ${
+                              !productForm.category ? "bg-gray-200" : ""
+                            }`}
+                          >
+                            <option value="">Select Sub-Category</option>
+                            {(
+                              CATEGORY_SUBCATEGORIES[productForm.category] || []
+                            ).map((sub) => (
+                              <option key={sub} value={sub}>
+                                {sub}
+                              </option>
+                            ))}
+                          </select>
+
                           <div>
-                            <label className="block text-md font-medium text-gray-700 mb-2">MRP (Original Price) *</label>
+                            <label className="block text-md font-medium text-gray-700 mb-2">
+                              MRP (Original Price) *
+                            </label>
                             <input
                               type="number"
                               required
                               value={productForm.mrp}
-                              onChange={(e) => setProductForm({ ...productForm, mrp: e.target.value })}
+                              onChange={(e) =>
+                                setProductForm({
+                                  ...productForm,
+                                  mrp: e.target.value,
+                                })
+                              }
                               className="w-full px-4 py-3.5 bg-gray-50 border-2 border-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-[#CA1F3D] focus:bg-white transition-all"
                               placeholder="50000"
                             />
                           </div>
 
                           <div>
-                            <label className="block text-md font-medium text-gray-700 mb-2">Selling Price *</label>
+                            <label className="block text-md font-medium text-gray-700 mb-2">
+                              Selling Price *
+                            </label>
                             <input
                               type="number"
                               required
                               value={productForm.price}
-                              onChange={(e) => setProductForm({ ...productForm, price: e.target.value })}
+                              onChange={(e) =>
+                                setProductForm({
+                                  ...productForm,
+                                  price: e.target.value,
+                                })
+                              }
                               className="w-full px-4 py-3.5 bg-gray-50 border-2 border-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-[#CA1F3D] focus:bg-white transition-all"
                               placeholder="45000"
                             />
                           </div>
 
                           <div>
-                            <label className="block text-md font-medium text-gray-700 mb-2">Discount (%)</label>
+                            <label className="block text-md font-medium text-gray-700 mb-2">
+                              Discount (%)
+                            </label>
                             <input
                               type="number"
                               min="0"
                               max="100"
                               value={productForm.discount}
-                              onChange={(e) => setProductForm({ ...productForm, discount: e.target.value })}
+                              onChange={(e) =>
+                                setProductForm({
+                                  ...productForm,
+                                  discount: e.target.value,
+                                })
+                              }
                               className="w-full px-4 py-3.5 bg-gray-50 border-2 border-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-[#CA1F3D] focus:bg-white transition-all"
                               placeholder="10"
                             />
                           </div>
 
                           <div>
-                            <label className="block text-md font-medium text-gray-700 mb-2">Rating (0-5)</label>
+                            <label className="block text-md font-medium text-gray-700 mb-2">
+                              Rating (0-5)
+                            </label>
                             <input
                               type="number"
                               min="0"
                               max="5"
                               step="0.1"
                               value={productForm.rating}
-                              onChange={(e) => setProductForm({ ...productForm, rating: e.target.value })}
+                              onChange={(e) =>
+                                setProductForm({
+                                  ...productForm,
+                                  rating: e.target.value,
+                                })
+                              }
                               className="w-full px-4 py-3.5 bg-gray-50 border-2 border-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-[#CA1F3D] focus:bg-white transition-all"
                               placeholder="4.5"
                             />
                           </div>
 
                           <div className="md:col-span-2">
-                            <label className="block text-md font-medium text-gray-700 mb-2">Stock Quantity</label>
+                            <label className="block text-md font-medium text-gray-700 mb-2">
+                              Stock Quantity
+                            </label>
                             <input
                               type="number"
                               min="0"
                               value={productForm.stock}
-                              onChange={(e) => setProductForm({ ...productForm, stock: e.target.value })}
+                              onChange={(e) =>
+                                setProductForm({
+                                  ...productForm,
+                                  stock: e.target.value,
+                                })
+                              }
                               className="w-full px-4 py-3.5 bg-gray-50 border-2 border-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-[#CA1F3D] focus:bg-white transition-all"
                               placeholder="100"
                             />
@@ -1005,24 +1243,38 @@ export default function VendorDashboard() {
                         </div>
 
                         <div>
-                          <label className="block text-md font-medium text-gray-700 mb-2">Description *</label>
+                          <label className="block text-md font-medium text-gray-700 mb-2">
+                            Description *
+                          </label>
                           <textarea
                             required
                             rows="4"
                             value={productForm.description}
-                            onChange={(e) => setProductForm({ ...productForm, description: e.target.value })}
+                            onChange={(e) =>
+                              setProductForm({
+                                ...productForm,
+                                description: e.target.value,
+                              })
+                            }
                             className="w-full px-4 py-3.5 bg-gray-50 border-2 border-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-[#CA1F3D] focus:bg-white transition-all"
                             placeholder="Describe your product in detail..."
                           />
                         </div>
 
                         <div>
-                          <label className="block text-md font-medium text-gray-700 mb-2">Images (comma-separated URLs) *</label>
+                          <label className="block text-md font-medium text-gray-700 mb-2">
+                            Images (comma-separated URLs) *
+                          </label>
                           <textarea
                             required
                             rows="3"
                             value={productForm.images}
-                            onChange={(e) => setProductForm({ ...productForm, images: e.target.value })}
+                            onChange={(e) =>
+                              setProductForm({
+                                ...productForm,
+                                images: e.target.value,
+                              })
+                            }
                             className="w-full px-4 py-3.5 bg-gray-50 border-2 border-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-[#CA1F3D] focus:bg-white transition-all"
                             placeholder="https://example.com/image1.jpg, https://example.com/image2.jpg"
                           />
@@ -1033,10 +1285,18 @@ export default function VendorDashboard() {
                             type="checkbox"
                             id="featured"
                             checked={productForm.featured}
-                            onChange={(e) => setProductForm({ ...productForm, featured: e.target.checked })}
+                            onChange={(e) =>
+                              setProductForm({
+                                ...productForm,
+                                featured: e.target.checked,
+                              })
+                            }
                             className="w-5 h-5 text-[#CA1F3D] bg-gray-100 border-gray-300 rounded focus:ring-[#CA1F3D] cursor-pointer"
                           />
-                          <label htmlFor="featured" className="ml-3 text-md font-medium cursor-pointer text-gray-700 flex items-center gap-2">
+                          <label
+                            htmlFor="featured"
+                            className="ml-3 text-md font-medium cursor-pointer text-gray-700 flex items-center gap-2"
+                          >
                             <Star className="w-4 h-4 text-[#FFBE00]" />
                             Mark as Featured Product
                           </label>
@@ -1092,18 +1352,35 @@ export default function VendorDashboard() {
                       <table className="w-full">
                         <thead className="bg-gradient-to-r from-[#CA1F3D] to-[#25182E] text-white">
                           <tr>
-                            <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">Product</th>
-                            <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">Category</th>
-                            <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">Price</th>
-                            <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">Stock</th>
-                            <th className="px-6 py-4 text-right text-md font-medium uppercase tracking-wider">Actions</th>
+                            <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">
+                              Product
+                            </th>
+                            <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">
+                              Category
+                            </th>
+                            <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider" 
+                            >Sub-Category</th>
+                            <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">
+                              Price
+                            </th>
+                            <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">
+                              Stock
+                            </th>
+                            <th className="px-6 py-4 text-right text-md font-medium uppercase tracking-wider">
+                              Actions
+                            </th>
                           </tr>
                         </thead>
                         <tbody className="bg-white divide-y divide-gray-200">
                           {filteredProducts.map((product, index) => (
-                            <tr key={product.id} className="hover:bg-gradient-to-r hover:from-[#FFBE00]/5 hover:to-[#CA1F3D]/5 transition-all">
+                            <tr
+                              key={product.id}
+                              className="hover:bg-gradient-to-r hover:from-[#FFBE00]/5 hover:to-[#CA1F3D]/5 transition-all"
+                            >
                               <td className="px-6 py-5 whitespace-nowrap">
-                                <div className="text-lg font-medium text-gray-900">{product.name}</div>
+                                <div className="text-lg font-medium text-gray-900">
+                                  {product.name}
+                                </div>
                               </td>
                               <td className="px-6 py-5 whitespace-nowrap">
                                 <span className="px-3 py-1 bg-gradient-to-r from-[#FFBE00]/20 to-[#CA1F3D]/20 text-[#CA1F3D] rounded-full text-lg font-medium">
@@ -1111,10 +1388,19 @@ export default function VendorDashboard() {
                                 </span>
                               </td>
                               <td className="px-6 py-5 whitespace-nowrap">
-                                <div className="text-lg font-medium text-gray-900">₹{product.price}</div>
+                                <span className="px-3 py-1 bg-gradient-to-r from-[#FFBE00]/20 to-[#CA1F3D]/20 text-[#CA1F3D] rounded-full text-lg font-medium">
+                                 {product.subCategory || "—"}
+                                </span>
                               </td>
                               <td className="px-6 py-5 whitespace-nowrap">
-                                <div className="text-lg text-gray-900">{product.stock || "N/A"}</div>
+                                <div className="text-lg font-medium text-gray-900">
+                                  ₹{product.price}
+                                </div>
+                              </td>
+                              <td className="px-6 py-5 whitespace-nowrap">
+                                <div className="text-lg text-gray-900">
+                                  {product.stock || "N/A"}
+                                </div>
                               </td>
                               <td className="px-6 py-5 whitespace-nowrap text-right text-sm font-medium">
                                 <button
@@ -1124,7 +1410,9 @@ export default function VendorDashboard() {
                                   <Edit className="w-5 h-5" />
                                 </button>
                                 <button
-                                  onClick={() => handleDeleteProduct(product.id)}
+                                  onClick={() =>
+                                    handleDeleteProduct(product.id)
+                                  }
                                   className="inline-flex items-center justify-center w-10 h-10 text-red-600 hover:bg-red-50 rounded-xl transition-all cursor-pointer"
                                 >
                                   <Trash2 className="w-5 h-5" />
@@ -1138,8 +1426,12 @@ export default function VendorDashboard() {
                       {filteredProducts.length === 0 && !loading && (
                         <div className="text-center py-16">
                           <Package className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-                          <p className="text-gray-500 font-semibold text-lg">No products found</p>
-                          <p className="text-gray-400 text-sm mt-2">Try adjusting your search or add a new product</p>
+                          <p className="text-gray-500 font-semibold text-lg">
+                            No products found
+                          </p>
+                          <p className="text-gray-400 text-sm mt-2">
+                            Try adjusting your search or add a new product
+                          </p>
                         </div>
                       )}
                     </div>
@@ -1151,16 +1443,24 @@ export default function VendorDashboard() {
               {activeTab === "analytics" && (
                 <div className="animate-fade-in">
                   <div className="mb-8">
-                    <h2 className="text-4xl font-medium text-gray-900 mb-2">Analytics & Insights</h2>
-                    <p className="text-gray-600">Track your performance metrics</p>
+                    <h2 className="text-4xl font-medium text-gray-900 mb-2">
+                      Analytics & Insights
+                    </h2>
+                    <p className="text-gray-600">
+                      Track your performance metrics
+                    </p>
                   </div>
 
                   <div className="bg-white rounded-2xl shadow-lg p-8">
                     <div className="h-96 flex items-center justify-center bg-gradient-to-br from-[#FFBE00]/10 to-[#CA1F3D]/10 rounded-xl">
                       <div className="text-center">
                         <BarChart3 className="w-20 h-20 text-[#CA1F3D] mx-auto mb-4" />
-                        <h3 className="text-xl font-medium text-gray-900 mb-2">Coming Soon</h3>
-                        <p className="text-gray-600">Detailed analytics and insights will be available here</p>
+                        <h3 className="text-xl font-medium text-gray-900 mb-2">
+                          Coming Soon
+                        </h3>
+                        <p className="text-gray-600">
+                          Detailed analytics and insights will be available here
+                        </p>
                       </div>
                     </div>
                   </div>

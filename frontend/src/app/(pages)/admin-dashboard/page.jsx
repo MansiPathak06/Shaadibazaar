@@ -70,6 +70,7 @@ export default function AdminDashboard() {
     discount: "",
     rating: "",
     category: "",
+    subCategory: "",
     images: "",
     vendor_id: "",
     stock: "",
@@ -150,6 +151,7 @@ export default function AdminDashboard() {
         },
         body: JSON.stringify({
           ...productForm,
+           subCategory: productForm.subCategory,
           images: productForm.images.split(",").map((img) => img.trim()),
         }),
       });
@@ -1129,6 +1131,8 @@ export default function AdminDashboard() {
                               Choose the category that best fits your product
                             </p>
                           </div>
+
+                          
 
                           {/* MRP (Original Price) */}
                           <div>

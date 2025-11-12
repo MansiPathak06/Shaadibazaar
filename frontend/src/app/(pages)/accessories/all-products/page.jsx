@@ -3,26 +3,28 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { ShoppingCart, Star } from "lucide-react";
-import { useSearchParams } from "next/navigation"; // ✅ Add this import
+import { useSearchParams } from "next/navigation";
 
 export default function AllProducts() {
-  const searchParams = useSearchParams(); // ✅ Use hook instead of props
-  const category = searchParams.get("category") || "jewellery"; // ✅ Get from hook
-  
+  const searchParams = useSearchParams();
+  const category = searchParams.get("category") || "Jewellery";
+  const subCategory = searchParams.get("subCategory") || "";
+
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
   useEffect(() => {
     fetchProducts();
-  }, [category]);
+    // Re-run when either category or subCategory changes
+  }, [category, subCategory]);
 
   const fetchProducts = async () => {
     try {
       setLoading(true);
-      const response = await fetch(
-        `http://localhost:5000/api/products?category=${category}`
-      );
+      let url = `http://localhost:5000/api/products?category=${encodeURIComponent(category)}`;
+      if (subCategory) url += `&subCategory=${encodeURIComponent(subCategory)}`;
+      const response = await fetch(url);
       const data = await response.json();
 
       if (data.success) {
@@ -60,7 +62,7 @@ export default function AllProducts() {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 capitalize">
-            {category}
+            {subCategory ? subCategory : category}
           </h1>
           <p className="text-gray-600 mt-2">{products.length} items</p>
         </div>
