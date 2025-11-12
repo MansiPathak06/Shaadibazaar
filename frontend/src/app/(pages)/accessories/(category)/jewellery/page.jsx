@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Heart, Star, Loader2 } from "lucide-react";
 
-const CATEGORY_SLUG = "jewellery";
+const CATEGORY_SLUG = "Jewellery";
 
 
 
@@ -22,7 +22,7 @@ const Jewellery = () => {
     subtitle: "GIFALA DESIGNER",
     description: "Discover timeless elegance with our curated collection of fine jewellery",
     buttonText: "Shop Best Seller",
-    category: "/accessories/all-products?category=Best Sellers",
+    category: "/accessories/all-products?category=Jewellery&subCategory=Trending Collection",
     image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761305991/jewelry-hero_d4yak4.jpg",
   };
 
@@ -40,49 +40,49 @@ const Jewellery = () => {
       name: "Diamond Classics",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761305883/diamond-collection_p0wtap.jpg",
       link: "/collections/diamond",
-      category: '/accessories/all-products?category=Diamond Classics'
+      category: '/accessories/all-products?category=Jewellery&subCategory=Diamond Classics'
     },
     {
       id: 3,
       name: "Gold Elegance",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761305215/gold-collection_mfarn4.jpg",
       link: "/collections/gold",
-      category: '/accessories/all-products?category=Gold Elegance'
+      category: '/accessories/all-products?category=Jewellery&subCategory=Gold Elegance'
     },
     {
       id: 4,
       name: "Pearl Treasures",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761305396/pearl-collection_xpybkd.jpg",
       link: "/collections/pearl",
-      category: '/accessories/all-products?category=Pearl Treasures'
+      category: '/accessories/all-products?category=Jewellery&subCategory=Pearl Treasures'
     },
     {
       id: 5,
       name: "Gemstone Beauty",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761305544/gemstone-beauty_bhxlfr.jpg",
       link: "/collections/gemstone",
-      category: '/accessories/all-products?category=Gemstone Beauty'
+      category: '/accessories/all-products?category=Jewellery&subCategory=Gemstone Beauty'
     },
     {
       id: 6,
       name: "Contemporary",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761305543/Contemporary_ptgyjt.jpg",
       link: "/collections/contemporary",
-      category: '/accessories/all-products?category=Contemporary'
+      category: '/accessories/all-products?category=Jewellery&subCategory=Contemporary'
     },
     {
       id: 7,
       name: "Vintage Style",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761305546/vintage-style_xgatg3.jpg",
       link: "/collections/vintage",
-      category: '/accessories/all-products?category=Vintage Style'
+      category: '/accessories/all-products?category=Jewellery&subCategory=Vintage Style'
     },
     {
       id: 8,
       name: "Temple Jewellery",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761305546/temple-style_pcspeh.jpg",
       link: "/collections/temple",
-      category: '/accessories/all-products?category=Temple Jewellery'
+      category: '/accessories/all-products?category=Jewellery&subCategory=Temple Jewellery'
     },
   ];
 
@@ -95,7 +95,7 @@ const Jewellery = () => {
     try {
       setLoading(true);
       const response = await fetch(
-        "http://localhost:5000/api/products?category=jewellery"
+        "http://localhost:5000/api/products?category=Jewellery&subCategory=Featured Collection"
       );
       const data = await response.json();
 
@@ -132,7 +132,7 @@ const Jewellery = () => {
   };
 
   // URL for "View More" - Goes to all products list page
-  const ALL_PRODUCTS_URL = "/accessories/all-products?category=jewellery";
+  const ALL_PRODUCTS_URL = "/accessories/all-products?category=Jewellery";       ///////////////////////////////////////////////////////////////////////////////////
 
   // Split products: First 4 for "Best Sellers", Rest for "Jewellery Collection"
   const bestSellers = realProducts.slice(0, 4);

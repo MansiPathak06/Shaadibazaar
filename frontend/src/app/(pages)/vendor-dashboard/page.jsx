@@ -74,10 +74,13 @@ export default function VendorDashboard() {
       "Contemporary",
       "Vintage Style",
       "Temple Jewellery",
+      "Trending Collection",
+      "Featured Collection"
     ],
     Shoes: ["Women Heels", "Men Loafers", "Sneakers", "Kids Footwear"],
     Watches: ["Luxury Watches", "Casual Watches", "Smart Watches"],
     Perfumes: ["Men Perfumes", "Women Perfumes", "Unisex Perfumes"],
+
   };
 
   // Bulk import states
@@ -326,9 +329,9 @@ export default function VendorDashboard() {
   const avgRating =
     products.length > 0
       ? (
-          products.reduce((sum, p) => sum + (parseFloat(p.rating) || 0), 0) /
-          products.length
-        ).toFixed(1)
+        products.reduce((sum, p) => sum + (parseFloat(p.rating) || 0), 0) /
+        products.length
+      ).toFixed(1)
       : "0.0";
   const totalViews = products.reduce(
     (sum, p) => sum + (parseInt(p.views) || 0),
@@ -491,9 +494,8 @@ export default function VendorDashboard() {
           <div className="flex gap-6">
             {/* Sidebar */}
             <aside
-              className={`${
-                sidebarOpen ? "block" : "hidden"
-              } lg:block w-full lg:w-72 fixed lg:relative inset-0 lg:inset-auto z-40 lg:z-0`}
+              className={`${sidebarOpen ? "block" : "hidden"
+                } lg:block w-full lg:w-72 fixed lg:relative inset-0 lg:inset-auto z-40 lg:z-0`}
             >
               <div className="h-full lg:h-auto bg-white rounded-2xl shadow-2xl p-6 lg:sticky lg:top-28 border-2 border-gray-100">
                 {/* Profile Section */}
@@ -522,11 +524,10 @@ export default function VendorDashboard() {
                       setActiveTab("dashboard");
                       setSidebarOpen(false);
                     }}
-                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium cursor-pointer text-xl ${
-                      activeTab === "dashboard"
+                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium cursor-pointer text-xl ${activeTab === "dashboard"
                         ? "bg-gradient-to-r from-[#CA1F3D] to-[#25182E] text-white shadow-xl transform scale-105"
                         : "text-gray-600 hover:bg-gradient-to-r hover:from-[#FFBE00]/20 hover:to-[#CA1F3D]/20 hover:text-[#CA1F3D]"
-                    }`}
+                      }`}
                   >
                     <Home className="w-5 h-5" />
                     <span>Dashboard</span>
@@ -537,20 +538,18 @@ export default function VendorDashboard() {
                       setActiveTab("products");
                       setSidebarOpen(false);
                     }}
-                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium cursor-pointer text-xl ${
-                      activeTab === "products"
+                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium cursor-pointer text-xl ${activeTab === "products"
                         ? "bg-gradient-to-r from-[#CA1F3D] to-[#25182E] text-white shadow-xl transform scale-105"
                         : "text-gray-600 hover:bg-gradient-to-r hover:from-[#FFBE00]/20 hover:to-[#CA1F3D]/20 hover:text-[#CA1F3D]"
-                    }`}
+                      }`}
                   >
                     <Package className="w-5 h-5" />
                     <span>Products</span>
                     <span
-                      className={`ml-auto px-2 py-1 text-xs rounded-full ${
-                        activeTab === "products"
+                      className={`ml-auto px-2 py-1 text-xs rounded-full ${activeTab === "products"
                           ? "bg-white/20"
                           : "bg-[#CA1F3D] text-white"
-                      }`}
+                        }`}
                     >
                       {totalProducts}
                     </span>
@@ -561,11 +560,10 @@ export default function VendorDashboard() {
                       setActiveTab("analytics");
                       setSidebarOpen(false);
                     }}
-                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium text-xl cursor-pointer ${
-                      activeTab === "analytics"
+                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium text-xl cursor-pointer ${activeTab === "analytics"
                         ? "bg-gradient-to-r from-[#CA1F3D] to-[#25182E] text-white shadow-xl transform scale-105"
                         : "text-gray-600 hover:bg-gradient-to-r hover:from-[#FFBE00]/20 hover:to-[#CA1F3D]/20 hover:text-[#CA1F3D]"
-                    }`}
+                      }`}
                   >
                     <BarChart3 className="w-5 h-5" />
                     <span>Analytics</span>
@@ -1103,6 +1101,8 @@ export default function VendorDashboard() {
                                   Western Wear
                                 </option>
                                 <option value="outfitkids">Outfit Kids</option>
+                                <option value="Trending Collection">Trending Collection</option>
+                                <option value="Featured Products">Featured Collection</option>
                               </select>
 
                               {/* Custom dropdown arrow */}
@@ -1129,9 +1129,8 @@ export default function VendorDashboard() {
                               })
                             }
                             disabled={!productForm.category}
-                            className={`w-full px-4 py-3 border-2 border-gray-200 rounded-xl ${
-                              !productForm.category ? "bg-gray-200" : ""
-                            }`}
+                            className={`w-full px-4 py-3 border-2 border-gray-200 rounded-xl ${!productForm.category ? "bg-gray-200" : ""
+                              }`}
                           >
                             <option value="">Select Sub-Category</option>
                             {(
@@ -1358,7 +1357,7 @@ export default function VendorDashboard() {
                             <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">
                               Category
                             </th>
-                            <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider" 
+                            <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider"
                             >Sub-Category</th>
                             <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">
                               Price
@@ -1389,7 +1388,7 @@ export default function VendorDashboard() {
                               </td>
                               <td className="px-6 py-5 whitespace-nowrap">
                                 <span className="px-3 py-1 bg-gradient-to-r from-[#FFBE00]/20 to-[#CA1F3D]/20 text-[#CA1F3D] rounded-full text-lg font-medium">
-                                 {product.subCategory || "—"}
+                                  {product.subCategory || "—"}
                                 </span>
                               </td>
                               <td className="px-6 py-5 whitespace-nowrap">
