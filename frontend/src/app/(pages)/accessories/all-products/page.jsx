@@ -67,6 +67,8 @@ export default function AllProducts() {
           <p className="text-gray-600 mt-2">{products.length} items</p>
         </div>
 
+
+
         {error && (
           <div className="mb-6 p-4 bg-red-50 border-l-4 border-red-500 text-red-700 rounded">
             {error}
@@ -97,12 +99,12 @@ export default function AllProducts() {
                     }}
                   />
                   {product.discount > 0 && (
-                    <div className="absolute top-2 right-2 bg-rose-500 text-white px-2 py-1 rounded-md text-sm font-semibold">
+                    <div className="absolute top-2 right-2 bg-rose-500 text-white px-2 py-1 rounded-md text-sm font-medium">
                       {product.discount}% OFF
                     </div>
                   )}
-                  {product.featured && (
-                    <div className="absolute top-2 left-2 bg-yellow-500 text-white px-2 py-1 rounded-md text-xs font-semibold">
+                  {product.featured === true && (
+                    <div className="absolute top-2 left-2 bg-yellow-500 text-white px-2 py-1 rounded-md text-xs font-medium">
                       FEATURED
                     </div>
                   )}
@@ -110,7 +112,7 @@ export default function AllProducts() {
 
                 {/* Product Info */}
                 <div className="p-4">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
+                  <h3 className="text-lg md:text-2xl font-medium text-gray-900 mb-2 line-clamp-2">
                     {product.name}
                   </h3>
 
@@ -118,7 +120,7 @@ export default function AllProducts() {
                   {product.rating && (
                     <div className="flex items-center gap-1 mb-2">
                       <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                      <span className="text-sm font-medium text-gray-700">
+                      <span className="text-lg font-medium text-gray-700">
                         {product.rating}
                       </span>
                     </div>
@@ -126,7 +128,7 @@ export default function AllProducts() {
 
                   {/* Price */}
                   <div className="flex items-center gap-2 mb-4">
-                    <span className="text-2xl font-bold text-gray-900">
+                    <span className="text-xl font-normal text-gray-900">
                       {formatINR(product.price)}
                     </span>
                     {product.mrp && product.mrp > product.price && (
@@ -140,7 +142,7 @@ export default function AllProducts() {
                   {product.stock !== undefined && (
                     <div className="mb-4">
                       {product.stock > 0 ? (
-                        <span className="text-xs text-green-600 font-medium">
+                        <span className="text-sm text-green-600 font-medium">
                           In Stock ({product.stock} available)
                         </span>
                       ) : (

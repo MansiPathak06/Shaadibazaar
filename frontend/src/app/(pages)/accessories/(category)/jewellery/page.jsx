@@ -112,7 +112,7 @@ const Jewellery = () => {
     }
   };
 
-  
+
 
   const toggleFavorite = (productId) => {
     setFavorites((prev) =>
@@ -121,7 +121,7 @@ const Jewellery = () => {
         : [...prev, productId]
     );
   };
-  
+
 
   const formatINR = (price) => {
     return new Intl.NumberFormat("en-IN", {
@@ -136,7 +136,7 @@ const Jewellery = () => {
 
   // Split products: First 4 for "Best Sellers", Rest for "Jewellery Collection"
   const bestSellers = realProducts.slice(0, 4);
-  const jewelleryCollection = realProducts.slice(4,8);
+  const jewelleryCollection = realProducts.slice(4, 8);
 
   return (
     <div className="w-full bg-white">
@@ -230,7 +230,7 @@ const Jewellery = () => {
                       className="group relative bg-white rounded-sm overflow-hidden hover:shadow-xl transition-all duration-300"
                     >
                       <div className="relative aspect-[3/4] bg-gray-50 overflow-hidden">
-                        {product.featured && (
+                        {product.featured === true && (
                           <div className="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-sm z-10">
                             HOT
                           </div>
@@ -306,7 +306,7 @@ const Jewellery = () => {
         </div>
       </section>
       <Fragment>
-        <div className='flex justify-center py-12'>
+        <div className='flex justify-center pb-12'>
           <Link href={ALL_PRODUCTS_URL}>
             <button
               className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900"
@@ -369,7 +369,7 @@ const Jewellery = () => {
                       className="group relative bg-white rounded-sm overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer"
                     >
                       <div className="relative aspect-[3/4] bg-gray-50 overflow-hidden">
-                        {category.featured && (
+                        {category.feature === true && (
                           <div className="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-sm z-10">
                             NEW
                           </div>
@@ -438,7 +438,7 @@ const Jewellery = () => {
         </div>
       </section>
       <Fragment>
-        <div className='flex justify-center py-16'>
+        <div className='flex justify-center pb-16'>
           <Link href={ALL_PRODUCTS_URL}>
             <button
               className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900"
@@ -448,7 +448,7 @@ const Jewellery = () => {
 
               {/* Button text */}
               <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
-                Dicosver our Collection 
+                Dicosver our Collection
                 <svg
                   className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2"
                   fill="none"
