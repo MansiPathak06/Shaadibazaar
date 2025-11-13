@@ -3,7 +3,7 @@
 import React from 'react';
 import { Heart, Sparkles, Camera, Phone, ChefHat, Crown, Gem, Users, Award, CheckCircle, Star, Utensils, FlowerIcon as Flower, Clock, Flame, Coffee } from 'lucide-react';
 import Link from "next/link";
-import Fragment from 'react'
+import { Fragment } from 'react'
 
 export default function WeddingCateringWebsite() {
 
@@ -449,17 +449,18 @@ export default function WeddingCateringWebsite() {
                             </div>
                             {/* </Link> */}
                         </div>
+
                     </div>
 
-                    {/* <Fragment>
-                        <div className='flex justify-center py-16'>
+                    <Fragment>
+                        <div className='flex justify-center pb-20 pt-4'>
                             <button
                                 className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900"
                             >
-                              
+
                                 <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
 
-                             
+
                                 <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
                                     View More Appetizers & Starters
                                     <svg
@@ -478,7 +479,7 @@ export default function WeddingCateringWebsite() {
                                 </span>
                             </button>
                         </div>
-                    </Fragment> */}
+                    </Fragment>
 
 
                     {/* Main Course Section */}
@@ -663,7 +664,7 @@ export default function WeddingCateringWebsite() {
                                     </div>
                                 </div>
                             </div>
-                            
+
                             {/* </Link> */}
 
                             {/* Non-Vegetarian Main Course Card */}
@@ -825,6 +826,34 @@ export default function WeddingCateringWebsite() {
                             </div>
                             {/* </Link> */}
                         </div>
+                        <Fragment>
+                            <div className='flex justify-center pb-6 pt-10'>
+                                <button
+                                    className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900"
+                                >
+
+                                    <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
+
+
+                                    <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
+                                        More Delicacies
+                                        <svg
+                                            className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth={1.5}
+                                                d="M17 8l4 4m0 0l-4 4m4-4H3"
+                                            />
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                        </Fragment>
                     </div>
 
                     {/* Rice & Biryani Section */}
@@ -993,6 +1022,34 @@ export default function WeddingCateringWebsite() {
                                 </div>
                             </div>
                         </div>
+                        <Fragment>
+                            <div className='flex justify-center pb-6 pt-20'>
+                                <button
+                                    className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900"
+                                >
+
+                                    <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
+
+
+                                    <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
+                                        More Varities
+                                        <svg
+                                            className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth={1.5}
+                                                d="M17 8l4 4m0 0l-4 4m4-4H3"
+                                            />
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                        </Fragment>
                     </div>
 
 
@@ -1195,6 +1252,34 @@ export default function WeddingCateringWebsite() {
                             </div>
                         </div>
                     </div>
+                    <Fragment>
+                        <div className='flex justify-center pb-20 pt-4'>
+                            <button
+                                className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900"
+                            >
+
+                                <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
+
+
+                                <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
+                                    Explore More Varities Of Breads
+                                    <svg
+                                        className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={1.5}
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                                        />
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
+                    </Fragment>
 
                 </div>
             </section>
@@ -1477,6 +1562,34 @@ export default function WeddingCateringWebsite() {
                             </div>
                         </div>
                     </div>
+                    <Fragment>
+                        <div className='flex justify-center pb-20 pt-20'>
+                            <button
+                                className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900"
+                            >
+
+                                <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
+
+
+                                <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
+                                    Explore More Flavors
+                                    <svg
+                                        className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={1.5}
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                                        />
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
+                    </Fragment>
                 </div>
             </section>
 
@@ -1495,312 +1608,341 @@ export default function WeddingCateringWebsite() {
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {/* Continental Card */}
                         {/* <Link> */}
-                            <div className="group relative bg-linear-to-br from-blue-50 via-white to-blue-100 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-blue-200 overflow-hidden cursor-pointer">
-                                {/* Decorative Background */}
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-300/20 rounded-full blur-3xl group-hover:bg-blue-400/30 transition-all duration-500"></div>
-                                <div className="absolute bottom-0 left-0 w-24 h-24 bg-indigo-300/20 rounded-full blur-2xl group-hover:bg-indigo-400/30 transition-all duration-500"></div>
+                        <div className="group relative bg-linear-to-br from-blue-50 via-white to-blue-100 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-blue-200 overflow-hidden cursor-pointer">
+                            {/* Decorative Background */}
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-300/20 rounded-full blur-3xl group-hover:bg-blue-400/30 transition-all duration-500"></div>
+                            <div className="absolute bottom-0 left-0 w-24 h-24 bg-indigo-300/20 rounded-full blur-2xl group-hover:bg-indigo-400/30 transition-all duration-500"></div>
 
-                                <div className="relative z-10">
-                                    {/* Icon Container */}
-                                    <div className="w-20 h-20 bg-linear-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                                        <Utensils className="w-10 h-10 text-white" />
-                                    </div>
+                            <div className="relative z-10">
+                                {/* Icon Container */}
+                                <div className="w-20 h-20 bg-linear-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                                    <Utensils className="w-10 h-10 text-white" />
+                                </div>
 
-                                    {/* Badge */}
-                                    <div className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
-                                        Classic
-                                    </div>
+                                {/* Badge */}
+                                <div className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
+                                    Classic
+                                </div>
 
-                                    {/* Title */}
-                                    <h4 className="text-xl font-medium text-center text-stone-800 mb-2 group-hover:text-blue-700 transition-colors">
-                                        Continental
-                                    </h4>
-                                    <p className="text-xs text-center text-blue-600 font-thin uppercase tracking-wider mb-4">Western Favorites</p>
+                                {/* Title */}
+                                <h4 className="text-xl font-medium text-center text-stone-800 mb-2 group-hover:text-blue-700 transition-colors">
+                                    Continental
+                                </h4>
+                                <p className="text-xs text-center text-blue-600 font-thin uppercase tracking-wider mb-4">Western Favorites</p>
 
-                                    {/* Divider */}
-                                    <div className="flex items-center justify-center mb-5">
-                                        <div className="h-1 w-12 bg-linear-to-r from-blue-400 to-indigo-500 rounded-full"></div>
-                                    </div>
+                                {/* Divider */}
+                                <div className="flex items-center justify-center mb-5">
+                                    <div className="h-1 w-12 bg-linear-to-r from-blue-400 to-indigo-500 rounded-full"></div>
+                                </div>
 
-                                    {/* List */}
-                                    <ul className="space-y-3 mb-6">
-                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                            <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-blue-200 transition-colors">
-                                                <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                                            </div>
-                                            <span className="text-sm text-stone-700">Grilled Steaks & Chops</span>
-                                        </li>
-                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                            <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-blue-200 transition-colors">
-                                                <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                                            </div>
-                                            <span className="text-sm text-stone-700">Roasted Vegetables</span>
-                                        </li>
-                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                            <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-blue-200 transition-colors">
-                                                <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                                            </div>
-                                            <span className="text-sm text-stone-700">Mashed Potatoes</span>
-                                        </li>
-                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                            <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-blue-200 transition-colors">
-                                                <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                                            </div>
-                                            <span className="text-sm text-stone-700">Garlic Bread</span>
-                                        </li>
-                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                            <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-blue-200 transition-colors">
-                                                <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                                            </div>
-                                            <span className="text-sm text-stone-700">Caesar Salad</span>
-                                        </li>
-                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                            <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-blue-200 transition-colors">
-                                                <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                                            </div>
-                                            <span className="text-sm text-stone-700">Mushroom Soup</span>
-                                        </li>
-                                    </ul>
-
-                                    {/* Footer */}
-                                    <div className="pt-4 border-t border-blue-200 flex items-center justify-between">
-                                        <span className="text-xs font-thin text-blue-700 uppercase tracking-wider">6 Dishes</span>
-                                        <div className="flex items-center gap-1">
-                                            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                                            <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                                            <div className="w-2 h-2 bg-blue-300 rounded-full"></div>
+                                {/* List */}
+                                <ul className="space-y-3 mb-6">
+                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                        <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-blue-200 transition-colors">
+                                            <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
                                         </div>
+                                        <span className="text-sm text-stone-700">Grilled Steaks & Chops</span>
+                                    </li>
+                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                        <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-blue-200 transition-colors">
+                                            <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                                        </div>
+                                        <span className="text-sm text-stone-700">Roasted Vegetables</span>
+                                    </li>
+                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                        <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-blue-200 transition-colors">
+                                            <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                                        </div>
+                                        <span className="text-sm text-stone-700">Mashed Potatoes</span>
+                                    </li>
+                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                        <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-blue-200 transition-colors">
+                                            <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                                        </div>
+                                        <span className="text-sm text-stone-700">Garlic Bread</span>
+                                    </li>
+                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                        <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-blue-200 transition-colors">
+                                            <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                                        </div>
+                                        <span className="text-sm text-stone-700">Caesar Salad</span>
+                                    </li>
+                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                        <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-blue-200 transition-colors">
+                                            <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                                        </div>
+                                        <span className="text-sm text-stone-700">Mushroom Soup</span>
+                                    </li>
+                                </ul>
+
+                                {/* Footer */}
+                                <div className="pt-4 border-t border-blue-200 flex items-center justify-between">
+                                    <span className="text-xs font-thin text-blue-700 uppercase tracking-wider">6 Dishes</span>
+                                    <div className="flex items-center gap-1">
+                                        <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                                        <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                                        <div className="w-2 h-2 bg-blue-300 rounded-full"></div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         {/* </Link> */}
 
                         {/* Italian Card */}
 
                         {/* <Link> */}
-                            <div className="group relative bg-linear-to-br from-red-50 via-white to-orange-100 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-red-200 overflow-hidden cursor-pointer">
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-red-300/20 rounded-full blur-3xl group-hover:bg-red-400/30 transition-all duration-500"></div>
-                                <div className="absolute bottom-0 left-0 w-24 h-24 bg-orange-300/20 rounded-full blur-2xl group-hover:bg-orange-400/30 transition-all duration-500"></div>
+                        <div className="group relative bg-linear-to-br from-red-50 via-white to-orange-100 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-red-200 overflow-hidden cursor-pointer">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-red-300/20 rounded-full blur-3xl group-hover:bg-red-400/30 transition-all duration-500"></div>
+                            <div className="absolute bottom-0 left-0 w-24 h-24 bg-orange-300/20 rounded-full blur-2xl group-hover:bg-orange-400/30 transition-all duration-500"></div>
 
-                                <div className="relative z-10">
-                                    <div className="w-20 h-20 bg-linear-to-br from-red-500 to-orange-600 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                                        <ChefHat className="w-10 h-10 text-white" />
-                                    </div>
+                            <div className="relative z-10">
+                                <div className="w-20 h-20 bg-linear-to-br from-red-500 to-orange-600 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                                    <ChefHat className="w-10 h-10 text-white" />
+                                </div>
 
-                                    <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
-                                        Authentic
-                                    </div>
+                                <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
+                                    Authentic
+                                </div>
 
-                                    <h4 className="text-xl font-medium text-center text-stone-800 mb-2 group-hover:text-red-700 transition-colors">
-                                        Italian
-                                    </h4>
-                                    <p className="text-xs text-center text-red-600 font-thin uppercase tracking-wider mb-4">Mediterranean Cuisine</p>
+                                <h4 className="text-xl font-medium text-center text-stone-800 mb-2 group-hover:text-red-700 transition-colors">
+                                    Italian
+                                </h4>
+                                <p className="text-xs text-center text-red-600 font-thin uppercase tracking-wider mb-4">Mediterranean Cuisine</p>
 
-                                    <div className="flex items-center justify-center mb-5">
-                                        <div className="h-1 w-12 bg-linear-to-r from-red-400 to-orange-500 rounded-full"></div>
-                                    </div>
+                                <div className="flex items-center justify-center mb-5">
+                                    <div className="h-1 w-12 bg-linear-to-r from-red-400 to-orange-500 rounded-full"></div>
+                                </div>
 
-                                    <ul className="space-y-3 mb-6">
-                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                            <div className="w-6 h-6 bg-red-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-red-200 transition-colors">
-                                                <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                                            </div>
-                                            <span className="text-sm text-stone-700">Live Pasta Station</span>
-                                        </li>
-                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                            <div className="w-6 h-6 bg-red-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-red-200 transition-colors">
-                                                <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                                            </div>
-                                            <span className="text-sm text-stone-700">Wood-Fired Pizza</span>
-                                        </li>
-                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                            <div className="w-6 h-6 bg-red-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-red-200 transition-colors">
-                                                <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                                            </div>
-                                            <span className="text-sm text-stone-700">Risotto Varieties</span>
-                                        </li>
-                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                            <div className="w-6 h-6 bg-red-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-red-200 transition-colors">
-                                                <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                                            </div>
-                                            <span className="text-sm text-stone-700">Bruschetta</span>
-                                        </li>
-                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                            <div className="w-6 h-6 bg-red-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-red-200 transition-colors">
-                                                <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                                            </div>
-                                            <span className="text-sm text-stone-700">Lasagna</span>
-                                        </li>
-                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                            <div className="w-6 h-6 bg-red-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-red-200 transition-colors">
-                                                <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                                            </div>
-                                            <span className="text-sm text-stone-700">Tiramisu</span>
-                                        </li>
-                                    </ul>
-
-                                    <div className="pt-4 border-t border-red-200 flex items-center justify-between">
-                                        <span className="text-xs font-thin text-red-700 uppercase tracking-wider">6 Dishes</span>
-                                        <div className="flex items-center gap-1">
-                                            <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                                            <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                                            <div className="w-2 h-2 bg-red-300 rounded-full"></div>
+                                <ul className="space-y-3 mb-6">
+                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                        <div className="w-6 h-6 bg-red-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-red-200 transition-colors">
+                                            <div className="w-2 h-2 bg-red-600 rounded-full"></div>
                                         </div>
+                                        <span className="text-sm text-stone-700">Live Pasta Station</span>
+                                    </li>
+                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                        <div className="w-6 h-6 bg-red-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-red-200 transition-colors">
+                                            <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+                                        </div>
+                                        <span className="text-sm text-stone-700">Wood-Fired Pizza</span>
+                                    </li>
+                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                        <div className="w-6 h-6 bg-red-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-red-200 transition-colors">
+                                            <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+                                        </div>
+                                        <span className="text-sm text-stone-700">Risotto Varieties</span>
+                                    </li>
+                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                        <div className="w-6 h-6 bg-red-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-red-200 transition-colors">
+                                            <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+                                        </div>
+                                        <span className="text-sm text-stone-700">Bruschetta</span>
+                                    </li>
+                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                        <div className="w-6 h-6 bg-red-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-red-200 transition-colors">
+                                            <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+                                        </div>
+                                        <span className="text-sm text-stone-700">Lasagna</span>
+                                    </li>
+                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                        <div className="w-6 h-6 bg-red-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-red-200 transition-colors">
+                                            <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+                                        </div>
+                                        <span className="text-sm text-stone-700">Tiramisu</span>
+                                    </li>
+                                </ul>
+
+                                <div className="pt-4 border-t border-red-200 flex items-center justify-between">
+                                    <span className="text-xs font-thin text-red-700 uppercase tracking-wider">6 Dishes</span>
+                                    <div className="flex items-center gap-1">
+                                        <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                                        <div className="w-2 h-2 bg-red-400 rounded-full"></div>
+                                        <div className="w-2 h-2 bg-red-300 rounded-full"></div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         {/* </Link> */}
 
                         {/* Chinese Card */}
                         {/* <Link> */}
-                            <div className="group relative bg-linear-to-br from-green-50 via-white to-emerald-100 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-green-200 overflow-hidden cursor-pointer">
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-green-300/20 rounded-full blur-3xl group-hover:bg-green-400/30 transition-all duration-500"></div>
-                                <div className="absolute bottom-0 left-0 w-24 h-24 bg-emerald-300/20 rounded-full blur-2xl group-hover:bg-emerald-400/30 transition-all duration-500"></div>
+                        <div className="group relative bg-linear-to-br from-green-50 via-white to-emerald-100 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-green-200 overflow-hidden cursor-pointer">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-green-300/20 rounded-full blur-3xl group-hover:bg-green-400/30 transition-all duration-500"></div>
+                            <div className="absolute bottom-0 left-0 w-24 h-24 bg-emerald-300/20 rounded-full blur-2xl group-hover:bg-emerald-400/30 transition-all duration-500"></div>
 
-                                <div className="relative z-10">
-                                    <div className="w-20 h-20 bg-linear-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                                        <Star className="w-10 h-10 text-white" />
-                                    </div>
+                            <div className="relative z-10">
+                                <div className="w-20 h-20 bg-linear-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                                    <Star className="w-10 h-10 text-white" />
+                                </div>
 
-                                    <div className="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
-                                        Popular
-                                    </div>
+                                <div className="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
+                                    Popular
+                                </div>
 
-                                    <h4 className="text-xl font-mdeium text-center text-stone-800 mb-2 group-hover:text-green-700 transition-colors">
-                                        Chinese
-                                    </h4>
-                                    <p className="text-xs text-center text-green-600 font-thin uppercase tracking-wider mb-4">Asian Delights</p>
+                                <h4 className="text-xl font-mdeium text-center text-stone-800 mb-2 group-hover:text-green-700 transition-colors">
+                                    Chinese
+                                </h4>
+                                <p className="text-xs text-center text-green-600 font-thin uppercase tracking-wider mb-4">Asian Delights</p>
 
-                                    <div className="flex items-center justify-center mb-5">
-                                        <div className="h-1 w-12 bg-linear-to-r from-green-400 to-emerald-500 rounded-full"></div>
-                                    </div>
+                                <div className="flex items-center justify-center mb-5">
+                                    <div className="h-1 w-12 bg-linear-to-r from-green-400 to-emerald-500 rounded-full"></div>
+                                </div>
 
-                                    <ul className="space-y-3 mb-6">
-                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                            <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-green-200 transition-colors">
-                                                <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                                            </div>
-                                            <span className="text-sm text-stone-700">Hakka Noodles</span>
-                                        </li>
-                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                            <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-green-200 transition-colors">
-                                                <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                                            </div>
-                                            <span className="text-sm text-stone-700">Fried Rice</span>
-                                        </li>
-                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                            <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-green-200 transition-colors">
-                                                <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                                            </div>
-                                            <span className="text-sm text-stone-700">Manchurian</span>
-                                        </li>
-                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                            <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-green-200 transition-colors">
-                                                <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                                            </div>
-                                            <span className="text-sm text-stone-700">Spring Rolls</span>
-                                        </li>
-                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                            <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-green-200 transition-colors">
-                                                <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                                            </div>
-                                            <span className="text-sm text-stone-700">Dim Sum Station</span>
-                                        </li>
-                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                            <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-green-200 transition-colors">
-                                                <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                                            </div>
-                                            <span className="text-sm text-stone-700">Szechuan Specialties</span>
-                                        </li>
-                                    </ul>
-
-                                    <div className="pt-4 border-t border-green-200 flex items-center justify-between">
-                                        <span className="text-xs font-thin text-green-700 uppercase tracking-wider">6 Dishes</span>
-                                        <div className="flex items-center gap-1">
-                                            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                                            <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                                            <div className="w-2 h-2 bg-green-300 rounded-full"></div>
+                                <ul className="space-y-3 mb-6">
+                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                        <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-green-200 transition-colors">
+                                            <div className="w-2 h-2 bg-green-600 rounded-full"></div>
                                         </div>
+                                        <span className="text-sm text-stone-700">Hakka Noodles</span>
+                                    </li>
+                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                        <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-green-200 transition-colors">
+                                            <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+                                        </div>
+                                        <span className="text-sm text-stone-700">Fried Rice</span>
+                                    </li>
+                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                        <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-green-200 transition-colors">
+                                            <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+                                        </div>
+                                        <span className="text-sm text-stone-700">Manchurian</span>
+                                    </li>
+                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                        <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-green-200 transition-colors">
+                                            <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+                                        </div>
+                                        <span className="text-sm text-stone-700">Spring Rolls</span>
+                                    </li>
+                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                        <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-green-200 transition-colors">
+                                            <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+                                        </div>
+                                        <span className="text-sm text-stone-700">Dim Sum Station</span>
+                                    </li>
+                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                        <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-green-200 transition-colors">
+                                            <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+                                        </div>
+                                        <span className="text-sm text-stone-700">Szechuan Specialties</span>
+                                    </li>
+                                </ul>
+
+                                <div className="pt-4 border-t border-green-200 flex items-center justify-between">
+                                    <span className="text-xs font-thin text-green-700 uppercase tracking-wider">6 Dishes</span>
+                                    <div className="flex items-center gap-1">
+                                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                                        <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                                        <div className="w-2 h-2 bg-green-300 rounded-full"></div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         {/* </Link> */}
 
                         {/* Mexican Card */}
                         {/* <Link> */}
-                            <div className="group relative bg-linear-to-br from-purple-50 via-white to-pink-100 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-purple-200 overflow-hidden cursor-pointer">
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-purple-300/20 rounded-full blur-3xl group-hover:bg-purple-400/30 transition-all duration-500"></div>
-                                <div className="absolute bottom-0 left-0 w-24 h-24 bg-pink-300/20 rounded-full blur-2xl group-hover:bg-pink-400/30 transition-all duration-500"></div>
+                        <div className="group relative bg-linear-to-br from-purple-50 via-white to-pink-100 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-purple-200 overflow-hidden cursor-pointer">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-purple-300/20 rounded-full blur-3xl group-hover:bg-purple-400/30 transition-all duration-500"></div>
+                            <div className="absolute bottom-0 left-0 w-24 h-24 bg-pink-300/20 rounded-full blur-2xl group-hover:bg-pink-400/30 transition-all duration-500"></div>
 
-                                <div className="relative z-10">
-                                    <div className="w-20 h-20 bg-linear-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                                        <Crown className="w-10 h-10 text-white" />
-                                    </div>
+                            <div className="relative z-10">
+                                <div className="w-20 h-20 bg-linear-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                                    <Crown className="w-10 h-10 text-white" />
+                                </div>
 
-                                    <div className="absolute top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
-                                        Exotic
-                                    </div>
+                                <div className="absolute top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
+                                    Exotic
+                                </div>
 
-                                    <h4 className="text-xl font-medium text-center text-stone-800 mb-2 group-hover:text-purple-700 transition-colors">
-                                        Mexican
-                                    </h4>
-                                    <p className="text-xs text-center text-purple-600 font-thin uppercase tracking-wider mb-4">Fiesta Flavors</p>
+                                <h4 className="text-xl font-medium text-center text-stone-800 mb-2 group-hover:text-purple-700 transition-colors">
+                                    Mexican
+                                </h4>
+                                <p className="text-xs text-center text-purple-600 font-thin uppercase tracking-wider mb-4">Fiesta Flavors</p>
 
-                                    <div className="flex items-center justify-center mb-5">
-                                        <div className="h-1 w-12 bg-linear-to-r from-purple-400 to-pink-500 rounded-full"></div>
-                                    </div>
+                                <div className="flex items-center justify-center mb-5">
+                                    <div className="h-1 w-12 bg-linear-to-r from-purple-400 to-pink-500 rounded-full"></div>
+                                </div>
 
-                                    <ul className="space-y-3 mb-6">
-                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                            <div className="w-6 h-6 bg-purple-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-purple-200 transition-colors">
-                                                <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
-                                            </div>
-                                            <span className="text-sm text-stone-700">Tacos & Burritos</span>
-                                        </li>
-                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                            <div className="w-6 h-6 bg-purple-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-purple-200 transition-colors">
-                                                <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
-                                            </div>
-                                            <span className="text-sm text-stone-700">Nachos with Salsa</span>
-                                        </li>
-                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                            <div className="w-6 h-6 bg-purple-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-purple-200 transition-colors">
-                                                <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
-                                            </div>
-                                            <span className="text-sm text-stone-700">Guacamole Station</span>
-                                        </li>
-                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                            <div className="w-6 h-6 bg-purple-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-purple-200 transition-colors">
-                                                <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
-                                            </div>
-                                            <span className="text-sm text-stone-700">Quesadillas</span>
-                                        </li>
-                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                            <div className="w-6 h-6 bg-purple-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-purple-200 transition-colors">
-                                                <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
-                                            </div>
-                                            <span className="text-sm text-stone-700">Mexican Rice</span>
-                                        </li>
-                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                            <div className="w-6 h-6 bg-purple-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-purple-200 transition-colors">
-                                                <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
-                                            </div>
-                                            <span className="text-sm text-stone-700">Churros</span>
-                                        </li>
-                                    </ul>
-
-                                    <div className="pt-4 border-t border-purple-200 flex items-center justify-between">
-                                        <span className="text-xs font-thin text-purple-700 uppercase tracking-wider">6 Dishes</span>
-                                        <div className="flex items-center gap-1">
-                                            <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                                            <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                                            <div className="w-2 h-2 bg-purple-300 rounded-full"></div>
+                                <ul className="space-y-3 mb-6">
+                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                        <div className="w-6 h-6 bg-purple-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-purple-200 transition-colors">
+                                            <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
                                         </div>
+                                        <span className="text-sm text-stone-700">Tacos & Burritos</span>
+                                    </li>
+                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                        <div className="w-6 h-6 bg-purple-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-purple-200 transition-colors">
+                                            <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+                                        </div>
+                                        <span className="text-sm text-stone-700">Nachos with Salsa</span>
+                                    </li>
+                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                        <div className="w-6 h-6 bg-purple-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-purple-200 transition-colors">
+                                            <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+                                        </div>
+                                        <span className="text-sm text-stone-700">Guacamole Station</span>
+                                    </li>
+                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                        <div className="w-6 h-6 bg-purple-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-purple-200 transition-colors">
+                                            <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+                                        </div>
+                                        <span className="text-sm text-stone-700">Quesadillas</span>
+                                    </li>
+                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                        <div className="w-6 h-6 bg-purple-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-purple-200 transition-colors">
+                                            <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+                                        </div>
+                                        <span className="text-sm text-stone-700">Mexican Rice</span>
+                                    </li>
+                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                        <div className="w-6 h-6 bg-purple-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-purple-200 transition-colors">
+                                            <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+                                        </div>
+                                        <span className="text-sm text-stone-700">Churros</span>
+                                    </li>
+                                </ul>
+
+                                <div className="pt-4 border-t border-purple-200 flex items-center justify-between">
+                                    <span className="text-xs font-thin text-purple-700 uppercase tracking-wider">6 Dishes</span>
+                                    <div className="flex items-center gap-1">
+                                        <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                                        <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                                        <div className="w-2 h-2 bg-purple-300 rounded-full"></div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         {/* </Link> */}
                     </div>
+
+                    <Fragment>
+                        <div className='flex justify-center pt-20'>
+                            <button
+                                className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900"
+                            >
+
+                                <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
+
+
+                                <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
+                                    Explore Cuisines
+                                    <svg
+                                        className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={1.5}
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                                        />
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
+                    </Fragment>
 
                 </div>
             </section>
@@ -1821,7 +1963,6 @@ export default function WeddingCateringWebsite() {
                             {/* Traditional Indian Drinks Card */}
 
 
-                            {/* <Link> */}
                             <div className="group relative bg-gradient-to-br from-white to-orange-50/30 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-orange-100/50 backdrop-blur-sm overflow-hidden cursor-pointer">
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-orange-300/20 rounded-full blur-3xl group-hover:bg-orange-400/30 transition-all duration-500"></div>
                                 <div className="absolute bottom-0 left-0 w-24 h-24 bg-teal-300/20 rounded-full blur-2xl group-hover:bg-teal-400/30 transition-all duration-500"></div>
@@ -1971,10 +2112,10 @@ export default function WeddingCateringWebsite() {
                                 </div>
                             </div>
 
-                            {/* </Link> */}
+
 
                             {/* Modern Beverages Card */}
-                            {/* <Link> */}
+
                             <div className="group relative bg-gradient-to-br from-white to-emerald-50/30 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-emerald-100/50 backdrop-blur-sm overflow-hidden cursor-pointer">
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-300/20 rounded-full blur-3xl group-hover:bg-emerald-400/30 transition-all duration-500"></div>
                                 <div className="absolute bottom-0 left-0 w-24 h-24 bg-cyan-300/20 rounded-full blur-2xl group-hover:bg-cyan-400/30 transition-all duration-500"></div>
@@ -2094,10 +2235,37 @@ export default function WeddingCateringWebsite() {
                                 </div>
                             </div>
 
-                            {/* </Link> */}
 
                         </div>
                     </div>
+                    <Fragment>
+                        <div className='flex justify-center pt-4'>
+                            <button
+                                className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900"
+                            >
+
+                                <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
+
+
+                                <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
+                                    Beverages and refreshments
+                                    <svg
+                                        className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={1.5}
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                                        />
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
+                    </Fragment>
 
                 </div>
             </section>
@@ -2523,6 +2691,35 @@ export default function WeddingCateringWebsite() {
                         </div>
                     </div>
 
+                           <Fragment>
+                        <div className='flex justify-center pt-4'>
+                            <button
+                                className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900"
+                            >
+
+                                <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
+
+
+                                <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
+                                wedding catering essentials
+                                    <svg
+                                        className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={1.5}
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                                        />
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
+                    </Fragment>
+
                 </div>
             </section>
 
@@ -2731,6 +2928,35 @@ export default function WeddingCateringWebsite() {
                         </div>
                         {/* </Link> */}
                     </div>
+
+                           <Fragment>
+                        <div className='flex justify-center pb-20 pt-4'>
+                            <button
+                                className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900"
+                            >
+
+                                <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
+
+
+                                <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
+                                    food stalls and live counters
+                                    <svg
+                                        className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={1.5}
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                                        />
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
+                    </Fragment>
 
                     {/* Featured Stall Highlight */}
                     <div className="bg-linear-to-r from-amber-600 via-amber-700 to-stone-700 rounded-3xl p-12 text-white text-center relative overflow-hidden cursor-pointer">
