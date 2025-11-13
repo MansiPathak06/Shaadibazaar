@@ -1,8 +1,8 @@
-// pages/choreographer.js or app/choreographer/page.js
 'use client';
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Users, Music, Sparkles } from 'lucide-react';
 
 export default function WeddingChoreographer() {
@@ -18,7 +18,7 @@ export default function WeddingChoreographer() {
       id: 1,
       title: 'SANGEET CEREMONY',
       description: 'Perfect choreography for your sangeet night with custom routines for couples, families, and friends',
-      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761542379/SANGEET_CEREMONY_ckgixl.jpg', // Replace with your Cloudinary links
+      image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761542379/SANGEET_CEREMONY_ckgixl.jpg',
     },
     {
       id: 2,
@@ -52,7 +52,6 @@ export default function WeddingChoreographer() {
           }}
         />
 
-
         <div
           className={`relative z-20 text-center px-4 transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
@@ -68,9 +67,11 @@ export default function WeddingChoreographer() {
           <p className="text-white/90 text-lg md:text-xl font-light mb-8 max-w-2xl mx-auto">
             Professional wedding choreography services to make your special day unforgettable
           </p>
-          <button className="bg-rose-400 cursor-pointer hover:bg-rose-500 text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
-            BOOK A CHOREOGRAPHER
-          </button>
+          <Link href="/cateringanddecor/all-services?category=dance">
+            <button className="bg-rose-400 cursor-pointer hover:bg-rose-500 text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+              BOOK A CHOREOGRAPHER
+            </button>
+          </Link>
         </div>
       </section>
 
@@ -82,7 +83,7 @@ export default function WeddingChoreographer() {
               className="relative h-96 md:h-[500px] overflow-hidden rounded-lg shadow-2xl group"
             >
               <Image
-                src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1761542379/Wedding_preparation_np0q3n.jpg" // Replace with Cloudinary link
+                src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1761542379/Wedding_preparation_np0q3n.jpg"
                 alt="Wedding preparation"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -101,10 +102,12 @@ export default function WeddingChoreographer() {
                 From intimate couple dances to grand sangeet performances, we bring creativity, energy,
                 and professionalism to every routine.
               </p>
-              <button className="mt-6 cursor-pointer text-rose-500 hover:text-rose-6x00 font-medium flex items-center gap-2 group">
-                LEARN MORE
-                <span className="transform group-hover:translate-x-2 transition-transform duration-300">→</span>
-              </button>
+              <Link href="/cateringanddecor/all-services?category=dance">
+                <button className="mt-6 cursor-pointer text-rose-500 hover:text-rose-600 font-medium flex items-center gap-2 group">
+                  LEARN MORE
+                  <span className="transform group-hover:translate-x-2 transition-transform duration-300">→</span>
+                </button>
+              </Link>
             </div>
           </div>
 
@@ -127,7 +130,7 @@ export default function WeddingChoreographer() {
               className="relative h-96 md:h-[500px] overflow-hidden rounded-lg shadow-2xl group order-1 md:order-2"
             >
               <Image
-                src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1761542664/Groom_preparation_wtmaoy.jpg" // Replace with Cloudinary link
+                src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1761542664/Groom_preparation_wtmaoy.jpg"
                 alt="Groom preparation"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -151,54 +154,51 @@ export default function WeddingChoreographer() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {danceServices.map((service, index) => (
-              <div
-                key={service.id}
-                className="group relative h-96 overflow-hidden rounded-lg shadow-xl cursor-pointer"
-                onMouseEnter={() => setActiveService(service.id)}
-                onMouseLeave={() => setActiveService(null)}
-                style={{
-                  animationDelay: `${index * 100}ms`,
-                }}
-              >
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+              <Link href="/cateringanddecor/all-services?category=dance" key={service.id}>
+                <div
+                  className="group relative h-96 overflow-hidden rounded-lg shadow-xl cursor-pointer"
+                  onMouseEnter={() => setActiveService(service.id)}
+                  onMouseLeave={() => setActiveService(null)}
+                  style={{
+                    animationDelay: `${index * 100}ms`,
+                  }}
+                >
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
-                <div className="absolute bottom-0 left-0 right-0 p-8 text-white transform transition-all duration-500">
-                  <h3 className="text-2xl md:text-3xl font-serif mb-3 tracking-wide">
-                    {service.title}
-                  </h3>
-                  <p
-                    className={`text-white/90 leading-relaxed transition-all duration-500 ${activeService === service.id
-                      ? 'opacity-100 translate-y-0'
-                      : 'opacity-0 translate-y-4'
-                      }`}
-                  >
-                    {service.description}
-                  </p>
+                  <div className="absolute bottom-0 left-0 right-0 p-8 text-white transform transition-all duration-500">
+                    <h3 className="text-2xl md:text-3xl font-serif mb-3 tracking-wide">
+                      {service.title}
+                    </h3>
+                    <p
+                      className={`text-white/90 leading-relaxed transition-all duration-500 ${activeService === service.id
+                        ? 'opacity-100 translate-y-0'
+                        : 'opacity-0 translate-y-4'
+                        }`}
+                    >
+                      {service.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
       {/* Why Choose Us Section */}
-
       <section className="relative py-18 px-4 md:px-8 overflow-hidden">
-        {/* Modern gradient background with mesh effect */}
         <div className="absolute inset-0 bg-gradient-to-br from-rose-50 via-pink-50/30 to-purple-50/20">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(251,207,232,0.3),transparent_50%)]" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(254,205,211,0.2),transparent_50%)]" />
         </div>
 
         <div className="relative max-w-6xl mx-auto">
-          {/* Header with modern typography */}
-
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
               Why <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Choose Us</span>
@@ -207,31 +207,26 @@ export default function WeddingChoreographer() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {/* Card 1 - Expert Choreographers */}
+            {/* Card 1 */}
             <div className="group relative">
               <div className="absolute inset-0 bg-gradient-to-br from-rose-400/20 to-pink-400/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
               <div className="relative p-8 bg-white/70 backdrop-blur-lg rounded-2xl border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:bg-white/80">
-                {/* Icon with modern gradient */}
                 <div className="relative w-20 h-20 mx-auto mb-6">
                   <div className="absolute inset-0 bg-gradient-to-br from-rose-500 to-pink-500 rounded-2xl rotate-6 group-hover:rotate-12 transition-transform duration-500" />
                   <div className="relative w-full h-full bg-gradient-to-br from-rose-400 to-pink-400 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
                     <Users className="w-10 h-10 text-white" strokeWidth={2.5} />
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-medium text-gray-800 mb-4 group-hover:text-rose-600 transition-colors duration-300">
                   Expert Choreographers
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
                   Trained professionals with years of experience in wedding choreography and diverse dance styles
                 </p>
-
-                {/* Bottom accent line */}
                 <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-rose-500 to-pink-500 rounded-b-2xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               </div>
             </div>
-
-            {/* Card 2 - Custom Routines */}
+            {/* Card 2 */}
             <div className="group relative">
               <div className="absolute inset-0 bg-gradient-to-br from-pink-400/20 to-purple-400/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
               <div className="relative p-8 bg-white/70 backdrop-blur-lg rounded-2xl border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:bg-white/80">
@@ -241,19 +236,16 @@ export default function WeddingChoreographer() {
                     <Music className="w-10 h-10 text-white" strokeWidth={2.5} />
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-medium text-gray-800 mb-4 group-hover:text-pink-600 transition-colors duration-300">
                   Custom Routines
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
                   Personalized choreography tailored to your song choices, skill levels, and celebration theme
                 </p>
-
                 <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-pink-500 to-purple-500 rounded-b-2xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               </div>
             </div>
-
-            {/* Card 3 - Stress-Free Process */}
+            {/* Card 3 */}
             <div className="group relative">
               <div className="absolute inset-0 bg-gradient-to-br from-purple-400/20 to-rose-400/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
               <div className="relative p-8 bg-white/70 backdrop-blur-lg rounded-2xl border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:bg-white/80">
@@ -263,22 +255,18 @@ export default function WeddingChoreographer() {
                     <Sparkles className="w-10 h-10 text-white" strokeWidth={2.5} />
                   </div>
                 </div>
-
                 <h3 className="text-2xl font-medium text-gray-800 mb-4 group-hover:text-purple-600 transition-colors duration-300">
                   Stress-Free Process
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
                   Flexible scheduling, patient instruction, and fun practice sessions that build confidence
                 </p>
-
                 <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-rose-500 rounded-b-2xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               </div>
             </div>
           </div>
         </div>
       </section>
-
-
     </div>
   );
 }

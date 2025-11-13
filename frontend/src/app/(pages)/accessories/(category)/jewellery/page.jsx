@@ -132,7 +132,7 @@ const Jewellery = () => {
   };
 
   // URL for "View More" - Goes to all products list page
-  const ALL_PRODUCTS_URL = "/accessories/all-products?category=Jewellery";       ///////////////////////////////////////////////////////////////////////////////////
+  const ALL_PRODUCTS_URL = "/accessories/all-products?category=Jewellery";      
 
   // Split products: First 4 for "Best Sellers", Rest for "Jewellery Collection"
   const bestSellers = realProducts.slice(0, 4);
