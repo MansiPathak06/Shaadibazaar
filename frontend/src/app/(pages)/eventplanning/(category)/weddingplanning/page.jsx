@@ -261,7 +261,7 @@ export default function WeddingPlanning() {
       <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-rose-400 to-rose-500 rounded-full mb-6 shadow-lg">
         <Heart className="w-10 h-10 text-white animate-pulse" />
       </div>
-      <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium text-gray-800 mb-4 leading-tight">
+      <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium text-gray-800 mb-4 leading-tight uppercase">
         Let's Create Your
         <span className="block text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-rose-600">
           Perfect Day
@@ -326,17 +326,6 @@ export default function WeddingPlanning() {
 
     {/* CTA Section */}
     <div className="text-center">
-      <button className="group relative bg-gradient-to-r from-rose-400 to-rose-500 hover:from-rose-500 hover:to-rose-600 text-white px-10 py-5 md:px-12 md:py-5 rounded-full text-lg md:text-xl font-light cursor-pointer transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-rose-300 inline-flex items-center gap-3">
-        <span>Book Free Consultation</span>
-        <svg 
-          className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" 
-          fill="none" 
-          stroke="currentColor" 
-          viewBox="0 0 24 24"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-        </svg>
-      </button>
       
       {/* Trust Indicators */}
       <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-600">

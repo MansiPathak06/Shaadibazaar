@@ -464,56 +464,136 @@ export default function DestinationWedding() {
       </section>
 
       {/* Services Included */}
-      <section className="py-24 px-4 bg-gradient-to-b from-white to-rose-50/30">
-        <div className="max-w-7xl mx-auto">
-          {/* Header Section */}
+      <section className="relative pb-32 pt-20 px-4 overflow-hidden">
+        {/* Animated Background Gradients */}
+    
 
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Complete Wedding Management
-            </h2>
-            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">              We handle everything from start to finish</p>
-          </div>
+        <div className="max-w-7xl mx-auto relative z-10">
+        
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
+                Complete Wedding Management
+              </h2>
+              <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">      We handle everything from start to finish</p>
+            </div>
 
-          {/* Services Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+          {/* Enhanced Services Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: Plane, title: "Travel Arrangements", desc: "Seamless flight bookings, transfers, and transportation coordination" },
-              { icon: Building2, title: "Accommodation", desc: "Curated luxury hotels, resorts, and exclusive venues" },
-              { icon: Camera, title: "Photography", desc: "Professional cinematography and photo documentation" },
-              { icon: Utensils, title: "Catering", desc: "Multi-cuisine dining experiences with signature menus" },
-              { icon: Music, title: "Entertainment", desc: "Live performances, DJ sets, and cultural shows" },
-              { icon: Sparkles, title: "Decoration", desc: "Bespoke themed decor and floral arrangements" },
-              { icon: Calendar, title: "Event Planning", desc: "End-to-end coordination and timeline management" },
-              { icon: Users, title: "Guest Management", desc: "Comprehensive hospitality and concierge services" }
+              {
+                icon: Plane,
+                title: "Travel Arrangements",
+                desc: "Seamless flight bookings, airport transfers, and private transportation coordination for guests",
+                color: "rose",
+                gradient: "from-rose-500 to-pink-500"
+              },
+              {
+                icon: Building2,
+                title: "Luxury Accommodation",
+                desc: "Handpicked 5-star hotels, heritage properties, and exclusive destination venues",
+                color: "pink",
+                gradient: "from-pink-500 to-rose-500"
+              },
+              {
+                icon: Camera,
+                title: "Photography & Films",
+                desc: "Award-winning cinematography, drone coverage, and premium photo documentation",
+                color: "rose",
+                gradient: "from-rose-600 to-rose-400"
+              },
+              {
+                icon: Utensils,
+                title: "Gourmet Catering",
+                desc: "Multi-cuisine dining with celebrity chefs, live counters, and signature menus",
+                color: "pink",
+                gradient: "from-pink-600 to-pink-400"
+              },
+              {
+                icon: Music,
+                title: "Entertainment",
+                desc: "Celebrity performers, international DJs, live bands, and cultural showcases",
+                color: "rose",
+                gradient: "from-rose-500 to-red-400"
+              },
+              {
+                icon: Sparkles,
+                title: "Bespoke Decoration",
+                desc: "Dramatic drapery, sculptural florals, custom lighting, and immersive installations",
+                color: "pink",
+                gradient: "from-pink-500 to-rose-400"
+              },
+              {
+                icon: Calendar,
+                title: "Event Orchestration",
+                desc: "End-to-end planning, real-time coordination, and seamless timeline execution",
+                color: "rose",
+                gradient: "from-rose-600 to-pink-500"
+              },
+              {
+                icon: Users,
+                title: "Guest Experience",
+                desc: "24/7 concierge, personalized hospitality, and VIP guest management services",
+                color: "pink",
+                gradient: "from-pink-600 to-rose-500"
+              }
             ].map((service, i) => (
               <div
                 key={i}
-                className="group bg-white p-8 rounded-2xl border border-rose-100 hover:border-rose-300 transition-all duration-500 hover:shadow-2xl hover:shadow-rose-100/50 hover:-translate-y-2 relative overflow-hidden"
+                className="group relative bg-white/80 backdrop-blur-sm p-8 rounded-3xl border border-rose-100/60 hover:border-rose-300 transition-all duration-700 hover:shadow-2xl hover:shadow-rose-200/60 hover:-translate-y-3 cursor-pointer overflow-hidden"
+                style={{
+                  animationDelay: `${i * 50}ms`
+                }}
               >
-                {/* Background Gradient Effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-rose-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                {/* Animated Background Layers */}
+                <div className="absolute inset-0 bg-gradient-to-br from-rose-50/50 via-pink-50/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+
+                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-700`}></div>
+
+                {/* Shimmer Effect on Hover */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
+                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12"></div>
+                </div>
 
                 {/* Content */}
                 <div className="relative z-10">
-                  <div className="mb-5 inline-block p-4 bg-rose-50 rounded-xl group-hover:bg-rose-100 group-hover:scale-110 transition-all duration-500">
-                    <service.icon className="w-8 h-8 text-rose-500 group-hover:text-rose-600" />
+                  {/* Icon Container with Enhanced Animation */}
+                  <div className="mb-6 inline-flex items-center justify-center">
+                    <div className={`relative p-5 bg-gradient-to-br ${service.gradient} rounded-2xl group-hover:rounded-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-700 shadow-lg group-hover:shadow-xl`}>
+                      <service.icon className="w-9 h-9 text-white relative z-10" strokeWidth={1.5} />
+
+                      {/* Pulsing Ring Effect */}
+                      <div className="absolute inset-0 rounded-2xl group-hover:rounded-xl bg-white/20 opacity-0 group-hover:opacity-100 group-hover:scale-150 transition-all duration-700"></div>
+                    </div>
                   </div>
-                  <h3 className="font-medium text-gray-800 mb-3 text-lg tracking-wide">
+
+                  {/* Title with Gradient on Hover */}
+                  <h3 className="font-medium text-gray-900 mb-4 text-xl md:text-2xl tracking-tight group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-rose-600 group-hover:to-pink-600 transition-all duration-500">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
+
+                  {/* Description */}
+                  <p className="text-gray-600 text-sm md:text-md leading-relaxed group-hover:text-gray-700 transition-colors duration-500">
                     {service.desc}
                   </p>
+
                 </div>
 
-                {/* Decorative Corner Element */}
-                <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-rose-400/5 rounded-full blur-2xl group-hover:bg-rose-400/10 transition-all duration-500"></div>
+                {/* Enhanced Decorative Elements */}
+                <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-rose-400/10 rounded-full blur-2xl group-hover:bg-rose-400/20 group-hover:scale-150 transition-all duration-700"></div>
+
+                <div className="absolute -top-8 -left-8 w-24 h-24 bg-pink-400/5 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+
+                {/* Corner Accent */}
+                <div className="absolute top-0 right-0 w-20 h-20 overflow-hidden rounded-tr-3xl">
+                  <div className={`absolute -top-10 -right-10 w-20 h-20 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-20 rounded-full transition-all duration-700`}></div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
+
 
 
       {/* Testimonials with Photos */}

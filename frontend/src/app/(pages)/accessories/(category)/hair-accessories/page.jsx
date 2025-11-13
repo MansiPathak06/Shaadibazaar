@@ -342,7 +342,7 @@ const HairAccessoriesPage = () => {
 
                 <Fragment>
                   <div className='flex justify-center pt-16 pb-6'>
-                    <Link href={'/accessories/all-products?category=Featured Collection'}>
+                    <Link href={ALL_PRODUCTS_URL}>
                       <button className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900">
                         <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
                         <span className="relative z-10 flex items-center gap-3 group-hover:text-white">

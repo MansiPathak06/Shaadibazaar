@@ -151,7 +151,7 @@ export default function AdminDashboard() {
         },
         body: JSON.stringify({
           ...productForm,
-           subCategory: productForm.subCategory,
+          subCategory: productForm.subCategory,
           images: productForm.images.split(",").map((img) => img.trim()),
         }),
       });
@@ -556,7 +556,8 @@ export default function AdminDashboard() {
       <div className="min-h-screen bg-gradient-to-br from-gray-50 via-[#E8A4BC]/10 to-[#F9C449]/10">
 
         {/* Modern Header */}
-        <header className="bg-white shadow-lg border-b-4 border-gradient-to-r from-[#F04393] to-[#2A0B8B] sticky top-0 z-50 backdrop-blur-lg">
+
+        <header className="bg-white shadow-lg border-b-4 border-gradient-to-r from-[#F04393] to-[#2A0B8B] sticky min-w-full  backdrop-blur-lg">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-20">
               <div className="flex items-center gap-4">
@@ -595,6 +596,7 @@ export default function AdminDashboard() {
             </div>
           </div>
         </header>
+
 
         {/* Notifications */}
         {error && (
@@ -635,8 +637,8 @@ export default function AdminDashboard() {
                       setSidebarOpen(false);
                     }}
                     className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium text-lg cursor-pointer ${activeTab === "dashboard"
-                        ? "bg-gradient-to-r from-[#F04393] to-[#2A0B8B] text-white shadow-xl transform scale-105"
-                        : "text-gray-600 hover:bg-gradient-to-r hover:from-[#E8A4BC]/20 hover:to-[#F9C449]/20 hover:text-[#F04393]"
+                      ? "bg-gradient-to-r from-[#F04393] to-[#2A0B8B] text-white shadow-xl transform scale-105"
+                      : "text-gray-600 hover:bg-gradient-to-r hover:from-[#E8A4BC]/20 hover:to-[#F9C449]/20 hover:text-[#F04393]"
                       }`}
                   >
                     <BarChart3 className="w-5 h-5" />
@@ -650,8 +652,8 @@ export default function AdminDashboard() {
                       setSidebarOpen(false);
                     }}
                     className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium tetx-lg cursor-pointer ${activeTab === "products"
-                        ? "bg-gradient-to-r from-[#F04393] to-[#2A0B8B] text-white shadow-xl transform scale-105"
-                        : "text-gray-600 hover:bg-gradient-to-r hover:from-[#E8A4BC]/20 hover:to-[#F9C449]/20 hover:text-[#F04393]"
+                      ? "bg-gradient-to-r from-[#F04393] to-[#2A0B8B] text-white shadow-xl transform scale-105"
+                      : "text-gray-600 hover:bg-gradient-to-r hover:from-[#E8A4BC]/20 hover:to-[#F9C449]/20 hover:text-[#F04393]"
                       }`}
                   >
                     <Package className="w-5 h-5" />
@@ -667,8 +669,8 @@ export default function AdminDashboard() {
                       setSidebarOpen(false);
                     }}
                     className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium cursor-pointer text-lg ${activeTab === "users"
-                        ? "bg-gradient-to-r from-[#F04393] to-[#2A0B8B] text-white shadow-xl transform scale-105"
-                        : "text-gray-600 hover:bg-gradient-to-r hover:from-[#E8A4BC]/20 hover:to-[#F9C449]/20 hover:text-[#F04393]"
+                      ? "bg-gradient-to-r from-[#F04393] to-[#2A0B8B] text-white shadow-xl transform scale-105"
+                      : "text-gray-600 hover:bg-gradient-to-r hover:from-[#E8A4BC]/20 hover:to-[#F9C449]/20 hover:text-[#F04393]"
                       }`}
                   >
                     <Users className="w-5 h-5" />
@@ -684,8 +686,8 @@ export default function AdminDashboard() {
                       setSidebarOpen(false);
                     }}
                     className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium cursor-pointer text-lg ${activeTab === "vendors"
-                        ? "bg-gradient-to-r from-[#F04393] to-[#2A0B8B] text-white shadow-xl transform scale-105"
-                        : "text-gray-600 hover:bg-gradient-to-r hover:from-[#E8A4BC]/20 hover:to-[#F9C449]/20 hover:text-[#F04393]"
+                      ? "bg-gradient-to-r from-[#F04393] to-[#2A0B8B] text-white shadow-xl transform scale-105"
+                      : "text-gray-600 hover:bg-gradient-to-r hover:from-[#E8A4BC]/20 hover:to-[#F9C449]/20 hover:text-[#F04393]"
                       }`}
                   >
                     <Store className="w-5 h-5" />
@@ -1132,7 +1134,7 @@ export default function AdminDashboard() {
                             </p>
                           </div>
 
-                          
+
 
                           {/* MRP (Original Price) */}
                           <div>

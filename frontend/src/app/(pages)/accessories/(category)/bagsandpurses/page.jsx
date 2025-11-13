@@ -54,42 +54,42 @@ const BagsAndPurses = () => {
       name: "Tote Bags",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761306595/tote-bag_cz0wg9.jpg",
       category: "tote",
-      categorylink: '/accessories/all-products?category=Tote Bags'
+      categorylink: '/accessories/all-products?category=Bag And Purse&subCategory=Tote Bags'
     },
     {
       id: 2,
       name: "Backpacks",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761306606/backpack_o3guva.jpg",
       category: "backpack",
-      categorylink: '/accessories/all-products?category=Backpacks'
+      categorylink: '/accessories/all-products?category=Bag And Purse&subCategory=Backpacks'
     },
     {
       id: 3,
       name: "Clutches and Pouches",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761306648/clutch_pigsrw.jpg",
       category: "clutch",
-      categorylink: '/accessories/all-products?category=Clutches and Pouches'
+      categorylink: '/accessories/all-products?category=Bag And Purse&subCategory=Clutches And Pouches'
     },
     {
       id: 4,
       name: "Crossbody",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761306680/crossbody_yvktqh.jpg",
       category: "crossbody",
-      categorylink: '/accessories/all-products?category=Crossbody'
+      categorylink: '/accessories/all-products?category=Bag And Purse&subCategory=Crossbody'
     },
     {
       id: 5,
       name: "Messenger Bags",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761306695/messenger_uqjlar.jpg",
       category: "messenger",
-      categorylink: '/accessories/all-products?category=Messenger Bags'
+      categorylink: '/accessories/all-products?category=Bag And Purse&subCategory=Messenger Bags'
     },
     {
       id: 6,
       name: "Accessories",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761306715/accessories_ipthcg.jpg",
       category: "accessories",
-      categorylink: '/accessories/all-products?category=Accessories'
+      categorylink: '/accessories/all-products?category=Bag And Purse&subCategory=Accessories'
     },
   ];
 

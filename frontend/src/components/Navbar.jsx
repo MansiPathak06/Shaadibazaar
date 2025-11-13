@@ -345,17 +345,17 @@ const Navbar = () => {
 
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
-      {/* Top Section */}
+      {/* Top Section - INCREASED HEIGHT FOR MOBILE */}
       <div className="border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
-          <div className="flex items-center justify-between h-16 gap-2">
-            {/* Logo */}
+          <div className="flex items-center justify-between h-20 md:h-16 gap-2">
+            {/* Logo - BIGGER ON MOBILE */}
             <div className="flex-shrink-0">
               <Link href="/">
                 <img
                   src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1761844101/logo_sxozan.jpg"
                   alt="Logo"
-                  className="h-12 w-14 sm:h-14 sm:w-16 object-contain"
+                  className="h-16 w-16 sm:h-14 sm:w-16 object-contain"
                 />
               </Link>
             </div>
@@ -374,11 +374,11 @@ const Navbar = () => {
               </div>
             </div>
 
-            {/* Right Icons */}
-            <div className="flex items-center gap-2 sm:gap-4">
+            {/* Right Icons - BIGGER ON MOBILE */}
+            <div className="flex items-center gap-3 sm:gap-4">
               {/* Sign In/Account Button */}
               {userRole ? (
-                <div className="flex items-center gap-2 sm:gap-3">
+                <div className="flex items-center gap-3">
                   <button
                     onClick={() => {
                       if (userRole === "user") router.push("/user-dashboard");
@@ -392,7 +392,7 @@ const Navbar = () => {
                     <User size={18} />
                     <span className="hidden lg:inline">My Account</span>
                   </button>
-                  {/* Mobile Account Icon */}
+                  {/* Mobile Account Icon - BIGGER */}
                   <button
                     onClick={() => {
                       if (userRole === "user") router.push("/user-dashboard");
@@ -403,7 +403,7 @@ const Navbar = () => {
                     }}
                     className="sm:hidden text-rose-500 hover:text-rose-700"
                   >
-                    <User size={22} />
+                    <User size={26} />
                   </button>
                   <button
                     onClick={() => {
@@ -423,14 +423,15 @@ const Navbar = () => {
                   onClick={() => router.push("/auth")}
                   className="flex items-center gap-1 text-gray-700 hover:text-rose-500 text-sm font-medium"
                 >
-                  <User size={18} className="sm:hidden" />
+                  <User size={26} className="sm:hidden" />
+                  <User size={18} className="hidden sm:block" />
                   <span className="hidden sm:inline">Sign in</span>
                 </button>
               )}
 
-              {/* Cart */}
+              {/* Cart - BIGGER ON MOBILE */}
               <Link href="/cart" className="relative flex items-center gap-1">
-                <ShoppingCart className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700 hover:text-rose-500" />
+                <ShoppingCart className="w-7 h-7 sm:w-6 sm:h-6 text-gray-700 hover:text-rose-500" />
                 <span className="hidden sm:inline text-sm font-medium text-gray-700">
                   Cart
                 </span>
@@ -448,27 +449,27 @@ const Navbar = () => {
                 </button>
               </Link>
 
-              {/* Mobile Menu Button */}
+              {/* Mobile Menu Button - BIGGER */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="lg:hidden text-gray-700 hover:text-rose-500 p-1"
                 aria-label="Toggle menu"
               >
-                {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
               </button>
             </div>
           </div>
 
-          {/* Mobile Search Bar - Below header on mobile only */}
-          <div className="md:hidden pb-3">
+          {/* Mobile Search Bar - BIGGER HEIGHT */}
+          <div className="md:hidden pb-4">
             <div className="relative">
               <input
                 type="text"
                 placeholder="Search..."
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-400 text-sm"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-400 text-base"
               />
-              <button className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500">
-                <Search size={18} />
+              <button className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+                <Search size={22} />
               </button>
             </div>
           </div>
@@ -509,29 +510,29 @@ const Navbar = () => {
               mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
             }`}
           >
-            {/* Mobile Menu Header */}
-            <div className="bg-gradient-to-r from-rose-500 to-pink-500 p-4 flex items-center justify-between">
-              <h2 className="text-white font-bold text-lg">Menu</h2>
+            {/* Mobile Menu Header - BIGGER HEIGHT */}
+            <div className="bg-gradient-to-r from-rose-500 to-pink-500 p-5 flex items-center justify-between">
+              <h2 className="text-white font-bold text-xl">Menu</h2>
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-white hover:bg-white/20 rounded-full p-1 transition-colors"
+                className="text-white hover:bg-white/20 rounded-full p-2 transition-colors"
               >
-                <X size={24} />
+                <X size={26} />
               </button>
             </div>
 
             {/* Mobile Menu Content - Scrollable */}
-            <div className="overflow-y-auto h-[calc(100vh-72px)] pb-6">
-              {/* Wedding Website Button - Mobile */}
+            <div className="overflow-y-auto h-[calc(100vh-88px)] pb-6">
+              {/* Wedding Website Button - Mobile - BIGGER */}
               <div className="lg:hidden p-4 border-b border-gray-200">
                 <Link href="/wedding-website" onClick={() => setMobileMenuOpen(false)}>
-                  <button className="w-full bg-rose-500 text-white rounded-lg py-3 px-4 text-sm font-semibold hover:bg-rose-600 transition-colors duration-200">
+                  <button className="w-full bg-rose-500 text-white rounded-lg py-4 px-4 text-base font-semibold hover:bg-rose-600 transition-colors duration-200">
                     Wedding Website
                   </button>
                 </Link>
               </div>
 
-              {/* User Account Section - Mobile */}
+              {/* User Account Section - Mobile - BIGGER */}
               {userRole && (
                 <div className="sm:hidden p-4 border-b border-gray-200 bg-rose-50">
                   <button
@@ -541,9 +542,9 @@ const Navbar = () => {
                       else if (userRole === "vendor") router.push("/vendor-dashboard");
                       setMobileMenuOpen(false);
                     }}
-                    className="w-full flex items-center gap-3 px-4 py-3 bg-white rounded-lg text-rose-500 font-semibold hover:bg-rose-100 transition-colors"
+                    className="w-full flex items-center gap-3 px-4 py-4 bg-white rounded-lg text-rose-500 font-semibold hover:bg-rose-100 transition-colors text-base"
                   >
-                    <User size={20} />
+                    <User size={24} />
                     <span>My Account</span>
                   </button>
                   <button
@@ -555,31 +556,31 @@ const Navbar = () => {
                       router.push("/auth");
                       setMobileMenuOpen(false);
                     }}
-                    className="w-full mt-2 flex items-center justify-center gap-2 px-4 py-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors font-medium text-sm"
+                    className="w-full mt-2 flex items-center justify-center gap-2 px-4 py-3 text-red-600 hover:bg-red-50 rounded-lg transition-colors font-medium text-base"
                   >
                     Logout
                   </button>
                 </div>
               )}
 
-              {/* Mobile Navigation Links */}
+              {/* Mobile Navigation Links - BIGGER */}
               <div className="p-4">
                 {navigationLinks.map((link, index) => (
-                  <div key={index} className="mb-2">
+                  <div key={index} className="mb-3">
                     {link.hasMegaMenu ? (
                       <div className="border border-gray-200 rounded-lg overflow-hidden">
                         <button
                           onClick={() =>
                             setOpenDropdown(openDropdown === index ? null : index)
                           }
-                          className="w-full flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-rose-50 hover:text-rose-500 font-semibold transition-colors duration-200 bg-gray-50"
+                          className="w-full flex items-center justify-between px-5 py-4 text-gray-700 hover:bg-rose-50 hover:text-rose-500 font-semibold transition-colors duration-200 bg-gray-50 text-base"
                         >
                           <div className="flex items-center gap-3">
-                            <link.icon size={20} className="text-rose-500" />
+                            <link.icon size={24} className="text-rose-500" />
                             <span>{link.name}</span>
                           </div>
                           <ChevronDown
-                            size={20}
+                            size={22}
                             className={`transition-transform duration-300 ${
                               openDropdown === index ? "rotate-180" : ""
                             }`}
@@ -602,11 +603,11 @@ const Navbar = () => {
                                   key={idx}
                                   href={item.link}
                                   onClick={() => setMobileMenuOpen(false)}
-                                  className="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-rose-50 hover:text-rose-500 transition-colors duration-150 border-b border-gray-100 last:border-b-0"
+                                  className="flex items-center gap-3 px-5 py-4 text-base text-gray-600 hover:bg-rose-50 hover:text-rose-500 transition-colors duration-150 border-b border-gray-100 last:border-b-0"
                                 >
-                                  <ItemIcon size={18} className="text-gray-400" />
+                                  <ItemIcon size={22} className="text-gray-400" />
                                   <span>{item.name}</span>
-                                  <ChevronRight size={16} className="ml-auto text-gray-400" />
+                                  <ChevronRight size={18} className="ml-auto text-gray-400" />
                                 </Link>
                               );
                             })}
@@ -617,9 +618,9 @@ const Navbar = () => {
                       <Link
                         href={link.link}
                         onClick={() => setMobileMenuOpen(false)}
-                        className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-rose-50 hover:text-rose-500 font-semibold rounded-lg transition-colors duration-200 border border-gray-200"
+                        className="flex items-center gap-3 px-5 py-4 text-gray-700 hover:bg-rose-50 hover:text-rose-500 font-semibold rounded-lg transition-colors duration-200 border border-gray-200 text-base"
                       >
-                        <link.icon size={20} className="text-rose-500" />
+                        <link.icon size={24} className="text-rose-500" />
                         <span>{link.name}</span>
                       </Link>
                     )}

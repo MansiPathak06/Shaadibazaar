@@ -282,7 +282,7 @@ function FeaturedProducts() {
 
           <Fragment>
             <div className='flex justify-center pt-16'>
-              <Link href={"/accessories/all-products?category=Trending Shoes"}>
+              <Link href={"/accessories/all-products?category=Trending Collection"}>
                 <button className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900">
                   <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
                   <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
@@ -313,8 +313,8 @@ function FeaturedProducts() {
 
 function PerfectPairCollection() {
 
-  const BOYS_URL = '/accessories/all-products?category=boys'
-  const GIRLS_URL = '/accessories/all-products?category=girls'
+  const BOYS_URL = '/accessories/all-products?category=Shoes&subCategory=Boys'
+  const GIRLS_URL = '/accessories/all-products?category=Shoes&subCategory=Girls'
   return (
     <div className="max-w-7xl mx-auto py-16 px-4">
       <div className="text-center mb-16">
@@ -413,7 +413,7 @@ function GroomCollection() {
     }).format(price);
   };
 
-  const ALL_PRODUCTS_URL = "/accessories/all-products?category=Groom Collection";
+  const ALL_PRODUCTS_URL = "/accessories/all-products?category=Shoes";
 
   return (
     <div className="max-w-7xl mx-auto py-12 px-4">
@@ -483,7 +483,7 @@ function GroomCollection() {
                   </div>
                   <div className="p-4">
                     <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">
-                      Groom's Collection
+                      Men's Collection
                     </p>
                     <h3 className="text-gray-800 font-medium mb-2 line-clamp-1">{product.name}</h3>
                     <div className="flex items-center mb-3">
@@ -513,7 +513,7 @@ function GroomCollection() {
 
           <Fragment>
             <div className='flex justify-center pt-8 pb-12'>
-              <Link href={ALL_PRODUCTS_URL}>
+              <Link href={'/accessories/all-products?category=Shoes&subCategory=Mens Collection'}>
                 <button className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900">
                   <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
                   <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
@@ -687,7 +687,7 @@ function BrideCollection() {
 
           <Fragment>
             <div className='flex justify-center py-16'>
-              <Link href={ALL_PRODUCTS_URL}>
+              <Link href={'/accessories/all-products?category=Shoes&subCategory=Womens Collection'}>
                 <button
                   className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900"
                 >
@@ -747,11 +747,11 @@ const HeroSection = () => {
 
             <div className="flex flex-wrap gap-4">
 
-           <Link href={"/accessories/all-products?category=Featured Collection"}>
-              <button className="bg-gray-900 text-white px-8 py-4 rounded-full font-normal cursor-pointer hover:bg-gray-800 transition-all hover:scale-105 shadow-lg">
-                Explore Collection
-              </button>
-           </Link>
+              <Link href={"/accessories/all-products?category=Trending Collection"}>
+                <button className="bg-gray-900 text-white px-8 py-4 rounded-full font-normal cursor-pointer hover:bg-gray-800 transition-all hover:scale-105 shadow-lg">
+                  Explore Collection
+                </button>
+              </Link>
 
               <button className="bg-white text-gray-900 px-8 py-4 rounded-full font-normal cursor-pointer border-2 border-gray-200 hover:border-gray-400 transition-all hover:scale-105">
                 View Lookbook
@@ -832,19 +832,19 @@ const HeroSection = () => {
                 title: "Running Shoes",
                 desc: "Performance meets comfort",
                 image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
-                categorylink:"/accessories/all-products?category=Running Shoes"
+                categorylink: "/accessories/all-products?category=Running Shoes"
               },
               {
                 title: "Casual Sneakers",
                 desc: "Everyday style essentials",
                 image: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=300&fit=crop&crop=center",
-                  categorylink:"/accessories/all-products?category=Casual Sneakers"
+                categorylink: "/accessories/all-products?category=Casual Sneakers"
               },
               {
                 title: "Sports Collection",
                 desc: "Engineered for athletes",
                 image: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=300&fit=crop&crop=center",
-                  categorylink:"/accessories/all-products?category=Sports Collection"
+                categorylink: "/accessories/all-products?category=Sports Collection"
               }
             ].map((category, i) => (
               <div key={i} className={`group bg-gradient-to-br ${i === 0 ? 'from-pink-100 to-pink-50' :

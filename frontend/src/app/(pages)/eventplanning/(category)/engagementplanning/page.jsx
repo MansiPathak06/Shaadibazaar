@@ -144,11 +144,7 @@ export default function EngagementPlanning() {
           </div>
         </div>
 
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white rounded-full mt-2"></div>
-          </div>
-        </div>
+
       </div>
 
       {/* Video Section */}
@@ -165,24 +161,10 @@ export default function EngagementPlanning() {
 
           <div className="relative rounded-3xl overflow-hidden shadow-2xl">
             <div className="relative h-140">
-              {/* Replace the src with your YouTube/Vimeo embed or direct video URL */}
-              {/* <iframe
-                className="absolute inset-0 w-full h-full"
-                src=""
-                title="Engagement Showcase Video"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe> */}
+
               <iframe className='h-full w-full' src="https://www.youtube.com/embed/uwcC0Gsh_nA?si=L6c6iPPJ7wjh8OHS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-              {/* Alternative: Direct video link */}
-              {/* <video
-                className="absolute inset-0 w-full h-full object-cover"
-                controls
-                poster="https://example.com/video-thumbnail.jpg"
-              >
-                <source src="https://example.com/engagement-video.mp4" type="video/mp4" />
-              </video> */}
+
             </div>
           </div>
         </div>

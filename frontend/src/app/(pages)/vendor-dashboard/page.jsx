@@ -74,10 +74,11 @@ export default function VendorDashboard() {
       "Contemporary",
       "Vintage Style",
       "Temple Jewellery",
-      "Trending Collection",
-      "Featured Collection"
+      "Trending Collection"
     ],
-    Shoes: ["Women Heels", "Men Loafers", "Sneakers", "Kids Footwear"],
+    Bags:["Tote Bags","Backpacks", "Clutches And Pouches", "Crossbody", "Messenger Bags", "Accessories", "Trending Collection"],
+    Hair_Accessories:["Hair Accessories"],
+    Shoes: ["Trending Collection", "Running Shoes", "Casual Sneakers", "Sports Collection","Girls", "Boys","Mens Collection", "Womens Collection"],
     Watches: ["Luxury Watches", "Casual Watches", "Smart Watches"],
     Perfumes: ["Men Perfumes", "Women Perfumes", "Unisex Perfumes"],
 

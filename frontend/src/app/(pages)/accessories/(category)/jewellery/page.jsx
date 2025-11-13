@@ -22,7 +22,7 @@ const Jewellery = () => {
     subtitle: "GIFALA DESIGNER",
     description: "Discover timeless elegance with our curated collection of fine jewellery",
     buttonText: "Shop Best Seller",
-    category: "/accessories/all-products?category=Jewellery&subCategory=Trending Collection",
+    category: "/accessories/all-products?category=Jewellery",
     image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761305991/jewelry-hero_d4yak4.jpg",
   };
 
@@ -95,7 +95,7 @@ const Jewellery = () => {
     try {
       setLoading(true);
       const response = await fetch(
-        "http://localhost:5000/api/products?category=Jewellery&subCategory=Featured Collection"
+        "http://localhost:5000/api/products?category=Jewellery"
       );
       const data = await response.json();
 
@@ -133,6 +133,7 @@ const Jewellery = () => {
 
   // URL for "View More" - Goes to all products list page
   const ALL_PRODUCTS_URL = "/accessories/all-products?category=Jewellery";       ///////////////////////////////////////////////////////////////////////////////////
+  const FEATURED_PRODUCTS_URL = "/accessories/all-products?category=Jewellery&subCategroy=Featured Collection";       ///////////////////////////////////////////////////////////////////////////////////
 
   // Split products: First 4 for "Best Sellers", Rest for "Jewellery Collection"
   const bestSellers = realProducts.slice(0, 4);
@@ -307,7 +308,7 @@ const Jewellery = () => {
       </section>
       <Fragment>
         <div className='flex justify-center pb-12'>
-          <Link href={ALL_PRODUCTS_URL}>
+          <Link href={"/accessories/all-products?category=Jewellery"}>
             <button
               className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900"
             >
@@ -439,7 +440,7 @@ const Jewellery = () => {
       </section>
       <Fragment>
         <div className='flex justify-center pb-16'>
-          <Link href={ALL_PRODUCTS_URL}>
+          <Link href={'/accessories/all-products?category=Jewellery&subCategory=Trending Collection'}>
             <button
               className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900"
             >

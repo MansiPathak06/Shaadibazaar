@@ -2,6 +2,8 @@
 
 import React from 'react';
 import { Heart, Sparkles, Camera, Phone, ChefHat, Crown, Gem, Users, Award, CheckCircle, Star, Utensils, FlowerIcon as Flower, Clock, Flame, Coffee } from 'lucide-react';
+import Link from "next/link";
+import Fragment from 'react'
 
 export default function WeddingCateringWebsite() {
 
@@ -68,9 +70,11 @@ export default function WeddingCateringWebsite() {
                         we create unforgettable gastronomic journeys for your wedding celebration.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4">
-                        <button className="bg-white text-stone-800 w-80 px-8 py-4 rounded-lg hover:bg-stone-100 hover:-translate-y-1 transition flex items-center justify-center gap-2 text-sm font-medium cursor-pointer">
-                            <ChefHat size={18} /> Explore Our Menu
-                        </button>
+                        <Link href={`/cateringanddecor/all-services?category=Wedding Catering`}>
+                            <button className="bg-white text-stone-800 w-80 px-8 py-4 rounded-lg hover:bg-stone-100 hover:-translate-y-1 transition flex items-center justify-center gap-2 text-sm font-medium cursor-pointer">
+                                <ChefHat size={18} /> Explore Our Menu
+                            </button>
+                        </Link>
                         {/* <button className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white/10 transition flex items-center justify-center gap-2 text-sm font-medium">
                             <Phone size={18} /> Get A Quote
                         </button> */}
@@ -105,7 +109,8 @@ export default function WeddingCateringWebsite() {
 
                         <div className="grid md:grid-cols-3 gap-8">
                             {/* Vegetarian Starters Card */}
-                            <div className="group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3">
+                            {/* <Link href={`/cateringanddecor/all-services/${service.id}`}> */}
+                            <div className="group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 cursor-pointer">
                                 {/* Image Section with Enhanced Overlay */}
                                 <div className="relative h-56 overflow-hidden">
                                     <img
@@ -116,7 +121,7 @@ export default function WeddingCateringWebsite() {
                                     <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent"></div>
 
                                     {/* Floating Badge */}
-                                    <div className="absolute top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg flex items-center gap-2">
+                                    <div className="absolute top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-full text-xs font-normal shadow-lg flex items-center gap-2">
                                         <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
                                         Pure Veg
                                     </div>
@@ -125,7 +130,7 @@ export default function WeddingCateringWebsite() {
                                     <div className="absolute bottom-0 left-0 right-0 p-6">
                                         <div className="flex items-center mb-2">
                                             <div className="h-1 w-12 bg-green-500 rounded-full mr-3"></div>
-                                            <span className="text-white/80 text-xs font-semibold uppercase tracking-wider">Vegetarian Delights</span>
+                                            <span className="text-white/80 text-xs font-mrdium uppercase tracking-wider">Vegetarian Delights</span>
                                         </div>
                                         <h4 className="text-2xl font-normal text-white">Vegetarian Starters</h4>
                                     </div>
@@ -218,9 +223,11 @@ export default function WeddingCateringWebsite() {
                                     </div>
                                 </div>
                             </div>
+                            {/* </Link> */}
 
                             {/* Non-Vegetarian Starters Card */}
-                            <div className="group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3">
+                            {/* <Link href={`/cateringanddecor/all-services/${service.id}`}> */}
+                            <div className="group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 cursor-pointer">
                                 <div className="relative h-56 overflow-hidden">
                                     <img
                                         src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
@@ -229,7 +236,7 @@ export default function WeddingCateringWebsite() {
                                     />
                                     <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent"></div>
 
-                                    <div className="absolute top-4 right-4 bg-red-500 text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg flex items-center gap-2">
+                                    <div className="absolute top-4 right-4 bg-red-500 text-white px-4 py-2 rounded-full text-xs font-normal shadow-lg flex items-center gap-2">
                                         <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
                                         Non-Veg
                                     </div>
@@ -237,7 +244,7 @@ export default function WeddingCateringWebsite() {
                                     <div className="absolute bottom-0 left-0 right-0 p-6">
                                         <div className="flex items-center mb-2">
                                             <div className="h-1 w-12 bg-red-500 rounded-full mr-3"></div>
-                                            <span className="text-white/80 text-xs font-semibold uppercase tracking-wider">Meat Specialties</span>
+                                            <span className="text-white/80 text-xs font-medium uppercase tracking-wider">Meat Specialties</span>
                                         </div>
                                         <h4 className="text-2xl font-medium text-white">Non-Vegetarian Starters</h4>
                                     </div>
@@ -328,9 +335,11 @@ export default function WeddingCateringWebsite() {
                                     </div>
                                 </div>
                             </div>
+                            {/* </Link>  */}
 
                             {/* Chaat & Street Food Card */}
-                            <div className="group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3">
+                            {/* <Link href={`/cateringanddecor/all-services/${service.id}`}> */}
+                            <div className="group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 cursor-pointer">
                                 <div className="relative h-56 overflow-hidden">
                                     <img
                                         src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
@@ -339,7 +348,7 @@ export default function WeddingCateringWebsite() {
                                     />
                                     <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent"></div>
 
-                                    <div className="absolute top-4 right-4 bg-amber-500 text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg flex items-center gap-2">
+                                    <div className="absolute top-4 right-4 bg-amber-500 text-white px-4 py-2 rounded-full text-xs font-normal shadow-lg flex items-center gap-2">
                                         <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
                                         Street Food
                                     </div>
@@ -347,7 +356,7 @@ export default function WeddingCateringWebsite() {
                                     <div className="absolute bottom-0 left-0 right-0 p-6">
                                         <div className="flex items-center mb-2">
                                             <div className="h-1 w-12 bg-amber-500 rounded-full mr-3"></div>
-                                            <span className="text-white/80 text-xs font-semibold uppercase tracking-wider">Indian Street Classics</span>
+                                            <span className="text-white/80 text-xs font-medium uppercase tracking-wider">Indian Street Classics</span>
                                         </div>
                                         <h4 className="text-2xl font-medium text-white">Chaat & Street Food</h4>
                                     </div>
@@ -438,8 +447,38 @@ export default function WeddingCateringWebsite() {
                                     </div>
                                 </div>
                             </div>
+                            {/* </Link> */}
                         </div>
                     </div>
+
+                    {/* <Fragment>
+                        <div className='flex justify-center py-16'>
+                            <button
+                                className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900"
+                            >
+                              
+                                <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
+
+                             
+                                <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
+                                    View More Appetizers & Starters
+                                    <svg
+                                        className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={1.5}
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                                        />
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
+                    </Fragment> */}
 
 
                     {/* Main Course Section */}
@@ -459,7 +498,8 @@ export default function WeddingCateringWebsite() {
 
                         <div className="grid md:grid-cols-2 gap-8 mb-8">
                             {/* Vegetarian Main Course Card */}
-                            <div className="group relative bg-linear-to-br from-white via-green-50/30 to-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-green-100 overflow-hidden">
+                            {/* <Link> */}
+                            <div className="group relative bg-linear-to-br from-white via-green-50/30 to-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-green-100 overflow-hidden cursor-pointer">
                                 {/* Decorative Background Elements */}
                                 <div className="absolute top-0 right-0 w-40 h-40 bg-green-300/10 rounded-full blur-3xl group-hover:bg-green-400/20 transition-all duration-500"></div>
                                 <div className="absolute bottom-0 left-0 w-32 h-32 bg-emerald-300/10 rounded-full blur-2xl group-hover:bg-emerald-400/20 transition-all duration-500"></div>
@@ -623,9 +663,12 @@ export default function WeddingCateringWebsite() {
                                     </div>
                                 </div>
                             </div>
+                            
+                            {/* </Link> */}
 
                             {/* Non-Vegetarian Main Course Card */}
-                            <div className="group relative bg-linear-to-br from-white via-red-50/30 to-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-red-100 overflow-hidden">
+                            {/* <Link> */}
+                            <div className="group relative bg-linear-to-br from-white via-red-50/30 to-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-red-100 overflow-hidden cursor-pointer">
                                 <div className="absolute top-0 right-0 w-40 h-40 bg-red-300/10 rounded-full blur-3xl group-hover:bg-red-400/20 transition-all duration-500"></div>
                                 <div className="absolute bottom-0 left-0 w-32 h-32 bg-orange-300/10 rounded-full blur-2xl group-hover:bg-orange-400/20 transition-all duration-500"></div>
 
@@ -780,6 +823,7 @@ export default function WeddingCateringWebsite() {
                                     </div>
                                 </div>
                             </div>
+                            {/* </Link> */}
                         </div>
                     </div>
 
@@ -1450,303 +1494,312 @@ export default function WeddingCateringWebsite() {
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {/* Continental Card */}
-                        <div className="group relative bg-linear-to-br from-blue-50 via-white to-blue-100 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-blue-200 overflow-hidden">
-                            {/* Decorative Background */}
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-300/20 rounded-full blur-3xl group-hover:bg-blue-400/30 transition-all duration-500"></div>
-                            <div className="absolute bottom-0 left-0 w-24 h-24 bg-indigo-300/20 rounded-full blur-2xl group-hover:bg-indigo-400/30 transition-all duration-500"></div>
+                        {/* <Link> */}
+                            <div className="group relative bg-linear-to-br from-blue-50 via-white to-blue-100 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-blue-200 overflow-hidden cursor-pointer">
+                                {/* Decorative Background */}
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-300/20 rounded-full blur-3xl group-hover:bg-blue-400/30 transition-all duration-500"></div>
+                                <div className="absolute bottom-0 left-0 w-24 h-24 bg-indigo-300/20 rounded-full blur-2xl group-hover:bg-indigo-400/30 transition-all duration-500"></div>
 
-                            <div className="relative z-10">
-                                {/* Icon Container */}
-                                <div className="w-20 h-20 bg-linear-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                                    <Utensils className="w-10 h-10 text-white" />
-                                </div>
+                                <div className="relative z-10">
+                                    {/* Icon Container */}
+                                    <div className="w-20 h-20 bg-linear-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                                        <Utensils className="w-10 h-10 text-white" />
+                                    </div>
 
-                                {/* Badge */}
-                                <div className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
-                                    Classic
-                                </div>
+                                    {/* Badge */}
+                                    <div className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
+                                        Classic
+                                    </div>
 
-                                {/* Title */}
-                                <h4 className="text-xl font-medium text-center text-stone-800 mb-2 group-hover:text-blue-700 transition-colors">
-                                    Continental
-                                </h4>
-                                <p className="text-xs text-center text-blue-600 font-thin uppercase tracking-wider mb-4">Western Favorites</p>
+                                    {/* Title */}
+                                    <h4 className="text-xl font-medium text-center text-stone-800 mb-2 group-hover:text-blue-700 transition-colors">
+                                        Continental
+                                    </h4>
+                                    <p className="text-xs text-center text-blue-600 font-thin uppercase tracking-wider mb-4">Western Favorites</p>
 
-                                {/* Divider */}
-                                <div className="flex items-center justify-center mb-5">
-                                    <div className="h-1 w-12 bg-linear-to-r from-blue-400 to-indigo-500 rounded-full"></div>
-                                </div>
+                                    {/* Divider */}
+                                    <div className="flex items-center justify-center mb-5">
+                                        <div className="h-1 w-12 bg-linear-to-r from-blue-400 to-indigo-500 rounded-full"></div>
+                                    </div>
 
-                                {/* List */}
-                                <ul className="space-y-3 mb-6">
-                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                        <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-blue-200 transition-colors">
-                                            <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                                        </div>
-                                        <span className="text-sm text-stone-700">Grilled Steaks & Chops</span>
-                                    </li>
-                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                        <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-blue-200 transition-colors">
-                                            <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                                        </div>
-                                        <span className="text-sm text-stone-700">Roasted Vegetables</span>
-                                    </li>
-                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                        <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-blue-200 transition-colors">
-                                            <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                                        </div>
-                                        <span className="text-sm text-stone-700">Mashed Potatoes</span>
-                                    </li>
-                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                        <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-blue-200 transition-colors">
-                                            <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                                        </div>
-                                        <span className="text-sm text-stone-700">Garlic Bread</span>
-                                    </li>
-                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                        <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-blue-200 transition-colors">
-                                            <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                                        </div>
-                                        <span className="text-sm text-stone-700">Caesar Salad</span>
-                                    </li>
-                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                        <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-blue-200 transition-colors">
-                                            <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                                        </div>
-                                        <span className="text-sm text-stone-700">Mushroom Soup</span>
-                                    </li>
-                                </ul>
+                                    {/* List */}
+                                    <ul className="space-y-3 mb-6">
+                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                            <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-blue-200 transition-colors">
+                                                <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                                            </div>
+                                            <span className="text-sm text-stone-700">Grilled Steaks & Chops</span>
+                                        </li>
+                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                            <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-blue-200 transition-colors">
+                                                <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                                            </div>
+                                            <span className="text-sm text-stone-700">Roasted Vegetables</span>
+                                        </li>
+                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                            <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-blue-200 transition-colors">
+                                                <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                                            </div>
+                                            <span className="text-sm text-stone-700">Mashed Potatoes</span>
+                                        </li>
+                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                            <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-blue-200 transition-colors">
+                                                <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                                            </div>
+                                            <span className="text-sm text-stone-700">Garlic Bread</span>
+                                        </li>
+                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                            <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-blue-200 transition-colors">
+                                                <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                                            </div>
+                                            <span className="text-sm text-stone-700">Caesar Salad</span>
+                                        </li>
+                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                            <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-blue-200 transition-colors">
+                                                <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                                            </div>
+                                            <span className="text-sm text-stone-700">Mushroom Soup</span>
+                                        </li>
+                                    </ul>
 
-                                {/* Footer */}
-                                <div className="pt-4 border-t border-blue-200 flex items-center justify-between">
-                                    <span className="text-xs font-thin text-blue-700 uppercase tracking-wider">6 Dishes</span>
-                                    <div className="flex items-center gap-1">
-                                        <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                                        <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                                        <div className="w-2 h-2 bg-blue-300 rounded-full"></div>
+                                    {/* Footer */}
+                                    <div className="pt-4 border-t border-blue-200 flex items-center justify-between">
+                                        <span className="text-xs font-thin text-blue-700 uppercase tracking-wider">6 Dishes</span>
+                                        <div className="flex items-center gap-1">
+                                            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                                            <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                                            <div className="w-2 h-2 bg-blue-300 rounded-full"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        {/* </Link> */}
 
                         {/* Italian Card */}
-                        <div className="group relative bg-linear-to-br from-red-50 via-white to-orange-100 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-red-200 overflow-hidden">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-red-300/20 rounded-full blur-3xl group-hover:bg-red-400/30 transition-all duration-500"></div>
-                            <div className="absolute bottom-0 left-0 w-24 h-24 bg-orange-300/20 rounded-full blur-2xl group-hover:bg-orange-400/30 transition-all duration-500"></div>
 
-                            <div className="relative z-10">
-                                <div className="w-20 h-20 bg-linear-to-br from-red-500 to-orange-600 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                                    <ChefHat className="w-10 h-10 text-white" />
-                                </div>
+                        {/* <Link> */}
+                            <div className="group relative bg-linear-to-br from-red-50 via-white to-orange-100 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-red-200 overflow-hidden cursor-pointer">
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-red-300/20 rounded-full blur-3xl group-hover:bg-red-400/30 transition-all duration-500"></div>
+                                <div className="absolute bottom-0 left-0 w-24 h-24 bg-orange-300/20 rounded-full blur-2xl group-hover:bg-orange-400/30 transition-all duration-500"></div>
 
-                                <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
-                                    Authentic
-                                </div>
+                                <div className="relative z-10">
+                                    <div className="w-20 h-20 bg-linear-to-br from-red-500 to-orange-600 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                                        <ChefHat className="w-10 h-10 text-white" />
+                                    </div>
 
-                                <h4 className="text-xl font-medium text-center text-stone-800 mb-2 group-hover:text-red-700 transition-colors">
-                                    Italian
-                                </h4>
-                                <p className="text-xs text-center text-red-600 font-thin uppercase tracking-wider mb-4">Mediterranean Cuisine</p>
+                                    <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
+                                        Authentic
+                                    </div>
 
-                                <div className="flex items-center justify-center mb-5">
-                                    <div className="h-1 w-12 bg-linear-to-r from-red-400 to-orange-500 rounded-full"></div>
-                                </div>
+                                    <h4 className="text-xl font-medium text-center text-stone-800 mb-2 group-hover:text-red-700 transition-colors">
+                                        Italian
+                                    </h4>
+                                    <p className="text-xs text-center text-red-600 font-thin uppercase tracking-wider mb-4">Mediterranean Cuisine</p>
 
-                                <ul className="space-y-3 mb-6">
-                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                        <div className="w-6 h-6 bg-red-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-red-200 transition-colors">
-                                            <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                                        </div>
-                                        <span className="text-sm text-stone-700">Live Pasta Station</span>
-                                    </li>
-                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                        <div className="w-6 h-6 bg-red-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-red-200 transition-colors">
-                                            <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                                        </div>
-                                        <span className="text-sm text-stone-700">Wood-Fired Pizza</span>
-                                    </li>
-                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                        <div className="w-6 h-6 bg-red-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-red-200 transition-colors">
-                                            <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                                        </div>
-                                        <span className="text-sm text-stone-700">Risotto Varieties</span>
-                                    </li>
-                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                        <div className="w-6 h-6 bg-red-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-red-200 transition-colors">
-                                            <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                                        </div>
-                                        <span className="text-sm text-stone-700">Bruschetta</span>
-                                    </li>
-                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                        <div className="w-6 h-6 bg-red-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-red-200 transition-colors">
-                                            <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                                        </div>
-                                        <span className="text-sm text-stone-700">Lasagna</span>
-                                    </li>
-                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                        <div className="w-6 h-6 bg-red-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-red-200 transition-colors">
-                                            <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                                        </div>
-                                        <span className="text-sm text-stone-700">Tiramisu</span>
-                                    </li>
-                                </ul>
+                                    <div className="flex items-center justify-center mb-5">
+                                        <div className="h-1 w-12 bg-linear-to-r from-red-400 to-orange-500 rounded-full"></div>
+                                    </div>
 
-                                <div className="pt-4 border-t border-red-200 flex items-center justify-between">
-                                    <span className="text-xs font-thin text-red-700 uppercase tracking-wider">6 Dishes</span>
-                                    <div className="flex items-center gap-1">
-                                        <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                                        <div className="w-2 h-2 bg-red-400 rounded-full"></div>
-                                        <div className="w-2 h-2 bg-red-300 rounded-full"></div>
+                                    <ul className="space-y-3 mb-6">
+                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                            <div className="w-6 h-6 bg-red-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-red-200 transition-colors">
+                                                <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+                                            </div>
+                                            <span className="text-sm text-stone-700">Live Pasta Station</span>
+                                        </li>
+                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                            <div className="w-6 h-6 bg-red-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-red-200 transition-colors">
+                                                <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+                                            </div>
+                                            <span className="text-sm text-stone-700">Wood-Fired Pizza</span>
+                                        </li>
+                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                            <div className="w-6 h-6 bg-red-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-red-200 transition-colors">
+                                                <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+                                            </div>
+                                            <span className="text-sm text-stone-700">Risotto Varieties</span>
+                                        </li>
+                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                            <div className="w-6 h-6 bg-red-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-red-200 transition-colors">
+                                                <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+                                            </div>
+                                            <span className="text-sm text-stone-700">Bruschetta</span>
+                                        </li>
+                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                            <div className="w-6 h-6 bg-red-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-red-200 transition-colors">
+                                                <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+                                            </div>
+                                            <span className="text-sm text-stone-700">Lasagna</span>
+                                        </li>
+                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                            <div className="w-6 h-6 bg-red-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-red-200 transition-colors">
+                                                <div className="w-2 h-2 bg-red-600 rounded-full"></div>
+                                            </div>
+                                            <span className="text-sm text-stone-700">Tiramisu</span>
+                                        </li>
+                                    </ul>
+
+                                    <div className="pt-4 border-t border-red-200 flex items-center justify-between">
+                                        <span className="text-xs font-thin text-red-700 uppercase tracking-wider">6 Dishes</span>
+                                        <div className="flex items-center gap-1">
+                                            <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                                            <div className="w-2 h-2 bg-red-400 rounded-full"></div>
+                                            <div className="w-2 h-2 bg-red-300 rounded-full"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        {/* </Link> */}
 
                         {/* Chinese Card */}
-                        <div className="group relative bg-linear-to-br from-green-50 via-white to-emerald-100 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-green-200 overflow-hidden">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-green-300/20 rounded-full blur-3xl group-hover:bg-green-400/30 transition-all duration-500"></div>
-                            <div className="absolute bottom-0 left-0 w-24 h-24 bg-emerald-300/20 rounded-full blur-2xl group-hover:bg-emerald-400/30 transition-all duration-500"></div>
+                        {/* <Link> */}
+                            <div className="group relative bg-linear-to-br from-green-50 via-white to-emerald-100 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-green-200 overflow-hidden cursor-pointer">
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-green-300/20 rounded-full blur-3xl group-hover:bg-green-400/30 transition-all duration-500"></div>
+                                <div className="absolute bottom-0 left-0 w-24 h-24 bg-emerald-300/20 rounded-full blur-2xl group-hover:bg-emerald-400/30 transition-all duration-500"></div>
 
-                            <div className="relative z-10">
-                                <div className="w-20 h-20 bg-linear-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                                    <Star className="w-10 h-10 text-white" />
-                                </div>
+                                <div className="relative z-10">
+                                    <div className="w-20 h-20 bg-linear-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                                        <Star className="w-10 h-10 text-white" />
+                                    </div>
 
-                                <div className="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
-                                    Popular
-                                </div>
+                                    <div className="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
+                                        Popular
+                                    </div>
 
-                                <h4 className="text-xl font-mdeium text-center text-stone-800 mb-2 group-hover:text-green-700 transition-colors">
-                                    Chinese
-                                </h4>
-                                <p className="text-xs text-center text-green-600 font-thin uppercase tracking-wider mb-4">Asian Delights</p>
+                                    <h4 className="text-xl font-mdeium text-center text-stone-800 mb-2 group-hover:text-green-700 transition-colors">
+                                        Chinese
+                                    </h4>
+                                    <p className="text-xs text-center text-green-600 font-thin uppercase tracking-wider mb-4">Asian Delights</p>
 
-                                <div className="flex items-center justify-center mb-5">
-                                    <div className="h-1 w-12 bg-linear-to-r from-green-400 to-emerald-500 rounded-full"></div>
-                                </div>
+                                    <div className="flex items-center justify-center mb-5">
+                                        <div className="h-1 w-12 bg-linear-to-r from-green-400 to-emerald-500 rounded-full"></div>
+                                    </div>
 
-                                <ul className="space-y-3 mb-6">
-                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                        <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-green-200 transition-colors">
-                                            <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                                        </div>
-                                        <span className="text-sm text-stone-700">Hakka Noodles</span>
-                                    </li>
-                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                        <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-green-200 transition-colors">
-                                            <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                                        </div>
-                                        <span className="text-sm text-stone-700">Fried Rice</span>
-                                    </li>
-                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                        <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-green-200 transition-colors">
-                                            <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                                        </div>
-                                        <span className="text-sm text-stone-700">Manchurian</span>
-                                    </li>
-                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                        <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-green-200 transition-colors">
-                                            <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                                        </div>
-                                        <span className="text-sm text-stone-700">Spring Rolls</span>
-                                    </li>
-                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                        <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-green-200 transition-colors">
-                                            <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                                        </div>
-                                        <span className="text-sm text-stone-700">Dim Sum Station</span>
-                                    </li>
-                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                        <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-green-200 transition-colors">
-                                            <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                                        </div>
-                                        <span className="text-sm text-stone-700">Szechuan Specialties</span>
-                                    </li>
-                                </ul>
+                                    <ul className="space-y-3 mb-6">
+                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                            <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-green-200 transition-colors">
+                                                <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+                                            </div>
+                                            <span className="text-sm text-stone-700">Hakka Noodles</span>
+                                        </li>
+                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                            <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-green-200 transition-colors">
+                                                <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+                                            </div>
+                                            <span className="text-sm text-stone-700">Fried Rice</span>
+                                        </li>
+                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                            <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-green-200 transition-colors">
+                                                <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+                                            </div>
+                                            <span className="text-sm text-stone-700">Manchurian</span>
+                                        </li>
+                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                            <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-green-200 transition-colors">
+                                                <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+                                            </div>
+                                            <span className="text-sm text-stone-700">Spring Rolls</span>
+                                        </li>
+                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                            <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-green-200 transition-colors">
+                                                <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+                                            </div>
+                                            <span className="text-sm text-stone-700">Dim Sum Station</span>
+                                        </li>
+                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                            <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-green-200 transition-colors">
+                                                <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+                                            </div>
+                                            <span className="text-sm text-stone-700">Szechuan Specialties</span>
+                                        </li>
+                                    </ul>
 
-                                <div className="pt-4 border-t border-green-200 flex items-center justify-between">
-                                    <span className="text-xs font-thin text-green-700 uppercase tracking-wider">6 Dishes</span>
-                                    <div className="flex items-center gap-1">
-                                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                                        <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                                        <div className="w-2 h-2 bg-green-300 rounded-full"></div>
+                                    <div className="pt-4 border-t border-green-200 flex items-center justify-between">
+                                        <span className="text-xs font-thin text-green-700 uppercase tracking-wider">6 Dishes</span>
+                                        <div className="flex items-center gap-1">
+                                            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                                            <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                                            <div className="w-2 h-2 bg-green-300 rounded-full"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        {/* </Link> */}
 
                         {/* Mexican Card */}
-                        <div className="group relative bg-linear-to-br from-purple-50 via-white to-pink-100 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-purple-200 overflow-hidden">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-purple-300/20 rounded-full blur-3xl group-hover:bg-purple-400/30 transition-all duration-500"></div>
-                            <div className="absolute bottom-0 left-0 w-24 h-24 bg-pink-300/20 rounded-full blur-2xl group-hover:bg-pink-400/30 transition-all duration-500"></div>
+                        {/* <Link> */}
+                            <div className="group relative bg-linear-to-br from-purple-50 via-white to-pink-100 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-purple-200 overflow-hidden cursor-pointer">
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-purple-300/20 rounded-full blur-3xl group-hover:bg-purple-400/30 transition-all duration-500"></div>
+                                <div className="absolute bottom-0 left-0 w-24 h-24 bg-pink-300/20 rounded-full blur-2xl group-hover:bg-pink-400/30 transition-all duration-500"></div>
 
-                            <div className="relative z-10">
-                                <div className="w-20 h-20 bg-linear-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                                    <Crown className="w-10 h-10 text-white" />
-                                </div>
+                                <div className="relative z-10">
+                                    <div className="w-20 h-20 bg-linear-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                                        <Crown className="w-10 h-10 text-white" />
+                                    </div>
 
-                                <div className="absolute top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
-                                    Exotic
-                                </div>
+                                    <div className="absolute top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">
+                                        Exotic
+                                    </div>
 
-                                <h4 className="text-xl font-medium text-center text-stone-800 mb-2 group-hover:text-purple-700 transition-colors">
-                                    Mexican
-                                </h4>
-                                <p className="text-xs text-center text-purple-600 font-thin uppercase tracking-wider mb-4">Fiesta Flavors</p>
+                                    <h4 className="text-xl font-medium text-center text-stone-800 mb-2 group-hover:text-purple-700 transition-colors">
+                                        Mexican
+                                    </h4>
+                                    <p className="text-xs text-center text-purple-600 font-thin uppercase tracking-wider mb-4">Fiesta Flavors</p>
 
-                                <div className="flex items-center justify-center mb-5">
-                                    <div className="h-1 w-12 bg-linear-to-r from-purple-400 to-pink-500 rounded-full"></div>
-                                </div>
+                                    <div className="flex items-center justify-center mb-5">
+                                        <div className="h-1 w-12 bg-linear-to-r from-purple-400 to-pink-500 rounded-full"></div>
+                                    </div>
 
-                                <ul className="space-y-3 mb-6">
-                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                        <div className="w-6 h-6 bg-purple-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-purple-200 transition-colors">
-                                            <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
-                                        </div>
-                                        <span className="text-sm text-stone-700">Tacos & Burritos</span>
-                                    </li>
-                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                        <div className="w-6 h-6 bg-purple-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-purple-200 transition-colors">
-                                            <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
-                                        </div>
-                                        <span className="text-sm text-stone-700">Nachos with Salsa</span>
-                                    </li>
-                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                        <div className="w-6 h-6 bg-purple-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-purple-200 transition-colors">
-                                            <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
-                                        </div>
-                                        <span className="text-sm text-stone-700">Guacamole Station</span>
-                                    </li>
-                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                        <div className="w-6 h-6 bg-purple-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-purple-200 transition-colors">
-                                            <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
-                                        </div>
-                                        <span className="text-sm text-stone-700">Quesadillas</span>
-                                    </li>
-                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                        <div className="w-6 h-6 bg-purple-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-purple-200 transition-colors">
-                                            <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
-                                        </div>
-                                        <span className="text-sm text-stone-700">Mexican Rice</span>
-                                    </li>
-                                    <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
-                                        <div className="w-6 h-6 bg-purple-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-purple-200 transition-colors">
-                                            <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
-                                        </div>
-                                        <span className="text-sm text-stone-700">Churros</span>
-                                    </li>
-                                </ul>
+                                    <ul className="space-y-3 mb-6">
+                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                            <div className="w-6 h-6 bg-purple-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-purple-200 transition-colors">
+                                                <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+                                            </div>
+                                            <span className="text-sm text-stone-700">Tacos & Burritos</span>
+                                        </li>
+                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                            <div className="w-6 h-6 bg-purple-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-purple-200 transition-colors">
+                                                <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+                                            </div>
+                                            <span className="text-sm text-stone-700">Nachos with Salsa</span>
+                                        </li>
+                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                            <div className="w-6 h-6 bg-purple-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-purple-200 transition-colors">
+                                                <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+                                            </div>
+                                            <span className="text-sm text-stone-700">Guacamole Station</span>
+                                        </li>
+                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                            <div className="w-6 h-6 bg-purple-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-purple-200 transition-colors">
+                                                <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+                                            </div>
+                                            <span className="text-sm text-stone-700">Quesadillas</span>
+                                        </li>
+                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                            <div className="w-6 h-6 bg-purple-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-purple-200 transition-colors">
+                                                <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+                                            </div>
+                                            <span className="text-sm text-stone-700">Mexican Rice</span>
+                                        </li>
+                                        <li className="flex items-start group/item hover:translate-x-1 transition-transform duration-200">
+                                            <div className="w-6 h-6 bg-purple-100 rounded-lg flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 group-hover/item:bg-purple-200 transition-colors">
+                                                <div className="w-2 h-2 bg-purple-600 rounded-full"></div>
+                                            </div>
+                                            <span className="text-sm text-stone-700">Churros</span>
+                                        </li>
+                                    </ul>
 
-                                <div className="pt-4 border-t border-purple-200 flex items-center justify-between">
-                                    <span className="text-xs font-thin text-purple-700 uppercase tracking-wider">6 Dishes</span>
-                                    <div className="flex items-center gap-1">
-                                        <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                                        <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                                        <div className="w-2 h-2 bg-purple-300 rounded-full"></div>
+                                    <div className="pt-4 border-t border-purple-200 flex items-center justify-between">
+                                        <span className="text-xs font-thin text-purple-700 uppercase tracking-wider">6 Dishes</span>
+                                        <div className="flex items-center gap-1">
+                                            <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                                            <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                                            <div className="w-2 h-2 bg-purple-300 rounded-full"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        {/* </Link> */}
                     </div>
 
                 </div>
@@ -1766,224 +1819,283 @@ export default function WeddingCateringWebsite() {
                         {/* Main Category Cards */}
                         <div className="grid md:grid-cols-2 gap-8">
                             {/* Traditional Indian Drinks Card */}
-                            <div className="bg-gradient-to-br from-white to-orange-50/30 rounded-3xl p-8 shadow-xl border border-orange-100/50 backdrop-blur-sm">
-                                <div className="flex items-center gap-4 mb-8">
-                                    <div className="bg-gradient-to-br from-teal-500 to-teal-600 p-4 rounded-2xl shadow-lg">
-                                        <Coffee className="w-8 h-8 text-white" />
-                                    </div>
-                                    <div>
-                                        <h4 className="text-2xl font-medium text-stone-800">Traditional Indian Drinks</h4>
-                                        <p className="text-sm text-teal-600 font-thin">Authentic Flavors</p>
-                                    </div>
-                                </div>
 
-                                <div className="grid md:grid-cols-2 gap-8">
-                                    <div className="space-y-4">
-                                        <div className="inline-block">
-                                            <span className="bg-gradient-to-r from-orange-500 to-amber-500 text-white text-xs font-thin px-4 py-1.5 rounded-full shadow-md">
-                                                Welcome Drinks
-                                            </span>
+
+                            {/* <Link> */}
+                            <div className="group relative bg-gradient-to-br from-white to-orange-50/30 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-orange-100/50 backdrop-blur-sm overflow-hidden cursor-pointer">
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-orange-300/20 rounded-full blur-3xl group-hover:bg-orange-400/30 transition-all duration-500"></div>
+                                <div className="absolute bottom-0 left-0 w-24 h-24 bg-teal-300/20 rounded-full blur-2xl group-hover:bg-teal-400/30 transition-all duration-500"></div>
+
+                                <div className="relative z-10">
+                                    <div className="flex items-center gap-4 mb-8">
+                                        <div className="bg-gradient-to-br from-teal-500 to-teal-600 p-4 rounded-2xl shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                                            <Coffee className="w-8 h-8 text-white" />
                                         </div>
-                                        <ul className="space-y-3">
-                                            <li className="flex items-start gap-3 text-stone-700">
-                                                <span className="w-2 h-2 bg-orange-400 rounded-full mt-2 flex-shrink-0"></span>
-                                                <span className="text-sm leading-relaxed">
-                                                    <strong className="font-medium">Aam Panna</strong>
-                                                    <span className="text-stone-500 text-xs block">Raw mango cooler</span>
-                                                </span>
-                                            </li>
-                                            <li className="flex items-start gap-3 text-stone-700">
-                                                <span className="w-2 h-2 bg-orange-400 rounded-full mt-2 flex-shrink-0"></span>
-                                                <span className="text-sm leading-relaxed">
-                                                    <strong className="font-medium">Jaljeera</strong>
-                                                    <span className="text-stone-500 text-xs block">Cumin-spiced water</span>
-                                                </span>
-                                            </li>
-                                            <li className="flex items-start gap-3 text-stone-700">
-                                                <span className="w-2 h-2 bg-orange-400 rounded-full mt-2 flex-shrink-0"></span>
-                                                <span className="text-sm leading-relaxed">
-                                                    <strong className="font-medium">Shikanji</strong>
-                                                    <span className="text-stone-500 text-xs block">Lemonade Indian style</span>
-                                                </span>
-                                            </li>
-                                            <li className="flex items-start gap-3 text-stone-700">
-                                                <span className="w-2 h-2 bg-orange-400 rounded-full mt-2 flex-shrink-0"></span>
-                                                <span className="text-sm leading-relaxed">
-                                                    <strong className="font-medium">Thandai</strong>
-                                                    <span className="text-stone-500 text-xs block">Festive milk drink</span>
-                                                </span>
-                                            </li>
-                                            <li className="flex items-start gap-3 text-stone-700">
-                                                <span className="w-2 h-2 bg-orange-400 rounded-full mt-2 flex-shrink-0"></span>
-                                                <span className="text-sm leading-relaxed">
-                                                    <strong className="font-medium">Rose Sherbet</strong>
-                                                    <span className="text-stone-500 text-xs block">Cooling rose drink</span>
-                                                </span>
-                                            </li>
-                                        </ul>
-                                        <div className="pt-3 border-t border-orange-200/50">
-                                            <span className="text-xs font-thin text-orange-600 flex items-center gap-2">
-                                                5 VARIETIES
-                                                <span className="flex gap-1">
-                                                    <span className="w-1.5 h-1.5 bg-orange-500 rounded-full"></span>
-                                                    <span className="w-1.5 h-1.5 bg-orange-500 rounded-full"></span>
-                                                    <span className="w-1.5 h-1.5 bg-orange-500 rounded-full"></span>
-                                                </span>
-                                            </span>
+                                        <div>
+                                            <h4 className="text-2xl font-medium text-stone-800 group-hover:text-teal-700 transition-colors">Traditional Indian Drinks</h4>
+                                            <p className="text-sm text-teal-600 font-thin">Authentic Flavors</p>
                                         </div>
                                     </div>
 
-                                    <div className="space-y-4">
-                                        <div className="inline-block">
-                                            <span className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-xs font-thin px-4 py-1.5 rounded-full shadow-md">
-                                                Dairy Beverages
-                                            </span>
+                                    <div className="grid md:grid-cols-2 gap-8">
+                                        <div className="space-y-4">
+                                            <div className="inline-block">
+                                                <span className="bg-gradient-to-r from-orange-500 to-amber-500 text-white text-xs font-thin px-4 py-1.5 rounded-full shadow-md">
+                                                    Welcome Drinks
+                                                </span>
+                                            </div>
+
+                                            <ul className="space-y-3">
+                                                <li className="flex items-start gap-3 text-stone-700 group/item hover:translate-x-1 transition-transform duration-200">
+                                                    <div className="w-6 h-6 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-orange-200 transition-colors">
+                                                        <span className="w-2 h-2 bg-orange-600 rounded-full"></span>
+                                                    </div>
+                                                    <span className="text-sm leading-relaxed">
+                                                        <strong className="font-medium">Aam Panna</strong>
+                                                        <span className="text-stone-500 text-xs block">Raw mango cooler</span>
+                                                    </span>
+                                                </li>
+                                                <li className="flex items-start gap-3 text-stone-700 group/item hover:translate-x-1 transition-transform duration-200">
+                                                    <div className="w-6 h-6 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-orange-200 transition-colors">
+                                                        <span className="w-2 h-2 bg-orange-600 rounded-full"></span>
+                                                    </div>
+                                                    <span className="text-sm leading-relaxed">
+                                                        <strong className="font-medium">Jaljeera</strong>
+                                                        <span className="text-stone-500 text-xs block">Cumin-spiced water</span>
+                                                    </span>
+                                                </li>
+                                                <li className="flex items-start gap-3 text-stone-700 group/item hover:translate-x-1 transition-transform duration-200">
+                                                    <div className="w-6 h-6 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-orange-200 transition-colors">
+                                                        <span className="w-2 h-2 bg-orange-600 rounded-full"></span>
+                                                    </div>
+                                                    <span className="text-sm leading-relaxed">
+                                                        <strong className="font-medium">Shikanji</strong>
+                                                        <span className="text-stone-500 text-xs block">Lemonade Indian style</span>
+                                                    </span>
+                                                </li>
+                                                <li className="flex items-start gap-3 text-stone-700 group/item hover:translate-x-1 transition-transform duration-200">
+                                                    <div className="w-6 h-6 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-orange-200 transition-colors">
+                                                        <span className="w-2 h-2 bg-orange-600 rounded-full"></span>
+                                                    </div>
+                                                    <span className="text-sm leading-relaxed">
+                                                        <strong className="font-medium">Thandai</strong>
+                                                        <span className="text-stone-500 text-xs block">Festive milk drink</span>
+                                                    </span>
+                                                </li>
+                                                <li className="flex items-start gap-3 text-stone-700 group/item hover:translate-x-1 transition-transform duration-200">
+                                                    <div className="w-6 h-6 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-orange-200 transition-colors">
+                                                        <span className="w-2 h-2 bg-orange-600 rounded-full"></span>
+                                                    </div>
+                                                    <span className="text-sm leading-relaxed">
+                                                        <strong className="font-medium">Rose Sherbet</strong>
+                                                        <span className="text-stone-500 text-xs block">Cooling rose drink</span>
+                                                    </span>
+                                                </li>
+                                            </ul>
+
+                                            <div className="pt-3 border-t border-orange-200/50 flex items-center justify-between">
+                                                <span className="text-xs font-thin text-orange-600 uppercase tracking-wider">5 VARIETIES</span>
+                                                <div className="flex items-center gap-1">
+                                                    <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                                                    <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+                                                    <div className="w-2 h-2 bg-orange-300 rounded-full"></div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <ul className="space-y-3">
-                                            <li className="flex items-start gap-3 text-stone-700">
-                                                <span className="w-2 h-2 bg-amber-400 rounded-full mt-2 flex-shrink-0"></span>
-                                                <span className="text-sm leading-relaxed">
-                                                    <strong className="font-medium">Mango Lassi</strong>
-                                                    <span className="text-stone-500 text-xs block">Yogurt smoothie</span>
+
+                                        <div className="space-y-4">
+                                            <div className="inline-block">
+                                                <span className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-xs font-thin px-4 py-1.5 rounded-full shadow-md">
+                                                    Dairy Beverages
                                                 </span>
-                                            </li>
-                                            <li className="flex items-start gap-3 text-stone-700">
-                                                <span className="w-2 h-2 bg-amber-400 rounded-full mt-2 flex-shrink-0"></span>
-                                                <span className="text-sm leading-relaxed">
-                                                    <strong className="font-medium">Sweet Lassi</strong>
-                                                    <span className="text-stone-500 text-xs block">Classic yogurt drink</span>
-                                                </span>
-                                            </li>
-                                            <li className="flex items-start gap-3 text-stone-700">
-                                                <span className="w-2 h-2 bg-amber-400 rounded-full mt-2 flex-shrink-0"></span>
-                                                <span className="text-sm leading-relaxed">
-                                                    <strong className="font-medium">Salted Lassi</strong>
-                                                    <span className="text-stone-500 text-xs block">Savory version</span>
-                                                </span>
-                                            </li>
-                                            <li className="flex items-start gap-3 text-stone-700">
-                                                <span className="w-2 h-2 bg-amber-400 rounded-full mt-2 flex-shrink-0"></span>
-                                                <span className="text-sm leading-relaxed">
-                                                    <strong className="font-medium">Masala Chaas</strong>
-                                                    <span className="text-stone-500 text-xs block">Spiced buttermilk</span>
-                                                </span>
-                                            </li>
-                                            <li className="flex items-start gap-3 text-stone-700">
-                                                <span className="w-2 h-2 bg-amber-400 rounded-full mt-2 flex-shrink-0"></span>
-                                                <span className="text-sm leading-relaxed">
-                                                    <strong className="font-medium">Badam Milk</strong>
-                                                    <span className="text-stone-500 text-xs block">Almond milk</span>
-                                                </span>
-                                            </li>
-                                        </ul>
-                                        <div className="pt-3 border-t border-amber-200/50">
-                                            <span className="text-xs font-thin text-amber-600 flex items-center gap-2">
-                                                5 VARIETIES
-                                                <span className="flex gap-1">
-                                                    <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
-                                                    <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
-                                                    <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
-                                                </span>
-                                            </span>
+                                            </div>
+
+                                            <ul className="space-y-3">
+                                                <li className="flex items-start gap-3 text-stone-700 group/item hover:translate-x-1 transition-transform duration-200">
+                                                    <div className="w-6 h-6 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-amber-200 transition-colors">
+                                                        <span className="w-2 h-2 bg-amber-600 rounded-full"></span>
+                                                    </div>
+                                                    <span className="text-sm leading-relaxed">
+                                                        <strong className="font-medium">Mango Lassi</strong>
+                                                        <span className="text-stone-500 text-xs block">Yogurt smoothie</span>
+                                                    </span>
+                                                </li>
+                                                <li className="flex items-start gap-3 text-stone-700 group/item hover:translate-x-1 transition-transform duration-200">
+                                                    <div className="w-6 h-6 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-amber-200 transition-colors">
+                                                        <span className="w-2 h-2 bg-amber-600 rounded-full"></span>
+                                                    </div>
+                                                    <span className="text-sm leading-relaxed">
+                                                        <strong className="font-medium">Sweet Lassi</strong>
+                                                        <span className="text-stone-500 text-xs block">Classic yogurt drink</span>
+                                                    </span>
+                                                </li>
+                                                <li className="flex items-start gap-3 text-stone-700 group/item hover:translate-x-1 transition-transform duration-200">
+                                                    <div className="w-6 h-6 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-amber-200 transition-colors">
+                                                        <span className="w-2 h-2 bg-amber-600 rounded-full"></span>
+                                                    </div>
+                                                    <span className="text-sm leading-relaxed">
+                                                        <strong className="font-medium">Salted Lassi</strong>
+                                                        <span className="text-stone-500 text-xs block">Savory version</span>
+                                                    </span>
+                                                </li>
+                                                <li className="flex items-start gap-3 text-stone-700 group/item hover:translate-x-1 transition-transform duration-200">
+                                                    <div className="w-6 h-6 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-amber-200 transition-colors">
+                                                        <span className="w-2 h-2 bg-amber-600 rounded-full"></span>
+                                                    </div>
+                                                    <span className="text-sm leading-relaxed">
+                                                        <strong className="font-medium">Masala Chaas</strong>
+                                                        <span className="text-stone-500 text-xs block">Spiced buttermilk</span>
+                                                    </span>
+                                                </li>
+                                                <li className="flex items-start gap-3 text-stone-700 group/item hover:translate-x-1 transition-transform duration-200">
+                                                    <div className="w-6 h-6 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-amber-200 transition-colors">
+                                                        <span className="w-2 h-2 bg-amber-600 rounded-full"></span>
+                                                    </div>
+                                                    <span className="text-sm leading-relaxed">
+                                                        <strong className="font-medium">Badam Milk</strong>
+                                                        <span className="text-stone-500 text-xs block">Almond milk</span>
+                                                    </span>
+                                                </li>
+                                            </ul>
+
+                                            <div className="pt-3 border-t border-amber-200/50 flex items-center justify-between">
+                                                <span className="text-xs font-thin text-amber-600 uppercase tracking-wider">5 VARIETIES</span>
+                                                <div className="flex items-center gap-1">
+                                                    <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
+                                                    <div className="w-2 h-2 bg-amber-400 rounded-full"></div>
+                                                    <div className="w-2 h-2 bg-amber-300 rounded-full"></div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+                            {/* </Link> */}
 
                             {/* Modern Beverages Card */}
-                            <div className="bg-gradient-to-br from-white to-emerald-50/30 rounded-3xl p-8 shadow-xl border border-emerald-100/50 backdrop-blur-sm">
-                                <div className="flex items-center gap-4 mb-8">
-                                    <div className="bg-gradient-to-br from-cyan-500 to-cyan-600 p-4 rounded-2xl shadow-lg">
-                                        <Sparkles className="w-8 h-8 text-white" />
-                                    </div>
-                                    <div>
-                                        <h4 className="text-2xl font-medium text-stone-800">Modern Beverages</h4>
-                                        <p className="text-sm text-cyan-600 font-thin">Contemporary Choices</p>
-                                    </div>
-                                </div>
+                            {/* <Link> */}
+                            <div className="group relative bg-gradient-to-br from-white to-emerald-50/30 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-emerald-100/50 backdrop-blur-sm overflow-hidden cursor-pointer">
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-300/20 rounded-full blur-3xl group-hover:bg-emerald-400/30 transition-all duration-500"></div>
+                                <div className="absolute bottom-0 left-0 w-24 h-24 bg-cyan-300/20 rounded-full blur-2xl group-hover:bg-cyan-400/30 transition-all duration-500"></div>
 
-                                <div className="grid md:grid-cols-2 gap-8">
-                                    <div className="space-y-4">
-                                        <div className="inline-block">
-                                            <span className="bg-gradient-to-r from-emerald-500 to-green-500 text-white text-xs font-thin px-4 py-1.5 rounded-full shadow-md">
-                                                Mocktails
-                                            </span>
+                                <div className="relative z-10">
+                                    <div className="flex items-center gap-4 mb-8">
+                                        <div className="bg-gradient-to-br from-cyan-500 to-cyan-600 p-4 rounded-2xl shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                                            <Sparkles className="w-8 h-8 text-white" />
                                         </div>
-                                        <ul className="space-y-3">
-                                            <li className="flex items-start gap-3 text-stone-700">
-                                                <span className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></span>
-                                                <span className="text-sm font-medium">Virgin Mojito</span>
-                                            </li>
-                                            <li className="flex items-start gap-3 text-stone-700">
-                                                <span className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></span>
-                                                <span className="text-sm font-medium">Blue Lagoon</span>
-                                            </li>
-                                            <li className="flex items-start gap-3 text-stone-700">
-                                                <span className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></span>
-                                                <span className="text-sm font-medium">Fruit Punch</span>
-                                            </li>
-                                            <li className="flex items-start gap-3 text-stone-700">
-                                                <span className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></span>
-                                                <span className="text-sm font-medium">Watermelon Cooler</span>
-                                            </li>
-                                            <li className="flex items-start gap-3 text-stone-700">
-                                                <span className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></span>
-                                                <span className="text-sm font-medium">Passion Fruit Sparkle</span>
-                                            </li>
-                                        </ul>
-                                        <div className="pt-3 border-t border-emerald-200/50">
-                                            <span className="text-xs font-thin text-emerald-600 flex items-center gap-2">
-                                                5 VARIETIES
-                                                <span className="flex gap-1">
-                                                    <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
-                                                    <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
-                                                    <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
-                                                </span>
-                                            </span>
+                                        <div>
+                                            <h4 className="text-2xl font-medium text-stone-800 group-hover:text-cyan-700 transition-colors">Modern Beverages</h4>
+                                            <p className="text-sm text-cyan-600 font-thin">Contemporary Choices</p>
                                         </div>
                                     </div>
 
-                                    <div className="space-y-4">
-                                        <div className="inline-block">
-                                            <span className="bg-gradient-to-r from-green-500 to-teal-500 text-white text-xs font-thin px-4 py-1.5 rounded-full shadow-md">
-                                                Fresh Juices
-                                            </span>
-                                        </div>
-                                        <ul className="space-y-3">
-                                            <li className="flex items-start gap-3 text-stone-700">
-                                                <span className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></span>
-                                                <span className="text-sm font-medium">Fresh Orange Juice</span>
-                                            </li>
-                                            <li className="flex items-start gap-3 text-stone-700">
-                                                <span className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></span>
-                                                <span className="text-sm font-medium">Pineapple Juice</span>
-                                            </li>
-                                            <li className="flex items-start gap-3 text-stone-700">
-                                                <span className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></span>
-                                                <span className="text-sm font-medium">Watermelon Juice</span>
-                                            </li>
-                                            <li className="flex items-start gap-3 text-stone-700">
-                                                <span className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></span>
-                                                <span className="text-sm font-medium">Mixed Fruit Juice</span>
-                                            </li>
-                                            <li className="flex items-start gap-3 text-stone-700">
-                                                <span className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></span>
-                                                <span className="text-sm font-medium">Coconut Water</span>
-                                            </li>
-                                        </ul>
-                                        <div className="pt-3 border-t border-green-200/50">
-                                            <span className="text-xs font-thin text-green-600 flex items-center gap-2">
-                                                5 VARIETIES
-                                                <span className="flex gap-1">
-                                                    <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
-                                                    <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
-                                                    <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
+                                    <div className="grid md:grid-cols-2 gap-8">
+                                        <div className="space-y-4">
+                                            <div className="inline-block">
+                                                <span className="bg-gradient-to-r from-emerald-500 to-green-500 text-white text-xs font-thin px-4 py-1.5 rounded-full shadow-md">
+                                                    Mocktails
                                                 </span>
-                                            </span>
+                                            </div>
+
+                                            <ul className="space-y-3">
+                                                <li className="flex items-start gap-3 text-stone-700 group/item hover:translate-x-1 transition-transform duration-200">
+                                                    <div className="w-6 h-6 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-emerald-200 transition-colors">
+                                                        <span className="w-2 h-2 bg-emerald-600 rounded-full"></span>
+                                                    </div>
+                                                    <span className="text-sm font-medium">Virgin Mojito</span>
+                                                </li>
+                                                <li className="flex items-start gap-3 text-stone-700 group/item hover:translate-x-1 transition-transform duration-200">
+                                                    <div className="w-6 h-6 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-emerald-200 transition-colors">
+                                                        <span className="w-2 h-2 bg-emerald-600 rounded-full"></span>
+                                                    </div>
+                                                    <span className="text-sm font-medium">Blue Lagoon</span>
+                                                </li>
+                                                <li className="flex items-start gap-3 text-stone-700 group/item hover:translate-x-1 transition-transform duration-200">
+                                                    <div className="w-6 h-6 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-emerald-200 transition-colors">
+                                                        <span className="w-2 h-2 bg-emerald-600 rounded-full"></span>
+                                                    </div>
+                                                    <span className="text-sm font-medium">Fruit Punch</span>
+                                                </li>
+                                                <li className="flex items-start gap-3 text-stone-700 group/item hover:translate-x-1 transition-transform duration-200">
+                                                    <div className="w-6 h-6 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-emerald-200 transition-colors">
+                                                        <span className="w-2 h-2 bg-emerald-600 rounded-full"></span>
+                                                    </div>
+                                                    <span className="text-sm font-medium">Watermelon Cooler</span>
+                                                </li>
+                                                <li className="flex items-start gap-3 text-stone-700 group/item hover:translate-x-1 transition-transform duration-200">
+                                                    <div className="w-6 h-6 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-emerald-200 transition-colors">
+                                                        <span className="w-2 h-2 bg-emerald-600 rounded-full"></span>
+                                                    </div>
+                                                    <span className="text-sm font-medium">Passion Fruit Sparkle</span>
+                                                </li>
+                                            </ul>
+
+                                            <div className="pt-3 border-t border-emerald-200/50 flex items-center justify-between">
+                                                <span className="text-xs font-thin text-emerald-600 uppercase tracking-wider">5 VARIETIES</span>
+                                                <div className="flex items-center gap-1">
+                                                    <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                                                    <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
+                                                    <div className="w-2 h-2 bg-emerald-300 rounded-full"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="space-y-4">
+                                            <div className="inline-block">
+                                                <span className="bg-gradient-to-r from-green-500 to-teal-500 text-white text-xs font-thin px-4 py-1.5 rounded-full shadow-md">
+                                                    Fresh Juices
+                                                </span>
+                                            </div>
+
+                                            <ul className="space-y-3">
+                                                <li className="flex items-start gap-3 text-stone-700 group/item hover:translate-x-1 transition-transform duration-200">
+                                                    <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-green-200 transition-colors">
+                                                        <span className="w-2 h-2 bg-green-600 rounded-full"></span>
+                                                    </div>
+                                                    <span className="text-sm font-medium">Fresh Orange Juice</span>
+                                                </li>
+                                                <li className="flex items-start gap-3 text-stone-700 group/item hover:translate-x-1 transition-transform duration-200">
+                                                    <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-green-200 transition-colors">
+                                                        <span className="w-2 h-2 bg-green-600 rounded-full"></span>
+                                                    </div>
+                                                    <span className="text-sm font-medium">Pineapple Juice</span>
+                                                </li>
+                                                <li className="flex items-start gap-3 text-stone-700 group/item hover:translate-x-1 transition-transform duration-200">
+                                                    <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-green-200 transition-colors">
+                                                        <span className="w-2 h-2 bg-green-600 rounded-full"></span>
+                                                    </div>
+                                                    <span className="text-sm font-medium">Watermelon Juice</span>
+                                                </li>
+                                                <li className="flex items-start gap-3 text-stone-700 group/item hover:translate-x-1 transition-transform duration-200">
+                                                    <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-green-200 transition-colors">
+                                                        <span className="w-2 h-2 bg-green-600 rounded-full"></span>
+                                                    </div>
+                                                    <span className="text-sm font-medium">Mixed Fruit Juice</span>
+                                                </li>
+                                                <li className="flex items-start gap-3 text-stone-700 group/item hover:translate-x-1 transition-transform duration-200">
+                                                    <div className="w-6 h-6 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-green-200 transition-colors">
+                                                        <span className="w-2 h-2 bg-green-600 rounded-full"></span>
+                                                    </div>
+                                                    <span className="text-sm font-medium">Coconut Water</span>
+                                                </li>
+                                            </ul>
+
+                                            <div className="pt-3 border-t border-green-200/50 flex items-center justify-between">
+                                                <span className="text-xs font-thin text-green-600 uppercase tracking-wider">5 VARIETIES</span>
+                                                <div className="flex items-center gap-1">
+                                                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                                                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                                                    <div className="w-2 h-2 bg-green-300 rounded-full"></div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+                            {/* </Link> */}
+
                         </div>
                     </div>
 
@@ -2001,7 +2113,7 @@ export default function WeddingCateringWebsite() {
                     </div>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                         {/* Professional Staff Card */}
-                        <div className="group relative bg-linear-to-br from-amber-50 via-orange-50 to-amber-100 rounded-3xl p-8 border border-amber-200 hover:border-amber-400 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
+                        <div className="group relative bg-linear-to-br from-amber-50 via-orange-50 to-amber-100 rounded-3xl p-8 border border-amber-200 hover:border-amber-400 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden cursor-pointer">
                             {/* Decorative Background Elements */}
                             <div className="absolute top-0 right-0 w-32 h-32 bg-amber-300/20 rounded-full blur-3xl group-hover:bg-amber-400/30 transition-all duration-500"></div>
                             <div className="absolute bottom-0 left-0 w-24 h-24 bg-orange-300/20 rounded-full blur-2xl group-hover:bg-orange-400/30 transition-all duration-500"></div>
@@ -2071,7 +2183,7 @@ export default function WeddingCateringWebsite() {
                         </div>
 
                         {/* Equipment & Setup Card */}
-                        <div className="group relative bg-linear-to-br from-blue-50 via-indigo-50 to-blue-100 rounded-3xl p-8 border border-blue-200 hover:border-blue-400 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
+                        <div className="group relative bg-linear-to-br from-blue-50 via-indigo-50 to-blue-100 rounded-3xl p-8 border border-blue-200 hover:border-blue-400 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden cursor-pointer">
                             <div className="absolute top-0 right-0 w-32 h-32 bg-blue-300/20 rounded-full blur-3xl group-hover:bg-blue-400/30 transition-all duration-500"></div>
                             <div className="absolute bottom-0 left-0 w-24 h-24 bg-indigo-300/20 rounded-full blur-2xl group-hover:bg-indigo-400/30 transition-all duration-500"></div>
 
@@ -2139,7 +2251,7 @@ export default function WeddingCateringWebsite() {
                         </div>
 
                         {/* Quality Standards Card */}
-                        <div className="group relative bg-linear-to-br from-green-50 via-teal-50 to-green-100 rounded-3xl p-8 border border-green-200 hover:border-green-400 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
+                        <div className="group relative bg-linear-to-br from-green-50 via-teal-50 to-green-100 rounded-3xl p-8 border border-green-200 hover:border-green-400 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden cursor-pointer">
                             <div className="absolute top-0 right-0 w-32 h-32 bg-green-300/20 rounded-full blur-3xl group-hover:bg-green-400/30 transition-all duration-500"></div>
                             <div className="absolute bottom-0 left-0 w-24 h-24 bg-teal-300/20 rounded-full blur-2xl group-hover:bg-teal-400/30 transition-all duration-500"></div>
 
@@ -2207,7 +2319,7 @@ export default function WeddingCateringWebsite() {
                         </div>
 
                         {/* Customization Card */}
-                        <div className="group relative bg-linear-to-br from-purple-50 via-pink-50 to-purple-100 rounded-3xl p-8 border border-purple-200 hover:border-purple-400 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
+                        <div className="group relative bg-linear-to-br from-purple-50 via-pink-50 to-purple-100 rounded-3xl p-8 border border-purple-200 hover:border-purple-400 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden cursor-pointer">
                             <div className="absolute top-0 right-0 w-32 h-32 bg-purple-300/20 rounded-full blur-3xl group-hover:bg-purple-400/30 transition-all duration-500"></div>
                             <div className="absolute bottom-0 left-0 w-24 h-24 bg-pink-300/20 rounded-full blur-2xl group-hover:bg-pink-400/30 transition-all duration-500"></div>
 
@@ -2275,7 +2387,7 @@ export default function WeddingCateringWebsite() {
                         </div>
 
                         {/* Service Options Card */}
-                        <div className="group relative bg-linear-to-br from-red-50 via-pink-50 to-red-100 rounded-3xl p-8 border border-red-200 hover:border-red-400 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
+                        <div className="group relative bg-linear-to-br from-red-50 via-pink-50 to-red-100 rounded-3xl p-8 border border-red-200 hover:border-red-400 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden cursor-pointer">
                             <div className="absolute top-0 right-0 w-32 h-32 bg-red-300/20 rounded-full blur-3xl group-hover:bg-red-400/30 transition-all duration-500"></div>
                             <div className="absolute bottom-0 left-0 w-24 h-24 bg-pink-300/20 rounded-full blur-2xl group-hover:bg-pink-400/30 transition-all duration-500"></div>
 
@@ -2343,7 +2455,7 @@ export default function WeddingCateringWebsite() {
                         </div>
 
                         {/* Logistics Support Card */}
-                        <div className="group relative bg-linear-to-br from-yellow-50 via-amber-50 to-yellow-100 rounded-3xl p-8 border border-yellow-200 hover:border-yellow-400 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
+                        <div className="group relative bg-linear-to-br from-yellow-50 via-amber-50 to-yellow-100 rounded-3xl p-8 border border-yellow-200 hover:border-yellow-400 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden cursor-pointer">
                             <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-300/20 rounded-full blur-3xl group-hover:bg-yellow-400/30 transition-all duration-500"></div>
                             <div className="absolute bottom-0 left-0 w-24 h-24 bg-amber-300/20 rounded-full blur-2xl group-hover:bg-amber-400/30 transition-all duration-500"></div>
 
@@ -2446,7 +2558,8 @@ export default function WeddingCateringWebsite() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
 
                         {/* Street Food Corner */}
-                        <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group">
+                        {/* <Link href={/cateringanddecor/all-services/${service.id}}> */}
+                        <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group cursor-pointer">
                             <div className="relative h-64 overflow-hidden">
                                 <img
                                     src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
@@ -2471,9 +2584,11 @@ export default function WeddingCateringWebsite() {
                                 </div>
                             </div>
                         </div>
+                        {/* </Link> */}
 
                         {/* Tandoor Station */}
-                        <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group">
+                        {/* <Link href={/cateringanddecor/all-services/${service.id}}> */}
+                        <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group cursor-pointer">
                             <div className="relative h-64 overflow-hidden">
                                 <img
                                     src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
@@ -2498,9 +2613,11 @@ export default function WeddingCateringWebsite() {
                                 </div>
                             </div>
                         </div>
+                        {/* </Link> */}
 
                         {/* Dessert Theater */}
-                        <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group">
+                        {/* <Link href={/cateringanddecor/all-services/${service.id}}> */}
+                        <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group cursor-pointer">
                             <div className="relative h-64 overflow-hidden">
                                 <img
                                     src="https://images.unsplash.com/photo-1563379091138-acf87743cea4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
@@ -2525,9 +2642,11 @@ export default function WeddingCateringWebsite() {
                                 </div>
                             </div>
                         </div>
+                        {/* </Link> */}
 
                         {/* International Fusion */}
-                        <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group">
+                        {/* <Link href={/cateringanddecor/all-services/${service.id}}> */}
+                        <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group cursor-pointer">
                             <div className="relative h-64 overflow-hidden">
                                 <img
                                     src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
@@ -2552,9 +2671,11 @@ export default function WeddingCateringWebsite() {
                                 </div>
                             </div>
                         </div>
+                        {/* </Link> */}
 
                         {/* Beverage Bar */}
-                        <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group">
+                        {/* <Link href={/cateringanddecor/all-services/${service.id}}> */}
+                        <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group cursor-pointer">
                             <div className="relative h-64 overflow-hidden">
                                 <img
                                     src="https://images.unsplash.com/photo-1544145945-f90425340c7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
@@ -2579,9 +2700,11 @@ export default function WeddingCateringWebsite() {
                                 </div>
                             </div>
                         </div>
+                        {/* </Link> */}
 
                         {/* Regional Specialties */}
-                        <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group">
+                        {/* <Link href={`/cateringanddecor/all-services/${service.id}`}> */}
+                        <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group cursor-pointer">
                             <div className="relative h-64 overflow-hidden">
                                 <img
                                     src="https://images.unsplash.com/photo-1585032226651-759b368d7246?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
@@ -2606,10 +2729,11 @@ export default function WeddingCateringWebsite() {
                                 </div>
                             </div>
                         </div>
+                        {/* </Link> */}
                     </div>
 
                     {/* Featured Stall Highlight */}
-                    <div className="bg-linear-to-r from-amber-600 via-amber-700 to-stone-700 rounded-3xl p-12 text-white text-center relative overflow-hidden">
+                    <div className="bg-linear-to-r from-amber-600 via-amber-700 to-stone-700 rounded-3xl p-12 text-white text-center relative overflow-hidden cursor-pointer">
                         <div className="absolute top-0 left-0 w-32 h-32 bg-white/5 rounded-full -translate-x-16 -translate-y-16"></div>
                         <div className="absolute bottom-0 right-0 w-40 h-40 bg-white/5 rounded-full translate-x-20 translate-y-20"></div>
 
