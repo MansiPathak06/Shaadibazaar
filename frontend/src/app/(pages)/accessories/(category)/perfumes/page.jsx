@@ -86,12 +86,17 @@ const HeroSection = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <button className="bg-linear-to-r from-yellow-500 to-yellow-600 text-white px-8 py-4 rounded-2xl font-normal cursor-pointer text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
-                SHOP NOW
-              </button>
-              <button className="border-2 border-slate-300 text-slate-700 px-8 py-4 rounded-2xl font-normal cursor-pointer text-lg hover:bg-slate-50 hover:border-slate-400 transition-all duration-300">
-                View Catalog
-              </button>
+              <Link href="/accessories/all-products?category=perfumes">
+  <button className="bg-linear-to-r from-yellow-500 to-yellow-600 text-white px-8 py-4 rounded-2xl font-normal cursor-pointer text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+    SHOP NOW
+  </button>
+</Link>
+
+<Link href="/accessories/all-products?category=perfumes">
+  <button className="border-2 border-slate-300 text-slate-700 px-8 py-4 rounded-2xl font-normal cursor-pointer text-lg hover:bg-slate-50 hover:border-slate-400 transition-all duration-300">
+    View Catalog
+  </button>
+</Link>
             </div>
           </div >
 
@@ -478,19 +483,23 @@ const PromoBanner = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-6">
-              <button className="group relative bg-linear-to-r from-rose-500 via-rose-400 to-rose-500 text-white px-10 py-5 rounded-2xl font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 overflow-hidden">
-                <span className="relative z-10 flex items-center justify-center gap-2">
-                  SHOP NOW
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </span>
-                <div className="absolute inset-0 bg-linear-to-r from-rose-600 via-rose-500 to-rose-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </button>
+              <Link href="/accessories/all-products?category=perfumes">
+  <button className="group relative bg-linear-to-r from-rose-500 via-rose-400 to-rose-500 text-white px-10 py-5 rounded-2xl font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 overflow-hidden">
+    <span className="relative z-10 flex items-center justify-center gap-2">
+      SHOP NOW
+      <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+      </svg>
+    </span>
+    <div className="absolute inset-0 bg-linear-to-r from-rose-600 via-rose-500 to-rose-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+  </button>
+</Link>
 
-              <button className="border-2 border-gray-300 text-gray-700 px-10 py-5 rounded-2xl font-bold text-lg hover:bg-gray-50 hover:border-gray-400 transition-all duration-300 hover:scale-105">
-                View Collection
-              </button>
+<Link href="/accessories/all-products?category=perfumes">
+  <button className="border-2 border-gray-300 text-gray-700 px-10 py-5 rounded-2xl font-bold text-lg hover:bg-gray-50 hover:border-gray-400 transition-all duration-300 hover:scale-105">
+    View Collection
+  </button>
+</Link>
             </div>
 
           </div>
@@ -704,89 +713,7 @@ const SpecialOffers = () => {
         </div>
 
         {/* Deal Sections */}
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Big Deal Card */}
-          <div className="relative bg-white border border-gray-200 text-gray-800 p-10 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 bg-linear-to-br from-rose-50 to-pink-50 opacity-50"></div>
-
-            {/* Floating Rose Icon */}
-            <div className="absolute top-6 right-6 w-16 h-16 bg-rose-100 border border-rose-200 rounded-full flex items-center justify-center shadow-lg">
-              <svg className="w-8 h-8 text-rose-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
-              </svg>
-            </div>
-
-            <div className="relative z-10 space-y-6">
-              <div className="inline-flex items-center gap-2 bg-rose-100 border border-rose-200 rounded-full px-4 py-2 text-sm font-normal text-rose-700">
-                <span className="w-2 h-2 bg-rose-500 rounded-full animate-pulse"></span>
-                LIMITED TIME OFFER
-              </div>
-
-              <h3 className="text-3xl md:text-4xl font-medium leading-tight text-gray-800">
-                Rose Collection
-                <br />
-                <span className="bg-linear-to-r from-rose-500 to-rose-600 bg-clip-text text-transparent">
-                  50% OFF
-                </span>
-              </h3>
-
-              <p className="text-gray-600 text-lg leading-relaxed">
-                Save up to 50% on all rose-inspired fragrances. Limited stock available.
-              </p>
-
-              <button className="group bg-linear-to-r from-rose-500 to-rose-600 text-white px-8 py-4 rounded-2xl font-medium text-lg shadow-lg hover:shadow-xl hover:from-rose-600 hover:to-rose-700 transition-all duration-300 hover:scale-105 cursor-pointer">
-                <span className="flex items-center gap-2">
-                  SHOP ROSES
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </span>
-              </button>
-            </div>
-          </div>
-
-          {/* Best Collection Card */}
-          <div className="relative bg-white border border-gray-200 text-gray-800 p-10 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 bg-linear-to-br from-pink-50 to-rose-50 opacity-50"></div>
-
-            {/* Floating Sparkle Icon */}
-            <div className="absolute top-6 right-6 w-16 h-16 bg-pink-100 border border-pink-200 rounded-full flex items-center justify-center shadow-lg">
-              <svg className="w-8 h-8 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3l14 9-14 9V3z" />
-              </svg>
-            </div>
-
-            <div className="relative z-10 space-y-6">
-              <div className="inline-flex items-center gap-2 bg-pink-100 border border-pink-200 rounded-full px-4 py-2 text-sm font-medium text-pink-700">
-                <span className="w-2 h-2 bg-pink-500 rounded-full animate-pulse"></span>
-                PREMIUM COLLECTION
-              </div>
-
-              <h3 className="text-3xl md:text-4xl font-medium leading-tight text-gray-800">
-                Pink Paradise
-                <br />
-                <span className="bg-linear-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">
-                  Buy 2 Get 1 Free
-                </span>
-              </h3>
-
-              <p className="text-gray-600 text-lg leading-relaxed">
-                Get 2 premium pink fragrances and receive the 3rd one absolutely free this month.
-              </p>
-
-              <button className="group bg-linear-to-r from-yellow-400 to-orange-400 text-gray-800 px-8 py-4 rounded-2xl font-medium text-lg shadow-lg hover:shadow-xl hover:from-yellow-500 hover:to-orange-500 transition-all duration-300 hover:scale-105 cursor-pointer">
-                <span className="flex items-center gap-2">
-                  SHOP PINK
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
+       
 
       </div>
     </section>
