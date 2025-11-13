@@ -50,6 +50,7 @@ app.use('/api/vendor/products', vendorProductRoutes);
 
 app.use('/api/orders', orderRoutes);
 app.use('/api/wishlist', wishlistRoutes);
+app.use('/api/service-vendors', require('./routes/serviceVendorRoutes'));
 
 // Test route
 app.get('/', (req, res) => {
