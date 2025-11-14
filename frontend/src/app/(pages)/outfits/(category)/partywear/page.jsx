@@ -57,21 +57,25 @@ const PartyWear = () => {
       id: 1,
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761818996/image5_ymjio2.jpg",
       title: "Designer Gowns",
+      category: "/outfits/all-products?category=Outfits&subCategory=Designer Gowns"
     },
     {
       id: 2,
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761818997/image6_v5ubh2.jpg",
       title: "Sequined Dresses",
+      category: "/outfits/all-products?category=Outfits&subCategory=Sequined Dresses"
     },
     {
       id: 3,
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761818997/image7_kuvsxg.jpg",
       title: "Stylish Indo-Western Sets",
+      category: "/outfits/all-products?category=Outfits&subCategory=Stylish Indo Western Sets"
     },
     {
       id: 4,
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761819000/image8_yajzkw.jpg",
       title: "Classic Suit Sets",
+      category: "/outfits/all-products?category=Outfits&subCategory=Classical Suit Sets"
     },
   ];
 
@@ -170,7 +174,7 @@ const PartyWear = () => {
   };
 
   // URL for "View More" - Goes to all products list page
-  const ALL_PRODUCTS_URL = "/accessories/all-products?category=partywear";
+  const ALL_PRODUCTS_URL = "/outfits/all-products?category=Party Wear";
 
   // Filter products based on selected category
   const filteredProducts = selectedCategory === "ALL"
@@ -212,7 +216,7 @@ const PartyWear = () => {
                         {slide.badge}
                       </span>
                     </div>
-                    
+
                     <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-9xl font-medium text-gray-900 leading-tight">
                       {slide.title}
                     </h1>
@@ -410,7 +414,7 @@ const PartyWear = () => {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {shopCategories.map((category) => (
-              <Link href={ALL_PRODUCTS_URL}
+              <Link href={category.category}
                 key={category.id}
                 className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer h-64 md:h-80"
               >
@@ -487,8 +491,8 @@ const PartyWear = () => {
                 <p className="text-gray-600 mb-6 text-lg">
                   Discover exclusive deals on premium fashion items
                 </p>
-                <Link href={ALL_PRODUCTS_URL}>
-                  <button className="bg-rose-500 hover:bg-rose-600 text-white px-8 py-4 rounded-full font-semibold w-fit transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2">
+                <Link href={'/outfits/all-products?category=Outfits&subCategory=Trending Collection'}>
+                  <button className="bg-rose-500 hover:bg-rose-600 text-white px-8 py-4 cursor-pointer rounded-full font-semibold w-fit transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2">
                     <span>SHOP NOW</span>
                     <span>→</span>
                   </button></Link>
@@ -564,7 +568,7 @@ const PartyWear = () => {
                   return (
                     <Link
                       key={product.id}
-                      href={`/accessories/all-products/${product.id}`}
+                      href={`/outfits/all-products/${product.id}`}
                       className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
                     >
                       {/* Product Image */}

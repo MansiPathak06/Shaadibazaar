@@ -55,7 +55,7 @@ export default function VendorDashboard() {
   const totalServices = services.length;
 
   // Fetch the services list (just like you do with products)
-  
+
   const [showServiceForm, setShowServiceForm] = useState(false);
   const [serviceForm, setServiceForm] = useState({
     name: "",
@@ -95,14 +95,27 @@ export default function VendorDashboard() {
       "Contemporary",
       "Vintage Style",
       "Temple Jewellery",
-<<<<<<< HEAD
-      "Trending Collection"
-=======
->>>>>>> b4ddc24c58d2a0837adaf5f03eda9b67e8bba0fc
     ],
-    Bags:["Tote Bags","Backpacks", "Clutches And Pouches", "Crossbody", "Messenger Bags", "Accessories", "Trending Collection"],
-    Hair_Accessories:["Hair Accessories"],
-    Shoes: ["Trending Collection", "Running Shoes", "Casual Sneakers", "Sports Collection","Girls", "Boys","Mens Collection", "Womens Collection"],
+    Bag: [
+      "Tote Bags",
+      "Backpacks",
+      "Clutches And Pouches",
+      "Crossbody",
+      "Messenger Bags",
+      "Accessories",
+      "Trending Collection",
+    ],
+    Hair_Accessories: ["Hair Accessories"],
+    Shoes: [
+      "Trending Collection",
+      "Running Shoes",
+      "Casual Sneakers",
+      "Sports Collection",
+      "Girls",
+      "Boys",
+      "Mens Collection",
+      "Womens Collection",
+    ],
     Watches: ["Luxury Watches", "Casual Watches", "Smart Watches"],
     Perfumes: ["Men Perfumes", "Women Perfumes", "Unisex Perfumes"],
   };
@@ -117,16 +130,16 @@ export default function VendorDashboard() {
   const [vendorInfo, setVendorInfo] = useState(null);
 
   useEffect(() => {
-  const user = JSON.parse(localStorage.getItem("user") || "{}");
-  setVendorInfo(user);
-  fetchVendorProducts();
-  fetchVendorServices();
-  
-  // Call this AFTER a short delay to ensure services are loaded
-  setTimeout(() => {
-    fetchVendorBookings();
-  }, 500);
-}, []);
+    const user = JSON.parse(localStorage.getItem("user") || "{}");
+    setVendorInfo(user);
+    fetchVendorProducts();
+    fetchVendorServices();
+
+    // Call this AFTER a short delay to ensure services are loaded
+    setTimeout(() => {
+      fetchVendorBookings();
+    }, 500);
+  }, []);
 
   const fetchVendorProducts = async () => {
     setLoading(true);
@@ -145,31 +158,32 @@ export default function VendorDashboard() {
     setLoading(false);
   };
 
- const fetchVendorServices = async () => {
-  setLoading(true);
-  try {
-    const res = await fetch("http://localhost:5000/api/service-vendors");
-    const data = await res.json();
-    if (data.success) {
-      const allServices = data.services || [];
-      setServices(allServices);
-      
-      // Find this vendor's service (assuming vendor email matches)
-      const vendorService = allServices.find(
-        s => s.vendorName === vendorInfo?.business_name || 
-             s.email === vendorInfo?.email
-      );
-      
-      // If found, fetch bookings for that service
-      if (vendorService) {
-        fetchVendorBookings(vendorService.id);
+  const fetchVendorServices = async () => {
+    setLoading(true);
+    try {
+      const res = await fetch("http://localhost:5000/api/service-vendors");
+      const data = await res.json();
+      if (data.success) {
+        const allServices = data.services || [];
+        setServices(allServices);
+
+        // Find this vendor's service (assuming vendor email matches)
+        const vendorService = allServices.find(
+          (s) =>
+            s.vendorName === vendorInfo?.business_name ||
+            s.email === vendorInfo?.email
+        );
+
+        // If found, fetch bookings for that service
+        if (vendorService) {
+          fetchVendorBookings(vendorService.id);
+        }
       }
+    } catch (err) {
+      setError("Failed to load services.");
     }
-  } catch (err) {
-    setError("Failed to load services.");
-  }
-  setLoading(false);
-};
+    setLoading(false);
+  };
 
   const handleProductSubmit = async (e) => {
     e.preventDefault();
@@ -265,48 +279,53 @@ export default function VendorDashboard() {
     setLoading(false);
   };
 
-const fetchVendorBookings = async () => {
-  setLoading(true);
-  try {
-    // Hardcode to test - replace 7 with your service ID
-    const res = await fetch(`http://localhost:5000/api/service-vendors/7/bookings`);
-    const data = await res.json();
-    console.log('Bookings response:', data); // Check console
-    if (data.success) setBookings(data.bookings || []);
-  } catch (err) {
-    console.error('Booking fetch error:', err);
-    setError("Failed to load bookings.");
-  }
-  setLoading(false);
-};
-// useEffect(() => {
-//   const user = JSON.parse(localStorage.getItem("user") || "{}");
-//   setVendorInfo(user);
-//   fetchVendorProducts();
-//   fetchVendorServices();
-//   if (user.service_vendor_id) {
-//     fetchVendorBookings();
-//   }
-// }, []);
-
-const handleUpdateBookingStatus = async (bookingId, newStatus) => {
-  try {
-    const res = await fetch(`http://localhost:5000/api/service-vendors/bookings/${bookingId}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ status: newStatus }),
-    });
-    const data = await res.json();
-    if (data.success) {
-      setSuccess("Booking status updated");
-      fetchVendorBookings(); // Refresh the list
-    } else {
-      setError(data.message);
+  const fetchVendorBookings = async () => {
+    setLoading(true);
+    try {
+      // Hardcode to test - replace 7 with your service ID
+      const res = await fetch(
+        `http://localhost:5000/api/service-vendors/7/bookings`
+      );
+      const data = await res.json();
+      console.log("Bookings response:", data); // Check console
+      if (data.success) setBookings(data.bookings || []);
+    } catch (err) {
+      console.error("Booking fetch error:", err);
+      setError("Failed to load bookings.");
     }
-  } catch (err) {
-    setError("Failed to update status");
-  }
-};
+    setLoading(false);
+  };
+  // useEffect(() => {
+  //   const user = JSON.parse(localStorage.getItem("user") || "{}");
+  //   setVendorInfo(user);
+  //   fetchVendorProducts();
+  //   fetchVendorServices();
+  //   if (user.service_vendor_id) {
+  //     fetchVendorBookings();
+  //   }
+  // }, []);
+
+  const handleUpdateBookingStatus = async (bookingId, newStatus) => {
+    try {
+      const res = await fetch(
+        `http://localhost:5000/api/service-vendors/bookings/${bookingId}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ status: newStatus }),
+        }
+      );
+      const data = await res.json();
+      if (data.success) {
+        setSuccess("Booking status updated");
+        fetchVendorBookings(); // Refresh the list
+      } else {
+        setError(data.message);
+      }
+    } catch (err) {
+      setError("Failed to update status");
+    }
+  };
 
   const handleEditService = (service) => {
     setServiceForm({
@@ -725,28 +744,28 @@ const handleUpdateBookingStatus = async (bookingId, newStatus) => {
                   </button>
 
                   <button
-  onClick={() => {
-    setActiveTab("requests");
-    setSidebarOpen(false);
-  }}
-  className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium cursor-pointer text-xl ${
-    activeTab === "requests"
-      ? "bg-gradient-to-r from-purple-500 to-indigo-700 text-white shadow-xl transform scale-105"
-      : "text-gray-600 hover:bg-gradient-to-r hover:from-purple-200/40 hover:to-indigo-400/30 hover:text-purple-700"
-  }`}
->
-  <User className="w-5 h-5" />
-  <span>User Requests</span>
-  <span
-    className={`ml-auto px-2 py-1 text-xs rounded-full ${
-      activeTab === "requests"
-        ? "bg-white/20"
-        : "bg-purple-500 text-white"
-    }`}
-  >
-    {bookings.length}
-  </span>
-</button>
+                    onClick={() => {
+                      setActiveTab("requests");
+                      setSidebarOpen(false);
+                    }}
+                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium cursor-pointer text-xl ${
+                      activeTab === "requests"
+                        ? "bg-gradient-to-r from-purple-500 to-indigo-700 text-white shadow-xl transform scale-105"
+                        : "text-gray-600 hover:bg-gradient-to-r hover:from-purple-200/40 hover:to-indigo-400/30 hover:text-purple-700"
+                    }`}
+                  >
+                    <User className="w-5 h-5" />
+                    <span>User Requests</span>
+                    <span
+                      className={`ml-auto px-2 py-1 text-xs rounded-full ${
+                        activeTab === "requests"
+                          ? "bg-white/20"
+                          : "bg-purple-500 text-white"
+                      }`}
+                    >
+                      {bookings.length}
+                    </span>
+                  </button>
 
                   <button
                     onClick={() => {
@@ -1794,11 +1813,12 @@ const handleUpdateBookingStatus = async (bookingId, newStatus) => {
                                                {" "}
                           <option value="catering">Catering</option>           
                                         <option value="decor">Decor</option>   
-                                                <option value="photography">Photography</option>
-  <option value="videography">Videography</option>
-  <option value="makeup">Makeup Artist</option>
-  <option value="mehndi">Mehndi Artist</option>
-                                           {" "}
+                                               {" "}
+                          <option value="photography">Photography</option>
+                          <option value="videography">Videography</option>
+                          <option value="makeup">Makeup Artist</option>
+                          <option value="mehndi">Mehndi Artist</option>         
+                                 {" "}
                         </select>
                                                {" "}
                         <input
@@ -1931,102 +1951,113 @@ const handleUpdateBookingStatus = async (bookingId, newStatus) => {
               )}
 
               {activeTab === "requests" && (
-  <div className="animate-fade-in">
-    <h2 className="text-4xl font-medium text-gray-900 mb-2">
-      User Requests
-    </h2>
-    <p className="text-gray-600 mb-6">
-      Manage customer booking inquiries
-    </p>
+                <div className="animate-fade-in">
+                  <h2 className="text-4xl font-medium text-gray-900 mb-2">
+                    User Requests
+                  </h2>
+                  <p className="text-gray-600 mb-6">
+                    Manage customer booking inquiries
+                  </p>
 
-    <div className="bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-gray-100">
-      <div className="overflow-x-auto">
-        <table className="w-full">
-          <thead className="bg-gradient-to-r from-purple-500 to-indigo-700 text-white">
-            <tr>
-              <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">
-                Customer
-              </th>
-              <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">
-                Contact
-              </th>
-              <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">
-                Event Date
-              </th>
-              <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">
-                Details
-              </th>
-              <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">
-                Status
-              </th>
-              <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">
-                Requested On
-              </th>
-            </tr>
-          </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
-            {bookings.map((booking) => (
-              <tr
-                key={booking.id}
-                className="hover:bg-gradient-to-r hover:from-purple-50 hover:to-indigo-50 transition-all"
-              >
-                <td className="px-6 py-5 whitespace-nowrap">
-                  <div className="text-lg font-medium text-gray-900">
-                    {booking.customer_name}
-                  </div>
-                </td>
-                <td className="px-6 py-5">
-                  <div className="text-sm text-gray-900">{booking.customer_email}</div>
-                  <div className="text-sm text-gray-500">{booking.customer_phone}</div>
-                </td>
-                <td className="px-6 py-5 whitespace-nowrap">
-                  <div className="text-lg text-gray-900">
-                    {new Date(booking.event_date).toLocaleDateString()}
-                  </div>
-                </td>
-                <td className="px-6 py-5">
-                  <div className="text-sm text-gray-600 max-w-xs truncate">
-                    {booking.details || "No details provided"}
-                  </div>
-                </td>
-                <td className="px-6 py-5 whitespace-nowrap">
-                  <select
-                    value={booking.status}
-                    onChange={(e) => {
-                      // Handle status update
-                      handleUpdateBookingStatus(booking.id, e.target.value);
-                    }}
-                    className="px-3 py-1 rounded-full text-sm font-medium border-2 cursor-pointer"
-                  >
-                    <option value="pending">Pending</option>
-                    <option value="contacted">Contacted</option>
-                    <option value="confirmed">Confirmed</option>
-                    <option value="rejected">Rejected</option>
-                  </select>
-                </td>
-                <td className="px-6 py-5 whitespace-nowrap text-sm text-gray-500">
-                  {new Date(booking.created_at).toLocaleDateString()}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-gray-100">
+                    <div className="overflow-x-auto">
+                      <table className="w-full">
+                        <thead className="bg-gradient-to-r from-purple-500 to-indigo-700 text-white">
+                          <tr>
+                            <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">
+                              Customer
+                            </th>
+                            <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">
+                              Contact
+                            </th>
+                            <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">
+                              Event Date
+                            </th>
+                            <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">
+                              Details
+                            </th>
+                            <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">
+                              Status
+                            </th>
+                            <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">
+                              Requested On
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody className="bg-white divide-y divide-gray-200">
+                          {bookings.map((booking) => (
+                            <tr
+                              key={booking.id}
+                              className="hover:bg-gradient-to-r hover:from-purple-50 hover:to-indigo-50 transition-all"
+                            >
+                              <td className="px-6 py-5 whitespace-nowrap">
+                                <div className="text-lg font-medium text-gray-900">
+                                  {booking.customer_name}
+                                </div>
+                              </td>
+                              <td className="px-6 py-5">
+                                <div className="text-sm text-gray-900">
+                                  {booking.customer_email}
+                                </div>
+                                <div className="text-sm text-gray-500">
+                                  {booking.customer_phone}
+                                </div>
+                              </td>
+                              <td className="px-6 py-5 whitespace-nowrap">
+                                <div className="text-lg text-gray-900">
+                                  {new Date(
+                                    booking.event_date
+                                  ).toLocaleDateString()}
+                                </div>
+                              </td>
+                              <td className="px-6 py-5">
+                                <div className="text-sm text-gray-600 max-w-xs truncate">
+                                  {booking.details || "No details provided"}
+                                </div>
+                              </td>
+                              <td className="px-6 py-5 whitespace-nowrap">
+                                <select
+                                  value={booking.status}
+                                  onChange={(e) => {
+                                    // Handle status update
+                                    handleUpdateBookingStatus(
+                                      booking.id,
+                                      e.target.value
+                                    );
+                                  }}
+                                  className="px-3 py-1 rounded-full text-sm font-medium border-2 cursor-pointer"
+                                >
+                                  <option value="pending">Pending</option>
+                                  <option value="contacted">Contacted</option>
+                                  <option value="confirmed">Confirmed</option>
+                                  <option value="rejected">Rejected</option>
+                                </select>
+                              </td>
+                              <td className="px-6 py-5 whitespace-nowrap text-sm text-gray-500">
+                                {new Date(
+                                  booking.created_at
+                                ).toLocaleDateString()}
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
 
-        {bookings.length === 0 && !loading && (
-          <div className="text-center py-16">
-            <User className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-            <p className="text-gray-500 font-semibold text-lg">
-              No booking requests yet
-            </p>
-            <p className="text-gray-400 text-sm mt-2">
-              Customer inquiries will appear here
-            </p>
-          </div>
-        )}
-      </div>
-    </div>
-  </div>
-)}
+                      {bookings.length === 0 && !loading && (
+                        <div className="text-center py-16">
+                          <User className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+                          <p className="text-gray-500 font-semibold text-lg">
+                            No booking requests yet
+                          </p>
+                          <p className="text-gray-400 text-sm mt-2">
+                            Customer inquiries will appear here
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
             </main>
           </div>
         </div>

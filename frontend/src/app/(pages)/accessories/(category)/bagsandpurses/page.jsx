@@ -190,13 +190,10 @@ const BagsAndPurses = () => {
 
                 <div className="flex flex-wrap gap-4 pt-4">
                   <Link href={ALL_PRODUCTS_URL}>
-                    <button className="px-8 py-4 bg-rose-600 text-white cursor-pointer rounded-lg font-light hover:bg-rose-700 transition-colors duration-300 shadow-lg hover:shadow-xl">
+                    <button className="px-8 md:px-60 py-4 bg-rose-600 text-white cursor-pointer rounded-lg font-light hover:bg-rose-700 transition-colors duration-300 shadow-lg hover:shadow-xl">
                       Shop Now
                     </button>
                   </Link>
-                  <button className="px-8 py-4 bg-white text-rose-600 border-2 cursor-pointer border-rose-600 rounded-lg font-light hover:bg-rose-50 transition-colors duration-300">
-                    View Lookbook
-                  </button>
                 </div>
 
                 {/* Features */}

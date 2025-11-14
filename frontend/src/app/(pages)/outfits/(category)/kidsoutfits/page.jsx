@@ -22,7 +22,7 @@ const KidsOutfits = () => {
       description: "Spring Collection",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761466206/Girls_outfit_tm0aoz.jpg",
       bgColor: "bg-pink-200",
-       path: "/accessories/all-products?category=Girls"
+       path: "/outfits/all-products?category=Girls"
     },
     {
       id: 2,
@@ -30,7 +30,7 @@ const KidsOutfits = () => {
       description: "Summer Collection",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465706/boys_vzenzk.jpg",
       bgColor: "bg-blue-200",
-       path: "/accessories/all-products?category=Boys"
+       path: "/outfits/all-products?category=Boys"
     },
     {
       id: 3,
@@ -38,11 +38,11 @@ const KidsOutfits = () => {
       description: "Cute & Cozy",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465704/babies_mffvmu.jpg",
       bgColor: "bg-yellow-400",
-       path: "/accessories/all-products?category=Babies"
+       path: "/outfits/all-products?category=Babies"
     },
   ];
 
-  const categories_filter = ["All", "Accessories", "Clothes", "New Collection"];
+  const categories_filter = ["All", "outfits", "Clothes", "New Collection"];
 
   // Features - ENHANCED
   const features = [
@@ -124,28 +124,28 @@ const KidsOutfits = () => {
       title: "Newborn (0-12 months)",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465673/Newborn_0-12_months_gtbpze.jpg",
       count: "150+ Items",
-      path: "/accessories/all-products?category=New Born"
+      path: "/outfits/all-products?category=New Born"
     },
     {
       id: 2,
       title: "Toddler (1-3 years)",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465674/Toddler_1-3_years_kmgjek.jpg",
       count: "200+ Items",
-       path: "/accessories/all-products?category=Toddler"
+       path: "/outfits/all-products?category=Toddler"
     },
     {
       id: 3,
       title: "Kids (4-8 years)",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465673/Kids_4-8_years_i1mnl5.jpg",
       count: "300+ Items",
-       path: "/accessories/all-products?category=Kids"
+       path: "/outfits/all-products?category=Kids"
     },
     {
       id: 4,
       title: "Teens (9-14 years)",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761465673/Teens_9-14_years_t3z8lv.jpg",
       count: "250+ Items",
-       path: "/accessories/all-products?category=Teens"
+       path: "/outfits/all-products?category=Teens"
     },
   ];
 
@@ -192,7 +192,7 @@ const KidsOutfits = () => {
   };
 
   // URL for "View More" - Goes to all products list page
-  const ALL_PRODUCTS_URL = "/accessories/all-products?category=kidsoutfit";
+  const ALL_PRODUCTS_URL = "/outfits/all-products?category=kidsoutfit";
 
   // Filter products based on selected category
   const filteredProducts = selectedCategory === "All"
@@ -502,7 +502,7 @@ const KidsOutfits = () => {
                   return (
                     <Link
                       key={product.id}
-                      href={`/accessories/all-products/${product.id}`}
+                      href={`/outfits/all-products/${product.id}`}
                       className="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden"
                     >
                       {/* Product Image */}

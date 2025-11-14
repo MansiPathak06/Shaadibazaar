@@ -59,7 +59,7 @@ const BridalWear = () => {
   };
 
   // URL for "View More" - Goes to all products list page
-  const ALL_PRODUCTS_URL = "/accessories/all-products?category=bridalwear";
+  const ALL_PRODUCTS_URL = "/outfits/all-products?category=Bridal Wear";
 
   // Split products: First 4 for "Celebrate Love in Style", Rest for other sections
   const celebrateLoveProducts = realProducts.slice(0, 4);
@@ -201,7 +201,7 @@ const BridalWear = () => {
                   return (
                     <Link
                       key={product.id}
-                      href={`/accessories/all-products/${product.id}`}
+                      href={`/outfits/all-products/${product.id}`}
                       className="group bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
                     >
                       <div className="relative h-80 bg-gray-100 overflow-hidden">
@@ -267,11 +267,11 @@ const BridalWear = () => {
 
               <Fragment>
                 <div className="flex justify-center py-16">
-                  <Link href={ALL_PRODUCTS_URL}>
+                  <Link href={`/outfits/all-products?category=Outfits&subCategory=Trending Collection`}>
                     <button className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900">
                       <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
                       <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
-                        View More Products
+                        View Trending Collection
                         <svg
                           className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2"
                           fill="none"
@@ -319,7 +319,7 @@ const BridalWear = () => {
                   return (
                     <Link
                       key={product.id}
-                      href={`/accessories/all-products/${product.id}`}
+                      href={`/outfits/all-products/${product.id}`}
                       className="group bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
                     >
                       <div className="relative h-80 bg-gray-100 overflow-hidden">
@@ -457,7 +457,7 @@ const BridalWear = () => {
                   return (
                     <Link
                       key={product.id}
-                      href={`/accessories/all-products/${product.id}`}
+                      href={`/outfits/all-products/${product.id}`}
                       className="group bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
                     >
                       <div className="relative h-80 bg-gray-100 overflow-hidden">
@@ -527,11 +527,11 @@ const BridalWear = () => {
         </section>
         <Fragment>
           <div className="flex justify-center py-16">
-            <Link href={ALL_PRODUCTS_URL}>
+            <Link href={`/outfits/all-products?category=Outfits&subCategory=Silk Clothes`}>
               <button className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900">
                 <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
                 <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
-                  View More Products
+                  View Featured Collection
                   <svg
                     className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2"
                     fill="none"
@@ -555,7 +555,7 @@ const BridalWear = () => {
         <section className="container mx-auto px-4 pt-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Glamour <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Collection</span>
+              Woolen <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Collection</span>
             </h2>
             <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Designed to Dazzle, Crafted to Impress</p>
           </div>
@@ -576,7 +576,7 @@ const BridalWear = () => {
                   return (
                     <Link
                       key={product.id}
-                      href={`/accessories/all-products/${product.id}`}
+                      href={`/outfits/all-products/${product.id}`}
                       className="group bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
                     >
                       <div className="relative h-80 bg-gray-100 overflow-hidden">
@@ -645,7 +645,7 @@ const BridalWear = () => {
         </section>
         <Fragment>
           <div className="flex justify-center py-16">
-            <Link href={ALL_PRODUCTS_URL}>
+            <Link href={`/outfits/all-products?category=Outfits&subCategory=Woolen Clothes`}>
               <button className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900">
                 <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
                 <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
@@ -694,7 +694,7 @@ const BridalWear = () => {
                   return (
                     <Link
                       key={product.id}
-                      href={`/accessories/all-products/${product.id}`}
+                      href={`/outfits/all-products/${product.id}`}
                       className="group bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
                     >
                       <div className="relative h-80 bg-gray-100 overflow-hidden">
@@ -766,7 +766,7 @@ const BridalWear = () => {
               <button className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900">
                 <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
                 <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
-                  View More Products
+                  Top Selling
                   <svg
                     className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2"
                     fill="none"
@@ -811,7 +811,7 @@ const BridalWear = () => {
                   return (
                     <Link
                       key={product.id}
-                      href={`/accessories/all-products/${product.id}`}
+                      href={`/outfits/all-products/${product.id}`}
                       className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden transform hover:-translate-y-2 border border-gray-100"
                     >
                       <div className="relative h-80 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">

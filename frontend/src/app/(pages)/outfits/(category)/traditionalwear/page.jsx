@@ -45,6 +45,7 @@ const TraditionalWear = () => {
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761839280/image1_dufddx.jpg",
       bgColor: "bg-rose-100",
       buttonText: "Shop Now!",
+      category: "/accessories/all-products?category=Outfits&subCategory=Bridal Lehenga"
     },
     {
       id: 2,
@@ -53,6 +54,7 @@ const TraditionalWear = () => {
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761839277/image2_tr6ksz.jpg",
       bgColor: "bg-amber-100",
       buttonText: "Shop Now!",
+      category: "/accessories/all-products?category=Outfits&subCategory=Designer Saree"
     },
     {
       id: 3,
@@ -62,6 +64,7 @@ const TraditionalWear = () => {
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761839277/image3_i7afoe.jpg",
       bgColor: "bg-purple-100",
       buttonText: "Shop Now!",
+      category: "/accessories/all-products?category=Jewellery"
     },
   ];
 
@@ -95,14 +98,16 @@ const TraditionalWear = () => {
       title: "Bridal Collection",
       description: "Exquisite Wedding Lehengas",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761839301/image16_z2tzel.jpg",
-      discount: "Up to 40% OFF"
+      discount: "Up to 40% OFF",
+      category: "/outfits/bridalwear"
     },
     {
       id: 2,
       title: "Designer Sarees",
       description: "Traditional Elegance",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761839301/image17_ozybsl.jpg",
-      discount: "Starting at $99"
+      discount: "Starting at $99",
+      category: "/accessories/all-products?category=Outfits&subCategory=Designer Saree"
     }
   ];
 
@@ -113,18 +118,21 @@ const TraditionalWear = () => {
       title: "Red & Gold Bridal Collection",
       subtitle: "Traditional Masterpieces",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761460091/traditional-women-wear-1_xvlfal.jpg",
+      category: "/accessories/all-products?category=Outfits&subCategory=Bridal Collection"
     },
     {
       id: 2,
       title: "Designer Lehenga Range",
       subtitle: "Contemporary Bridal Wear",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761460090/traditional-women-wear-2_jzyc1c.jpg",
+      category: "/accessories/all-products?category=Outfits&subCategory=Lehenga"
     },
     {
       id: 3,
       title: "Silk Saree Collection",
       subtitle: "Timeless Elegance",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761460090/traditional-women-wear-3_js43lu.jpg",
+      category: "/accessories/all-products?category=Outfits&subCategory=Silk Saree"
     },
   ];
 
@@ -199,7 +207,7 @@ const TraditionalWear = () => {
   };
 
   // URL for "View More" - Goes to all products list page
-  const ALL_PRODUCTS_URL = "/accessories/all-products?category=traditionalwear";
+  const ALL_PRODUCTS_URL = "/accessories/all-products?category=Traditional Wear";
 
   // Split products: Half for bridal, half for groom
   const midPoint = Math.ceil(realProducts.length / 2);
@@ -209,20 +217,20 @@ const TraditionalWear = () => {
   // Filter bridal products
   const filteredProducts = selectedFilter === "ALL"
     ? bridalProducts
-    : bridalProducts.filter(product => 
-        product.subcategory === selectedFilter ||
-        product.tags?.includes(selectedFilter) ||
-        product.featured && selectedFilter === "HOT"
-      );
+    : bridalProducts.filter(product =>
+      product.subcategory === selectedFilter ||
+      product.tags?.includes(selectedFilter) ||
+      product.featured && selectedFilter === "HOT"
+    );
 
   // Filter groom products
   const filteredGroomProducts = selectedFilter === "ALL"
     ? groomProducts
-    : groomProducts.filter(product => 
-        product.subcategory === selectedFilter ||
-        product.tags?.includes(selectedFilter) ||
-        product.featured && selectedFilter === "HOT"
-      );
+    : groomProducts.filter(product =>
+      product.subcategory === selectedFilter ||
+      product.tags?.includes(selectedFilter) ||
+      product.featured && selectedFilter === "HOT"
+    );
 
   return (
     <div className="min-h-screen bg-white">
@@ -243,10 +251,12 @@ const TraditionalWear = () => {
                   affordable prices.
                 </p>
               </div>
-              <button className="bg-transparent border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white px-10 py-4 font-thin transition-all duration-300 flex items-center gap-3 rounded-lg shadow-md hover:shadow-xl">
-                <span>Shop Now!</span>
-                <span>→</span>
-              </button>
+              <Link href={"/accessories/all-products?category=Outfits&subCategory=Trending Collection"}>
+                <button className="bg-transparent border-2 cursor-pointer border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white px-10  py-4 font-thin transition-all duration-300 flex items-center gap-3 rounded-lg shadow-md hover:shadow-xl">
+                  <span>Shop Now!</span>
+                  <span>→</span>
+                </button>
+              </Link>
             </div>
 
             {/* Right Image */}
@@ -271,7 +281,7 @@ const TraditionalWear = () => {
       </section>
 
       {/* Features Section */}
-      <section className="container mx-auto px-6 sm:px-8 lg:px-16 py-16 md:py-20">
+      <section className="container mx-auto px-6 sm:px-8 lg:px-16 py-16 md:pb-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
           {features.map((feature) => (
             <div
@@ -282,7 +292,7 @@ const TraditionalWear = () => {
                 {feature.icon}
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">
+                <h3 className="text-xl font-medium text-gray-800 mb-3">
                   {feature.title}
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
@@ -298,7 +308,7 @@ const TraditionalWear = () => {
       <section className="container mx-auto px-6 sm:px-8 lg:px-16 py-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-            Bridal Showcase
+            Bridal <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>showcase</span>
           </h2>
           <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">
             Explore our exclusive bridal collection featuring exquisite lehengas, sarees, and accessories
@@ -319,15 +329,35 @@ const TraditionalWear = () => {
                 <div className="absolute bottom-8 left-8 right-8 text-white">
                   <h3 className="text-3xl font-normal mb-3">{item.title}</h3>
                   <p className="text-gray-200 text-lg mb-5">{item.subtitle}</p>
-                  <button className="bg-rose-500 hover:bg-rose-600 px-8 py-3 rounded-full font-thin cursor-pointer transition-all">
-                    View Collection
-                  </button>
+                  <Link href={item.category}>
+                    <button className="bg-rose-500 hover:bg-rose-600 px-8 py-3 rounded-full font-thin cursor-pointer transition-all">
+                      View Collection
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
           ))}
         </div>
       </section>
+
+      <Fragment >
+        <div className="flex justify-center w-full pt-18 pb-10">
+
+          <Link href={"/accessories/all-products?category=Outfits&subCategory=Traditional Wear"}>
+            <button className="group/btn relative bg-linear-to-r from-rose-500 via-pink-500 to-orange-500 hover:from-rose-600 hover:via-pink-600 hover:to-orange-600 text-white px-14 md:px-20  py-5 md:py-10 cursor-pointer rounded-full font-medium md:text-3xl uppercase tracking-wider transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-105 text-lg overflow-hidden">
+              <div className="absolute inset-0 w-1/2 h-full bg-linear-to-r from-transparent via-white/30 to-transparent skew-x-12 -translate-x-full group-hover/btn:translate-x-[200%] transition-transform duration-1000"></div>
+
+              <span className="relative flex items-center gap-3">
+                Shop Top Collection
+                <svg className="w-6 h-6 transition-transform duration-300 group-hover/btn:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </button>
+          </Link>
+        </div>
+      </Fragment>
 
       {/* Promotional Banner Cards Section */}
       <section className="container mx-auto px-6 sm:px-8 lg:px-16 py-16">
@@ -351,9 +381,13 @@ const TraditionalWear = () => {
                   {card.subtitle && (
                     <p className="text-gray-700">{card.subtitle}</p>
                   )}
-                  <button className="bg-gray-800 hover:bg-gray-900 text-white px-8 py-3 rounded-full font-thin transition-colors shadow-md">
-                    {card.buttonText}
-                  </button>
+                  <Link href={card.category}>
+
+                    <button className="bg-gray-800 cursor-pointer hover:bg-gray-900 text-white px-8 py-3 rounded-full font-thin transition-colors shadow-md">
+                      {card.buttonText}
+                    </button>
+
+                  </Link>
                 </div>
 
                 {/* Right Image */}
@@ -376,7 +410,7 @@ const TraditionalWear = () => {
       <section className="container mx-auto px-6 sm:px-8 lg:px-16 py-16">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-            Shop By Category
+            Shop By <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Category</span>
           </h2>
           <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Find What You Love, Faster</p>
         </div>
@@ -415,14 +449,16 @@ const TraditionalWear = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
                 <div className="absolute bottom-10 left-10 right-10 text-white">
-                  <span className="bg-rose-500 px-4 py-2 rounded-full text-sm font-bold mb-4 inline-block">
+                  <span className="bg-rose-500 px-4 py-2 rounded-full text-sm font-normal mb-4 inline-block">
                     {collection.discount}
                   </span>
                   <h3 className="text-4xl font-normal mb-3">{collection.title}</h3>
                   <p className="text-gray-200 mb-6 text-xl">{collection.description}</p>
-                  <button className="text-white font-thin hover:text-rose-400 transition-colors flex items-center gap-3 text-lg">
-                    Explore Now <span>→</span>
-                  </button>
+                  <Link href={collection.category}>
+                    <button className="text-white font-thin cursor-pointer hover:text-rose-400 transition-colors flex items-center gap-3 text-lg">
+                      Explore Now <span>→</span>
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -434,7 +470,7 @@ const TraditionalWear = () => {
       <section className="container mx-auto px-6 sm:px-8 lg:px-16 py-4 bg-gradient-to-b from-gray-50 to-white rounded-3xl my-12">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-            Featured Bridal Products
+            Featured <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Bridal</span> Collection
           </h2>
           <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Handpicked bridal wear, crafted with love and detail</p>
         </div>
@@ -443,11 +479,10 @@ const TraditionalWear = () => {
             <button
               key={filter}
               onClick={() => setSelectedFilter(filter)}
-              className={`px-8 py-4 rounded-full font-medium uppercase text-sm transition-all cursor-pointer duration-300 ${
-                selectedFilter === filter
-                  ? "bg-rose-500 text-white shadow-xl scale-105"
-                  : "bg-white text-gray-700 hover:bg-gray-100 shadow-md"
-              }`}
+              className={`px-8 py-4 rounded-full font-medium uppercase text-sm transition-all cursor-pointer duration-300 ${selectedFilter === filter
+                ? "bg-rose-500 text-white shadow-xl scale-105"
+                : "bg-white text-gray-700 hover:bg-gray-100 shadow-md"
+                }`}
             >
               {filter}
             </button>
@@ -518,11 +553,10 @@ const TraditionalWear = () => {
                             aria-label="Add to wishlist"
                           >
                             <Heart
-                              className={`w-6 h-6 ${
-                                favorites.includes(product.id)
-                                  ? "text-rose-500 fill-rose-500"
-                                  : ""
-                              }`}
+                              className={`w-6 h-6 ${favorites.includes(product.id)
+                                ? "text-rose-500 fill-rose-500"
+                                : ""
+                                }`}
                             />
                           </button>
                           <button
@@ -569,11 +603,11 @@ const TraditionalWear = () => {
 
             <Fragment>
               <div className='flex justify-center pt-20 pb-8'>
-                <Link href={ALL_PRODUCTS_URL}>
+                <Link href={`/accessories/all-products?category=Outfits&subCategory=Bridal Collection`}>
                   <button className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900">
                     <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
                     <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
-                      View More Products
+                      View Bridal Collection
                       <svg
                         className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2"
                         fill="none"
@@ -600,7 +634,7 @@ const TraditionalWear = () => {
       <section className="container mx-auto px-6 sm:px-8 lg:px-16  bg-linear-to-b from-gray-50 to-white rounded-3xl my-12">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-            Featured Groom Collection
+            Featured <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Groom</span> Collection
           </h2>
           <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">
             Handpicked groom attire, crafted with elegance and precision
@@ -612,11 +646,10 @@ const TraditionalWear = () => {
             <button
               key={filter}
               onClick={() => setSelectedFilter(filter)}
-              className={`px-8 py-4 rounded-full font-medium uppercase text-sm transition-all cursor-pointer duration-300 ${
-                selectedFilter === filter
-                  ? "bg-rose-500 text-white shadow-xl scale-105"
-                  : "bg-white text-gray-700 hover:bg-gray-100 shadow-md"
-              }`}
+              className={`px-8 py-4 rounded-full font-medium uppercase text-sm transition-all cursor-pointer duration-300 ${selectedFilter === filter
+                ? "bg-rose-500 text-white shadow-xl scale-105"
+                : "bg-white text-gray-700 hover:bg-gray-100 shadow-md"
+                }`}
             >
               {filter}
             </button>
@@ -674,11 +707,10 @@ const TraditionalWear = () => {
                             aria-label="Add to wishlist"
                           >
                             <Heart
-                              className={`w-6 h-6 ${
-                                favorites.includes(product.id)
-                                  ? "text-rose-500 fill-rose-500"
-                                  : ""
-                              }`}
+                              className={`w-6 h-6 ${favorites.includes(product.id)
+                                ? "text-rose-500 fill-rose-500"
+                                : ""
+                                }`}
                             />
                           </button>
                           <button
@@ -722,11 +754,11 @@ const TraditionalWear = () => {
 
             <Fragment>
               <div className='flex justify-center pt-24'>
-                <Link href={ALL_PRODUCTS_URL}>
+                <Link href={"/accessories/all-products?category=Outfits&subCategory=Groom Collection"}>
                   <button className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900">
                     <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
                     <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
-                      View More Products
+                      View Groom Collection
                       <svg
                         className="w-5 h-5 transition-transform duration-500 group-hover:translate-x-2"
                         fill="none"
@@ -756,7 +788,7 @@ const TraditionalWear = () => {
 
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-            Why Choose Us
+            Why <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Choose</span> Us
           </h2>
           <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Experience the perfect blend of quality, service, and authenticity</p>
         </div>
@@ -819,7 +851,7 @@ const TraditionalWear = () => {
           <div className="relative z-10">
             <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg mb-6 animate-fade-in">
               <span className="w-2 h-2 bg-rose-500 rounded-full animate-pulse"></span>
-              <span className="text-sm font-semibold text-gray-700 uppercase tracking-wider">Limited Time Offer</span>
+              <span className="text-sm font-normal text-gray-700 uppercase tracking-wider">Limited Time Offer</span>
             </div>
 
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-thin mb-6 bg-linear-to-r from-gray-900 via-rose-700 to-orange-700 bg-clip-text text-transparent animate-fade-in-up">
@@ -828,48 +860,39 @@ const TraditionalWear = () => {
 
             <p className="text-gray-700 text-xl md:text-2xl mb-10 max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-200">
               Explore our extensive range of bridal lehengas, wedding sarees, and traditional wear
-              for every occasion. <span className="font-semibold text-rose-600">Make your special day unforgettable!</span>
+              for every occasion. <span className="font-medium text-rose-600">Make your special day unforgettable!</span>
             </p>
 
             <div className="flex flex-wrap justify-center gap-8 mb-10 animate-fade-in-up delay-300">
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-rose-600 mb-1">500+</div>
+                <div className="text-3xl md:text-4xl font-normal text-rose-600 mb-1">500+</div>
                 <div className="text-sm text-gray-600 uppercase tracking-wide">Designs</div>
               </div>
               <div className="w-px h-16 bg-gray-300"></div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-orange-600 mb-1">50K+</div>
+                <div className="text-3xl md:text-4xl font-normal text-orange-600 mb-1">50K+</div>
                 <div className="text-sm text-gray-600 uppercase tracking-wide">Happy Customers</div>
               </div>
               <div className="w-px h-16 bg-gray-300"></div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-yellow-600 mb-1">4.9★</div>
+                <div className="text-3xl md:text-4xl font-normal text-yellow-600 mb-1">4.9★</div>
                 <div className="text-sm text-gray-600 uppercase tracking-wide">Rating</div>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up delay-500">
               <Link href={ALL_PRODUCTS_URL}>
-                <button className="group/btn relative bg-linear-to-r from-rose-500 via-pink-500 to-orange-500 hover:from-rose-600 hover:via-pink-600 hover:to-orange-600 text-white px-14 py-5 rounded-full font-bold uppercase tracking-wider transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-105 text-lg overflow-hidden">
+                <button className="group/btn relative bg-linear-to-r from-rose-500 via-pink-500 to-orange-500 hover:from-rose-600 hover:via-pink-600 hover:to-orange-600 text-white px-14 md:px-20 cursor-pointer py-5 rounded-full font-medium uppercase tracking-wider transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-105 text-lg overflow-hidden">
                   <div className="absolute inset-0 w-1/2 h-full bg-linear-to-r from-transparent via-white/30 to-transparent skew-x-12 -translate-x-full group-hover/btn:translate-x-[200%] transition-transform duration-1000"></div>
 
                   <span className="relative flex items-center gap-3">
-                    Shop Bridal Collection
+                    Shop All Collection
                     <svg className="w-6 h-6 transition-transform duration-300 group-hover/btn:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </span>
                 </button>
               </Link>
-
-              <button className="group/btn2 relative bg-white/90 backdrop-blur-sm hover:bg-white text-gray-800 px-12 py-5 rounded-full font-semibold uppercase tracking-wider transition-all duration-300 shadow-lg hover:shadow-xl border-2 border-gray-200 hover:border-rose-300 text-lg">
-                <span className="flex items-center gap-3">
-                  View Catalog
-                  <svg className="w-5 h-5 transition-transform duration-300 group-hover/btn2:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                  </svg>
-                </span>
-              </button>
             </div>
 
             <div className="flex flex-wrap justify-center items-center gap-6 mt-10 text-sm text-gray-600 animate-fade-in-up delay-700">

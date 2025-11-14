@@ -4,8 +4,6 @@ import React, { useState, useEffect, Fragment } from 'react';
 import Link from 'next/link';
 import { Heart, Star, Truck, DollarSign, Headphones, Shield, ArrowRight, CheckCircle, Loader2, ShoppingCart } from 'lucide-react';
 
-
-
 const CATEGORY_SLUG = "shoes";
 
 export default function FootwearShop() {
@@ -140,8 +138,9 @@ function FeaturedProducts() {
   const fetchRealProducts = async () => {
     try {
       setLoading(true);
+      // Fetch all shoes and slice to get first 8 products
       const response = await fetch(
-        "http://localhost:5000/api/products?category=shoes&limit=8"
+        "http://localhost:5000/api/products?category=shoes"
       );
       const data = await response.json();
 
@@ -171,8 +170,6 @@ function FeaturedProducts() {
       maximumFractionDigits: 0,
     }).format(price);
   };
-
-  const ALL_PRODUCTS_URL = "/accessories/all-products?category=Trending Shoes";
 
   return (
     <div className="max-w-7xl mx-auto pt-16 pb-6 px-4">
@@ -209,7 +206,7 @@ function FeaturedProducts() {
               return (
                 <Link
                   key={product.id}
-                  href={ALL_PRODUCTS_URL}
+                  href={`/accessories/all-products/${product.id}`}
                   className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group"
                 >
                   <div className="relative overflow-hidden">
@@ -282,7 +279,7 @@ function FeaturedProducts() {
 
           <Fragment>
             <div className='flex justify-center pt-16'>
-              <Link href={"/accessories/all-products?category=Trending Collection"}>
+              <Link href={"/accessories/all-products?category=shoes"}>
                 <button className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900">
                   <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
                   <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
@@ -312,9 +309,9 @@ function FeaturedProducts() {
 }
 
 function PerfectPairCollection() {
-
-  const BOYS_URL = '/accessories/all-products?category=Shoes&subCategory=Boys'
-  const GIRLS_URL = '/accessories/all-products?category=Shoes&subCategory=Girls'
+  const BOYS_URL = '/accessories/all-products?category=shoes&subCategory=Boys'
+  const GIRLS_URL = '/accessories/all-products?category=shoes&subCategory=Girls'
+  
   return (
     <div className="max-w-7xl mx-auto py-16 px-4">
       <div className="text-center mb-16">
@@ -344,7 +341,6 @@ function PerfectPairCollection() {
             <div className="bg-gray-900 rounded-lg h-36 flex items-center justify-center hover:bg-amber-800 transition-colors duration-300 cursor-pointer">
               <h3 className="text-white text-3xl font-serif">For Him</h3>
             </div>
-
           </Link>
         </div>
         <div className="grid grid-rows-2 gap-6">
@@ -381,13 +377,15 @@ function GroomCollection() {
   const fetchRealProducts = async () => {
     try {
       setLoading(true);
+      // Fetch all shoes, then filter by offset/range to get different products
       const response = await fetch(
-        "http://localhost:5000/api/products?category=shoes&subcategory=groom&limit=6"
+        "http://localhost:5000/api/products?category=shoes"
       );
       const data = await response.json();
 
       if (data.success) {
-        setRealProducts(data.products.slice(0, 6));
+        // Skip first 8 products (used in Featured), take next 6 for Groom
+        setRealProducts(data.products.slice(8, 14));
       } else {
         setError(data.message);
       }
@@ -413,8 +411,6 @@ function GroomCollection() {
     }).format(price);
   };
 
-  const ALL_PRODUCTS_URL = "/accessories/all-products?category=Shoes";
-
   return (
     <div className="max-w-7xl mx-auto py-12 px-4">
       <div className="text-center mb-16">
@@ -438,7 +434,7 @@ function GroomCollection() {
             Retry
           </button>
         </div>
-      ) : (
+      ) : realProducts.length > 0 ? (
         <>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {realProducts.map(product => {
@@ -513,7 +509,7 @@ function GroomCollection() {
 
           <Fragment>
             <div className='flex justify-center pt-8 pb-12'>
-              <Link href={'/accessories/all-products?category=Shoes&subCategory=Mens Collection'}>
+              <Link href={'/accessories/all-products?category=shoes&subCategory=Mens Collection'}>
                 <button className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900">
                   <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
                   <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
@@ -537,6 +533,10 @@ function GroomCollection() {
             </div>
           </Fragment>
         </>
+      ) : (
+        <div className="text-center py-12">
+          <p className="text-gray-600">No products available for this collection</p>
+        </div>
       )}
     </div>
   );
@@ -555,13 +555,15 @@ function BrideCollection() {
   const fetchRealProducts = async () => {
     try {
       setLoading(true);
+      // Fetch all shoes, then filter by offset/range to get different products
       const response = await fetch(
-        "http://localhost:5000/api/products?category=shoes&subcategory=bride&limit=6"
+        "http://localhost:5000/api/products?category=shoes"
       );
       const data = await response.json();
 
       if (data.success) {
-        setRealProducts(data.products.slice(0, 6));
+        // Skip first 14 products (8 Featured + 6 Groom), take next 6 for Bride
+        setRealProducts(data.products.slice(14, 20));
       } else {
         setError(data.message);
       }
@@ -587,8 +589,6 @@ function BrideCollection() {
     }).format(price);
   };
 
-  const ALL_PRODUCTS_URL = "/accessories/all-products?category=Bride Collection";
-
   return (
     <div className="max-w-7xl mx-auto py-12 px-4">
       <div className="text-center mb-16">
@@ -612,7 +612,7 @@ function BrideCollection() {
             Retry
           </button>
         </div>
-      ) : (
+      ) : realProducts.length > 0 ? (
         <>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {realProducts.map(product => {
@@ -687,14 +687,11 @@ function BrideCollection() {
 
           <Fragment>
             <div className='flex justify-center py-16'>
-              <Link href={'/accessories/all-products?category=Shoes&subCategory=Womens Collection'}>
+              <Link href={'/accessories/all-products?category=shoes&subCategory=Womens Collection'}>
                 <button
                   className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900"
                 >
-                  {/* Background slide effect */}
                   <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
-
-                  {/* Button text */}
                   <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
                     View More Products
                     <svg
@@ -716,15 +713,16 @@ function BrideCollection() {
             </div>
           </Fragment>
         </>
+      ) : (
+        <div className="text-center py-12">
+          <p className="text-gray-600">No products available for this collection</p>
+        </div>
       )}
     </div>
   );
 }
 
 const HeroSection = () => {
-
-  const ALL_PRODUCTS_URL = "/accessories/all-products?category=Shoes";
-
   return (
     <div className="bg-linear-to-br from-pink-50 to-pink-100 min-h-screen">
       <div className="max-w-7xl mx-auto px-6 py-12 lg:py-16">
@@ -746,8 +744,7 @@ const HeroSection = () => {
             </p>
 
             <div className="flex flex-wrap gap-4">
-
-              <Link href={"/accessories/all-products?category=Trending Collection"}>
+              <Link href={"/accessories/all-products?category=shoes"}>
                 <button className="bg-gray-900 text-white px-8 py-4 rounded-full font-normal cursor-pointer hover:bg-gray-800 transition-all hover:scale-105 shadow-lg">
                   Explore Collection
                 </button>
@@ -832,19 +829,19 @@ const HeroSection = () => {
                 title: "Running Shoes",
                 desc: "Performance meets comfort",
                 image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
-                categorylink: "/accessories/all-products?category=Running Shoes"
+                categorylink: "/accessories/all-products?category=shoes&subCategory=Running Shoes"
               },
               {
                 title: "Casual Sneakers",
                 desc: "Everyday style essentials",
                 image: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=300&fit=crop&crop=center",
-                categorylink: "/accessories/all-products?category=Casual Sneakers"
+                categorylink: "/accessories/all-products?category=shoes&subCategory=Casual Sneakers"
               },
               {
                 title: "Sports Collection",
                 desc: "Engineered for athletes",
                 image: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=300&fit=crop&crop=center",
-                categorylink: "/accessories/all-products?category=Sports Collection"
+                categorylink: "/accessories/all-products?category=shoes&subCategory=Sports Collection"
               }
             ].map((category, i) => (
               <div key={i} className={`group bg-gradient-to-br ${i === 0 ? 'from-pink-100 to-pink-50' :

@@ -101,14 +101,11 @@ const HairAccessoriesPage = () => {
 
                 <div className="flex flex-wrap gap-4 pt-4">
                   <Link href={ALL_PRODUCTS_URL}>
-                  <button className="px-8 py-4 bg-rose-600 text-white rounded-lg font-normal cursor-pointer hover:bg-rose-700 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2">
+                  <button className="px-8 md:px-60 py-4 bg-rose-600 text-white rounded-lg font-normal cursor-pointer hover:bg-rose-700 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2">
                     <ShoppingBag className="w-5 h-5" />
                     Shop Now
                   </button>
                   </Link>
-                  <button className="px-8 py-4 bg-white text-rose-600 border-2 border-rose-600 rounded-lg font-normal cursor-pointer hover:bg-rose-50 transition-all duration-300">
-                    View Lookbook
-                  </button>
                 </div>
 
                 {/* Trust Badges */}
