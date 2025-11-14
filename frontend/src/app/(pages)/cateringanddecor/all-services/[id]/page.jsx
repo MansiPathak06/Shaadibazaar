@@ -17,7 +17,7 @@ export default function ServiceVendorDetail() {
 
   useEffect(() => {
     async function fetchVendor() {
-      const res = await fetch(`http://localhost:5000/api/service-vendors/${id}`);
+      const res = await fetch(`http://localhost:5000/api/service-vendors/public/${id}`);
       const data = await res.json();
 
       // Gallery fix: convert comma string to array (or empty array)
@@ -44,7 +44,7 @@ export default function ServiceVendorDetail() {
   const handleFormSubmit = async (e) => {
   e.preventDefault();
   try {
-    const res = await fetch(`http://localhost:5000/api/service-vendors/${id}/booking`, {
+    const res = await fetch(`http://localhost:5000/api/service-vendors/public/${id}/booking`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),

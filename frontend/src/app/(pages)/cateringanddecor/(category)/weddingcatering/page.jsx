@@ -70,7 +70,7 @@ export default function WeddingCateringWebsite() {
                         we create unforgettable gastronomic journeys for your wedding celebration.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4">
-                        <Link href={`/cateringanddecor/all-services?category=Wedding Catering`}>
+                        <Link href={`/cateringanddecor/all-services?category=catering`}>
                             <button className="bg-white text-stone-800 w-80 px-8 py-4 rounded-lg hover:bg-stone-100 hover:-translate-y-1 transition flex items-center justify-center gap-2 text-sm font-medium cursor-pointer">
                                 <ChefHat size={18} /> Explore Our Menu
                             </button>

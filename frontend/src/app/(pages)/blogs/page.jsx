@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { blogData, blogPosts } from "@/lib/blogData";
+import { blogData } from "@/lib/blogData";
 
 export default function BlogPage() {
   return (
@@ -88,13 +88,13 @@ export default function BlogPage() {
                   </svg>
                   <span>{post.date}</span>
                 </div>
-                <Link href={`/blog/${post.id}`}>
-                  <button
-                    className="mt-auto cursor-pointer px-6 py-3 bg-gradient-to-r from-rose-400 via-pink-400 to-rose-500 text-white font-normal rounded-xl hover:from-rose-500 hover:via-pink-500 hover:to-rose-600 transition-all duration-300 outline-none focus:ring-4 focus:ring-rose-300 shadow-md hover:shadow-xl transform hover:scale-105"
-                    type="button"
-                  >
-                    READ MORE
-                  </button>
+                
+                {/* FIXED: Remove button wrapper and use Link directly */}
+                <Link 
+                  href={`/blog/${post.id}`}
+                  className="mt-auto cursor-pointer px-6 py-3 bg-gradient-to-r from-rose-400 via-pink-400 to-rose-500 text-white font-normal rounded-xl hover:from-rose-500 hover:via-pink-500 hover:to-rose-600 transition-all duration-300 outline-none focus:ring-4 focus:ring-rose-300 shadow-md hover:shadow-xl transform hover:scale-105 text-center"
+                >
+                  READ MORE
                 </Link>
               </div>
             </div>
