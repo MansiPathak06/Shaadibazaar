@@ -105,7 +105,7 @@ export default function VendorDashboard() {
       "Accessories",
       "Trending Collection",
     ],
-    Hair_Accessories: ["Hair Accessories"],
+    Hair_Accessories: ["Hair Accessories", "xyz"],
     Shoes: [
       "Trending Collection",
       "Running Shoes",
@@ -118,6 +118,13 @@ export default function VendorDashboard() {
     ],
     Watches: ["Luxury Watches", "Casual Watches", "Smart Watches"],
     Perfumes: ["Men Perfumes", "Women Perfumes", "Unisex Perfumes"],
+    Bridalwear: ["Trending Collection","Silk Clothes","Woollen Clothes","Bridal Wear"],
+    Groomwear:["Trending Collection","Groom Wear","Wool","Velvet","Linen","Wool Silk Blend", "Cotton"],
+    Partywear:["Party Wear","Trending Collection","Classical Suit Sets","Stylish Indo Western Sets","Sequined Dresses","Designer Gowns"],
+    traditionalwear:["Trending Collection","Bridal Collection","Groom Collection","Silk Saree","Lehenga","Bridal Lehenga","Designer Saree"],
+    westernwear:["Western Wear","Coats","Jacket","Sweater","Jeans","Shirt","Shoes","Summer Collection","Winter Collection"],
+    outfitkids:["New Born","Toddler","Kids","Teens","Girls","Boys","Babies","Casual Wear","Party Dresses","Sports Wear","Winter Collection","Summer Collection"]
+
   
   };
 
@@ -1328,7 +1335,7 @@ export default function VendorDashboard() {
                                 <option value="westernwear">
                                   Western Wear
                                 </option>
-                                <option value="outfitkids">Outfit Kids</option>
+                                <option value="outfitkids">Kids Outfit</option>
                               </select>
 
                               {/* Custom dropdown arrow */}

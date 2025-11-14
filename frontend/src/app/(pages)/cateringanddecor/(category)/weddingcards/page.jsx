@@ -99,14 +99,18 @@ export default function WeddingCardsPage() {
                   From Traditional to Modern - Your Dream Card Awaits
                 </p>
                 <div className="flex flex-col sm:flex-row gap-5 justify-center">
-                  <button className="group relative bg-white/90 backdrop-blur-sm text-rose-500 px-10 py-5 rounded-2xl font-normal cursor-pointer text-lg hover:bg-white transition-all shadow-2xl overflow-hidden">
-                    <span className="relative z-10">View Our Collection</span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-rose-400/0 via-rose-400/10 to-rose-400/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-                  </button>
-                  <button className="group relative bg-gradient-to-r from-rose-500 to-pink-500 text-white px-10 py-5 rounded-2xl font-normal cursor-pointer text-lg hover:shadow-2xl transition-all shadow-xl border-2 border-white/30 overflow-hidden">
-                    <span className="relative z-10">Get Free Sample</span>
-                    <div className="absolute inset-0 bg-white/20 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300"></div>
-                  </button>
+                  <a href="/cateringanddecor/all-services?category=weddingcards">
+                    <button className="group relative bg-white/90 backdrop-blur-sm text-rose-500 px-10 py-5 rounded-2xl font-normal cursor-pointer text-lg hover:bg-white transition-all shadow-2xl overflow-hidden">
+                      <span className="relative z-10">View Our Collection</span>
+                      <div className="absolute inset-0 bg-gradient-to-r from-rose-400/0 via-rose-400/10 to-rose-400/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                    </button>
+                  </a>
+                  <a href="/cateringanddecor/all-services?category=weddingcards">
+                    <button className="group relative bg-gradient-to-r from-rose-500 to-pink-500 text-white px-10 py-5 rounded-2xl font-normal cursor-pointer text-lg hover:shadow-2xl transition-all shadow-xl border-2 border-white/30 overflow-hidden">
+                      <span className="relative z-10">Get Free Sample</span>
+                      <div className="absolute inset-0 bg-white/20 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300"></div>
+                    </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -128,13 +132,14 @@ export default function WeddingCardsPage() {
       </section>
 
       {/* Introduction Section - Glassmorphic Cards */}
-      <section className=" lg:pt-28 px-4 max-w-7xl mx-auto">
-
+      <section className="lg:pt-28 px-4 max-w-7xl mx-auto">
         <div className="text-center md:mb-20 mb-16">
           <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-            Welcome to <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>ShaadiBAzaar</span> <br /> Wedding Cards
+            Welcome to <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">ShaadiBAzaar</span> <br /> Wedding Cards
           </h2>
-          <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">At ShaadiBAzaar, we design personalized wedding cards that reflect your love and culture</p>
+          <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">
+            At ShaadiBAzaar, we design personalized wedding cards that reflect your love and culture
+          </p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
@@ -142,10 +147,12 @@ export default function WeddingCardsPage() {
             { value: '5000+', label: 'Designs', gradient: 'from-rose-500 to-pink-500' },
             { value: '10000+', label: 'Happy Couples', gradient: 'from-pink-500 to-purple-500' },
             { value: '100%', label: 'Customizable', gradient: 'from-purple-500 to-rose-500' },
-            { value: '24/7', label: 'Support', gradient: 'from-rose-500 to-orange-500' }
+            { value: '24/7', label: 'Support', gradient: 'from-rose-500 to-orange-500' },
           ].map((stat, index) => (
             <div key={index} className="group relative">
-              <div className={`absolute inset-0 bg-gradient-to-br ${stat.gradient} opacity-10 rounded-3xl blur-xl group-hover:opacity-20 transition-opacity`}></div>
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${stat.gradient} opacity-10 rounded-3xl blur-xl group-hover:opacity-20 transition-opacity`}
+              ></div>
               <div className="relative text-center p-8 bg-white/60 backdrop-blur-lg rounded-3xl border border-white/40 shadow-xl hover:shadow-2xl transition-all hover:scale-105">
                 <div className={`text-5xl font-medium bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-3`}>
                   {stat.value}
@@ -159,26 +166,19 @@ export default function WeddingCardsPage() {
 
       {/* Card Categories Grid - Modern Cards */}
       <section className="px-4 py-24 relative overflow-hidden">
-        {/* Background decoration */}
-
         <div className="relative max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Explore Our <span className='bg-gradient-to-r from-rose-500 to-pink-500 text-transparent bg-clip-text'>Collections</span>
+              Explore Our <span className="bg-gradient-to-r from-rose-500 to-pink-500 text-transparent bg-clip-text">Collections</span>
             </h2>
-            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">    Choose from our diverse range of wedding card styles</p>
+            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Choose from our diverse range of wedding card styles</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {cardCategories.map((category) => (
-              <div
-                key={category.id}
-                className="group relative cursor-pointer"
-              >
-                {/* Glow effect */}
+              <div key={category.id} className="group relative cursor-pointer">
                 <div className="absolute inset-0 bg-gradient-to-br from-rose-400/30 to-purple-400/30 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
 
-                {/* Main card */}
                 <div className="relative bg-white/70 backdrop-blur-md rounded-3xl border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden group-hover:scale-[1.02]">
                   <div className="relative h-80 overflow-hidden">
                     <img
@@ -186,7 +186,6 @@ export default function WeddingCardsPage() {
                       alt={category.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
-                    {/* Gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent"></div>
                     <h3 className="absolute bottom-6 left-6 right-6 text-2xl font-medium text-white">{category.name}</h3>
                   </div>
@@ -205,183 +204,16 @@ export default function WeddingCardsPage() {
                       ))}
                     </div>
 
-                    <button className="w-full relative bg-gradient-to-r from-rose-500 to-pink-500 text-white py-3.5 rounded-2xl font-normal hover:shadow-lg transition-all overflow-hidden group/btn">
-                      <span className="relative z-10">Explore Designs</span>
-                      <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 opacity-0 group-hover/btn:opacity-100 transition-opacity"></div>
-                    </button>
+                    <a href="/cateringanddecor/all-services?category=weddingcards">
+                      <button className="w-full relative bg-gradient-to-r from-rose-500 to-pink-500 text-white py-3.5 rounded-2xl font-normal hover:shadow-lg transition-all overflow-hidden group/btn">
+                        <span className="relative z-10">Explore Designs</span>
+                        <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 opacity-0 group-hover/btn:opacity-100 transition-opacity"></div>
+                      </button>
+                    </a>
                   </div>
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Digital Wedding Cards - Modern Glassmorphic */}
-      <section className="md:py-24 px-4 relative overflow-hidden">
-        {/* Animated background */}
-
-
-        <div className="relative max-w-7xl mx-auto">
-
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Digital <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Wedding Cards</span> for <br /> Social Media
-            </h2>
-            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">ChatGPT said:
-
-              Go digital with eco-friendly animated invites, perfect for WhatsApp, Instagram, and Facebook</p>
-          </div>
-
-          {/* Features Grid - Glassmorphic Icons */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {[
-              { img: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761473683/whatsapp-icon_scts6l.jpg', title: 'WhatsApp Ready', desc: 'Optimized for instant sharing on WhatsApp groups and status', gradient: 'from-green-400 to-emerald-500' },
-              { img: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761473680/video-icon_xayo7f.jpg', title: 'Animated Videos', desc: 'Beautiful motion graphics and cinematic transitions', gradient: 'from-blue-400 to-cyan-500' },
-              { img: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000002/music-icon_digital.jpg', title: 'Custom Music', desc: 'Add your favorite songs or traditional wedding music', gradient: 'from-purple-400 to-pink-500' },
-              { img: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761473679/rsvp-icon_b8zzho.jpg', title: 'Interactive RSVP', desc: 'Track guest responses with built-in RSVP links', gradient: 'from-orange-400 to-rose-500' }
-            ].map((feature, idx) => (
-              <div key={idx} className="group relative">
-                <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-20 rounded-3xl blur-xl group-hover:opacity-30 transition-opacity`}></div>
-                <div className="relative bg-white/60 backdrop-blur-lg p-8 rounded-3xl border border-white/40 text-center hover:shadow-2xl transition-all hover:scale-105">
-                  <div className="relative w-24 h-24 mx-auto mb-6">
-                    <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} rounded-2xl rotate-6 group-hover:rotate-12 transition-transform`}></div>
-                    <div className="relative w-full h-full rounded-2xl overflow-hidden border-4 border-white shadow-lg">
-                      <img
-                        src={feature.img}
-                        alt={feature.title}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
-                  <h3 className={`font-medium text-xl bg-gradient-to-r ${feature.gradient} bg-clip-text text-transparent mb-3`}>{feature.title}</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">{feature.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Digital Card Types - Modern 3D Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
-            {[
-              {
-                img: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000010/video-invite-card_main.jpg',
-                icon: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000011/video-camera-icon.png',
-                title: 'Video Invites',
-                subtitle: 'Cinematic Video Cards',
-                features: ['30-60 second video invitations', 'Professional animations & effects', 'Photo slideshow integration', 'HD quality for all platforms'],
-                btnText: 'Create Video Invite',
-                gradient: 'from-rose-500 to-pink-500'
-              },
-              {
-                img: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000012/gif-invite-card_main.jpg',
-                icon: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000013/gif-icon.png',
-                title: 'Animated GIF',
-                subtitle: 'GIF E-Cards',
-                features: ['Lightweight & fast loading', 'Auto-play in chat apps', 'Looping animations', 'Works on all devices'],
-                btnText: 'Design GIF Card',
-                gradient: 'from-purple-500 to-pink-500'
-              },
-              {
-                img: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000014/web-invite-card_main.jpg',
-                icon: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000015/web-icon.png',
-                title: 'Web Invites',
-                subtitle: 'Interactive Websites',
-                features: ['Personalized wedding website', 'Event timeline & venue details', 'Live RSVP tracking', 'Photo gallery & registry links'],
-                btnText: 'Build Website',
-                gradient: 'from-orange-500 to-rose-500'
-              }
-            ].map((card, idx) => (
-              <div key={idx} className="group relative">
-                <div className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all`}></div>
-
-                <div className="relative bg-white/70 backdrop-blur-md border-2 border-white/50 rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all group-hover:scale-[1.02]">
-                  <div className="relative h-72 overflow-hidden">
-                    <img
-                      src={card.img}
-                      alt={card.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div className={`absolute inset-0 bg-gradient-to-t ${card.gradient.replace('from', 'from')}/90 via-gray-900/50 to-transparent`}></div>
-
-                    {/* Floating icon */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="relative w-28 h-28">
-                        <div className="absolute inset-0 bg-white/20 backdrop-blur-md rounded-3xl group-hover:scale-110 transition-transform"></div>
-                        <div className="relative w-full h-full flex items-center justify-center">
-                          <img
-                            src={card.icon}
-                            alt={`${card.title} Icon`}
-                            className="w-20 h-20 object-contain drop-shadow-2xl"
-                          />
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="absolute bottom-0 left-0 right-0 p-8">
-                      <h3 className="text-3xl font-medium text-white text-center drop-shadow-lg">{card.title}</h3>
-                    </div>
-                  </div>
-
-                  <div className="p-8">
-                    <h4 className={`font-bold text-2xl bg-gradient-to-r ${card.gradient} bg-clip-text text-transparent mb-4`}>{card.subtitle}</h4>
-                    <ul className="space-y-3 mb-6">
-                      {card.features.map((feature, fIdx) => (
-                        <li key={fIdx} className="flex items-start gap-3 text-gray-700">
-                          <span className={`text-lg bg-gradient-to-r ${card.gradient} bg-clip-text text-transparent font-normal`}>✓</span>
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <button className={`w-full relative bg-gradient-to-r ${card.gradient} text-white py-4 rounded-2xl font-normal hover:shadow-xl text-lg transition-all overflow-hidden group/btn`}>
-                      <span className="relative z-10">{card.btnText}</span>
-                      <div className="absolute inset-0 bg-white/20 translate-y-[100%] group-hover/btn:translate-y-0 transition-transform duration-300"></div>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Why Choose Digital - Modern Glassmorphic Grid */}
-          <div className="relative rounded-[2.5rem] overflow-hidden py-6">
-            <div className="absolute inset-0 bg-gradient-to-br from-rose-500 via-pink-500 to-purple-500"></div>
-            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjEiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-30"></div>
-
-            <div className="relative p-12 md:p-16 text-white">
-              <h3 className="text-4xl md:text-5xl font-medium mb-12 text-center drop-shadow-lg">
-                Why Choose Digital Invitations?
-              </h3>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {[
-                  { icon: <Clock className="w-8 h-8" />, img: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000020/instant-delivery-icon.jpg', title: 'Instant Delivery', desc: 'Send to thousands of guests in seconds across the globe' },
-                  { icon: <Sparkles className="w-8 h-8" />, img: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000021/cost-effective-icon.jpg', title: 'Cost Effective', desc: 'Save up to 70% compared to traditional printed cards' },
-                  { icon: <Leaf className="w-8 h-8" />, img: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000022/eco-friendly-icon.jpg', title: 'Eco-Friendly', desc: 'Zero paper waste, helping save trees for future generations' },
-                  { icon: <RefreshCw className="w-8 h-8" />, img: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000023/easy-updates-icon.jpg', title: 'Easy Updates', desc: 'Change details anytime without reprinting costs' },
-                  { icon: <Users className="w-8 h-8" />, img: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000024/rsvp-tracking-icon.jpg', title: 'RSVP Tracking', desc: 'Real-time guest response tracking and analytics' },
-                  { icon: <Heart className="w-8 h-8" />, img: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1730000025/creativity-icon.jpg', title: 'Unlimited Creativity', desc: 'Animation, music, videos - possibilities are endless' }
-                ].map((item, idx) => (
-                  <div key={idx} className="group relative">
-                    <div className="absolute inset-0 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 group-hover:bg-white/20 transition-all"></div>
-                    <div className="relative p-8">
-                      <div className="relative w-20 h-20 mx-auto mb-5">
-                        <div className="absolute inset-0 bg-white/20 rounded-2xl rotate-6 group-hover:rotate-12 transition-transform"></div>
-                        <div className="relative w-full h-full rounded-2xl overflow-hidden border-4 border-white/60 shadow-xl">
-                          <img
-                            src={item.img}
-                            alt={item.title}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                      </div>
-                      <h4 className="font-bold text-2xl mb-3 drop-shadow">{item.title}</h4>
-                      <p className="text-white/90 leading-relaxed">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -393,9 +225,9 @@ export default function WeddingCardsPage() {
         <div className="relative max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Our Featured <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Designs</span>
+              Our Featured <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">Designs</span>
             </h2>
-            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">            Handpicked designs loved by our couples</p>
+            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Handpicked designs loved by our couples</p>
           </div>
 
           {/* Modern Pill Buttons */}
@@ -404,32 +236,28 @@ export default function WeddingCardsPage() {
               { id: 'all', label: 'All Designs' },
               { id: 'traditional', label: 'Traditional' },
               { id: 'modern', label: 'Modern' },
-              { id: 'royal', label: 'Royal' }
+              { id: 'royal', label: 'Royal' },
             ].map((filter) => (
               <button
                 key={filter.id}
                 onClick={() => setSelectedCategory(filter.id)}
-                className={`relative px-8 py-4 rounded-2xl font-normal cursor-pointer transition-all overflow-hidden ${selectedCategory === filter.id
-                  ? 'bg-gradient-to-r from-rose-500 to-pink-500 text-white shadow-xl scale-105'
-                  : 'bg-white/70 backdrop-blur-sm text-gray-700 hover:bg-white border border-gray-200'
-                  }`}
+                className={`relative px-8 py-4 rounded-2xl font-normal cursor-pointer transition-all overflow-hidden ${
+                  selectedCategory === filter.id
+                    ? 'bg-gradient-to-r from-rose-500 to-pink-500 text-white shadow-xl scale-105'
+                    : 'bg-white/70 backdrop-blur-sm text-gray-700 hover:bg-white border border-gray-200'
+                }`}
               >
                 <span className="relative z-10">{filter.label}</span>
-                {selectedCategory === filter.id && (
-                  <div className="absolute inset-0 bg-white/20 animate-pulse"></div>
-                )}
+                {selectedCategory === filter.id && <div className="absolute inset-0 bg-white/20 animate-pulse"></div>}
               </button>
             ))}
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {portfolioItems
-              .filter(item => selectedCategory === 'all' || item.category === selectedCategory)
+              .filter((item) => selectedCategory === 'all' || item.category === selectedCategory)
               .map((item) => (
-                <div
-                  key={item.id}
-                  className="group relative cursor-pointer"
-                >
+                <div key={item.id} className="group relative cursor-pointer">
                   <div className="absolute inset-0 bg-gradient-to-br from-rose-400/30 to-purple-400/30 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
 
                   <div className="relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-4 border-white">
@@ -438,14 +266,15 @@ export default function WeddingCardsPage() {
                       alt={item.title}
                       className="w-full h-full object-cover aspect-[3/4] group-hover:scale-110 transition-transform duration-700"
                     />
-
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
                       <div className="absolute bottom-0 left-0 right-0 p-8 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                         <h3 className="text-2xl font-medium mb-4 drop-shadow-lg">{item.title}</h3>
-                        <button className="relative bg-white text-rose-500 px-8 py-3 rounded-2xl font-normal hover:bg-rose-50 transition-all shadow-xl overflow-hidden group/btn">
-                          <span className="relative z-10 ">View Details</span>
-                          <div className="absolute inset-0 bg-gradient-to-r from-rose-100 to-pink-100 opacity-0 group-hover/btn:opacity-100 transition-opacity"></div>
-                        </button>
+                        <a href="/cateringanddecor/all-services?category=weddingcards">
+                          <button className="relative bg-white text-rose-500 px-8 py-3 rounded-2xl font-normal hover:bg-rose-50 transition-all shadow-xl overflow-hidden group/btn">
+                            <span className="relative z-10">View Details</span>
+                            <div className="absolute inset-0 bg-gradient-to-r from-rose-100 to-pink-100 opacity-0 group-hover/btn:opacity-100 transition-opacity"></div>
+                          </button>
+                        </a>
                       </div>
                     </div>
                   </div>
