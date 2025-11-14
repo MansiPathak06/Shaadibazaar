@@ -189,7 +189,7 @@ const WeddingServices = () => {
 
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Featured Wedding Services
+              Featured Wedding <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Services</span>
             </h2>
             <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">  Choose from our wide range of professional services to make your wedding celebration grand and memorable</p>
           </div>
@@ -263,7 +263,7 @@ const WeddingServices = () => {
                       <p className="text-xs text-gray-500 mb-1">Starting from</p>
                       <p className="text-lg font-extralight text-rose-400">{service.price}</p>
                     </div>
-                    <button className="bg-rose-400 text-white px-5 py-2.5 rounded-lg font-extralight hover:bg-rose-500 transition-all duration-300 flex items-center gap-2 shadow-md hover:shadow-lg">
+                    <button className="bg-rose-400 text-white px-5 py-2.5 cursor-pointer rounded-lg font-extralight hover:bg-rose-500 transition-all duration-300 flex items-center gap-2 shadow-md hover:shadow-lg">
                       Book Now
                       <ChevronRight size={16} />
                     </button>
@@ -359,7 +359,7 @@ const WeddingServices = () => {
 
                   {/* Hover Action Button */}
                   <div className="absolute bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
-                    <button className="bg-white text-rose-500 px-6 py-2.5 rounded-full font-thin text-sm hover:bg-rose-50 shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center gap-2 hover:gap-3 group/btn">
+                    <button className="bg-white cursor-pointer text-rose-500 px-6 py-2.5 rounded-full font-thin text-sm hover:bg-rose-50 shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center gap-2 hover:gap-3 group/btn">
                       <span>View Details</span>
                       <ChevronRight size={16} className="group-hover/btn:translate-x-1 transition-transform duration-300" />
                     </button>
@@ -389,7 +389,7 @@ const WeddingServices = () => {
                 Why Choose Us
               </span>
               <h2 className="text-4xl md:text-5xl font-medium text-gray-800 mb-6">
-                Your Dream Wedding, Our Priority
+                Your <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Dream Wedding</span>, Our <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Priority</span>
               </h2>
               <div className="w-24 h-1 bg-rose-400 mb-6"></div>
               <p className="text-gray-600 text-lg mb-8">

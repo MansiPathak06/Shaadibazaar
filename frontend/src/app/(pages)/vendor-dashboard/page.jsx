@@ -587,7 +587,7 @@ export default function VendorDashboard() {
       <div className="min-h-screen bg-gradient-to-br from-[#FFFEF7] via-[#FFF9E5] to-[#FFEDD5]">
         {/* Modern Header */}
 
-        <header className="bg-white shadow-md border-b-4 border-[#FFBE00] sticky top-0 z-50 backdrop-blur-lg ">
+        <header className="bg-white shadow-md border-b-4 border-[#FFBE00] top-0 z-50 backdrop-blur-lg ">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-20">
               <div className="flex items-center gap-4">

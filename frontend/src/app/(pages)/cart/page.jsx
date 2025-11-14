@@ -127,10 +127,10 @@ export default function CartPage() {
               <div className="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-[#A1AEF4]/20 to-[#E1CBDE]/20 rounded-full flex items-center justify-center">
                 <ShoppingCart className="w-16 h-16 text-[#422B6B]" />
               </div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-3">Your cart is empty</h2>
+              <h2 className="text-2xl md:text-4xl font-medium text-gray-900 mb-3">Your cart is empty</h2>
               <p className="text-gray-600 mb-8">Add items to get started with your shopping</p>
               <Link href="/">
-                <button className="px-8 py-4 bg-gradient-to-r from-[#422B6B] to-[#B4468E] text-white rounded-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 font-semibold flex items-center gap-2 mx-auto">
+                <button className="px-8 py-4 md:px-12 md:py-8 md:font- bg-gradient-to-r from-[#422B6B] to-[#B4468E] text-white rounded-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 font-normal cursor-pointer flex items-center gap-2 mx-auto">
                   Start Shopping
                   <ArrowRight className="w-5 h-5" />
                 </button>

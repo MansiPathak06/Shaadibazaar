@@ -477,7 +477,7 @@ const Navbar = () => {
       </div>
 
       {/* Bottom Navigation Links */}
-      <div className="bg-gradient-to-b from-rose-50 to-white border-b border-gray-200 relative">
+      <div className="bg-gradient-to-b from-rose-50 to-white border-b border-gray-200 relative z-9000">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
           {/* Desktop Navigation - Hidden on mobile/tablet */}
           <div className="hidden lg:flex items-center justify-center h-12 gap-1 overflow-x-auto">
