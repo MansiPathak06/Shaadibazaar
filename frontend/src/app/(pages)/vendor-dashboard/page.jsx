@@ -161,7 +161,12 @@ export default function VendorDashboard() {
   const fetchVendorServices = async () => {
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/service-vendors");
+      const token = localStorage.getItem("token");
+       const res = await fetch("http://localhost:5000/api/service-vendors", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
       const data = await res.json();
       if (data.success) {
         const allServices = data.services || [];
@@ -305,27 +310,26 @@ export default function VendorDashboard() {
   //   }
   // }, []);
 
-  const handleUpdateBookingStatus = async (bookingId, newStatus) => {
-    try {
-      const res = await fetch(
-        `http://localhost:5000/api/service-vendors/bookings/${bookingId}`,
-        {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ status: newStatus }),
-        }
-      );
-      const data = await res.json();
-      if (data.success) {
-        setSuccess("Booking status updated");
-        fetchVendorBookings(); // Refresh the list
-      } else {
-        setError(data.message);
-      }
-    } catch (err) {
-      setError("Failed to update status");
-    }
-  };
+   const handleUpdateBookingStatus = async (bookingId, newStatus) => {
+         const token = localStorage.getItem("token");
+         if (!token) {
+           setError("No token found. Please log in.");
+           return;
+         }
+         try {
+           const res = await fetch(`http://localhost:5000/api/service-vendors/bookings/${bookingId}`, {
+             method: "PUT",
+             headers: { 
+               "Content-Type": "application/json",
+               Authorization: `Bearer ${token}`,  // Add this
+             },
+             body: JSON.stringify({ status: newStatus }),
+           });
+           // ... rest of the code
+         } catch (err) {
+           setError("Failed to update status");
+         }
+       };
 
   const handleEditService = (service) => {
     setServiceForm({
@@ -1734,25 +1738,58 @@ export default function VendorDashboard() {
                         {editingService ? "Edit Service" : "Add New Service"}
                       </h3>
                                            {" "}
-                      <form
+                  <form
                         onSubmit={async (e) => {
                           e.preventDefault();
-                          const res = await fetch(
-                            "http://localhost:5000/api/service-vendors",
-                            {
-                              method: "POST",
-                              headers: { "Content-Type": "application/json" },
-                              body: JSON.stringify(serviceForm),
+                          setLoading(true);
+                          setError("");
+                          setSuccess("");
+                          try {
+                            const token = localStorage.getItem("token");
+                            const user = JSON.parse(localStorage.getItem("user") || "{}");
+                            
+                            // Add vendor email to the service data
+                            const serviceData = {
+                              ...serviceForm,
+                              email: user.email,
+                              vendorName: serviceForm.name || user.business_name
+                            };
+                            
+                            const res = await fetch(
+                              "http://localhost:5000/api/service-vendors",
+                              {
+                                method: "POST",
+                                headers: { 
+                                  "Content-Type": "application/json",
+                                  Authorization: `Bearer ${token}`
+                                },
+                                body: JSON.stringify(serviceData),
+                              }
+                            );
+                            const data = await res.json();
+                            if (data.success) {
+                              setSuccess("Service added successfully!");
+                              setShowServiceForm(false);
+                              fetchVendorServices();
+                              setServiceForm({
+                                name: "",
+                                shortDescription: "",
+                                longDescription: "",
+                                category: "",
+                                coverImage: "",
+                                price: "",
+                                workingSince: "",
+                                areaOfService: "",
+                                website: "",
+                                gallery: "",
+                              });
+                            } else {
+                              setError(data.message || "Failed to add service");
                             }
-                          );
-                          const data = await res.json();
-                          if (data.success) {
-                            setShowServiceForm(false);
-                            fetchVendorServices(); // Refresh the services list
-                            alert("Service added!");
-                          } else {
-                            alert(data.message || "Failed to add service");
+                          } catch (err) {
+                            setError("Failed to add service");
                           }
+                          setLoading(false);
                         }}
                         className="space-y-6"
                       >

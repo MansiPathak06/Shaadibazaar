@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
+
 import {
   Heart,
   Sparkles,
@@ -259,18 +261,24 @@ export default function FloralDecorWebsite() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
-              <button className="group bg-rose-500 text-white px-8 py-4 rounded-xl hover:bg-rose-600 transition-all duration-300 flex items-center justify-center gap-3 text-sm font-medium shadow-lg hover:shadow-xl">
-                <div className="p-1.5 bg-white/20 rounded-full group-hover:bg-white/30 transition-colors">
-                  <Camera size={16} className="text-white" />
-                </div>
-                Explore Our Floral Creations
-              </button>
-              <button className="group bg-white/10 backdrop-blur-sm border-2 border-white/50 text-white px-8 py-4 rounded-xl hover:bg-white/20 hover:border-white transition-all duration-300 flex items-center justify-center gap-3 text-sm font-medium">
-                <div className="p-1.5 bg-white/20 rounded-full group-hover:bg-white/30 transition-colors">
-                  <Phone size={16} className="text-white" />
-                </div>
-                Book a Consultation
-              </button>
+             <Link href="/cateringanddecor/all-services?category=decor">
+  <button className="group bg-rose-500 text-white px-8 py-4 rounded-xl hover:bg-rose-600 transition-all duration-300 flex items-center justify-center gap-3 text-sm font-medium shadow-lg hover:shadow-xl">
+    <div className="p-1.5 bg-white/20 rounded-full group-hover:bg-white/30 transition-colors">
+      <Camera size={16} className="text-white" />
+    </div>
+    Explore Our Floral Creations
+  </button>
+</Link>
+
+<Link href="/cateringanddecor/all-services?category=decor">
+  <button className="group bg-white/10 backdrop-blur-sm border-2 border-white/50 text-white px-8 py-4 rounded-xl hover:bg-white/20 hover:border-white transition-all duration-300 flex items-center justify-center gap-3 text-sm font-medium">
+    <div className="p-1.5 bg-white/20 rounded-full group-hover:bg-white/30 transition-colors">
+      <Phone size={16} className="text-white" />
+    </div>
+    Book a Consultation
+  </button>
+</Link>
+
             </div>
           </div>
         </div>
