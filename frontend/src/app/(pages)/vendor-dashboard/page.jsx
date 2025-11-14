@@ -118,6 +118,7 @@ export default function VendorDashboard() {
     ],
     Watches: ["Luxury Watches", "Casual Watches", "Smart Watches"],
     Perfumes: ["Men Perfumes", "Women Perfumes", "Unisex Perfumes"],
+  
   };
 
   // Bulk import states
@@ -1850,11 +1851,35 @@ export default function VendorDashboard() {
                                                {" "}
                           <option value="catering">Catering</option>           
                                         <option value="decor">Decor</option>   
-                                               {" "}
-                          <option value="photography">Photography</option>
-                          <option value="videography">Videography</option>
-                          <option value="makeup">Makeup Artist</option>
-                          <option value="mehndi">Mehndi Artist</option>         
+                          
+                          <option value="lightning">Lightning</option>
+                          <option value="furniture">Furniture Rental</option>
+                          <option value="weddingcard">Wedding Cards</option>
+                          <option value="hotels">Hotels</option>
+                          <option value="resort">Resorts</option>
+                          <option value="guesthouses">Guest Houses</option>
+                          <option value="banquethalls">Banquet Halls</option>
+                          <option value="farmhouses">Farmhouses</option>
+                          <option value="conferencehhalls">Conference Halls</option>
+                          <option value="outdoorvenues">Outdoor Venues</option>
+                          <option value="indoorvenues">Indoor Venues</option>
+                          <option value="destinationwedding">Destination Weddings</option>
+                          <option value="lounges">Lounges</option>
+                          <option value="gardens">Gardens</option>
+                          <option value="beachvvenues">Beach Venues</option>
+                          <option value="bridalmakeup">Bridal Makeup</option>
+                          <option value="hairstylist">Hair Stylist</option>
+                          <option value="mehhndiart">Mehendi Artist</option>
+                          <option value="spaservices">Spa Services</option>
+                          <option value="grooming">Grooming</option>
+                          <option value="nailart">Nail Art</option>
+                          <option value="weddingplanning">Wedding Planning</option>
+                          <option value="destinationwedding">Destination Wedding</option>
+                          <option value="engagementplanning">Engagement Planning</option>
+                          <option value="cocktailplanning">Cocktail Planning</option>
+                          
+                          
+                                 
                                  {" "}
                         </select>
                                                {" "}
