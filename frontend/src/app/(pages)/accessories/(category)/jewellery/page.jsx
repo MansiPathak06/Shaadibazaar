@@ -179,11 +179,11 @@ const Jewellery = () => {
       <section className="py-8 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-6 mt-12">
-            <div className="text-center mb-12">
+            <div className="text-center md:mb-12">
               <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
                 shop by <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">seller</span>
               </h2>
-              <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Your Favorite Sellers, all in one place</p>
+              <p className="text-neutral-700 md:text-lg text-sm tracking-widest uppercase mb-2">Your Favorite Sellers, all in one place</p>
             </div>
 
             {/* <div className="flex justify-center gap-4 md:gap-8 mb-8">
@@ -310,7 +310,7 @@ const Jewellery = () => {
         <div className='flex justify-center pb-12'>
           <Link href={"/accessories/all-products?category=Jewellery"}>
             <button
-              className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900"
+              className="group relative md:px-10 px-4 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900"
             >
               {/* Background slide effect */}
               <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
@@ -338,13 +338,13 @@ const Jewellery = () => {
       </Fragment>
 
       {/* Jewellery Categories Section */}
-      <section className="py-12 px-4 bg-white">
+      <section className="md:py-12 py-4 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
               Jewellery <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">collection</span>
             </h2>
-            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">
+            <p className="text-neutral-700 md:text-lg text-sm tracking-widest uppercase mb-2">
               Discover our stunning range of jewellery crafted to perfection for your special moments
             </p>
           </div>
@@ -442,7 +442,7 @@ const Jewellery = () => {
         <div className='flex justify-center pb-16'>
           <Link href={'/accessories/all-products?category=Jewellery&subCategory=Trending Collection'}>
             <button
-              className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900"
+              className="group relative md:px-10 px-4 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900"
             >
               {/* Background slide effect */}
               <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
@@ -470,13 +470,13 @@ const Jewellery = () => {
       </Fragment>
 
       {/* Collections Section (Static) */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section className="md:py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
               Discover <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Our Range</span>
             </h2>
-            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Where elegance meets sparkle</p>
+            <p className="text-neutral-700 md:text-lg text-sm tracking-widest uppercase mb-2">Where elegance meets sparkle</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">

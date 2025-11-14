@@ -59,7 +59,7 @@ const BridalWear = () => {
   };
 
   // URL for "View More" - Goes to all products list page
-  const ALL_PRODUCTS_URL = "/outfits/all-products?category=Bridal Wear";
+  const ALL_PRODUCTS_URL = "/outfits/all-products?category=bridalwear";
 
   // Split products: First 4 for "Celebrate Love in Style", Rest for other sections
   const celebrateLoveProducts = realProducts.slice(0, 4);
@@ -267,7 +267,7 @@ const BridalWear = () => {
 
               <Fragment>
                 <div className="flex justify-center py-16">
-                  <Link href={`/outfits/all-products?category=Outfits&subCategory=Trending Collection`}>
+                  <Link href={`/outfits/all-products?category=bridalwear&subCategory=Trending Collection`}>
                     <button className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900">
                       <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
                       <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
@@ -527,7 +527,7 @@ const BridalWear = () => {
         </section>
         <Fragment>
           <div className="flex justify-center py-16">
-            <Link href={`/outfits/all-products?category=Outfits&subCategory=Silk Clothes`}>
+            <Link href={`/outfits/all-products?category=bridalwear&subCategory=Silk Clothes`}>
               <button className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900">
                 <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
                 <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
@@ -645,7 +645,7 @@ const BridalWear = () => {
         </section>
         <Fragment>
           <div className="flex justify-center py-16">
-            <Link href={`/outfits/all-products?category=Outfits&subCategory=Woolen Clothes`}>
+            <Link href={`/outfits/all-products?category=bridalwear&subCategory=Woolen Clothes`}>
               <button className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900">
                 <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
                 <span className="relative z-10 flex items-center gap-3 group-hover:text-white">

@@ -189,7 +189,7 @@ const WeddingServices = () => {
 
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Featured Wedding <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Services</span>
+              Featured <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Wedding Services</span>
             </h2>
             <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">  Choose from our wide range of professional services to make your wedding celebration grand and memorable</p>
           </div>

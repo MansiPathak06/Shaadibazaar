@@ -19,8 +19,6 @@ import {
   Sparkles,
   Calendar,
   Clipboard,
-  Mail,
-  Home,
   Scissors,
   ShoppingBag,
   Footprints,
@@ -421,7 +419,7 @@ const Navbar = () => {
               ) : (
                 <button
                   onClick={() => router.push("/auth")}
-                  className="flex items-center gap-1 text-gray-700 hover:text-rose-500 text-sm font-medium"
+                  className="flex items-center gap-1 cursor-pointer text-gray-700 hover:text-rose-500 text-sm font-medium"
                 >
                   <User size={26} className="sm:hidden" />
                   <User size={18} className="hidden sm:block" />
@@ -444,7 +442,7 @@ const Navbar = () => {
 
               {/* Wedding Website Button - Hidden on smaller screens */}
               <Link href="/wedding-website" className="hidden lg:block">
-                <button className="bg-rose-500 text-white rounded-full py-2 px-5 text-sm font-semibold hover:bg-rose-600 transition-colors duration-200 whitespace-nowrap">
+                <button className="bg-rose-500 text-white rounded-full py-2 px-5 text-sm font-medium hover:bg-rose-600 transition-colors duration-200 whitespace-nowrap">
                   Wedding Website
                 </button>
               </Link>
@@ -452,7 +450,7 @@ const Navbar = () => {
               {/* Mobile Menu Button - BIGGER */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden text-gray-700 hover:text-rose-500 p-1"
+                className="lg:hidden text-gray-700 hover:text-rose-500 p-1 cursor-pointer"
                 aria-label="Toggle menu"
               >
                 {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -506,16 +504,15 @@ const Navbar = () => {
 
           {/* Mobile/Tablet Slide-in Navigation Menu */}
           <div
-            className={`mobile-menu-container lg:hidden fixed inset-y-0 left-0 w-80 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 ${
-              mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
-            }`}
+            className={`mobile-menu-container lg:hidden fixed inset-y-0 left-0 w-80 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 ${mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+              }`}
           >
             {/* Mobile Menu Header - BIGGER HEIGHT */}
             <div className="bg-gradient-to-r from-rose-500 to-pink-500 p-5 flex items-center justify-between">
               <h2 className="text-white font-bold text-xl">Menu</h2>
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-white hover:bg-white/20 rounded-full p-2 transition-colors"
+                className="text-white hover:bg-white/20 cursor-pointer rounded-full p-2 transition-colors"
               >
                 <X size={26} />
               </button>
@@ -526,7 +523,7 @@ const Navbar = () => {
               {/* Wedding Website Button - Mobile - BIGGER */}
               <div className="lg:hidden p-4 border-b border-gray-200">
                 <Link href="/wedding-website" onClick={() => setMobileMenuOpen(false)}>
-                  <button className="w-full bg-rose-500 text-white rounded-lg py-4 px-4 text-base font-semibold hover:bg-rose-600 transition-colors duration-200">
+                  <button className="w-full bg-rose-500 text-white rounded-lg py-4 px-4 text-lg  font-medium hover:bg-rose-600 transition-colors duration-200">
                     Wedding Website
                   </button>
                 </Link>
@@ -568,32 +565,30 @@ const Navbar = () => {
                 {navigationLinks.map((link, index) => (
                   <div key={index} className="mb-3">
                     {link.hasMegaMenu ? (
-                      <div className="border border-gray-200 rounded-lg overflow-hidden">
+                      <div className="border border-gray-200 cursor-pointer rounded-lg overflow-hidden">
                         <button
                           onClick={() =>
                             setOpenDropdown(openDropdown === index ? null : index)
                           }
-                          className="w-full flex items-center justify-between px-5 py-4 text-gray-700 hover:bg-rose-50 hover:text-rose-500 font-semibold transition-colors duration-200 bg-gray-50 text-base"
+                          className="w-full flex items-center cursor-pointer justify-between px-5 py-4 text-gray-700 hover:bg-rose-50 hover:text-rose-500 font-semibold transition-colors duration-200 bg-gray-50 text-base"
                         >
                           <div className="flex items-center gap-3">
                             <link.icon size={24} className="text-rose-500" />
-                            <span>{link.name}</span>
+                            <span className="font-medium">{link.name}</span>
                           </div>
                           <ChevronDown
                             size={22}
-                            className={`transition-transform duration-300 ${
-                              openDropdown === index ? "rotate-180" : ""
-                            }`}
+                            className={`transition-transform duration-300 ${openDropdown === index ? "rotate-180" : ""
+                              }`}
                           />
                         </button>
 
                         {/* Animated Dropdown */}
                         <div
-                          className={`transition-all duration-300 ease-in-out ${
-                            openDropdown === index
+                          className={`transition-all duration-300 ease-in-out ${openDropdown === index
                               ? "max-h-[500px] opacity-100"
                               : "max-h-0 opacity-0 overflow-hidden"
-                          }`}
+                            }`}
                         >
                           <div className="bg-white">
                             {link.dropdowns.map((item, idx) => {
@@ -621,7 +616,7 @@ const Navbar = () => {
                         className="flex items-center gap-3 px-5 py-4 text-gray-700 hover:bg-rose-50 hover:text-rose-500 font-semibold rounded-lg transition-colors duration-200 border border-gray-200 text-base"
                       >
                         <link.icon size={24} className="text-rose-500" />
-                        <span>{link.name}</span>
+                        <span className="font-medium">{link.name}</span>
                       </Link>
                     )}
                   </div>

@@ -49,42 +49,42 @@ const GroomWear = () => {
       description: "Classic choice offering durability, breathability, and year-round versatility",
       bestFor: "Corporate events, weddings, all-season wear",
       icon: Shirt,
-      category: "/outfits/all-products?category=Outfits&subCategory=Wool"
+      category: "/outfits/all-products?category=groomwear&subCategory=Wool"
     },
     {
       name: "Velvet",
       description: "Luxurious textured fabric adding royal elegance to formal occasions",
       bestFor: "Evening events, grand celebrations, winter weddings",
       icon: Gem,
-      category: "/outfits/all-products?category=Outfits&subCategory=Velvet"
+      category: "/outfits/all-products?category=groomwear&subCategory=Velvet"
     },
     {
       name: "Linen",
       description: "Lightweight and breathable, perfect for warm weather with natural wrinkle character",
       bestFor: "Summer weddings, destination ceremonies, outdoor events",
       icon: Sun,
-      category: "/outfits/all-products?category=Outfits&subCategory=Linen"
+      category: "/outfits/all-products?category=groomwear&subCategory=Linen"
     },
     {
       name: "Bamboo",
       description: "Sustainable fabric with silk-like appearance and moisture-wicking properties",
       bestFor: "Eco-conscious events, spring/autumn ceremonies",
       icon: Leaf,
-        category:"/outfits/all-products?category=Outfits&subCategory=Bamboo"
+        category:"/outfits/all-products?category=groomwear&subCategory=Bamboo"
     },
     {
       name: "Wool-Silk Blend",
       description: "Combines structure with subtle sheen for sophisticated formal appeal",
       bestFor: "High-stakes meetings, black-tie events, premium occasions",
       icon: Sparkles,
-        category:"/outfits/all-products?category=Outfits&subCategory=Wool Silk Blend"
+        category:"/outfits/all-products?category=groomwear&subCategory=Wool Silk Blend"
     },
     {
       name: "Cotton",
       description: "Soft and versatile with neat appearance, suitable for multiple seasons",
       bestFor: "Business casual, daytime events, smart-casual occasions",
       icon: Feather,
-        category:"/outfits/all-products?category=Outfits&subCategory=Cotton"
+        category:"/outfits/all-products?category=groomwear&subCategory=Cotton"
     },
   ];
 
@@ -179,7 +179,7 @@ const GroomWear = () => {
   };
 
   // URL for "View More" - Goes to all products list page
-  const ALL_PRODUCTS_URL = "/outfits/all-products?category=Groom Wear";
+  const ALL_PRODUCTS_URL = "/outfits/all-products?category=groomwear";
 
   // Filter products based on selected category
   const filteredProducts = selectedCategory === "ALL"
@@ -206,7 +206,7 @@ const GroomWear = () => {
                 Redefining professional style with contemporary elegance and
                 sophisticated designs
               </p>
-              <Link href={`/outfits/all-products?category=Outfits&subCategory=Trending Collection`}>
+              <Link href={`/outfits/all-products?category=groomwear&subCategory=Trending Collection`}>
                 <button className="bg-transparent border-2 border-gray-900 text-gray-900 cursor-pointer hover:bg-gray-900 hover:text-white px-8 py-3 rounded-none font-semibold uppercase tracking-wider transition-all duration-300">
                   Explore Collection
                 </button>

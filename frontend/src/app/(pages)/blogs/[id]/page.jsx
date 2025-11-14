@@ -1,34 +1,36 @@
 "use client";
 
 import { useEffect, useState } from 'react';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import Link from 'next/link';
-import { Calendar, Clock, ArrowRight, Tag, ArrowLeft, Home } from 'lucide-react';
+import { Calendar, Clock, ArrowLeft, Home, Tag } from 'lucide-react';
 import { fullBlogData } from '@/lib/blogData';
 
 export default function BlogDetailPage() {
   const params = useParams();
-  const router = useRouter();
   const [blog, setBlog] = useState(null);
   const [relatedBlogs, setRelatedBlogs] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     
-    const currentBlog = fullBlogData[params.id];
+    // Access the id from params
+    const blogId = params.id;
+    const currentBlog = fullBlogData[blogId];
+    
     if (currentBlog) {
       setBlog(currentBlog);
       
       // Get related blogs
       const allBlogIds = Object.keys(fullBlogData);
-      const otherBlogs = allBlogIds.filter(blogId => blogId !== params.id);
+      const otherBlogs = allBlogIds.filter(id => id !== blogId);
       const randomBlogs = otherBlogs
         .sort(() => 0.5 - Math.random())
         .slice(0, 3)
-        .map(blogId => ({
-          id: blogId,
-          ...fullBlogData[blogId],
-          image: fullBlogData[blogId].featuredImage
+        .map(id => ({
+          id: id,
+          ...fullBlogData[id],
+          image: fullBlogData[id].featuredImage
         }));
       setRelatedBlogs(randomBlogs);
     }
@@ -39,10 +41,11 @@ export default function BlogDetailPage() {
       <div className="min-h-screen bg-gradient-to-b from-pink-50 via-white to-pink-50 flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">Blog not found</h2>
-          <Link href="/">
-            <button className="px-6 py-3 bg-gradient-to-r from-rose-400 to-pink-500 text-white rounded-full hover:shadow-lg transition-all">
-              Back to Blogs
-            </button>
+          <Link 
+            href="/blogs"
+            className="inline-block px-6 py-3 bg-gradient-to-r from-rose-400 to-pink-500 text-white rounded-full hover:shadow-lg transition-all"
+          >
+            Back to Blogs
           </Link>
         </div>
       </div>
@@ -54,17 +57,19 @@ export default function BlogDetailPage() {
       {/* Navigation Bar */}
       <nav className="bg-white shadow-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/">
-            <button className="flex items-center gap-2 text-gray-700 hover:text-rose-500 transition-colors">
-              <ArrowLeft className="w-5 h-5" />
-              <span className="font-medium">Back to Blogs</span>
-            </button>
+          <Link 
+            href="/blogs"
+            className="flex items-center gap-2 text-gray-700 hover:text-rose-500 transition-colors"
+          >
+            <ArrowLeft className="w-5 h-5" />
+            <span className="font-medium">Back to Blogs</span>
           </Link>
-          <Link href="/">
-            <button className="flex items-center gap-2 text-gray-700 hover:text-rose-500 transition-colors">
-              <Home className="w-5 h-5" />
-              <span className="font-medium">Home</span>
-            </button>
+          <Link 
+            href="/"
+            className="flex items-center gap-2 text-gray-700 hover:text-rose-500 transition-colors"
+          >
+            <Home className="w-5 h-5" />
+            <span className="font-medium">Home</span>
           </Link>
         </div>
       </nav>
@@ -89,7 +94,7 @@ export default function BlogDetailPage() {
       <div className="max-w-4xl mx-auto px-6 -mt-32 relative z-10">
         {/* Title Card */}
         <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 mb-8">
-          <h1 className="text-3xl md:text-5xl font-bold text-gray-800 leading-tight mb-6">
+          <h1 className="text-3xl md:text-5xl font-medium text-gray-800 leading-tight mb-6">
             {blog.title}
           </h1>
           
@@ -110,7 +115,7 @@ export default function BlogDetailPage() {
                 className="w-10 h-10 rounded-full border-2 border-pink-200"
               />
               <div>
-                <p className="text-sm font-semibold text-gray-800">{blog.author.name}</p>
+                <p className="text-sm font-normal text-gray-800">{blog.author.name}</p>
                 <p className="text-xs text-gray-500">{blog.author.bio}</p>
               </div>
             </div>
@@ -129,7 +134,7 @@ export default function BlogDetailPage() {
                 
                 case 'heading':
                   return (
-                    <h2 key={index} className="text-2xl md:text-3xl font-bold text-gray-800 mt-12 mb-6 flex items-center gap-3">
+                    <h2 key={index} className="text-2xl md:text-3xl font-medium text-gray-800 mt-12 mb-6 flex items-center gap-3">
                       <span className="w-2 h-8 bg-gradient-to-b from-rose-400 to-pink-500 rounded-full"></span>
                       {block.text}
                     </h2>
@@ -192,7 +197,7 @@ export default function BlogDetailPage() {
               className="w-20 h-20 rounded-full border-4 border-white shadow-lg"
             />
             <div>
-              <h3 className="text-2xl font-bold mb-2">Written by {blog.author.name}</h3>
+              <h3 className="text-2xl font-medium mb-2">Written by {blog.author.name}</h3>
               <p className="text-pink-100 text-sm leading-relaxed">
                 {blog.author.bio} with over 10 years of experience in the wedding industry. 
                 Passionate about helping couples create their dream celebrations.
@@ -201,40 +206,41 @@ export default function BlogDetailPage() {
           </div>
         </div>
 
-        {/* Related Blogs */}
+        {/* Related Blogs - FIXED */}
         {relatedBlogs.length > 0 && (
           <div className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-800 mb-8 flex items-center gap-3">
+            <h2 className="text-3xl font-medium text-gray-800 mb-8 flex items-center gap-3">
               <span className="w-2 h-8 bg-gradient-to-b from-rose-400 to-pink-500 rounded-full"></span>
               You May Also Like
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {relatedBlogs.map((relatedBlog) => (
-                <Link key={relatedBlog.id} href={`/blog/${relatedBlog.id}`}>
-                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group">
-                    <div className="relative overflow-hidden">
-                      <img 
-                        src={relatedBlog.image} 
-                        alt={relatedBlog.title}
-                        className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                      <span className="absolute top-4 left-4 bg-rose-400 text-white px-3 py-1 rounded-full text-xs font-medium">
-                        {relatedBlog.category}
-                      </span>
-                    </div>
+                <Link 
+                  key={relatedBlog.id} 
+                  href={`/blogs/${relatedBlog.id}`}
+                  className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group block"
+                >
+                  <div className="relative overflow-hidden">
+                    <img 
+                      src={relatedBlog.image} 
+                      alt={relatedBlog.title}
+                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <span className="absolute top-4 left-4 bg-rose-400 text-white px-3 py-1 rounded-full text-xs font-medium">
+                      {relatedBlog.category}
+                    </span>
+                  </div>
+                  
+                  <div className="p-6">
+                    <h3 className="text-lg font-medium text-gray-800 mb-3 line-clamp-2 group-hover:text-rose-500 transition-colors">
+                      {relatedBlog.title}
+                    </h3>
                     
-                    <div className="p-6">
-                      <h3 className="text-lg font-bold text-gray-800 mb-3 line-clamp-2 group-hover:text-rose-500 transition-colors">
-                        {relatedBlog.title}
-                      </h3>
-                      
-                      <div className="flex items-center justify-between text-sm text-gray-500">
-                        <div className="flex items-center gap-2">
-                          <Calendar className="w-4 h-4" />
-                          <span>{relatedBlog.date}</span>
-                        </div>
-                        <ArrowRight className="w-5 h-5 text-rose-400 group-hover:translate-x-2 transition-transform" />
+                    <div className="flex items-center justify-between text-sm text-gray-500">
+                      <div className="flex items-center gap-2">
+                        <Calendar className="w-4 h-4" />
+                        <span>{relatedBlog.date}</span>
                       </div>
                     </div>
                   </div>
@@ -246,7 +252,7 @@ export default function BlogDetailPage() {
       </div>
 
       {/* Newsletter Section */}
-      <div className="bg-gradient-to-r from-rose-400 via-pink-400 to-rose-500 py-16 px-6">
+      {/* <div className="bg-gradient-to-r from-rose-400 via-pink-400 to-rose-500 py-16 px-6">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Never Miss a Wedding Trend
@@ -266,7 +272,7 @@ export default function BlogDetailPage() {
             </button>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
