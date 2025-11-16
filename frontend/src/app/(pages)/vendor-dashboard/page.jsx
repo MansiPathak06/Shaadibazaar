@@ -116,16 +116,16 @@ export default function VendorDashboard() {
       "Mens Collection",
       "Womens Collection",
     ],
-    Watches: ["Luxury Watches", "Casual Watches", "Smart Watches"],
+    Watches: ["Luxury Watches", "Casual Watches", "Smart Watches", "Perfection", "Gold Collection", "Crafts manship", "Latest Collection", "Pieces", "Rolex", "Patek Philippe", "Omega", "Audemars Piguet", "TAG Heuer","Breitling", "Men's Watches", "Women's Watches"],
     Perfumes: ["Men Perfumes", "Women Perfumes", "Unisex Perfumes"],
-    Bridalwear: ["Trending Collection","Silk Clothes","Woollen Clothes","Bridal Wear"],
-    Groomwear:["Trending Collection","Groom Wear","Wool","Velvet","Linen","Wool Silk Blend", "Cotton"],
-    Partywear:["Party Wear","Trending Collection","Classical Suit Sets","Stylish Indo Western Sets","Sequined Dresses","Designer Gowns"],
-    traditionalwear:["Trending Collection","Bridal Collection","Groom Collection","Silk Saree","Lehenga","Bridal Lehenga","Designer Saree"],
-    westernwear:["Western Wear","Coats","Jacket","Sweater","Jeans","Shirt","Shoes","Summer Collection","Winter Collection"],
-    outfitkids:["New Born","Toddler","Kids","Teens","Girls","Boys","Babies","Casual Wear","Party Dresses","Sports Wear","Winter Collection","Summer Collection"]
+    Bridalwear: ["Trending Collection", "Silk Clothes", "Woollen Clothes", "Bridal Wear"],
+    Groomwear: ["Trending Collection", "Groom Wear", "Wool", "Velvet", "Linen", "Wool Silk Blend", "Cotton"],
+    Partywear: ["Party Wear", "Trending Collection", "Classical Suit Sets", "Stylish Indo Western Sets", "Sequined Dresses", "Designer Gowns"],
+    traditionalwear: ["Trending Collection", "Bridal Collection", "Groom Collection", "Silk Saree", "Lehenga", "Bridal Lehenga", "Designer Saree"],
+    westernwear: ["Western Wear", "Coats", "Jacket", "Sweater", "Jeans", "Shirt", "Shoes", "Summer Collection", "Winter Collection"],
+    outfitkids: ["New Born", "Toddler", "Kids", "Teens", "Girls", "Boys", "Babies", "Casual Wear", "Party Dresses", "Sports Wear", "Winter Collection", "Summer Collection"]
 
-  
+
   };
 
   // Bulk import states
@@ -170,11 +170,11 @@ export default function VendorDashboard() {
     setLoading(true);
     try {
       const token = localStorage.getItem("token");
-       const res = await fetch("http://localhost:5000/api/service-vendors", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+      const res = await fetch("http://localhost:5000/api/service-vendors", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       const data = await res.json();
       if (data.success) {
         const allServices = data.services || [];
@@ -318,26 +318,26 @@ export default function VendorDashboard() {
   //   }
   // }, []);
 
-   const handleUpdateBookingStatus = async (bookingId, newStatus) => {
-         const token = localStorage.getItem("token");
-         if (!token) {
-           setError("No token found. Please log in.");
-           return;
-         }
-         try {
-           const res = await fetch(`http://localhost:5000/api/service-vendors/bookings/${bookingId}`, {
-             method: "PUT",
-             headers: { 
-               "Content-Type": "application/json",
-               Authorization: `Bearer ${token}`,  // Add this
-             },
-             body: JSON.stringify({ status: newStatus }),
-           });
-           // ... rest of the code
-         } catch (err) {
-           setError("Failed to update status");
-         }
-       };
+  const handleUpdateBookingStatus = async (bookingId, newStatus) => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      setError("No token found. Please log in.");
+      return;
+    }
+    try {
+      const res = await fetch(`http://localhost:5000/api/service-vendors/bookings/${bookingId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,  // Add this
+        },
+        body: JSON.stringify({ status: newStatus }),
+      });
+      // ... rest of the code
+    } catch (err) {
+      setError("Failed to update status");
+    }
+  };
 
   const handleEditService = (service) => {
     setServiceForm({
@@ -500,9 +500,9 @@ export default function VendorDashboard() {
   const avgRating =
     products.length > 0
       ? (
-          products.reduce((sum, p) => sum + (parseFloat(p.rating) || 0), 0) /
-          products.length
-        ).toFixed(1)
+        products.reduce((sum, p) => sum + (parseFloat(p.rating) || 0), 0) /
+        products.length
+      ).toFixed(1)
       : "0.0";
   const totalViews = products.reduce(
     (sum, p) => sum + (parseInt(p.views) || 0),
@@ -666,9 +666,8 @@ export default function VendorDashboard() {
           <div className="flex gap-6">
             {/* Sidebar */}
             <aside
-              className={`${
-                sidebarOpen ? "block" : "hidden"
-              } lg:block w-full lg:w-72 fixed lg:relative inset-0 lg:inset-auto z-40 lg:z-0`}
+              className={`${sidebarOpen ? "block" : "hidden"
+                } lg:block w-full lg:w-72 fixed lg:relative inset-0 lg:inset-auto z-40 lg:z-0`}
             >
               <div className="h-full lg:h-auto bg-white rounded-2xl shadow-2xl p-6 lg:sticky lg:top-28 border-2 border-gray-100">
                 {/* Profile Section */}
@@ -697,11 +696,10 @@ export default function VendorDashboard() {
                       setActiveTab("dashboard");
                       setSidebarOpen(false);
                     }}
-                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium cursor-pointer text-xl ${
-                      activeTab === "dashboard"
-                        ? "bg-gradient-to-r from-[#CA1F3D] to-[#25182E] text-white shadow-xl transform scale-105"
-                        : "text-gray-600 hover:bg-gradient-to-r hover:from-[#FFBE00]/20 hover:to-[#CA1F3D]/20 hover:text-[#CA1F3D]"
-                    }`}
+                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium cursor-pointer text-xl ${activeTab === "dashboard"
+                      ? "bg-gradient-to-r from-[#CA1F3D] to-[#25182E] text-white shadow-xl transform scale-105"
+                      : "text-gray-600 hover:bg-gradient-to-r hover:from-[#FFBE00]/20 hover:to-[#CA1F3D]/20 hover:text-[#CA1F3D]"
+                      }`}
                   >
                     <Home className="w-5 h-5" />
                     <span>Dashboard</span>
@@ -712,20 +710,18 @@ export default function VendorDashboard() {
                       setActiveTab("products");
                       setSidebarOpen(false);
                     }}
-                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium cursor-pointer text-xl ${
-                      activeTab === "products"
-                        ? "bg-gradient-to-r from-[#CA1F3D] to-[#25182E] text-white shadow-xl transform scale-105"
-                        : "text-gray-600 hover:bg-gradient-to-r hover:from-[#FFBE00]/20 hover:to-[#CA1F3D]/20 hover:text-[#CA1F3D]"
-                    }`}
+                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium cursor-pointer text-xl ${activeTab === "products"
+                      ? "bg-gradient-to-r from-[#CA1F3D] to-[#25182E] text-white shadow-xl transform scale-105"
+                      : "text-gray-600 hover:bg-gradient-to-r hover:from-[#FFBE00]/20 hover:to-[#CA1F3D]/20 hover:text-[#CA1F3D]"
+                      }`}
                   >
                     <Package className="w-5 h-5" />
                     <span>Products</span>
                     <span
-                      className={`ml-auto px-2 py-1 text-xs rounded-full ${
-                        activeTab === "products"
-                          ? "bg-white/20"
-                          : "bg-[#CA1F3D] text-white"
-                      }`}
+                      className={`ml-auto px-2 py-1 text-xs rounded-full ${activeTab === "products"
+                        ? "bg-white/20"
+                        : "bg-[#CA1F3D] text-white"
+                        }`}
                     >
                       {totalProducts}
                     </span>
@@ -736,20 +732,18 @@ export default function VendorDashboard() {
                       setActiveTab("services");
                       setSidebarOpen(false);
                     }}
-                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium cursor-pointer text-xl ${
-                      activeTab === "services"
-                        ? "bg-gradient-to-r from-emerald-500 to-green-700 text-white shadow-xl transform scale-105"
-                        : "text-gray-600 hover:bg-gradient-to-r hover:from-green-200/40 hover:to-emerald-400/30 hover:text-emerald-700"
-                    }`}
+                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium cursor-pointer text-xl ${activeTab === "services"
+                      ? "bg-gradient-to-r from-emerald-500 to-green-700 text-white shadow-xl transform scale-105"
+                      : "text-gray-600 hover:bg-gradient-to-r hover:from-green-200/40 hover:to-emerald-400/30 hover:text-emerald-700"
+                      }`}
                   >
                     <Sparkles className="w-5 h-5" />
                     <span>Services</span>
                     <span
-                      className={`ml-auto px-2 py-1 text-xs rounded-full ${
-                        activeTab === "services"
-                          ? "bg-white/20"
-                          : "bg-emerald-500 text-white"
-                      }`}
+                      className={`ml-auto px-2 py-1 text-xs rounded-full ${activeTab === "services"
+                        ? "bg-white/20"
+                        : "bg-emerald-500 text-white"
+                        }`}
                     >
                       {totalServices}
                     </span>
@@ -760,20 +754,18 @@ export default function VendorDashboard() {
                       setActiveTab("requests");
                       setSidebarOpen(false);
                     }}
-                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium cursor-pointer text-xl ${
-                      activeTab === "requests"
-                        ? "bg-gradient-to-r from-purple-500 to-indigo-700 text-white shadow-xl transform scale-105"
-                        : "text-gray-600 hover:bg-gradient-to-r hover:from-purple-200/40 hover:to-indigo-400/30 hover:text-purple-700"
-                    }`}
+                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium cursor-pointer text-xl ${activeTab === "requests"
+                      ? "bg-gradient-to-r from-purple-500 to-indigo-700 text-white shadow-xl transform scale-105"
+                      : "text-gray-600 hover:bg-gradient-to-r hover:from-purple-200/40 hover:to-indigo-400/30 hover:text-purple-700"
+                      }`}
                   >
                     <User className="w-5 h-5" />
                     <span>User Requests</span>
                     <span
-                      className={`ml-auto px-2 py-1 text-xs rounded-full ${
-                        activeTab === "requests"
-                          ? "bg-white/20"
-                          : "bg-purple-500 text-white"
-                      }`}
+                      className={`ml-auto px-2 py-1 text-xs rounded-full ${activeTab === "requests"
+                        ? "bg-white/20"
+                        : "bg-purple-500 text-white"
+                        }`}
                     >
                       {bookings.length}
                     </span>
@@ -784,11 +776,10 @@ export default function VendorDashboard() {
                       setActiveTab("analytics");
                       setSidebarOpen(false);
                     }}
-                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium text-xl cursor-pointer ${
-                      activeTab === "analytics"
-                        ? "bg-gradient-to-r from-[#CA1F3D] to-[#25182E] text-white shadow-xl transform scale-105"
-                        : "text-gray-600 hover:bg-gradient-to-r hover:from-[#FFBE00]/20 hover:to-[#CA1F3D]/20 hover:text-[#CA1F3D]"
-                    }`}
+                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium text-xl cursor-pointer ${activeTab === "analytics"
+                      ? "bg-gradient-to-r from-[#CA1F3D] to-[#25182E] text-white shadow-xl transform scale-105"
+                      : "text-gray-600 hover:bg-gradient-to-r hover:from-[#FFBE00]/20 hover:to-[#CA1F3D]/20 hover:text-[#CA1F3D]"
+                      }`}
                   >
                     <BarChart3 className="w-5 h-5" />
                     <span>Analytics</span>
@@ -1362,9 +1353,8 @@ export default function VendorDashboard() {
                               })
                             }
                             disabled={!productForm.category}
-                            className={`w-full px-4 py-3 border-2 border-gray-200 rounded-xl ${
-                              !productForm.category ? "bg-gray-200" : ""
-                            }`}
+                            className={`w-full px-4 py-3 border-2 border-gray-200 rounded-xl ${!productForm.category ? "bg-gray-200" : ""
+                              }`}
                           >
                             <option value="">Select Sub-Category</option>
                             {(
@@ -1738,15 +1728,15 @@ export default function VendorDashboard() {
                       ))}
                     </tbody>
                   </table>
-                   
+
                   {showServiceForm && (
                     <div className="bg-white rounded-2xl shadow-lg p-8 mb-8 border-2 border-gray-100 animate-slide-in">
-                                           {" "}
+                      {" "}
                       <h3 className="text-3xl font-medium text-gray-900 mb-6">
                         {editingService ? "Edit Service" : "Add New Service"}
                       </h3>
-                                           {" "}
-                  <form
+                      {" "}
+                      <form
                         onSubmit={async (e) => {
                           e.preventDefault();
                           setLoading(true);
@@ -1755,19 +1745,19 @@ export default function VendorDashboard() {
                           try {
                             const token = localStorage.getItem("token");
                             const user = JSON.parse(localStorage.getItem("user") || "{}");
-                            
+
                             // Add vendor email to the service data
                             const serviceData = {
                               ...serviceForm,
                               email: user.email,
                               vendorName: serviceForm.name || user.business_name
                             };
-                            
+
                             const res = await fetch(
                               "http://localhost:5000/api/service-vendors",
                               {
                                 method: "POST",
-                                headers: { 
+                                headers: {
                                   "Content-Type": "application/json",
                                   Authorization: `Bearer ${token}`
                                 },
@@ -1801,7 +1791,7 @@ export default function VendorDashboard() {
                         }}
                         className="space-y-6"
                       >
-                                               {" "}
+                        {" "}
                         <input
                           required
                           placeholder="Service Name"
@@ -1814,7 +1804,7 @@ export default function VendorDashboard() {
                           }
                           className="w-full px-4 py-3 bg-gray-50 border-2 rounded-xl"
                         />
-                                               {" "}
+                        {" "}
                         <input
                           required
                           placeholder="Short Description"
@@ -1827,7 +1817,7 @@ export default function VendorDashboard() {
                           }
                           className="w-full px-4 py-3 bg-gray-50 border-2 rounded-xl"
                         />
-                                               {" "}
+                        {" "}
                         <textarea
                           placeholder="About / Long Description"
                           value={serviceForm.longDescription}
@@ -1839,7 +1829,7 @@ export default function VendorDashboard() {
                           }
                           className="w-full px-4 py-3 bg-gray-50 border-2 rounded-xl"
                         />
-                                               {" "}
+                        {" "}
                         <select
                           required
                           value={serviceForm.category}
@@ -1851,14 +1841,14 @@ export default function VendorDashboard() {
                           }
                           className="w-full px-4 py-3 bg-gray-50 border-2 rounded-xl"
                         >
-                                                   {" "}
-                          <option value="">Select Category</option>             
-                                     {" "}
-                          <option value="dance">Dance/Choreographer</option>   
-                                               {" "}
-                          <option value="catering">Catering</option>           
-                                        <option value="decor">Decor</option>   
-                          
+                          {" "}
+                          <option value="">Select Category</option>
+                          {" "}
+                          <option value="dance">Dance/Choreographer</option>
+                          {" "}
+                          <option value="catering">Catering</option>
+                          <option value="decor">Decor</option>
+
                           <option value="lightning">Lightning</option>
                           <option value="furniture">Furniture Rental</option>
                           <option value="weddingcard">Wedding Cards</option>
@@ -1884,12 +1874,12 @@ export default function VendorDashboard() {
                           <option value="destinationwedding">Destination Wedding</option>
                           <option value="engagementplanning">Engagement Planning</option>
                           <option value="cocktailplanning">Cocktail Planning</option>
-                          
-                          
-                                 
-                                 {" "}
+
+
+
+                          {" "}
                         </select>
-                                               {" "}
+                        {" "}
                         <input
                           required
                           placeholder="Cover Image URL"
@@ -1902,7 +1892,7 @@ export default function VendorDashboard() {
                           }
                           className="w-full px-4 py-3 bg-gray-50 border-2 rounded-xl"
                         />
-                                               {" "}
+                        {" "}
                         <input
                           placeholder="Price"
                           value={serviceForm.price || ""}
@@ -1914,7 +1904,7 @@ export default function VendorDashboard() {
                           }
                           className="w-full px-4 py-3 bg-gray-50 border-2 rounded-xl"
                         />
-                                               {" "}
+                        {" "}
                         <input
                           placeholder="Working Since"
                           value={serviceForm.workingSince}
@@ -1926,7 +1916,7 @@ export default function VendorDashboard() {
                           }
                           className="w-full px-4 py-3 bg-gray-50 border-2 rounded-xl"
                         />
-                                               {" "}
+                        {" "}
                         <input
                           placeholder="Area of Service"
                           value={serviceForm.areaOfService}
@@ -1938,7 +1928,7 @@ export default function VendorDashboard() {
                           }
                           className="w-full px-4 py-3 bg-gray-50 border-2 rounded-xl"
                         />
-                                               {" "}
+                        {" "}
                         <input
                           placeholder="Website"
                           value={serviceForm.website}
@@ -1950,7 +1940,7 @@ export default function VendorDashboard() {
                           }
                           className="w-full px-4 py-3 bg-gray-50 border-2 rounded-xl"
                         />
-                                               {" "}
+                        {" "}
                         <textarea
                           placeholder="Gallery image links (comma separated)"
                           value={serviceForm.gallery}
@@ -1962,30 +1952,30 @@ export default function VendorDashboard() {
                           }
                           className="w-full px-4 py-3 bg-gray-50 border-2 rounded-xl"
                         />
-                                               {" "}
+                        {" "}
                         <div className="flex gap-4">
-                                                   {" "}
+                          {" "}
                           <button
                             type="submit"
                             className="px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl font-medium"
                           >
-                                                        Save Service            
-                                         {" "}
+                            Save Service
+                            {" "}
                           </button>
-                                                   {" "}
+                          {" "}
                           <button
                             type="button"
                             onClick={() => setShowServiceForm(false)}
                             className="px-8 py-4 bg-gray-200 text-gray-700 rounded-xl font-medium"
                           >
-                                                        Cancel                  
-                                   {" "}
+                            Cancel
+                            {" "}
                           </button>
-                                                 {" "}
+                          {" "}
                         </div>
-                                             {" "}
+                        {" "}
                       </form>
-                                         {" "}
+                      {" "}
                     </div>
                   )}
                 </div>

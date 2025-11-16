@@ -45,7 +45,7 @@ const TraditionalWear = () => {
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761839280/image1_dufddx.jpg",
       bgColor: "bg-rose-100",
       buttonText: "Shop Now!",
-      category: "/accessories/all-products?category=Outfits&subCategory=Bridal Lehenga"
+      category: "/outfits/all-products?category=traditionalwear&subCategory=Bridal Lehenga"
     },
     {
       id: 2,
@@ -54,7 +54,7 @@ const TraditionalWear = () => {
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761839277/image2_tr6ksz.jpg",
       bgColor: "bg-amber-100",
       buttonText: "Shop Now!",
-      category: "/accessories/all-products?category=Outfits&subCategory=Designer Saree"
+      category: "/outfits/all-products?category=traditionalwear&subCategory=Designer Saree"
     },
     {
       id: 3,
@@ -107,7 +107,7 @@ const TraditionalWear = () => {
       description: "Traditional Elegance",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761839301/image17_ozybsl.jpg",
       discount: "Starting at $99",
-      category: "/accessories/all-products?category=Outfits&subCategory=Designer Saree"
+      category: "/outfits/all-products?category=traditionalwear&subCategory=Designer Saree"
     }
   ];
 
@@ -118,21 +118,21 @@ const TraditionalWear = () => {
       title: "Red & Gold Bridal Collection",
       subtitle: "Traditional Masterpieces",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761460091/traditional-women-wear-1_xvlfal.jpg",
-      category: "/accessories/all-products?category=Outfits&subCategory=Bridal Collection"
+      category: "/outfits/all-products?category=traditionalwear&subCategory=Bridal Collection"
     },
     {
       id: 2,
       title: "Designer Lehenga Range",
       subtitle: "Contemporary Bridal Wear",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761460090/traditional-women-wear-2_jzyc1c.jpg",
-      category: "/accessories/all-products?category=Outfits&subCategory=Lehenga"
+      category: "/outfits/all-products?category=traditionalwear&subCategory=Lehenga"
     },
     {
       id: 3,
       title: "Silk Saree Collection",
       subtitle: "Timeless Elegance",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761460090/traditional-women-wear-3_js43lu.jpg",
-      category: "/accessories/all-products?category=Outfits&subCategory=Silk Saree"
+      category: "/outfits/all-products?category=traditionalwear&subCategory=Silk Saree"
     },
   ];
 
@@ -143,24 +143,29 @@ const TraditionalWear = () => {
       name: "Bridal Lehengas",
       count: "250+ Designs",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761839278/image4_r6twps.jpg",
+      category_link: '/outfits/all-products?category=traditionalwear&subCategory=Bridal Lehengas'
     },
     {
       id: 2,
       name: "Wedding Sarees",
       count: "180+ Designs",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761839284/image7_htstoj.jpg",
+      category_link: '/outfits/all-products?category=traditionalwear&subCategory=Wedding Sarees'
     },
     {
       id: 3,
       name: "Bridal Jewelry",
       count: "300+ Pieces",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761839309/image18_a3sdkd.jpg",
+      category_link: '/accessories/jewellery'
     },
+
     {
       id: 4,
       name: "Designer Dupattas",
       count: "120+ Styles",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761839310/image19_qoe23c.jpg",
+      category_link: '/outfits/all-products?category=traditionalwear&subCategory=Designer Dupattas'
     },
   ];
 
@@ -207,7 +212,7 @@ const TraditionalWear = () => {
   };
 
   // URL for "View More" - Goes to all products list page
-  const ALL_PRODUCTS_URL = "/accessories/all-products?category=Traditional Wear";
+  const ALL_PRODUCTS_URL = "/outfits/all-products?category=traditionalwear";
 
   // Split products: Half for bridal, half for groom
   const midPoint = Math.ceil(realProducts.length / 2);
@@ -251,7 +256,7 @@ const TraditionalWear = () => {
                   affordable prices.
                 </p>
               </div>
-              <Link href={"/accessories/all-products?category=Outfits&subCategory=Trending Collection"}>
+              <Link href={"/outfits/all-products?category=traditionalwear&subCategory=Trending Collection"}>
                 <button className="bg-transparent border-2 cursor-pointer border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white px-10  py-4 font-thin transition-all duration-300 flex items-center gap-3 rounded-lg shadow-md hover:shadow-xl">
                   <span>Shop Now!</span>
                   <span>→</span>
@@ -344,7 +349,7 @@ const TraditionalWear = () => {
       <Fragment >
         <div className="flex justify-center w-full pt-18 pb-10">
 
-          <Link href={"/accessories/all-products?category=Outfits&subCategory=Traditional Wear"}>
+          <Link href={"/outfits/all-products?category=traditionalwear"}>
             <button className="group/btn relative bg-linear-to-r from-rose-500 via-pink-500 to-orange-500 hover:from-rose-600 hover:via-pink-600 hover:to-orange-600 text-white px-14 md:px-20  py-5 md:py-10 cursor-pointer rounded-full font-medium md:text-3xl uppercase tracking-wider transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-105 text-lg overflow-hidden">
               <div className="absolute inset-0 w-1/2 h-full bg-linear-to-r from-transparent via-white/30 to-transparent skew-x-12 -translate-x-full group-hover/btn:translate-x-[200%] transition-transform duration-1000"></div>
 
@@ -416,21 +421,23 @@ const TraditionalWear = () => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {bridalCategories.map((category) => (
-            <div key={category.id} className="group relative h-80 rounded-3xl overflow-hidden shadow-xl cursor-pointer">
-              <Image
-                src={category.image}
-                alt={category.name}
-                fill
-                className="object-cover object-top group-hover:scale-110 transition-transform duration-500"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent">
-                <div className="absolute bottom-6 left-6 right-6 text-white">
-                  <h3 className="text-2xl font-normal mb-2">{category.name}</h3>
-                  <p className="text-gray-200 text-sm">{category.count}</p>
+            <Link href={category.category_link}>
+              <div key={category.id} className="group relative h-80 rounded-3xl overflow-hidden shadow-xl cursor-pointer">
+                <Image
+                  src={category.image}
+                  alt={category.name}
+                  fill
+                  className="object-cover object-top group-hover:scale-110 transition-transform duration-500"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent">
+                  <div className="absolute bottom-6 left-6 right-6 text-white">
+                    <h3 className="text-2xl font-normal mb-2">{category.name}</h3>
+                    <p className="text-gray-200 text-sm">{category.count}</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
@@ -517,7 +524,7 @@ const TraditionalWear = () => {
                 return (
                   <Link
                     key={product.id}
-                    href={`/accessories/all-products/${product.id}`}
+                    href={`/outfits/all-products/${product.id}`}
                     className="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden"
                   >
                     {/* Product Image */}
@@ -603,7 +610,7 @@ const TraditionalWear = () => {
 
             <Fragment>
               <div className='flex justify-center pt-20 pb-8'>
-                <Link href={`/accessories/all-products?category=Outfits&subCategory=Bridal Collection`}>
+                <Link href={`/outfits/all-products?category=traditionalwear&subCategory=Bridal Collection`}>
                   <button className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900">
                     <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
                     <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
@@ -673,7 +680,7 @@ const TraditionalWear = () => {
                 return (
                   <Link
                     key={product.id}
-                    href={`/accessories/all-products/${product.id}`}
+                    href={`/outfits/all-products/${product.id}`}
                     className="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden"
                   >
                     <div className="relative h-[450px] bg-gray-50 overflow-hidden">
@@ -754,7 +761,7 @@ const TraditionalWear = () => {
 
             <Fragment>
               <div className='flex justify-center pt-24'>
-                <Link href={"/accessories/all-products?category=Outfits&subCategory=Groom Collection"}>
+                <Link href={"/outfits/all-products?category=traditionalwear&subCategory=Groom Collection"}>
                   <button className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900">
                     <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
                     <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
