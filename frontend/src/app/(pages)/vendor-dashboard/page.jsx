@@ -62,6 +62,7 @@ export default function VendorDashboard() {
     shortDescription: "",
     longDescription: "",
     category: "",
+    subCategory: "",
     coverImage: "",
     price: "",
     workingSince: "",
@@ -127,6 +128,37 @@ export default function VendorDashboard() {
 
   
   };
+
+  // Add this near your CATEGORY_SUBCATEGORIES constant (around line 100)
+const SERVICE_CATEGORY_SUBCATEGORIES = {
+  dance: ["Bollywood", "Classical", "Contemporary", "Folk", "Sangeet Choreography"],
+  catering: ["Indian Cuisine", "Continental", "Chinese", "Desserts", "Live Counters"],
+  decor: ["Floral", "Traditional", "Modern", "Themed", "Stage Decoration"],
+  lightning: ["LED Lights", "Fairy Lights", "Spotlights", "Decorative Lighting"],
+  furniture: ["Chairs", "Tables", "Sofas", "Tents", "Stage Setup"],
+  weddingcard: ["Traditional", "Modern", "Digital Invites", "Printed Cards"],
+  hotels: ["3 Star", "4 Star", "5 Star", "Boutique Hotels"],
+  resort: ["Hill Station", "Beach", "Heritage", "Luxury"],
+  guesthouses: ["Budget", "Premium", "Family Rooms"],
+  banquethalls: ["Small (50-100)", "Medium (100-300)", "Large (300+)"],
+  farmhouses: ["Rustic", "Modern", "Heritage"],
+  conferencehhalls: ["Corporate", "Small Meetings", "Large Events"],
+  outdoorvenues: ["Garden", "Terrace", "Poolside", "Beach"],
+  indoorvenues: ["Ballroom", "Hall", "Studio"],
+  destinationwedding: ["Beach", "Hill Station", "Palace", "International"],
+  lounges: ["Rooftop", "Indoor", "Pool Lounge"],
+  gardens: ["Lawn", "Terrace Garden", "Indoor Garden"],
+  beachvvenues: ["Private Beach", "Resort Beach", "Public Beach"],
+  bridalmakeup: ["HD Makeup", "Airbrush", "Traditional", "Minimal"],
+  hairstylist: ["Bridal Hairstyle", "Party Look", "Traditional Bun"],
+  mehhndiart: ["Bridal Mehndi", "Arabic", "Rajasthani", "Indo-Arabic"],
+  spaservices: ["Bridal Package", "Pre-Wedding", "Relaxation"],
+  grooming: ["Men's Grooming", "Women's Grooming", "Hair Spa"],
+  nailart: ["Bridal Nails", "Gel Polish", "Acrylic", "Nail Extensions"],
+  weddingplanning: ["Full Planning", "Partial Planning", "Day Coordination"],
+  engagementplanning: ["Traditional", "Modern", "Themed"],
+  cocktailplanning: ["DJ Night", "Live Music", "Themed Party"]
+};
 
   // Bulk import states
   const [showBulkImport, setShowBulkImport] = useState(false);
@@ -345,6 +377,7 @@ export default function VendorDashboard() {
       shortDescription: service.shortDescription || "",
       longDescription: service.longDescription || "",
       category: service.category,
+      subCategory: service.subCategory || "", 
       coverImage: service.coverImage || "",
       price: service.price || "",
       workingSince: service.workingSince || "",
@@ -354,6 +387,7 @@ export default function VendorDashboard() {
     });
     setShowServiceForm(true);
     setActiveTab("services");
+    setEditingService(service);
     // You'll need to add an editingService state similar to editingProduct
   };
 
@@ -1691,6 +1725,9 @@ export default function VendorDashboard() {
                         <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">
                           Category
                         </th>
+                         <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">
+        Sub-Category
+      </th>
                         <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">
                           Price
                         </th>
@@ -1715,6 +1752,11 @@ export default function VendorDashboard() {
                               {service.category}
                             </span>
                           </td>
+                           <td className="px-6 py-5 whitespace-nowrap">
+          <span className="px-3 py-1 bg-gradient-to-r from-blue-100 to-cyan-100 text-blue-700 rounded-full text-sm font-medium">
+            {service.subCategory || "—"}
+          </span>
+        </td>
                           <td className="px-6 py-5 whitespace-nowrap">
                             <div className="text-lg font-medium text-gray-900">
                               ₹{service.price || "N/A"}
@@ -1840,25 +1882,22 @@ export default function VendorDashboard() {
                           className="w-full px-4 py-3 bg-gray-50 border-2 rounded-xl"
                         />
                                                {" "}
-                        <select
+                       <select
                           required
                           value={serviceForm.category}
                           onChange={(e) =>
                             setServiceForm({
                               ...serviceForm,
                               category: e.target.value,
+                              subCategory: "", // Reset subcategory when category changes
                             })
                           }
                           className="w-full px-4 py-3 bg-gray-50 border-2 rounded-xl"
                         >
-                                                   {" "}
-                          <option value="">Select Category</option>             
-                                     {" "}
-                          <option value="dance">Dance/Choreographer</option>   
-                                               {" "}
-                          <option value="catering">Catering</option>           
-                                        <option value="decor">Decor</option>   
-                          
+                          <option value="">Select Category</option>
+                          <option value="dance">Dance/Choreographer</option>
+                          <option value="catering">Catering</option>
+                          <option value="decor">Decor</option>
                           <option value="lightning">Lightning</option>
                           <option value="furniture">Furniture Rental</option>
                           <option value="weddingcard">Wedding Cards</option>
@@ -1881,14 +1920,41 @@ export default function VendorDashboard() {
                           <option value="grooming">Grooming</option>
                           <option value="nailart">Nail Art</option>
                           <option value="weddingplanning">Wedding Planning</option>
-                          <option value="destinationwedding">Destination Wedding</option>
                           <option value="engagementplanning">Engagement Planning</option>
                           <option value="cocktailplanning">Cocktail Planning</option>
-                          
-                          
-                                 
-                                 {" "}
                         </select>
+                        
+                        <div>
+                          <label className="block text-md font-medium text-gray-700 mb-2">
+                            Sub-Category *
+                          </label>
+                          <select
+                            required
+                            value={serviceForm.subCategory}
+                            onChange={(e) =>
+                              setServiceForm({
+                                ...serviceForm,
+                                subCategory: e.target.value,
+                              })
+                            }
+                            disabled={!serviceForm.category}
+                            className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-xl ${
+                              !serviceForm.category ? "bg-gray-200 cursor-not-allowed" : ""
+                            }`}
+                          >
+                            <option value="">Select Sub-Category</option>
+                            {(SERVICE_CATEGORY_SUBCATEGORIES[serviceForm.category] || []).map((sub) => (
+                              <option key={sub} value={sub}>
+                                {sub}
+                              </option>
+                            ))}
+                          </select>
+                          {!serviceForm.category && (
+                            <p className="text-xs text-gray-500 mt-2">
+                              Please select a category first
+                            </p>
+                          )}
+                        </div>
                                                {" "}
                         <input
                           required

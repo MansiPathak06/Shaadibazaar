@@ -15,7 +15,6 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-
 export default function FloralDecorWebsite() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -261,24 +260,23 @@ export default function FloralDecorWebsite() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
-             <Link href="/cateringanddecor/all-services?category=decor">
-  <button className="group bg-rose-500 text-white px-8 py-4 rounded-xl hover:bg-rose-600 transition-all duration-300 flex items-center justify-center gap-3 text-sm font-medium shadow-lg hover:shadow-xl">
-    <div className="p-1.5 bg-white/20 rounded-full group-hover:bg-white/30 transition-colors">
-      <Camera size={16} className="text-white" />
-    </div>
-    Explore Our Floral Creations
-  </button>
-</Link>
+              <Link href="/cateringanddecor/all-services?category=decor">
+                <button className="group bg-rose-500 text-white px-8 py-4 rounded-xl hover:bg-rose-600 transition-all duration-300 flex items-center justify-center gap-3 text-sm font-medium shadow-lg hover:shadow-xl">
+                  <div className="p-1.5 bg-white/20 rounded-full group-hover:bg-white/30 transition-colors">
+                    <Camera size={16} className="text-white" />
+                  </div>
+                  Explore Our Floral Creations
+                </button>
+              </Link>
 
-<Link href="/cateringanddecor/all-services?category=decor">
-  <button className="group bg-white/10 backdrop-blur-sm border-2 border-white/50 text-white px-8 py-4 rounded-xl hover:bg-white/20 hover:border-white transition-all duration-300 flex items-center justify-center gap-3 text-sm font-medium">
-    <div className="p-1.5 bg-white/20 rounded-full group-hover:bg-white/30 transition-colors">
-      <Phone size={16} className="text-white" />
-    </div>
-    Book a Consultation
-  </button>
-</Link>
-
+              <Link href="/cateringanddecor/all-services?category=decor">
+                <button className="group bg-white/10 backdrop-blur-sm border-2 border-white/50 text-white px-8 py-4 rounded-xl hover:bg-white/20 hover:border-white transition-all duration-300 flex items-center justify-center gap-3 text-sm font-medium">
+                  <div className="p-1.5 bg-white/20 rounded-full group-hover:bg-white/30 transition-colors">
+                    <Phone size={16} className="text-white" />
+                  </div>
+                  Book a Consultation
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -305,12 +303,16 @@ export default function FloralDecorWebsite() {
       {/* Welcome Decoration Section */}
       <section className="py-28 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
-
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Welcome To <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Floral Decorations</span>
+              Welcome To{" "}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">
+                Floral Decorations
+              </span>
             </h2>
-            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Create unforgettable first impressions with elegant entrance décor</p>
+            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">
+              Create unforgettable first impressions with elegant entrance décor
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -393,12 +395,20 @@ export default function FloralDecorWebsite() {
 
       <section id="gallery" className="py-8 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
-
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              A <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Symphony</span> of <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Blooms</span>
+              A{" "}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">
+                Symphony
+              </span>{" "}
+              of{" "}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">
+                Blooms
+              </span>
             </h2>
-            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Celebrate amidst a world of color, beauty, and artistry</p>
+            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">
+              Celebrate amidst a world of color, beauty, and artistry
+            </p>
           </div>
 
           {/* Gallery Filter Tabs */}
@@ -407,10 +417,11 @@ export default function FloralDecorWebsite() {
               <button
                 key={category.id}
                 onClick={() => setSelectedCategory(category.id)}
-                className={`px-6 py-3 rounded-full text-sm cursor-pointer font-medium transition-all ${selectedCategory === category.id
-                  ? "bg-rose-500 text-white shadow-lg"
-                  : "bg-rose-50 text-rose-600 hover:bg-rose-100"
-                  }`}
+                className={`px-6 py-3 rounded-full text-sm cursor-pointer font-medium transition-all ${
+                  selectedCategory === category.id
+                    ? "bg-rose-500 text-white shadow-lg"
+                    : "bg-rose-50 text-rose-600 hover:bg-rose-100"
+                }`}
               >
                 {category.name}
               </button>
@@ -470,12 +481,18 @@ export default function FloralDecorWebsite() {
       {/* Popular Wedding Flowers Showcase */}
       <section className="py-24 px-6 bg-gray-100">
         <div className="max-w-7xl mx-auto">
-
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Popular <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Wedding Flower</span> Varieties
+              Popular{" "}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">
+                Wedding Flower
+              </span>{" "}
+              Varieties
             </h2>
-            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Find the blooms that tell your story with charm, fragrance, and symbolism</p>
+            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">
+              Find the blooms that tell your story with charm, fragrance, and
+              symbolism
+            </p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-16">
@@ -501,7 +518,9 @@ export default function FloralDecorWebsite() {
                 />
                 <div className="absolute inset-0 bg-rose-500/10 group-hover:bg-rose-500/20 transition-colors duration-300"></div>
               </div>
-              <h3 className="font-medium text-xl text-gray-800 mb-1">Orchids</h3>
+              <h3 className="font-medium text-xl text-gray-800 mb-1">
+                Orchids
+              </h3>
               <p className="text-gray-600 text-xs">Exotic & Elegant</p>
             </div>
 
@@ -514,7 +533,9 @@ export default function FloralDecorWebsite() {
                 />
                 <div className="absolute inset-0 bg-rose-500/10 group-hover:bg-rose-500/20 transition-colors duration-300"></div>
               </div>
-              <h3 className="font-medium text-xl text-gray-800 mb-1">Peonies</h3>
+              <h3 className="font-medium text-xl text-gray-800 mb-1">
+                Peonies
+              </h3>
               <p className="text-gray-600 text-xs">Soft & Luxurious</p>
             </div>
 
@@ -527,7 +548,9 @@ export default function FloralDecorWebsite() {
                 />
                 <div className="absolute inset-0 bg-rose-500/10 group-hover:bg-rose-500/20 transition-colors duration-300"></div>
               </div>
-              <h3 className="font-medium text-xl text-gray-800 mb-1">Hydrangeas</h3>
+              <h3 className="font-medium text-xl text-gray-800 mb-1">
+                Hydrangeas
+              </h3>
               <p className="text-gray-600 text-xs">Full & Abundant</p>
             </div>
 
@@ -553,7 +576,9 @@ export default function FloralDecorWebsite() {
                 />
                 <div className="absolute inset-0 bg-rose-500/10 group-hover:bg-rose-500/20 transition-colors duration-300"></div>
               </div>
-              <h3 className="font-medium text-xl text-gray-800 mb-1">Mixed Blooms</h3>
+              <h3 className="font-medium text-xl text-gray-800 mb-1">
+                Mixed Blooms
+              </h3>
               <p className="text-gray-600 text-xs">Vibrant & Diverse</p>
             </div>
           </div>
@@ -650,12 +675,16 @@ export default function FloralDecorWebsite() {
       {/* Bouquet Gallery Section */}
       <section className="py-20 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
-
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Bridal <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Bouquet Collection</span>
+              Bridal{" "}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">
+                Bouquet Collection
+              </span>
             </h2>
-            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Each bouquet tells your story—personal, stylish, and timeless</p>
+            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">
+              Each bouquet tells your story—personal, stylish, and timeless
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -703,9 +732,7 @@ export default function FloralDecorWebsite() {
                   <div className="absolute bottom-6 left-6 right-6 text-white">
                     <div className="flex items-center justify-between">
                       <div>
-                        <h3 className="text-xl font-medium mb-1">
-                          Garden Mix
-                        </h3>
+                        <h3 className="text-xl font-medium mb-1">Garden Mix</h3>
                         <p className="text-white/90 text-sm">
                           Colorful variety
                         </p>
@@ -783,7 +810,9 @@ export default function FloralDecorWebsite() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h4 className="font-medium text-lg text-gray-800 mb-1">Round Shape</h4>
+              <h4 className="font-medium text-lg text-gray-800 mb-1">
+                Round Shape
+              </h4>
               <p className="text-gray-600 text-xs">Classic compact design</p>
             </div>
 
@@ -795,7 +824,9 @@ export default function FloralDecorWebsite() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h4 className="font-medium text-lg text-gray-800 mb-1">Posy Style</h4>
+              <h4 className="font-medium text-lg text-gray-800 mb-1">
+                Posy Style
+              </h4>
               <p className="text-gray-600 text-xs">Small & delicate</p>
             </div>
 
@@ -807,7 +838,9 @@ export default function FloralDecorWebsite() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h4 className="font-medium text-lg text-gray-800 mb-1">Hand-Tied</h4>
+              <h4 className="font-medium text-lg text-gray-800 mb-1">
+                Hand-Tied
+              </h4>
               <p className="text-gray-600 text-xs">Natural & organic</p>
             </div>
           </div>
@@ -817,12 +850,21 @@ export default function FloralDecorWebsite() {
       {/* Stage Floral Décor Section */}
       <section className="py-20 px-6 bg-gradient-to-br from-rose-50 to-pink-50">
         <div className="max-w-6xl mx-auto">
-
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Center <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Stage</span> for <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Your Love</span>
+              Center{" "}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">
+                Stage
+              </span>{" "}
+              for{" "}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">
+                Your Love
+              </span>
             </h2>
-            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Create unforgettable moments with a floral stage that radiates beauty and emotion</p>
+            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">
+              Create unforgettable moments with a floral stage that radiates
+              beauty and emotion
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -875,12 +917,21 @@ export default function FloralDecorWebsite() {
       {/* Custom Furniture Section */}
       <section className="py-20 px-6 bg-gradient-to-br from-rose-50 to-pink-50">
         <div className="max-w-6xl mx-auto">
-
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Customized <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>chairs</span> and <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>sofas</span>
+              Customized{" "}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">
+                chairs
+              </span>{" "}
+              and{" "}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">
+                sofas
+              </span>
             </h2>
-            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Beautifully crafted seating that combines comfort, luxury, and floral artistry</p>
+            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">
+              Beautifully crafted seating that combines comfort, luxury, and
+              floral artistry
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -952,9 +1003,18 @@ export default function FloralDecorWebsite() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Create <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Moments</span> That <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Wow</span>
+              Create{" "}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">
+                Moments
+              </span>{" "}
+              That{" "}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">
+                Wow
+              </span>
             </h2>
-            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Floral designs that wow guests and create picture-perfect moments</p>
+            <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">
+              Floral designs that wow guests and create picture-perfect moments
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">

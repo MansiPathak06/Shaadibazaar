@@ -3,11 +3,12 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { ShoppingCart, Star } from "lucide-react";
-import { useSearchParams } from "next/navigation"; // ✅ Add this import
+import { useSearchParams } from "next/navigation";
 
 export default function AllProducts() {
-  const searchParams = useSearchParams(); // ✅ Use hook instead of props
-  const category = searchParams.get("category") || "jewellery"; // ✅ Get from hook
+  const searchParams = useSearchParams();
+  const category = searchParams.get("category") || "jewellery";
+  const subCategory = searchParams.get("subCategory"); // ✅ GET SUBCATEGORY
   
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -15,14 +16,19 @@ export default function AllProducts() {
 
   useEffect(() => {
     fetchProducts();
-  }, [category]);
+  }, [category, subCategory]); // ✅ ADD SUBCATEGORY TO DEPENDENCY ARRAY
 
   const fetchProducts = async () => {
     try {
       setLoading(true);
-      const response = await fetch(
-        `http://localhost:5000/api/products?category=${category}`
-      );
+      
+      // ✅ BUILD URL WITH SUBCATEGORY IF IT EXISTS
+      let url = `http://localhost:5000/api/products?category=${category}`;
+      if (subCategory) {
+        url += `&subCategory=${encodeURIComponent(subCategory)}`;
+      }
+      
+      const response = await fetch(url);
       const data = await response.json();
 
       if (data.success) {
@@ -60,9 +66,11 @@ export default function AllProducts() {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 capitalize">
-            {category}
+            {subCategory || category} {/* ✅ SHOW SUBCATEGORY IF EXISTS */}
           </h1>
-          <p className="text-gray-600 mt-2">{products.length} items</p>
+          <p className="text-gray-600 mt-2">
+            {products.length} items {subCategory && `in ${subCategory}`}
+          </p>
         </div>
 
         {error && (
@@ -152,13 +160,13 @@ export default function AllProducts() {
                   {/* Action Buttons */}
                   <div className="flex gap-2">
                     <Link
-                      href={`/accessories/all-products/${product.id}`}
+                      href={`/outfits/all-products/${product.id}`}
                       className="flex-1 bg-rose-500 text-white py-2 rounded-lg hover:bg-rose-600 transition-colors text-center text-sm font-medium"
                     >
                       Buy Now
                     </Link>
                     <Link
-                      href={`/accessories/all-products/${product.id}`}
+                      href={`/outfits/all-products/${product.id}`}
                       className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
                     >
                       <ShoppingCart className="w-5 h-5 text-gray-600" />
@@ -178,7 +186,9 @@ export default function AllProducts() {
               No Products Found
             </h3>
             <p className="text-gray-600">
-              No products available in this category yet.
+              {subCategory 
+                ? `No products available in "${subCategory}" yet.`
+                : "No products available in this category yet."}
             </p>
           </div>
         )}

@@ -115,15 +115,15 @@ router.post("/", async (req, res) => {
     const vendor_id = req.user.id;
     const { 
       name, shortDescription, longDescription, 
-      category, coverImage, price, workingSince, 
+      category, subCategory, coverImage, price, workingSince, 
       areaOfService, website, gallery
     } = req.body;
 
     const [result] = await db.query(
       `INSERT INTO service_vendors 
-      (vendorName, shortDescription, longDescription, category, coverImage, price, workingSince, areaOfService, website, gallery, vendor_id) 
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-      [name, shortDescription, longDescription, category, coverImage, price, workingSince, areaOfService, website, gallery, vendor_id]
+      (vendorName, shortDescription, longDescription, category, subCategory, coverImage, price, workingSince, areaOfService, website, gallery, vendor_id) 
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [name, shortDescription, longDescription, category, subCategory, coverImage, price, workingSince, areaOfService, website, gallery, vendor_id]
     );
 
     res.json({
@@ -131,13 +131,48 @@ router.post("/", async (req, res) => {
       service: {
         id: result.insertId,
         vendorName: name,
-        shortDescription, longDescription, category, coverImage,
+        shortDescription, longDescription, category, subCategory, coverImage,
         price, workingSince, areaOfService, website, gallery, vendor_id
       },
     });
   } catch (err) {
     console.error('Service insert error:', err);
     res.status(500).json({ success: false, message: "Failed to add service", error: err.message });
+  }
+});
+
+// 🔒 PRIVATE ROUTE - Update service
+router.put("/:id", async (req, res) => {
+  try {
+    const vendorId = req.user.id;
+    const { id } = req.params;
+    const { 
+      name, shortDescription, longDescription, 
+      category, subCategory, coverImage, price, workingSince, 
+      areaOfService, website, gallery
+    } = req.body;
+
+    const [result] = await db.query(
+      `UPDATE service_vendors 
+       SET vendorName = ?, shortDescription = ?, longDescription = ?, 
+           category = ?, subCategory = ?, coverImage = ?, price = ?, 
+           workingSince = ?, areaOfService = ?, website = ?, gallery = ?
+       WHERE id = ? AND vendor_id = ?`,
+      [name, shortDescription, longDescription, category, subCategory, coverImage, 
+       price, workingSince, areaOfService, website, gallery, id, vendorId]
+    );
+
+    if (result.affectedRows === 0) {
+      return res.status(403).json({ success: false, message: "Not authorized or service not found" });
+    }
+
+    res.json({
+      success: true,
+      message: "Service updated successfully"
+    });
+  } catch (err) {
+    console.error('Service update error:', err);
+    res.status(500).json({ success: false, message: "Failed to update service", error: err.message });
   }
 });
 

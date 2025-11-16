@@ -645,7 +645,7 @@ const BridalWear = () => {
         </section>
         <Fragment>
           <div className="flex justify-center py-16">
-            <Link href={`/outfits/all-products?category=bridalwear&subCategory=Woolen Clothes`}>
+            <Link href={`/outfits/all-products?category=bridalwear&subCategory=Woollen Clothes`}>
               <button className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900">
                 <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
                 <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
