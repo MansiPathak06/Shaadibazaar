@@ -57,25 +57,25 @@ const PartyWear = () => {
       id: 1,
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761818996/image5_ymjio2.jpg",
       title: "Designer Gowns",
-      category: "/outfits/all-products?category=Outfits&subCategory=Designer Gowns"
+      category: "/outfits/all-products?category=partywear&subCategory=Designer Gowns"
     },
     {
       id: 2,
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761818997/image6_v5ubh2.jpg",
       title: "Sequined Dresses",
-      category: "/outfits/all-products?category=Outfits&subCategory=Sequined Dresses"
+      category: "/outfits/all-products?category=partywear&subCategory=Sequined Dresses"
     },
     {
       id: 3,
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761818997/image7_kuvsxg.jpg",
       title: "Stylish Indo-Western Sets",
-      category: "/outfits/all-products?category=Outfits&subCategory=Stylish Indo Western Sets"
+      category: "/outfits/all-products?category=partywear&subCategory=Stylish Indo Western Sets"
     },
     {
       id: 4,
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761819000/image8_yajzkw.jpg",
       title: "Classic Suit Sets",
-      category: "/outfits/all-products?category=Outfits&subCategory=Classical Suit Sets"
+      category: "/outfits/all-products?category=partywear&subCategory=Classical Suit Sets"
     },
   ];
 
@@ -174,7 +174,7 @@ const PartyWear = () => {
   };
 
   // URL for "View More" - Goes to all products list page
-  const ALL_PRODUCTS_URL = "/outfits/all-products?category=Party Wear";
+  const ALL_PRODUCTS_URL = "/outfits/all-products?category=partywear";
 
   // Filter products based on selected category
   const filteredProducts = selectedCategory === "ALL"
@@ -491,7 +491,7 @@ const PartyWear = () => {
                 <p className="text-gray-600 mb-6 text-lg">
                   Discover exclusive deals on premium fashion items
                 </p>
-                <Link href={'/outfits/all-products?category=Outfits&subCategory=Trending Collection'}>
+                <Link href={'/outfits/all-products?category=partywear&subCategory=Trending Collection'}>
                   <button className="bg-rose-500 hover:bg-rose-600 text-white px-8 py-4 cursor-pointer rounded-full font-semibold w-fit transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2">
                     <span>SHOP NOW</span>
                     <span>→</span>
@@ -529,7 +529,7 @@ const PartyWear = () => {
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-6 py-3 rounded-full font-semibold uppercase text-sm transition-all duration-300 cursor-pointer ${selectedCategory === category
+                  className={`px-6 py-3 rounded-full font-normal uppercase text-sm transition-all duration-300 cursor-pointer ${selectedCategory === category
                     ? "bg-rose-500 text-white shadow-lg"
                     : "bg-white text-gray-700 hover:bg-gray-100 shadow-md"
                     }`}

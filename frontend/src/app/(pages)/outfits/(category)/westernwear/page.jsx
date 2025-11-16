@@ -26,11 +26,11 @@ const WesternWear = () => {
 
   // Circular Category Cards - EXPANDED
   const categories = [
-    { id: 1, name: "Coats", image: "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=400&q=80&fit=crop", category: "/outfits/all-products?category=Outfits&subCategory=Coats" },
-    { id: 2, name: "Jacket", image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&q=80&fit=crop", category: "/outfits/all-products?category=Outfits&subCategory=Jacket" },
-    { id: 3, name: "Sweater", image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&q=80&fit=crop", category: "/outfits/all-products?category=Outfits&subCategory=Sweater" },
-    { id: 4, name: "Jeans", image: "https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&q=80&fit=crop", category: "/outfits/all-products?category=Outfits&subCategory=Jeans" },
-    { id: 5, name: "Shirt", image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&q=80&fit=crop", category: "/outfits/all-products?category=Outfits&subCategory=Shirt" },
+    { id: 1, name: "Coats", image: "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=400&q=80&fit=crop", category: "/outfits/all-products?category=westernwear&subCategory=Coats" },
+    { id: 2, name: "Jacket", image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&q=80&fit=crop", category: "/outfits/all-products?category=westernwear&subCategory=Jacket" },
+    { id: 3, name: "Sweater", image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&q=80&fit=crop", category: "/outfits/all-products?category=westernwear&subCategory=Sweater" },
+    { id: 4, name: "Jeans", image: "https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&q=80&fit=crop", category: "/outfits/all-products?category=westernwear&subCategory=Jeans" },
+    { id: 5, name: "Shirt", image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&q=80&fit=crop", category: "/outfits/all-products?category=westernwear&subCategory=Shirt" },
     { id: 6, name: "Shoes", image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&q=80&fit=crop", category: "/accessories/shoes" },
   ];
 
@@ -102,7 +102,7 @@ const WesternWear = () => {
       subtitle: "Stay Warm & Stylish",
       image: "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=800&q=80&fit=crop",
       discount: "Up to 50% OFF",
-      link: "/outfits/all-products?category=Outfits&subCategory=Winter Collection"
+      link: "/outfits/all-products?category=westernwear&subCategory=Winter Collection"
     },
     {
       id: 2,
@@ -110,7 +110,7 @@ const WesternWear = () => {
       subtitle: "Light & Breezy Styles",
       image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&q=80&fit=crop",
       discount: "Starting at ₹999",
-      link: "/outfits/all-products?category=Outfits&subCategory=Summer Collection"
+      link: "/outfits/all-products?category=westernwear&subCategory=Summer Collection"
     }
 
   ];

@@ -106,7 +106,7 @@ function PremiumWatchSection() {
     try {
       setLoading(true);
       const response = await fetch(
-        "http://localhost:5000/api/products?category=watches&limit=4"
+        "http://localhost:5000/api/products?category=watches"
       );
       const data = await response.json();
 
@@ -231,7 +231,7 @@ function PremiumWatchSection() {
       </div>
       <Fragment>
         <div className='flex justify-center py-16'>
-          <Link href={'/accessories/all-products?category=Trending Watches'}>
+          <Link href={'/accessories/all-products?category=watches&subCategory=Trending Collection'}>
             <button
               className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900"
             >
@@ -290,7 +290,7 @@ function PremiumWatchSection() {
                 </h2>
               </div>
 
-              <Link href={'/accessories/all-products?category=ALL Watches'}>
+              <Link href={'/accessories/all-products?category=watches'}>
                 <button className="inline-block px-8 py-3 border border-neutral-300 text-neutral-700 text-sm tracking-widest uppercase hover:bg-neutral-800 hover:text-white hover:border-neutral-800 transition-all">
                   Discover
                 </button>
@@ -312,7 +312,7 @@ function WatchCollectionGrid() {
       subtitle: 'Shop the latest watches',
       image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895592/image6_sc9zxk.jpg',
       height: 'medium',
-      path: '/accessories/all-products?category=Perfection'
+      path: '/accessories/all-products?category=watches&subCategory=Perfection'
     },
     {
       id: 2,
@@ -320,7 +320,7 @@ function WatchCollectionGrid() {
       subtitle: 'Luxury timepieces',
       image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895792/gold_collection_watches_ikpkie.jpg',
       height: 'tall',
-      path: '/accessories/all-products?category=Gold Collection'
+      path: '/accessories/all-products?category=watches&subCategory=Gold Collection'
 
 
     },
@@ -330,16 +330,17 @@ function WatchCollectionGrid() {
       subtitle: 'Handcrafted excellence',
       image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895896/Crafts_manship_watches_jegoiu.jpg',
       height: 'extra-tall',
-      path: '/accessories/all-products?category=Crafts Manships'
+      path: '/accessories/all-products?category=watches&subCategory=Crafts manship'
+      
 
     },
     {
       id: 4,
-      title: 'Latest',
+      title: 'Latest Collection',
       subtitle: 'New arrivals collection',
       image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895594/image16_jcogef.jpg',
       height: 'tall',
-      path: '/accessories/all-products?category=Latest'
+      path: '/accessories/all-products?category=watches&subCategory=Latest Collection'
 
     },
     {
@@ -348,7 +349,7 @@ function WatchCollectionGrid() {
       subtitle: 'Timeless designs',
       image: 'https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895593/image14_xwwx1w.avif',
       height: 'medium',
-      path: '/accessories/all-products?category=Places'
+      path: '/accessories/all-products?category=watches&subCategory=Pieces'
 
     }
   ];
@@ -424,42 +425,43 @@ function WatchBrandsGrid() {
       description: "Crown of watchmaking excellence",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895968/rolex_u2dpsh.jpg",
       textShadow: "drop-shadow-lg",
-      path: '/accessories/all-products?category=Rolex'
+      path: '/accessories/all-products?category=watches&subCategory=Rolex'
     },
     {
       name: "Patek Philippe",
       description: "Timeless Swiss perfection",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895593/image10_xsin1f.jpg",
       textShadow: "drop-shadow-lg",
-        path: '/accessories/all-products?category=Patek Philippe'
+      path: '/accessories/all-products?category=watches&subCategory=Patek Philippe'
     },
     {
       name: "Omega",
       description: "Precision since 1848",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895593/image12_xnyy2s.avif",
       textShadow: "drop-shadow-lg",
-        path: '/accessories/all-products?category=Omega'
+      path: '/accessories/all-products?category=watches&subCategory=Omega'
+      
     },
     {
       name: "Audemars Piguet",
       description: "Royal Oak innovation",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895592/image6_sc9zxk.jpg",
       textShadow: "drop-shadow-lg",
-        path: '/accessories/all-products?category=Audemars Piguet'
+      path: '/accessories/all-products?category=watches&subCategory=Audemars Piguet'
     },
     {
       name: "Breitling",
       description: "Aviation heritage precision",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895591/image3_gclaxe.jpg",
       textShadow: "drop-shadow-lg",
-        path: '/accessories/all-products?category=Breitling'
+     path: '/accessories/all-products?category=watches&subCategory=Breitling'
     },
     {
       name: "TAG Heuer",
       description: "Swiss avant-garde craftsmanship",
       image: "https://res.cloudinary.com/dewxpvl5s/image/upload/v1761895593/image17_vxzwgl.jpg",
       textShadow: "drop-shadow-lg",
-        path: '/accessories/all-products?category=TAG Heuer'
+      path: '/accessories/all-products?category=watches&subCategory=TAG Heuer'
     }
   ];
 
@@ -579,7 +581,6 @@ function BestSellers() {
     }).format(price);
   };
 
-  const ALL_PRODUCTS_URL = "/accessories/all-products?category=watches&subcategory=groom";
 
   const StarRating = ({ rating }) => {
     return (
@@ -707,7 +708,7 @@ function BestSellers() {
 
             <Fragment>
               <div className='flex justify-center py-12'>
-                <Link href={"/accessories/all-products?category=Men's Watches"}>
+                <Link href={"/accessories/all-products?category=watches&subCategory=Men's Watches"}>
                   <button className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900">
                     <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
                     <span className="relative z-10 flex items-center gap-3 group-hover:text-white">
@@ -784,7 +785,7 @@ function Sellers() {
     }).format(price);
   };
 
-  const ALL_PRODUCTS_URL = "/accessories/all-products?category=watches&subcategory=bride";
+  const ALL_PRODUCTS_URL = "/accessories/all-products?category=watches";
 
   const StarRating = ({ rating }) => {
     return (
@@ -912,7 +913,7 @@ function Sellers() {
 
             <Fragment>
               <div className='flex justify-center py-12'>
-                <Link href={"/accessories/all-products?category=Women's Watches"}>
+                <Link href={"/accessories/all-products?category=watches&subCategory=Women's Watches"}>
                   <button className="group relative px-10 py-4 bg-neutral-900 cursor-pointer text-white font-light text-base tracking-widest uppercase overflow-hidden transition-all duration-500 border-2 border-neutral-900">
                     <div className="absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
                     <span className="relative z-10 flex items-center gap-3 group-hover:text-white">

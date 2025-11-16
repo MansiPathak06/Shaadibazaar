@@ -93,22 +93,16 @@ export default function WeddingCardsPage() {
               <div className="absolute inset-0 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 shadow-2xl"></div>
               <div className="relative p-12 md:p-16">
                 <h1 className="text-6xl md:text-8xl font-medium bg-gradient-to-r from-white via-rose-50 to-white bg-clip-text text-transparent mb-6 drop-shadow-2xl leading-tight">
-                  Crafting Your Perfect Wedding Invitation
+                Crafting <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Your</span> Perfect  <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Wedding Invitations</span>
                 </h1>
                 <p className="text-2xl md:text-3xl text-white/95 mb-10 drop-shadow-lg font-light">
                   From Traditional to Modern - Your Dream Card Awaits
                 </p>
                 <div className="flex flex-col sm:flex-row gap-5 justify-center">
                   <a href="/cateringanddecor/all-services?category=weddingcards">
-                    <button className="group relative bg-white/90 backdrop-blur-sm text-rose-500 px-10 py-5 rounded-2xl font-normal cursor-pointer text-lg hover:bg-white transition-all shadow-2xl overflow-hidden">
+                    <button className="group relative bg-white/90 backdrop-blur-sm text-rose-500 px-10 py-5 md:px-40 rounded-2xl font-normal cursor-pointer text-lg hover:bg-white transition-all shadow-2xl overflow-hidden">
                       <span className="relative z-10">View Our Collection</span>
                       <div className="absolute inset-0 bg-gradient-to-r from-rose-400/0 via-rose-400/10 to-rose-400/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-                    </button>
-                  </a>
-                  <a href="/cateringanddecor/all-services?category=weddingcards">
-                    <button className="group relative bg-gradient-to-r from-rose-500 to-pink-500 text-white px-10 py-5 rounded-2xl font-normal cursor-pointer text-lg hover:shadow-2xl transition-all shadow-xl border-2 border-white/30 overflow-hidden">
-                      <span className="relative z-10">Get Free Sample</span>
-                      <div className="absolute inset-0 bg-white/20 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300"></div>
                     </button>
                   </a>
                 </div>
@@ -135,7 +129,7 @@ export default function WeddingCardsPage() {
       <section className="lg:pt-28 px-4 max-w-7xl mx-auto">
         <div className="text-center md:mb-20 mb-16">
           <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-            Welcome to <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">ShaadiBAzaar</span> <br /> Wedding Cards
+            <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Welcome</span> to Shaddi <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">Bazaar</span> <br /> Wedding <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Cards</span>
           </h2>
           <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">
             At ShaadiBAzaar, we design personalized wedding cards that reflect your love and culture
@@ -176,7 +170,7 @@ export default function WeddingCardsPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {cardCategories.map((category) => (
-              <div key={category.id} className="group relative cursor-pointer">
+              <div key={category.id} className="group relative ">
                 <div className="absolute inset-0 bg-gradient-to-br from-rose-400/30 to-purple-400/30 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
 
                 <div className="relative bg-white/70 backdrop-blur-md rounded-3xl border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden group-hover:scale-[1.02]">
@@ -205,7 +199,7 @@ export default function WeddingCardsPage() {
                     </div>
 
                     <a href="/cateringanddecor/all-services?category=weddingcards">
-                      <button className="w-full relative bg-gradient-to-r from-rose-500 to-pink-500 text-white py-3.5 rounded-2xl font-normal hover:shadow-lg transition-all overflow-hidden group/btn">
+                      <button className="w-full relative bg-gradient-to-r from-rose-500 to-pink-500 text-white py-3.5 rounded-2xl font-normal hover:shadow-lg transition-all overflow-hidden group/btn cursor-pointer">
                         <span className="relative z-10">Explore Designs</span>
                         <div className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 opacity-0 group-hover/btn:opacity-100 transition-opacity"></div>
                       </button>
@@ -257,7 +251,7 @@ export default function WeddingCardsPage() {
             {portfolioItems
               .filter((item) => selectedCategory === 'all' || item.category === selectedCategory)
               .map((item) => (
-                <div key={item.id} className="group relative cursor-pointer">
+                <div key={item.id} className="group relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-rose-400/30 to-purple-400/30 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
 
                   <div className="relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-4 border-white">
@@ -270,7 +264,7 @@ export default function WeddingCardsPage() {
                       <div className="absolute bottom-0 left-0 right-0 p-8 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                         <h3 className="text-2xl font-medium mb-4 drop-shadow-lg">{item.title}</h3>
                         <a href="/cateringanddecor/all-services?category=weddingcards">
-                          <button className="relative bg-white text-rose-500 px-8 py-3 rounded-2xl font-normal hover:bg-rose-50 transition-all shadow-xl overflow-hidden group/btn">
+                          <button className="relative bg-white text-rose-500 px-8 py-3 rounded-2xl font-normal hover:bg-rose-50 transition-all shadow-xl overflow-hidden group/btn cursor-pointer">
                             <span className="relative z-10">View Details</span>
                             <div className="absolute inset-0 bg-gradient-to-r from-rose-100 to-pink-100 opacity-0 group-hover/btn:opacity-100 transition-opacity"></div>
                           </button>

@@ -95,12 +95,12 @@ export default function ProductDetail() {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
         <div className="text-6xl mb-4">😞</div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">
+        <h2 className="text-2xl font-medium text-gray-900 mb-2">
           Product Not Found
         </h2>
         <p className="text-gray-600 mb-6">{error || "This product does not exist"}</p>
         <Link
-          href="/accessories/all-products?category=jewellery"
+          href="/outfits/all-products?category=jewellery"
           className="px-6 py-3 bg-rose-500 text-white rounded-lg hover:bg-rose-600 transition-colors"
         >
           Back to Products
@@ -127,7 +127,7 @@ export default function ProductDetail() {
           </Link>
           <span className="text-gray-400">/</span>
           <Link
-            href={`/accessories/all-products?category=${product.category}`}
+            href={`/outfits/all-products?category=${product.category}`}
             className="text-gray-600 hover:text-rose-500 capitalize"
           >
             {product.category}
@@ -204,7 +204,7 @@ export default function ProductDetail() {
             <div className="space-y-6">
               {/* Product Name */}
               <div>
-                <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                <h1 className="text-3xl font-medium text-gray-900 mb-2">
                   {product.name}
                 </h1>
                 <p className="text-sm text-gray-500 capitalize">
