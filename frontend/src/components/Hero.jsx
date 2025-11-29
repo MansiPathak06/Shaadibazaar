@@ -193,7 +193,7 @@ export default function ModernWeddingGate() {
   return (
     <div className="relative w-full h-screen overflow-hidden bg-linear-to-br from-slate-950 via-rose-950 to-slate-900" onClick={!gatesOpen ? openGates : undefined}>
       {/* Top Heading - Always Visible */}
-      <div className="absolute top-4 sm:top-6 md:top-10 left-0 right-0 z-50 text-center px-2 sm:px-4">
+      {/* <div className="absolute top-4 sm:top-6 md:top-10 left-0 right-0 z-50 text-center px-2 sm:px-4">
         <div className="inline-flex items-center gap-1 sm:gap-2 px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 bg-linear-to-r from-rose-500/20 via-pink-500/20 to-purple-500/20 backdrop-blur-md border border-rose-400/30 rounded-full shadow-lg animate-glow">
           <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-rose-300 animate-spin-slow" />
           <span className="text-rose-300 font-medium text-xs sm:text-sm md:text-base whitespace-nowrap">
@@ -201,7 +201,7 @@ export default function ModernWeddingGate() {
           </span>
           <Star className="w-3 h-3 sm:w-4 sm:h-4 text-rose-300 animate-pulse" />
         </div>
-      </div>
+      </div> */}
 
 
       {/* Background Effects */}

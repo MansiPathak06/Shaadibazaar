@@ -55,12 +55,12 @@ const Navbar = () => {
   // Close mobile menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (mobileMenuOpen && !e.target.closest('.mobile-menu-container')) {
+      if (mobileMenuOpen && !e.target.closest(".mobile-menu-container")) {
         setMobileMenuOpen(false);
       }
     };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [mobileMenuOpen]);
 
   const navigationLinks = [
@@ -71,154 +71,160 @@ const Navbar = () => {
       link: "/",
     },
     {
-      name: "Accessories",
+      name: "Bride",
       icon: Gift,
       heading: "Add A Little Spark To Your Style!",
       hasMegaMenu: true,
-      dropdowns: [
+      sections: [
         {
-          name: "Jewellery",
-          icon: Sparkles,
-          link: "/accessories/jewellery",
+          title: "Products",
+          items: [
+            {
+              name: "Bridal Attire",
+              icon: Sparkles,
+              link: "/bride/bridalattire",
+            },
+            {
+              name: "Bridal Jewellery",
+              icon: ShoppingBag,
+              link: "/bride/bridaljewellery",
+            },
+          ],
         },
         {
-          name: "Bags & Purses",
-          icon: ShoppingBag,
-          link: "/accessories/bagsandpurses",
-        },
-        {
-          name: "Hair Accessories",
-          icon: Scissors,
-          link: "/accessories/hair-accessories",
-        },
-        {
-          name: "Shoes",
-          icon: Footprints,
-          link: "/accessories/shoes",
-        },
-        {
-          name: "Watches",
-          icon: Watch,
-          link: "/accessories/watches",
-        },
-        {
-          name: "Perfumes",
-          icon: FlaskConical,
-          link: "/accessories/perfumes",
+          title: "Services",
+          items: [
+            {
+              name: "Makeup & Hair",
+              icon: Scissors,
+              link: "/bride/makeupandhair",
+            },
+            {
+              name: "Bridal Mehendi",
+              icon: Footprints,
+              link: "/bride/bridalmehndi",
+            },
+            {
+              name: "Pre-Wedding Prep",
+              icon: Watch,
+              link: "/bride/preweddingprep",
+            },
+          ],
         },
       ],
     },
     {
-      name: "Outfits",
+      name: "Groom",
       icon: Sparkles,
       heading: "Dressed to Impress, Designed to Express",
       hasMegaMenu: true,
-      dropdowns: [
+      sections: [
         {
-          name: "Bridal Wear",
-          icon: Sparkles,
-          link: "/outfits/bridalwear",
+          title: "Products",
+          items: [
+            {
+              name: "Groom Wear",
+              icon: Sparkles,
+              link: "/groom/groomwear",
+            },
+            {
+              name: "Groom Accessories",
+              icon: Gift,
+              link: "/groom/groomaccessories",
+            },
+          ],
         },
         {
-          name: "Groom Wear",
-          icon: Gift,
-          link: "/outfits/groomwear",
-        },
-        {
-          name: "Party Wear",
-          icon: Sparkles,
-          link: "/outfits/partywear",
-        },
-        {
-          name: "Traditional Wear",
-          icon: Gift,
-          link: "/outfits/traditionalwear",
-        },
-        {
-          name: "Western Wear",
-          icon: Sparkles,
-          link: "/outfits/westernwear",
-        },
-        {
-          name: "Kids Outfits",
-          icon: Gift,
-          link: "/outfits/kidsoutfits",
+          title: "Services",
+          items: [
+            {
+              name: "Groom Services",
+              icon: Gift,
+              link: "/groom/groomservices",
+            },
+          ],
         },
       ],
     },
     {
-      name: "Catering & Decor",
+      name: "Vendors and Services",
       icon: Utensils,
       heading: "Crafting Moments. Serving Memories",
       hasMegaMenu: true,
-      dropdowns: [
+
+      sections: [
         {
-          name: "Wedding Catering",
-          icon: Utensils,
-          link: "/cateringanddecor/weddingcatering",
+          title: "Products",
+          items: [
+            {
+              name: "Ritual Items and Materials",
+              icon: Flower,
+              link: "/vendorsandservices/ritualitems",
+            },
+          ],
         },
         {
-          name: "Floral Decor",
-          icon: Flower,
-          link: "/cateringanddecor/floraldecor",
-        },
-        {
-          name: "Dance Groups",
-          icon: Flower,
-          link: "/cateringanddecor/dancegroups",
-        },
-        {
-          name: "Lightning",
-          icon: Sparkles,
-          link: "/cateringanddecor/lightning",
-        },
-        {
-          name: "Furniture Rental",
-          icon: Gift,
-          link: "/cateringanddecor/furniturerental",
-        },
-        {
-          name: "Wedding Cards",
-          icon: Flower,
-          link: "/cateringanddecor/weddingcards",
+          title: "Services",
+          items: [
+            {
+              name: "Phhotography and Videography",
+              icon: Utensils,
+              link: "/vendorsandservices/photoandvideo",
+            },
+            {
+              name: "Decoration",
+              icon: Flower,
+              link: "/vendorsandservices/decoration",
+            },
+            {
+              name: "Entertainment",
+              icon: Flower,
+              link: "/vendorsandservices/entertainment",
+            },
+            {
+              name: "Wedding Essentials",
+              icon: Sparkles,
+              link: "/vendorsandservices/weddingessentials",
+            },
+          ],
         },
       ],
     },
     {
-      name: "Accommodation",
+      name: "Planning Tools",
       icon: Plane,
       heading: "Stay in Style, Sleep in Serenity",
       hasMegaMenu: true,
-      dropdowns: [
+      simpleLayout: true,
+      sections: [
         {
-          name: "Hotels",
-          icon: Plane,
-          link: "/accommodation/hotels",
+          title: "Products",
+          items: [],
         },
         {
-          name: "Resorts",
-          icon: Plane,
-          link: "/accommodation/resorts",
-        },
-        {
-          name: "Guest Houses",
-          icon: Plane,
-          link: "/accommodation/guesthouses",
-        },
-        {
-          name: "Banquet Halls",
-          icon: MapPin,
-          link: "/accommodation/banquethalls",
-        },
-        {
-          name: "Farmhouses",
-          icon: MapPin,
-          link: "/accommodation/farmhouses",
-        },
-        {
-          name: "Conference Halls",
-          icon: Plane,
-          link: "/accommodation/conferencehalls",
+          title: "Services",
+          items: [
+            {
+              name: "Checklists",
+              icon: Plane,
+              link: "/planningtools/checklists",
+            },
+            {
+              name: "Digital Tools",
+              icon: Plane,
+              link: "/planningtools/digitaltools",
+            },
+            {
+              name: "Coordination Services",
+              icon: Plane,
+              link: "/planningtools/coordinationservices",
+            },
+            {
+              name: "Technology",
+              icon: MapPin,
+              link: "/planningtools/techhnology",
+            },
+          ],
         },
       ],
     },
@@ -227,103 +233,65 @@ const Navbar = () => {
       icon: MapPin,
       heading: "The Perfect Place for Your Perfect Day",
       hasMegaMenu: true,
+      simpleLayout: true,
       showDestinationCard: true,
-      dropdowns: [
+      sections: [
         {
-          name: "Outdoor Venues",
-          icon: MapPin,
-          link: "/venueandlocation/outdoorvenues",
+          title: "Products",
+          items: [],
         },
         {
-          name: "Indoor Venues",
-          icon: MapPin,
-          link: "/venueandlocation/indoorvenues",
-        },
-        {
-          name: "Destination Wedding",
-          icon: Plane,
-          link: "/eventplanning/destinationwedding",
-        },
-        {
-          name: "Lounges",
-          icon: MapPin,
-          link: "/venueandlocation/lounges",
-        },
-        {
-          name: "Gardens",
-          icon: Flower,
-          link: "/venueandlocation/gardens",
-        },
-        {
-          name: "Beach Venues",
-          icon: Plane,
-          link: "/venueandlocation/beachvenues",
+          title: "Services",
+          items: [
+            {
+              name: "Venue Type",
+              icon: MapPin,
+              link: "/venueandlocation/outdoorvenues",
+            },
+            {
+              name: "Venue Add-Ons",
+              icon: MapPin,
+              link: "/venueandlocation/indoorvenues",
+            },
+            {
+              name: "Guest Accommodation",
+              icon: MapPin,
+              link: "/venueandlocation/lounges",
+            },
+          ],
         },
       ],
     },
     {
-      name: "Beauty & Styling",
+      name: "Pre-Wedding",
       icon: Sparkles,
       heading: "Timeless Beauty, Effortlessly You",
       hasMegaMenu: true,
-      dropdowns: [
+      simpleLayout: true,
+      sections: [
         {
-          name: "Bridal Makeup",
-          icon: Sparkles,
-          link: "/beautyandstyling/bridalmakeup",
+          title: "Products",
+          items: [],
         },
         {
-          name: "Hair Styling",
-          icon: Sparkles,
-          link: "/beautyandstyling/hairstyling",
-        },
-        {
-          name: "Mehendi Artists",
-          icon: Sparkles,
-          link: "/beautyandstyling/mehendiartists",
-        },
-        {
-          name: "Spa Services",
-          icon: Sparkles,
-          link: "/beautyandstyling/spaservices",
-        },
-        {
-          name: "Grooming",
-          icon: Sparkles,
-          link: "/beautyandstyling/grooming",
-        },
-        {
-          name: "Nail Art",
-          icon: Sparkles,
-          link: "/beautyandstyling/nailart",
-        },
-      ],
-    },
-    {
-      name: "Event Planning",
-      icon: Calendar,
-      heading: "Stylish Events. Seamless Execution",
-      hasMegaMenu: true,
-      dropdowns: [
-        {
-          name: "Wedding Planning",
-          icon: Calendar,
-          link: "/eventplanning/weddingplanning",
-        },
-        {
-          name: "Destination Wedding",
-          icon: Plane,
-          link: "/eventplanning/destinationwedding",
-        },
-        {
-          name: "Engagement Planning",
-          icon: Calendar,
-          link: "/eventplanning/engagementplanning",
-        },
-        {
-          name: "Cocktail Planning",
-          icon: Calendar,
-          link: "/eventplanning/cocktailplanning",
+          title: "Services",
+          items: [
+            {
+              name: "Pre-Wedding Shoots",
+              icon: Sparkles,
+              link: "/prewedding/preweddingshoots",
+            },
+            {
+              name: "Pre-Wedding Events",
+              icon: Sparkles,
+              link: "/prewedding/preweddingevents",
+            },
+            {
+              name: "Lifestyle",
+              icon: Sparkles,
+              link: "/prewedding/lifestyle",
+            },
+          ],
         },
       ],
     },
@@ -334,20 +302,52 @@ const Navbar = () => {
       link: "/blogs",
     },
     {
-      name: "More Services..",
+      name: "More Services...",
       icon: Clipboard,
-      hasMegaMenu: false,
-      link: "/our-services",
+      heading: "Timeless Beauty, Effortlessly You",
+      hasMegaMenu: true,
+      simpleLayout: true,
+      sections: [
+        {
+          title: "Products",
+          items: [],
+        },
+        {
+          title: "Services",
+          items: [
+            {
+              name: "Logistics",
+              icon: Sparkles,
+              link: "/moreservices/logistics",
+            },
+            {
+              name: "Hospitality",
+              icon: Sparkles,
+              link: "/moreservices/hospitality",
+            },
+            {
+              name: "Luxury Add-Ons",
+              icon: Sparkles,
+              link: "/moreservices/luxuryaddons",
+            },
+            {
+              name: "Post Wedding",
+              icon: Sparkles,
+              link: "/moreservices/postwedding",
+            },
+          ],
+        },
+      ],
     },
   ];
 
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
-      {/* Top Section - INCREASED HEIGHT FOR MOBILE */}
+      {/* Top Section */}
       <div className="border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
           <div className="flex items-center justify-between h-20 md:h-16 gap-2">
-            {/* Logo - BIGGER ON MOBILE */}
+            {/* Logo */}
             <div className="flex-shrink-0">
               <Link href="/">
                 <img
@@ -358,7 +358,7 @@ const Navbar = () => {
               </Link>
             </div>
 
-            {/* Search Bar - Hidden on mobile, shown on md+ */}
+            {/* Search Bar - Hidden on mobile */}
             <div className="hidden md:flex flex-1 max-w-xl lg:max-w-2xl mx-4">
               <div className="relative w-full">
                 <input
@@ -372,7 +372,7 @@ const Navbar = () => {
               </div>
             </div>
 
-            {/* Right Icons - BIGGER ON MOBILE */}
+            {/* Right Icons */}
             <div className="flex items-center gap-3 sm:gap-4">
               {/* Sign In/Account Button */}
               {userRole ? (
@@ -390,7 +390,7 @@ const Navbar = () => {
                     <User size={18} />
                     <span className="hidden lg:inline">My Account</span>
                   </button>
-                  {/* Mobile Account Icon - BIGGER */}
+                  {/* Mobile Account Icon */}
                   <button
                     onClick={() => {
                       if (userRole === "user") router.push("/user-dashboard");
@@ -427,7 +427,7 @@ const Navbar = () => {
                 </button>
               )}
 
-              {/* Cart - BIGGER ON MOBILE */}
+              {/* Cart */}
               <Link href="/cart" className="relative flex items-center gap-1">
                 <ShoppingCart className="w-7 h-7 sm:w-6 sm:h-6 text-gray-700 hover:text-rose-500" />
                 <span className="hidden sm:inline text-sm font-medium text-gray-700">
@@ -440,14 +440,14 @@ const Navbar = () => {
                 )}
               </Link>
 
-              {/* Wedding Website Button - Hidden on smaller screens */}
+              {/* Wedding Website Button */}
               <Link href="/wedding-website" className="hidden lg:block">
                 <button className="bg-rose-500 text-white rounded-full py-2 px-5 text-sm font-medium hover:bg-rose-600 transition-colors duration-200 whitespace-nowrap">
                   Wedding Website
                 </button>
               </Link>
 
-              {/* Mobile Menu Button - BIGGER */}
+              {/* Mobile Menu Button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="lg:hidden text-gray-700 hover:text-rose-500 p-1 cursor-pointer"
@@ -458,7 +458,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Mobile Search Bar - BIGGER HEIGHT */}
+          {/* Mobile Search Bar */}
           <div className="md:hidden pb-4">
             <div className="relative">
               <input
@@ -477,8 +477,8 @@ const Navbar = () => {
       {/* Bottom Navigation Links */}
       <div className="bg-gradient-to-b from-rose-50 to-white border-b border-gray-200 relative z-9000">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
-          {/* Desktop Navigation - Hidden on mobile/tablet */}
-          <div className="hidden lg:flex items-center justify-center h-12 gap-1 overflow-x-auto">
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center justify-center h-15 gap-1 overflow-x-auto">
             {navigationLinks.map((link, index) => (
               <div
                 key={index}
@@ -487,7 +487,10 @@ const Navbar = () => {
                 onMouseLeave={() => link.hasMegaMenu && setOpenDropdown(null)}
               >
                 {link.hasMegaMenu ? (
-                  <button className="px-2 xl:px-3 py-3 text-sm xl:text-base font-medium text-gray-700 hover:text-rose-500 hover:bg-rose-50 rounded transition-colors duration-200 cursor-pointer whitespace-nowrap">
+                  <button
+                    className="px-2 xl:px-3 py-3 text-base xl:text-lg
+ font-mediu text-gray-700 hover:text-rose-500 hover:bg-rose-50 rounded transition-colors duration-200 cursor-pointer whitespace-nowrap"
+                  >
                     {link.name}
                   </button>
                 ) : (
@@ -502,12 +505,13 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Mobile/Tablet Slide-in Navigation Menu */}
+          {/* Mobile/Tablet Navigation Menu */}
           <div
-            className={`mobile-menu-container lg:hidden fixed inset-y-0 left-0 w-80 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 ${mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
-              }`}
+            className={`mobile-menu-container lg:hidden fixed inset-y-0 left-0 w-80 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 ${
+              mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+            }`}
           >
-            {/* Mobile Menu Header - BIGGER HEIGHT */}
+            {/* Mobile Menu Header */}
             <div className="bg-gradient-to-r from-rose-500 to-pink-500 p-5 flex items-center justify-between">
               <h2 className="text-white font-bold text-xl">Menu</h2>
               <button
@@ -518,25 +522,30 @@ const Navbar = () => {
               </button>
             </div>
 
-            {/* Mobile Menu Content - Scrollable */}
+            {/* Mobile Menu Content */}
             <div className="overflow-y-auto h-[calc(100vh-88px)] pb-6">
-              {/* Wedding Website Button - Mobile - BIGGER */}
+              {/* Wedding Website Button */}
               <div className="lg:hidden p-4 border-b border-gray-200">
-                <Link href="/wedding-website" onClick={() => setMobileMenuOpen(false)}>
-                  <button className="w-full bg-rose-500 text-white rounded-lg py-4 px-4 text-lg  font-medium hover:bg-rose-600 transition-colors duration-200">
+                <Link
+                  href="/wedding-website"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <button className="w-full bg-rose-500 text-white rounded-lg py-4 px-4 text-lg font-medium hover:bg-rose-600 transition-colors duration-200">
                     Wedding Website
                   </button>
                 </Link>
               </div>
 
-              {/* User Account Section - Mobile - BIGGER */}
+              {/* User Account Section */}
               {userRole && (
                 <div className="sm:hidden p-4 border-b border-gray-200 bg-rose-50">
                   <button
                     onClick={() => {
                       if (userRole === "user") router.push("/user-dashboard");
-                      else if (userRole === "admin") router.push("/admin-dashboard");
-                      else if (userRole === "vendor") router.push("/vendor-dashboard");
+                      else if (userRole === "admin")
+                        router.push("/admin-dashboard");
+                      else if (userRole === "vendor")
+                        router.push("/vendor-dashboard");
                       setMobileMenuOpen(false);
                     }}
                     className="w-full flex items-center gap-3 px-4 py-4 bg-white rounded-lg text-rose-500 font-semibold hover:bg-rose-100 transition-colors text-base"
@@ -560,7 +569,7 @@ const Navbar = () => {
                 </div>
               )}
 
-              {/* Mobile Navigation Links - BIGGER */}
+              {/* Mobile Navigation Links */}
               <div className="p-4">
                 {navigationLinks.map((link, index) => (
                   <div key={index} className="mb-3">
@@ -568,7 +577,9 @@ const Navbar = () => {
                       <div className="border border-gray-200 cursor-pointer rounded-lg overflow-hidden">
                         <button
                           onClick={() =>
-                            setOpenDropdown(openDropdown === index ? null : index)
+                            setOpenDropdown(
+                              openDropdown === index ? null : index
+                            )
                           }
                           className="w-full flex items-center cursor-pointer justify-between px-5 py-4 text-gray-700 hover:bg-rose-50 hover:text-rose-500 font-semibold transition-colors duration-200 bg-gray-50 text-base"
                         >
@@ -578,34 +589,79 @@ const Navbar = () => {
                           </div>
                           <ChevronDown
                             size={22}
-                            className={`transition-transform duration-300 ${openDropdown === index ? "rotate-180" : ""
-                              }`}
+                            className={`transition-transform duration-300 ${
+                              openDropdown === index ? "rotate-180" : ""
+                            }`}
                           />
                         </button>
-
-                        {/* Animated Dropdown */}
+                        {/* Mobile Dropdown with Flexible Sections */}
                         <div
-                          className={`transition-all duration-300 ease-in-out ${openDropdown === index
-                              ? "max-h-[500px] opacity-100"
+                          className={`transition-all duration-300 ease-in-out ${
+                            openDropdown === index
+                              ? "max-h-[600px] opacity-100"
                               : "max-h-0 opacity-0 overflow-hidden"
-                            }`}
+                          }`}
                         >
                           <div className="bg-white">
-                            {link.dropdowns.map((item, idx) => {
-                              const ItemIcon = item.icon;
-                              return (
-                                <Link
-                                  key={idx}
-                                  href={item.link}
-                                  onClick={() => setMobileMenuOpen(false)}
-                                  className="flex items-center gap-3 px-5 py-4 text-base text-gray-600 hover:bg-rose-50 hover:text-rose-500 transition-colors duration-150 border-b border-gray-100 last:border-b-0"
-                                >
-                                  <ItemIcon size={22} className="text-gray-400" />
-                                  <span>{item.name}</span>
-                                  <ChevronRight size={18} className="ml-auto text-gray-400" />
-                                </Link>
-                              );
-                            })}
+                            {link.simpleLayout
+                              ? /* SIMPLE LAYOUT - No section titles */
+                                link.sections
+                                  ?.flatMap((section) => section.items)
+                                  .map((item, idx) => {
+                                    const ItemIcon = item.icon;
+                                    return (
+                                      <Link
+                                        key={idx}
+                                        href={item.link}
+                                        onClick={() => setMobileMenuOpen(false)}
+                                        className="flex items-center gap-3 px-5 py-3 text-base text-gray-600 hover:bg-rose-50 hover:text-rose-500 transition-colors duration-150 border-b border-gray-100 last:border-b-0"
+                                      >
+                                        <ItemIcon
+                                          size={22}
+                                          className="text-gray-400"
+                                        />
+                                        <span>{item.name}</span>
+                                        <ChevronRight
+                                          size={18}
+                                          className="ml-auto text-gray-400"
+                                        />
+                                      </Link>
+                                    );
+                                  })
+                              : /* NORMAL LAYOUT - Show section titles */
+                                link.sections?.map((section, sIdx) => (
+                                  <div
+                                    key={sIdx}
+                                    className="border-b border-gray-100 last:border-b-0"
+                                  >
+                                    <p className="px-5 pt-4 pb-2 text-xs font-semibold text-gray-500 uppercase tracking-wider bg-gray-50">
+                                      {section.title}
+                                    </p>
+                                    {section.items.map((item, idx) => {
+                                      const ItemIcon = item.icon;
+                                      return (
+                                        <Link
+                                          key={idx}
+                                          href={item.link}
+                                          onClick={() =>
+                                            setMobileMenuOpen(false)
+                                          }
+                                          className="flex items-center gap-3 px-5 py-3 text-base text-gray-600 hover:bg-rose-50 hover:text-rose-500 transition-colors duration-150"
+                                        >
+                                          <ItemIcon
+                                            size={22}
+                                            className="text-gray-400"
+                                          />
+                                          <span>{item.name}</span>
+                                          <ChevronRight
+                                            size={18}
+                                            className="ml-auto text-gray-400"
+                                          />
+                                        </Link>
+                                      );
+                                    })}
+                                  </div>
+                                ))}
                           </div>
                         </div>
                       </div>
@@ -634,59 +690,94 @@ const Navbar = () => {
           )}
         </div>
 
-        {/* Desktop Mega Dropdown - Unchanged */}
-        {openDropdown !== null && navigationLinks[openDropdown].hasMegaMenu && (
-          <div
-            className="hidden lg:block absolute left-0 right-0 top-full bg-white border-t border-gray-200 shadow-xl z-50"
-            onMouseEnter={() => setOpenDropdown(openDropdown)}
-            onMouseLeave={() => setOpenDropdown(null)}
-          >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-              {/* Heading */}
-              <h3 className="text-xl font-medium text-gray-900 mb-6 uppercase">
-                {navigationLinks[openDropdown].heading}
-              </h3>
+        {/* Desktop Mega Dropdown */}
+        {openDropdown !== null &&
+          navigationLinks[openDropdown]?.hasMegaMenu && (
+            <div
+              className="hidden lg:block absolute left-0 right-0 top-full bg-white border-t border-gray-200 shadow-xl z-50"
+              onMouseEnter={() => setOpenDropdown(openDropdown)}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <h3 className="text-xl font-medium text-gray-900 mb-6 uppercase">
+                  {navigationLinks[openDropdown].heading}
+                </h3>
 
-              {/* Grid of Links with Icons */}
-              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-                {navigationLinks[openDropdown].dropdowns.map((item, idx) => {
-                  const IconComponent = item.icon;
-                  return (
-                    <Link
-                      key={idx}
-                      href={item.link}
-                      className="flex items-center gap-4 p-4 rounded-lg hover:bg-rose-50 transition-colors duration-200 group"
-                    >
-                      <div className="flex-shrink-0 w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-rose-100 transition-colors duration-200">
-                        <IconComponent className="w-6 h-6 text-gray-600 group-hover:text-rose-500" />
-                      </div>
-                      <span className="text-sm font-medium text-gray-700 group-hover:text-rose-500">
-                        {item.name}
-                      </span>
-                    </Link>
-                  );
-                })}
+                {/* FLEXIBLE LAYOUT: Check for simpleLayout */}
+                {navigationLinks[openDropdown].simpleLayout ? (
+                  /* SIMPLE LAYOUT - No section titles, just flat grid */
+                  <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-8">
+                    {navigationLinks[openDropdown].sections
+                      ?.flatMap((section) => section.items)
+                      .map((item, idx) => {
+                        const IconComponent = item.icon;
+                        return (
+                          <Link
+                            key={idx}
+                            href={item.link}
+                            className="flex items-center gap-4 p-4 rounded-xl hover:bg-rose-50 transition-all duration-200 group border border-gray-100 hover:border-rose-200 hover:shadow-md"
+                          >
+                            <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-rose-100 group-hover:to-pink-100 transition-all duration-200 shadow-sm">
+                              <IconComponent className="w-6 h-6 text-gray-600 group-hover:text-rose-500 transition-colors duration-200" />
+                            </div>
+                            <span className="text-base font-medium text-gray-700 group-hover:text-rose-600">
+                              {item.name}
+                            </span>
+                          </Link>
+                        );
+                      })}
+                  </div>
+                ) : (
+                  /* NORMAL LAYOUT - Products/Services titles */
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                    {navigationLinks[openDropdown].sections?.map(
+                      (section, sIdx) => (
+                        <div key={sIdx}>
+                          <h4 className="text-lg font-semibold text-gray-800 mb-6 pb-2 border-b-2 border-rose-200">
+                            {section.title}
+                          </h4>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {section.items.map((item, idx) => {
+                              const IconComponent = item.icon;
+                              return (
+                                <Link
+                                  key={idx}
+                                  href={item.link}
+                                  className="flex items-center gap-4 p-4 rounded-xl hover:bg-rose-50 transition-all duration-200 group border border-gray-100 hover:border-rose-200 hover:shadow-md"
+                                >
+                                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-rose-100 group-hover:to-pink-100 transition-all duration-200 shadow-sm">
+                                    <IconComponent className="w-6 h-6 text-gray-600 group-hover:text-rose-500 transition-colors duration-200" />
+                                  </div>
+                                  <span className="text-base font-medium text-gray-700 group-hover:text-rose-600">
+                                    {item.name}
+                                  </span>
+                                </Link>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      )
+                    )}
+                  </div>
+                )}
+
+                {/* Destination Weddings Card */}
+                {navigationLinks[openDropdown].showDestinationCard && (
+                  <div className="bg-gradient-to-r from-rose-50 to-pink-50 rounded-2xl p-8 flex items-center justify-between shadow-lg border border-rose-100">
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900 mb-3">
+                        Destination weddings
+                      </h4>
+                      <p className="text-gray-600 text-base leading-relaxed">
+                        Easily plan your international wedding.
+                      </p>
+                    </div>
+                    <Plane className="w-16 h-16 text-rose-500" />
+                  </div>
+                )}
               </div>
-
-              {/* Destination Weddings Card */}
-              {navigationLinks[openDropdown].showDestinationCard && (
-                <div className="mt-6 bg-gradient-to-r from-rose-50 to-pink-50 rounded-xl p-6 flex items-center justify-between">
-                  <div>
-                    <h4 className="text-lg font-bold text-gray-900 mb-2">
-                      Destination weddings
-                    </h4>
-                    <p className="text-gray-600 text-sm">
-                      Easily plan your international wedding.
-                    </p>
-                  </div>
-                  <div className="flex-shrink-0">
-                    <Plane className="w-12 h-12 text-rose-500" />
-                  </div>
-                </div>
-              )}
             </div>
-          </div>
-        )}
+          )}
       </div>
     </nav>
   );

@@ -191,19 +191,32 @@
 //   );
 // }
 
-import { Suspense } from "react";
+// import { Suspense } from "react";
+// import AllProductsClient from "./AllProductsClient";
+
+// export default function AccessoriesAllProductsPage() {
+//   return (
+//     <Suspense
+//       fallback={
+//         <div className="min-h-screen flex items-center justify-center">
+//           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-rose-500"></div>
+//         </div>
+//       }
+//     >
+//       <AllProductsClient />
+//     </Suspense>
+//   );
+// }
+
+
+
+// src/app/(pages)/bride/all-products/page.jsx
+"use client";
+
 import AllProductsClient from "./AllProductsClient";
 
-export default function AccessoriesAllProductsPage() {
-  return (
-    <Suspense
-      fallback={
-        <div className="min-h-screen flex items-center justify-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-rose-500"></div>
-        </div>
-      }
-    >
-      <AllProductsClient />
-    </Suspense>
-  );
+export default function BrideAllProductsPage() {
+  return <AllProductsClient />;
 }
+
+

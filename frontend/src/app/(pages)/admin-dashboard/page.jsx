@@ -38,7 +38,7 @@ import {
   Shirt,
   PartyPopper,
   Baby,
-  ChevronDown
+  ChevronDown,
 } from "lucide-react";
 
 export default function AdminDashboard() {
@@ -82,7 +82,11 @@ export default function AdminDashboard() {
     const token = localStorage.getItem("token");
     const user = JSON.parse(localStorage.getItem("user") || "{}");
 
-    if (!token || user.role !== 'admin' || user.email !== "team.zentrixinfotech@gmail.com") {
+    if (
+      !token ||
+      user.role !== "admin" ||
+      user.email !== "team.zentrixinfotech@gmail.com"
+    ) {
       router.push("/auth");
       return;
     }
@@ -191,55 +195,61 @@ export default function AdminDashboard() {
   const handleExcelUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
-      if (file.type !== 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' &&
-        file.type !== 'application/vnd.ms-excel' &&
-        file.type !== 'text/csv') {
-        setError('Please upload a valid Excel (.xlsx, .xls) or CSV file');
+      if (
+        file.type !==
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" &&
+        file.type !== "application/vnd.ms-excel" &&
+        file.type !== "text/csv"
+      ) {
+        setError("Please upload a valid Excel (.xlsx, .xls) or CSV file");
         return;
       }
       setExcelFile(file);
-      setError('');
+      setError("");
       setImportResults(null);
     }
   };
 
   const handleBulkImport = async () => {
     if (!excelFile) {
-      setError('Please select a file first');
+      setError("Please select a file first");
       return;
     }
 
     setImporting(true);
-    setError('');
-    setSuccess('');
+    setError("");
+    setSuccess("");
 
     try {
       const reader = new FileReader();
       reader.onload = async (e) => {
         try {
           const data = new Uint8Array(e.target.result);
-          const XLSX = await import('xlsx');
-          const workbook = XLSX.read(data, { type: 'array' });
+          const XLSX = await import("xlsx");
+          const workbook = XLSX.read(data, { type: "array" });
 
           const sheetName = workbook.SheetNames[0];
           const worksheet = workbook.Sheets[sheetName];
           const jsonData = XLSX.utils.sheet_to_json(worksheet);
 
           if (jsonData.length === 0) {
-            setError('Excel file is empty');
+            setError("Excel file is empty");
             setImporting(false);
             return;
           }
 
-          const token = localStorage.getItem('token');
-          const response = await fetch('http://localhost:5000/api/admin/products/bulk-import', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify({ products: jsonData })
-          });
+          const token = localStorage.getItem("token");
+          const response = await fetch(
+            "http://localhost:5000/api/admin/products/bulk-import",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+              body: JSON.stringify({ products: jsonData }),
+            }
+          );
 
           const result = await response.json();
 
@@ -252,8 +262,8 @@ export default function AdminDashboard() {
             setError(result.message);
           }
         } catch (err) {
-          console.error('Parse error:', err);
-          setError('Failed to parse Excel file: ' + err.message);
+          console.error("Parse error:", err);
+          setError("Failed to parse Excel file: " + err.message);
         } finally {
           setImporting(false);
         }
@@ -261,8 +271,8 @@ export default function AdminDashboard() {
 
       reader.readAsArrayBuffer(excelFile);
     } catch (error) {
-      console.error('Bulk import error:', error);
-      setError('Failed to import products');
+      console.error("Bulk import error:", error);
+      setError("Failed to import products");
       setImporting(false);
     }
   };
@@ -270,42 +280,49 @@ export default function AdminDashboard() {
   const downloadTemplate = () => {
     const templateData = [
       {
-        name: 'Premium Diamond Necklace',
-        description: 'Exquisite diamond necklace with 18k gold',
+        name: "Premium Diamond Necklace",
+        description: "Exquisite diamond necklace with 18k gold",
         price: 250000,
         mrp: 300000,
         discount: 17,
         rating: 4.8,
-        category: 'jewellery',
-        images: 'https://res.cloudinary.com/image1.jpg, https://res.cloudinary.com/image2.jpg',
+        category: "jewellery",
+        images:
+          "https://res.cloudinary.com/image1.jpg, https://res.cloudinary.com/image2.jpg",
         stock: 50,
         featured: 1,
-        vendor_id: ''
+        vendor_id: "",
       },
       {
-        name: 'Gold Earrings',
-        description: 'Beautiful gold earrings with intricate design',
+        name: "Gold Earrings",
+        description: "Beautiful gold earrings with intricate design",
         price: 45000,
         mrp: 55000,
         discount: 18,
         rating: 4.9,
-        category: 'jewellery',
-        images: 'https://res.cloudinary.com/image3.jpg',
+        category: "jewellery",
+        images: "https://res.cloudinary.com/image3.jpg",
         stock: 100,
         featured: 0,
-        vendor_id: ''
-      }
+        vendor_id: "",
+      },
     ];
 
-    const headers = Object.keys(templateData[0]).join(',');
-    const rows = templateData.map(row => Object.values(row).map(v => `"${v}"`).join(',')).join('\n');
-    const csv = headers + '\n' + rows;
+    const headers = Object.keys(templateData[0]).join(",");
+    const rows = templateData
+      .map((row) =>
+        Object.values(row)
+          .map((v) => `"${v}"`)
+          .join(",")
+      )
+      .join("\n");
+    const csv = headers + "\n" + rows;
 
-    const blob = new Blob([csv], { type: 'text/csv' });
+    const blob = new Blob([csv], { type: "text/csv" });
     const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
+    const a = document.createElement("a");
     a.href = url;
-    a.download = 'products_template.csv';
+    a.download = "products_template.csv";
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -348,14 +365,14 @@ export default function AdminDashboard() {
       description: product.description,
       price: product.price,
       mrp: product.mrp || product.price,
-      discount: product.discount || '',
+      discount: product.discount || "",
       rating: product.rating,
       category: product.category,
       images: Array.isArray(product.images)
         ? product.images.join(", ")
         : product.images,
       vendor_id: product.vendor_id || "",
-      stock: product.stock || '',
+      stock: product.stock || "",
       featured: product.featured || false,
     });
     setShowProductForm(true);
@@ -470,7 +487,9 @@ export default function AdminDashboard() {
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#3C4CAD] via-[#2A0B8B] to-[#F04393]">
         <div className="text-center">
           <Loader2 className="w-12 h-12 animate-spin text-white mx-auto mb-4" />
-          <p className="text-white font-semibold text-lg">Loading Dashboard...</p>
+          <p className="text-white font-semibold text-lg">
+            Loading Dashboard...
+          </p>
         </div>
       </div>
     );
@@ -532,13 +551,14 @@ export default function AdminDashboard() {
         }
 
         .gradient-border::before {
-          content: '';
+          content: "";
           position: absolute;
           inset: 0;
           border-radius: 1rem;
           padding: 2px;
-          background: linear-gradient(135deg, #F04393, #2A0B8B, #3C4CAD);
-          -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          background: linear-gradient(135deg, #f04393, #2a0b8b, #3c4cad);
+          -webkit-mask: linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
           -webkit-mask-composite: xor;
           mask-composite: exclude;
         }
@@ -548,13 +568,16 @@ export default function AdminDashboard() {
         }
 
         .table-row:hover {
-          background: linear-gradient(90deg, rgba(240, 67, 147, 0.05) 0%, rgba(42, 11, 139, 0.05) 100%);
+          background: linear-gradient(
+            90deg,
+            rgba(240, 67, 147, 0.05) 0%,
+            rgba(42, 11, 139, 0.05) 100%
+          );
           transform: scale(1.01);
         }
       `}</style>
 
       <div className="min-h-screen bg-gradient-to-br from-gray-50 via-[#E8A4BC]/10 to-[#F9C449]/10">
-
         {/* Modern Header */}
 
         <header className="bg-white shadow-lg border-b-4 border-gradient-to-r from-[#F04393] to-[#2A0B8B] sticky min-w-full  backdrop-blur-lg">
@@ -565,7 +588,11 @@ export default function AdminDashboard() {
                   onClick={() => setSidebarOpen(!sidebarOpen)}
                   className="lg:hidden p-2 rounded-xl hover:bg-gray-100 transition-colors"
                 >
-                  {sidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                  {sidebarOpen ? (
+                    <X className="w-6 h-6" />
+                  ) : (
+                    <Menu className="w-6 h-6" />
+                  )}
                 </button>
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 bg-gradient-to-br from-[#F04393] to-[#2A0B8B] rounded-2xl flex items-center justify-center shadow-lg">
@@ -583,7 +610,9 @@ export default function AdminDashboard() {
               <div className="flex items-center gap-4">
                 <div className="hidden md:flex items-center gap-2 cursor-pointer px-4 py-2 bg-gradient-to-r from-[#E8A4BC]/20 to-[#F9C449]/20 rounded-xl">
                   <Activity className="w-4 h-4 text-[#F04393]" />
-                  <span className="text-md font-medium text-gray-700">Admin Panel</span>
+                  <span className="text-md font-medium text-gray-700">
+                    Admin Panel
+                  </span>
                 </div>
                 <button
                   onClick={handleLogout}
@@ -596,7 +625,6 @@ export default function AdminDashboard() {
             </div>
           </div>
         </header>
-
 
         {/* Notifications */}
         {error && (
@@ -623,12 +651,17 @@ export default function AdminDashboard() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex gap-6">
-
             {/* Modern Sidebar */}
-            <aside className={`${sidebarOpen ? 'block' : 'hidden'} lg:block w-full lg:w-72 fixed lg:relative inset-0 lg:inset-auto z-40 lg:z-0`}>
+            <aside
+              className={`${
+                sidebarOpen ? "block" : "hidden"
+              } lg:block w-full lg:w-72 fixed lg:relative inset-0 lg:inset-auto z-40 lg:z-0`}
+            >
               <div className="h-full lg:h-auto bg-white rounded-2xl shadow-2xl p-6 lg:sticky lg:top-28 border-2 border-gray-100">
                 <div className="mb-6 pb-6 border-b border-gray-200">
-                  <h3 className="text-2xl font-medium text-gray-700 uppercase tracking-wider mb-4">Navigation</h3>
+                  <h3 className="text-2xl font-medium text-gray-700 uppercase tracking-wider mb-4">
+                    Navigation
+                  </h3>
                 </div>
                 <nav className="space-y-2">
                   <button
@@ -636,14 +669,17 @@ export default function AdminDashboard() {
                       setActiveTab("dashboard");
                       setSidebarOpen(false);
                     }}
-                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium text-lg cursor-pointer ${activeTab === "dashboard"
-                      ? "bg-gradient-to-r from-[#F04393] to-[#2A0B8B] text-white shadow-xl transform scale-105"
-                      : "text-gray-600 hover:bg-gradient-to-r hover:from-[#E8A4BC]/20 hover:to-[#F9C449]/20 hover:text-[#F04393]"
-                      }`}
+                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium text-lg cursor-pointer ${
+                      activeTab === "dashboard"
+                        ? "bg-gradient-to-r from-[#F04393] to-[#2A0B8B] text-white shadow-xl transform scale-105"
+                        : "text-gray-600 hover:bg-gradient-to-r hover:from-[#E8A4BC]/20 hover:to-[#F9C449]/20 hover:text-[#F04393]"
+                    }`}
                   >
                     <BarChart3 className="w-5 h-5" />
                     <span>Dashboard</span>
-                    {activeTab === "dashboard" && <TrendingUp className="w-4 h-4 ml-auto animate-pulse" />}
+                    {activeTab === "dashboard" && (
+                      <TrendingUp className="w-4 h-4 ml-auto animate-pulse" />
+                    )}
                   </button>
 
                   <button
@@ -651,14 +687,21 @@ export default function AdminDashboard() {
                       setActiveTab("products");
                       setSidebarOpen(false);
                     }}
-                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium tetx-lg cursor-pointer ${activeTab === "products"
-                      ? "bg-gradient-to-r from-[#F04393] to-[#2A0B8B] text-white shadow-xl transform scale-105"
-                      : "text-gray-600 hover:bg-gradient-to-r hover:from-[#E8A4BC]/20 hover:to-[#F9C449]/20 hover:text-[#F04393]"
-                      }`}
+                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium tetx-lg cursor-pointer ${
+                      activeTab === "products"
+                        ? "bg-gradient-to-r from-[#F04393] to-[#2A0B8B] text-white shadow-xl transform scale-105"
+                        : "text-gray-600 hover:bg-gradient-to-r hover:from-[#E8A4BC]/20 hover:to-[#F9C449]/20 hover:text-[#F04393]"
+                    }`}
                   >
                     <Package className="w-5 h-5" />
                     <span>Products</span>
-                    <span className={`ml-auto px-2 py-1 text-xs rounded-full ${activeTab === "products" ? "bg-white/20" : "bg-[#F04393] text-white"}`}>
+                    <span
+                      className={`ml-auto px-2 py-1 text-xs rounded-full ${
+                        activeTab === "products"
+                          ? "bg-white/20"
+                          : "bg-[#F04393] text-white"
+                      }`}
+                    >
                       {products.length}
                     </span>
                   </button>
@@ -668,14 +711,21 @@ export default function AdminDashboard() {
                       setActiveTab("users");
                       setSidebarOpen(false);
                     }}
-                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium cursor-pointer text-lg ${activeTab === "users"
-                      ? "bg-gradient-to-r from-[#F04393] to-[#2A0B8B] text-white shadow-xl transform scale-105"
-                      : "text-gray-600 hover:bg-gradient-to-r hover:from-[#E8A4BC]/20 hover:to-[#F9C449]/20 hover:text-[#F04393]"
-                      }`}
+                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium cursor-pointer text-lg ${
+                      activeTab === "users"
+                        ? "bg-gradient-to-r from-[#F04393] to-[#2A0B8B] text-white shadow-xl transform scale-105"
+                        : "text-gray-600 hover:bg-gradient-to-r hover:from-[#E8A4BC]/20 hover:to-[#F9C449]/20 hover:text-[#F04393]"
+                    }`}
                   >
                     <Users className="w-5 h-5" />
                     <span>Users</span>
-                    <span className={`ml-auto px-2 py-1 text-xs rounded-full ${activeTab === "users" ? "bg-white/20" : "bg-blue-500 text-white"}`}>
+                    <span
+                      className={`ml-auto px-2 py-1 text-xs rounded-full ${
+                        activeTab === "users"
+                          ? "bg-white/20"
+                          : "bg-blue-500 text-white"
+                      }`}
+                    >
                       {users.length}
                     </span>
                   </button>
@@ -685,14 +735,21 @@ export default function AdminDashboard() {
                       setActiveTab("vendors");
                       setSidebarOpen(false);
                     }}
-                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium cursor-pointer text-lg ${activeTab === "vendors"
-                      ? "bg-gradient-to-r from-[#F04393] to-[#2A0B8B] text-white shadow-xl transform scale-105"
-                      : "text-gray-600 hover:bg-gradient-to-r hover:from-[#E8A4BC]/20 hover:to-[#F9C449]/20 hover:text-[#F04393]"
-                      }`}
+                    className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium cursor-pointer text-lg ${
+                      activeTab === "vendors"
+                        ? "bg-gradient-to-r from-[#F04393] to-[#2A0B8B] text-white shadow-xl transform scale-105"
+                        : "text-gray-600 hover:bg-gradient-to-r hover:from-[#E8A4BC]/20 hover:to-[#F9C449]/20 hover:text-[#F04393]"
+                    }`}
                   >
                     <Store className="w-5 h-5" />
                     <span>Vendors</span>
-                    <span className={`ml-auto px-2 py-1 text-xs rounded-full ${activeTab === "vendors" ? "bg-white/20" : "bg-green-500 text-white"}`}>
+                    <span
+                      className={`ml-auto px-2 py-1 text-xs rounded-full ${
+                        activeTab === "vendors"
+                          ? "bg-white/20"
+                          : "bg-green-500 text-white"
+                      }`}
+                    >
                       {vendors.length}
                     </span>
                   </button>
@@ -708,13 +765,16 @@ export default function AdminDashboard() {
 
             {/* Main Content */}
             <main className="flex-1 min-w-0">
-
               {/* Dashboard Tab */}
               {activeTab === "dashboard" && (
                 <div className="animate-fade-in">
                   <div className="mb-8">
-                    <h2 className="text-4xl font-medium text-gray-900 mb-2">Dashboard Overview</h2>
-                    <p className="text-gray-600">Welcome back! Here's what's happening today.</p>
+                    <h2 className="text-4xl font-medium text-gray-900 mb-2">
+                      Dashboard Overview
+                    </h2>
+                    <p className="text-gray-600">
+                      Welcome back! Here's what's happening today.
+                    </p>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
@@ -728,7 +788,9 @@ export default function AdminDashboard() {
                           +12%
                         </div>
                       </div>
-                      <p className="text-gray-500 text-md font-medium mb-1">Total Products</p>
+                      <p className="text-gray-500 text-md font-medium mb-1">
+                        Total Products
+                      </p>
                       <p className="text-4xl font-bold text-gray-900 mb-2">
                         {stats.totalProducts || 0}
                       </p>
@@ -748,7 +810,9 @@ export default function AdminDashboard() {
                           +8%
                         </div>
                       </div>
-                      <p className="text-gray-500 text-md font-medium mb-1">Total Users</p>
+                      <p className="text-gray-500 text-md font-medium mb-1">
+                        Total Users
+                      </p>
                       <p className="text-4xl font-bold text-gray-900 mb-2">
                         {stats.totalUsers || 0}
                       </p>
@@ -768,7 +832,9 @@ export default function AdminDashboard() {
                           +5%
                         </div>
                       </div>
-                      <p className="text-gray-500 text-md font-medium mb-1">Total Vendors</p>
+                      <p className="text-gray-500 text-md font-medium mb-1">
+                        Total Vendors
+                      </p>
                       <p className="text-4xl font-bold text-gray-900 mb-2">
                         {stats.totalVendors || 0}
                       </p>
@@ -788,7 +854,9 @@ export default function AdminDashboard() {
                           Action needed
                         </div>
                       </div>
-                      <p className="text-gray-500 text-md font-medium mb-1">Pending Vendors</p>
+                      <p className="text-gray-500 text-md font-medium mb-1">
+                        Pending Vendors
+                      </p>
                       <p className="text-4xl font-bold text-gray-900 mb-2">
                         {stats.pendingVendors || 0}
                       </p>
@@ -802,8 +870,12 @@ export default function AdminDashboard() {
                   {/* Quick Actions */}
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <div className="bg-gradient-to-br from-[#F04393] to-[#2A0B8B] rounded-2xl shadow-2xl p-8 text-white">
-                      <h3 className="text-4xl font-medium mb-4">Quick Actions</h3>
-                      <p className="text-white/80 mb-6">Manage your platform efficiently</p>
+                      <h3 className="text-4xl font-medium mb-4">
+                        Quick Actions
+                      </h3>
+                      <p className="text-white/80 mb-6">
+                        Manage your platform efficiently
+                      </p>
                       <div className="space-y-3">
                         <button
                           onClick={() => setActiveTab("products")}
@@ -823,15 +895,21 @@ export default function AdminDashboard() {
                     </div>
 
                     <div className="bg-white rounded-2xl shadow-lg p-8">
-                      <h3 className="text-4xl font-medium text-gray-900 mb-4">Recent Activity</h3>
+                      <h3 className="text-4xl font-medium text-gray-900 mb-4">
+                        Recent Activity
+                      </h3>
                       <div className="space-y-4">
                         <div className="flex items-start gap-4 p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl">
                           <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
                             <CheckCircle className="w-5 h-5 text-white" />
                           </div>
                           <div>
-                            <p className="font-medium text-gray-900">New product added</p>
-                            <p className="text-sm text-gray-600">2 minutes ago</p>
+                            <p className="font-medium text-gray-900">
+                              New product added
+                            </p>
+                            <p className="text-sm text-gray-600">
+                              2 minutes ago
+                            </p>
                           </div>
                         </div>
                         <div className="flex items-start gap-4 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl">
@@ -839,8 +917,12 @@ export default function AdminDashboard() {
                             <Users className="w-5 h-5 text-white" />
                           </div>
                           <div>
-                            <p className="font-medium text-gray-900">New user registered</p>
-                            <p className="text-sm text-gray-600">15 minutes ago</p>
+                            <p className="font-medium text-gray-900">
+                              New user registered
+                            </p>
+                            <p className="text-sm text-gray-600">
+                              15 minutes ago
+                            </p>
                           </div>
                         </div>
                         <div className="flex items-start gap-4 p-4 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl">
@@ -848,7 +930,9 @@ export default function AdminDashboard() {
                             <Store className="w-5 h-5 text-white" />
                           </div>
                           <div>
-                            <p className="font-medium text-gray-900">Vendor pending approval</p>
+                            <p className="font-medium text-gray-900">
+                              Vendor pending approval
+                            </p>
                             <p className="text-sm text-gray-600">1 hour ago</p>
                           </div>
                         </div>
@@ -863,8 +947,12 @@ export default function AdminDashboard() {
                 <div className="animate-fade-in">
                   <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
                     <div>
-                      <h2 className="text-4xl font-medium text-gray-900 mb-2">Products Management</h2>
-                      <p className="text-gray-600">Manage your product catalog</p>
+                      <h2 className="text-4xl font-medium text-gray-900 mb-2">
+                        Products Management
+                      </h2>
+                      <p className="text-gray-600">
+                        Manage your product catalog
+                      </p>
                     </div>
                     <div className="flex flex-wrap gap-3">
                       {/* Bulk Import Button */}
@@ -926,7 +1014,8 @@ export default function AdminDashboard() {
                               First time using bulk import?
                             </h4>
                             <p className="text-md text-gray-600 mb-4 hover:text-black cursor-pointer">
-                              Download our sample template to see the required format with example data
+                              Download our sample template to see the required
+                              format with example data
                             </p>
                             <button
                               onClick={downloadTemplate}
@@ -959,7 +1048,8 @@ export default function AdminDashboard() {
                           )}
                         </div>
                         <p className="text-sm text-gray-500 mt-3">
-                          Supported formats: .xlsx, .xls, .csv (Max 500 products per file)
+                          Supported formats: .xlsx, .xls, .csv (Max 500 products
+                          per file)
                         </p>
                       </div>
 
@@ -973,7 +1063,10 @@ export default function AdminDashboard() {
                           <div className="text-sm text-green-700 space-y-2">
                             <p className="flex items-center gap-2 font-semibold">
                               <CheckCircle className="w-4 h-4" />
-                              Successfully imported: {importResults.imported} products
+                              Successfully imported: {
+                                importResults.imported
+                              }{" "}
+                              products
                             </p>
                             {importResults.failed > 0 && (
                               <p className="text-red-600 flex items-center gap-2 font-semibold">
@@ -982,20 +1075,25 @@ export default function AdminDashboard() {
                               </p>
                             )}
                           </div>
-                          {importResults.errors && importResults.errors.length > 0 && (
-                            <details className="mt-4">
-                              <summary className="cursor-pointer text-sm font-bold text-red-600 hover:text-red-700 transition-colors">
-                                View Errors ({importResults.errors.length})
-                              </summary>
-                              <div className="mt-3 text-xs text-red-600 space-y-2 max-h-40 overflow-y-auto">
-                                {importResults.errors.map((err, idx) => (
-                                  <div key={idx} className="p-3 bg-red-50 rounded-lg border border-red-200">
-                                    Row {err.row}: {err.name || 'Unknown'} - {err.error}
-                                  </div>
-                                ))}
-                              </div>
-                            </details>
-                          )}
+                          {importResults.errors &&
+                            importResults.errors.length > 0 && (
+                              <details className="mt-4">
+                                <summary className="cursor-pointer text-sm font-bold text-red-600 hover:text-red-700 transition-colors">
+                                  View Errors ({importResults.errors.length})
+                                </summary>
+                                <div className="mt-3 text-xs text-red-600 space-y-2 max-h-40 overflow-y-auto">
+                                  {importResults.errors.map((err, idx) => (
+                                    <div
+                                      key={idx}
+                                      className="p-3 bg-red-50 rounded-lg border border-red-200"
+                                    >
+                                      Row {err.row}: {err.name || "Unknown"} -{" "}
+                                      {err.error}
+                                    </div>
+                                  ))}
+                                </div>
+                              </details>
+                            )}
                         </div>
                       )}
 
@@ -1052,7 +1150,10 @@ export default function AdminDashboard() {
                       <h3 className="text-2xl md:text-3xl font-medium text-gray-900 mb-6">
                         {editingProduct ? "Edit Product" : "Add New Product"}
                       </h3>
-                      <form onSubmit={handleProductSubmit} className="space-y-6">
+                      <form
+                        onSubmit={handleProductSubmit}
+                        className="space-y-6"
+                      >
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                           {/* Product Name */}
                           <div>
@@ -1082,19 +1183,45 @@ export default function AdminDashboard() {
                             </label>
                             <div className="relative group">
                               <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none z-10">
-                                {productForm.category === 'jewellery' && <Gem className="w-5 h-5 text-[#F04393]" />}
-                                {productForm.category === 'Bags And Purse' && <ShoppingBag className="w-5 h-5 text-[#F04393]" />}
-                                {productForm.category === 'watches' && <Watch className="w-5 h-5 text-[#F04393]" />}
-                                {productForm.category === 'hairaccessories' && <Scissors className="w-5 h-5 text-[#F04393]" />}
-                                {productForm.category === 'shoes' && <Footprints className="w-5 h-5 text-[#F04393]" />}
-                                {productForm.category === 'perfumes' && <Sparkles className="w-5 h-5 text-[#F04393]" />}
-                                {productForm.category === 'bridalwear' && <Heart className="w-5 h-5 text-[#F04393]" />}
-                                {productForm.category === 'groomwear' && <User className="w-5 h-5 text-[#F04393]" />}
-                                {productForm.category === 'traditionalwear' && <Shirt className="w-5 h-5 text-[#F04393]" />}
-                                {productForm.category === 'partywear' && <PartyPopper className="w-5 h-5 text-[#F04393]" />}
-                                {productForm.category === 'westernwear' && <TrendingUp className="w-5 h-5 text-[#F04393]" />}
-                                {productForm.category === 'outfitkids' && <Baby className="w-5 h-5 text-[#F04393]" />}
-                                {!productForm.category && <ShoppingBag className="w-5 h-5 text-gray-400" />}
+                                {productForm.category === "jewellery" && (
+                                  <Gem className="w-5 h-5 text-[#F04393]" />
+                                )}
+                                {productForm.category === "Bags And Purse" && (
+                                  <ShoppingBag className="w-5 h-5 text-[#F04393]" />
+                                )}
+                                {productForm.category === "watches" && (
+                                  <Watch className="w-5 h-5 text-[#F04393]" />
+                                )}
+                                {productForm.category === "hairaccessories" && (
+                                  <Scissors className="w-5 h-5 text-[#F04393]" />
+                                )}
+                                {productForm.category === "shoes" && (
+                                  <Footprints className="w-5 h-5 text-[#F04393]" />
+                                )}
+                                {productForm.category === "perfumes" && (
+                                  <Sparkles className="w-5 h-5 text-[#F04393]" />
+                                )}
+                                {productForm.category === "bridalwear" && (
+                                  <Heart className="w-5 h-5 text-[#F04393]" />
+                                )}
+                                {productForm.category === "groomwear" && (
+                                  <User className="w-5 h-5 text-[#F04393]" />
+                                )}
+                                {productForm.category === "traditionalwear" && (
+                                  <Shirt className="w-5 h-5 text-[#F04393]" />
+                                )}
+                                {productForm.category === "partywear" && (
+                                  <PartyPopper className="w-5 h-5 text-[#F04393]" />
+                                )}
+                                {productForm.category === "westernwear" && (
+                                  <TrendingUp className="w-5 h-5 text-[#F04393]" />
+                                )}
+                                {productForm.category === "outfitkids" && (
+                                  <Baby className="w-5 h-5 text-[#F04393]" />
+                                )}
+                                {!productForm.category && (
+                                  <ShoppingBag className="w-5 h-5 text-gray-400" />
+                                )}
                               </div>
 
                               <select
@@ -1110,16 +1237,24 @@ export default function AdminDashboard() {
                               >
                                 <option value="">Select Category</option>
                                 <option value="jewellery">Jewellery</option>
-                                <option value="Bags And Purse">Bag And Purse</option>
+                                <option value="Bags And Purse">
+                                  Bag And Purse
+                                </option>
                                 <option value="watches">Watches</option>
-                                <option value="hairaccessories">Hair Accessories</option>
+                                <option value="hairaccessories">
+                                  Hair Accessories
+                                </option>
                                 <option value="shoes">Shoes</option>
                                 <option value="perfumes">Perfumes</option>
                                 <option value="bridalwear">Bridal Wear</option>
                                 <option value="groomwear">Groom Wear</option>
-                                <option value="traditionalwear">Traditional Wear</option>
+                                <option value="traditionalwear">
+                                  Traditional Wear
+                                </option>
                                 <option value="partywear">Party Wear</option>
-                                <option value="westernwear">Western Wear</option>
+                                <option value="westernwear">
+                                  Western Wear
+                                </option>
                                 <option value="outfitkids">Outfit Kids</option>
                               </select>
 
@@ -1133,8 +1268,71 @@ export default function AdminDashboard() {
                               Choose the category that best fits your product
                             </p>
                           </div>
+                          {/* Sub‑Category for Bridal Wear */}
+                          {productForm.category === "bridalwear" && (
+                            <div className="mt-6">
+                              <label className="block text-md font-medium text-gray-700 mb-2">
+                                Bridal Sub‑Category *
+                              </label>
+                              <select
+                                required
+                                value={productForm.subCategory}
+                                onChange={(e) =>
+                                  setProductForm({
+                                    ...productForm,
+                                    subCategory: e.target.value,
+                                  })
+                                }
+                                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#F04393] focus:border-transparent transition-all"
+                              >
+                                <option value="">
+                                  Select bridal sub‑category
+                                </option>
+                                <option value="lehenga">Lehenga</option>
+                                <option value="saree">Saree</option>
+                                <option value="gown">Gown</option>
+                                <option value="reception">
+                                  Reception Wear
+                                </option>
+                                <option value="custom">Custom Tailoring</option>
+                              </select>
+                              <p className="text-xs text-gray-500 mt-1">
+                                Yeh values front‑end URLs me use hongi
+                                (subCategory=lehenga, saree, etc.).
+                              </p>
+                            </div>
+                          )}
 
-
+                          {/* Sub‑Category for Jewellery */}
+                          {productForm.category === "jewellery" && (
+                            <div className="mt-6">
+                              <label className="block text-md font-medium text-gray-700 mb-2">
+                                Jewellery Sub‑Category *
+                              </label>
+                              <select
+                                required
+                                value={productForm.subCategory}
+                                onChange={(e) =>
+                                  setProductForm({
+                                    ...productForm,
+                                    subCategory: e.target.value,
+                                  })
+                                }
+                                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#F04393] focus:border-transparent transition-all"
+                              >
+                                <option value="">
+                                  Select jewellery sub‑category
+                                </option>
+                                <option value="gold">Gold</option>
+                                <option value="diamond">Diamond</option>
+                                <option value="kundan-polki">
+                                  Kundan / Polki
+                                </option>
+                                <option value="artificial">Artificial</option>
+                                <option value="chooda">Bridal Chooda</option>
+                              </select>
+                            </div>
+                          )}
 
                           {/* MRP (Original Price) */}
                           <div>
@@ -1300,7 +1498,8 @@ export default function AdminDashboard() {
                             className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#F04393] focus:border-transparent transition-all"
                           />
                           <p className="text-sm text-gray-500 mt-2">
-                            Add multiple image URLs separated by commas. First image will be the main image.
+                            Add multiple image URLs separated by commas. First
+                            image will be the main image.
                           </p>
                         </div>
 
@@ -1318,7 +1517,10 @@ export default function AdminDashboard() {
                             }
                             className="w-5 h-5 text-[#F04393] bg-gray-100 border-gray-300 rounded focus:ring-[#F04393]"
                           />
-                          <label htmlFor="featured" className="ml-3 text-md font-medium text-gray-700 flex items-center gap-2">
+                          <label
+                            htmlFor="featured"
+                            className="ml-3 text-md font-medium text-gray-700 flex items-center gap-2"
+                          >
                             <Star className="w-4 h-4 text-[#F9C449]" />
                             Mark as Featured Product
                           </label>
@@ -1396,7 +1598,11 @@ export default function AdminDashboard() {
                         </thead>
                         <tbody className="bg-white divide-y divide-gray-200">
                           {filteredProducts.map((product, index) => (
-                            <tr key={product.id} className="table-row" style={{ animationDelay: `${index * 0.05}s` }}>
+                            <tr
+                              key={product.id}
+                              className="table-row"
+                              style={{ animationDelay: `${index * 0.05}s` }}
+                            >
                               <td className="px-6 py-5 whitespace-nowrap">
                                 <div className="text-md font-medium text-gray-900">
                                   {product.name}
@@ -1433,7 +1639,9 @@ export default function AdminDashboard() {
                                   <Edit className="w-5 h-5" />
                                 </button>
                                 <button
-                                  onClick={() => handleDeleteProduct(product.id)}
+                                  onClick={() =>
+                                    handleDeleteProduct(product.id)
+                                  }
                                   className="inline-flex items-center cursor-pointer justify-center w-10 h-10 text-red-600 hover:bg-red-50 rounded-xl transition-all"
                                 >
                                   <Trash2 className="w-5 h-5" />
@@ -1447,8 +1655,12 @@ export default function AdminDashboard() {
                       {filteredProducts.length === 0 && (
                         <div className="text-center py-16">
                           <Package className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-                          <p className="text-gray-500 font-semibold text-lg">No products found</p>
-                          <p className="text-gray-400 text-sm mt-2">Try adjusting your search or add a new product</p>
+                          <p className="text-gray-500 font-semibold text-lg">
+                            No products found
+                          </p>
+                          <p className="text-gray-400 text-sm mt-2">
+                            Try adjusting your search or add a new product
+                          </p>
                         </div>
                       )}
                     </div>
@@ -1460,7 +1672,9 @@ export default function AdminDashboard() {
               {activeTab === "users" && (
                 <div className="animate-fade-in">
                   <div className="mb-8">
-                    <h2 className="text-4xl font-medium text-gray-900 mb-2">Users Management</h2>
+                    <h2 className="text-4xl font-medium text-gray-900 mb-2">
+                      Users Management
+                    </h2>
                     <p className="text-gray-600">Manage registered users</p>
                   </div>
 
@@ -1500,7 +1714,11 @@ export default function AdminDashboard() {
                         </thead>
                         <tbody className="bg-white divide-y divide-gray-200">
                           {filteredUsers.map((user, index) => (
-                            <tr key={user.id} className="table-row" style={{ animationDelay: `${index * 0.05}s` }}>
+                            <tr
+                              key={user.id}
+                              className="table-row"
+                              style={{ animationDelay: `${index * 0.05}s` }}
+                            >
                               <td className="px-6 py-5 whitespace-nowrap">
                                 <div className="flex items-center gap-3">
                                   <div className="w-10 h-10 bg-gradient-to-br from-[#3C4CAD] to-[#2A0B8B] rounded-full flex items-center justify-center text-white font-bold">
@@ -1518,7 +1736,9 @@ export default function AdminDashboard() {
                               </td>
                               <td className="px-6 py-5 whitespace-nowrap">
                                 <div className="text-sm text-gray-600">
-                                  {new Date(user.created_at).toLocaleDateString()}
+                                  {new Date(
+                                    user.created_at
+                                  ).toLocaleDateString()}
                                 </div>
                               </td>
                               <td className="px-6 py-5 whitespace-nowrap text-right text-sm font-medium">
@@ -1537,8 +1757,12 @@ export default function AdminDashboard() {
                       {filteredUsers.length === 0 && (
                         <div className="text-center py-16">
                           <Users className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-                          <p className="text-gray-500 font-semibold text-lg">No users found</p>
-                          <p className="text-gray-400 text-sm mt-2">Try adjusting your search</p>
+                          <p className="text-gray-500 font-semibold text-lg">
+                            No users found
+                          </p>
+                          <p className="text-gray-400 text-sm mt-2">
+                            Try adjusting your search
+                          </p>
                         </div>
                       )}
                     </div>
@@ -1550,8 +1774,12 @@ export default function AdminDashboard() {
               {activeTab === "vendors" && (
                 <div className="animate-fade-in">
                   <div className="mb-8">
-                    <h2 className="text-4xl font-medium text-gray-900 mb-2">Vendors Management</h2>
-                    <p className="text-gray-600">Approve and manage vendor accounts</p>
+                    <h2 className="text-4xl font-medium text-gray-900 mb-2">
+                      Vendors Management
+                    </h2>
+                    <p className="text-gray-600">
+                      Approve and manage vendor accounts
+                    </p>
                   </div>
 
                   {/* Search */}
@@ -1573,7 +1801,6 @@ export default function AdminDashboard() {
                     <div className="overflow-x-auto">
                       <table className="w-full">
                         <thead className="bg-gradient-to-r from-orange-600 to-yellow-500 text-white">
-
                           <tr>
                             <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">
                               Business Name
@@ -1594,7 +1821,11 @@ export default function AdminDashboard() {
                         </thead>
                         <tbody className="bg-white divide-y divide-gray-200">
                           {filteredVendors.map((vendor, index) => (
-                            <tr key={vendor.id} className="table-row" style={{ animationDelay: `${index * 0.05}s` }}>
+                            <tr
+                              key={vendor.id}
+                              className="table-row"
+                              style={{ animationDelay: `${index * 0.05}s` }}
+                            >
                               <td className="px-6 py-5 whitespace-nowrap">
                                 <div className="flex items-center gap-3">
                                   <div className="w-10 h-10 bg-gradient-to-br from-[#F9C449] to-orange-500 rounded-full flex items-center justify-center">
@@ -1625,20 +1856,26 @@ export default function AdminDashboard() {
                               </td>
                               <td className="px-6 py-5 whitespace-nowrap">
                                 <div className="text-sm text-gray-600">
-                                  {new Date(vendor.created_at).toLocaleDateString()}
+                                  {new Date(
+                                    vendor.created_at
+                                  ).toLocaleDateString()}
                                 </div>
                               </td>
                               <td className="px-6 py-5 whitespace-nowrap text-right text-sm font-medium">
                                 {!vendor.is_approved ? (
                                   <button
-                                    onClick={() => handleApproveVendor(vendor.id, true)}
+                                    onClick={() =>
+                                      handleApproveVendor(vendor.id, true)
+                                    }
                                     className="inline-flex items-center justify-center w-10 h-10 text-green-600 hover:bg-green-50 rounded-xl transition-all mr-2"
                                   >
                                     <CheckCircle className="w-5 h-5" />
                                   </button>
                                 ) : (
                                   <button
-                                    onClick={() => handleApproveVendor(vendor.id, false)}
+                                    onClick={() =>
+                                      handleApproveVendor(vendor.id, false)
+                                    }
                                     className="inline-flex items-center justify-center w-10 h-10 text-yellow-600 hover:bg-yellow-50 rounded-xl transition-all mr-2"
                                   >
                                     <XCircle className="w-5 h-5" />
@@ -1659,8 +1896,12 @@ export default function AdminDashboard() {
                       {filteredVendors.length === 0 && (
                         <div className="text-center py-16">
                           <Store className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-                          <p className="text-gray-500 font-semibold text-lg">No vendors found</p>
-                          <p className="text-gray-400 text-sm mt-2">Try adjusting your search</p>
+                          <p className="text-gray-500 font-semibold text-lg">
+                            No vendors found
+                          </p>
+                          <p className="text-gray-400 text-sm mt-2">
+                            Try adjusting your search
+                          </p>
                         </div>
                       )}
                     </div>
