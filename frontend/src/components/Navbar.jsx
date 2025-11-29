@@ -1,10 +1,5 @@
 "use client";
-import Link from "next/link";
-import { useCart } from "@/context/CartContext";
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Search,
   ShoppingCart,
@@ -12,47 +7,28 @@ import {
   Menu,
   X,
   Gift,
-  Flower,
-  Utensils,
-  Plane,
-  MapPin,
   Sparkles,
-  Calendar,
+  MapPin,
   Clipboard,
-  Scissors,
-  ShoppingBag,
-  Footprints,
-  Watch,
-  FlaskConical,
   ChevronDown,
   ChevronRight,
+  Flame,
+  Moon,
+  Star,
+  Cross,
 } from "lucide-react";
+import Link from "next/link";
 
 const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { totalItems } = useCart();
+  const [mobileSubMenu, setMobileSubMenu] = useState(null);
+  const [desktopCategoryDropdown, setDesktopCategoryDropdown] = useState({});
+  const totalItems = 0; // Replace with useCart hook
 
   const [userRole, setUserRole] = useState(null);
   const [userName, setUserName] = useState("");
-  const router = useRouter();
 
-  useEffect(() => {
-    // Always sync with localStorage
-    if (typeof window !== "undefined") {
-      const token = localStorage.getItem("token");
-      const user = JSON.parse(localStorage.getItem("user"));
-      if (token && user) {
-        setUserRole(user.role); // 'user', 'admin', or 'vendor'
-        setUserName(user.name || user.email);
-      } else {
-        setUserRole(null);
-        setUserName("");
-      }
-    }
-  }, []);
-
-  // Close mobile menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (mobileMenuOpen && !e.target.closest(".mobile-menu-container")) {
@@ -73,42 +49,48 @@ const Navbar = () => {
     {
       name: "Bride",
       icon: Gift,
-      heading: "Add A Little Spark To Your Style!",
+      heading: "Add A Little Spark To Your Style !!",
       hasMegaMenu: true,
-      sections: [
+      hasCategories: true,
+      categories: [
         {
-          title: "Products",
-          items: [
-            {
-              name: "Bridal Attire",
-              icon: Sparkles,
-              link: "/bride/bridalattire",
-            },
-            {
-              name: "Bridal Jewellery",
-              icon: ShoppingBag,
-              link: "/bride/bridaljewellery",
-            },
+          name: "Hindu Wedding",
+          icon: Flame,
+          pages: [
+            { name: "Bridal Wear & Accessories", link: "/bride/hindu/bridal-wear" },
+            { name: "Bridal Jewellery", link: "/bride/hindu/jewellery" },
+            { name: "Makeup, Hair & Accessories", link: "/bride/hindu/makeup-hair" },
+            { name: "Ritual Items", link: "/bride/hindu/ritual-items" },
+            { name: "Bridal Services", link: "/bride/hindu/bridal-services" },
           ],
         },
         {
-          title: "Services",
-          items: [
-            {
-              name: "Makeup & Hair",
-              icon: Scissors,
-              link: "/bride/makeupandhair",
-            },
-            {
-              name: "Bridal Mehendi",
-              icon: Footprints,
-              link: "/bride/bridalmehndi",
-            },
-            {
-              name: "Pre-Wedding Prep",
-              icon: Watch,
-              link: "/bride/preweddingprep",
-            },
+          name: "Muslim Wedding",
+          icon: Moon,
+          pages: [
+            { name: "Bridal Wear", link: "/bride/muslim/bridal-wear" },
+            { name: "Bridal Jewellery", link: "/bride/muslim/jewellery" },
+            { name: "Ritual Items", link: "/bride/muslim/makeup-hair" },
+            { name: "Bridal Services", link: "/bride/muslim/bridal-services" },
+          ],
+        },
+        {
+          name: "Sikh Wedding",
+          icon: Star,
+          pages: [
+            { name: "Bridal Wear", link: "/bride/sikh/bridal-wear" },
+            { name: "Bridal Jewellery", link: "/bride/sikh/jewellery" },
+            { name: "Ritual Items", link: "/bride/sikh/ritual-items" },
+            { name: "Bridal Services", link: "/bride/sikh/bridal-services" },
+          ],
+        },
+        {
+          name: "Christian Wedding",
+          icon: Cross,
+          pages: [
+            { name: "Bridal Wear", link: "/bride/christian/bridal-wear" },
+            { name: "Bridal Jewellery", link: "/bride/christian/jewellery" },
+            { name: "Ritual Items", link: "/bride/christian/ritual-items" },
           ],
         },
       ],
@@ -116,181 +98,106 @@ const Navbar = () => {
     {
       name: "Groom",
       icon: Sparkles,
-      heading: "Dressed to Impress, Designed to Express",
+      heading: "Dressed to Impress, Designed to Express !!",
       hasMegaMenu: true,
-      sections: [
+      hasCategories: true,
+      categories: [
         {
-          title: "Products",
-          items: [
-            {
-              name: "Groom Wear",
-              icon: Sparkles,
-              link: "/groom/groomwear",
-            },
-            {
-              name: "Groom Accessories",
-              icon: Gift,
-              link: "/groom/groomaccessories",
-            },
+          name: "Hindu Wedding",
+          icon: Flame,
+          pages: [
+            { name: "Groom Wear & Accessories", link: "/groom/hindu/groom-wear" },
+            { name: "Ritual Items", link: "/groom/hindu/ritual-items" },
+            { name: "Services", link: "/groom/hindu/services" },
           ],
         },
         {
-          title: "Services",
-          items: [
-            {
-              name: "Groom Services",
-              icon: Gift,
-              link: "/groom/groomservices",
-            },
+          name: "Muslim Wedding",
+          icon: Moon,
+          pages: [
+            { name: "Groom Wear", link: "/groom/muslim/groom-wear" },
+            { name: "Nikah Ritual Items", link: "/groom/muslim/ritual-items" },
+            { name: "Grooming Services", link: "/groom/muslim/services" },
+          ],
+        },
+        {
+          name: "Sikh Wedding",
+          icon: Star,
+          pages: [
+            { name: "Groom Wear", link: "/groom/sikh/groom-wear" },
+            { name: "Ritual Items", link: "/groom/sikh/ritual-items" },
+            { name: "Services", link: "/groom/sikh/services" },
+          ],
+        },
+        {
+          name: "Christian Wedding",
+          icon: Cross,
+          pages: [
+            { name: "Groom Wear", link: "/groom/christian/groom-wear" },
+            { name: "Ritual Items", link: "/groom/christian/ritual-items" },
+            { name: "Services", link: "/groom/christian/services" },
+            { name: "Universal Groom Items", link: "/groom/christian/groom-items" },
+            { name: "Gifts", link: "/groom/christian/gifts" },
           ],
         },
       ],
     },
     {
-      name: "Vendors and Services",
-      icon: Utensils,
-      heading: "Crafting Moments. Serving Memories",
-      hasMegaMenu: true,
-
-      sections: [
-        {
-          title: "Products",
-          items: [
-            {
-              name: "Ritual Items and Materials",
-              icon: Flower,
-              link: "/vendorsandservices/ritualitems",
-            },
-          ],
-        },
-        {
-          title: "Services",
-          items: [
-            {
-              name: "Phhotography and Videography",
-              icon: Utensils,
-              link: "/vendorsandservices/photoandvideo",
-            },
-            {
-              name: "Decoration",
-              icon: Flower,
-              link: "/vendorsandservices/decoration",
-            },
-            {
-              name: "Entertainment",
-              icon: Flower,
-              link: "/vendorsandservices/entertainment",
-            },
-            {
-              name: "Wedding Essentials",
-              icon: Sparkles,
-              link: "/vendorsandservices/weddingessentials",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      name: "Planning Tools",
-      icon: Plane,
-      heading: "Stay in Style, Sleep in Serenity",
-      hasMegaMenu: true,
-      simpleLayout: true,
-      sections: [
-        {
-          title: "Products",
-          items: [],
-        },
-        {
-          title: "Services",
-          items: [
-            {
-              name: "Checklists",
-              icon: Plane,
-              link: "/planningtools/checklists",
-            },
-            {
-              name: "Digital Tools",
-              icon: Plane,
-              link: "/planningtools/digitaltools",
-            },
-            {
-              name: "Coordination Services",
-              icon: Plane,
-              link: "/planningtools/coordinationservices",
-            },
-            {
-              name: "Technology",
-              icon: MapPin,
-              link: "/planningtools/techhnology",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      name: "Venue & Location",
+      name: "Vendors & Services",
       icon: MapPin,
-      heading: "The Perfect Place for Your Perfect Day",
+      heading: "The Perfect Place for Your Perfect Day !!",
       hasMegaMenu: true,
-      simpleLayout: true,
-      showDestinationCard: true,
-      sections: [
+      hasCategories: false,
+      pages: [
+        { name: "Core Wedding Vendors", link: "/vendors/core" },
+        { name: "Bride & Groom Beauty Vendors", link: "/vendors/beauty" },
+        { name: "Decoration & Styling Vendors", link: "/vendors/decoration" },
+        { name: "Entertainment Vendors", link: "/vendors/entertainment" },
+        { name: "Invitation & Printing Vendors", link: "/vendors/printing" },
+      ],
+    },
+    {
+      name: "Venue & Accommodation",
+      icon: Sparkles,
+      heading: "Beautiful wedding venues with comfortable guest accommodation.",
+      hasMegaMenu: true,
+      hasCategories: true,
+      categories: [
         {
-          title: "Products",
-          items: [],
+          name: "Wedding Venues (By Category)",
+          icon: Sparkles,
+          pages: [
+            { name: "Banquet Venues", link: "/venues/banquet" },
+            { name: "Outdoor Venues", link: "/venues/outdoor" },
+            { name: "Mixed Venues", link: "/venues/mixed" },
+            { name: "Destination Wedding Venues", link: "/venues/destination" },
+            { name: "Religious Venues", link: "/venues/religious" },
+          ],
         },
         {
-          title: "Services",
-          items: [
-            {
-              name: "Venue Type",
-              icon: MapPin,
-              link: "/venueandlocation/outdoorvenues",
-            },
-            {
-              name: "Venue Add-Ons",
-              icon: MapPin,
-              link: "/venueandlocation/indoorvenues",
-            },
-            {
-              name: "Guest Accommodation",
-              icon: MapPin,
-              link: "/venueandlocation/lounges",
-            },
+          name: "Accommodation Types",
+          icon: Moon,
+          pages: [
+            { name: "Hotel Accommodation", link: "/accommodation/hotel" },
+            { name: "Guest Houses", link: "/accommodation/guest-houses" },
+            { name: "Resort Accommodation", link: "/accommodation/resorts" },
           ],
         },
       ],
     },
     {
-      name: "Pre-Wedding",
+      name: "Wedding Planning Tools",
       icon: Sparkles,
-      heading: "Timeless Beauty, Effortlessly You",
+      heading: "Essential tools to plan your perfect wedding day.",
       hasMegaMenu: true,
-      simpleLayout: true,
-      sections: [
+      hasCategories: true,
+      categories: [
         {
-          title: "Products",
-          items: [],
-        },
-        {
-          title: "Services",
-          items: [
-            {
-              name: "Pre-Wedding Shoots",
-              icon: Sparkles,
-              link: "/prewedding/preweddingshoots",
-            },
-            {
-              name: "Pre-Wedding Events",
-              icon: Sparkles,
-              link: "/prewedding/preweddingevents",
-            },
-            {
-              name: "Lifestyle",
-              icon: Sparkles,
-              link: "/prewedding/lifestyle",
-            },
+          name: "Digital/Software Wedding Planning Tools",
+          icon: Sparkles,
+          pages: [
+            { name: "Planning & Management Tools", link: "/tools/planning" },
+            { name: "Design & Creativity Tools", link: "/tools/design" },
           ],
         },
       ],
@@ -301,59 +208,35 @@ const Navbar = () => {
       hasMegaMenu: false,
       link: "/blogs",
     },
-    {
-      name: "More Services...",
-      icon: Clipboard,
-      heading: "Timeless Beauty, Effortlessly You",
-      hasMegaMenu: true,
-      simpleLayout: true,
-      sections: [
-        {
-          title: "Products",
-          items: [],
-        },
-        {
-          title: "Services",
-          items: [
-            {
-              name: "Logistics",
-              icon: Sparkles,
-              link: "/moreservices/logistics",
-            },
-            {
-              name: "Hospitality",
-              icon: Sparkles,
-              link: "/moreservices/hospitality",
-            },
-            {
-              name: "Luxury Add-Ons",
-              icon: Sparkles,
-              link: "/moreservices/luxuryaddons",
-            },
-            {
-              name: "Post Wedding",
-              icon: Sparkles,
-              link: "/moreservices/postwedding",
-            },
-          ],
-        },
-      ],
-    },
   ];
+
+  const toggleDesktopCategoryDropdown = (mainIndex, categoryIndex) => {
+    const key = `${mainIndex}-${categoryIndex}`;
+    setDesktopCategoryDropdown((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
+
+  const categoryHasPages = (category) => {
+    return category.pages && category.pages.length > 0;
+  };
+
+  const LinkIcon = ({ icon: IconComponent, ...props }) => <IconComponent {...props} />;
 
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
       {/* Top Section */}
       <div className="border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
-          <div className="flex items-center justify-between h-20 md:h-16 gap-2">
+          <div className="flex items-center justify-between h-16 gap-2">
             {/* Logo */}
             <div className="flex-shrink-0">
               <Link href="/">
                 <img
                   src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1761844101/logo_sxozan.jpg"
                   alt="Logo"
-                  className="h-16 w-16 sm:h-14 sm:w-16 object-contain"
+                  className="h-12 w-12 sm:h-14 sm:w-14 object-contain"
                 />
               </Link>
             </div>
@@ -363,8 +246,8 @@ const Navbar = () => {
               <div className="relative w-full">
                 <input
                   type="text"
-                  placeholder="Search Canvas Prints"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-400 focus:border-transparent text-sm"
+                  placeholder="Search Wedding Services"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-400 focus:border-transparent text-base"
                 />
                 <button className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-rose-500">
                   <Search size={20} />
@@ -374,55 +257,23 @@ const Navbar = () => {
 
             {/* Right Icons */}
             <div className="flex items-center gap-3 sm:gap-4">
-              {/* Sign In/Account Button */}
               {userRole ? (
                 <div className="flex items-center gap-3">
-                  <button
-                    onClick={() => {
-                      if (userRole === "user") router.push("/user-dashboard");
-                      else if (userRole === "admin")
-                        router.push("/admin-dashboard");
-                      else if (userRole === "vendor")
-                        router.push("/vendor-dashboard");
-                    }}
-                    className="hidden sm:flex items-center gap-2 px-3 py-2 font-medium text-rose-500 hover:text-rose-700 text-sm"
-                  >
-                    <User size={18} />
+                  <button className="hidden sm:flex items-center gap-2 px-3 py-2 font-medium text-rose-500 hover:text-rose-700 text-base">
+                    <User size={20} />
                     <span className="hidden lg:inline">My Account</span>
                   </button>
-                  {/* Mobile Account Icon */}
-                  <button
-                    onClick={() => {
-                      if (userRole === "user") router.push("/user-dashboard");
-                      else if (userRole === "admin")
-                        router.push("/admin-dashboard");
-                      else if (userRole === "vendor")
-                        router.push("/vendor-dashboard");
-                    }}
-                    className="sm:hidden text-rose-500 hover:text-rose-700"
-                  >
+                  <button className="sm:hidden text-rose-500 hover:text-rose-700">
                     <User size={26} />
                   </button>
-                  <button
-                    onClick={() => {
-                      localStorage.removeItem("token");
-                      localStorage.removeItem("user");
-                      setUserRole(null);
-                      setUserName("");
-                      router.push("/auth");
-                    }}
-                    className="hidden sm:block text-gray-500 hover:text-red-600 text-sm font-medium"
-                  >
+                  <button className="hidden sm:block text-gray-500 hover:text-red-600 text-base font-medium">
                     Logout
                   </button>
                 </div>
               ) : (
-                <button
-                  onClick={() => router.push("/auth")}
-                  className="flex items-center gap-1 cursor-pointer text-gray-700 hover:text-rose-500 text-sm font-medium"
-                >
+                <button className="flex items-center gap-1 cursor-pointer text-gray-700 hover:text-rose-500 text-base font-medium">
                   <User size={26} className="sm:hidden" />
-                  <User size={18} className="hidden sm:block" />
+                  <User size={20} className="hidden sm:block" />
                   <span className="hidden sm:inline">Sign in</span>
                 </button>
               )}
@@ -430,9 +281,7 @@ const Navbar = () => {
               {/* Cart */}
               <Link href="/cart" className="relative flex items-center gap-1">
                 <ShoppingCart className="w-7 h-7 sm:w-6 sm:h-6 text-gray-700 hover:text-rose-500" />
-                <span className="hidden sm:inline text-sm font-medium text-gray-700">
-                  Cart
-                </span>
+                <span className="hidden sm:inline text-base font-medium text-gray-700">Cart</span>
                 {totalItems > 0 && (
                   <span className="absolute -top-2 -right-2 bg-rose-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
                     {totalItems}
@@ -442,7 +291,7 @@ const Navbar = () => {
 
               {/* Wedding Website Button */}
               <Link href="/wedding-website" className="hidden lg:block">
-                <button className="bg-rose-500 text-white rounded-full py-2 px-5 text-sm font-medium hover:bg-rose-600 transition-colors duration-200 whitespace-nowrap">
+                <button className="bg-rose-500 text-white rounded-full py-2 px-5 text-base font-medium hover:bg-rose-600 transition-colors duration-200 whitespace-nowrap">
                   Wedding Website
                 </button>
               </Link>
@@ -459,15 +308,15 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Search Bar */}
-          <div className="md:hidden pb-4">
+          <div className="md:hidden pb-3">
             <div className="relative">
               <input
                 type="text"
                 placeholder="Search..."
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-400 text-base"
+                className="w-full px-4 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-400 text-base"
               />
               <button className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">
-                <Search size={22} />
+                <Search size={20} />
               </button>
             </div>
           </div>
@@ -475,10 +324,10 @@ const Navbar = () => {
       </div>
 
       {/* Bottom Navigation Links */}
-      <div className="bg-gradient-to-b from-rose-50 to-white border-b border-gray-200 relative z-9000">
+      <div className="bg-gradient-to-b from-rose-50 to-white border-b border-gray-200 relative z-40">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center justify-center h-15 gap-1 overflow-x-auto">
+          <div className="hidden lg:flex items-center justify-center h-14 gap-1 overflow-x-auto">
             {navigationLinks.map((link, index) => (
               <div
                 key={index}
@@ -487,16 +336,13 @@ const Navbar = () => {
                 onMouseLeave={() => link.hasMegaMenu && setOpenDropdown(null)}
               >
                 {link.hasMegaMenu ? (
-                  <button
-                    className="px-2 xl:px-3 py-3 text-base xl:text-lg
- font-mediu text-gray-700 hover:text-rose-500 hover:bg-rose-50 rounded transition-colors duration-200 cursor-pointer whitespace-nowrap"
-                  >
+                  <button className="px-3 xl:px-4 py-3 text-base xl:text-lg font-semibold text-gray-800 hover:text-rose-600 hover:bg-rose-100 rounded-lg transition-all duration-200 cursor-pointer whitespace-nowrap shadow-sm">
                     {link.name}
                   </button>
                 ) : (
                   <Link
                     href={link.link}
-                    className="px-2 xl:px-3 py-3 text-sm xl:text-base font-medium text-gray-700 hover:text-rose-500 hover:bg-rose-50 rounded transition-colors duration-200 block whitespace-nowrap"
+                    className="px-3 xl:px-4 py-3 text-base xl:text-lg font-semibold text-gray-800 hover:text-rose-600 hover:bg-rose-100 rounded-lg transition-all duration-200 block whitespace-nowrap shadow-sm"
                   >
                     {link.name}
                   </Link>
@@ -505,183 +351,39 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Mobile/Tablet Navigation Menu */}
+          {/* Mobile Menu */}
           <div
             className={`mobile-menu-container lg:hidden fixed inset-y-0 left-0 w-80 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 ${
               mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
             }`}
           >
-            {/* Mobile Menu Header */}
             <div className="bg-gradient-to-r from-rose-500 to-pink-500 p-5 flex items-center justify-between">
-              <h2 className="text-white font-bold text-xl">Menu</h2>
+              <h2 className="text-white font-bold text-2xl">Menu</h2>
               <button
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setMobileSubMenu(null);
+                }}
                 className="text-white hover:bg-white/20 cursor-pointer rounded-full p-2 transition-colors"
               >
                 <X size={26} />
               </button>
             </div>
-
-            {/* Mobile Menu Content */}
-            <div className="overflow-y-auto h-[calc(100vh-88px)] pb-6">
-              {/* Wedding Website Button */}
-              <div className="lg:hidden p-4 border-b border-gray-200">
+            <div className="overflow-y-auto h-[calc(100vh-88px)] pb-6 p-4">
+              {navigationLinks.map((link, index) => (
                 <Link
-                  href="/wedding-website"
+                  key={index}
+                  href={link.link || "#"}
                   onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center gap-3 px-5 py-4 text-gray-700 hover:bg-rose-50 hover:text-rose-500 font-semibold text-lg rounded-xl transition-all duration-200 border border-gray-200 mb-3 block shadow-sm"
                 >
-                  <button className="w-full bg-rose-500 text-white rounded-lg py-4 px-4 text-lg font-medium hover:bg-rose-600 transition-colors duration-200">
-                    Wedding Website
-                  </button>
+                  <LinkIcon icon={link.icon} size={26} className="text-rose-500 flex-shrink-0" />
+                  <span>{link.name}</span>
                 </Link>
-              </div>
-
-              {/* User Account Section */}
-              {userRole && (
-                <div className="sm:hidden p-4 border-b border-gray-200 bg-rose-50">
-                  <button
-                    onClick={() => {
-                      if (userRole === "user") router.push("/user-dashboard");
-                      else if (userRole === "admin")
-                        router.push("/admin-dashboard");
-                      else if (userRole === "vendor")
-                        router.push("/vendor-dashboard");
-                      setMobileMenuOpen(false);
-                    }}
-                    className="w-full flex items-center gap-3 px-4 py-4 bg-white rounded-lg text-rose-500 font-semibold hover:bg-rose-100 transition-colors text-base"
-                  >
-                    <User size={24} />
-                    <span>My Account</span>
-                  </button>
-                  <button
-                    onClick={() => {
-                      localStorage.removeItem("token");
-                      localStorage.removeItem("user");
-                      setUserRole(null);
-                      setUserName("");
-                      router.push("/auth");
-                      setMobileMenuOpen(false);
-                    }}
-                    className="w-full mt-2 flex items-center justify-center gap-2 px-4 py-3 text-red-600 hover:bg-red-50 rounded-lg transition-colors font-medium text-base"
-                  >
-                    Logout
-                  </button>
-                </div>
-              )}
-
-              {/* Mobile Navigation Links */}
-              <div className="p-4">
-                {navigationLinks.map((link, index) => (
-                  <div key={index} className="mb-3">
-                    {link.hasMegaMenu ? (
-                      <div className="border border-gray-200 cursor-pointer rounded-lg overflow-hidden">
-                        <button
-                          onClick={() =>
-                            setOpenDropdown(
-                              openDropdown === index ? null : index
-                            )
-                          }
-                          className="w-full flex items-center cursor-pointer justify-between px-5 py-4 text-gray-700 hover:bg-rose-50 hover:text-rose-500 font-semibold transition-colors duration-200 bg-gray-50 text-base"
-                        >
-                          <div className="flex items-center gap-3">
-                            <link.icon size={24} className="text-rose-500" />
-                            <span className="font-medium">{link.name}</span>
-                          </div>
-                          <ChevronDown
-                            size={22}
-                            className={`transition-transform duration-300 ${
-                              openDropdown === index ? "rotate-180" : ""
-                            }`}
-                          />
-                        </button>
-                        {/* Mobile Dropdown with Flexible Sections */}
-                        <div
-                          className={`transition-all duration-300 ease-in-out ${
-                            openDropdown === index
-                              ? "max-h-[600px] opacity-100"
-                              : "max-h-0 opacity-0 overflow-hidden"
-                          }`}
-                        >
-                          <div className="bg-white">
-                            {link.simpleLayout
-                              ? /* SIMPLE LAYOUT - No section titles */
-                                link.sections
-                                  ?.flatMap((section) => section.items)
-                                  .map((item, idx) => {
-                                    const ItemIcon = item.icon;
-                                    return (
-                                      <Link
-                                        key={idx}
-                                        href={item.link}
-                                        onClick={() => setMobileMenuOpen(false)}
-                                        className="flex items-center gap-3 px-5 py-3 text-base text-gray-600 hover:bg-rose-50 hover:text-rose-500 transition-colors duration-150 border-b border-gray-100 last:border-b-0"
-                                      >
-                                        <ItemIcon
-                                          size={22}
-                                          className="text-gray-400"
-                                        />
-                                        <span>{item.name}</span>
-                                        <ChevronRight
-                                          size={18}
-                                          className="ml-auto text-gray-400"
-                                        />
-                                      </Link>
-                                    );
-                                  })
-                              : /* NORMAL LAYOUT - Show section titles */
-                                link.sections?.map((section, sIdx) => (
-                                  <div
-                                    key={sIdx}
-                                    className="border-b border-gray-100 last:border-b-0"
-                                  >
-                                    <p className="px-5 pt-4 pb-2 text-xs font-semibold text-gray-500 uppercase tracking-wider bg-gray-50">
-                                      {section.title}
-                                    </p>
-                                    {section.items.map((item, idx) => {
-                                      const ItemIcon = item.icon;
-                                      return (
-                                        <Link
-                                          key={idx}
-                                          href={item.link}
-                                          onClick={() =>
-                                            setMobileMenuOpen(false)
-                                          }
-                                          className="flex items-center gap-3 px-5 py-3 text-base text-gray-600 hover:bg-rose-50 hover:text-rose-500 transition-colors duration-150"
-                                        >
-                                          <ItemIcon
-                                            size={22}
-                                            className="text-gray-400"
-                                          />
-                                          <span>{item.name}</span>
-                                          <ChevronRight
-                                            size={18}
-                                            className="ml-auto text-gray-400"
-                                          />
-                                        </Link>
-                                      );
-                                    })}
-                                  </div>
-                                ))}
-                          </div>
-                        </div>
-                      </div>
-                    ) : (
-                      <Link
-                        href={link.link}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="flex items-center gap-3 px-5 py-4 text-gray-700 hover:bg-rose-50 hover:text-rose-500 font-semibold rounded-lg transition-colors duration-200 border border-gray-200 text-base"
-                      >
-                        <link.icon size={24} className="text-rose-500" />
-                        <span className="font-medium">{link.name}</span>
-                      </Link>
-                    )}
-                  </div>
-                ))}
-              </div>
+              ))}
             </div>
           </div>
 
-          {/* Overlay for mobile menu */}
           {mobileMenuOpen && (
             <div
               className="lg:hidden fixed inset-0 bg-black/50 z-40 transition-opacity duration-300"
@@ -691,93 +393,56 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Mega Dropdown */}
-        {openDropdown !== null &&
-          navigationLinks[openDropdown]?.hasMegaMenu && (
-            <div
-              className="hidden lg:block absolute left-0 right-0 top-full bg-white border-t border-gray-200 shadow-xl z-50"
-              onMouseEnter={() => setOpenDropdown(openDropdown)}
-              onMouseLeave={() => setOpenDropdown(null)}
-            >
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                <h3 className="text-xl font-medium text-gray-900 mb-6 uppercase">
-                  {navigationLinks[openDropdown].heading}
-                </h3>
-
-                {/* FLEXIBLE LAYOUT: Check for simpleLayout */}
-                {navigationLinks[openDropdown].simpleLayout ? (
-                  /* SIMPLE LAYOUT - No section titles, just flat grid */
-                  <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-8">
-                    {navigationLinks[openDropdown].sections
-                      ?.flatMap((section) => section.items)
-                      .map((item, idx) => {
-                        const IconComponent = item.icon;
-                        return (
+        {openDropdown !== null && navigationLinks[openDropdown]?.hasMegaMenu && (
+          <div
+            className="hidden lg:block absolute left-0 right-0 top-full bg-white/95 backdrop-blur-sm border-t border-gray-200 shadow-2xl z-[60]"
+            onMouseEnter={() => setOpenDropdown(openDropdown)}
+            onMouseLeave={() => setOpenDropdown(null)}
+          >
+            <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8">
+              <h3 className="text-xl xl:text-2xl font-bold text-gray-900 mb-6 uppercase tracking-wide">
+                {navigationLinks[openDropdown].heading}
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+                {navigationLinks[openDropdown].hasCategories && navigationLinks[openDropdown].categories ? (
+                  navigationLinks[openDropdown].categories.map((category, cIdx) => (
+                    <div key={cIdx} className="space-y-4">
+                      <div className="flex items-center gap-3 font-bold text-rose-600 text-lg mb-3">
+                        <LinkIcon icon={category.icon} size={22} className="text-rose-500" />
+                        <span>{category.name}</span>
+                      </div>
+                      <div className="space-y-2">
+                        {category.pages?.map((page, pIdx) => (
                           <Link
-                            key={idx}
-                            href={item.link}
-                            className="flex items-center gap-4 p-4 rounded-xl hover:bg-rose-50 transition-all duration-200 group border border-gray-100 hover:border-rose-200 hover:shadow-md"
+                            key={pIdx}
+                            href={page.link}
+                            className="block py-2 px-3 text-base text-gray-700 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition-all duration-200 font-medium"
                           >
-                            <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-rose-100 group-hover:to-pink-100 transition-all duration-200 shadow-sm">
-                              <IconComponent className="w-6 h-6 text-gray-600 group-hover:text-rose-500 transition-colors duration-200" />
-                            </div>
-                            <span className="text-base font-medium text-gray-700 group-hover:text-rose-600">
-                              {item.name}
-                            </span>
+                            {page.name}
                           </Link>
-                        );
-                      })}
-                  </div>
-                ) : (
-                  /* NORMAL LAYOUT - Products/Services titles */
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-                    {navigationLinks[openDropdown].sections?.map(
-                      (section, sIdx) => (
-                        <div key={sIdx}>
-                          <h4 className="text-lg font-semibold text-gray-800 mb-6 pb-2 border-b-2 border-rose-200">
-                            {section.title}
-                          </h4>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {section.items.map((item, idx) => {
-                              const IconComponent = item.icon;
-                              return (
-                                <Link
-                                  key={idx}
-                                  href={item.link}
-                                  className="flex items-center gap-4 p-4 rounded-xl hover:bg-rose-50 transition-all duration-200 group border border-gray-100 hover:border-rose-200 hover:shadow-md"
-                                >
-                                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-rose-100 group-hover:to-pink-100 transition-all duration-200 shadow-sm">
-                                    <IconComponent className="w-6 h-6 text-gray-600 group-hover:text-rose-500 transition-colors duration-200" />
-                                  </div>
-                                  <span className="text-base font-medium text-gray-700 group-hover:text-rose-600">
-                                    {item.name}
-                                  </span>
-                                </Link>
-                              );
-                            })}
-                          </div>
-                        </div>
-                      )
-                    )}
-                  </div>
-                )}
-
-                {/* Destination Weddings Card */}
-                {navigationLinks[openDropdown].showDestinationCard && (
-                  <div className="bg-gradient-to-r from-rose-50 to-pink-50 rounded-2xl p-8 flex items-center justify-between shadow-lg border border-rose-100">
-                    <div>
-                      <h4 className="text-xl font-bold text-gray-900 mb-3">
-                        Destination weddings
-                      </h4>
-                      <p className="text-gray-600 text-base leading-relaxed">
-                        Easily plan your international wedding.
-                      </p>
+                        ))}
+                      </div>
                     </div>
-                    <Plane className="w-16 h-16 text-rose-500" />
+                  ))
+                ) : (
+                  <div className="col-span-full">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                      {navigationLinks[openDropdown].pages?.map((page, pIdx) => (
+                        <Link
+                          key={pIdx}
+                          href={page.link}
+                          className="block py-3 px-4 text-lg text-gray-700 hover:text-rose-600 hover:bg-rose-50 rounded-xl transition-all duration-200 font-semibold border-l-4 border-rose-500 bg-rose-50 shadow-sm"
+                        >
+                          {page.name}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
             </div>
-          )}
+          </div>
+        )}
       </div>
     </nav>
   );

@@ -75,7 +75,7 @@ exports.getProductById = async (req, res) => {
 
 exports.createProduct = async (req, res) => {
   try {
-    const { name, description, price, mrp, discount, rating, category, images, vendor_id, stock, featured } = req.body;
+    const { name, description, price, mrp, discount, rating, category, subCategory, images, vendor_id, stock, featured } = req.body;
     
     // Validate required fields
     if (!name || !description || !price || !category || !mrp) {
@@ -86,7 +86,7 @@ exports.createProduct = async (req, res) => {
     }
     
     const [result] = await db.query(
-      'INSERT INTO products (name, description, price, mrp, discount, rating, category, images, vendor_id, stock, featured) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+      'INSERT INTO products (name, description, price, mrp, discount, rating, category,subCategory, images, vendor_id, stock, featured) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
       [
         name, 
         description, 
@@ -95,6 +95,7 @@ exports.createProduct = async (req, res) => {
         discount || 0,
         rating || 0, 
         category, 
+         subCategory || null, 
         JSON.stringify(images || []), 
         vendor_id || null,
         stock || 0,
@@ -116,16 +117,17 @@ exports.createProduct = async (req, res) => {
 
 exports.updateProduct = async (req, res) => {
   try {
-    const { name, description, price, rating, category, images, vendor_id } = req.body;
+    const { name, description, price, rating, category, subCategory, images, vendor_id } = req.body;
     
     const [result] = await db.query(
-      'UPDATE products SET name = ?, description = ?, price = ?, rating = ?, category = ?, images = ?, vendor_id = ? WHERE id = ?',
+      'UPDATE products SET name = ?, description = ?, price = ?, rating = ?, category = ?, subCategory = ?, images = ?, vendor_id = ? WHERE id = ?',
       [
         name, 
         description, 
         price, 
         rating, 
-        category, 
+        category,
+        subCategory || null,
         JSON.stringify(images || []), 
         vendor_id, 
         req.params.id
@@ -272,7 +274,7 @@ exports.bulkImportProducts = async (req, res) => {
 
         // Insert into database
         const [result] = await db.query(
-          'INSERT INTO products (name, description, price, mrp, discount, rating, category, images, vendor_id, stock, featured) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+          'INSERT INTO products (name, description, price, mrp, discount, rating, category,subCategory , images, vendor_id, stock, featured) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
           [
             product.name,
             product.description || '',
@@ -281,6 +283,7 @@ exports.bulkImportProducts = async (req, res) => {
             product.discount || 0,
             product.rating || 0,
             product.category,
+            product.subCategory || null,
             JSON.stringify(images),
             product.vendor_id || null,
             product.stock || 0,
