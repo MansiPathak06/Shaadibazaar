@@ -1,0 +1,163 @@
+import React from 'react';
+import { ArrowRight } from 'lucide-react';
+
+export default function BannerCollection() {
+  const banners = [
+    {
+      title: "Hot Offers",
+      subtitle: "Save up to 87%",
+      description: "Exclusive deals on beauty essentials and premium products",
+      buttonText: "Shop Now",
+      bgImage: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&h=500&fit=crop",
+      bgColor: "from-red-400 to-rose-500",
+      textColor: "text-white"
+    },
+    {
+      title: "Trending Products",
+      subtitle: "Save up to 71%",
+      description: "Best selling items with amazing discounts today",
+      buttonText: "Explore",
+      bgImage: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&h=500&fit=crop",
+      bgColor: "from-pink-300 to-pink-400",
+      textColor: "text-gray-900"
+    },
+    {
+      title: "Weekend Special",
+      subtitle: "Best Price Guaranteed",
+      description: "Limited time offer on premium makeup collection",
+      buttonText: "Shop Now",
+      bgImage: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=800&h=500&fit=crop",
+      bgColor: "from-amber-400 to-orange-500",
+      textColor: "text-white"
+    },
+    {
+      title: "Build Your Collection",
+      subtitle: "Home Essentials",
+      description: "Everything you need for beauty and self-care at home",
+      buttonText: "Shop Now",
+      bgImage: "https://images.unsplash.com/photo-1629198726044-c6dee6f0711c?w=800&h=500&fit=crop",
+      bgColor: "from-teal-400 to-cyan-500",
+      textColor: "text-white"
+    },
+    {
+      title: "Eye Makeup Collection",
+      subtitle: "Express Yourself",
+      description: "Premium eyeshadows, liners and mascaras for stunning looks",
+      buttonText: "Shop Now",
+      bgImage: "https://images.unsplash.com/photo-1631214500869-2b8e6b7d9f6c?w=800&h=500&fit=crop",
+      bgColor: "from-rose-400 to-pink-500",
+      textColor: "text-white"
+    },
+    {
+      title: "Brush Collection",
+      subtitle: "Save up to 65%",
+      description: "Professional makeup brushes and beauty tools",
+      buttonText: "Shop Now",
+      bgImage: "https://images.unsplash.com/photo-1583241800698-fa9e8af21e4b?w=800&h=500&fit=crop",
+      bgColor: "from-pink-400 to-rose-500",
+      textColor: "text-white"
+    },
+    {
+      title: "Sun Protection",
+      subtitle: "Summer Essentials",
+      description: "Best sunscreen products to keep your skin safe and glowing",
+      buttonText: "Shop Now",
+      bgImage: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&h=500&fit=crop",
+      bgColor: "from-amber-300 to-yellow-400",
+      textColor: "text-gray-900"
+    },
+    {
+      title: "Nail Art Heaven",
+      subtitle: "Colorful Collection",
+      description: "Trendy nail polish colors and nail care essentials",
+      buttonText: "Shop Now",
+      bgImage: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&h=500&fit=crop",
+      bgColor: "from-pink-300 to-rose-400",
+      textColor: "text-gray-900"
+    },
+    {
+      title: "Skincare Routine",
+      subtitle: "Glow Naturally",
+      description: "Complete skincare solutions for healthy radiant skin",
+      buttonText: "Shop Now",
+      bgImage: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&h=500&fit=crop",
+      bgColor: "from-blue-300 to-indigo-400",
+      textColor: "text-white"
+    },
+    {
+      title: "Fragrance Collection",
+      subtitle: "Signature Scents",
+      description: "Discover luxury perfumes and body mists for every occasion",
+      buttonText: "Shop Now",
+      bgImage: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=800&h=500&fit=crop",
+      bgColor: "from-purple-400 to-pink-500",
+      textColor: "text-white"
+    },
+    {
+      title: "Hair Care Essentials",
+      subtitle: "Healthy Hair Goals",
+      description: "Premium hair care products for all hair types",
+      buttonText: "Shop Now",
+      bgImage: "https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=800&h=500&fit=crop",
+      bgColor: "from-teal-300 to-green-400",
+      textColor: "text-white"
+    },
+    {
+      title: "Lip Care Collection",
+      subtitle: "Soft & Beautiful",
+      description: "Lipsticks, glosses and balms in stunning shades",
+      buttonText: "Shop Now",
+      bgImage: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=800&h=500&fit=crop",
+      bgColor: "from-red-400 to-pink-500",
+      textColor: "text-white"
+    }
+  ];
+
+  return (
+    <div className="w-full bg-gray-50 py-12 px-4">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {banners.map((banner, index) => (
+            <div
+              key={index}
+              className="relative h-64 rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300"
+            >
+              {/* Background Image */}
+              <div 
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(${banner.bgImage})` }}
+              />
+              
+              {/* Gradient Overlay */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${banner.bgColor} opacity-85`} />
+              
+              {/* Content */}
+              <div className="relative h-full p-6 flex flex-col justify-between">
+                <div>
+                  <h3 className={`text-2xl font-bold mb-2 ${banner.textColor}`}>
+                    {banner.title}
+                  </h3>
+                  <p className={`text-xl font-semibold mb-3 ${banner.textColor}`}>
+                    {banner.subtitle}
+                  </p>
+                  <p className={`text-sm ${banner.textColor} opacity-90 line-clamp-2`}>
+                    {banner.description}
+                  </p>
+                </div>
+                
+                {/* Button */}
+                <button className="self-start bg-black hover:bg-gray-800 text-white px-6 py-2.5 rounded-lg font-semibold flex items-center gap-2 transition-all duration-300 group-hover:gap-3">
+                  <span>{banner.buttonText}</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+
+              {/* Hover Effect Overlay */}
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
