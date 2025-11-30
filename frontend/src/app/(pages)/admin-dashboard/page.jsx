@@ -368,6 +368,7 @@ export default function AdminDashboard() {
       discount: product.discount || "",
       rating: product.rating,
       category: product.category,
+      subCategory: product.subCategory || "",
       images: Array.isArray(product.images)
         ? product.images.join(", ")
         : product.images,
@@ -1231,6 +1232,7 @@ export default function AdminDashboard() {
                                   setProductForm({
                                     ...productForm,
                                     category: e.target.value,
+                                    subCategory: "",
                                   })
                                 }
                                 className="w-full pl-14 pr-12 py-4 bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#F04393] focus:bg-white transition-all cursor-pointer appearance-none text-gray-700 font-medium shadow-sm hover:shadow-md group-hover:from-[#E8A4BC]/10 group-hover:to-[#F9C449]/10"
@@ -1583,6 +1585,9 @@ export default function AdminDashboard() {
                               Category
                             </th>
                             <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">
+                              Sub-Category
+                            </th>
+                            <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">
                               Price
                             </th>
                             <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">
@@ -1611,6 +1616,11 @@ export default function AdminDashboard() {
                               <td className="px-6 py-5 whitespace-nowrap">
                                 <span className="px-3 py-1 bg-gradient-to-r from-[#E8A4BC]/20 to-[#F9C449]/20 text-[#F04393] rounded-full text-sm font-medium">
                                   {product.category}
+                                </span>
+                              </td>
+                              <td className="px-6 py-5 whitespace-nowrap">
+                                <span className="text-sm text-gray-700">
+                                  {product.subCategory || "-"}
                                 </span>
                               </td>
                               <td className="px-6 py-5 whitespace-nowrap">
