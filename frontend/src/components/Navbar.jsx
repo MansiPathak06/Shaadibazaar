@@ -10,21 +10,18 @@ import {
   Sparkles,
   MapPin,
   Clipboard,
-  ChevronDown,
-  ChevronRight,
   Flame,
   Moon,
   Star,
   Cross,
+ 
 } from "lucide-react";
 import Link from "next/link";
 
 const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileSubMenu, setMobileSubMenu] = useState(null);
-  const [desktopCategoryDropdown, setDesktopCategoryDropdown] = useState({});
-  const totalItems = 0; // Replace with useCart hook
+  const totalItems = 0;
 
   const [userRole, setUserRole] = useState(null);
   const [userName, setUserName] = useState("");
@@ -144,7 +141,7 @@ const Navbar = () => {
     },
     {
       name: "Vendors & Services",
-      icon: MapPin,
+      icon: Sparkles,
       heading: "The Perfect Place for Your Perfect Day !!",
       hasMegaMenu: true,
       hasCategories: false,
@@ -154,6 +151,15 @@ const Navbar = () => {
         { name: "Decoration & Styling Vendors", link: "/vendors/decoration" },
         { name: "Entertainment Vendors", link: "/vendors/entertainment" },
         { name: "Invitation & Printing Vendors", link: "/vendors/printing" },
+        { name: "Gifts & Packaging Vendors", link: "/vendors/printing" },
+        { name: "Catering & Food Service Vendors", link: "/vendors/printing" },
+        { name: "Transport & Logistics Vendors", link: "/vendors/printing" },
+        { name: "Accommodation Vendors", link: "/vendors/printing" },
+        { name: "Hospitality & Guest Management Vendors", link: "/vendors/printing" },
+        { name: "Event Setup  & Infrastructure Vendors", link: "/vendors/printing" },
+        { name: "Photography & Median Vendors", link: "/vendors/printing" },
+        { name: "Ceremony-Specific Vendors", link: "/vendors/printing" },
+        { name: "Shopping & COstume Vendors", link: "/vendors/printing" },
       ],
     },
     {
@@ -181,27 +187,59 @@ const Navbar = () => {
             { name: "Hotel Accommodation", link: "/accommodation/hotel" },
             { name: "Guest Houses", link: "/accommodation/guest-houses" },
             { name: "Resort Accommodation", link: "/accommodation/resorts" },
+            { name: "Homestays & Rentals", link: "/accommodation/resorts" },
+            { name: "Wedding-Specific Accommodation", link: "/accommodation/resorts" },
           ],
         },
+        {
+          name: "Venue Categories by Event Type",
+          icon: Moon,
+          pages: [
+            { name: "Pre-Wedding Venues", link: "/accommodation/hotel" },
+            { name: "Main-Wedding Venues", link: "/accommodation/guest-houses" },
+            { name: "Post-Wedding Venues", link: "/accommodation/resorts" },
+            
+          ],
+        },
+        {
+          name: "Additional Wedding Spaces Needed",
+          icon: Moon,
+          pages: [
+            { name: "Functional Spaces", link: "/accommodation/hotel" },
+            { name: "Decorative Zones", link: "/accommodation/guest-houses" },
+            { name: "Utility Spaces", link: "/accommodation/resorts" },
+            
+          ],
+        },
+        
       ],
     },
     {
       name: "Wedding Planning Tools",
-      icon: Sparkles,
-      heading: "Essential tools to plan your perfect wedding day.",
+      icon: MapPin,
+      heading: "The Perfect Place for Your Perfect Day !!",
       hasMegaMenu: true,
-      hasCategories: true,
-      categories: [
-        {
-          name: "Digital/Software Wedding Planning Tools",
-          icon: Sparkles,
-          pages: [
-            { name: "Planning & Management Tools", link: "/tools/planning" },
-            { name: "Design & Creativity Tools", link: "/tools/design" },
-          ],
-        },
+      hasCategories: false,
+      pages: [
+        { name: "Planning and Management Tools", link: "/vendors/core" },
+        { name: "Design and Creativity Tools", link: "/vendors/beauty" },
+        { name: "Communication Tools", link: "/vendors/decoration" },
+        { name: "Wedding Planning Kit", link: "/vendors/entertainment" },
+        { name: "Coordination Tools", link: "/vendors/printing" },
+        { name: "Decor & Setup Tools", link: "/vendors/printing" },
+        { name: "Emergency Bridal/Groom Kit", link: "/vendors/printing" },
+        { name: "Media & Production Tools", link: "/vendors/printing" },
+        { name: "Hospitality & Guest Management Tools", link: "/vendors/printing" },
+        { name: "Logistics & Vendor Management Tools", link: "/vendors/printing" },
+        { name: "Technical Tools", link: "/vendors/printing" },
+        { name: "Planning Templates", link: "/vendors/printing" },
+        { name: "Personal Kit for Wedding Planners", link: "/vendors/printing" },
+        { name: "Event Execution Tools", link: "/vendors/printing" },
+        { name: "Personal Kit for Wedding Planners", link: "/vendors/printing" },
+        { name: "Personal Kit for Wedding Planners", link: "/vendors/printing" },
       ],
     },
+    
     {
       name: "Blogs",
       icon: Clipboard,
@@ -209,18 +247,6 @@ const Navbar = () => {
       link: "/blogs",
     },
   ];
-
-  const toggleDesktopCategoryDropdown = (mainIndex, categoryIndex) => {
-    const key = `${mainIndex}-${categoryIndex}`;
-    setDesktopCategoryDropdown((prev) => ({
-      ...prev,
-      [key]: !prev[key],
-    }));
-  };
-
-  const categoryHasPages = (category) => {
-    return category.pages && category.pages.length > 0;
-  };
 
   const LinkIcon = ({ icon: IconComponent, ...props }) => <IconComponent {...props} />;
 
@@ -324,31 +350,33 @@ const Navbar = () => {
       </div>
 
       {/* Bottom Navigation Links */}
-      <div className="bg-gradient-to-b from-rose-50 to-white border-b border-gray-200 relative z-40">
+      <div className="bg-gradient-to-b from-rose-50 to-white relative z-40">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center justify-center h-14 gap-1 overflow-x-auto">
-            {navigationLinks.map((link, index) => (
-              <div
-                key={index}
-                className="relative"
-                onMouseEnter={() => link.hasMegaMenu && setOpenDropdown(index)}
-                onMouseLeave={() => link.hasMegaMenu && setOpenDropdown(null)}
-              >
-                {link.hasMegaMenu ? (
-                  <button className="px-3 xl:px-4 py-3 text-base xl:text-lg font-semibold text-gray-800 hover:text-rose-600 hover:bg-rose-100 rounded-lg transition-all duration-200 cursor-pointer whitespace-nowrap shadow-sm">
-                    {link.name}
-                  </button>
-                ) : (
+          <div className="hidden lg:flex items-center justify-center h-14 gap-2 overflow-x-auto">
+            {navigationLinks.map((link, index) => {
+              const isOpen = openDropdown === index && link.hasMegaMenu;
+              return (
+                <div
+                  key={index}
+                  className="relative"
+                  onMouseEnter={() => link.hasMegaMenu && setOpenDropdown(index)}
+                  onMouseLeave={() => link.hasMegaMenu && setOpenDropdown(null)}
+                >
                   <Link
-                    href={link.link}
-                    className="px-3 xl:px-4 py-3 text-base xl:text-lg font-semibold text-gray-800 hover:text-rose-600 hover:bg-rose-100 rounded-lg transition-all duration-200 block whitespace-nowrap shadow-sm"
+                    href={link.link || "#"}
+                    className={`px-4 py-2 text-base xl:text-lg font-medium rounded-full transition-all duration-200 whitespace-nowrap flex items-center gap-2 ${
+                      isOpen
+                        ? "bg-white text-rose-600 shadow-md border border-rose-200"
+                        : "text-gray-800 hover:text-rose-600 hover:bg-white hover:shadow-md"
+                    }`}
                   >
-                    {link.name}
+                    <LinkIcon icon={link.icon} size={18} className="text-rose-500" />
+                    <span>{link.name}</span>
                   </Link>
-                )}
-              </div>
-            ))}
+                </div>
+              );
+            })}
           </div>
 
           {/* Mobile Menu */}
@@ -362,7 +390,6 @@ const Navbar = () => {
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  setMobileSubMenu(null);
                 }}
                 className="text-white hover:bg-white/20 cursor-pointer rounded-full p-2 transition-colors"
               >
@@ -404,7 +431,8 @@ const Navbar = () => {
                 {navigationLinks[openDropdown].heading}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
-                {navigationLinks[openDropdown].hasCategories && navigationLinks[openDropdown].categories ? (
+                {navigationLinks[openDropdown].hasCategories &&
+                navigationLinks[openDropdown].categories ? (
                   navigationLinks[openDropdown].categories.map((category, cIdx) => (
                     <div key={cIdx} className="space-y-4">
                       <div className="flex items-center gap-3 font-bold text-rose-600 text-lg mb-3">
@@ -425,18 +453,17 @@ const Navbar = () => {
                     </div>
                   ))
                 ) : (
-                  <div className="col-span-full">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                      {navigationLinks[openDropdown].pages?.map((page, pIdx) => (
-                        <Link
-                          key={pIdx}
-                          href={page.link}
-                          className="block py-3 px-4 text-lg text-gray-700 hover:text-rose-600 hover:bg-rose-50 rounded-xl transition-all duration-200 font-semibold border-l-4 border-rose-500 bg-rose-50 shadow-sm"
-                        >
-                          {page.name}
-                        </Link>
-                      ))}
-                    </div>
+                  // UPDATED: Vendors & Services dropdown styling same as Bride pages
+                  <div className="col-span-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {navigationLinks[openDropdown].pages?.map((page, pIdx) => (
+                      <Link
+                        key={pIdx}
+                        href={page.link}
+                        className="block px-2 text-base text-gray-700 hover:text-rose-600 rounded-lg transition-all duration-200 font-medium bg-transparent"
+                      >
+                        {page.name}
+                      </Link>
+                    ))}
                   </div>
                 )}
               </div>
