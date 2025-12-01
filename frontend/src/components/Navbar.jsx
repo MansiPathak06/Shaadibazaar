@@ -381,9 +381,8 @@ const Navbar = () => {
 
           {/* Mobile Menu */}
           <div
-            className={`mobile-menu-container lg:hidden fixed inset-y-0 left-0 w-80 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 ${
-              mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
-            }`}
+            className={`mobile-menu-container lg:hidden fixed inset-y-0 left-0 w-80 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 ${mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+              }`}
           >
             <div className="bg-gradient-to-r from-rose-500 to-pink-500 p-5 flex items-center justify-between">
               <h2 className="text-white font-bold text-2xl">Menu</h2>
