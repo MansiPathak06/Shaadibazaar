@@ -143,8 +143,17 @@ const Navbar = () => {
             { name: "Groom Wear", link: "/groom/christian/groom-wear" },
             { name: "Ritual Items", link: "/groom/christian/ritual-items" },
             { name: "Services", link: "/groom/christian/services" },
-            { name: "Universal Groom Items", link: "/groom/christian/groom-items" },
-            { name: "Gifts", link: "/groom/christian/gifts" },
+          
+          ],
+        },
+        {
+          name: "Universal Groom Items",
+          icon: Cross,
+          pages: [
+            { name: "Groom Wear Essentials", link: "/groom/christian/groom-wear" },
+            { name: "Groom Perfume", link: "/groom/christian/ritual-items" },
+            { name: "Gifts", link: "/groom/christian/services" },
+          
           ],
         },
       ],

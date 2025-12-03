@@ -2,32 +2,33 @@
 import React, { useState, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const RitualItemsPage = () => {
+const ChristianGroomRitualItemsPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const scrollContainerRef = useRef(null);
 
   const categories = [
-    { id: 1, name: 'Varmala', image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Varmala' },
-    { id: 2, name: 'Coconut', image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Coconut' },
-    { id: 3, name: 'Raksha Sutra / Kalawa', image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Raksha+Sutra' },
-    { id: 4, name: 'Puja Thali', image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Puja+Thali' },
-    { id: 5, name: 'Haldi/Ubtan Items', image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Haldi+Items' },
-    { id: 6, name: "Groom's Kalgi", image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Kalgi' },
-    { id: 7, name: 'Gift Saree/Lehenga for Bride', image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Gift+Saree' },
-    { id: 8, name: 'Tilak Plate Items', image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Tilak+Plate' }
+    { id: 1, name: 'Wedding Rings', image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Wedding+Rings' },
+    { id: 2, name: 'Holy Bible', image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Holy+Bible' },
+    { id: 3, name: 'Certificate Folder', image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Certificate+Folder' },
+    { id: 4, name: 'Flower Bouquet', image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Flower+Bouquet' },
+    { id: 5, name: 'Car Decoration', image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Car+Decoration' },
+    { id: 6, name: 'Rosary / Cross Pendant', image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Rosary+%2F+Cross' },
+    { id: 7, name: 'Groom Boutonniere', image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Boutonniere' },
+    { id: 8, name: 'Keepsake Box', image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Keepsake+Box' }
   ];
 
   const scroll = (direction) => {
     const container = scrollContainerRef.current;
     if (container) {
       const scrollAmount = 320;
-      const newPosition = direction === 'left' 
-        ? container.scrollLeft - scrollAmount 
-        : container.scrollLeft + scrollAmount;
-      
+      const newPosition =
+        direction === 'left'
+          ? container.scrollLeft - scrollAmount
+          : container.scrollLeft + scrollAmount;
+
       container.scrollTo({
         left: newPosition,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
   };
@@ -35,30 +36,29 @@ const RitualItemsPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Slim Banner */}
-     <div className="relative h-[30vh] bg-gradient-to-r from-amber-100 via-orange-50 to-amber-100 overflow-hidden bg-[url('/your-image.jpg')] bg-cover bg-center bg-blend-overlay">
-  <div className="absolute inset-0 bg-white/40"></div> {/* optional soft overlay */}
+      <div className="relative h-[30vh] bg-gradient-to-r from-sky-100 via-blue-50 to-sky-100 overflow-hidden bg-[url('/your-christian-groom-image.jpg')] bg-cover bg-center bg-blend-overlay">
+        <div className="absolute inset-0 bg-white/40"></div>
 
-  <div className="absolute inset-0 flex items-center justify-center">
-    <div className="text-center px-4">
-      <h1 className="text-4xl md:text-5xl font-serif text-amber-900 mb-2">
-        Ritual Items
-      </h1>
-      <p className="text-lg text-amber-800 font-light">
-        Sacred essentials for your special ceremonies
-      </p>
-    </div>
-  </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center px-4">
+            <h1 className="text-4xl md:text-5xl font-serif text-slate-900 mb-2">
+              Christian Groom Ritual Items
+            </h1>
+            <p className="text-lg text-slate-800 font-light">
+              Sacred essentials for a blessed Christian wedding ceremony
+            </p>
+          </div>
+        </div>
 
-  {/* Decorative overlay */}
-  <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDAgTCA2MCAwIEwgNjAgNjAgTCAwIDYwIFoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0Q0QTU3NCIgc3Ryb2tlLXdpZHRoPSIwLjUiIG9wYWNpdHk9IjAuMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-20"></div>
-</div>
-
+        {/* Decorative overlay */}
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDAgTCA2MCAwIEwgNjAgNjAgTCAwIDYwIFoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0Q0QTU3NCIgc3Ryb2tlLXdpZHRoPSIwLjUiIG9wYWNpdHk9IjAuMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-20"></div>
+      </div>
 
       {/* Categories Section */}
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="mb-8">
           <h2 className="text-3xl font-serif text-gray-800 mb-2">Our Collections</h2>
-          <div className="w-20 h-1 bg-amber-600"></div>
+          <div className="w-20 h-1 bg-sky-700"></div>
         </div>
 
         {/* Sliding Categories */}
@@ -69,7 +69,7 @@ const RitualItemsPage = () => {
             className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all duration-300 hover:scale-110"
             aria-label="Scroll left"
           >
-            <ChevronLeft className="w-6 h-6 text-amber-900" />
+            <ChevronLeft className="w-6 h-6 text-sky-900" />
           </button>
 
           {/* Categories Container */}
@@ -84,7 +84,7 @@ const RitualItemsPage = () => {
                 className="flex-shrink-0 w-72 group cursor-pointer"
               >
                 <div className="relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
-                  <div className="aspect-square bg-gradient-to-br from-amber-50 to-orange-50">
+                  <div className="aspect-square bg-gradient-to-br from-sky-50 to-blue-50">
                     <img
                       src={category.image}
                       alt={category.name}
@@ -94,7 +94,7 @@ const RitualItemsPage = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div className="mt-4 text-center">
-                  <h3 className="text-lg font-medium text-gray-800 group-hover:text-amber-700 transition-colors duration-300">
+                  <h3 className="text-lg font-medium text-gray-800 group-hover:text-sky-700 transition-colors duration-300">
                     {category.name}
                   </h3>
                 </div>
@@ -108,7 +108,7 @@ const RitualItemsPage = () => {
             className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all duration-300 hover:scale-110"
             aria-label="Scroll right"
           >
-            <ChevronRight className="w-6 h-6 text-amber-900" />
+            <ChevronRight className="w-6 h-6 text-sky-900" />
           </button>
         </div>
 
@@ -117,19 +117,19 @@ const RitualItemsPage = () => {
           {[0, 1, 2].map((index) => (
             <div
               key={index}
-              className="w-2 h-2 rounded-full bg-amber-300 opacity-50"
+              className="w-2 h-2 rounded-full bg-sky-300 opacity-50"
             ></div>
           ))}
         </div>
       </div>
 
       {/* Featured Section */}
-      <div className="bg-gradient-to-b from-amber-50 to-white py-16">
+      <div className="bg-gradient-to-b from-sky-50 to-white py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-serif text-gray-800 mb-4">Featured Categories</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Handpicked ritual items to make your ceremonies truly memorable
+              Handpicked Christian groom essentials to make your church ceremony truly memorable
             </p>
           </div>
 
@@ -137,7 +137,7 @@ const RitualItemsPage = () => {
             {categories.map((item) => (
               <div key={item.id} className="group cursor-pointer">
                 <div className="relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 bg-white">
-                  <div className="aspect-square bg-gradient-to-br from-amber-50 to-orange-50">
+                  <div className="aspect-square bg-gradient-to-br from-sky-50 to-blue-50">
                     <img
                       src={item.image}
                       alt={item.name}
@@ -158,4 +158,4 @@ const RitualItemsPage = () => {
   );
 };
 
-export default RitualItemsPage;
+export default ChristianGroomRitualItemsPage;
