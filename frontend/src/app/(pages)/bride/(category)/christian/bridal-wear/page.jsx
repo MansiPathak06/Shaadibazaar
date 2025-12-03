@@ -4,10 +4,10 @@ import React from 'react';
 const ChristianBridalWearPage = () => {
   // Hero images (top section - 4 images)
   const heroImages = [
-    "", // Wedding gown
-    "", // Bridal veil
-    "", // Church wedding
-    "", // Bridal accessories
+    "https://i.pinimg.com/736x/c6/b4/3b/c6b43b6e8dc8f4a39d784bc7cb45c3b4.jpg", // Wedding gown
+    "https://i.pinimg.com/736x/ae/4a/df/ae4adf3a3c548c3b01eafe43fdd37b5a.jpg", // Bridal veil
+    "https://i.pinimg.com/736x/7d/1d/7d/7d1d7d82785b1793db0f71786a948883.jpg", // Church wedding
+    "https://i.pinimg.com/736x/21/aa/aa/21aaaab38b3ada5a2c8d596a93d36c49.jpg", // Bridal accessories
   ];
 
   // Category collections (bottom section - 10 images)
@@ -33,37 +33,37 @@ const ChristianBridalWearPage = () => {
     {
       slug: "bridal-shoes-heels",
       title: "Bridal Shoes/Heels",
-      image: "",
+      image: "https://i.pinimg.com/736x/40/67/a4/4067a46f50a4d14801340f8834eb8c2d.jpg",
       accent: "#9c27b0",
     },
     {
       slug: "hair-tiara",
       title: "Hair Tiara",
-      image: "",
+      image: "https://i.pinimg.com/736x/d7/0e/e6/d70ee6b8bd6a813f74d3dd962b96f7e0.jpg",
       accent: "#4caf50",
     },
     {
       slug: "bridal-robe",
       title: "Bridal Robe",
-      image: "",
+      image: "https://i.pinimg.com/736x/7b/d8/17/7bd81782faa8778b184beca37fabaf17.jpg",
       accent: "#03a9f4",
     },
     {
       slug: "petticoat",
       title: "Petticoat",
-      image: "",
+      image: "https://i.pinimg.com/1200x/33/b4/b3/33b4b38bddd758b29845915e9ca66a8d.jpg",
       accent: "#ff5722",
     },
     {
       slug: "bouquet",
       title: "Bouquet",
-      image: "",
+      image: "https://i.pinimg.com/1200x/a8/ca/28/a8ca28c150b562706609c10255a1264c.jpg",
       accent: "#8bc34a",
     },
     {
       slug: "bridesmaid-dresses",
       title: "Bridesmaid Dresses",
-      image: "",
+      image: "https://i.pinimg.com/736x/86/e6/d1/86e6d1aa104fda5968aac967fade36f7.jpg",
       accent: "#009688",
     },
   ];
@@ -223,7 +223,7 @@ const ChristianBridalWearPage = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="flex justify-center">
   <img
-    src="https://i.pinimg.com/736x/placeholder-about.jpg"
+    src="https://i.pinimg.com/1200x/d3/83/35/d383357c93d6f6f6e477dd7c9c6981c9.jpg"
     alt="About"
     className="rounded-lg shadow-2xl w-78 object-cover"
   />

@@ -11,19 +11,19 @@ const heroSlides = [
 title: "Elegant Christian Bridal Jewellery",
 subtitle: "Necklaces | Earrings | Bracelets | Tiaras | Rings",
 image:
-"https://i.pinimg.com/736x/4d/41/00/4d410002514c0de148970724c507dadc.jpg",
+"https://i.pinimg.com/1200x/69/5f/b8/695fb85839f60ca27ec8d915896a98d6.jpg",
 },
 {
 title: "Graceful White-Gown Sets",
 subtitle: "Minimal, classy and timeless pieces for church weddings",
 image:
-"https://i.pinimg.com/1200x/48/b6/af/48b6af99941cf25e19eecc7e73d076ac.jpg",
+"https://i.pinimg.com/736x/49/8b/ca/498bca1d8ef9878ceac8def935bfea45.jpg",
 },
 {
 title: "Diamond & Pearl Highlights",
 subtitle: "Subtle sparkle to complement your bridal veil",
 image:
-"https://i.pinimg.com/736x/6b/a3/30/6ba330be3271d9c3a4d003634df26dca.jpg",
+"https://i.pinimg.com/474x/57/6c/b3/576cb37dd7a4acf8c550334f23389413.jpg",
 },
 ];
 
@@ -33,31 +33,31 @@ const categories = [
 name: "Earrings",
 items: "24 Items",
 image:
-"https://i.pinimg.com/736x/2d/92/67/2d9267e1b41c1ed144a2c214b98d9882.jpg",
+"https://i.pinimg.com/736x/d3/9a/cc/d39accabd3b130b7e47094dbfc3f4370.jpg",
 },
 {
 name: "Necklace",
 items: "18 Items",
 image:
-"https://i.pinimg.com/736x/13/2b/52/132b529955979ef1d5c31987126f110e.jpg",
+"https://i.pinimg.com/736x/4e/a7/f2/4ea7f21a04152614999d2d1fb6f0e268.jpg",
 },
 {
 name: "Bracelet",
 items: "20 Items",
 image:
-"https://i.pinimg.com/736x/a3/d0/6e/a3d06e3844834b663f494314715798b7.jpg",
+"https://i.pinimg.com/736x/ef/7e/8e/ef7e8e7b8b435196b51552a13b24c1ad.jpg",
 },
 {
 name: "Tiara Accessories",
 items: "10 Items",
 image:
-"https://i.pinimg.com/736x/17/58/c7/1758c7b1c56ea1db1c412446bc6f04a7.jpg",
+"https://i.pinimg.com/736x/c2/59/5a/c2595afd0d36ea399e56cf9c4aa14c25.jpg",
 },
 {
 name: "Rings",
 items: "30 Items",
 image:
-"https://i.pinimg.com/1200x/64/3c/0c/643c0c918f71c73cfa3860a418b2d03e.jpg",
+"https://i.pinimg.com/736x/cf/59/df/cf59df021d91cf26bc12720da5531b35.jpg",
 },
 ];
 
@@ -69,19 +69,19 @@ price: "₹9,999",
 oldPrice: "₹12,999",
 badge: "NEW",
 image:
-"https://i.pinimg.com/736x/4d/de/6c/4dde6c20977077e2fa375aa7a5ff71a9.jpg",
+"https://i.pinimg.com/736x/76/8d/c3/768dc3cfbe53d9d7cf6081fc9b4a3b94.jpg",
 },
 {
 name: "Delicate Cross Necklace",
 price: "₹14,999",
 image:
-"https://i.pinimg.com/1200x/04/d5/b4/04d5b48911c3af2679d714465628d149.jpg",
+"https://i.pinimg.com/1200x/5f/b2/10/5fb210a3c78608b1b4c0a22bd8bf399c.jpg",
 },
 {
 name: "Crystal Bridal Tiara",
 price: "₹7,999",
 image:
-"https://i.pinimg.com/1200x/29/d9/4e/29d94e9df797fe543f46f89e6bf64f13.jpg",
+"https://i.pinimg.com/1200x/26/fe/46/26fe465eef4a9805f164ffa4d6cf4836.jpg",
 },
 {
 name: "Tennis Bracelet",
@@ -89,13 +89,13 @@ price: "₹11,999",
 oldPrice: "₹15,999",
 badge: "NEW",
 image:
-"https://i.pinimg.com/1200x/16/02/fb/1602fb52cad5459a2d7c20fa9643174d.jpg",
+"https://i.pinimg.com/1200x/c2/bd/7f/c2bd7f19075fac81e6e32a8098b81a7b.jpg",
 },
 {
 name: "Solitaire Engagement Ring",
 price: "₹19,999",
 image:
-"https://i.pinimg.com/1200x/2b/87/74/2b8774e9c44f664a217c8595aada50f0.jpg",
+"https://i.pinimg.com/1200x/a9/c5/84/a9c5846ccbc282a384e4fcb3b54f4d01.jpg",
 },
 {
 name: "Bridal Necklace & Earrings Set",
@@ -103,13 +103,13 @@ price: "₹32,999",
 oldPrice: "₹39,999",
 badge: "15% OFF",
 image:
-"https://i.pinimg.com/1200x/28/00/ef/2800ef7b1be2e5390c09ba30e9d959b3.jpg",
+"https://i.pinimg.com/736x/ee/ec/88/eeec88a876536c9c68b879e9e3dab0dc.jpg",
 },
 {
 name: "Minimal Wedding Band",
 price: "₹8,999",
 image:
-"https://i.pinimg.com/1200x/d5/29/b4/d529b463cab93e8d2562018d8f893467.jpg",
+"https://i.pinimg.com/736x/ae/3c/7e/ae3c7ed39e7c9a4326f930a6245ccc03.jpg",
 },
 {
 name: "Vintage Style Tiara",
@@ -117,7 +117,7 @@ price: "₹15,999",
 oldPrice: "₹19,999",
 badge: "NEW",
 image:
-"https://i.pinimg.com/1200x/92/ff/26/92ff26c4e2e71c4bc4133f883229c984.jpg",
+"https://i.pinimg.com/1200x/ae/28/4d/ae284d12f8cbd524a935d2eee292bb2f.jpg",
 },
 ];
 
@@ -226,7 +226,7 @@ text
     <div className="grid md:grid-cols-2 gap-8">
       <div className="relative overflow-hidden rounded-lg group cursor-pointer">
         <img
-          src="https://i.pinimg.com/1200x/5d/12/ae/5d12aed9a8ed0258ad94e50dd500c589.jpg"
+          src="https://i.pinimg.com/736x/02/e3/00/02e3004572e79efe256032b8fa8be2e6.jpg"
           alt="Church Ceremony Sets"
           className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
         />
@@ -242,7 +242,7 @@ text
 
       <div className="relative overflow-hidden rounded-lg group cursor-pointer">
         <img
-          src="https://i.pinimg.com/736x/94/c6/0b/94c60bd0033acaa87a177bb01194bd05.jpg"
+          src="https://i.pinimg.com/1200x/3e/ab/5b/3eab5b74a9ec03672e6bfcd58025ff37.jpg"
           alt="Diamond & Pearl Bracelets"
           className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
         />
