@@ -2,156 +2,122 @@
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const BridalMakeupHairAccessoriesPage = () => {
+const ChristianBridalJewelleryPage = () => {
 const [currentSlide, setCurrentSlide] = useState(0);
 
-// Hero slides data (you can change images later)
+// Hero slides data (Christian bride focused)
 const heroSlides = [
 {
-title: "Bridal Hair Extensions",
-subtitle: "Clip-ins | Tape-ins | Volumizers For Dreamy Bridal Hairstyles",
+title: "Elegant Christian Bridal Jewellery",
+subtitle: "Necklaces | Earrings | Bracelets | Tiaras | Rings",
 image:
-"https://i.pinimg.com/736x/a9/26/78/a92678971361e8f9ef2e63fbe38e684c.jpg",
+"https://i.pinimg.com/736x/4d/41/00/4d410002514c0de148970724c507dadc.jpg",
 },
 {
-title: "Glam Bridal Makeup",
-subtitle: "HD, Airbrush & Long-Lasting Bridal Makeup Looks",
+title: "Graceful White-Gown Sets",
+subtitle: "Minimal, classy and timeless pieces for church weddings",
 image:
-"https://i.pinimg.com/736x/8d/ec/44/8dec44685e5dfe58daad8874a950012a.jpg",
+"https://i.pinimg.com/1200x/48/b6/af/48b6af99941cf25e19eecc7e73d076ac.jpg",
 },
 {
-title: "Statement Hair Accessories",
-subtitle: "Tiaras, Bun Accessories & Pins To Complete Your Look",
+title: "Diamond & Pearl Highlights",
+subtitle: "Subtle sparkle to complement your bridal veil",
 image:
-"https://i.pinimg.com/1200x/aa/eb/d1/aaebd100b52bd9395e13952384326a31.jpg",
+"https://i.pinimg.com/736x/6b/a3/30/6ba330be3271d9c3a4d003634df26dca.jpg",
 },
 ];
 
-// Categories from image: Hair Extensions, Bun Accessories, Hair Tiara, Makeup Setting Spray, Nail Extensions, Nail Art Kit
+// Christian bridal jewellery categories
 const categories = [
 {
-name: "Hair Extensions",
-items: "24 Styles",
+name: "Earrings",
+items: "24 Items",
 image:
-"https://i.pinimg.com/736x/e7/74/11/e77411dcddd07b9f07b01fa1441ef08b.jpg",
+"https://i.pinimg.com/736x/2d/92/67/2d9267e1b41c1ed144a2c214b98d9882.jpg",
 },
 {
-name: "Bun Accessories",
-items: "18 Designs",
+name: "Necklace",
+items: "18 Items",
 image:
-"https://i.pinimg.com/736x/2c/78/c7/2c78c7a7163174589deab0849e873820.jpg",
+"https://i.pinimg.com/736x/13/2b/52/132b529955979ef1d5c31987126f110e.jpg",
 },
 {
-name: "Hair Tiara",
-items: "16 Styles",
+name: "Bracelet",
+items: "20 Items",
 image:
-"https://i.pinimg.com/736x/3b/81/51/3b815103e75d07ba7dbc23b54626bae0.jpg",
+"https://i.pinimg.com/736x/a3/d0/6e/a3d06e3844834b663f494314715798b7.jpg",
 },
 {
-name: "Makeup Setting Spray",
-items: "10 Products",
+name: "Tiara Accessories",
+items: "10 Items",
 image:
-"https://i.pinimg.com/1200x/7c/1f/0c/7c1f0cca6c4cb66a556f8634f38fe1e9.jpg",
+"https://i.pinimg.com/736x/17/58/c7/1758c7b1c56ea1db1c412446bc6f04a7.jpg",
 },
 {
-name: "Nail Extensions",
-items: "20 Sets",
+name: "Rings",
+items: "30 Items",
 image:
-"https://i.pinimg.com/736x/0c/38/dd/0c38dddbf562834a8d96b3869a0c1622.jpg",
-},
-{
-name: "Nail Art Kit",
-items: "14 Kits",
-image:
-"https://i.pinimg.com/1200x/66/62/3f/66623ff5948127d6486d6134b85f60b6.jpg",
+"https://i.pinimg.com/1200x/64/3c/0c/643c0c918f71c73cfa3860a418b2d03e.jpg",
 },
 ];
 
-// Trending products adapted to new theme
+// Trending products (Christian bride themed)
 const trendingProducts = [
 {
-name: "Clip-In Hair Extensions",
-price: "₹7,999",
-oldPrice: "₹9,999",
+name: "Pearl Drop Earrings",
+price: "₹9,999",
+oldPrice: "₹12,999",
 badge: "NEW",
 image:
-"https://i.pinimg.com/1200x/a5/28/ca/a528caf4839c84636fc28b5dd376c9eb.jpg",
+"https://i.pinimg.com/736x/4d/de/6c/4dde6c20977077e2fa375aa7a5ff71a9.jpg",
 },
 {
-name: "Volumizing Bun Extension",
-price: "₹4,499",
+name: "Delicate Cross Necklace",
+price: "₹14,999",
 image:
-"https://i.pinimg.com/1200x/e8/a6/ea/e8a6eaa81468be527ef1a2bec1bde89a.jpg",
+"https://i.pinimg.com/1200x/04/d5/b4/04d5b48911c3af2679d714465628d149.jpg",
 },
 {
 name: "Crystal Bridal Tiara",
-price: "₹5,999",
+price: "₹7,999",
 image:
-"https://i.pinimg.com/1200x/69/7f/af/697fafdeab98e32b64a20076e8afad26.jpg",
+"https://i.pinimg.com/1200x/29/d9/4e/29d94e9df797fe543f46f89e6bf64f13.jpg",
 },
 {
-name: "Long-Lasting Setting Spray",
-price: "₹1,299",
-oldPrice: "₹1,799",
+name: "Tennis Bracelet",
+price: "₹11,999",
+oldPrice: "₹15,999",
 badge: "NEW",
 image:
-"https://i.pinimg.com/1200x/71/d7/8d/71d78d4a54f70e0b0a414495cac76919.jpg",
+"https://i.pinimg.com/1200x/16/02/fb/1602fb52cad5459a2d7c20fa9643174d.jpg",
 },
 {
-name: "French Nail Extensions",
-price: "₹2,499",
+name: "Solitaire Engagement Ring",
+price: "₹19,999",
 image:
-"https://i.pinimg.com/1200x/ad/74/e3/ad74e3f453551bacbacbf149eb4fec2b.jpg",
+"https://i.pinimg.com/1200x/2b/87/74/2b8774e9c44f664a217c8595aada50f0.jpg",
 },
 {
-name: "3D Bridal Nail Art Kit",
-price: "₹1,899",
-oldPrice: "₹2,299",
-badge: "25% OFF",
+name: "Bridal Necklace & Earrings Set",
+price: "₹32,999",
+oldPrice: "₹39,999",
+badge: "15% OFF",
 image:
-"https://i.pinimg.com/1200x/e6/b9/2a/e6b92aad9e4aafd2e7f938edccf59423.jpg",
+"https://i.pinimg.com/1200x/28/00/ef/2800ef7b1be2e5390c09ba30e9d959b3.jpg",
 },
 {
-name: "Soft Curls Hair Extensions",
-price: "₹8,499",
+name: "Minimal Wedding Band",
+price: "₹8,999",
 image:
-"https://i.pinimg.com/1200x/da/21/23/da2123586c30b57ba30255f2b00ccc57.jpg",
+"https://i.pinimg.com/1200x/d5/29/b4/d529b463cab93e8d2562018d8f893467.jpg",
 },
 {
-name: "Pearl Bun Accessory Set",
-price: "₹3,299",
-oldPrice: "₹3,999",
+name: "Vintage Style Tiara",
+price: "₹15,999",
+oldPrice: "₹19,999",
 badge: "NEW",
 image:
-"https://i.pinimg.com/736x/0b/40/c6/0b40c6f13950203bae1302d65a043f03.jpg",
-},
-{
-name: "Rose Gold Tiara",
-price: "₹6,499",
-image:
-"https://i.pinimg.com/1200x/0e/a1/db/0ea1db366cf6ce69dfd1cf3337b5fd62.jpg",
-},
-{
-name: "Chrome Nail Extension Set",
-price: "₹3,499",
-oldPrice: "₹4,299",
-badge: "25% OFF",
-image:
-"https://i.pinimg.com/1200x/eb/f8/b6/ebf8b6215e6d8237a57ffd761ca9069b.jpg",
-},
-{
-name: "Hydrating Makeup Fixer",
-price: "₹1,099",
-image:
-"https://i.pinimg.com/736x/2b/d4/1c/2bd41caeb7748dfb4ea8acd754a71dba.jpg",
-},
-{
-name: "Bridal Nail Art Toolkit",
-price: "₹2,199",
-oldPrice: "₹2,799",
-badge: "NEW",
-image:
-"https://i.pinimg.com/1200x/ff/c5/08/ffc50884c9060d11f27159be3f838f33.jpg",
+"https://i.pinimg.com/1200x/92/ff/26/92ff26c4e2e71c4bc4133f883229c984.jpg",
 },
 ];
 
@@ -179,14 +145,14 @@ style={{ transform: `translateX(-${currentSlide * 100}%)` }}
 <div className="max-w-7xl mx-auto px-8 w-full">
 <div className="max-w-md">
 <p className="text-sm text-gray-600 mb-2 uppercase tracking-wide">
-BRIDAL MAKEUP & HAIR
+Christian Bridal Collection
 </p>
 <h1 className="text-5xl font-light text-gray-800 mb-4">
 {slide.title}
 </h1>
 <p className="text-gray-600 mb-6">{slide.subtitle}</p>
 <button className="bg-amber-600 text-white px-8 py-3 rounded hover:bg-amber-700 transition-colors">
-BOOK NOW
+SHOP NOW
 </button>
 </div>
 </div>
@@ -228,7 +194,7 @@ text
   <div className="py-16 bg-gray-50">
     <div className="max-w-full mx-auto px-8">
       <h2 className="text-3xl font-light text-center text-gray-800 mb-12">
-        Popular Categories
+        Popular Christian Bridal Categories
       </h2>
 
       <div className="relative overflow-hidden">
@@ -248,7 +214,6 @@ text
               <h3 className="text-sm font-medium text-gray-800 mb-1">
                 {category.name.toUpperCase()}
               </h3>
-              <p className="text-xs text-gray-500">{category.items}</p>
             </div>
           ))}
         </div>
@@ -261,32 +226,32 @@ text
     <div className="grid md:grid-cols-2 gap-8">
       <div className="relative overflow-hidden rounded-lg group cursor-pointer">
         <img
-          src="https://i.pinimg.com/736x/2c/2b/52/2c2b52dbf606d270784643721584d4d2.jpg"
-          alt="Bridal Hair & Extensions"
+          src="https://i.pinimg.com/1200x/5d/12/ae/5d12aed9a8ed0258ad94e50dd500c589.jpg"
+          alt="Church Ceremony Sets"
           className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
           <h3 className="text-white text-2xl font-light mb-2">
-            Signature Bridal Hair & Extensions
+            Church Ceremony Jewellery Sets
           </h3>
           <button className="text-white text-sm uppercase tracking-wide hover:underline w-fit">
-            VIEW LOOKBOOK
+            SHOP NOW
           </button>
         </div>
       </div>
 
       <div className="relative overflow-hidden rounded-lg group cursor-pointer">
         <img
-          src="https://i.pinimg.com/1200x/ad/cf/0c/adcf0c8813ca543ee0b4428bc858af4b.jpg"
-          alt="Airbrush Bridal Makeup"
+          src="https://i.pinimg.com/736x/94/c6/0b/94c60bd0033acaa87a177bb01194bd05.jpg"
+          alt="Diamond & Pearl Bracelets"
           className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
           <h3 className="text-white text-2xl font-light mb-2">
-            HD & Airbrush Bridal Makeup Packages
+            Diamond & Pearl Bracelets
           </h3>
           <button className="text-white text-sm uppercase tracking-wide hover:underline w-fit">
-            EXPLORE PACKAGES
+            SHOP NOW
           </button>
         </div>
       </div>
@@ -297,17 +262,17 @@ text
   <div className="py-16 bg-gray-50">
     <div className="max-w-7xl mx-auto px-8">
       <h2 className="text-3xl font-light text-center text-gray-800 mb-4">
-        Trending Makeup & Hair Picks
+        Trending Christian Bridal Pieces
       </h2>
       <div className="flex justify-center gap-4 mb-12">
         <button className="text-amber-600 border-b-2 border-amber-600 pb-2">
           FEATURED
         </button>
         <button className="text-gray-500 hover:text-gray-800 pb-2">
-          MOST LOVED
+          TOP SELLING
         </button>
         <button className="text-gray-500 hover:text-gray-800 pb-2">
-          BRIDAL FAVOURITES
+          BEST SELLER
         </button>
       </div>
 
@@ -330,22 +295,25 @@ text
               />
             </div>
             <div className="p-4 text-center">
-              <h3 className="text-sm text-gray-800 mb-1">{product.name}</h3>
-              <p className="text-sm font-semibold text-amber-700">
-                {product.price}
+              <h3 className="text-sm text-gray-800 mb-2">{product.name}</h3>
+              <div className="flex items-center justify-center gap-2">
+                <span className="text-base font-semibold text-gray-900">
+                  {product.price}
+                </span>
                 {product.oldPrice && (
-                  <span className="text-xs text-gray-400 line-through ml-2">
+                  <span className="text-sm text-gray-400 line-through">
                     {product.oldPrice}
                   </span>
                 )}
-              </p>
+              </div>
             </div>
           </div>
         ))}
       </div>
+
       <div className="text-center">
         <button className="group mt-12 relative inline-flex items-center gap-3 bg-amber-600 text-white px-12 py-4 rounded-full text-lg font-medium hover:bg-amber-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
-          <span>EXPLORE FULL BRIDAL RANGE</span>
+          <span>EXPLORE FULL COLLECTION</span>
           <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
         </button>
       </div>
@@ -372,4 +340,4 @@ text
 );
 };
 
-export default BridalMakeupHairAccessoriesPage;
+export default ChristianBridalJewelleryPage;

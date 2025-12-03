@@ -67,7 +67,7 @@ const Navbar = () => {
           pages: [
             { name: "Bridal Wear", link: "/bride/muslim/bridal-wear" },
             { name: "Bridal Jewellery", link: "/bride/muslim/jewellery" },
-            { name: "Ritual Items", link: "/bride/muslim/makeup-hair" },
+            { name: "Ritual Items", link: "/bride/muslim/ritual-items" },
             { name: "Bridal Services", link: "/bride/muslim/bridal-services" },
           ],
         },
@@ -88,6 +88,16 @@ const Navbar = () => {
             { name: "Bridal Wear", link: "/bride/christian/bridal-wear" },
             { name: "Bridal Jewellery", link: "/bride/christian/jewellery" },
             { name: "Ritual Items", link: "/bride/christian/ritual-items" },
+            { name: "Services", link: "/bride/christian/services" },
+          ],
+        },
+        {
+          name: "Universal Bride Items",
+          icon: Cross,
+          pages: [
+            { name: "General Essentials", link: "/bride/universal-bridal-items/general-essentials" },
+            { name: "Pre-Wedding Items", link: "/bride/universal-bridal-items/pre-wedding" },
+            { name: "Gift Items", link: "/bride/universal-bridal-items/gift-items" },
           ],
         },
       ],
@@ -429,7 +439,7 @@ const Navbar = () => {
               <h3 className="text-xl xl:text-2xl font-bold text-gray-900 mb-6 uppercase tracking-wide">
                 {navigationLinks[openDropdown].heading}
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-8">
                 {navigationLinks[openDropdown].hasCategories &&
                 navigationLinks[openDropdown].categories ? (
                   navigationLinks[openDropdown].categories.map((category, cIdx) => (

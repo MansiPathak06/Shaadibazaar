@@ -25,6 +25,7 @@ import ShowCase3 from "@/components/ShowCase3";
 import ShowCase4 from "@/components/ShowCase4";
 import MiddleBar from "@/components/Middlebar";
 import Collection1 from "@/components/Collection1";
+import Footer from "@/components/Footer";
 
 
 const page = () => {
@@ -44,6 +45,7 @@ const page = () => {
 
 
       <BannerCollection />
+      <Footer/>
 
     </div>
   );
