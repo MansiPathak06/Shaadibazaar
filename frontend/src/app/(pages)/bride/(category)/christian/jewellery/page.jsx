@@ -51,7 +51,7 @@ image:
 name: "Tiara Accessories",
 items: "10 Items",
 image:
-"https://i.pinimg.com/736x/c2/59/5a/c2595afd0d36ea399e56cf9c4aa14c25.jpg",
+"https://i.pinimg.com/1200x/a6/d1/4c/a6d14c94023bd3bcf3832e2f13257064.jpg",
 },
 {
 name: "Rings",
