@@ -150,9 +150,8 @@ const Navbar = () => {
           name: "Universal Groom Items",
           icon: Cross,
           pages: [
-            { name: "Groom Wear Essentials", link: "/groom/christian/groom-wear" },
-            { name: "Groom Perfume", link: "/groom/christian/ritual-items" },
-            { name: "Gifts", link: "/groom/christian/services" },
+            { name: "Groom Wear Essentials", link: "/groom/universal-groom-items/general-essentials" },
+            { name: "Gifts", link: "/groom/universal-groom-items/gifts" },
           
           ],
         },
