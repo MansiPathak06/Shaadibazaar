@@ -5,16 +5,16 @@ const ChristianBridalPage = () => {
   const [showAllCategories, setShowAllCategories] = useState(false);
   
   const categories = [
-    { name: 'Bridal Makeup & Hair', items: 45, image: 'https://via.placeholder.com/400x400?text=Bridal+Makeup' },
-    { name: 'Gown Tailoring', items: 32, image: 'https://via.placeholder.com/400x400?text=Gown+Tailoring' },
-    { name: 'Manicure & Nails', items: 28, image: 'https://via.placeholder.com/400x400?text=Manicure+%26+Nails' },
-    { name: 'Bridal Photoshoot', items: 38, image: 'https://via.placeholder.com/400x400?text=Bridal+Photoshoot' },
-    { name: 'Church Choir', items: 15, image: 'https://via.placeholder.com/400x400?text=Church+Choir' },
-    { name: 'Wedding Planner', items: 22, image: 'https://via.placeholder.com/400x400?text=Wedding+Planner' },
-    { name: 'Bridal Bouquet', items: 35, image: 'https://via.placeholder.com/400x400?text=Bridal+Bouquet' },
-    { name: 'Wedding Veil', items: 25, image: 'https://via.placeholder.com/400x400?text=Wedding+Veil' },
-    { name: 'Bridal Accessories', items: 40, image: 'https://via.placeholder.com/400x400?text=Bridal+Accessories' },
-    { name: 'Wedding Invitations', items: 30, image: 'https://via.placeholder.com/400x400?text=Wedding+Invitations' }
+    { name: 'Bridal Makeup & Hair', items: 45, image: 'https://i.pinimg.com/736x/c6/c1/7a/c6c17ad5650f10b7033550859752fcf9.jpg' },
+    { name: 'Gown Tailoring', items: 32, image: 'https://i.pinimg.com/736x/80/ac/32/80ac320ce4768c005c872a7df4b15128.jpg' },
+    { name: 'Manicure & Nails', items: 28, image: 'https://i.pinimg.com/736x/e0/2a/df/e02adfe185d4420081631a3c4f1f763a.jpg' },
+    { name: 'Bridal Photoshoot', items: 38, image: 'https://i.pinimg.com/1200x/a8/6c/95/a86c95cea8d04f15a32210e30a8bb3c5.jpg' },
+    { name: 'Church Choir', items: 15, image: 'https://i.pinimg.com/736x/87/42/7d/87427d49d83a5ae182e27b81bb8c10f2.jpg' },
+    { name: 'Wedding Planner', items: 22, image: 'https://i.pinimg.com/736x/1c/9c/75/1c9c75e023dd7b360fd27ee8705f6572.jpg' },
+    { name: 'Bridal Bouquet', items: 35, image: 'https://i.pinimg.com/736x/54/74/dc/5474dcfa1d4460961738ac3da0ab217c.jpg' },
+    { name: 'Wedding Veil', items: 25, image: 'https://i.pinimg.com/1200x/b8/b2/27/b8b22721c6dc4abde9c60f582a8cd455.jpg' },
+    { name: 'Bridal Accessories', items: 40, image: 'https://i.pinimg.com/1200x/17/ea/f1/17eaf1ede8babc3f2173162256decc0a.jpg' },
+    { name: 'Wedding Invitations', items: 30, image: 'https://i.pinimg.com/1200x/ec/ef/c9/ecefc95160bfe9936d528fd09300489d.jpg' }
   ];
 
   return (
@@ -24,7 +24,7 @@ const ChristianBridalPage = () => {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://via.placeholder.com/1920x400?text=Christian+Bridal+Background" 
+            src="https://i.pinimg.com/736x/9d/02/0d/9d020d09b72a9deda93e12045c91e483.jpg" 
             alt="Christian Bridal Services Background"
             className="w-full h-full object-cover"
           />
@@ -111,7 +111,7 @@ const ChristianBridalPage = () => {
           {/* Bridal Makeup Card */}
           <div className="relative h-80 rounded-xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
             <img 
-              src="https://via.placeholder.com/600x800?text=Premium+Bridal+Makeup" 
+              src="https://i.pinimg.com/1200x/dc/3e/3d/dc3e3d296b565d735d5ca36b5e893880.jpg" 
               alt="Premium Bridal Makeup"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
@@ -132,7 +132,7 @@ const ChristianBridalPage = () => {
           {/* Gown Tailoring Card */}
           <div className="relative h-80 rounded-xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
             <img 
-              src="https://via.placeholder.com/600x800?text=Custom+Gown+Tailoring" 
+              src="https://i.pinimg.com/1200x/df/48/ff/df48ff6643b0997b78b9cf1a59c430c2.jpg" 
               alt="Custom Gown Tailoring"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
@@ -153,7 +153,7 @@ const ChristianBridalPage = () => {
           {/* Wedding Planner Card */}
           <div className="relative h-80 rounded-xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
             <img 
-              src="https://via.placeholder.com/600x800?text=Wedding+Planning+Services" 
+              src="https://i.pinimg.com/736x/ce/a5/08/cea508866f75e704cd7daa5cf242b65f.jpg" 
               alt="Wedding Planning Services"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
