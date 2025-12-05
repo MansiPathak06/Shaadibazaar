@@ -9,37 +9,37 @@ const PreWeddingPage = () => {
     { 
       name: 'Pre-bridal Package', 
       items: '15 Packages', 
-      image: 'https://via.placeholder.com/400x300?text=Pre-bridal+Package',
+      image: 'https://i.pinimg.com/736x/ff/a1/f2/ffa1f2edb50196451f35ad564dcb4c1e.jpg',
       description: 'Complete beauty transformation for your special day'
     },
     { 
       name: 'Spa Services', 
       items: '20 Treatments', 
-      image: 'https://via.placeholder.com/400x300?text=Spa+Services',
+      image: 'https://i.pinimg.com/736x/e9/ae/70/e9ae708944a296977491e4dcd0199c53.jpg',
       description: 'Relaxation and rejuvenation therapy'
     },
     { 
       name: 'Facial Treatments', 
       items: '12 Options', 
-      image: 'https://via.placeholder.com/400x300?text=Facial+Treatments',
+      image: 'https://i.pinimg.com/736x/86/a8/05/86a805c94bec1f6ba8c7fba054b5959b.jpg',
       description: 'Glowing skin for your big day'
     },
     { 
       name: 'Manicure & Pedicure', 
       items: '18 Styles', 
-      image: 'https://via.placeholder.com/400x300?text=Manicure+Pedicure',
+      image: 'https://i.pinimg.com/736x/5a/2d/a2/5a2da272f5d641418635146a8ea293c7.jpg',
       description: 'Perfect hands and feet grooming'
     },
     { 
       name: 'Nail Extensions', 
       items: '25 Designs', 
-      image: 'https://via.placeholder.com/400x300?text=Nail+Extensions',
+      image: 'https://i.pinimg.com/736x/8f/54/89/8f5489c49480b58d145077f7dd54a588.jpg',
       description: 'Stunning nail art and extensions'
     },
     { 
       name: 'Hair Coloring', 
       items: '30 Shades', 
-      image: 'https://via.placeholder.com/400x300?text=Hair+Coloring',
+      image: 'https://i.pinimg.com/1200x/23/02/82/2302823f50fecfb378d3195c0834776d.jpg',
       description: 'Transform your look with vibrant colors'
     }
   ];
@@ -51,7 +51,7 @@ const PreWeddingPage = () => {
       originalPrice: '$599',
       price: '$419',
       tag: 'Most Popular',
-      image: 'https://via.placeholder.com/600x400?text=Bridal+Package',
+      image: 'https://i.pinimg.com/736x/2f/ac/29/2fac29140b3e78f3e7bf6540e565c219.jpg',
       services: ['Full Body Spa', 'Facial Treatment', 'Manicure & Pedicure', 'Hair Styling'],
       duration: '6 Hours',
       rating: 4.9
@@ -62,7 +62,7 @@ const PreWeddingPage = () => {
       originalPrice: '$799',
       price: '$599',
       tag: 'Premium Choice',
-      image: 'https://via.placeholder.com/600x400?text=Spa+Retreat',
+      image: 'https://i.pinimg.com/1200x/4a/57/1f/4a571fe4b3f4f8eece5395f8354fd21f.jpg',
       services: ['Aromatherapy', 'Body Massage', 'Steam Bath', 'Skin Polishing'],
       duration: '8 Hours',
       rating: 4.8
@@ -77,7 +77,7 @@ const PreWeddingPage = () => {
       duration: '90 min',
       rating: 4.9,
       reviews: 234,
-      image: 'https://via.placeholder.com/400x400?text=Gold+Facial',
+      image: 'https://i.pinimg.com/736x/2f/5d/cf/2f5dcfd75256fc8578b3d9734edfc248.jpg',
       salon: 'Bella Beauty Studio',
       location: 'Downtown',
       bestseller: true
@@ -89,7 +89,7 @@ const PreWeddingPage = () => {
       duration: '120 min',
       rating: 4.8,
       reviews: 189,
-      image: 'https://via.placeholder.com/400x400?text=Spa+Therapy',
+      image: 'https://i.pinimg.com/1200x/01/64/33/0164335901e7bcb07c6b2e7e30280c1d.jpg',
       salon: 'Serenity Spa',
       location: 'Uptown'
     },
@@ -100,7 +100,7 @@ const PreWeddingPage = () => {
       duration: '75 min',
       rating: 4.7,
       reviews: 312,
-      image: 'https://via.placeholder.com/400x400?text=Manicure+Pedicure',
+      image: 'https://i.pinimg.com/736x/d6/30/04/d63004813c51215d0ffccf8efe5ffd23.jpg',
       salon: 'Nail Paradise',
       location: 'City Center',
       trending: true
@@ -112,7 +112,7 @@ const PreWeddingPage = () => {
       duration: '120 min',
       rating: 4.9,
       reviews: 278,
-      image: 'https://via.placeholder.com/400x400?text=Nail+Extensions',
+      image: 'https://i.pinimg.com/1200x/3c/b7/bb/3cb7bb2b4c7bc6653846d20cb6c49450.jpg',
       salon: 'Glamour Nails',
       location: 'Mall Road'
     },
@@ -123,7 +123,7 @@ const PreWeddingPage = () => {
       duration: '180 min',
       rating: 4.8,
       reviews: 156,
-      image: 'https://via.placeholder.com/400x400?text=Hair+Coloring',
+      image: 'https://i.pinimg.com/736x/02/ee/cf/02eecf92ff19ca06b3b7086f631b9628.jpg',
       salon: 'Hair Haven',
       location: 'Fashion District',
       bestseller: true
@@ -135,7 +135,7 @@ const PreWeddingPage = () => {
       duration: '100 min',
       rating: 4.9,
       reviews: 201,
-      image: 'https://via.placeholder.com/400x400?text=Diamond+Facial',
+      image: 'https://i.pinimg.com/736x/c7/41/3e/c7413e1f7fcd0c04471b9b5b9287c9f1.jpg',
       salon: 'Elite Beauty',
       location: 'Downtown'
     },
@@ -146,7 +146,7 @@ const PreWeddingPage = () => {
       duration: '150 min',
       rating: 4.7,
       reviews: 143,
-      image: 'https://via.placeholder.com/400x400?text=Aromatherapy',
+      image: 'https://i.pinimg.com/736x/b1/53/b6/b153b64c37217537d29946c4cf24caac.jpg',
       salon: 'Tranquil Touch',
       location: 'Spa District'
     },
@@ -157,7 +157,7 @@ const PreWeddingPage = () => {
       duration: '60 min',
       rating: 4.6,
       reviews: 267,
-      image: 'https://via.placeholder.com/400x400?text=French+Manicure',
+      image: 'https://i.pinimg.com/1200x/a6/12/95/a612952fe2a4516f5461ddcb78229129.jpg',
       salon: 'Polished Perfection',
       location: 'Westside'
     }
@@ -169,7 +169,7 @@ const PreWeddingPage = () => {
       service: 'Ultimate Bridal Package',
       rating: 5,
       comment: 'Absolutely amazing experience! The pre-bridal package made me feel like a princess. Every detail was perfect.',
-      image: 'https://via.placeholder.com/100x100?text=Customer',
+      image: 'https://i.pinimg.com/1200x/c6/9b/71/c69b711faef902370793cd623380e145.jpg',
       date: '2 days ago'
     },
     {
@@ -177,7 +177,7 @@ const PreWeddingPage = () => {
       service: 'Spa & Facial Combo',
       rating: 5,
       comment: 'The spa treatment was so relaxing and the facial gave me the glow I wanted for my wedding. Highly recommend!',
-      image: 'https://via.placeholder.com/100x100?text=Customer',
+      image: '',
       date: '1 week ago'
     },
     {
@@ -185,7 +185,7 @@ const PreWeddingPage = () => {
       service: 'Nail Extensions & Hair Color',
       rating: 5,
       comment: 'The nail extensions were gorgeous and lasted through all my wedding events. The hair color was exactly what I envisioned.',
-      image: 'https://via.placeholder.com/100x100?text=Customer',
+      image: 'https://i.pinimg.com/736x/c7/48/71/c748710e9a9682b542203136314421b9.jpg',
       date: '2 weeks ago'
     }
   ];
@@ -234,7 +234,7 @@ const PreWeddingPage = () => {
             <div className="hidden md:block">
               <div className="relative">
                 <img 
-                  src="https://via.placeholder.com/600x700?text=Bridal+Beauty" 
+                  src="https://i.pinimg.com/736x/c4/a0/62/c4a062383b4900d59fcb94665361a9a7.jpg" 
                   alt="Pre-Wedding Beauty"
                   className="rounded-3xl shadow-2xl"
                 />
@@ -513,7 +513,7 @@ const PreWeddingPage = () => {
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
               <img 
-                src="https://via.placeholder.com/500x600?text=Happy+Bride" 
+                src="https://i.pinimg.com/1200x/8e/e0/e1/8ee0e14032c2fc23be6e7fc01ce182cf.jpg" 
                 alt="Happy Bride"
                 className="w-full h-full object-cover rounded-xl"
               />

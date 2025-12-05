@@ -15,51 +15,51 @@ const GroomWearPage = () => {
   const categories = [
     {
       name: "Sherwani / Achkan",
-      image: "https://i.pinimg.com/564x/your-image-1.jpg"
+      image: ""
     },
     {
       name: "Kurta-Pajama",
-      image: "https://i.pinimg.com/564x/your-image-2.jpg"
+      image: ""
     },
     {
       name: "Dhoti-Kurta",
-      image: "https://i.pinimg.com/564x/your-image-3.jpg"
+      image: ""
     },
     {
       name: "Safa / Turban",
-      image: "https://i.pinimg.com/564x/your-image-4.jpg"
+      image: ""
     },
     {
       name: "Stole / Dupatta",
-      image: "https://i.pinimg.com/564x/your-image-5.jpg"
+      image: ""
     },
     {
       name: "Sehra",
-      image: "https://i.pinimg.com/564x/your-image-6.jpg"
+      image: ""
     },
     {
       name: "Turban Brooch",
-      image: "https://i.pinimg.com/564x/your-image-7.jpg"
+      image: ""
     },
     {
       name: "Mojari / Jutti",
-      image: "https://i.pinimg.com/564x/your-image-8.jpg"
+      image: ""
     },
     {
       name: "Cufflinks",
-      image: "https://i.pinimg.com/564x/your-image-9.jpg"
+      image: ""
     },
     {
       name: "Wristwatch",
-      image: "https://i.pinimg.com/564x/your-image-10.jpg"
+      image: ""
     },
     {
       name: "Rudraksha / Pearl Mala",
-      image: "https://i.pinimg.com/564x/your-image-11.jpg"
+      image: ""
     },
     {
       name: "Perfume / Attar",
-      image: "https://i.pinimg.com/564x/your-image-12.jpg"
+      image: ""
     }
   ];
 
