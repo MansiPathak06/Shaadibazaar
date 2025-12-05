@@ -1,17 +1,36 @@
 "use client";
 import React from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const SikhBridalWearPage = () => {
+  const router = useRouter();
+
   // Hero images (top section - 4 images)
-  // Replace these with your Pinterest links later
   const heroImages = [
-    "https://i.pinimg.com/736x/d3/a5/9f/d3a59f4709b7ad407e874ef142bfe88b.jpg",
-    "https://i.pinimg.com/736x/db/83/4d/db834d8034d3ab5541e781bec7857f4e.jpg",
-    "https://i.pinimg.com/736x/a3/d8/37/a3d837941894f859713aaabdc956acdc.jpg",
-    "https://i.pinimg.com/736x/57/9f/ee/579feeb1733abe1f19f4fb448a048fc8.jpg",
+    {
+      url: "https://i.pinimg.com/736x/d3/a5/9f/d3a59f4709b7ad407e874ef142bfe88b.jpg",
+      title: "Punjabi Suit",
+      subCategory: "punjabi-suit-anarkali-lehenga"
+    },
+    {
+      url: "https://i.pinimg.com/736x/db/83/4d/db834d8034d3ab5541e781bec7857f4e.jpg",
+      title: "Anarkali Ensemble",
+      subCategory: "anarkali-suit"
+    },
+    {
+      url: "https://i.pinimg.com/736x/a3/d8/37/a3d837941894f859713aaabdc956acdc.jpg",
+      title: "Bridal Lehenga",
+      subCategory: "bridal-lehenga"
+    },
+    {
+      url: "https://i.pinimg.com/736x/57/9f/ee/579feeb1733abe1f19f4fb448a048fc8.jpg",
+      title: "Traditional Attire",
+      subCategory: "punjabi-suit"
+    },
   ];
 
-  // Category collections (bottom section - 6 categories as per your image)
+  // Category collections (bottom section - 5 categories)
   const categories = [
     {
       slug: "punjabi-suit-anarkali-lehenga",
@@ -45,10 +64,12 @@ const SikhBridalWearPage = () => {
     },
   ];
 
-  const handleCategoryClick = (slug) => {
-    console.log(`Navigating to: /sikh-bridal-wear/${slug}`);
-    // In a real Next.js app, you would use: router.push(`/sikh-bridal-wear/${slug}`)
-    alert(`Navigate to: /sikh-bridal-wear/${slug}`);
+  const handleCategoryClick = (subCategory) => {
+    router.push(`/bride/all-products?category=bridal-wear&subCategory=${encodeURIComponent(subCategory)}`);
+  };
+
+  const handleHeroImageClick = (subCategory) => {
+    router.push(`/bride/all-products?category=bridal-wear&subCategory=${encodeURIComponent(subCategory)}`);
   };
 
   return (
@@ -71,36 +92,39 @@ const SikhBridalWearPage = () => {
             </p>
           </div>
           
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
-  {heroImages.map((image, index) => (
-    <div
-      key={index}
-      className="relative group"
-    >
-      <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-2xl relative">
-        <img
-          src={image}
-          alt={`Sikh bridal collection ${index + 1}`}
-          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-        />
-        {/* Dark gradient for readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
+            {heroImages.map((image, index) => (
+              <div
+                key={index}
+                className="relative group cursor-pointer"
+                onClick={() => handleHeroImageClick(image.subCategory)}
+              >
+                <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-2xl relative">
+                  <img
+                    src={image.url}
+                    alt={image.title}
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                  {/* Dark gradient for readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
 
-        {/* Text on the image at bottom */}
-        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[90%] text-center">
-          <p className="text-gray-400 text-sm md:text-base backdrop-blur font-medium drop-shadow-md">
-            {/* Put the name you want for each hero image here */}
-            {index === 0 && "Punjabi Suit"}
-            {index === 1 && "Anarkali Ensemble"}
-            {index === 2 && "Bridal Lehenga"}
-            {index === 3 && "Traditional Attire"}
-          </p>
-        </div>
-      </div>
-    </div>
-  ))}
-</div>
+                  {/* Text on the image at bottom */}
+                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[90%] text-center">
+                    <p className="text-white text-sm md:text-base backdrop-blur font-medium drop-shadow-md group-hover:text-amber-200 transition-colors">
+                      {image.title}
+                    </p>
+                  </div>
 
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-orange-900/0 group-hover:bg-orange-900/20 transition-colors duration-300 flex items-center justify-center">
+                    <span className="text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      View Collection
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -200,12 +224,12 @@ const SikhBridalWearPage = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="flex justify-center">
-  <img
-    src="https://i.pinimg.com/736x/bd/49/8b/bd498babb0dda804d8728b9158e691ab.jpg"
-    alt="About Sikh Bridal Wear"
-    className="rounded-lg shadow-2xl w-78 object-cover"
-  />
-</div>
+              <img
+                src="https://i.pinimg.com/736x/bd/49/8b/bd498babb0dda804d8728b9158e691ab.jpg"
+                alt="About Sikh Bridal Wear"
+                className="rounded-lg shadow-2xl w-78 object-cover"
+              />
+            </div>
 
             <div>
               <h2 className="text-3xl font-bold text-orange-900 mb-6 uppercase tracking-wide">
@@ -262,14 +286,15 @@ const SikhBridalWearPage = () => {
             Explore our comprehensive collection of Sikh bridal essentials that honor tradition while embracing contemporary style. From the iconic Punjabi suit with vibrant phulkari work to elegant juttis and essential accessories, find everything to create your perfect bridal look.
           </p>
           <div className="text-center">
-            <button className="bg-orange-900 text-white px-8 py-3 rounded-full hover:bg-orange-800 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+            <button 
+              onClick={() => router.push('/bride/all-products?category=bridal-wear')}
+              className="bg-orange-900 text-white px-8 py-3 rounded-full hover:bg-orange-800 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            >
               EXPLORE ALL COLLECTIONS
             </button>
           </div>
         </div>
       </div>
-
-      
     </div>
   );
 };

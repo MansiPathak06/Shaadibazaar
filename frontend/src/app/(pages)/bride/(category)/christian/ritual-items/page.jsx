@@ -1,38 +1,36 @@
 "use client";
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 const ChristianBridalItemsPage = () => {
   const [showAllCategories, setShowAllCategories] = useState(false);
   
   const categories = [
-    { name: 'Wedding Rings', items: 42, image: 'https://i.pinimg.com/1200x/12/bd/ec/12bdec92a5563b6b75339890f87a5016.jpg' },
-    { name: 'Holy Bible', items: 28, image: 'https://i.pinimg.com/1200x/1e/e7/3f/1ee73f92c311d738b4185442201ae825.jpg' },
-    { name: 'Bridal Bouquet', items: 35, image: 'https://i.pinimg.com/1200x/f2/85/b0/f285b0c51dd735092be426188666ee75.jpg' },
-    { name: 'Unity Candle Set', items: 24, image: 'https://i.pinimg.com/1200x/1e/6a/62/1e6a62a094e0adea6626772371c5ac46.jpg' },
-    { name: 'Car Decoration', items: 18, image: 'https://i.pinimg.com/736x/ad/ad/db/adaddb01b8e5ab22971cd26428b5c1f4.jpg' },
-    { name: 'Flower Basket', items: 31, image: 'https://i.pinimg.com/1200x/0d/5e/b7/0d5eb7653de37a47961c231c0c185dc6.jpg' },
-    { name: 'Wedding Veil', items: 22, image: 'https://i.pinimg.com/1200x/ce/49/06/ce49069571a44876d3e32df60cb843b3.jpg' },
-    { name: 'Ring Pillow', items: 19, image: 'https://i.pinimg.com/736x/95/95/19/95951941f2d0834833a336438c3be481.jpg' },
-    { name: 'Communion Set', items: 16, image: 'https://i.pinimg.com/1200x/d5/aa/0d/d5aa0dc684c9b89a2d901171ec224369.jpg' },
-    { name: 'Church Aisle Decor', items: 27, image: 'https://i.pinimg.com/1200x/8b/51/ce/8b51ce95f758c6090c0619bab85d5c9e.jpg' }
+    { name: 'Wedding Rings', items: 42, image: 'https://i.pinimg.com/1200x/12/bd/ec/12bdec92a5563b6b75339890f87a5016.jpg', slug: 'wedding-rings' },
+    { name: 'Holy Bible', items: 28, image: 'https://i.pinimg.com/1200x/1e/e7/3f/1ee73f92c311d738b4185442201ae825.jpg', slug: 'holy-bible' },
+    { name: 'Bridal Bouquet', items: 35, image: 'https://i.pinimg.com/1200x/f2/85/b0/f285b0c51dd735092be426188666ee75.jpg', slug: 'bridal-bouquet' },
+    { name: 'Unity Candle Set', items: 24, image: 'https://i.pinimg.com/1200x/1e/6a/62/1e6a62a094e0adea6626772371c5ac46.jpg', slug: 'unity-candle-set' },
+    { name: 'Car Decoration', items: 18, image: 'https://i.pinimg.com/736x/ad/ad/db/adaddb01b8e5ab22971cd26428b5c1f4.jpg', slug: 'car-decoration' },
+    { name: 'Flower Basket', items: 31, image: 'https://i.pinimg.com/1200x/0d/5e/b7/0d5eb7653de37a47961c231c0c185dc6.jpg', slug: 'flower-basket' },
+    { name: 'Wedding Veil', items: 22, image: 'https://i.pinimg.com/1200x/ce/49/06/ce49069571a44876d3e32df60cb843b3.jpg', slug: 'wedding-veil' },
+    { name: 'Ring Pillow', items: 19, image: 'https://i.pinimg.com/736x/95/95/19/95951941f2d0834833a336438c3be481.jpg', slug: 'ring-pillow' },
+    { name: 'Communion Set', items: 16, image: 'https://i.pinimg.com/1200x/d5/aa/0d/d5aa0dc684c9b89a2d901171ec224369.jpg', slug: 'communion-set' },
+    { name: 'Church Aisle Decor', items: 27, image: 'https://i.pinimg.com/1200x/8b/51/ce/8b51ce95f758c6090c0619bab85d5c9e.jpg', slug: 'church-aisle-decor' }
   ];
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
+      {/* Hero Section - keep as is */}
       <div className="relative py-8 px-4 mx-15 overflow-hidden">
-        {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
             src="https://i.pinimg.com/736x/c9/26/b9/c926b904bf5405eae7ed1b7546721222.jpg" 
             alt="Christian Wedding Ritual Items Background"
             className="w-full h-full object-cover"
           />
-          {/* Lighter overlay for better visibility */}
           <div className="absolute inset-0 bg-gradient-to-r from-white/15 via-blue-50/70 to-purple-50/75"></div>
         </div>
 
-        {/* Content */}
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="max-w-2xl">
             <h1 className="text-3xl md:text-4xl font-serif text-gray-900 mb-2 leading-tight drop-shadow-sm">
@@ -48,7 +46,6 @@ const ChristianBridalItemsPage = () => {
           </div>
         </div>
 
-        {/* Decorative Elements */}
         <div className="absolute top-4 right-10 w-24 h-24 bg-blue-300/40 rounded-full blur-3xl z-0"></div>
         <div className="absolute bottom-4 right-32 w-28 h-28 bg-purple-300/40 rounded-full blur-3xl z-0"></div>
       </div>
@@ -71,11 +68,12 @@ const ChristianBridalItemsPage = () => {
           </div>
         </div>
 
-        {/* Category Grid */}
+        {/* Category Grid - NOW CLICKABLE */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-8">
           {(showAllCategories ? categories : categories.slice(0, 5)).map((category, index) => (
-            <div 
+            <Link 
               key={index}
+              href={`/bride/all-products?category=ritual-items&subCategory=${category.slug}`}
               className="bg-white rounded-lg overflow-hidden h-[300px] shadow-sm hover:shadow-md transition-shadow cursor-pointer group"
             >
               <div className="aspect-square bg-gray-100 overflow-hidden">
@@ -89,7 +87,7 @@ const ChristianBridalItemsPage = () => {
                 <h3 className="font-medium text-gray-800 mb-1">{category.name}</h3>
                 <p className="text-sm text-gray-500">({category.items} Items)</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
@@ -105,10 +103,12 @@ const ChristianBridalItemsPage = () => {
           </div>
         )}
 
-        {/* Featured Products Section */}
+        {/* Featured Products Section - ALSO CLICKABLE */}
         <div className="grid md:grid-cols-3 gap-6 mb-12">
-          {/* Premium Wedding Rings Card */}
-          <div className="relative h-80 rounded-xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+          <Link 
+            href="/bride/all-products?category=ritual-items&subCategory=wedding-rings"
+            className="relative h-80 rounded-xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+          >
             <img 
               src="https://i.pinimg.com/1200x/f9/72/5c/f9725ce1e77dbd010d5597d97d1b8865.jpg" 
               alt="Premium Wedding Rings"
@@ -122,14 +122,16 @@ const ChristianBridalItemsPage = () => {
               <h3 className="text-xl font-serif text-white mb-2">
                 Premium Wedding Rings
               </h3>
-              <button className="text-white font-medium text-sm hover:text-blue-200 transition-colors flex items-center gap-2">
+              <span className="text-white font-medium text-sm hover:text-blue-200 transition-colors flex items-center gap-2">
                 Shop Now →
-              </button>
+              </span>
             </div>
-          </div>
+          </Link>
 
-          {/* Unity Candle Set Card */}
-          <div className="relative h-80 rounded-xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+          <Link 
+            href="/bride/all-products?category=ritual-items&subCategory=unity-candle-set"
+            className="relative h-80 rounded-xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+          >
             <img 
               src="https://i.pinimg.com/1200x/72/f5/fb/72f5fb2f264bd762a12599b8f4ad3cfc.jpg" 
               alt="Unity Candle Set"
@@ -143,14 +145,16 @@ const ChristianBridalItemsPage = () => {
               <h3 className="text-xl font-serif text-white mb-2">
                 Unity Candle Set
               </h3>
-              <button className="text-white font-medium text-sm hover:text-blue-200 transition-colors flex items-center gap-2">
+              <span className="text-white font-medium text-sm hover:text-blue-200 transition-colors flex items-center gap-2">
                 Shop Now →
-              </button>
+              </span>
             </div>
-          </div>
+          </Link>
 
-          {/* Bridal Bouquet Card */}
-          <div className="relative h-80 rounded-xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+          <Link 
+            href="/bride/all-products?category=ritual-items&subCategory=bridal-bouquet"
+            className="relative h-80 rounded-xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+          >
             <img 
               src="https://i.pinimg.com/736x/fc/e8/72/fce872c57d7b393661c1cace0d2cfae6.jpg" 
               alt="Elegant Bridal Bouquet"
@@ -164,13 +168,12 @@ const ChristianBridalItemsPage = () => {
               <h3 className="text-xl font-serif text-white mb-2">
                 Elegant Bridal Bouquet
               </h3>
-              <button className="text-white font-medium text-sm hover:text-blue-200 transition-colors flex items-center gap-2">
+              <span className="text-white font-medium text-sm hover:text-blue-200 transition-colors flex items-center gap-2">
                 Shop Now →
-              </button>
+              </span>
             </div>
-          </div>
+          </Link>
         </div>
-
       </div>
 
       {/* Settings Icon (decorative) */}

@@ -1,124 +1,143 @@
 "use client";
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 const BridalJewelleryPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Hero slides data
+  // Hero slides data (add slug to map to subCategory)
   const heroSlides = [
     {
       title: "Gold Earrings For Women",
       subtitle: "Bridal Jewelry | Necklaces | Earrings | Bangles",
       image:
         "https://i.pinimg.com/736x/4d/41/00/4d410002514c0de148970724c507dadc.jpg",
+      slug: "earrings",
     },
     {
       title: "Elegant Bridal Sets",
       subtitle: "Complete Your Wedding Look",
       image:
         "https://i.pinimg.com/1200x/48/b6/af/48b6af99941cf25e19eecc7e73d076ac.jpg",
+      slug: "necklace-set",
     },
     {
       title: "Traditional Ornaments",
       subtitle: "Timeless Beauty For Your Special Day",
       image:
         "https://i.pinimg.com/736x/6b/a3/30/6ba330be3271d9c3a4d003634df26dca.jpg",
+      slug: "rani-haar",
     },
   ];
 
-  // Bridal jewellery categories
+  // Bridal jewellery categories (add slug matching your admin subCategory)
   const categories = [
     {
       name: "Maang Tikka",
+      slug: "maang-tikka",
       items: "15 Items",
       image:
         "https://i.pinimg.com/736x/2d/92/67/2d9267e1b41c1ed144a2c214b98d9882.jpg",
     },
     {
       name: "Matha Patti",
+      slug: "matha-patti",
       items: "12 Items",
       image:
         "https://i.pinimg.com/736x/13/2b/52/132b529955979ef1d5c31987126f110e.jpg",
     },
     {
       name: "Nath (nose ring)",
+      slug: "nath",
       items: "20 Items",
       image:
         "https://i.pinimg.com/736x/a3/d0/6e/a3d06e3844834b663f494314715798b7.jpg",
     },
     {
       name: "Earrings (jhumka/chandbali)",
+      slug: "earrings",
       items: "35 Items",
       image:
         "https://i.pinimg.com/736x/17/58/c7/1758c7b1c56ea1db1c412446bc6f04a7.jpg",
     },
     {
       name: "Necklace (choker + long set)",
+      slug: "necklace-set",
       items: "25 Items",
       image:
         "https://i.pinimg.com/1200x/64/3c/0c/643c0c918f71c73cfa3860a418b2d03e.jpg",
     },
     {
       name: "Rani Haar",
+      slug: "rani-haar",
       items: "18 Items",
       image:
         "https://i.pinimg.com/1200x/02/3c/42/023c425c0301126a2bf91da1844a8685.jpg",
     },
     {
       name: "Kada/Choodi (bangles)",
+      slug: "kada-choodi",
       items: "30 Items",
       image:
         "https://i.pinimg.com/736x/62/68/6d/62686d5cb53b10a8adc8f10444e5bd97.jpg",
     },
     {
       name: "Hathphool",
+      slug: "hathphool",
       items: "22 Items",
       image:
         "https://i.pinimg.com/1200x/ec/f7/f3/ecf7f351488ad7d491f3e489e4010522.jpg",
     },
     {
       name: "Kamarbandh",
+      slug: "kamarbandh",
       items: "10 Items",
       image:
         "https://i.pinimg.com/1200x/2f/bb/c5/2fbbc5a6cd5a9f3364c3f70e45b3829e.jpg",
     },
     {
       name: "Payal (anklets)",
+      slug: "payal",
       items: "16 Items",
       image:
         "https://i.pinimg.com/1200x/76/6c/13/766c13a92cf490892d04e4af08467364.jpg",
     },
     {
       name: "Bichhiya (toe rings)",
+      slug: "bichhiya",
       items: "14 Items",
       image:
         "https://i.pinimg.com/736x/34/26/78/3426789864cdaa1ddeec8a14fa51ecc7.jpg",
     },
     {
       name: "Ring Set",
+      slug: "ring-set",
       items: "28 Items",
       image:
         "https://i.pinimg.com/736x/e7/c9/6a/e7c96a61cb18721b966bb15efa783386.jpg",
     },
     {
       name: "Bridal Chooda",
+      slug: "chooda",
       items: "12 Items",
       image:
         "https://i.pinimg.com/1200x/a5/ab/5b/a5ab5bf58783ccd2c6c1ab62693fa76c.jpg",
     },
     {
       name: "Kalira",
+      slug: "kalira",
       items: "8 Items",
       image:
         "https://i.pinimg.com/736x/42/81/fe/4281fe6f8bdc456a428b8f2e8ac2c9b6.jpg",
     },
   ];
 
-  // Trending products
+  // Trending products (map name -> slug for filters)
   const trendingProducts = [
     {
       name: "Maang Tikka",
+      slug: "maang-tikka",
       price: "₹15,999",
       oldPrice: "₹19,999",
       badge: "NEW",
@@ -127,6 +146,7 @@ const BridalJewelleryPage = () => {
     },
     {
       name: "Mattha Patti",
+      slug: "matha-patti",
       price: "₹28,999",
       image:
         "https://i.pinimg.com/1200x/04/d5/b4/04d5b48911c3af2679d714465628d149.jpg",
@@ -134,12 +154,14 @@ const BridalJewelleryPage = () => {
 
     {
       name: "Nath (Nose Ring)",
+      slug: "nath",
       price: "₹8,999",
       image:
         "https://i.pinimg.com/1200x/29/d9/4e/29d94e9df797fe543f46f89e6bf64f13.jpg",
     },
     {
       name: "Earrings (jhumka/chandbali)",
+      slug: "earrings",
       price: "₹12,999",
       oldPrice: "₹16,999",
       badge: "NEW",
@@ -148,12 +170,14 @@ const BridalJewelleryPage = () => {
     },
     {
       name: "Necklace (choker/long set)",
+      slug: "necklace-set",
       price: "₹9,999",
       image:
         "https://i.pinimg.com/1200x/2b/87/74/2b8774e9c44f664a217c8595aada50f0.jpg",
     },
     {
       name: "Rani Haar",
+      slug: "rani-haar",
       price: "₹32,999",
       oldPrice: "₹39,999",
       badge: "25% OFF",
@@ -162,12 +186,14 @@ const BridalJewelleryPage = () => {
     },
     {
       name: "Kada/Choodi (bangles)",
+      slug: "kada-choodi",
       price: "₹18,999",
       image:
         "https://i.pinimg.com/1200x/d5/29/b4/d529b463cab93e8d2562018d8f893467.jpg",
     },
     {
       name: "Hathphool",
+      slug: "hathphool",
       price: "₹15,999",
       oldPrice: "₹19,999",
       badge: "NEW",
@@ -176,12 +202,14 @@ const BridalJewelleryPage = () => {
     },
     {
       name: "Kamarbandh",
+      slug: "kamarbandh",
       price: "₹28,999",
       image:
         "https://i.pinimg.com/1200x/c9/d1/e2/c9d1e26c179791a585ed11fafcf1a868.jpg",
     },
     {
       name: "Payal (anklets)",
+      slug: "payal",
       price: "₹45,999",
       oldPrice: "₹55,999",
       badge: "25% OFF",
@@ -190,12 +218,14 @@ const BridalJewelleryPage = () => {
     },
     {
       name: "Bichhiya (toe rings)",
+      slug: "bichhiya",
       price: "₹8,999",
       image:
         "https://i.pinimg.com/736x/e2/24/76/e2247687f8b0e7f829f2ea27423e17f7.jpg",
     },
     {
       name: "Ring Set",
+      slug: "ring-set",
       price: "₹12,999",
       oldPrice: "₹16,999",
       badge: "NEW",
@@ -204,12 +234,14 @@ const BridalJewelleryPage = () => {
     },
     {
       name: "Bridal Chooda",
+      slug: "chooda",
       price: "₹9,999",
       image:
         "https://i.pinimg.com/736x/ae/39/ba/ae39ba62847db7c717954ebc471db95d.jpg",
     },
     {
       name: "Kalira",
+      slug: "kalira",
       price: "₹32,999",
       oldPrice: "₹39,999",
       badge: "25% OFF",
@@ -237,7 +269,11 @@ const BridalJewelleryPage = () => {
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
           {heroSlides.map((slide, index) => (
-            <div key={index} className="min-w-full h-full relative">
+            <Link
+              key={index}
+              href={`/bride/all-products?category=jewellery&subCategory=${slide.slug}`}
+              className="min-w-full h-full relative block"
+            >
               <img
                 src={slide.image}
                 alt={slide.title}
@@ -253,13 +289,13 @@ const BridalJewelleryPage = () => {
                       {slide.title}
                     </h1>
                     <p className="text-gray-600 mb-6">{slide.subtitle}</p>
-                    <button className="bg-amber-600 text-white px-8 py-3 rounded hover:bg-amber-700 transition-colors">
+                    <span className="bg-amber-600 text-white px-8 py-3 rounded hover:bg-amber-700 transition-colors inline-block">
                       SHOP NOW
-                    </button>
+                    </span>
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
@@ -301,8 +337,9 @@ const BridalJewelleryPage = () => {
           <div className="relative overflow-hidden">
             <div className="flex animate-marquee gap-8">
               {[...categories, ...categories].map((category, index) => (
-                <div
+                <Link
                   key={index}
+                  href={`/bride/all-products?category=jewellery&subCategory=${category.slug}`}
                   className="flex-shrink-0 w-40 text-center group cursor-pointer"
                 >
                   <div className="relative mb-4 overflow-hidden rounded-full">
@@ -315,7 +352,7 @@ const BridalJewelleryPage = () => {
                   <h3 className="text-sm font-medium text-gray-800 mb-1">
                     {category.name.toUpperCase()}
                   </h3>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -325,7 +362,10 @@ const BridalJewelleryPage = () => {
       {/* Featured Collections */}
       <div className="max-w-7xl mx-auto px-8 py-16">
         <div className="grid md:grid-cols-2 gap-8">
-          <div className="relative overflow-hidden rounded-lg group cursor-pointer">
+          <Link
+            href="/bride/all-products?category=jewellery&subCategory=necklace-set"
+            className="relative overflow-hidden rounded-lg group cursor-pointer"
+          >
             <img
               src="https://i.pinimg.com/1200x/5d/12/ae/5d12aed9a8ed0258ad94e50dd500c589.jpg"
               alt="Traditional Sets"
@@ -335,13 +375,16 @@ const BridalJewelleryPage = () => {
               <h3 className="text-white text-2xl font-light mb-2">
                 Traditional Bridal Sets
               </h3>
-              <button className="text-white text-sm uppercase tracking-wide hover:underline w-fit">
+              <span className="text-white text-sm uppercase tracking-wide hover:underline w-fit">
                 SHOP NOW
-              </button>
+              </span>
             </div>
-          </div>
+          </Link>
 
-          <div className="relative overflow-hidden rounded-lg group cursor-pointer">
+          <Link
+            href="/bride/all-products?category=jewellery&subCategory=bracelet"
+            className="relative overflow-hidden rounded-lg group cursor-pointer"
+          >
             <img
               src="https://i.pinimg.com/736x/94/c6/0b/94c60bd0033acaa87a177bb01194bd05.jpg"
               alt="Gold Filled Bracelets"
@@ -351,11 +394,11 @@ const BridalJewelleryPage = () => {
               <h3 className="text-white text-2xl font-light mb-2">
                 Best Gold Filled Bracelets
               </h3>
-              <button className="text-white text-sm uppercase tracking-wide hover:underline w-fit">
+              <span className="text-white text-sm uppercase tracking-wide hover:underline w-fit">
                 SHOP NOW
-              </button>
+              </span>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
 
@@ -379,8 +422,9 @@ const BridalJewelleryPage = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {trendingProducts.map((product, index) => (
-              <div
+              <Link
                 key={index}
+                href={`/bride/all-products?category=jewellery&subCategory=${product.slug}`}
                 className="bg-white rounded-lg overflow-hidden group cursor-pointer shadow-sm hover:shadow-xl transition-shadow"
               >
                 <div className="relative overflow-hidden">
@@ -396,17 +440,22 @@ const BridalJewelleryPage = () => {
                   />
                 </div>
                 <div className="p-4 text-center">
-                  <h3 className="text-sm text-gray-800 mb-2">{product.name}</h3>
-                  <div className="flex items-center justify-center gap-2"></div>
+                  <h3 className="text-sm text-gray-800 mb-2">
+                    {product.name}
+                  </h3>
+                  
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
           <div className="text-center">
-            <button className="group mt-12 relative inline-flex items-center gap-3 bg-amber-600 text-white px-12 py-4 rounded-full text-lg font-medium hover:bg-amber-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+            <Link
+              href="/bride/all-products?category=jewellery"
+              className="group mt-12 relative inline-flex items-center gap-3 bg-amber-600 text-white px-12 py-4 rounded-full text-lg font-medium hover:bg-amber-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+            >
               <span>EXPLORE FULL COLLECTION</span>
               <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </Link>
           </div>
         </div>
       </div>

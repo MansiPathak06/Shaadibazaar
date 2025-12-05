@@ -1,16 +1,17 @@
 "use client";
 import React from 'react';
+import Link from 'next/link';
 
 const ChristianBridalWearPage = () => {
   // Hero images (top section - 4 images)
   const heroImages = [
     "https://i.pinimg.com/736x/c6/b4/3b/c6b43b6e8dc8f4a39d784bc7cb45c3b4.jpg", // Wedding gown
+    "https://i.pinimg.com/1200x/59/ef/7c/59ef7c7e56d7c1c0233001af8978cf51.jpg", // Church wedding
     "https://i.pinimg.com/736x/ae/4a/df/ae4adf3a3c548c3b01eafe43fdd37b5a.jpg", // Bridal veil
-    "https://i.pinimg.com/736x/7d/1d/7d/7d1d7d82785b1793db0f71786a948883.jpg", // Church wedding
     "https://i.pinimg.com/736x/21/aa/aa/21aaaab38b3ada5a2c8d596a93d36c49.jpg", // Bridal accessories
   ];
 
-  // Category collections (bottom section - 10 images)
+  // Category collections (bottom section - 9 images)
   const categories = [
     {
       slug: "wedding-gown",
@@ -68,12 +69,6 @@ const ChristianBridalWearPage = () => {
     },
   ];
 
-  const handleCategoryClick = (slug) => {
-    console.log(`Navigating to: /christian-bridal-wear/${slug}`);
-    // In a real Next.js app, you would use: router.push(`/christian-bridal-wear/${slug}`)
-    alert(`Navigate to: /christian-bridal-wear/${slug}`);
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-purple-50">
       {/* Hero Section */}
@@ -94,33 +89,50 @@ const ChristianBridalWearPage = () => {
             </p>
           </div>
           
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
-  {heroImages.map((image, index) => (
-    <div
-      key={index}
-      className="relative group"
-    >
-      <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-2xl relative">
-        <img
-          src={image}
-          alt={`Christian bridal collection ${index + 1}`}
-          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-        />
-        {/* Dark gradient for readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
+  {heroImages.map((image, index) => {
+    // Map each hero image to its corresponding subcategory
+    const heroLinks = [
+      "wedding-gown",      // Index 0
+      "bridesmaid-dresses",       // Index 2 - general category (no subCategory)
+      "bridal-veil",       // Index 1
+      "bridal-wear"        // Index 3 - general category (no subCategory)
+    ];
+    
+    const heroLabels = [
+      "Wedding Gown",
+      "Bridesmaid Dresses",
+      "Bridal Veil",
+      "Bridal Elegance"
+    ];
 
-        {/* Text on the image at bottom */}
-        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[90%] text-center">
-          <p className="text-gray-400 text-sm md:text-base backdrop-blur font-medium drop-shadow-md">
-            {index === 0 && "Wedding Gown"}
-            {index === 1 && "Bridal Veil"}
-            {index === 2 && "Church Ceremony"}
-            {index === 3 && "Bridal Elegance"}
-          </p>
+    // Build the link URL
+    const linkUrl = index <= 1 
+      ? `/bride/all-products?category=bridal-wear&subCategory=${heroLinks[index]}`
+      : `/bride/all-products?category=bridal-wear`;
+
+    return (
+      <Link
+        key={index}
+        href={linkUrl}
+        className="relative group cursor-pointer"
+      >
+        <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-2xl relative">
+          <img
+            src={image}
+            alt={`Christian bridal collection ${index + 1}`}
+            className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[90%] text-center">
+            <p className="text-gray-400 text-sm md:text-base backdrop-blur font-medium drop-shadow-md">
+              {heroLabels[index]}
+            </p>
+          </div>
         </div>
-      </div>
-    </div>
-  ))}
+      </Link>
+    );
+  })}
 </div>
 
         </div>
@@ -175,10 +187,10 @@ const ChristianBridalWearPage = () => {
         
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-16">
           {categories.map((category, index) => (
-            <div
+            <Link
               key={index}
+              href={`/bride/all-products?category=bridal-wear&subCategory=${category.slug}`}
               className="group cursor-pointer"
-              onClick={() => handleCategoryClick(category.slug)}
             >
               <div className="bg-white rounded-lg shadow-lg overflow-hidden transform group-hover:scale-105 transition-all duration-300 group-hover:shadow-2xl">
                 <div className="aspect-[3/4] overflow-hidden relative">
@@ -212,7 +224,7 @@ const ChristianBridalWearPage = () => {
                   </button>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -222,12 +234,12 @@ const ChristianBridalWearPage = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="flex justify-center">
-  <img
-    src="https://i.pinimg.com/1200x/d3/83/35/d383357c93d6f6f6e477dd7c9c6981c9.jpg"
-    alt="About"
-    className="rounded-lg shadow-2xl w-78 object-cover"
-  />
-</div>
+              <img
+                src="https://i.pinimg.com/1200x/d3/83/35/d383357c93d6f6f6e477dd7c9c6981c9.jpg"
+                alt="About"
+                className="rounded-lg shadow-2xl w-78 object-cover"
+              />
+            </div>
 
             <div>
               <h2 className="text-3xl font-bold text-indigo-900 mb-6 uppercase tracking-wide">
@@ -284,14 +296,15 @@ const ChristianBridalWearPage = () => {
             Discover a divine collection of bridal essentials that will make your wedding ceremony truly memorable. From the perfect gown to the finest accessories, we have everything you need to complete your bridal look with grace and sophistication.
           </p>
           <div className="text-center">
-            <button className="bg-indigo-900 text-white px-8 py-3 rounded-full hover:bg-indigo-800 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+            <Link
+              href="/bride/all-products?category=bridal-wear"
+              className="inline-block bg-indigo-900 text-white px-8 py-3 rounded-full hover:bg-indigo-800 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            >
               EXPLORE ALL COLLECTIONS
-            </button>
+            </Link>
           </div>
         </div>
       </div>
-
-      
     </div>
   );
 };

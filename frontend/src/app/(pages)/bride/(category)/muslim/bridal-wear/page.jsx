@@ -1,13 +1,33 @@
 "use client";
 import React from 'react';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const MuslimBridalWearPage = () => {
+  const router = useRouter();
+
   // Hero images (top section - 4 images)
   const heroImages = [
-    "https://i.pinimg.com/736x/4a/19/4e/4a194ed3a97a0cc4cae6e805c8601cdb.jpg",
-    "https://i.pinimg.com/736x/50/2a/3a/502a3a85a18af5d6fda7b5e6aadc0271.jpg",
-    "https://i.pinimg.com/736x/d6/75/1b/d6751ba080963af7a6a9b6d9ee95cd42.jpg",
-    "https://i.pinimg.com/736x/cc/ab/60/ccab60af297369aff720565e2f7195a2.jpg",
+    {
+      image: "https://i.pinimg.com/736x/4a/19/4e/4a194ed3a97a0cc4cae6e805c8601cdb.jpg",
+      title: "Sharara Ensemble",
+      subCategory: "sharara-gharara"
+    },
+    {
+      image: "https://i.pinimg.com/736x/50/2a/3a/502a3a85a18af5d6fda7b5e6aadc0271.jpg",
+      title: "Bridal Lehenga",
+      subCategory: "bridal-lehenga"
+    },
+    {
+      image: "https://i.pinimg.com/736x/d6/75/1b/d6751ba080963af7a6a9b6d9ee95cd42.jpg",
+      title: "Anarkali Elegance",
+      subCategory: "anarkali-suit"
+    },
+    {
+      image: "https://i.pinimg.com/736x/cc/ab/60/ccab60af297369aff720565e2f7195a2.jpg",
+      title: "Nikah Attire",
+      subCategory: "bridal-lehenga"
+    },
   ];
 
   // Category collections (bottom section - 10 images)
@@ -74,10 +94,8 @@ const MuslimBridalWearPage = () => {
     },
   ];
 
-  const handleCategoryClick = (slug) => {
-    console.log(`Navigating to: /muslim/bridal-wear/${slug}`);
-    // In a real Next.js app, you would use: router.push(`/muslim/bridal-wear/${slug}`)
-    alert(`Navigate to: /muslim/bridal-wear/${slug}`);
+  const handleCategoryClick = (subCategory) => {
+    router.push(`/bride/all-products?category=bridalwear&subCategory=${subCategory}`);
   };
 
   return (
@@ -100,35 +118,39 @@ const MuslimBridalWearPage = () => {
             </p>
           </div>
           
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
-  {heroImages.map((image, index) => (
-    <div
-      key={index}
-      className="relative group"
-    >
-      <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-2xl relative">
-        <img
-          src={image}
-          alt={`Muslim bridal collection ${index + 1}`}
-          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-        />
-        {/* Dark gradient for readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
+            {heroImages.map((item, index) => (
+              <div
+                key={index}
+                className="relative group cursor-pointer"
+                onClick={() => handleCategoryClick(item.subCategory)}
+              >
+                <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-2xl relative">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                  {/* Dark gradient for readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
 
-        {/* Text on the image at bottom */}
-        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[90%] text-center">
-          <p className="text-gray-400 text-sm md:text-base backdrop-blur font-medium drop-shadow-md">
-            {index === 0 && "Sharara Ensemble"}
-            {index === 1 && "Bridal Lehenga"}
-            {index === 2 && "Anarkali Elegance"}
-            {index === 3 && "Nikah Attire"}
-          </p>
-        </div>
-      </div>
-    </div>
-  ))}
-</div>
+                  {/* Text on the image at bottom */}
+                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[90%] text-center">
+                    <p className="text-white text-sm md:text-base backdrop-blur font-medium drop-shadow-md">
+                      {item.title}
+                    </p>
+                  </div>
 
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-emerald-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span className="text-white text-lg font-semibold bg-emerald-900/80 px-4 py-2 rounded-full">
+                      View Products
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -193,7 +215,11 @@ const MuslimBridalWearPage = () => {
                     alt={category.title}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span className="text-white text-sm font-semibold bg-emerald-900/80 px-4 py-2 rounded-full">
+                      Explore Now
+                    </span>
+                  </div>
                 </div>
                 <div className="p-4 text-center">
                   <h3 className="font-semibold text-gray-800 mb-2 capitalize">
@@ -290,14 +316,14 @@ const MuslimBridalWearPage = () => {
             Explore our comprehensive range of modest bridal wear that beautifully combines Islamic values with contemporary fashion. From the perfect sharara to delicate accessories, we offer everything you need to make your Nikah day truly special while honoring your faith and traditions.
           </p>
           <div className="text-center">
-            <button className="bg-emerald-900 text-white px-8 py-3 rounded-full hover:bg-emerald-800 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-              EXPLORE ALL COLLECTIONS
-            </button>
+            <Link href="/bride/all-products?category=bridalwear">
+              <button className="bg-emerald-900 text-white px-8 py-3 rounded-full hover:bg-emerald-800 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                EXPLORE ALL COLLECTIONS
+              </button>
+            </Link>
           </div>
         </div>
       </div>
-
-      
     </div>
   );
 };

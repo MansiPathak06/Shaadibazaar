@@ -1,18 +1,19 @@
 "use client";
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 const SikhRitualItemsPage = () => {
   const [showAllCategories, setShowAllCategories] = useState(false);
   
   const categories = [
-    { name: 'Rumala Sahib Set', items: 28, image: 'https://i.pinimg.com/1200x/4f/cf/c3/4fcfc39b8727ffafaf31b11a0be69aa4.jpg' },
-    { name: 'Sweet Boxes', items: 35, image: 'https://i.pinimg.com/1200x/b0/59/71/b05971141a3c69325f2a6d0e4daeb597.jpg' },
-    { name: 'Coconut', items: 40, image: 'https://i.pinimg.com/736x/db/1f/91/db1f916a3300ea4e5937a42b87f3bc40.jpg' },
-    { name: 'Chooda Ceremony Items', items: 22, image: 'https://i.pinimg.com/736x/ac/f8/9d/acf89d89fd71ae8baf8c1488ea9ceba8.jpg' },
-    { name: 'Varmala', items: 18, image: 'https://i.pinimg.com/736x/82/3b/9e/823b9ec961728e490051088ed34948a0.jpg' },
-    { name: 'Gift Sets', items: 45, image: 'https://i.pinimg.com/1200x/9a/c8/7c/9ac87c7ad1c7ee6003fe281d0f57c1e6.jpg' },
-    { name: 'Flower Chadar', items: 25, image: 'https://i.pinimg.com/1200x/44/6d/c7/446dc7c0aa73f76bbebfb2067025078f.jpg' },
-    { name: 'Rumaal', items: 30, image: 'https://i.pinimg.com/736x/32/63/5f/32635fbcbd9dec910df5a56a5697c210.jpg' }
+    { name: 'Rumala Sahib Set', items: 28, image: 'https://i.pinimg.com/1200x/4f/cf/c3/4fcfc39b8727ffafaf31b11a0be69aa4.jpg', slug: 'rumala-sahib-set' },
+    { name: 'Sweet Boxes', items: 35, image: 'https://i.pinimg.com/1200x/b0/59/71/b05971141a3c69325f2a6d0e4daeb597.jpg', slug: 'sweet-boxes' },
+    { name: 'Coconut', items: 40, image: 'https://i.pinimg.com/736x/db/1f/91/db1f916a3300ea4e5937a42b87f3bc40.jpg', slug: 'coconut' },
+    { name: 'Chooda Ceremony Items', items: 22, image: 'https://i.pinimg.com/736x/ac/f8/9d/acf89d89fd71ae8baf8c1488ea9ceba8.jpg', slug: 'chooda-ceremony-items' },
+    { name: 'Varmala', items: 18, image: 'https://i.pinimg.com/736x/82/3b/9e/823b9ec961728e490051088ed34948a0.jpg', slug: 'varmala' },
+    { name: 'Gift Sets', items: 45, image: 'https://i.pinimg.com/1200x/9a/c8/7c/9ac87c7ad1c7ee6003fe281d0f57c1e6.jpg', slug: 'gift-sets' },
+    { name: 'Flower Chadar', items: 25, image: 'https://i.pinimg.com/1200x/44/6d/c7/446dc7c0aa73f76bbebfb2067025078f.jpg', slug: 'flower-chadar' },
+    { name: 'Rumaal', items: 30, image: 'https://i.pinimg.com/736x/32/63/5f/32635fbcbd9dec910df5a56a5697c210.jpg', slug: 'rumaal' }
   ];
 
   return (
@@ -40,9 +41,12 @@ const SikhRitualItemsPage = () => {
             <p className="text-gray-700 text-base mb-4 max-w-xl font-medium">
               Discover authentic Anand Karaj essentials crafted with devotion and tradition
             </p>
-            <button className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+            <Link 
+              href="/bride/all-products?category=ritual items"
+              className="inline-block bg-orange-600 hover:bg-orange-700 text-white px-8 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            >
               Shop Now
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -70,42 +74,46 @@ const SikhRitualItemsPage = () => {
         </div>
         
         {/* Category Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-8">
-        {(showAllCategories ? categories : categories.slice(0, 5)).map((category, index) => (
-          <div 
-            key={index}
-            className="bg-white rounded-lg overflow-hidden h-[300px] shadow-sm hover:shadow-md transition-shadow cursor-pointer group"
-          >
-            <div className="aspect-square bg-gray-100 overflow-hidden">
-              <img 
-                src={category.image} 
-                alt={category.name}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-              />
-            </div>
-            <div className="p-4 text-center">
-              <h3 className="font-medium text-gray-800 mb-1">{category.name}</h3>
-              <p className="text-sm text-gray-500">({category.items} Items)</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {categories.length > 5 && (
-        <div className="flex justify-center mb-12">
-          <button 
-            onClick={() => setShowAllCategories(prev => !prev)}
-            className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-lg text-sm font-medium transition-colors shadow-sm hover:shadow-md"
-          >
-            {showAllCategories ? "View Less" : "View More Categories"}
-          </button>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-8">
+          {(showAllCategories ? categories : categories.slice(0, 5)).map((category, index) => (
+            <Link 
+              key={index}
+              href={`/bride/all-products?category=ritual items&subCategory=${encodeURIComponent(category.slug)}`}
+              className="bg-white rounded-lg overflow-hidden h-[300px] shadow-sm hover:shadow-md transition-shadow cursor-pointer group"
+            >
+              <div className="aspect-square bg-gray-100 overflow-hidden">
+                <img 
+                  src={category.image} 
+                  alt={category.name}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+              </div>
+              <div className="p-4 text-center">
+                <h3 className="font-medium text-gray-800 mb-1">{category.name}</h3>
+                
+              </div>
+            </Link>
+          ))}
         </div>
-      )}
+
+        {categories.length > 5 && (
+          <div className="flex justify-center mb-12">
+            <button 
+              onClick={() => setShowAllCategories(prev => !prev)}
+              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-lg text-sm font-medium transition-colors shadow-sm hover:shadow-md"
+            >
+              {showAllCategories ? "View Less" : "View More Categories"}
+            </button>
+          </div>
+        )}
 
         {/* Featured Products Section */}
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           {/* Rumala Sahib Card */}
-          <div className="relative h-80 rounded-xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+          <Link 
+            href="/bride/all-products?category=ritual items&subCategory=rumala-sahib-set"
+            className="relative h-80 rounded-xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+          >
             <img 
               src="https://i.pinimg.com/1200x/e3/33/6d/e3336d546110a1eb70daa68ef8d5416e.jpg" 
               alt="Premium Rumala Sahib"
@@ -119,14 +127,17 @@ const SikhRitualItemsPage = () => {
               <h3 className="text-xl font-serif text-white mb-2">
                 Premium Rumala Sahib
               </h3>
-              <button className="text-white font-medium text-sm hover:text-orange-200 transition-colors flex items-center gap-2">
+              <span className="text-white font-medium text-sm hover:text-orange-200 transition-colors flex items-center gap-2">
                 Shop Now →
-              </button>
+              </span>
             </div>
-          </div>
+          </Link>
 
           {/* Flower Chadar Card */}
-          <div className="relative h-80 rounded-xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+          <Link 
+            href="/bride/all-products?category=ritual items&subCategory=flower-chadar"
+            className="relative h-80 rounded-xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+          >
             <img 
               src="https://i.pinimg.com/1200x/1f/b0/3c/1fb03c0808f1511e09ec468846702c25.jpg" 
               alt="Elegant Flower Chadar"
@@ -140,14 +151,17 @@ const SikhRitualItemsPage = () => {
               <h3 className="text-xl font-serif text-white mb-2">
                 Elegant Flower Chadar
               </h3>
-              <button className="text-white font-medium text-sm hover:text-orange-200 transition-colors flex items-center gap-2">
+              <span className="text-white font-medium text-sm hover:text-orange-200 transition-colors flex items-center gap-2">
                 Shop Now →
-              </button>
+              </span>
             </div>
-          </div>
+          </Link>
 
           {/* Chooda Set Card */}
-          <div className="relative h-80 rounded-xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+          <Link 
+            href="/bride/all-products?category=ritual items&subCategory=chooda-ceremony-items"
+            className="relative h-80 rounded-xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+          >
             <img 
               src="https://i.pinimg.com/736x/5d/6c/5a/5d6c5a2763e3583283aefd836a976dcc.jpg" 
               alt="Traditional Chooda Set"
@@ -161,11 +175,11 @@ const SikhRitualItemsPage = () => {
               <h3 className="text-xl font-serif text-white mb-2">
                 Traditional Chooda Set
               </h3>
-              <button className="text-white font-medium text-sm hover:text-orange-200 transition-colors flex items-center gap-2">
+              <span className="text-white font-medium text-sm hover:text-orange-200 transition-colors flex items-center gap-2">
                 Shop Now →
-              </button>
+              </span>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
 
@@ -209,9 +223,12 @@ const SikhRitualItemsPage = () => {
                 <span className="text-orange-600">✓</span> Coconut & Offerings
               </li>
             </ul>
-            <button className="w-full bg-orange-600 hover:bg-orange-700 text-white py-2.5 rounded-lg text-sm font-medium transition-colors group-hover:shadow-md">
+            <Link 
+              href="/bride/all-products?category=ritual items"
+              className="block w-full bg-orange-600 hover:bg-orange-700 text-white py-2.5 rounded-lg text-sm font-medium transition-colors group-hover:shadow-md text-center"
+            >
               Explore Anand Karaj Items →
-            </button>
+            </Link>
           </div>
 
           {/* Chooda Ceremony Card */}
@@ -233,9 +250,12 @@ const SikhRitualItemsPage = () => {
                 <span className="text-orange-600">✓</span> Gift Presentation Sets
               </li>
             </ul>
-            <button className="w-full bg-orange-600 hover:bg-orange-700 text-white py-2.5 rounded-lg text-sm font-medium transition-colors group-hover:shadow-md">
+            <Link 
+              href="/bride/all-products?category=ritual items&subCategory=chooda-ceremony-items"
+              className="block w-full bg-orange-600 hover:bg-orange-700 text-white py-2.5 rounded-lg text-sm font-medium transition-colors group-hover:shadow-md text-center"
+            >
               Explore Chooda Items →
-            </button>
+            </Link>
           </div>
 
           {/* Festive & Gurpurab Card */}
@@ -257,9 +277,12 @@ const SikhRitualItemsPage = () => {
                 <span className="text-orange-600">✓</span> Festival Gift Sets
               </li>
             </ul>
-            <button className="w-full bg-orange-600 hover:bg-orange-700 text-white py-2.5 rounded-lg text-sm font-medium transition-colors group-hover:shadow-md">
+            <Link 
+              href="/bride/all-products?category=ritual items"
+              className="block w-full bg-orange-600 hover:bg-orange-700 text-white py-2.5 rounded-lg text-sm font-medium transition-colors group-hover:shadow-md text-center"
+            >
               Explore Festive Items →
-            </button>
+            </Link>
           </div>
         </div>
 
