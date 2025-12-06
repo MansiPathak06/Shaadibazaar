@@ -15,51 +15,51 @@ const GroomWearPage = () => {
   const categories = [
     {
       name: "Sherwani / Achkan",
-      image: ""
+      image: "https://i.pinimg.com/1200x/08/52/86/0852865bef32a5b168c190f27cc1871d.jpg"
     },
     {
       name: "Kurta-Pajama",
-      image: ""
+      image: "https://i.pinimg.com/736x/a3/ad/e0/a3ade063f790275a02d1e95c60ff52a8.jpg"
     },
     {
       name: "Dhoti-Kurta",
-      image: ""
+      image: "https://i.pinimg.com/1200x/39/18/2e/39182e12b82a24931eefe339d08a4987.jpg"
     },
     {
       name: "Safa / Turban",
-      image: ""
+      image: "https://i.pinimg.com/1200x/14/7e/52/147e5251429e9f1e5576a19c2a2a899b.jpg"
     },
     {
       name: "Stole / Dupatta",
-      image: ""
+      image: "https://i.pinimg.com/1200x/21/c3/32/21c3328e370f0b906511d626f86c3ec0.jpg"
     },
     {
       name: "Sehra",
-      image: ""
+      image: "https://i.pinimg.com/736x/95/12/4b/95124b812501040acfd4a59c9d9e89dc.jpg"
     },
     {
       name: "Turban Brooch",
-      image: ""
+      image: "https://i.pinimg.com/736x/0d/a7/a9/0da7a9360a7d63cf392c31c038605e4d.jpg"
     },
     {
       name: "Mojari / Jutti",
-      image: ""
+      image: "https://i.pinimg.com/736x/e1/4d/66/e14d66a581b524b4a1d8080bf3567432.jpg"
     },
     {
       name: "Cufflinks",
-      image: ""
+      image: "https://i.pinimg.com/1200x/b5/8b/48/b58b48830b1f9ac13b4729dfe087a24d.jpg"
     },
     {
       name: "Wristwatch",
-      image: ""
+      image: "https://i.pinimg.com/1200x/09/e7/2b/09e72be546c81d86cdc2185c0fe02b14.jpg"
     },
     {
       name: "Rudraksha / Pearl Mala",
-      image: ""
+      image: "https://i.pinimg.com/736x/0b/13/1d/0b131d62301c27fc01df9b73d30abc48.jpg"
     },
     {
       name: "Perfume / Attar",
-      image: ""
+      image: "https://i.pinimg.com/736x/79/21/79/79217913bb0355eef8c15b7d09849fa3.jpg"
     }
   ];
 
@@ -80,7 +80,7 @@ const GroomWearPage = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1606800052052-a08af7148866?w=1200')`,
+            backgroundImage: `url('https://i.pinimg.com/1200x/78/16/62/781662a8459d3076f72e380e7105ea4b.jpg')`,
           }}
         />
         <div className="absolute inset-0 bg-black/40" />

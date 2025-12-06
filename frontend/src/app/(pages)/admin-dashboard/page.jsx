@@ -1187,7 +1187,11 @@ export default function AdminDashboard() {
                                 {productForm.category === "jewellery" && (
                                   <Gem className="w-5 h-5 text-[#F04393]" />
                                 )}
-                                {productForm.category === "Bags And Purse" && (
+                               
+                                {productForm.category === "ritual items" && (
+                                  <ShoppingBag className="w-5 h-5 text-[#F04393]" />
+                                )}
+                                {productForm.category === "bridal services" && (
                                   <ShoppingBag className="w-5 h-5 text-[#F04393]" />
                                 )}
                                 {productForm.category === "watches" && (
@@ -1202,7 +1206,7 @@ export default function AdminDashboard() {
                                 {productForm.category === "perfumes" && (
                                   <Sparkles className="w-5 h-5 text-[#F04393]" />
                                 )}
-                                {productForm.category === "bridalwear" && (
+                                {productForm.category === "Bridal-Wear" && (
                                   <Heart className="w-5 h-5 text-[#F04393]" />
                                 )}
                                 {productForm.category === "groomwear" && (
@@ -1239,6 +1243,8 @@ export default function AdminDashboard() {
                               >
                                 <option value="">Select Category</option>
                                 <option value="jewellery">Jewellery</option>
+                                <option value="ritual items">Ritual Items</option>
+                                <option value="bridal services">Bridal Services</option>
                                 <option value="Bags And Purse">
                                   Bag And Purse
                                 </option>
@@ -1274,7 +1280,7 @@ export default function AdminDashboard() {
                           {productForm.category === "bridalwear" && (
                             <div className="mt-6">
                               <label className="block text-md font-medium text-gray-700 mb-2">
-                                Bridal Sub‑Category *
+                                Bridal Wear Sub‑Category *
                               </label>
                               <select
                                 required
@@ -1290,18 +1296,144 @@ export default function AdminDashboard() {
                                 <option value="">
                                   Select bridal sub‑category
                                 </option>
-                                <option value="lehenga">Lehenga</option>
-                                <option value="saree">Saree</option>
-                                <option value="gown">Gown</option>
-                                <option value="reception">
-                                  Reception Wear
+                                <option value="bridal-lehenga">Bridal Lehenga</option>
+                                <option value="dupatta">Dupatta(Veil)</option>
+                                <option value="blouse">Bridal Blouse</option>
+                                <option value="laktkans">
+                                Latkans for Lehenga
                                 </option>
-                                <option value="custom">Custom Tailoring</option>
+                                <option value="underskirt">Underskirt</option>
+                                <option value="bridalheels">Bridal Heels</option>
+                                <option value="bridalsandals">Bridal Sandals</option>
+                                <option value="handclutch">Hand Clutch</option>
+                                <option value="bridalrobe">Bridal Robe</option>
+                                <option value="sharara-gharara">Sharara / Gharara</option>
+                                <option value="anarkali-suit">Anarkali Suit</option>
+                                <option value="bridal-hijab-dupatta">Bridal Hijab / Dupatta</option>
+                                <option value="bridal-burqa">Bridal Burqa (optional)</option>
+                                <option value="lehenga">Lehenga</option>
+                                <option value="bridal-robe-for-makeup">Bridal Robe for Makeup</option>
+                                <option value="bridal-footwear">Bridal Footwear</option>
+                                <option value="punjabi-suit">Punjabi Suit / Anarkali / Lehenga</option>
+                                <option value="phulkari-dupatta">Phulkari Dupatta</option>
+                                <option value="bridal-jutti">Bridal Jutti</option>
+                                <option value="chuni">Chuni</option>
+                                <option value="bridal-robe">Bridal Robe</option>
+                                <option value="wedding-gown">Wedding Gown</option>
+                                <option value="bridal-veil">Bridal Veil</option>
+                                <option value="gloves">Gloves</option>
+                                <option value="bridal-shoes-heels">Bridal Shoes / Heels</option>
+                                <option value="hair-tiara">Hair Tiara</option>
+                                <option value="petticoat">Petticoat</option>
+                                <option value="bouquet">Bouquet</option>
+                                <option value="bridesmaid-dresses">Bridesmaid Dresses</option>
+
+                                
                               </select>
-                              <p className="text-xs text-gray-500 mt-1">
-                                Yeh values front‑end URLs me use hongi
-                                (subCategory=lehenga, saree, etc.).
-                              </p>
+                             
+                            </div>
+                          )}
+                          {productForm.category === "bridal services" && (
+                            <div className="mt-6">
+                              <label className="block text-md font-medium text-gray-700 mb-2">
+                                Bridal Services Sub‑Category *
+                              </label>
+                              <select
+                                required
+                                value={productForm.subCategory}
+                                onChange={(e) =>
+                                  setProductForm({
+                                    ...productForm,
+                                    subCategory: e.target.value,
+                                  })
+                                }
+                                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#F04393] focus:border-transparent transition-all"
+                              >
+                                <option value="">
+                                  Select bridal services sub‑category
+                                </option>
+                                <option value="bridal-makeup">Bridal Makeup (HD/Airbrush)</option>
+<option value="bridal-hairstyle">Bridal Hairstyle</option>
+<option value="mehendi-artist">Mehendi Artist</option>
+<option value="pre-bridal-package">Pre-Bridal Package</option>
+<option value="spa-facial">Spa & Facial</option>
+<option value="ubtan-ceremony-setup">Ubtan Ceremony Setup</option>
+<option value="bridal-photoshoot">Bridal Photoshoot</option>
+<option value="saree-draping-artist">Saree Draping Artist</option>
+<option value="lehenga-pinning-expert">Lehenga Pinning Expert</option>
+<option value="hijab-styling">Hijab Styling</option>
+<option value="car-decoration">Car Decoration</option>
+<option value="stage-decoration">Stage Decoration</option>
+<option value="sikh-bridal-makeup">Sikh Bridal Makeup</option>
+<option value="chooda-ceremony-expert">Chooda Ceremony Expert</option>
+<option value="kaleera-photoshoot">Kaleera Photoshoot</option>
+<option value="hair-accessories">Hair Accessories</option>
+<option value="doli-arrangement">Doli Arrangement</option>
+<option value="bhangra-team">Bhangra Team</option>
+<option value="bridal-makeup-hair">Bridal Makeup & Hair</option>
+<option value="gown-tailoring">Gown Tailoring</option>
+<option value="manicure-nails">Manicure & Nails</option>
+<option value="church-choir">Church Choir</option>
+<option value="wedding-planner">Wedding Planner</option>
+
+                               
+
+                                
+                              </select>
+                             
+                            </div>
+                          )}
+                          {productForm.category === "ritual items" && (
+                            <div className="mt-6">
+                              <label className="block text-md font-medium text-gray-700 mb-2">
+                               Ritual Items Sub‑Category *
+                              </label>
+                              <select
+                                required
+                                value={productForm.subCategory}
+                                onChange={(e) =>
+                                  setProductForm({
+                                    ...productForm,
+                                    subCategory: e.target.value,
+                                  })
+                                }
+                                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#F04393] focus:border-transparent transition-all"
+                              >
+                                <option value="">
+                                  Select ritual items sub‑category
+                                </option>
+                                <option value="haldi-ubtan">Haldi Ubtan</option>
+                                <option value="mehendi-cones">Mehendi Cones</option>
+<option value="chooda">Chooda</option>
+<option value="kalire">Kalire</option>
+<option value="varmala">Varmala</option>
+<option value="pooja-thali">Pooja Thali</option>
+<option value="sindoor-box">Sindoor Box</option>
+<option value="mangalsutra">Mangalsutra</option>
+<option value="kanyadaan-items">Kanyadaan Items</option>
+<option value="coconut">Coconut</option>
+<option value="cloth-for-muhurat">Cloth for Muhurat</option>
+<option value="nikahnama-folder">Nikahnama Folder</option>
+<option value="quran-tasbeeh">Quran / Tasbeeh</option>
+<option value="mehr-gift-items">Mehr Gift Items</option>
+<option value="perfume-attar">Perfume Attar</option>
+<option value="bride-entry-flowers">Bride Entry Flowers</option>
+<option value="sweet-boxes">Sweet Boxes</option>
+<option value="engagement-rings">Engagement Rings</option>
+<option value="rukhsati-outfits">Rukhsati Outfits</option>
+<option value="rumala-sahib-set">Rumala Sahib Set</option>
+<option value="chooda-ceremony-items">Chooda Ceremony Items</option>
+<option value="gift-sets">Gift Sets</option>
+<option value="flower-chadar">Flower Chadar</option>
+<option value="rumaal">Rumaal</option>
+<option value="wedding-rings">Wedding Rings</option>
+<option value="bible">Bible</option>
+<option value="bouquet">Bouquet</option>
+<option value="unity-candle-set">Unity Candle Set</option>
+<option value="car-decoration">Car Decoration</option>
+<option value="flower-basket">Flower Basket</option>
+                              </select>
+                             
                             </div>
                           )}
 
@@ -1325,13 +1457,28 @@ export default function AdminDashboard() {
                                 <option value="">
                                   Select jewellery sub‑category
                                 </option>
-                                <option value="gold">Gold</option>
-                                <option value="diamond">Diamond</option>
-                                <option value="kundan-polki">
-                                  Kundan / Polki
-                                </option>
-                                <option value="artificial">Artificial</option>
-                                <option value="chooda">Bridal Chooda</option>
+                                <option value="maang-tikka">Maang Tikka</option>
+<option value="matha-patti">Matha Patti</option>
+<option value="maang-tikka-jhoomar">Maang Tikka / Jhoomar</option>
+<option value="nath">Nath (Nose Ring)</option>
+<option value="nose-studs">Nose Studs</option>
+<option value="earrings">Earrings (Jhumka / Chandbali)</option>
+<option value="necklace-set">Necklace Set (Choker / Longset)</option>
+<option value="rani-haar">Rani Haar</option>
+<option value="kada-choodi">Kada / Choodi (Bangles)</option>
+<option value="kamarbandh">Kamar Bandh</option>
+<option value="hathphool">Hathphool</option>
+<option value="bracelet">Bracelet</option>
+<option value="ring-set">Ring Set</option>
+<option value="bichhiya">Bichhiya (Toe Rings)</option>
+<option value="payal">Payal (Anklets)</option>
+<option value="chooda">Bridal Chooda</option>
+<option value="kalira">Kalira</option>
+<option value="hair-jewellery">Hair Jewellery</option>
+<option value="hair-accessories">Hair Accessories</option>
+<option value="tiara-accessories">Tiara Accessories</option>
+
+
                               </select>
                             </div>
                           )}

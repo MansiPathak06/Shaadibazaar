@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 const MuslimRitualItemsPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -11,134 +12,150 @@ const MuslimRitualItemsPage = () => {
       title: "Nikahnama Folder & Certificate",
       subtitle: "Muslim Wedding | Nikah Items | Mehr Gifts | Attar",
       image:
-        "https://i.pinimg.com/1200x/f0/c0/6d/f0c06d079a1f1b78baa7b684ea837db9.jpg", // Replace with a nikah folder/Pinterest image
+        "https://i.pinimg.com/1200x/f0/c0/6d/f0c06d079a1f1b78baa7b684ea837db9.jpg",
     },
     {
       title: "Quran & Tasbeeh Sets",
       subtitle: "Sacred Gifts for Bride & Groom",
       image:
-        "https://i.pinimg.com/1200x/a4/ad/46/a4ad46b240ff0a9240065a57f9daf016.jpg", // Replace with Quran/tasbeeh image
+        "https://i.pinimg.com/1200x/a4/ad/46/a4ad46b240ff0a9240065a57f9daf016.jpg",
     },
     {
       title: "Mehr & Engagement Gifts",
       subtitle: "Traditional & Modern Muslim Wedding Gifts",
       image:
-        "https://i.pinimg.com/1200x/10/94/5a/10945a9eb4d3d002efdfaef81b792a7c.jpg", // Replace with mehr/engagement gift image
+        "https://i.pinimg.com/1200x/10/94/5a/10945a9eb4d3d002efdfaef81b792a7c.jpg",
     },
   ];
 
-  // Categories for Muslim Ritual Items
+  // Categories for Muslim Ritual Items - with subcategory values
   const categories = [
     {
       name: "Nikahnama Folder",
       items: "15 Items",
+      subCategory: "nikahnama-folder", // URL-friendly value
       image:
-        "https://i.pinimg.com/1200x/eb/7c/39/eb7c39bf4e3191041fc2790c9afd8e2e.jpg", // Replace with nikah folder image
+        "https://i.pinimg.com/1200x/eb/7c/39/eb7c39bf4e3191041fc2790c9afd8e2e.jpg",
     },
     {
       name: "Quran / Tasbeeh",
       items: "12 Items",
+      subCategory: "quran-tasbeeh",
       image:
-        "https://i.pinimg.com/736x/0a/e1/0b/0ae10ba66e3d2e6f6f975f11313b59d9.jpg", // Replace with Quran/tasbeeh image
+        "https://i.pinimg.com/736x/0a/e1/0b/0ae10ba66e3d2e6f6f975f11313b59d9.jpg",
     },
     {
       name: "Mehr Gift Items",
       items: "20 Items",
+      subCategory: "mehr-gift-items",
       image:
-        "https://i.pinimg.com/1200x/da/c2/c0/dac2c0c5783bc3bc407b54068e66f537.jpg", // Replace with mehr gift box image
+        "https://i.pinimg.com/1200x/da/c2/c0/dac2c0c5783bc3bc407b54068e66f537.jpg",
     },
     {
       name: "Perfume / Attar",
       items: "35 Items",
+      subCategory: "perfume-attar",
       image:
-        "https://i.pinimg.com/736x/c4/6b/ee/c46bee70a0657e2e07379867dd6948ca.jpg", // Replace with attar set image
+        "https://i.pinimg.com/736x/c4/6b/ee/c46bee70a0657e2e07379867dd6948ca.jpg",
     },
     {
       name: "Bride Entry Flowers",
       items: "25 Items",
+      subCategory: "bride-entry-flowers",
       image:
-        "https://i.pinimg.com/736x/a5/53/3b/a5533b9c23ee7d5d078f2327742e26f6.jpg", // Replace with floral entry decor image
+        "https://i.pinimg.com/736x/a5/53/3b/a5533b9c23ee7d5d078f2327742e26f6.jpg",
     },
     {
       name: "Sweet Boxes",
       items: "18 Items",
+      subCategory: "sweet-boxes",
       image:
-        "https://i.pinimg.com/1200x/bc/c4/eb/bcc4ebd40fe3da84db61782718990583.jpg", // Replace with nikah sweet box image
+        "https://i.pinimg.com/1200x/bc/c4/eb/bcc4ebd40fe3da84db61782718990583.jpg",
     },
     {
       name: "Engagement Rings",
       items: "30 Items",
+      subCategory: "engagement-rings",
       image:
-        "https://i.pinimg.com/736x/23/d6/04/23d60413192f88392dfcb7dcaf2d2193.jpg", // Replace with engagement ring image
+        "https://i.pinimg.com/736x/23/d6/04/23d60413192f88392dfcb7dcaf2d2193.jpg",
     },
     {
       name: "Rukhsati Outfits",
       items: "22 Items",
+      subCategory: "rukhsati-outfits",
       image:
-        "https://i.pinimg.com/736x/01/3e/08/013e08383c5e564aa57200085d890294.jpg", // Replace with rukhsati outfit image
+        "https://i.pinimg.com/736x/01/3e/08/013e08383c5e564aa57200085d890294.jpg",
     },
   ];
 
   // Trending Muslim Ritual Items
   const trendingProducts = [
-    {
-      name: "Nikahnama Folder",
-      price: "₹1,499",
-      oldPrice: "₹1,999",
-      badge: "NEW",
-      image:
-        "https://i.pinimg.com/1200x/7b/37/a4/7b37a476138d9da299a2e4a644fb7422.jpg", // Replace with folder image
-    },
-    {
-      name: "Quran & Tasbeeh Set",
-      price: "₹2,299",
-      image:
-        "https://i.pinimg.com/1200x/86/b0/98/86b09803ba1ad802249caf7e4880f329.jpg", // Replace with Quran/tasbeeh set
-    },
-    {
-      name: "Mehr Gift Box",
-      price: "₹1,899",
-      badge: "25% OFF",
-      image:
-        "https://i.pinimg.com/1200x/51/3c/d1/513cd119ec94376b0d0c381cdc3b7126.jpg", // Replace with mehr gift box
-    },
-    {
-      name: "Perfume / Attar Set",
-      price: "₹1,299",
-      oldPrice: "₹1,699",
-      badge: "NEW",
-      image:
-        "https://i.pinimg.com/1200x/63/82/f1/6382f13750cacc1f6cc93799dbe17f2d.jpg", // Replace with attar set
-    },
-    {
-      name: "Bride Entry Flowers",
-      price: "₹999",
-      image:
-        "https://i.pinimg.com/736x/43/92/74/439274156c82902a2723d533c5ebb1b8.jpg", // Replace with floral decor
-    },
-    {
-      name: "Sweet Boxes",
-      price: "₹3,299",
-      oldPrice: "₹3,999",
-      badge: "25% OFF",
-      image:
-        "https://i.pinimg.com/1200x/f8/36/ad/f836ad816442d1d72dda73978f41244d.jpg", // Replace with sweet box
-    },
-    {
-      name: "Engagement Rings",
-      price: "₹18,999",
-      image:
-        "https://i.pinimg.com/1200x/b6/e1/35/b6e135baefcb7cd52cab94da9339f137.jpg", // Replace with ring image
-    },
-    {
-      name: "Rukhsati Outfit",
-      price: "₹15,999",
-      oldPrice: "₹19,999",
-      badge: "NEW",
-      image:
-        "https://i.pinimg.com/736x/c8/2a/24/c82a24c245509066b76b3dc347924b15.jpg", // Replace with rukhsati outfit
-    },
-  ];
+  {
+    name: "Nikahnama Folder",
+    price: "₹1,499",
+    oldPrice: "₹1,999",
+    badge: "NEW",
+    subCategory: "nikahnama-folder", // Add this
+    image:
+      "https://i.pinimg.com/1200x/7b/37/a4/7b37a476138d9da299a2e4a644fb7422.jpg",
+  },
+  {
+    name: "Quran & Tasbeeh Set",
+    price: "₹2,299",
+    subCategory: "quran-tasbeeh", // Add this
+    image:
+      "https://i.pinimg.com/1200x/86/b0/98/86b09803ba1ad802249caf7e4880f329.jpg",
+  },
+  {
+    name: "Mehr Gift Box",
+    price: "₹1,899",
+    badge: "25% OFF",
+    subCategory: "mehr-gift-items", // Add this
+    image:
+      "https://i.pinimg.com/1200x/51/3c/d1/513cd119ec94376b0d0c381cdc3b7126.jpg",
+  },
+  {
+    name: "Perfume / Attar Set",
+    price: "₹1,299",
+    oldPrice: "₹1,699",
+    badge: "NEW",
+    subCategory: "perfume-attar", // Add this
+    image:
+      "https://i.pinimg.com/1200x/63/82/f1/6382f13750cacc1f6cc93799dbe17f2d.jpg",
+  },
+  {
+    name: "Bride Entry Flowers",
+    price: "₹999",
+    subCategory: "bride-entry-flowers", // Add this
+    image:
+      "https://i.pinimg.com/736x/43/92/74/439274156c82902a2723d533c5ebb1b8.jpg",
+  },
+  {
+    name: "Sweet Boxes",
+    price: "₹3,299",
+    oldPrice: "₹3,999",
+    badge: "25% OFF",
+    subCategory: "sweet-boxes", // Add this
+    image:
+      "https://i.pinimg.com/1200x/f8/36/ad/f836ad816442d1d72dda73978f41244d.jpg",
+  },
+  {
+    name: "Engagement Rings",
+    price: "₹18,999",
+    subCategory: "engagement-rings", // Add this
+    image:
+      "https://i.pinimg.com/1200x/b6/e1/35/b6e135baefcb7cd52cab94da9339f137.jpg",
+  },
+  {
+    name: "Rukhsati Outfit",
+    price: "₹15,999",
+    oldPrice: "₹19,999",
+    badge: "NEW",
+    subCategory: "rukhsati-outfits", // Add this
+    image:
+      "https://i.pinimg.com/736x/c8/2a/24/c82a24c245509066b76b3dc347924b15.jpg",
+  },
+];
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
@@ -173,9 +190,12 @@ const MuslimRitualItemsPage = () => {
                       {slide.title}
                     </h1>
                     <p className="text-gray-600 mb-6">{slide.subtitle}</p>
-                    <button className="bg-amber-600 text-white px-8 py-3 rounded hover:bg-amber-700 transition-colors">
+                    <Link 
+                      href="/bride /all-products?category=ritual items"
+                      className="inline-block bg-amber-600 text-white px-8 py-3 rounded hover:bg-amber-700 transition-colors"
+                    >
                       SHOP NOW
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -221,8 +241,9 @@ const MuslimRitualItemsPage = () => {
           <div className="relative overflow-hidden">
             <div className="flex animate-marquee gap-8">
               {[...categories, ...categories].map((category, index) => (
-                <div
+                <Link
                   key={index}
+                  href={`/bride/all-products?category=ritual items&subCategory=${category.subCategory}`}
                   className="flex-shrink-0 w-40 text-center group cursor-pointer"
                 >
                   <div className="relative mb-4 overflow-hidden rounded-full">
@@ -235,7 +256,7 @@ const MuslimRitualItemsPage = () => {
                   <h3 className="text-sm font-medium text-gray-800 mb-1">
                     {category.name.toUpperCase()}
                   </h3>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -245,7 +266,10 @@ const MuslimRitualItemsPage = () => {
       {/* Featured Collections */}
       <div className="max-w-7xl mx-auto px-8 py-16">
         <div className="grid md:grid-cols-2 gap-8">
-          <div className="relative overflow-hidden rounded-lg group cursor-pointer">
+          <Link
+            href="/bride/all-products?category=ritual items&subCategory=mehr-gift-items"
+            className="relative overflow-hidden rounded-lg group cursor-pointer"
+          >
             <img
               src="https://i.pinimg.com/1200x/31/25/cc/3125ccb84870bd5b8a62e37e86871de6.jpg"
               alt="Nikah & Mehr Gifts"
@@ -255,13 +279,16 @@ const MuslimRitualItemsPage = () => {
               <h3 className="text-white text-2xl font-light mb-2">
                 Nikah & Mehr Gifts
               </h3>
-              <button className="text-white text-sm uppercase tracking-wide hover:underline w-fit">
+              <span className="text-white text-sm uppercase tracking-wide hover:underline w-fit">
                 SHOP NOW
-              </button>
+              </span>
             </div>
-          </div>
+          </Link>
 
-          <div className="relative overflow-hidden rounded-lg group cursor-pointer">
+          <Link
+            href="/bride/all-products?category=ritual items&subCategory=perfume-attar"
+            className="relative overflow-hidden rounded-lg group cursor-pointer"
+          >
             <img
               src="https://i.pinimg.com/1200x/c4/5d/59/c45d596ebd0418ed6b2639c18bbbaeb6.jpg"
               alt="Attar & Perfume Sets"
@@ -271,11 +298,11 @@ const MuslimRitualItemsPage = () => {
               <h3 className="text-white text-2xl font-light mb-2">
                 Attar & Perfume Sets
               </h3>
-              <button className="text-white text-sm uppercase tracking-wide hover:underline w-fit">
+              <span className="text-white text-sm uppercase tracking-wide hover:underline w-fit">
                 SHOP NOW
-              </button>
+              </span>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
 
@@ -297,38 +324,39 @@ const MuslimRitualItemsPage = () => {
             </button>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {trendingProducts.map((product, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg overflow-hidden group cursor-pointer shadow-sm hover:shadow-xl transition-shadow"
-              >
-                <div className="relative overflow-hidden">
-                  {product.badge && (
-                    <div className="absolute top-2 left-2 bg-red-600 text-white text-xs px-2 py-1 rounded z-10">
-                      {product.badge}
-                    </div>
-                  )}
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <div className="p-4 text-center">
-                  <h3 className="text-sm text-gray-800 mb-2">{product.name}</h3>
-                  <div className="flex items-center justify-center gap-2">
-                   
-                  </div>
-                </div>
-              </div>
-            ))}
+         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+  {trendingProducts.map((product, index) => (
+    <Link
+      key={index}
+      href={`/bride/all-products?category=ritual items&subCategory=${product.subCategory}`}
+      className="bg-white rounded-lg overflow-hidden group cursor-pointer shadow-sm hover:shadow-xl transition-shadow"
+    >
+      <div className="relative overflow-hidden">
+        {product.badge && (
+          <div className="absolute top-2 left-2 bg-red-600 text-white text-xs px-2 py-1 rounded z-10">
+            {product.badge}
           </div>
+        )}
+        <img
+          src={product.image}
+          alt={product.name}
+          className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+        />
+      </div>
+      <div className="p-4 text-center">
+        <h3 className="text-sm text-gray-800 mb-2">{product.name}</h3>
+      </div>
+    </Link>
+  ))}
+</div>
           <div className="text-center">
-            <button className="group mt-12 relative inline-flex items-center gap-3 bg-amber-600 text-white px-12 py-4 rounded-full text-lg font-medium hover:bg-amber-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+            <Link
+              href="/bride/all-products?category=ritual items"
+              className="group mt-12 relative inline-flex items-center gap-3 bg-amber-600 text-white px-12 py-4 rounded-full text-lg font-medium hover:bg-amber-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+            >
               <span>EXPLORE FULL COLLECTION</span>
               <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </Link>
           </div>
         </div>
       </div>
