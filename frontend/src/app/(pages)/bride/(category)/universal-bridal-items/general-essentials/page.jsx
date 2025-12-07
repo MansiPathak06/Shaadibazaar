@@ -3,27 +3,27 @@ import { ShoppingCart, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const BridalEssentialsPage = () => {
   const categories = [
-    { name: 'Innerwear / Shapewear', items: '8 Items', image: 'https://via.placeholder.com/300x300?text=Category+Image' },
-    { name: 'Safety pins, U-pins', items: '12 Items', image: 'https://via.placeholder.com/300x300?text=Category+Image' },
-    { name: 'Makeup touch-up kit', items: '6 Items', image: 'https://via.placeholder.com/300x300?text=Category+Image' },
-    { name: 'Wet wipes', items: '5 Items', image: 'https://via.placeholder.com/300x300?text=Category+Image' },
-    { name: 'Power bank', items: '4 Items', image: 'https://via.placeholder.com/300x300?text=Category+Image' },
-    { name: 'Clutch/potli', items: '15 Items', image: 'https://via.placeholder.com/300x300?text=Category+Image' },
-    { name: 'Perfume', items: '10 Items', image: 'https://via.placeholder.com/300x300?text=Category+Image' },
-    { name: 'Hand sanitizer', items: '7 Items', image: 'https://via.placeholder.com/300x300?text=Category+Image' }
+    { name: 'Innerwear / Shapewear', items: '8 Items', image: 'https://i.pinimg.com/1200x/b6/6c/33/b66c33dc869eb3b957cb461aa90b33f8.jpg' },
+    { name: 'Safety pins, U-pins', items: '12 Items', image: 'https://i.pinimg.com/1200x/cd/a9/96/cda9962dd92f10bda92fa514b8ce1287.jpg' },
+    { name: 'Makeup touch-up kit', items: '6 Items', image: 'https://i.pinimg.com/736x/39/b6/8e/39b68ed87e7a3b78ef14e4611a775f0f.jpg' },
+    { name: 'Wet wipes', items: '5 Items', image:' https://i.pinimg.com/1200x/76/10/d3/7610d370059b12f590f2d42644f8fca4.jpg' },
+    { name: 'Power bank', items: '4 Items', image: 'https://i.pinimg.com/736x/9f/79/59/9f7959637881661dfc9c285871a094b9.jpg' },
+    { name: 'Clutch/potli', items: '15 Items', image: 'https://i.pinimg.com/1200x/18/d4/3d/18d43d0d6a9642d098554a3fe267e3c2.jpg' },
+    { name: 'Perfume', items: '10 Items', image: 'https://i.pinimg.com/1200x/14/03/25/140325850d39c57f4844c42352ab4fb1.jpg' },
+    { name: 'Hand sanitizer', items: '7 Items', image: 'https://i.pinimg.com/1200x/57/4a/6c/574a6c8b725bfcebb3b4aed7e17ed201.jpg' }
   ];
 
   const products = [
-    { name: 'Bridal Shapewear Bodysuit', price: '$45.99', discount: '20% OFF', image: 'https://via.placeholder.com/400x400?text=Product+Image' },
-    { name: 'Gold Safety Pin Set (50pcs)', price: '$12.99', image: 'https://via.placeholder.com/400x400?text=Product+Image' },
-    { name: 'Bridal Touch-Up Kit Pouch', price: '$34.99', image: 'https://via.placeholder.com/400x400?text=Product+Image' },
-    { name: 'Premium Wet Wipes Pack', price: '$8.99', image: 'https://via.placeholder.com/400x400?text=Product+Image' },
-    { name: 'Rose Gold Power Bank 10000mAh', price: '$29.99', image: 'https://via.placeholder.com/400x400?text=Product+Image' }
+    { name: 'Bridal Shapewear Bodysuit', price: '$45.99', discount: '20% OFF', image: 'https://i.pinimg.com/1200x/77/f0/ea/77f0ea94b838161fa17ef57ac21f08d4.jpg' },
+    { name: 'Gold Safety Pin Set (50pcs)', price: '$12.99', image: 'https://i.pinimg.com/1200x/13/1a/3d/131a3d53ec804d1ce13709951420e00a.jpg' },
+    { name: 'Bridal Touch-Up Kit Pouch', price: '$34.99', image: 'https://i.pinimg.com/1200x/e7/0c/99/e70c99ec8fa2d713708dbfc13eae48ca.jpg' },
+    { name: 'Premium Wet Wipes Pack', price: '$8.99', image: 'https://i.pinimg.com/736x/37/32/5c/37325ccf1b8be1a0f0318657bf5172bd.jpg' },
+    { name: 'Rose Gold Power Bank 10000mAh', price: '$29.99', image: 'https://i.pinimg.com/1200x/34/89/f5/3489f5de9e928713f866d3b68c101f83.jpg' }
   ];
 
   const featuredProducts = [
-    { name: 'Luxury Bridal Clutch Pearl', discount: '25% OFF', price: '$89.99', tag: 'Best Seller', image: 'https://via.placeholder.com/500x300?text=Featured+Product' },
-    { name: 'Designer Potli Bag Golden', discount: '30% OFF', price: '$64.99', tag: 'Trending', image: 'https://via.placeholder.com/500x300?text=Featured+Product' }
+    { name: 'Luxury Bridal Clutch Pearl', discount: '25% OFF', price: '$89.99', tag: 'Best Seller', image: 'https://i.pinimg.com/736x/31/81/82/3181826831c963f5f3bae16821bdacf6.jpg' },
+    { name: 'Designer Potli Bag Golden', discount: '30% OFF', price: '$64.99', tag: 'Trending', image: 'https://i.pinimg.com/736x/df/eb/71/dfeb71e74f403009a6f3dfaff62cb6ec.jpg'},
   ];
 
   return (

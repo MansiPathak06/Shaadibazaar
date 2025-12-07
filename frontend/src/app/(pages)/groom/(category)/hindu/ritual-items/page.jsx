@@ -7,14 +7,14 @@ const RitualItemsPage = () => {
   const scrollContainerRef = useRef(null);
 
   const categories = [
-    { id: 1, name: 'Varmala', image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Varmala' },
-    { id: 2, name: 'Coconut', image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Coconut' },
-    { id: 3, name: 'Raksha Sutra / Kalawa', image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Raksha+Sutra' },
-    { id: 4, name: 'Puja Thali', image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Puja+Thali' },
-    { id: 5, name: 'Haldi/Ubtan Items', image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Haldi+Items' },
-    { id: 6, name: "Groom's Kalgi", image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Kalgi' },
-    { id: 7, name: 'Gift Saree/Lehenga for Bride', image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Gift+Saree' },
-    { id: 8, name: 'Tilak Plate Items', image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Tilak+Plate' }
+    { id: 1, name: 'Varmala', image: 'https://i.pinimg.com/736x/6c/13/6f/6c136f7850f189402728248a187329a9.jpg' },
+    { id: 2, name: 'Coconut', image: 'https://i.pinimg.com/736x/2a/cc/52/2acc525707c24e2216dd4520699cab6f.jpg' },
+    { id: 3, name: 'Raksha Sutra / Kalawa', image: 'https://i.pinimg.com/1200x/a6/a7/d4/a6a7d47c55a535b6c3a42f4bd208a5ff.jpg' },
+    { id: 4, name: 'Puja Thali', image: 'https://i.pinimg.com/1200x/2f/40/e5/2f40e58cffd6ee59a97e36c25dbcfa5c.jpg' },
+    { id: 5, name: 'Haldi/Ubtan Items', image: 'https://i.pinimg.com/736x/c0/0f/35/c00f357bccc9f3f0ce9579784cea11c9.jpg' },
+    { id: 6, name: "Groom's Kalgi", image: 'https://i.pinimg.com/1200x/5d/c7/c9/5dc7c9470ca0b3bd5730e3995f294ba8.jpg' },
+    { id: 7, name: 'Gift Saree/Lehenga for Bride', image: 'https://i.pinimg.com/736x/6c/0d/08/6c0d08d91af31f85f5336555f92d7209.jpg' },
+    { id: 8, name: 'Tilak Plate Items', image: 'https://i.pinimg.com/736x/87/ae/3c/87ae3c2b59cf53ea4a045259daf546a7.jpg' }
   ];
 
   const scroll = (direction) => {
