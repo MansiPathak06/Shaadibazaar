@@ -11,19 +11,19 @@ const HinduGroomServicesPage = () => {
       title: "Hindu Groom Services",
       subtitle: "Complete Essentials For Your Sacred Wedding",
       image:
-        "https://i.pinimg.com/736x/5a/23/ca/5a23ca5b0bbc27ab70962c1d851136e1.jpg",
+        "https://i.pinimg.com/736x/16/05/58/160558ab5eca1ee5200581fa7ea5abb5.jpg",
     },
     {
       title: "Traditional Wedding Essentials",
       subtitle: "Everything You Need For Auspicious Ceremonies",
       image:
-        "https://i.pinimg.com/1200x/6f/f7/cf/6ff7cf9f7d29e3acd8c19250f8e4ee54.jpg",
+        "https://i.pinimg.com/736x/bb/1a/bd/bb1abd6abc65fbe04fd4cbce16daf144.jpg",
     },
     {
       title: "Complete Groom Package",
       subtitle: "Make Your Special Day Memorable",
       image:
-        "https://i.pinimg.com/736x/fd/26/cf/fd26cfb905083571d15d314af34f03d6.jpg",
+        "https://i.pinimg.com/1200x/35/01/f1/3501f18d71327b724339d918b69c1e82.jpg",
     },
   ];
 
@@ -33,61 +33,61 @@ const HinduGroomServicesPage = () => {
       name: "Groom Makeup",
       items: "Professional Services",
       image:
-        "https://i.pinimg.com/736x/5a/23/ca/5a23ca5b0bbc27ab70962c1d851136e1.jpg",
+        "https://i.pinimg.com/736x/60/cd/2c/60cd2cff47f931c10e54ebd2a2e70a23.jpg",
     },
     {
       name: "Hairstyling",
       items: "Expert Styling",
       image:
-        "https://i.pinimg.com/736x/28/ac/3b/28ac3b55d55fc14e93dcadab7eb4f291.jpg",
+        "https://i.pinimg.com/1200x/3a/03/7e/3a037e8a9225b3d979434dcec1758803.jpg",
     },
     {
       name: "Beard Trim/Shave",
       items: "Grooming Services",
       image:
-        "https://i.pinimg.com/1200x/35/3b/82/353b8244c5eb8853f9289907bb1702d2.jpg",
+        "https://i.pinimg.com/736x/38/71/4a/38714a9700ac21256997fb86a4e5193e.jpg",
     },
     {
       name: "Ubtan Session",
       items: "Pre-Wedding Ritual",
       image:
-        "https://i.pinimg.com/736x/47/43/ab/4743abc283cb05907a2a13967cc87322.jpg",
+        "https://i.pinimg.com/736x/7c/1f/aa/7c1faa3d1ceb125957b31d776247e9df.jpg",
     },
     {
       name: "Groom Photoshoot",
       items: "Professional Photography",
       image:
-        "https://i.pinimg.com/1200x/19/34/09/193409a9e82c90cabe987cc8d3270605.jpg",
+        "https://i.pinimg.com/1200x/e5/02/23/e50223cb7c6b617e7e49a65914dd9f48.jpg",
     },
     {
       name: "Turban Tying Expert",
       items: "Traditional Styling",
       image:
-        "https://i.pinimg.com/736x/e2/c0/ca/e2c0cae9d3d6baf3a61c6a3f5f47eaa6.jpg",
+        "https://i.pinimg.com/736x/cd/d9/64/cdd964ec4b83418af510af54dadc8cdc.jpg",
     },
     {
       name: "Sehra Tying Expert",
       items: "Sehra Decoration",
       image:
-        "https://i.pinimg.com/736x/f8/8a/d7/f88ad798d7d542e5e511e915537deaab.jpg",
+        "https://i.pinimg.com/736x/9f/ff/8f/9fff8fb4c1973d80f07771fdbf5c5482.jpg",
     },
     {
       name: "Ghodi Decoration",
       items: "Horse Decoration",
       image:
-        "https://i.pinimg.com/736x/f8/8a/d7/f88ad798d7d542e5e511e915537deaab.jpg",
+        "https://i.pinimg.com/736x/4d/06/18/4d0618a3208f0ecb26ad2ce47435440e.jpg",
     },
     {
       name: "Band-Baja",
       items: "Traditional Music",
       image:
-        "https://i.pinimg.com/736x/e2/c0/ca/e2c0cae9d3d6baf3a61c6a3f5f47eaa6.jpg",
+        "https://i.pinimg.com/1200x/05/89/9c/05899c2b478ae6a4e4b20cbd3ad00acb.jpg",
     },
     {
       name: "DJ for Baraat",
       items: "Music & Entertainment",
       image:
-        "https://i.pinimg.com/1200x/19/34/09/193409a9e82c90cabe987cc8d3270605.jpg",
+        "https://i.pinimg.com/1200x/e2/31/3e/e2313e1717a08d1fd527b292b3b3e679.jpg",
     },
   ];
 
@@ -99,20 +99,20 @@ const HinduGroomServicesPage = () => {
       oldPrice: "₹15,999",
       badge: "POPULAR",
       image:
-        "https://i.pinimg.com/736x/06/b8/cb/06b8cba05a56695e10fa2b8f41c96c65.jpg",
+        "https://i.pinimg.com/1200x/4b/14/8c/4b148cd77735e99a50156e9970131e8d.jpg",
     },
     {
       name: "Professional Hairstyling",
       price: "₹4,999",
       image:
-        "https://i.pinimg.com/736x/5c/5a/d0/5c5ad0f09d6ca26783f3b22be13736e8.jpg",
+        "https://i.pinimg.com/736x/03/62/13/03621378c00396cded9be123bc3e5de2.jpg",
     },
     {
       name: "Beard Trim & Shave",
       price: "₹2,999",
       badge: "NEW",
       image:
-        "https://i.pinimg.com/736x/d1/54/c5/d154c5f5a7e310dcdb91971f7245b978.jpg",
+        "https://i.pinimg.com/736x/ce/00/f9/ce00f9d43afd3fc0ce7b8413fba69a1b.jpg",
     },
     {
       name: "Complete Groom Package",
@@ -120,13 +120,13 @@ const HinduGroomServicesPage = () => {
       oldPrice: "₹45,999",
       badge: "25% OFF",
       image:
-        "https://i.pinimg.com/1200x/2c/d2/19/2cd219e170cc9991a32720acb9d5c461.jpg",
+        "https://i.pinimg.com/1200x/99/e5/9c/99e59c78d7262514a18145519c5e2b89.jpg",
     },
     {
       name: "Ubtan Session",
       price: "₹6,999",
       image:
-        "https://i.pinimg.com/736x/f8/fa/b7/f8fab7c8959825792517caabb40c9102.jpg",
+        "https://i.pinimg.com/1200x/4d/dd/b3/4dddb3883bad9ca67081ec48aa6ea740.jpg",
     },
     {
       name: "Groom Photoshoot",
@@ -134,33 +134,33 @@ const HinduGroomServicesPage = () => {
       oldPrice: "₹32,999",
       badge: "TRENDING",
       image:
-        "https://i.pinimg.com/736x/04/65/8f/04658f180cb0ac3aa233317b9dfff6a7.jpg",
+        "https://i.pinimg.com/736x/9b/94/1a/9b941ac8437db6a9680971ff73afffe6.jpg",
     },
     {
       name: "Turban Tying Expert",
       price: "₹5,999",
       badge: "NEW",
       image:
-        "https://i.pinimg.com/1200x/ca/bf/f5/cabff5d5049cf1d7fbc65426239538fd.jpg",
+        "https://i.pinimg.com/1200x/b3/0a/43/b30a43718777f8d2a01f62063871b493.jpg",
     },
     {
       name: "Sehra Tying Service",
       price: "₹4,999",
       image:
-        "https://i.pinimg.com/1200x/ae/c2/7b/aec27b164fa12b92748ffa1dfe02356b.jpg",
+        "https://i.pinimg.com/1200x/cb/5a/d8/cb5ad8d6e9f956bcc4db877d2983ee47.jpg",
     },
     {
       name: "Ghodi Decoration",
       price: "₹18,999",
       image:
-        "https://i.pinimg.com/736x/04/65/8f/04658f180cb0ac3aa233317b9dfff6a7.jpg",
+        "https://i.pinimg.com/736x/b7/24/47/b72447e516cf02e735e9e88e7ee441eb.jpg",
     },
     {
       name: "Band-Baja Service",
       price: "₹22,999",
       badge: "POPULAR",
       image:
-        "https://i.pinimg.com/1200x/ca/bf/f5/cabff5d5049cf1d7fbc65426239538fd.jpg",
+        "https://i.pinimg.com/1200x/17/fa/7d/17fa7d11915079b2c6deac1d60ae044e.jpg",
     },
     {
       name: "DJ for Baraat",
@@ -168,7 +168,7 @@ const HinduGroomServicesPage = () => {
       oldPrice: "₹35,999",
       badge: "TRENDING",
       image:
-        "https://i.pinimg.com/1200x/ae/c2/7b/aec27b164fa12b92748ffa1dfe02356b.jpg",
+        "https://i.pinimg.com/1200x/e2/31/3e/e2313e1717a08d1fd527b292b3b3e679.jpg",
     },
   ];
 
@@ -281,7 +281,7 @@ const HinduGroomServicesPage = () => {
         <div className="grid md:grid-cols-2 gap-8">
           <div className="relative overflow-hidden rounded-lg group cursor-pointer">
             <img
-              src="https://i.pinimg.com/1200x/7f/4b/31/7f4b31d01b321894de86819d9a02c6cb.jpg"
+              src="https://i.pinimg.com/736x/19/b7/25/19b7252b9c2fb31d7541d69f73764ace.jpg"
               alt="Complete Groom Package"
               className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
             />
@@ -297,7 +297,7 @@ const HinduGroomServicesPage = () => {
 
           <div className="relative overflow-hidden rounded-lg group cursor-pointer">
             <img
-              src="https://i.pinimg.com/1200x/06/7f/d4/067fd4c520b3eabef52ae39700591352.jpg"
+              src="https://i.pinimg.com/1200x/1e/4f/47/1e4f477c44601df41bf9b743d76326bc.jpg"
               alt="Premium Ritual Items"
               className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
             />

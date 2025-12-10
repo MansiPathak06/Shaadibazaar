@@ -11,19 +11,19 @@ const UniversalBridalGiftsPage = () => {
       title: "Perfume & Fragrance Sets",
       subtitle: "Luxury Bridal Gifts | Wedding Essentials | Premium Collections",
       image:
-        "https://i.pinimg.com/1200x/placeholder1.jpg", // Replace with perfume set Pinterest image
+        "https://i.pinimg.com/1200x/af/ff/8a/afff8a3b20fe2a11c6298f5826813f9b.jpg", // Replace with perfume set Pinterest image
     },
     {
       title: "Jewellery Box Collections",
       subtitle: "Elegant Storage for Precious Moments",
       image:
-        "https://i.pinimg.com/1200x/placeholder2.jpg", // Replace with jewellery box image
+        "https://i.pinimg.com/1200x/0d/fa/a9/0dfaa95a7f4cdb1282ca3fb169532286.jpg", // Replace with jewellery box image
     },
     {
       title: "Bridal Watch & Accessories",
       subtitle: "Timeless Gifts for the Perfect Day",
       image:
-        "https://i.pinimg.com/1200x/placeholder3.jpg", // Replace with bridal watch image
+        "https://i.pinimg.com/1200x/cb/53/29/cb532952f28be2eb2bd8966dff96949e.jpg", // Replace with bridal watch image
     },
   ];
 
@@ -33,49 +33,49 @@ const UniversalBridalGiftsPage = () => {
       name: "Perfume Set",
       items: "28 Items",
       image:
-        "https://i.pinimg.com/1200x/placeholder4.jpg", // Replace with perfume set image
+        "https://i.pinimg.com/736x/8c/93/af/8c93afa5feff5c7ff027351d964b4ab6.jpg", // Replace with perfume set image
     },
     {
       name: "Jewellery Box",
       items: "22 Items",
       image:
-        "https://i.pinimg.com/736x/placeholder5.jpg", // Replace with jewellery box image
+        "https://i.pinimg.com/736x/f8/a8/2d/f8a82da8059cd82f206bdee30019effa.jpg", // Replace with jewellery box image
     },
     {
       name: "Bridal Watch",
       items: "18 Items",
       image:
-        "https://i.pinimg.com/1200x/placeholder6.jpg", // Replace with bridal watch image
+        "https://i.pinimg.com/1200x/af/a4/4c/afa44ca4da15097bd6fed9ca07116ef8.jpg", // Replace with bridal watch image
     },
     {
       name: "Makeup Kit",
       items: "35 Items",
       image:
-        "https://i.pinimg.com/736x/placeholder7.jpg", // Replace with makeup kit image
+        "https://i.pinimg.com/1200x/5b/6d/8d/5b6d8da5f001d2c7d847de23d9bfd49a.jpg", // Replace with makeup kit image
     },
     {
       name: "Entry Props",
       items: "30 Items",
       image:
-        "https://i.pinimg.com/736x/placeholder8.jpg", // Replace with entry props image
+        "https://i.pinimg.com/736x/bd/c6/4e/bdc64e729f4f26d113b4774f4435d52d.jpg", // Replace with entry props image
     },
     {
       name: "Customized Hanger",
       items: "20 Items",
       image:
-        "https://i.pinimg.com/1200x/placeholder9.jpg", // Replace with customized hanger image
+        "https://i.pinimg.com/736x/94/9b/a3/949ba33520af45724be890a485b21488.jpg", // Replace with customized hanger image
     },
     {
       name: "Couple Photo Frame",
       items: "25 Items",
       image:
-        "https://i.pinimg.com/736x/placeholder10.jpg", // Replace with photo frame image
+        "https://i.pinimg.com/1200x/49/da/0e/49da0e744cd455b6cdeef05fd3ae5ca6.jpg", // Replace with photo frame image
     },
     {
       name: "Gift Hampers",
       items: "32 Items",
       image:
-        "https://i.pinimg.com/736x/placeholder11.jpg", // Replace with gift hamper image
+        "https://i.pinimg.com/1200x/75/af/8d/75af8ddd26c18a05c5378309d83934f0.jpg", // Replace with gift hamper image
     },
   ];
 
@@ -87,20 +87,20 @@ const UniversalBridalGiftsPage = () => {
       oldPrice: "₹3,299",
       badge: "NEW",
       image:
-        "https://i.pinimg.com/1200x/placeholder12.jpg", // Replace with perfume set image
+        "https://i.pinimg.com/1200x/1f/4d/63/1f4d63440bc01e9ab97b573bb217ec11.jpg", // Replace with perfume set image
     },
     {
       name: "Designer Jewellery Box",
       price: "₹1,799",
       image:
-        "https://i.pinimg.com/1200x/placeholder13.jpg", // Replace with jewellery box
+        "https://i.pinimg.com/736x/ff/c1/98/ffc1985456bb5d37735dcc3906f65323.jpg", // Replace with jewellery box
     },
     {
       name: "Bridal Watch Collection",
       price: "₹8,999",
       badge: "25% OFF",
       image:
-        "https://i.pinimg.com/1200x/placeholder14.jpg", // Replace with bridal watch
+        "https://i.pinimg.com/736x/25/29/52/2529529c75b1d0501fd087e9b7acf1c6.jpg", // Replace with bridal watch
     },
     {
       name: "Premium Makeup Kit",
@@ -108,13 +108,15 @@ const UniversalBridalGiftsPage = () => {
       oldPrice: "₹5,499",
       badge: "NEW",
       image:
-        "https://i.pinimg.com/1200x/placeholder15.jpg", // Replace with makeup kit
+        "https://i.pinimg.com/736x/8b/9a/99/8b9a99b012ab754f7983ad3e29944325.jpg", // Replace with makeup kit
+      
+      
     },
     {
       name: "Floral Entry Props",
       price: "₹1,499",
       image:
-        "https://i.pinimg.com/736x/placeholder16.jpg", // Replace with entry props
+        "https://i.pinimg.com/1200x/d5/15/f9/d515f9802b5c6a847d686606ac41ebba.jpg", // Replace with entry props
     },
     {
       name: "Personalized Hanger",
@@ -122,13 +124,13 @@ const UniversalBridalGiftsPage = () => {
       oldPrice: "₹1,199",
       badge: "25% OFF",
       image:
-        "https://i.pinimg.com/1200x/placeholder17.jpg", // Replace with customized hanger
+        "https://i.pinimg.com/736x/dc/75/20/dc7520c2e63f257602a2885cc7631847.jpg", // Replace with customized hanger
     },
     {
       name: "Elegant Photo Frame",
       price: "₹1,299",
       image:
-        "https://i.pinimg.com/1200x/placeholder18.jpg", // Replace with photo frame
+        "https://i.pinimg.com/736x/60/c7/e7/60c7e7903857d0ae3349c9f9db5e75ec.jpg", // Replace with photo frame
     },
     {
       name: "Bridal Gift Hamper",
@@ -136,7 +138,7 @@ const UniversalBridalGiftsPage = () => {
       oldPrice: "₹7,999",
       badge: "NEW",
       image:
-        "https://i.pinimg.com/736x/placeholder19.jpg", // Replace with gift hamper
+        "https://i.pinimg.com/736x/c1/71/05/c171052995121e551000b815984fb00e.jpg", // Replace with gift hamper
     },
   ];
 
@@ -247,7 +249,7 @@ const UniversalBridalGiftsPage = () => {
         <div className="grid md:grid-cols-2 gap-8">
           <div className="relative overflow-hidden rounded-lg group cursor-pointer">
             <img
-              src="https://i.pinimg.com/1200x/placeholder20.jpg"
+              src="https://i.pinimg.com/736x/95/f5/cb/95f5cbba3c52087d94ba24f20d9e67de.jpg"
               alt="Luxury Gift Collections"
               className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
             />
@@ -263,7 +265,7 @@ const UniversalBridalGiftsPage = () => {
 
           <div className="relative overflow-hidden rounded-lg group cursor-pointer">
             <img
-              src="https://i.pinimg.com/1200x/placeholder21.jpg"
+              src="https://i.pinimg.com/736x/ee/8f/eb/ee8febee411ab13382c172e63bec3169.jpg"
               alt="Personalized Bridal Gifts"
               className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
             />
