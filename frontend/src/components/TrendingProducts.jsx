@@ -3,7 +3,7 @@
 import React from 'react';
 import { ArrowRight, Sparkles, Gift, Home, Zap } from 'lucide-react';
 
-export default function HeroCollection() {
+export default function TrendingProducts() {
   const categories = [
     {
       title: "Holiday Season Collection",
@@ -12,22 +12,27 @@ export default function HeroCollection() {
         {
           title: "Winter Essentials",
           icon: "❄️",
-          gradient: "from-cyan-500 to-blue-600"
+          gradient: "from-cyan-500 to-blue-600",
+          image:"https://res.cloudinary.com/dewxpvl5s/image/upload/v1764931272/winter-collection-4_ms4li3.jpg",
         },
         {
           title: "Gift Gallery",
           icon: "🎁",
-          gradient: "from-pink-500 to-rose-600"
+          gradient: "from-pink-500 to-rose-600",
+          image:"https://res.cloudinary.com/dewxpvl5s/image/upload/v1764931272/winter-collection-1_y4agwe.jpg"
+
         },
         {
           title: "Travel Collection",
           icon: "✈️",
-          gradient: "from-purple-500 to-indigo-600"
+          gradient: "from-purple-500 to-indigo-600",
+          image:"https://res.cloudinary.com/dewxpvl5s/image/upload/v1764931272/winter-collection-3_ogkn4d.jpg",
         },
         {
           title: "Special Moments",
           icon: "💎",
-          gradient: "from-amber-500 to-orange-600"
+          gradient: "from-amber-500 to-orange-600",
+          image:"https://res.cloudinary.com/dewxpvl5s/image/upload/v1764931272/winter-collection-2_dxhmpb.jpg",
         }
       ],
       linkText: "View all collections"
@@ -39,22 +44,26 @@ export default function HeroCollection() {
         {
           title: "Flash Deals",
           badge: "Up to 50% off",
-          gradient: "from-orange-400 to-red-500"
+          gradient: "from-orange-400 to-red-500",
+          image:""
         },
         {
           title: "Top Picks",
           badge: "Bestsellers",
-          gradient: "from-red-500 to-pink-600"
+          gradient: "from-red-500 to-pink-600",
+          image:""
         },
         {
           title: "Bundle & Save",
           badge: "Buy 2 Get 15% off",
-          gradient: "from-fuchsia-500 to-purple-600"
+          gradient: "from-fuchsia-500 to-purple-600",
+          image:"",
         },
         {
           title: "Combo Offers",
           badge: "Up to 45% off",
-          gradient: "from-violet-500 to-indigo-600"
+          gradient: "from-violet-500 to-indigo-600",
+          image:"",
         }
       ],
       linkText: "Browse all deals"
@@ -66,22 +75,27 @@ export default function HeroCollection() {
         {
           title: "Soft Furnishings",
           image: "https://images.unsplash.com/photo-1615529328331-f8917597711f?w=400&h=300&fit=crop",
-          description: "Cushions, throws & linens"
+          description: "Cushions, throws & linens",
+          image:"",
         },
         {
           title: "Decorative Accents",
           image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=400&h=300&fit=crop",
-          description: "Vases, art & more"
+          description: "Vases, art & more",
+          image:"",
+
         },
         {
           title: "Storage Solutions",
           image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400&h=300&fit=crop",
-          description: "Organize in style"
+          description: "Organize in style",
+          image:"",
         },
         {
           title: "Ambient Lighting",
           image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=400&h=300&fit=crop",
-          description: "Create the perfect mood"
+          description: "Create the perfect mood",
+          image:"",
         }
       ],
       linkText: "Discover more"
@@ -93,22 +107,26 @@ export default function HeroCollection() {
         {
           title: "Climate Control",
           image: "https://images.unsplash.com/photo-1631545806609-c2a0e527d0f8?w=400&h=300&fit=crop",
-          description: "Air conditioners"
+          description: "Air conditioners",
+          image:"",
         },
         {
           title: "Cooling Solutions",
           image: "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=400&h=300&fit=crop",
-          description: "Refrigerators"
+          description: "Refrigerators",
+          image:"",
         },
         {
           title: "Kitchen Essentials",
           image: "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=300&fit=crop",
-          description: "Microwaves & ovens"
+          description: "Microwaves & ovens",
+          image:"",
         },
         {
           title: "Laundry Care",
           image: "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=400&h=300&fit=crop",
-          description: "Washing machines"
+          description: "Washing machines",
+          image:"",
         }
       ],
       linkText: "Shop appliances"
@@ -157,7 +175,7 @@ export default function HeroCollection() {
                           <img
                             src={item.image}
                             alt={item.title}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover object-top"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300">
                             <div className="absolute bottom-0 left-0 right-0 p-3">
