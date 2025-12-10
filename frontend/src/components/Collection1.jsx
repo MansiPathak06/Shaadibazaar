@@ -25,7 +25,31 @@ export default function Collection1() {
     {
       name: "Full Sleeve T-shirts",
       image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&h=600&fit=crop"
-    }
+    },
+    {
+      name: "Full Sleeve T-shirts",
+      image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&h=600&fit=crop"
+    },
+    {
+      name: "Full Sleeve T-shirts",
+      image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&h=600&fit=crop"
+    },
+    {
+      name: "Full Sleeve T-shirts",
+      image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&h=600&fit=crop"
+    },
+    {
+      name: "Full Sleeve T-shirts",
+      image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&h=600&fit=crop"
+    },
+    {
+      name: "Full Sleeve T-shirts",
+      image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&h=600&fit=crop"
+    },
+    {
+      name: "Full Sleeve T-shirts",
+      image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&h=600&fit=crop"
+    },
   ];
 
   return (

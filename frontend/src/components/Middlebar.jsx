@@ -2,40 +2,49 @@
 
 import { useEffect, useRef, useState } from "react";
 import {
-    Smartphone,
     Shirt,
-    Headphones,
-    Sofa,
-    Tv,
-    Plane,
+    Shirt as TuxedoIcon,
+    Shirt as ThreePieceIcon,
+    Shirt as PathaniIcon,
     Sparkles,
-    ShoppingCart,
+    Crown,
+    Diamond,
+    Gem,
+    Scissors,
     Watch,
-    Gamepad2,
-    Book,
-    Car,
-    Baby,
-    Dumbbell,
-    Gift
+    Watch as MojariIcon,
+    Tag,
+    BookOpen,
+    BriefcaseBusiness,
+    TicketPercent,
+    Sparkle,
+    Droplets,
+    Footprints,
 } from "lucide-react";
 
-
 const categories = [
-    { name: "Mobiles & Tablets", icon: Smartphone, color: "from-blue-500 to-cyan-400", badge: "NEW" },
-    { name: "Fashion", icon: Shirt, color: "from-pink-500 to-rose-400" },
-    { name: "Electronics", icon: Headphones, color: "from-red-500 to-orange-400" },
-    { name: "Home & Furniture", icon: Sofa, color: "from-amber-500 to-yellow-400" },
-    { name: "TVs & Appliances", icon: Tv, color: "from-indigo-500 to-purple-400" },
-    { name: "Flight Bookings", icon: Plane, color: "from-sky-500 to-blue-400" },
-    { name: "Beauty & Health", icon: Sparkles, color: "from-fuchsia-500 to-pink-400" },
-    { name: "Grocery", icon: ShoppingCart, color: "from-green-500 to-emerald-400" },
-    { name: "Watches", icon: Watch, color: "from-slate-600 to-zinc-500" },
-    { name: "Gaming", icon: Gamepad2, color: "from-violet-500 to-purple-400", badge: "HOT" },
-    { name: "Books & Media", icon: Book, color: "from-teal-500 to-cyan-400" },
-    { name: "Automotive", icon: Car, color: "from-gray-600 to-slate-500" },
-    { name: "Baby & Kids", icon: Baby, color: "from-rose-400 to-pink-300" },
-    { name: "Sports & Fitness", icon: Dumbbell, color: "from-orange-500 to-red-400" },
-    { name: "Gifts & Toys", icon: Gift, color: "from-purple-500 to-indigo-400", badge: "SALE" },
+    // Outfits
+    { name: "Sherwani", icon: Crown, color: "from-blue-500 to-cyan-400", badge: "NEW" },
+    { name: "Kurta Pajama", icon: Shirt, color: "from-pink-500 to-rose-400" },
+    { name: "Dhoti Kurta", icon: Scissors, color: "from-red-500 to-orange-400" },
+    { name: "Turban", icon: Sparkles, color: "from-amber-500 to-yellow-400" },
+    { name: "Tuxedo", icon: TuxedoIcon, color: "from-indigo-500 to-purple-400" },
+    { name: "Sehra", icon: Sparkle, color: "from-sky-500 to-blue-400" },
+    { name: "Punjabi Suit", icon: PathaniIcon, color: "from-fuchsia-500 to-pink-400" },
+    { name: "Pathani Suit", icon: PathaniIcon, color: "from-purple-500 to-indigo-400" },
+    { name: "Long Coat", icon: ThreePieceIcon, color: "from-slate-600 to-zinc-500" },
+
+    // Accessories & jewellery
+    { name: "Rudraksha", icon: Gem, color: "from-green-500 to-emerald-400" },
+    { name: "Mojari", icon: Footprints, color: "from-slate-600 to-zinc-500" },
+    { name: "Brooch", icon: Tag, color: "from-violet-500 to-purple-400", badge: "HOT" },
+    { name: "Tie & Belt", icon: BriefcaseBusiness, color: "from-rose-400 to-pink-300" },
+    { name: "Cufflinks", icon: Diamond, color: "from-orange-500 to-red-400" },
+    { name: "Shoes", icon: MojariIcon, color: "from-purple-500 to-indigo-400", badge: "SALE" },
+    { name: "Attar", icon: Droplets, color: "from-teal-500 to-cyan-400", badge: "SALE" },
+
+    // Misc
+    { name: "Books & Media", icon: BookOpen, color: "from-teal-500 to-cyan-400" },
 ];
 
 

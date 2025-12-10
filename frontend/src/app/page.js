@@ -16,8 +16,8 @@ import WeddingNavigation from '../components/Hero2'
 import Navbar from "@/components/Navbar";
 import TopSlider from "@/components/TopSlider";
 import MiddleSlider from "@/components/MiddleSlider";
-import HeroCollection from "@/components/HeroCollection";
-import ShowCase1 from "@/components/ShowCase1";
+import TrendingProducts from "@/components/TrendingProducts";
+import FeaturedProducts from "@/components/FeaturedProducts";
 import CircleCategorySelection from "@/components/CircleCategory";
 import BannerCollection from "@/components/BannerCollection";
 import ShowCase2 from "@/components/ShowCase2";
@@ -26,6 +26,7 @@ import ShowCase4 from "@/components/ShowCase4";
 import MiddleBar from "@/components/Middlebar";
 import Collection1 from "@/components/Collection1";
 import Footer from "@/components/Footer";
+import BrandCardSlider from "@/components/BrandCardSlider";
 
 
 const page = () => {
@@ -34,14 +35,15 @@ const page = () => {
       <Navbar />
       <TopSlider />    
       <MiddleSlider />
-      <HeroCollection />
+      <TrendingProducts />
       <MiddleBar />
-      <ShowCase1 />
+      <FeaturedProducts />
       <CircleCategorySelection />
       <ShowCase2 />
       <ShowCase3 />
       <ShowCase4 />
       <Collection1 />
+      <BrandCardSlider />
 
 
       <BannerCollection />
