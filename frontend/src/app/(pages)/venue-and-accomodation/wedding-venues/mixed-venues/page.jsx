@@ -3,105 +3,89 @@ import React from "react";
 import Link from "next/link";
 import { Sparkles, MapPin, Users, Calendar } from "lucide-react";
 
-const BanquetVenuesPage = () => {
+const MixedVenuesPage = () => {
   // Hero items with their subcategory slugs
   const heroItems = [
     {
       image:
         "https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg",
-      label: "Luxury Banquets",
-      slug: "luxury-banquets",
+      label: "Lawn + Banquet Combination",
+      slug: "lawn-banquet-combination",
     },
     {
       image:
         "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
-      label: "Hotel Banquet Halls",
-      slug: "hotel-banquet-halls",
+      label: "Hall + Terrace Venue",
+      slug: "hall-terrace-venue",
     },
     {
       image:
         "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
-      label: "Hotel Banquet Halls",
-      slug: "hotel-banquet-halls",
+      label: "Hall + Poolside Venue",
+      slug: "hall-poolside-venue",
     },
-
     {
       image:
         "https://i.pinimg.com/736x/67/03/ef/6703ef4b1f4dba26f87a9c1b9f1cd332.jpg",
-      label: "AC/Non-AC Banquets",
-      slug: "ac-non-ac-banquets",
+      label: "Lawn + Pool Area",
+      slug: "lawn-pool-area",
     },
   ];
+
   const features = [
-    { icon: Users, text: "50-5000 Guests", color: "text-pink-300" },
-    { icon: MapPin, text: "Premium Locations", color: "text-purple-300" },
-    { icon: Calendar, text: "Flexible Booking", color: "text-fuchsia-300" },
+    { icon: Users, text: "100-3000 Guests", color: "text-pink-300" },
+    { icon: MapPin, text: "Versatile Spaces", color: "text-purple-300" },
+    { icon: Calendar, text: "All Season Ready", color: "text-fuchsia-300" },
   ];
 
   // Category collections (bottom section)
   const categories = [
     {
-      slug: "indoor-banquet-halls",
-      title: "Indoor Banquet Halls",
+      slug: "lawn-banquet-combination",
+      title: "Lawn + Banquet Combination",
       image:
         "https://i.pinimg.com/736x/b1/fd/97/b1fd971d0d42a56c183b6e17077211f3.jpg",
       accent: "#e91e63",
     },
     {
-      slug: "luxury-banquets",
-      title: "Luxury Banquets",
+      slug: "hall-terrace-venue",
+      title: "Hall + Terrace Venue",
       image:
         "https://i.pinimg.com/1200x/33/68/f9/3368f983eeafd946d980c91f15c51c20.jpg",
       accent: "#3f51b5",
     },
     {
-      slug: "budget-banquet-halls",
-      title: "Budget Banquet Halls",
+      slug: "hall-poolside-venue",
+      title: "Hall + Poolside Venue",
       image:
         "https://i.pinimg.com/1200x/9f/40/f2/9f40f2eb683ab08a3df20f82387e5cfd.jpg",
       accent: "#ff9800",
     },
     {
-      slug: "ac-non-ac-banquets",
-      title: "AC/Non-AC Banquets",
+      slug: "lawn-pool-area",
+      title: "Lawn + Pool Area",
       image:
         "https://i.pinimg.com/1200x/52/28/25/522825bf91e8e09c848c9e8d783c9873.jpg",
       accent: "#9c27b0",
     },
     {
-      slug: "hotel-banquet-halls",
-      title: "Hotel Banquet Halls",
+      slug: "tent-lawn-setup",
+      title: "Tent + Lawn Setup",
       image:
         "https://i.pinimg.com/736x/ed/be/25/edbe25b54256439d445e5a879930ce55.jpg",
       accent: "#4caf50",
-    },
-    {
-      slug: "community-center-banquets",
-      title: "Community Center Banquets",
-      image:
-        "https://i.pinimg.com/736x/60/bd/39/60bd394c51249e65e1b1616e1a88ff79.jpg",
-      accent: "#03a9f4",
-    },
-    {
-      slug: "government-banquet-halls",
-      title: "Government Banquet Halls",
-      image:
-        "https://i.pinimg.com/1200x/4c/f1/2e/4cf12e29898c1646395e1cb4971f304e.jpg",
-      accent: "#ff5722",
     },
   ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-50 to-pink-50">
       {/* Hero Section */}
-
-    {/* Hero Section */}
-      <div className="relative h-[70vh] md:h-[80vh] overflow-hidden">
+      <div className="relative h-[70vh] md:h-[77vh] overflow-hidden">
         {/* Background Image with Blur */}
         <div className="absolute inset-0">
           <img
             src="https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg"
-            alt="Banquet Background"
+            alt="Mixed Venues Background"
             className="w-full h-full object-cover blur-sm scale-105"
           />
           {/* Dark overlay for better text readability */}
@@ -109,49 +93,39 @@ const BanquetVenuesPage = () => {
         </div>
 
         {/* Content Overlay */}
-        <div className="relative h-full flex flex-col items-center justify-center px-4">
-          {/* Category Badge */}
-          <div className="mb-6">
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full text-sm font-medium text-purple-900">
-              <Sparkles className="w-4 h-4" />
-              Banquet Venues
-            </span>
-          </div>
-
+        <div className="relative h-full flex flex-col items-center justify-center px-4 py-6">
           {/* Main Heading */}
-          <h1 className="text-4xl md:text-7xl font-bold text-white mb-6 text-center leading-tight max-w-4xl">
-            Conquer the celebration:
+          <h1 className="text-3xl md:text-5xl mt-5 font-bold text-white mb-3 text-center leading-tight max-w-3xl">
+            Versatile Venues for
             <br />
-            Exploring venues and
-            <br />
-            conquering memories
+            Every Celebration Style
           </h1>
 
           {/* Description */}
-          <p className="text-lg md:text-xl text-white/90 text-center max-w-2xl mb-8 leading-relaxed">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.
+          <p className="text-sm md:text-base text-white/90 text-center max-w-xl mb-4 leading-relaxed">
+            Experience the best of both worlds with our mixed venue options. 
+            Perfect blend of indoor elegance and outdoor charm for unforgettable events.
           </p>
 
           {/* Features */}
-          <div className="flex flex-wrap gap-6 justify-center mb-8">
+          <div className="flex flex-wrap gap-3 justify-center mb-4">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="flex items-center gap-2 text-white/90 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full"
+                className="flex items-center gap-1.5 text-white/90 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full"
               >
-                <feature.icon className={`w-5 h-5 ${feature.color}`} />
-                <span className="text-sm font-medium">{feature.text}</span>
+                <feature.icon className={`w-4 h-4 ${feature.color}`} />
+                <span className="text-xs font-medium">{feature.text}</span>
               </div>
             ))}
           </div>
 
           {/* Hero Images Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl w-full">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-3xl w-full">
             {heroItems.map((item, index) => (
               <Link
                 key={index}
-                href={`/wedding-venues/all-venues?category=banquet-venues&subCategory=${item.slug}`}
+                href={`/wedding-venues/all-venues?category=mixed-venues&subCategory=${item.slug}`}
                 className="relative group"
               >
                 <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-xl relative">
@@ -164,8 +138,8 @@ const BanquetVenuesPage = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                   
                   {/* Text overlay */}
-                  <div className="absolute bottom-3 left-0 right-0 px-3 text-center">
-                    <p className="text-white text-xs md:text-sm font-semibold drop-shadow-lg">
+                  <div className="absolute bottom-2 left-0 right-0 px-2 text-center">
+                    <p className="text-white text-[10px] md:text-xs font-semibold drop-shadow-lg">
                       {item.label}
                     </p>
                   </div>
@@ -175,35 +149,35 @@ const BanquetVenuesPage = () => {
           </div>
 
           {/* Pagination Dots */}
-          <div className="flex gap-2 mt-8">
-            <div className="w-2 h-2 rounded-full bg-white"></div>
-            <div className="w-2 h-2 rounded-full bg-white/40"></div>
-            <div className="w-2 h-2 rounded-full bg-white/40"></div>
+          <div className="flex gap-2 mt-4">
+            <div className="w-1.5 h-1.5 rounded-full bg-white"></div>
+            <div className="w-1.5 h-1.5 rounded-full bg-white/40"></div>
+            <div className="w-1.5 h-1.5 rounded-full bg-white/40"></div>
           </div>
         </div>
       </div>
 
       {/* Marquee Tagline */}
-      <div className="bg-gradient-to-r from-purple-900 via-pink-800 to-purple-900 shadow-md sticky top-0 z-10 overflow-hidden">
+      <div className="bg-gradient-to-r from-amber-900 via-grey-700 to-amber-800 shadow-md sticky top-0 z-10 overflow-hidden">
         <div className="py-2">
           <div className="animate-marquee whitespace-nowrap inline-block">
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              ✨ EXCEPTIONAL VENUES FOR UNFORGETTABLE MOMENTS
+              ✨ INDOOR ELEGANCE MEETS OUTDOOR CHARM
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              🎊 CELEBRATE IN STYLE & ELEGANCE
+              🎊 FLEXIBLE SPACES FOR EVERY SEASON
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              🏛️ WHERE MEMORIES ARE MADE
+              🏛️ CREATE YOUR PERFECT EVENT ATMOSPHERE
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              ✨ EXCEPTIONAL VENUES FOR UNFORGETTABLE MOMENTS
+              ✨ INDOOR ELEGANCE MEETS OUTDOOR CHARM
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              🎊 CELEBRATE IN STYLE & ELEGANCE
+              🎊 FLEXIBLE SPACES FOR EVERY SEASON
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              🏛️ WHERE MEMORIES ARE MADE
+              🏛️ CREATE YOUR PERFECT EVENT ATMOSPHERE
             </span>
           </div>
         </div>
@@ -227,14 +201,14 @@ const BanquetVenuesPage = () => {
       {/* Featured Collections - Now Clickable */}
       <div className="container mx-auto px-40 py-16">
         <h2 className="text-3xl font-bold text-purple-900 mb-8 uppercase tracking-wide">
-          Featured Venue Categories
+          Featured Mixed Venue Categories
         </h2>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mb-10">
           {categories.map((category, index) => (
             <Link
               key={index}
-              href={`/wedding-venues/all-venues?category=banquet-venues&subCategory=${category.slug}`}
+              href={`/wedding-venues/all-venues?category=mixed-venues&subCategory=${category.slug}`}
               className="group cursor-pointer"
             >
               <div className="bg-white rounded-lg shadow-md overflow-hidden transform group-hover:scale-105 transition-all duration-300 group-hover:shadow-lg">
@@ -285,25 +259,27 @@ const BanquetVenuesPage = () => {
             <div className="flex justify-center">
               <img
                 src="https://i.pinimg.com/1200x/65/6b/0e/656b0e4b605f404cb5d5edb30e0b3b76.jpg"
-                alt="About Venues"
+                alt="About Mixed Venues"
                 className="rounded-lg shadow-2xl w-78 object-cover"
               />
             </div>
 
             <div>
               <h2 className="text-3xl font-bold text-purple-900 mb-6 uppercase tracking-wide">
-                About Our Venues
+                About Our Mixed Venues
               </h2>
               <p className="text-gray-700 mb-4 leading-relaxed">
-                We understand that finding the perfect venue is crucial to
-                making your celebration truly memorable. Our curated collection
-                of banquet halls offers something for every style and budget.
+                Our mixed venue collection offers the perfect combination of indoor 
+                and outdoor spaces, giving you the flexibility to create a truly 
+                unique celebration. Whether you want an elegant indoor reception 
+                with an outdoor cocktail hour or a grand celebration spanning 
+                multiple environments.
               </p>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                From luxurious hotel banquets to budget-friendly community
-                centers, each venue in our collection has been carefully
-                selected to ensure quality, comfort, and an unforgettable
-                experience for you and your guests.
+                From lawn and banquet combinations to stunning poolside halls, 
+                each mixed venue provides versatile options to accommodate different 
+                parts of your event. Enjoy the best of both worlds with climate-controlled 
+                comfort and natural outdoor beauty all in one location.
               </p>
               <div className="grid grid-cols-3 gap-6 text-center">
                 <div>
@@ -317,9 +293,9 @@ const BanquetVenuesPage = () => {
                     </svg>
                   </div>
                   <h4 className="font-semibold text-purple-900">
-                    PREMIUM SPACES
+                    DUAL SPACES
                   </h4>
-                  <p className="text-sm text-gray-600 mt-2">Elegant Venues</p>
+                  <p className="text-sm text-gray-600 mt-2">Indoor & Outdoor</p>
                 </div>
                 <div>
                   <div className="text-purple-600 mb-2">
@@ -336,9 +312,9 @@ const BanquetVenuesPage = () => {
                     </svg>
                   </div>
                   <h4 className="font-semibold text-purple-900">
-                    VERIFIED VENUES
+                    VERSATILE LAYOUT
                   </h4>
-                  <p className="text-sm text-gray-600 mt-2">Quality Assured</p>
+                  <p className="text-sm text-gray-600 mt-2">Flexible Setup</p>
                 </div>
                 <div>
                   <div className="text-purple-600 mb-2">
@@ -357,7 +333,7 @@ const BanquetVenuesPage = () => {
                   </div>
                   <h4 className="font-semibold text-purple-900">BEST VALUE</h4>
                   <p className="text-sm text-gray-600 mt-2">
-                    Competitive Pricing
+                    Multiple Spaces
                   </p>
                 </div>
               </div>
@@ -370,20 +346,19 @@ const BanquetVenuesPage = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-12 shadow-xl">
           <h2 className="text-3xl font-bold text-purple-900 mb-8 text-center uppercase tracking-wide">
-            Complete Venue Collections
+            Complete Mixed Venue Collections
           </h2>
           <p className="text-center text-gray-700 max-w-3xl mx-auto mb-8 leading-relaxed">
-            Explore our extensive range of banquet venues perfect for weddings,
-            receptions, and special celebrations. From grand luxury halls to
-            intimate budget-friendly spaces, we have the ideal venue to bring
-            your vision to life.
+            Discover our diverse selection of mixed venues that combine the best 
+            of indoor and outdoor settings. From lawn-banquet combinations to 
+            poolside halls, find the perfect multi-environment space for your dream celebration.
           </p>
           <div className="text-center">
             <Link
-              href="/wedding-venues/all-venues?category=banquet-venues"
+              href="/wedding-venues/all-venues?category=mixed-venues"
               className="bg-purple-900 text-white px-8 py-3 rounded-full hover:bg-purple-800 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block"
             >
-              EXPLORE ALL VENUES
+              EXPLORE ALL MIXED VENUES
             </Link>
           </div>
         </div>
@@ -392,4 +367,4 @@ const BanquetVenuesPage = () => {
   );
 };
 
-export default BanquetVenuesPage;
+export default MixedVenuesPage;
