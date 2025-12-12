@@ -1,54 +1,26 @@
 'use client';
 
 import { useEffect, useRef, useState } from "react";
-import {
-  Sparkles,
-  Shirt,
-  Crown,
-  Gem,
-  // Drapes,          // ❌ not in lucide
-  // Ribbon,          // ❌
-  // Scarf,           // ❌
-  Sparkle,
-  // Feather,         // ❌
-  // Dress,           // ❌
-  // BadgeIndian,     // ❌
-  Link,
-  Diamond,
-  // DiamondRing,     // ❌
-  Flower,
-  // Shoe,            // ❌
-  // Hand,            // ❌
-  Scissors,         // ✔ for “Robe / tailoring”
-  Bookmark,         // ✔ for “Bridesmaid Dress / tag”
-  PanelsTopLeft,    // ✔ for “Hijab / cloth”
-  Feather as FeatherIcon, // ✔ real Lucide icon
-  Shirt as DressIcon,     // ✔ reuse Shirt as dress
-  BadgeCheck,       // ✔ for “Punjabi Suit / badge”
-  CircleDot,        // ✔ for “Ring”
-  Footprints,       // ✔ for “Sandals”
-  Hand as HandIcon, // ✔ real Lucide “Hand”
-} from "lucide-react";
 
 const categories = [
-  { name: "Lehenga", icon: Sparkles, color: "from-rose-500 to-red-400", badge: "HOT" },
-  { name: "Saree", icon: Shirt, color: "from-amber-500 to-yellow-400", badge: "NEW" },
-  { name: "Sharara", icon: Crown, color: "from-purple-500 to-violet-400" },
-  { name: "Anarkali Suit", icon: Gem, color: "from-pink-500 to-rose-400", badge: "PREMIUM" },
-  { name: "Robe", icon: Scissors, color: "from-sky-500 to-cyan-400" },
-  { name: "Bridesmaid Dress", icon: Bookmark, color: "from-teal-500 to-blue-400", badge: "NEW" },
-  { name: "Hijab", icon: PanelsTopLeft, color: "from-green-500 to-emerald-400" },
-  { name: "Veil", icon: Sparkle, color: "from-slate-500 to-gray-400", badge: "BRIDAL" },
-  { name: "Dhupatta", nameAlt: "Dupatta", icon: FeatherIcon, color: "from-fuchsia-500 to-pink-500", badge: "HOT" },
-  { name: "Gown", icon: DressIcon, color: "from-indigo-500 to-purple-400" },
-  { name: "Punjabi Suit", icon: BadgeCheck, color: "from-orange-400 to-amber-400" },
-  { name: "Payal", icon: Link, color: "from-yellow-400 to-amber-300" },
-  { name: "Necklace", icon: Diamond, color: "from-rose-400 to-pink-300", badge: "SALE" },
-  { name: "Earrings", icon: Sparkle, color: "from-red-400 to-rose-500" },
-  { name: "Ring", icon: CircleDot, color: "from-zinc-600 to-slate-600", badge: "PREMIUM" },
-  { name: "Nath", icon: Flower, color: "from-purple-500 to-pink-400" },
-  { name: "Sandals", icon: Footprints, color: "from-amber-700 to-yellow-600" },
-  { name: "Gloves", icon: HandIcon, color: "from-gray-500 to-zinc-400" },
+  { name: "Lehenga", imageUrl: "https://i.pinimg.com/1200x/f3/f9/f5/f3f9f5b48079d4daa97e07a9a97395a6.jpg", badge: "HOT" },
+  { name: "Saree", imageUrl: "https://i.pinimg.com/736x/86/6a/61/866a615c22103a862f201795fa9d3cc7.jpg", badge: "NEW" },
+  { name: "Sharara", imageUrl: "https://i.pinimg.com/1200x/2c/f5/ef/2cf5efbcd8473fe64c1d1ed75b08b230.jpg" },
+  { name: "Anarkali Suit", imageUrl: "https://i.pinimg.com/1200x/7c/77/0a/7c770a30f81a6647395d291e6494861b.jpg", badge: "PREMIUM" },
+  { name: "Robe", imageUrl: "https://i.pinimg.com/1200x/1e/70/7d/1e707dd72ece9f84fbcbf490c6025c87.jpg" },
+  { name: "Bridesmaid Dress", imageUrl: "https://i.pinimg.com/1200x/09/c4/3f/09c43fb2c3b9c3d9cd80f3f7347f9a55.jpg", badge: "NEW" },
+  { name: "Hijab", imageUrl: "https://i.pinimg.com/736x/6f/69/47/6f69470b049bd6663d1d6fefa2bf8297.jpg" },
+  { name: "Veil", imageUrl: "https://i.pinimg.com/1200x/05/76/3c/05763ca98f33e8badbf2b67a0e9763ae.jpg", badge: "BRIDAL" },
+  { name: "Dupatta", imageUrl: "https://i.pinimg.com/1200x/4d/b9/2e/4db92e0b0dacb783ad763d3da6743c18.jpg", badge: "HOT" },
+  { name: "Gown", imageUrl: "https://i.pinimg.com/1200x/9a/fe/b0/9afeb0c9543f1bdb716f5de40798d68b.jpg" },
+  { name: "Punjabi Suit", imageUrl: "https://i.pinimg.com/1200x/96/0b/9d/960b9d0ce66c7893c167a86d158e410f.jpg" },
+  { name: "Payal", imageUrl: "https://i.pinimg.com/736x/3e/fd/f1/3efdf1c627dd4c0f6ca22652b9a596d7.jpg" },
+  { name: "Necklace", imageUrl: "https://i.pinimg.com/1200x/7c/2c/c2/7c2cc2d46f49b1b536c69b7b42c69539.jpg", badge: "SALE" },
+  { name: "Earrings", imageUrl: "https://i.pinimg.com/1200x/f7/74/59/f774596236a976722a5c9c73404a187f.jpg" },
+  { name: "Ring", imageUrl: "https://i.pinimg.com/1200x/0b/97/cf/0b97cf05de8534f8fafbc0d8f0cfa569.jpg", badge: "PREMIUM" },
+  { name: "Nath", imageUrl: "https://i.pinimg.com/736x/ac/7a/3f/ac7a3f635f07cca1dc2e9416614333ac.jpg" },
+  { name: "Sandals", imageUrl: "https://i.pinimg.com/736x/78/a7/54/78a7547fbc0383a1702310cac0f9117a.jpg" },
+  { name: "Gloves", imageUrl: "https://i.pinimg.com/736x/7a/40/c4/7a40c41b57a2f273cbee98a37a7c7d2d.jpg" },
 ];
 
 const TopSlider = () => {
@@ -79,23 +51,7 @@ const TopSlider = () => {
   }, [isPaused]);
 
   return (
-    <section className="w-full py-8 bg-gradient-to-r from-background via-secondary/30 to-background overflow-hidden relative">
-
-{/* 
- <section className="w-full bg-white pt-10 pb-6 px-4 border-b border-slate-100">
-  <div className="max-w-5xl mx-auto flex flex-col items-center gap-3 text-center">
-
-    <div className="inline-flex items-center gap-2 rounded-full bg-slate-100 px-4 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-600">
-      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.8)]" />
-      Groom Essentials
-    </div>
-
-    <p className="text-sm md:text-base text-slate-600 max-w-2xl">
-      Tagline goes here – short, sharp, and focused on the groom’s experience.
-    </p>
-  </div>
-</section> */}
-
+    <section className="w-full py-8 bg-gradient-to-r from-slate-50 via-pink-50/30 to-slate-50 overflow-hidden relative">
       <div
         ref={sliderRef}
         className="flex gap-6 overflow-hidden cursor-grab active:cursor-grabbing"
@@ -107,20 +63,24 @@ const TopSlider = () => {
             key={`${category.name}-${index}`}
             className="flex-shrink-0 group"
           >
-            <div className="flex flex-col items-center gap-3 p-4 rounded-2xl transition-all duration-300 hover:scale-110 hover:bg-card hover:shadow-xl cursor-pointer min-w-[120px]">
+            <div className="flex flex-col items-center gap-3 p-4 transition-all duration-300 hover:scale-110 cursor-pointer min-w-[140px]">
               <div className="relative">
                 {category.badge && (
                   <span className="absolute -top-2 -right-2 z-10 px-2 py-0.5 text-[10px] font-bold text-white bg-gradient-to-r from-red-500 to-orange-500 rounded-full animate-pulse shadow-lg">
                     {category.badge}
                   </span>
                 )}
-                <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${category.color} p-4 shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:rotate-3`}>
-                  <category.icon className="w-full h-full text-white drop-shadow-md" strokeWidth={1.5} />
+                <div className="w-28 h-28 rounded-full overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-105 ring-4 ring-white group-hover:ring-pink-300">
+                  <img 
+                    src={category.imageUrl} 
+                    alt={category.name}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
                 </div>
-                <div className={`absolute inset-0 w-20 h-20 rounded-2xl bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-50 blur-xl transition-opacity duration-300 -z-10`} />
+                <div className="absolute inset-0 w-28 h-28 rounded-full bg-gradient-to-br from-pink-500/30 to-purple-500/30 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300 -z-10" />
               </div>
 
-              <span className="text-sm font-medium text-foreground text-center whitespace-nowrap group-hover:text-primary transition-colors duration-300">
+              <span className="text-sm font-medium text-slate-700 text-center whitespace-nowrap group-hover:text-pink-600 transition-colors duration-300">
                 {category.name}
               </span>
             </div>
@@ -128,8 +88,8 @@ const TopSlider = () => {
         ))}
       </div>
 
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-background to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-background to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-slate-50 to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-slate-50 to-transparent" />
     </section>
   );
 };

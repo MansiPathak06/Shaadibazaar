@@ -1,148 +1,155 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { ArrowRight, Sparkles, Gift, Home, Zap } from 'lucide-react';
+import React from "react";
+import { ArrowRight, Sparkles, Gift, Home, Zap } from "lucide-react";
 
 export default function TrendingProducts() {
   const categories = [
     {
-      title: "Holiday Season Collection",
-      subtitle: "Discover the magic of celebrations",
+      title: "Bride/Groom Collection",
+      subtitle: "Elegant wedding attire for every bride and groom !",
       items: [
         {
-          title: "Winter Essentials",
-          icon: "❄️",
+          title: "Bridal Lehenga",
+          icon: "👰",
           gradient: "from-cyan-500 to-blue-600",
-          image:"https://res.cloudinary.com/dewxpvl5s/image/upload/v1764931272/winter-collection-4_ms4li3.jpg",
+          image:
+            "https://i.pinimg.com/1200x/92/c2/f3/92c2f37a30cab54858cd77ea1873dc8a.jpg",
         },
         {
-          title: "Gift Gallery",
-          icon: "🎁",
+          title: "Sharara Set",
+          icon: "💃",
           gradient: "from-pink-500 to-rose-600",
-          image:"https://res.cloudinary.com/dewxpvl5s/image/upload/v1764931272/winter-collection-1_y4agwe.jpg"
-
+          image:
+            "https://i.pinimg.com/1200x/b6/4c/6d/b64c6d7ebc3107747de29c6949edae5a.jpg",
         },
         {
-          title: "Travel Collection",
-          icon: "✈️",
+          title: "Sherwani",
+          icon: "🤵",
           gradient: "from-purple-500 to-indigo-600",
-          image:"https://res.cloudinary.com/dewxpvl5s/image/upload/v1764931272/winter-collection-3_ogkn4d.jpg",
+          image:
+            "https://i.pinimg.com/1200x/1b/e7/70/1be7705cdd1b9ebd64a6ad67a46700af.jpg",
         },
         {
-          title: "Special Moments",
-          icon: "💎",
+          title: "Kurta Pajama",
+          icon: "👕",
           gradient: "from-amber-500 to-orange-600",
-          image:"https://res.cloudinary.com/dewxpvl5s/image/upload/v1764931272/winter-collection-2_dxhmpb.jpg",
-        }
+          image:
+            "https://i.pinimg.com/1200x/8a/5e/38/8a5e38d2463de74238047e8a8624d67f.jpg",
+        },
       ],
-      linkText: "View all collections"
+      linkText: "View all collections",
+    },
+{
+  title: "Vendor and Services",
+  subtitle: "Find trusted wedding vendors and premium services !",
+  items: [
+    {
+      title: "Photography",
+      icon: "📸",
+      badge: "Up to 50% off",
+      gradient: "from-orange-400 to-red-500",
+      image: "https://i.pinimg.com/736x/b2/4c/ab/b24cab6ad04bf63653b3249b9ba8852b.jpg",
     },
     {
-      title: "Mega Sale Event",
-      subtitle: "Limited time offers you can't miss",
-      items: [
-        {
-          title: "Flash Deals",
-          badge: "Up to 50% off",
-          gradient: "from-orange-400 to-red-500",
-          image:""
-        },
-        {
-          title: "Top Picks",
-          badge: "Bestsellers",
-          gradient: "from-red-500 to-pink-600",
-          image:""
-        },
-        {
-          title: "Bundle & Save",
-          badge: "Buy 2 Get 15% off",
-          gradient: "from-fuchsia-500 to-purple-600",
-          image:"",
-        },
-        {
-          title: "Combo Offers",
-          badge: "Up to 45% off",
-          gradient: "from-violet-500 to-indigo-600",
-          image:"",
-        }
-      ],
-      linkText: "Browse all deals"
+      title: "Makeup Artist",
+      icon: "💄",
+      badge: "Bestsellers",
+      gradient: "from-red-500 to-pink-600",
+      image: "https://i.pinimg.com/1200x/49/8e/fd/498efdae882161544ec04d199bfe9bf8.jpg",
     },
     {
-      title: "Transform Your Living Space",
-      subtitle: "Style meets comfort in every corner",
-      items: [
-        {
-          title: "Soft Furnishings",
-          image: "https://images.unsplash.com/photo-1615529328331-f8917597711f?w=400&h=300&fit=crop",
-          description: "Cushions, throws & linens",
-          image:"",
-        },
-        {
-          title: "Decorative Accents",
-          image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=400&h=300&fit=crop",
-          description: "Vases, art & more",
-          image:"",
+      title: "Catering Service",
+      icon: "🍽️",
+      badge: "",
+      gradient: "from-fuchsia-500 to-purple-600",
+      image: "https://i.pinimg.com/736x/83/3f/04/833f0484d0b473dd67cd9f28211fb437.jpg",
+    },
+    {
+      title: "DJ Setup",
+      icon: "🎧",
+      badge: "",
+      gradient: "from-violet-500 to-indigo-600",
+      image: "https://i.pinimg.com/736x/56/fa/bf/56fabf14ef9c2b0b1e02e406c4543e61.jpg",
+    },
+  ],
+  linkText: "Browse all deals",
+},
+{
+  title: "Wedding Venue and Accomodation",
+  subtitle: "Find the perfect spaces for every wedding moment !",
+  items: [
+    {
+      title: "Banquet Halls",
+      image:
+        "https://i.pinimg.com/736x/ec/5f/f8/ec5ff862c504be3092f07d57730e2c1b.jpg",
+      description: "Spacious indoor venues for grand celebrations",
+    },
+    {
+      title: "Destination Wedding",
+      image:
+        "https://i.pinimg.com/736x/8f/56/6f/8f566f360a13a0a874e093e80e9254f8.jpg",
+      description: "Exotic locations for unforgettable weddings",
+    },
+    {
+      title: "Pre-Wedding Venues",
+      image:
+        "https://i.pinimg.com/1200x/1f/75/95/1f7595b8a91ba051ab21b793641d743d.jpg",
+      description: "Beautiful spaces for engagements & photoshoots",
+    },
+    {
+      title: "Hotels",
+      image:
+        "https://i.pinimg.com/1200x/2e/eb/ab/2eebab2ac8cf89b25a1e43e9425a3032.jpg",
+      description: "Elegant stays and event-ready accommodations",
+    },
+  ],
+  linkText: "Discover more",
+}
+,
+  {
+  title: "Wedding Planning Tools",
+  subtitle: "Essential tools to simplify your wedding planning !",
+  items: [
+    {
+      title: "Bridal Kit",
+      image:
+        "https://i.pinimg.com/1200x/c3/3a/57/c33a57ce37cb68496fc12bc0de788df0.jpg",
+      description: "All essentials for the bride’s big day",
+    },
+    {
+      title: "Wedding Cards",
+      image:
+        "https://i.pinimg.com/1200x/0f/36/d0/0f36d0b53e2460ba08dbc1847422c6d7.jpg",
+      description: "Beautiful invitations for every ceremony",
+    },
+    {
+      title: "Drone Camera",
+      image:
+        "https://i.pinimg.com/1200x/90/44/a2/9044a20f7678b7adeb70b96213ceb867.jpg",
+      description: "Capture stunning aerial wedding moments",
+    },
+    {
+      title: "Perfume",
+      image:
+        "https://i.pinimg.com/1200x/a7/c7/a9/a7c7a91a273e7d14033e4873f66fa524.jpg",
+      description: "Premium fragrances for lasting impressions",
+    },
+  ],
+  linkText: "Shop tools",
+},
 
-        },
-        {
-          title: "Storage Solutions",
-          image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400&h=300&fit=crop",
-          description: "Organize in style",
-          image:"",
-        },
-        {
-          title: "Ambient Lighting",
-          image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=400&h=300&fit=crop",
-          description: "Create the perfect mood",
-          image:"",
-        }
-      ],
-      linkText: "Discover more"
-    },
-    {
-      title: "Smart Home Appliances",
-      subtitle: "Up to 60% off on premium brands",
-      items: [
-        {
-          title: "Climate Control",
-          image: "https://images.unsplash.com/photo-1631545806609-c2a0e527d0f8?w=400&h=300&fit=crop",
-          description: "Air conditioners",
-          image:"",
-        },
-        {
-          title: "Cooling Solutions",
-          image: "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=400&h=300&fit=crop",
-          description: "Refrigerators",
-          image:"",
-        },
-        {
-          title: "Kitchen Essentials",
-          image: "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=300&fit=crop",
-          description: "Microwaves & ovens",
-          image:"",
-        },
-        {
-          title: "Laundry Care",
-          image: "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=400&h=300&fit=crop",
-          description: "Washing machines",
-          image:"",
-        }
-      ],
-      linkText: "Shop appliances"
-    }
   ];
 
   return (
     <div className="bg-white p-6">
-
       <div className="text-center pb-16 px-4">
         <h1 className="text-5xl md:text-6xl font-medium capitalize mb-4">
-          <span className="text-gray-900">Trending</span>{' '}
-          <span className="text-orange-600">Products</span>
+          <span className="text-gray-900">Featured</span>{" "}
+          <span className="text-orange-600">Categories</span>
         </h1>
         <p className="text-lg text-gray-600">
-          What everyone's loving right now
+          What everyone's loving right now !
         </p>
       </div>
 
@@ -190,7 +197,9 @@ export default function TrendingProducts() {
                         </div>
                       ) : (
                         /* Gradient-based cards */
-                        <div className={`aspect-square bg-gradient-to-br ${item.gradient} flex flex-col items-center justify-center p-4 text-white`}>
+                        <div
+                          className={`aspect-square bg-gradient-to-br ${item.gradient} flex flex-col items-center justify-center p-4 text-white`}
+                        >
                           {item.icon && (
                             <span className="text-4xl mb-2">{item.icon}</span>
                           )}
