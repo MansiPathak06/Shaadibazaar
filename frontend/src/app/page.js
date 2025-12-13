@@ -39,14 +39,14 @@ const page = () => {
       <MiddleBar />
       <FeaturedProducts />
       <CircleCategorySelection />
-      <ShowCase2 />
+      
       <ShowCase3 />
       <ShowCase4 />
       <Collection1 />
-      <BrandCardSlider />
+      {/* <BrandCardSlider /> */}
 
 
-      <BannerCollection />
+      {/* <BannerCollection /> */}
       <Footer/>
 
     </div>

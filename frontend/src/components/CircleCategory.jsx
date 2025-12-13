@@ -7,70 +7,70 @@ export default function ClothingCategories() {
       id: 1,
       name: "Bridal Wear",
       image:
-        "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop",
+        "https://i.pinimg.com/1200x/70/8a/8e/708a8eeb82f66e0c272eb8acaf8b0410.jpg",
       items: "2.5k Items",
     },
     {
       id: 2,
       name: "Essential Bridal things",
       image:
-        "https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop",
+        "https://i.pinimg.com/736x/d0/40/39/d04039d91d8ffa850b4046d8a2d7aaf7.jpg",
       items: "1.8k Items",
     },
     {
       id: 3,
       name: "Groom Footwear",
       image:
-        "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=400&fit=crop",
+        "https://i.pinimg.com/736x/e5/6b/b2/e56bb254ff06d64471aef33e6feb108f.jpg",
       items: "3.2k Items",
     },
     {
       id: 4,
       name: "Bridal Footwear",
       image:
-        "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=400&h=400&fit=crop",
+        "https://i.pinimg.com/1200x/b0/63/44/b063446e391f4ba6e2cc338fbcddd79a.jpg",
       items: "1.5k Items",
     },
     {
       id: 5,
       name: "Bridal Accessories",
       image:
-        "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400&h=400&fit=crop",
+        "https://i.pinimg.com/1200x/c2/81/4a/c2814a8f2bf3c84446a84159db9ac43a.jpg",
       items: "980 Items",
     },
     {
       id: 6,
       name: "Groom Accessories",
       image:
-        "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop",
+        "https://i.pinimg.com/736x/ae/6b/af/ae6bafa30d097cf90c6b46151d5e6784.jpg",
       items: "760 Items",
     },
     {
       id: 7,
       name: "Makeup & Hair Accessories",
       image:
-        "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop",
+        "https://i.pinimg.com/736x/f1/72/81/f17281b9d7a127a774ff9cb579101732.jpg",
       items: "1.2k Items",
     },
     {
       id: 8,
       name: "Gifts",
       image:
-        "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=400&fit=crop",
+        "https://i.pinimg.com/736x/9f/cb/30/9fcb30c69047a62d7587e6929939606d.jpg",
       items: "890 Items",
     },
     {
       id: 9,
       name: "Ritual Items",
       image:
-        "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=400&fit=crop",
+        "https://i.pinimg.com/1200x/27/9b/99/279b997dd438a6ced108bef2ecedf18a.jpg",
       items: "540 Items",
     },
     {
       id: 10,
       name: "Bridal Jewellery",
       image:
-        "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?w=400&h=400&fit=crop",
+        "https://i.pinimg.com/1200x/07/a4/81/07a481126183a4cf3278ecfe2986305c.jpg",
       items: "420 Items",
     },
   ];
@@ -86,9 +86,7 @@ export default function ClothingCategories() {
         {/* Heading */}
         <div className="text-center mb-10 animate-fade-in">
           <div className="inline-block mb-3 animate-bounce-slow">
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white text-xs font-semibold px-4 py-1.5 rounded-full shadow-lg">
-              ✨ Trending Now
-            </span>
+            
           </div>
           <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-900 bg-clip-text text-transparent mb-3 animate-slide-up">
             Shop by Category
