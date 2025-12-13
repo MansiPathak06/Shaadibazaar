@@ -1,48 +1,31 @@
 'use client';
 
 import { useEffect, useRef, useState } from "react";
-import { 
-  Smartphone, 
-  Shirt, 
-  Headphones, 
-  Sofa, 
-  Tv, 
-  Plane, 
-  Sparkles, 
-  ShoppingCart,
-  Watch,
-  Gamepad2,
-  Book,
-  Car,
-  Baby,
-  Dumbbell,
-  Gift
-} from "lucide-react";
-
 
 const categories = [
-  { name: "Mobiles & Tablets", icon: Smartphone, color: "from-blue-500 to-cyan-400", badge: "NEW" },
-  { name: "Fashion", icon: Shirt, color: "from-pink-500 to-rose-400" },
-  { name: "Electronics", icon: Headphones, color: "from-red-500 to-orange-400" },
-  { name: "Home & Furniture", icon: Sofa, color: "from-amber-500 to-yellow-400" },
-  { name: "TVs & Appliances", icon: Tv, color: "from-indigo-500 to-purple-400" },
-  { name: "Flight Bookings", icon: Plane, color: "from-sky-500 to-blue-400" },
-  { name: "Beauty & Health", icon: Sparkles, color: "from-fuchsia-500 to-pink-400" },
-  { name: "Grocery", icon: ShoppingCart, color: "from-green-500 to-emerald-400" },
-  { name: "Watches", icon: Watch, color: "from-slate-600 to-zinc-500" },
-  { name: "Gaming", icon: Gamepad2, color: "from-violet-500 to-purple-400", badge: "HOT" },
-  { name: "Books & Media", icon: Book, color: "from-teal-500 to-cyan-400" },
-  { name: "Automotive", icon: Car, color: "from-gray-600 to-slate-500" },
-  { name: "Baby & Kids", icon: Baby, color: "from-rose-400 to-pink-300" },
-  { name: "Sports & Fitness", icon: Dumbbell, color: "from-orange-500 to-red-400" },
-  { name: "Gifts & Toys", icon: Gift, color: "from-purple-500 to-indigo-400", badge: "SALE" },
+  { name: "Lehenga", imageUrl: "https://i.pinimg.com/1200x/f3/f9/f5/f3f9f5b48079d4daa97e07a9a97395a6.jpg", badge: "HOT" },
+  { name: "Saree", imageUrl: "https://i.pinimg.com/736x/86/6a/61/866a615c22103a862f201795fa9d3cc7.jpg", badge: "NEW" },
+  { name: "Sharara", imageUrl: "https://i.pinimg.com/1200x/2c/f5/ef/2cf5efbcd8473fe64c1d1ed75b08b230.jpg" },
+  { name: "Anarkali Suit", imageUrl: "https://i.pinimg.com/1200x/7c/77/0a/7c770a30f81a6647395d291e6494861b.jpg", badge: "PREMIUM" },
+  { name: "Robe", imageUrl: "https://i.pinimg.com/1200x/1e/70/7d/1e707dd72ece9f84fbcbf490c6025c87.jpg" },
+  { name: "Bridesmaid Dress", imageUrl: "https://i.pinimg.com/1200x/09/c4/3f/09c43fb2c3b9c3d9cd80f3f7347f9a55.jpg", badge: "NEW" },
+  { name: "Hijab", imageUrl: "https://i.pinimg.com/736x/6f/69/47/6f69470b049bd6663d1d6fefa2bf8297.jpg" },
+  { name: "Veil", imageUrl: "https://i.pinimg.com/1200x/05/76/3c/05763ca98f33e8badbf2b67a0e9763ae.jpg", badge: "BRIDAL" },
+  { name: "Dupatta", imageUrl: "https://i.pinimg.com/1200x/4d/b9/2e/4db92e0b0dacb783ad763d3da6743c18.jpg", badge: "HOT" },
+  { name: "Gown", imageUrl: "https://i.pinimg.com/1200x/9a/fe/b0/9afeb0c9543f1bdb716f5de40798d68b.jpg" },
+  { name: "Punjabi Suit", imageUrl: "https://i.pinimg.com/1200x/96/0b/9d/960b9d0ce66c7893c167a86d158e410f.jpg" },
+  { name: "Payal", imageUrl: "https://i.pinimg.com/736x/3e/fd/f1/3efdf1c627dd4c0f6ca22652b9a596d7.jpg" },
+  { name: "Necklace", imageUrl: "https://i.pinimg.com/1200x/7c/2c/c2/7c2cc2d46f49b1b536c69b7b42c69539.jpg", badge: "SALE" },
+  { name: "Earrings", imageUrl: "https://i.pinimg.com/1200x/f7/74/59/f774596236a976722a5c9c73404a187f.jpg" },
+  { name: "Ring", imageUrl: "https://i.pinimg.com/1200x/0b/97/cf/0b97cf05de8534f8fafbc0d8f0cfa569.jpg", badge: "PREMIUM" },
+  { name: "Nath", imageUrl: "https://i.pinimg.com/736x/ac/7a/3f/ac7a3f635f07cca1dc2e9416614333ac.jpg" },
+  { name: "Sandals", imageUrl: "https://i.pinimg.com/736x/78/a7/54/78a7547fbc0383a1702310cac0f9117a.jpg" },
+  { name: "Gloves", imageUrl: "https://i.pinimg.com/736x/7a/40/c4/7a40c41b57a2f273cbee98a37a7c7d2d.jpg" },
 ];
-
 
 const TopSlider = () => {
   const sliderRef = useRef(null);
   const [isPaused, setIsPaused] = useState(false);
-
 
   useEffect(() => {
     const slider = sliderRef.current;
@@ -67,58 +50,48 @@ const TopSlider = () => {
     return () => cancelAnimationFrame(animationId);
   }, [isPaused]);
 
-
   return (
-    <section className="w-full py-8 bg-gradient-to-r from-background via-secondary/30 to-background overflow-hidden">
-      {/* <div className="container mx-auto px-4 mb-6">
-        <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center">
-          Shop by <span className="bg-gradient-to-r from-primary to-accent-foreground bg-clip-text text-transparent">Categories</span>
-        </h2>
-        <p className="text-muted-foreground text-center mt-2">Discover amazing deals across all categories</p>
-      </div> */}
-      
+    <section className="w-full py-8 bg-gradient-to-r from-slate-50 via-pink-50/30 to-slate-50 overflow-hidden relative">
       <div
         ref={sliderRef}
         className="flex gap-6 overflow-hidden cursor-grab active:cursor-grabbing"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
-        {/* Duplicate categories for infinite scroll effect */}
         {[...categories, ...categories].map((category, index) => (
           <div
             key={`${category.name}-${index}`}
             className="flex-shrink-0 group"
           >
-            <div className="flex flex-col items-center gap-3 p-4 rounded-2xl transition-all duration-300 hover:scale-110 hover:bg-card hover:shadow-xl cursor-pointer min-w-[120px]">
-              {/* Icon container with gradient background */}
+            <div className="flex flex-col items-center gap-3 p-4 transition-all duration-300 hover:scale-110 cursor-pointer min-w-[140px]">
               <div className="relative">
                 {category.badge && (
                   <span className="absolute -top-2 -right-2 z-10 px-2 py-0.5 text-[10px] font-bold text-white bg-gradient-to-r from-red-500 to-orange-500 rounded-full animate-pulse shadow-lg">
                     {category.badge}
                   </span>
                 )}
-                <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${category.color} p-4 shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:rotate-3`}>
-                  <category.icon className="w-full h-full text-white drop-shadow-md" strokeWidth={1.5} />
+                <div className="w-28 h-28 rounded-full overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-105 ring-4 ring-white group-hover:ring-pink-300">
+                  <img 
+                    src={category.imageUrl} 
+                    alt={category.name}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
                 </div>
-                {/* Glow effect on hover */}
-                <div className={`absolute inset-0 w-20 h-20 rounded-2xl bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-50 blur-xl transition-opacity duration-300 -z-10`} />
+                <div className="absolute inset-0 w-28 h-28 rounded-full bg-gradient-to-br from-pink-500/30 to-purple-500/30 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300 -z-10" />
               </div>
-              
-              {/* Category name */}
-              <span className="text-sm font-medium text-foreground text-center whitespace-nowrap group-hover:text-primary transition-colors duration-300">
+
+              <span className="text-sm font-medium text-slate-700 text-center whitespace-nowrap group-hover:text-pink-600 transition-colors duration-300">
                 {category.name}
               </span>
             </div>
           </div>
         ))}
       </div>
-      
-      {/* Fade edges */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-background to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-background to-transparent" />
+
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-slate-50 to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-slate-50 to-transparent" />
     </section>
   );
 };
-
 
 export default TopSlider;

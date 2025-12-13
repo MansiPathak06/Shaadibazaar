@@ -97,7 +97,7 @@ const DecorationStylingVendorsPage = () => {
       name: "Haldi Decor Setup Vendor",
       description:
         "Vibrant and cheerful haldi ceremony decorations featuring marigolds, colorful drapes, and traditional elements",
-      image: "",
+      image: "  ",
     },
     {
       id: 4,

@@ -11,53 +11,53 @@ export default function ShowCase3() {
   const products = [
     {
       id: 1,
-      name: "Wireless Mouse",
-      image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=400&fit=crop"
+      name: "AC/Non-AC Banquets",
+      image: "https://i.pinimg.com/736x/19/3a/da/193ada461bdba32a1382906adbf7e932.jpg"
     },
     {
       id: 2,
-      name: "Phone Case",
-      image: "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=400&h=400&fit=crop"
+      name: "Resort Lawns",
+      image: "https://i.pinimg.com/1200x/31/3b/fc/313bfcd9657d614fb1ed8d18306e527b.jpg"
     },
     {
       id: 3,
-      name: "Smart Watch",
-      image: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400&h=400&fit=crop"
+      name: "Temples",
+      image: "https://i.pinimg.com/736x/2c/d0/9c/2cd09c7d49aa0c3ff71df844929ed49d.jpg"
     },
     {
       id: 4,
-      name: "Digital Scale",
-      image: "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=400&h=400&fit=crop"
+      name: "Churches",
+      image: "https://i.pinimg.com/1200x/8b/51/ce/8b51ce95f758c6090c0619bab85d5c9e.jpg"
     },
     {
       id: 5,
-      name: "Phone Cover",
-      image: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=400&h=400&fit=crop"
+      name: "Gurudwaras",
+      image: "https://i.pinimg.com/736x/1d/d9/3c/1dd93cc2ee06645daed7770bcfbc7236.jpg"
     },
     {
       id: 6,
-      name: "Power Bank",
-      image: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400&h=400&fit=crop"
+      name: "Nikah Hall",
+      image: "https://i.pinimg.com/1200x/4b/a1/ed/4ba1eda75452de467ccbec81d9e1549b.jpg"
     },
     {
       id: 7,
-      name: "USB Charger",
-      image: "https://images.unsplash.com/photo-1591290619762-cca85d3b5e9f?w=400&h=400&fit=crop"
+      name: "5-Star Hotels",
+      image: "https://i.pinimg.com/1200x/3c/ad/92/3cad925df90cbeaa7e728d75eefda0fe.jpg"
     },
     {
       id: 8,
-      name: "Wireless Earbuds",
-      image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=400&fit=crop"
+      name: "Engagement halls",
+      image: "https://i.pinimg.com/1200x/ec/dd/f4/ecddf46c9536dccae3d2d36fe4ea770d.jpg"
     },
     {
       id: 9,
-      name: "Bluetooth Speaker",
-      image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop"
+      name: "Reception Venues",
+      image: "https://i.pinimg.com/736x/28/ad/9c/28ad9ce48d602d99c961aa68037cc9db.jpg"
     },
     {
       id: 10,
-      name: "Laptop Stand",
-      image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=400&fit=crop"
+      name: "Beach Resorts",
+      image: "https://i.pinimg.com/736x/a1/cf/89/a1cf89b38042fc5f1fb1672063093cc1.jpg"
     }
   ];
 
@@ -107,7 +107,7 @@ export default function ShowCase3() {
         <div className="flex items-center justify-between mb-6">
           <div>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-1">
-              Up to 55% off | Electronics & accessories from Amazon Launchpad
+          Luxury Wedding Venues & Comfortable Stays !
             </h2>
           </div>
           <a 
@@ -155,7 +155,7 @@ export default function ShowCase3() {
                       <img
                         src={product.image}
                         alt={product.name}
-                        className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                       />
                     </div>
                     <h3 className="text-sm font-medium text-gray-700 text-center group-hover:text-blue-600 transition-colors">

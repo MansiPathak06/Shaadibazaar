@@ -11,28 +11,28 @@ export default function ShowCase1() {
       gradient: "from-violet-600 via-purple-600 to-indigo-600",
       products: [
         {
-          name: "True Wireless",
+          name: "Sehra",
           badge: "Special offer",
           badgeColor: "bg-gradient-to-r from-green-500 to-emerald-500",
-          image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=400&fit=crop"
+          image: "https://i.pinimg.com/736x/ca/da/ac/cadaacf8750c07ee8d031e11c3c096d4.jpg"
         },
         {
-          name: "Neckband",
+          name: "Varmala",
           badge: "Special offer",
           badgeColor: "bg-gradient-to-r from-green-500 to-emerald-500",
-          image: "https://images.unsplash.com/photo-1577174881658-0f30157f72c4?w=400&h=400&fit=crop"
+          image: "https://i.pinimg.com/736x/59/e5/5e/59e55eca5c409beb7f6ba58a5ac81786.jpg"
         },
         {
-          name: "Smart Watches",
+          name: "Turban(Pagri)",
           badge: "Min. 40% Off",
           badgeColor: "bg-gradient-to-r from-amber-500 to-orange-500",
-          image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop"
+          image: "https://i.pinimg.com/736x/f9/b9/e2/f9b9e2a9c881aa6db84dec21344a43ce.jpg"
         },
         {
-          name: "Trimmers",
+          name: "Wedding Rings",
           badge: "Min. 50% Off",
           badgeColor: "bg-gradient-to-r from-red-500 to-pink-500",
-          image: "https://images.unsplash.com/photo-1621607510824-e8d5e4be0b66?w=400&h=400&fit=crop"
+          image: "https://i.pinimg.com/736x/3a/a4/99/3aa499e2f411131def052397a5b3e1df.jpg"
         }
       ]
     },
@@ -42,28 +42,28 @@ export default function ShowCase1() {
       gradient: "from-pink-600 via-rose-600 to-red-600",
       products: [
         {
-          name: "Blankets",
+          name: "Dupatta",
           badge: "Min. 50% Off",
           badgeColor: "bg-gradient-to-r from-emerald-600 to-teal-600",
-          image: "https://images.unsplash.com/photo-1616627977248-1b671e17c7a6?w=400&h=400&fit=crop"
+          image: "https://i.pinimg.com/1200x/ea/cb/00/eacb0032cd5defe033fd06db7f4f9968.jpg"
         },
         {
-          name: "Water Bottles & Flasks",
+          name: "Bridal Heels",
           badge: "Top Deals",
           badgeColor: "bg-gradient-to-r from-blue-600 to-cyan-600",
-          image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400&h=400&fit=crop"
+          image: "https://i.pinimg.com/1200x/6c/6d/fb/6c6dfb62e3bf749559c6ec18e7eb8df0.jpg"
         },
         {
-          name: "Wall Clocks",
+          name: "Kalire",
           badge: "Top Picks",
           badgeColor: "bg-gradient-to-r from-purple-600 to-indigo-600",
-          image: "https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?w=400&h=400&fit=crop"
+          image: "https://i.pinimg.com/736x/8f/5a/61/8f5a61a8355bb8c33b1de24c78b5cd98.jpg"
         },
         {
-          name: "Bedsheets",
+          name: "Mang Tikka",
           badge: "Special offer",
           badgeColor: "bg-gradient-to-r from-pink-600 to-rose-600",
-          image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=400&fit=crop"
+          image: "https://i.pinimg.com/736x/13/2b/52/132b529955979ef1d5c31987126f110e.jpg"
         }
       ]
     },
@@ -73,28 +73,28 @@ export default function ShowCase1() {
       gradient: "from-orange-600 via-red-600 to-rose-600",
       products: [
         {
-          name: "Shoe Rack",
+          name: "FarmHouses",
           badge: "Min. 50% Off",
           badgeColor: "bg-gradient-to-r from-teal-600 to-cyan-600",
-          image: "https://images.unsplash.com/photo-1598128558393-70ff21433be0?w=400&h=400&fit=crop"
+          image: "https://i.pinimg.com/736x/55/92/d0/5592d0d7067960f7536324d78f553697.jpg"
         },
         {
-          name: "Collapsible Wardrobes",
+          name: "Villas",
           badge: "Min. 50% Off",
           badgeColor: "bg-gradient-to-r from-teal-600 to-cyan-600",
-          image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400&h=400&fit=crop"
+          image: "https://i.pinimg.com/1200x/80/44/24/80442498a01471b5d7bb1b75c0cb8c4a.jpg"
         },
         {
-          name: "Inflatable Sofas",
+          name: "Hill Resorts",
           badge: "Min. 50% Off",
           badgeColor: "bg-gradient-to-r from-sky-600 to-blue-600",
-          image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=400&fit=crop"
+          image: "https://i.pinimg.com/736x/21/f8/3e/21f83e566ba0066ceefaa8403378c1c6.jpg"
         },
         {
-          name: "Home Temple",
+          name: "Dining Hall",
           badge: "Min. 50% Off",
           badgeColor: "bg-gradient-to-r from-amber-600 to-orange-600",
-          image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=400&fit=crop"
+          image: "https://i.pinimg.com/1200x/6e/89/9d/6e899dba06e6d934c76c1145d656ae44.jpg"
         }
       ]
     },
@@ -104,28 +104,28 @@ export default function ShowCase1() {
       gradient: "from-cyan-600 via-blue-600 to-indigo-600",
       products: [
         {
-          name: "Bluetooth Speakers",
+          name: "Pandit Ji",
           badge: "Up to 60% Off",
           badgeColor: "bg-gradient-to-r from-indigo-600 to-purple-600",
-          image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop"
+          image: "https://i.pinimg.com/1200x/c2/0e/f4/c20ef488d21c47ff6ad07042b5aabae2.jpg"
         },
         {
-          name: "Gaming Consoles",
+          name: "Qazi for Nikah",
           badge: "Hot Deals",
           badgeColor: "bg-gradient-to-r from-red-600 to-pink-600",
-          image: "https://images.unsplash.com/photo-1486401899868-0e435ed85128?w=400&h=400&fit=crop"
+          image: "https://i.pinimg.com/736x/ac/de/a7/acdea7230a9b712c588d1f980159b1dc.jpg"
         },
         {
-          name: "Laptops",
+          name: "Granthi Ji",
           badge: "Min. 30% Off",
           badgeColor: "bg-gradient-to-r from-violet-600 to-fuchsia-600",
-          image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop"
+          image: "https://i.pinimg.com/736x/1d/d9/3c/1dd93cc2ee06645daed7770bcfbc7236.jpg"
         },
         {
-          name: "Tablets",
+          name: "Pastor/father",
           badge: "Best Prices",
           badgeColor: "bg-gradient-to-r from-blue-600 to-cyan-600",
-          image: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&h=400&fit=crop"
+          image: "https://i.pinimg.com/736x/39/8e/72/398e72d81f8727430338633ce965e8e1.jpg"
         }
       ]
     }
@@ -142,7 +142,7 @@ export default function ShowCase1() {
         {/* Section Header */}
       <div className="text-center pb-16 px-4">
         <h1 className="text-5xl md:text-6xl font-medium capitalize mb-4">
-          <span className="text-gray-900">Featured</span>{' '}
+          <span className="text-gray-900">Trending</span>{' '}
           <span className="text-orange-600">Products</span>
         </h1>
         <p className="text-lg text-gray-600">

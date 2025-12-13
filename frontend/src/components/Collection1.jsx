@@ -3,29 +3,58 @@ import React from 'react';
 export default function Collection1() {
   const categories = [
     {
-      name: "T-shirts",
-      image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&h=600&fit=crop"
+      name: "Wedding gown",
+      image: "https://i.pinimg.com/1200x/a3/b6/2c/a3b62c437be6548d59a0ce1497c2bdfc.jpg"
     },
     {
-      name: "Warm Joggers",
-      image: "https://images.unsplash.com/photo-1542272604-787c3835535d?w=800&h=600&fit=crop"
+      name: "Kurta–Pajama",
+      image: "https://i.pinimg.com/1200x/38/fc/1c/38fc1ce264b0e9e6f1c6451fa1e34ef3.jpg"
+    },
+    
+    
+    
+    {
+      name: "Bridal Saree",
+      image: "https://i.pinimg.com/736x/0c/59/54/0c595425995f9f810491a8ccc4995f4e.jpg"
     },
     {
-      name: "Hoodies",
-      image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&h=600&fit=crop"
+      name: "Anarkali suit",
+      image: "https://i.pinimg.com/1200x/cd/c7/52/cdc752101c04b381f3a721811e872355.jpg"
     },
     {
-      name: "Sweatshirts",
-      image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&h=600&fit=crop"
+      name: "3-piece suit",
+      image: "https://i.pinimg.com/736x/1c/a6/d2/1ca6d25ddbe7a7040983f61af2d6c80b.jpg"
     },
     {
-      name: "Shirts",
-      image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=800&h=600&fit=crop"
+      name: "Punjabi suit",
+      image: "https://i.pinimg.com/736x/54/02/7d/54027daf6d104ba726e08790fe993c39.jpg"
     },
     {
-      name: "Full Sleeve T-shirts",
-      image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&h=600&fit=crop"
-    }
+      name: "Sherwani",
+      image: "https://i.pinimg.com/736x/66/9f/44/669f44f7c86cfb4b941eaa6bec0bad08.jpg"
+    },
+    {
+      name: "Phulkari dupatta",
+      image: "https://i.pinimg.com/1200x/6a/8b/a3/6a8ba3fe279066df7d91cc3681446aa3.jpg"
+    },
+    {
+      name: "Pathani suit",
+      image: "https://i.pinimg.com/736x/c0/71/da/c071da29b66183da03189acffaae80f5.jpg"
+    },
+    
+    {
+      name: "Bridesmaid dresses",
+      image: "https://i.pinimg.com/1200x/92/ea/c0/92eac081e4827a5875b4695a0c145cd1.jpg"
+    },
+    {
+      name: "Bridal hijab",
+      image: "https://i.pinimg.com/1200x/31/4d/2d/314d2d0de27566dc257e638e97a04a98.jpg"
+    },
+    
+    {
+      name: "Tuxedo",
+      image: "https://i.pinimg.com/1200x/d1/fb/b0/d1fbb0950790724719e6c0ef8bae6794.jpg"
+    },
   ];
 
   return (

@@ -11,53 +11,53 @@ export default function ShowCase4() {
   const products = [
     {
       id: 1,
-      name: "Wireless Mouse",
-      image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=400&fit=crop"
+      name: "Card Printing Shop",
+      image: "https://i.pinimg.com/736x/39/2d/79/392d792470fe6d68b6032adae8e70051.jpg"
     },
     {
       id: 2,
-      name: "Phone Case",
-      image: "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=400&h=400&fit=crop"
+      name: "Shagun Envelope Designer",
+      image: "https://i.pinimg.com/1200x/0b/dc/84/0bdc8446d6c9cd8cb7d91399e42f1938.jpg"
     },
     {
       id: 3,
-      name: "Smart Watch",
-      image: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=400&h=400&fit=crop"
+      name: "Halwai",
+      image: "https://i.pinimg.com/736x/fb/22/fa/fb22fa68921b965ac0bea185b199df42.jpg"
     },
     {
       id: 4,
-      name: "Digital Scale",
-      image: "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=400&h=400&fit=crop"
+      name: "Bus/Traveller for guests",
+      image: "https://i.pinimg.com/736x/dc/8e/29/dc8e297bf30e3d2d76cfe1a138698747.jpg"
     },
     {
       id: 5,
-      name: "Phone Cover",
-      image: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=400&h=400&fit=crop"
+      name: "Drone Camera Operator",
+      image: "https://i.pinimg.com/1200x/1d/2b/c9/1d2bc99c7796e1e95575ac81e454d2f0.jpg"
     },
     {
       id: 6,
-      name: "Power Bank",
-      image: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400&h=400&fit=crop"
+      name: "Jewellery rental vendor",
+      image: "https://i.pinimg.com/736x/54/01/19/540119c374221f3566fe56942c98bc9e.jpg"
     },
     {
       id: 7,
-      name: "USB Charger",
-      image: "https://images.unsplash.com/photo-1591290619762-cca85d3b5e9f?w=400&h=400&fit=crop"
+      name: "Rental Bistar Set",
+      image: "https://i.pinimg.com/1200x/3e/f3/b6/3ef3b65bc209351f892bd0856bf0d614.jpg"
     },
     {
       id: 8,
-      name: "Wireless Earbuds",
-      image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=400&fit=crop"
+      name: "Crockery Items",
+      image: "https://i.pinimg.com/736x/9f/53/57/9f5357d3a3ac96f7e3f9cca06b71c270.jpg"
     },
     {
       id: 9,
-      name: "Bluetooth Speaker",
-      image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop"
+      name: "Spa & Salon Services",
+      image: "https://i.pinimg.com/1200x/8c/9f/a7/8c9fa7dbc6e87d9a2d83c5bf0acf7874.jpg"
     },
     {
       id: 10,
-      name: "Laptop Stand",
-      image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=400&fit=crop"
+      name: "Light & Sound Vendor",
+      image: "https://i.pinimg.com/1200x/00/8b/ad/008bad053d96c40933751559aaf25cc8.jpg"
     }
   ];
 
@@ -107,7 +107,7 @@ export default function ShowCase4() {
         <div className="flex items-center justify-between mb-6">
           <div>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-1">
-              Up to 55% off | Electronics & accessories from Amazon Launchpad
+             Top Wedding Services, Handpicked for You !
             </h2>
           </div>
           <a 
@@ -155,7 +155,7 @@ export default function ShowCase4() {
                       <img
                         src={product.image}
                         alt={product.name}
-                        className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                       />
                     </div>
                     <h3 className="text-sm font-medium text-gray-700 text-center group-hover:text-blue-600 transition-colors">

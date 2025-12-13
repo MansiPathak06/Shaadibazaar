@@ -49,9 +49,9 @@ export default function ServicesShowcase({
         ></div>
       </div> */}
 
-      {/* Blurred Background Image Overlay with Gradient */}
+      {/* Blurred Background Image Overlay with linear */}
       <div 
-        className="absolute inset-0 z-[1] bg-cover bg-center bg-no-repeat blur-sm "
+        className="absolute inset-0 z-1 bg-cover bg-center bg-no-repeat blur-sm "
         style={{
           backgroundImage: "url('https://i.pinimg.com/1200x/04/41/36/044136e00eea1f8a89083d6370c758ef.jpg')",
           backgroundAttachment: 'fixed'
@@ -61,7 +61,7 @@ export default function ServicesShowcase({
       </div>
 
       {/* Background accent circles */}
-      <div className="absolute inset-0 pointer-events-none z-[2]">
+      <div className="absolute inset-0 pointer-events-none z-2">
         <div className="absolute top-0 right-0 w-96 h-96 bg-rose-100 rounded-full blur-3xl opacity-20"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-100 rounded-full blur-3xl opacity-20"></div>
       </div>
@@ -118,7 +118,7 @@ export default function ServicesShowcase({
                     <p className="text-xs tracking-widest text-white/80 uppercase font-semibold">
                       {category.subtitle}
                     </p>
-                    <div className="w-8 h-0.5 bg-gradient-to-r from-rose-400 to-transparent"></div>
+                    <div className="w-8 h-0.5 bg-linear-to-r from-rose-400 to-transparent"></div>
                   </div>
                 </div>
 
@@ -146,7 +146,7 @@ export default function ServicesShowcase({
 
 
               {/* Hover indicator line */}
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-rose-400 via-rose-300 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left z-30"></div>
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-rose-400 via-rose-300 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left z-30"></div>
             </div>
           ))}
         </div>
@@ -156,7 +156,7 @@ export default function ServicesShowcase({
         <div className="flex justify-center">
           <a
             href="#explore-all"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-rose-400 to-rose-500 text-white font-semibold shadow-xl hover:shadow-2xl transform transition-all duration-300 hover:scale-105 hover:from-rose-500 hover:to-rose-600 group"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-linear-to-r from-rose-400 to-rose-500 text-white font-semibold shadow-xl hover:shadow-2xl transform transition-all duration-300 hover:scale-105 hover:from-rose-500 hover:to-rose-600 group"
           >
             Explore All Services
             <ChevronRight className="w-5 h-5 transform transition-transform group-hover:translate-x-1" />

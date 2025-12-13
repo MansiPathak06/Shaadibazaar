@@ -4,12 +4,12 @@ import { ArrowRight } from 'lucide-react';
 export default function BannerCollection() {
   const banners = [
     {
-      title: "Hot Offers",
+      title: "For Bride",
       subtitle: "Save up to 87%",
       description: "Exclusive deals on beauty essentials and premium products",
       buttonText: "Shop Now",
-      bgImage: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&h=500&fit=crop",
-      bgColor: "from-red-400 to-rose-500",
+      bgImage: "https://i.pinimg.com/736x/1f/3d/56/1f3d56114867ee664ab103177fc7170f.jpg",
+      bgColor: "from-red-400 to-rose-200",
       textColor: "text-white"
     },
     {
@@ -57,60 +57,8 @@ export default function BannerCollection() {
       bgColor: "from-pink-400 to-rose-500",
       textColor: "text-white"
     },
-    {
-      title: "Sun Protection",
-      subtitle: "Summer Essentials",
-      description: "Best sunscreen products to keep your skin safe and glowing",
-      buttonText: "Shop Now",
-      bgImage: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&h=500&fit=crop",
-      bgColor: "from-amber-300 to-yellow-400",
-      textColor: "text-gray-900"
-    },
-    {
-      title: "Nail Art Heaven",
-      subtitle: "Colorful Collection",
-      description: "Trendy nail polish colors and nail care essentials",
-      buttonText: "Shop Now",
-      bgImage: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&h=500&fit=crop",
-      bgColor: "from-pink-300 to-rose-400",
-      textColor: "text-gray-900"
-    },
-    {
-      title: "Skincare Routine",
-      subtitle: "Glow Naturally",
-      description: "Complete skincare solutions for healthy radiant skin",
-      buttonText: "Shop Now",
-      bgImage: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&h=500&fit=crop",
-      bgColor: "from-blue-300 to-indigo-400",
-      textColor: "text-white"
-    },
-    {
-      title: "Fragrance Collection",
-      subtitle: "Signature Scents",
-      description: "Discover luxury perfumes and body mists for every occasion",
-      buttonText: "Shop Now",
-      bgImage: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=800&h=500&fit=crop",
-      bgColor: "from-purple-400 to-pink-500",
-      textColor: "text-white"
-    },
-    {
-      title: "Hair Care Essentials",
-      subtitle: "Healthy Hair Goals",
-      description: "Premium hair care products for all hair types",
-      buttonText: "Shop Now",
-      bgImage: "https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=800&h=500&fit=crop",
-      bgColor: "from-teal-300 to-green-400",
-      textColor: "text-white"
-    },
-    {
-      title: "Lip Care Collection",
-      subtitle: "Soft & Beautiful",
-      description: "Lipsticks, glosses and balms in stunning shades",
-      buttonText: "Shop Now",
-      bgImage: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=800&h=500&fit=crop",
-      bgColor: "from-red-400 to-pink-500",
-      textColor: "text-white"
-    }
+    
+    
   ];
 
   return (
