@@ -11,19 +11,20 @@ const MuslimGroomServicesPage = () => {
       title: "Muslim Groom Services",
       subtitle: "Complete Essentials For Your Sacred Nikah",
       image:
-        "https://i.pinimg.com/736x/5a/23/ca/5a23ca5b0bbc27ab70962c1d851136e1.jpg",
+        "https://i.pinimg.com/1200x/35/45/d9/3545d95b0f1490c96e4f5d8c1ebda993.jpgv",
     },
+    
     {
       title: "Traditional Wedding Essentials",
       subtitle: "Everything You Need For Blessed Ceremonies",
       image:
-        "https://i.pinimg.com/1200x/6f/f7/cf/6ff7cf9f7d29e3acd8c19250f8e4ee54.jpg",
+        "https://i.pinimg.com/736x/18/52/64/1852649e05c49f1dae1f61208b934346.jpg",
     },
     {
       title: "Complete Groom Package",
       subtitle: "Make Your Special Day Memorable",
       image:
-        "https://i.pinimg.com/736x/fd/26/cf/fd26cfb905083571d15d314af34f03d6.jpg",
+        "https://i.pinimg.com/1200x/8e/50/3a/8e503ac4de03cc5f4b5fe36ec70c5cfa.jpg",
     },
   ];
 
@@ -33,37 +34,37 @@ const MuslimGroomServicesPage = () => {
       name: "Groom Makeover",
       items: "Professional Services",
       image:
-        "https://i.pinimg.com/736x/5a/23/ca/5a23ca5b0bbc27ab70962c1d851136e1.jpg",
+        "https://i.pinimg.com/736x/08/c9/f1/08c9f1858b3df3e23b60ac657b482c94.jpg",
     },
     {
       name: "Beard Styling",
       items: "Expert Styling",
       image:
-        "https://i.pinimg.com/736x/28/ac/3b/28ac3b55d55fc14e93dcadab7eb4f291.jpg",
+        "https://i.pinimg.com/736x/ba/5b/b3/ba5bb3a031cedb9d7e06a4f3393b4399.jpg",
     },
     {
       name: "Arabic Henna",
       items: "Traditional Mehndi",
       image:
-        "https://i.pinimg.com/1200x/35/3b/82/353b8244c5eb8853f9289907bb1702d2.jpg",
+        "https://i.pinimg.com/736x/28/5c/2a/285c2af0968e779bc9fc21b255b21afd.jpg",
     },
     {
       name: "Groom Photoshoot",
       items: "Professional Photography",
       image:
-        "https://i.pinimg.com/736x/47/43/ab/4743abc283cb05907a2a13967cc87322.jpg",
+        "https://i.pinimg.com/736x/31/fe/c7/31fec7f8418078853845f59ce4ba6348.jpg",
     },
     {
       name: "Car Decoration",
       items: "Wedding Car Styling",
       image:
-        "https://i.pinimg.com/1200x/19/34/09/193409a9e82c90cabe987cc8d3270605.jpg",
+        "https://i.pinimg.com/736x/19/4f/21/194f21d68486128fc4f6cffc9dba8e80.jpg",
     },
     {
       name: "Baraat Management",
       items: "Complete Planning",
       image:
-        "https://i.pinimg.com/736x/e2/c0/ca/e2c0cae9d3d6baf3a61c6a3f5f47eaa6.jpg",
+        "https://i.pinimg.com/1200x/21/20/6d/21206db8e4a1339d341a3c9ef69601a3.jpg",
     },
   ];
 
@@ -75,20 +76,20 @@ const MuslimGroomServicesPage = () => {
       oldPrice: "₹18,999",
       badge: "POPULAR",
       image:
-        "https://i.pinimg.com/736x/06/b8/cb/06b8cba05a56695e10fa2b8f41c96c65.jpg",
+        "https://i.pinimg.com/736x/05/fb/ce/05fbcee8766d342c40404cf51a17aa7e.jpg",
     },
     {
       name: "Professional Beard Styling",
       price: "₹5,999",
       image:
-        "https://i.pinimg.com/736x/5c/5a/d0/5c5ad0f09d6ca26783f3b22be13736e8.jpg",
+        "https://i.pinimg.com/1200x/83/26/90/832690b7ad3f09c75b38d4f6314d7ab0.jpg",
     },
     {
       name: "Arabic Henna Design",
       price: "₹3,999",
       badge: "NEW",
       image:
-        "https://i.pinimg.com/736x/d1/54/c5/d154c5f5a7e310dcdb91971f7245b978.jpg",
+        "https://i.pinimg.com/1200x/1a/84/c5/1a84c575aded369e180b5499a3906808.jpg",
     },
     {
       name: "Complete Groom Package",
@@ -96,7 +97,7 @@ const MuslimGroomServicesPage = () => {
       oldPrice: "₹49,999",
       badge: "25% OFF",
       image:
-        "https://i.pinimg.com/1200x/2c/d2/19/2cd219e170cc9991a32720acb9d5c461.jpg",
+        "https://i.pinimg.com/1200x/11/6a/1f/116a1f59a8246ba19c630127b23fac32.jpg",
     },
     {
       name: "Groom Photoshoot",
@@ -104,20 +105,22 @@ const MuslimGroomServicesPage = () => {
       oldPrice: "₹34,999",
       badge: "TRENDING",
       image:
-        "https://i.pinimg.com/736x/f8/fa/b7/f8fab7c8959825792517caabb40c9102.jpg",
+        "https://i.pinimg.com/1200x/c1/9c/4c/c19c4cb41c21baf323c0d4b47561ea47.jpg",
     },
     {
       name: "Premium Car Decoration",
-      price: "₹12,999",
+      price: "₹24,999",
+      oldPrice: "₹29,999",
+      badge: "NEW",
       image:
-        "https://i.pinimg.com/736x/04/65/8f/04658f180cb0ac3aa233317b9dfff6a7.jpg",
+        "https://i.pinimg.com/1200x/26/a3/78/26a37878f0c5524f7b809f408ca14b99.jpg",
     },
     {
       name: "Baraat Management Service",
       price: "₹45,999",
       badge: "POPULAR",
       image:
-        "https://i.pinimg.com/1200x/ca/bf/f5/cabff5d5049cf1d7fbc65426239538fd.jpg",
+        "https://i.pinimg.com/1200x/df/39/34/df3934cdaf47ba13b8aed2cda89d7b7d.jpg",
     },
     {
       name: "Luxury Groom Makeover",
@@ -125,20 +128,20 @@ const MuslimGroomServicesPage = () => {
       oldPrice: "₹29,999",
       badge: "NEW",
       image:
-        "https://i.pinimg.com/1200x/ae/c2/7b/aec27b164fa12b92748ffa1dfe02356b.jpg",
+        "https://i.pinimg.com/1200x/d6/63/b4/d663b439d32ecf8d5628b41bc8f0d429.jpg",
     },
     {
       name: "Traditional Beard Care",
       price: "₹7,999",
       image:
-        "https://i.pinimg.com/736x/04/65/8f/04658f180cb0ac3aa233317b9dfff6a7.jpg",
+        "https://i.pinimg.com/736x/f3/1f/fa/f31ffa6694112c18833ea6bfa758bd49.jpg",
     },
     {
       name: "Bridal Henna Session",
       price: "₹6,999",
       badge: "TRENDING",
       image:
-        "https://i.pinimg.com/1200x/ca/bf/f5/cabff5d5049cf1d7fbc65426239538fd.jpg",
+        "https://i.pinimg.com/736x/4f/e3/8b/4fe38ba21015b9cbda4dab92461ffbb5.jpg",
     },
     {
       name: "Deluxe Car Decoration",
@@ -146,7 +149,7 @@ const MuslimGroomServicesPage = () => {
       oldPrice: "₹23,999",
       badge: "POPULAR",
       image:
-        "https://i.pinimg.com/1200x/ae/c2/7b/aec27b164fa12b92748ffa1dfe02356b.jpg",
+        "https://i.pinimg.com/736x/94/11/73/9411738bd96940af9ebeb19b84d8ff00.jpg",
     },
   ];
 
@@ -259,7 +262,7 @@ const MuslimGroomServicesPage = () => {
         <div className="grid md:grid-cols-2 gap-8">
           <div className="relative overflow-hidden rounded-lg group cursor-pointer">
             <img
-              src="https://i.pinimg.com/1200x/7f/4b/31/7f4b31d01b321894de86819d9a02c6cb.jpg"
+              src="https://i.pinimg.com/1200x/40/6c/e9/406ce91bd026a96c5c0025e8c1095967.jpg"
               alt="Complete Groom Package"
               className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
             />
@@ -275,7 +278,7 @@ const MuslimGroomServicesPage = () => {
 
           <div className="relative overflow-hidden rounded-lg group cursor-pointer">
             <img
-              src="https://i.pinimg.com/1200x/06/7f/d4/067fd4c520b3eabef52ae39700591352.jpg"
+              src="https://i.pinimg.com/1200x/1a/96/d1/1a96d1ffbde2f010ecd46632114da934.jpg"
               alt="Premium Services"
               className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
             />

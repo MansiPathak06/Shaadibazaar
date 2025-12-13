@@ -9,61 +9,61 @@ const CeremonyVendorsPage = () => {
     {
       id: "hindu-priest",
       name: "Hindu Priest",
-      image: "https://via.placeholder.com/200x200?text=Hindu+Priest",
+      image: "https://i.pinimg.com/736x/4f/c9/e5/4fc9e57ee86914ca403440deb889a6ef.jpg",
       link: "/hindu-priest",
     },
     {
       id: "mandap",
       name: "Mandap Setup",
-      image: "https://via.placeholder.com/200x200?text=Mandap+Setup",
+      image: "https://i.pinimg.com/736x/bf/e4/6d/bfe46d6fc6ca70620a805d803378ade9.jpg",
       link: "/mandap-setup",
     },
     {
       id: "varmala",
       name: "Varmala Stage",
-      image: "https://via.placeholder.com/200x200?text=Varmala+Stage",
+      image: "https://i.pinimg.com/736x/a0/d9/80/a0d980722acf383c5ba255936ff3dd75.jpg",
       link: "/varmala-stage",
     },
     {
       id: "qazi",
       name: "Qazi for Nikah",
-      image: "https://via.placeholder.com/200x200?text=Qazi",
+      image: "https://i.pinimg.com/736x/c4/21/16/c421169e86425e7b64e1ddb32ecd7df2.jpg",
       link: "/qazi-nikah",
     },
     {
       id: "doli",
       name: "Doli Arrangement",
-      image: "https://via.placeholder.com/200x200?text=Doli",
+      image: "https://i.pinimg.com/736x/9a/e5/e2/9ae5e27619bfc853e2aaf441c06a34c9.jpg",
       link: "/doli-arrangement",
     },
     {
       id: "walima",
       name: "Walima Setup",
-      image: "https://via.placeholder.com/200x200?text=Walima",
+      image: "https://i.pinimg.com/474x/1c/d5/f5/1cd5f55c78713f11e7dc4f59c3472678.jpg",
       link: "/walima-setup",
     },
     {
       id: "granthi",
       name: "Granthi Ji",
-      image: "https://via.placeholder.com/200x200?text=Granthi+Ji",
+      image: "https://i.pinimg.com/1200x/fb/f8/1d/fbf81d100d13c77558205a311d8e29ad.jpg",
       link: "/granthi-ji",
     },
     {
       id: "gurudwara",
       name: "Gurudwara Team",
-      image: "https://via.placeholder.com/200x200?text=Gurudwara",
+      image: "https://i.pinimg.com/736x/53/a4/c8/53a4c8538bc22bb704210d78f4ea07bb.jpg",
       link: "/gurudwara-team",
     },
     {
       id: "pastor",
       name: "Pastor/Father",
-      image: "https://via.placeholder.com/200x200?text=Pastor",
+      image: "https://i.pinimg.com/1200x/39/8e/72/398e72d81f8727430338633ce965e8e1.jpg",
       link: "/pastor-father",
     },
     {
       id: "choir",
       name: "Church Choir",
-      image: "https://via.placeholder.com/200x200?text=Choir",
+      image: "https://i.pinimg.com/736x/7b/27/95/7b2795f5ed2601c5639fdd615f4b503c.jpg",
       link: "/church-choir",
     },
   ];
@@ -75,7 +75,7 @@ const CeremonyVendorsPage = () => {
       name: "Hindu Priest (Pandit Ji)",
       description:
         "Experienced and knowledgeable priests who conduct traditional Hindu wedding rituals with devotion and authenticity, ensuring every sacred moment is honored",
-      image: "https://via.placeholder.com/400x300?text=Hindu+Priest",
+      image: "https://i.pinimg.com/736x/c5/0d/5d/c50d5d69fbb57f7d22df6b2033e4ad9b.jpg",
     },
     {
       id: 2,
@@ -83,7 +83,7 @@ const CeremonyVendorsPage = () => {
       name: "Mandap Setup Vendor",
       description:
         "Beautiful and elaborate mandap designs that serve as the sacred centerpiece for your Hindu wedding ceremony, crafted with traditional elements and modern elegance",
-      image: "https://via.placeholder.com/400x300?text=Mandap+Setup",
+      image: "https://i.pinimg.com/736x/c6/42/e3/c642e3610858dd111a18bcecc0312b36.jpg",
     },
     {
       id: 3,
@@ -91,7 +91,7 @@ const CeremonyVendorsPage = () => {
       name: "Varmala Stage Vendor",
       description:
         "Stunning varmala exchange stages with artistic designs and floral arrangements, creating the perfect backdrop for this beautiful wedding moment",
-      image: "https://via.placeholder.com/400x300?text=Varmala+Stage",
+      image: "https://i.pinimg.com/1200x/07/ab/c5/07abc5b7953e6166c5cbb535ff8ce0c1.jpg",
     },
     {
       id: 4,
@@ -99,7 +99,7 @@ const CeremonyVendorsPage = () => {
       name: "Qazi for Nikah",
       description:
         "Respected and experienced Qazi who conducts the Nikah ceremony with proper Islamic traditions, guiding couples through this sacred union with wisdom and grace",
-      image: "https://via.placeholder.com/400x300?text=Qazi",
+      image: "https://i.pinimg.com/736x/ac/de/a7/acdea7230a9b712c588d1f980159b1dc.jpg",
     },
     {
       id: 5,
@@ -107,7 +107,7 @@ const CeremonyVendorsPage = () => {
       name: "Doli Arrangement",
       description:
         "Traditional and beautifully decorated doli arrangements for the bride's departure, adding emotional depth and cultural significance to this special moment",
-      image: "https://via.placeholder.com/400x300?text=Doli",
+      image: "https://i.pinimg.com/736x/a3/67/db/a367dba3a832caa48f1509135a54234d.jpg",
     },
     {
       id: 6,
@@ -115,7 +115,7 @@ const CeremonyVendorsPage = () => {
       name: "Walima Dinner Setup",
       description:
         "Elegant and sophisticated Walima dinner arrangements with premium décor, seating, and ambiance that celebrates the couple's union with family and friends",
-      image: "https://via.placeholder.com/400x300?text=Walima+Setup",
+      image: "https://i.pinimg.com/1200x/b1/7b/32/b17b32138d759d5f68c6b910b28eba83.jpg",
     },
     {
       id: 7,
@@ -123,7 +123,7 @@ const CeremonyVendorsPage = () => {
       name: "Granthi Ji",
       description:
         "Dedicated Granthi Ji who performs the Anand Karaj ceremony with spiritual reverence, reciting from the Guru Granth Sahib and blessing the couple's journey together",
-      image: "https://via.placeholder.com/400x300?text=Granthi+Ji",
+      image: "https://i.pinimg.com/1200x/f2/e9/92/f2e992821117eab5d0ec02c120561042.jpg",
     },
     {
       id: 8,
@@ -131,7 +131,7 @@ const CeremonyVendorsPage = () => {
       name: "Gurudwara Coordination Team",
       description:
         "Professional coordination team that manages all aspects of Gurudwara wedding ceremonies, ensuring smooth execution of rituals and comfortable experience for guests",
-      image: "https://via.placeholder.com/400x300?text=Gurudwara+Team",
+      image: "https://i.pinimg.com/736x/7c/85/69/7c8569209bc5bab7f147910b02274250.jpg",
     },
     {
       id: 9,
@@ -139,7 +139,7 @@ const CeremonyVendorsPage = () => {
       name: "Pastor / Father",
       description:
         "Compassionate and experienced clergy who officiate Christian wedding ceremonies with heartfelt blessings, guiding couples through their sacred vows before God",
-      image: "https://via.placeholder.com/400x300?text=Pastor",
+      image: "https://i.pinimg.com/1200x/6f/bd/b1/6fbdb1535dbfa7c1a4eca84d09a5bfc3.jpg",
     },
     {
       id: 10,
@@ -147,7 +147,7 @@ const CeremonyVendorsPage = () => {
       name: "Church Choir",
       description:
         "Talented choir groups that fill your church wedding with beautiful hymns and spiritual music, creating a divine atmosphere for your special ceremony",
-      image: "https://via.placeholder.com/400x300?text=Church+Choir",
+      image: "https://i.pinimg.com/1200x/a7/f7/22/a7f722d8c5e20b894e133c3b3880f916.jpg",
     },
   ];
 

@@ -8,55 +8,55 @@ const BrideGroomBeautyVendorsPage = () => {
     {
       id: "bridal-makeup",
       name: "Bridal Makeup Artist",
-      image: "https://via.placeholder.com/400x400?text=Bridal+Makeup",
+      image: "https://i.pinimg.com/1200x/bf/f9/be/bff9bea01c35711b3ce8707acab2089c.jpg",
       link: "/bridal-makeup-artist",
     },
     {
       id: "groom-makeup",
       name: "Groom Makeup Artist",
-      image: "https://via.placeholder.com/400x400?text=Groom+Makeup",
+      image: "https://i.pinimg.com/736x/22/12/b8/2212b8d4b6fd60de6b972b4d468938b8.jpg",
       link: "/groom-makeup-artist",
     },
     {
       id: "hair-stylist",
       name: "Hair Stylist",
-      image: "https://via.placeholder.com/400x400?text=Hair+Stylist",
+      image: "https://i.pinimg.com/736x/73/dd/4d/73dd4dfdfde767a0c8fb2738a0af54ff.jpg",
       link: "/hair-stylist",
     },
     {
       id: "saree-draper",
       name: "Saree Draper / Lehenga Pinning",
-      image: "https://via.placeholder.com/400x400?text=Saree+Draper",
+      image: "https://i.pinimg.com/736x/15/88/af/1588af2e0905f63a499a48989c80b81f.jpg",
       link: "/saree-draper",
     },
     {
       id: "mehendi",
       name: "Mehendi Artist",
-      image: "https://via.placeholder.com/400x400?text=Mehendi+Artist",
+      image: "https://i.pinimg.com/1200x/ea/7e/80/ea7e800cefd4427bfed87bd2388b5436.jpg",
       link: "/mehendi-artist",
     },
     {
       id: "nail-tech",
       name: "Nail Technician",
-      image: "https://via.placeholder.com/400x400?text=Nail+Tech",
+      image: "https://i.pinimg.com/474x/21/5d/ab/215dab6eff414e1f14d3238405b3ff19.jpg",
       link: "/nail-technician",
     },
     {
       id: "spa-salon",
       name: "Spa & Salon Services",
-      image: "https://via.placeholder.com/400x400?text=Spa+Salon",
+      image: "https://i.pinimg.com/736x/f8/a4/be/f8a4be723372a672a93896e2478a1a75.jpg",
       link: "/spa-salon",
     },
     {
       id: "pre-bridal",
       name: "Pre-bridal Package",
-      image: "https://via.placeholder.com/400x400?text=Pre-bridal",
+      image: "https://i.pinimg.com/736x/9f/e0/2e/9fe02ee06110644899ff414f3ba75cca.jpg",
       link: "/pre-bridal-package",
     },
     {
       id: "hijab-stylist",
       name: "Hijab/Headgear Stylist",
-      image: "https://via.placeholder.com/400x400?text=Hijab+Stylist",
+      image: "https://i.pinimg.com/736x/6c/c3/46/6cc346d8439ae84b3242ecc4c0e72326.jpg",
       link: "/hijab-stylist",
     },
   ];
@@ -68,7 +68,7 @@ const BrideGroomBeautyVendorsPage = () => {
       name: "Bridal Makeup Artist",
       description:
         "Expert bridal makeup artists creating stunning looks that enhance your natural beauty and last throughout your special day",
-      image: "https://via.placeholder.com/400x500?text=Bridal+Makeup",
+      image: "https://i.pinimg.com/1200x/49/8e/fd/498efdae882161544ec04d199bfe9bf8.jpg",
     },
     {
       id: 2,
@@ -76,7 +76,7 @@ const BrideGroomBeautyVendorsPage = () => {
       name: "Groom Makeup Artist",
       description:
         "Professional grooming services for grooms ensuring you look your absolute best with subtle, camera-ready makeup",
-      image: "https://via.placeholder.com/400x500?text=Groom+Makeup",
+      image: "https://i.pinimg.com/736x/ee/4c/83/ee4c831f3ea0b7033983a5844733ef6a.jpg",
     },
     {
       id: 3,
@@ -84,7 +84,7 @@ const BrideGroomBeautyVendorsPage = () => {
       name: "Hair Stylist",
       description:
         "Creative hair styling experts who craft elegant updos, flowing curls, and personalized hairstyles for your celebration",
-      image: "https://via.placeholder.com/400x500?text=Hair+Stylist",
+      image: "https://i.pinimg.com/1200x/e7/72/f3/e772f305cee161462e43a816f62d45df.jpg",
     },
     {
       id: 4,
@@ -92,7 +92,7 @@ const BrideGroomBeautyVendorsPage = () => {
       name: "Saree Draper / Lehenga Pinning Artist",
       description:
         "Skilled artisans who drape sarees perfectly and secure lehengas flawlessly for a graceful, comfortable fit all day",
-      image: "https://via.placeholder.com/400x500?text=Saree+Draper",
+      image: "https://i.pinimg.com/736x/db/c4/55/dbc4553b46d49179489046532fd5f0b2.jpg",
     },
     {
       id: 5,
@@ -100,7 +100,7 @@ const BrideGroomBeautyVendorsPage = () => {
       name: "Mehendi Artist",
       description:
         "Traditional and contemporary mehendi designs with intricate patterns that tell your unique love story beautifully",
-      image: "https://via.placeholder.com/400x500?text=Mehendi",
+      image: "https://i.pinimg.com/736x/bd/a9/6d/bda96df7d043fccbd701f64bbf8a40a0.jpg",
     },
     {
       id: 6,
@@ -108,7 +108,7 @@ const BrideGroomBeautyVendorsPage = () => {
       name: "Nail Technician",
       description:
         "Professional nail art and manicure services creating stunning designs that complement your bridal look perfectly",
-      image: "https://via.placeholder.com/400x500?text=Nail+Tech",
+      image: "https://i.pinimg.com/1200x/8c/ef/97/8cef970448e7d1bf84ebec3ea185bfb7.jpg",
     },
     {
       id: 7,
@@ -116,7 +116,7 @@ const BrideGroomBeautyVendorsPage = () => {
       name: "Spa & Salon Services",
       description:
         "Comprehensive beauty treatments including facials, massages, and relaxation therapies for pre-wedding pampering",
-      image: "https://via.placeholder.com/400x500?text=Spa+Salon",
+      image: "https://i.pinimg.com/1200x/6a/60/e1/6a60e1ab5dab56bccbce0dd4ce73a3bd.jpg",
     },
     {
       id: 8,
@@ -124,7 +124,7 @@ const BrideGroomBeautyVendorsPage = () => {
       name: "Pre-bridal Package Vendor",
       description:
         "Complete pre-wedding beauty packages including skincare, treatments, and grooming for radiant, glowing skin",
-      image: "https://via.placeholder.com/400x500?text=Pre-bridal",
+      image: "https://i.pinimg.com/736x/ef/d9/c6/efd9c6b927b438dfa38e4f93af6fbdbd.jpg",
     },
     {
       id: 9,
@@ -132,7 +132,7 @@ const BrideGroomBeautyVendorsPage = () => {
       name: "Hijab/Headgear Stylist",
       description:
         "Specialized stylists creating elegant hijab and headgear arrangements that blend tradition with contemporary fashion",
-      image: "https://via.placeholder.com/400x500?text=Hijab+Stylist",
+      image: "https://i.pinimg.com/736x/e4/33/28/e43328428ec65959911b4b6152984b72.jpg",
     },
   ];
 

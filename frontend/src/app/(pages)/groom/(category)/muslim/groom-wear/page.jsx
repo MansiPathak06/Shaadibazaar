@@ -14,31 +14,31 @@ const MuslimGroomWearPage = () => {
   const categories = [
     {
       name: "Sherwani",
-      image: "https://i.pinimg.com/564x/your-image-1.jpg"
+      image: "https://i.pinimg.com/1200x/57/6e/86/576e8671ca1a532d14a67d380d2a24a6.jpg"
     },
     {
       name: "Pathani Suit",
-      image: "https://i.pinimg.com/564x/your-image-2.jpg"
+      image: "https://i.pinimg.com/736x/bd/21/ec/bd21ec37ea008e8ca33e00d274bf702c.jpg"
     },
     {
       name: "Kurta-Pajama",
-      image: "https://i.pinimg.com/564x/your-image-3.jpg"
+      image: "https://i.pinimg.com/736x/f8/ad/62/f8ad62a261fd5305146e4286feccd033.jpg"
     },
     {
       name: "Long Coat / Achkan",
-      image: "https://i.pinimg.com/564x/your-image-4.jpg"
+      image: "https://i.pinimg.com/1200x/46/19/c2/4619c293beb07ba13b33e5015735ac8a.jpg"
     },
     {
       name: "Traditional Cap / Topi",
-      image: "https://i.pinimg.com/564x/your-image-5.jpg"
+      image: "https://i.pinimg.com/1200x/91/36/03/913603bf9127c8f3073152efae04e026.jpg"
     },
     {
       name: "Mojari / Leather Shoes",
-      image: "https://i.pinimg.com/564x/your-image-6.jpg"
+      image: "https://i.pinimg.com/1200x/df/a0/46/dfa0465f7a596a28c1ef5ba9452a41fc.jpg"
     },
     {
       name: "Attar",
-      image: "https://i.pinimg.com/564x/your-image-7.jpg"
+      image: "https://i.pinimg.com/1200x/90/7f/9f/907f9f0af6dd2c5334e397ac5926e438.jpg"
     }
   ];
 
@@ -60,7 +60,7 @@ const MuslimGroomWearPage = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1606800052052-a08af7148866?w=1200')`,
+            backgroundImage: `url('')`,
           }}
         />
         <div className="absolute inset-0 bg-black/40" />

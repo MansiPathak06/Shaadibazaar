@@ -11,19 +11,19 @@ const heroSlides = [
 title: "Christian Groom Services",
 subtitle: "Elegant Essentials For Your Sacred Vows",
 image:
-"https://i.pinimg.com/736x/5a/23/ca/5a23ca5b0bbc27ab70962c1d851136e1.jpg",
+"https://i.pinimg.com/1200x/a4/60/ce/a460cefc182a9120b07b3ffea8b27f75.jpg",
 },
 {
 title: "Classic Wedding Styling",
 subtitle: "Sharp Suits, Polished Looks, Confident Groom",
 image:
-"https://i.pinimg.com/1200x/6f/f7/cf/6ff7cf9f7d29e3acd8c19250f8e4ee54.jpg",
+"https://i.pinimg.com/1200x/52/6d/66/526d6611a04c1a204a19a1edd918216c.jpg",
 },
 {
 title: "Complete Christian Groom Package",
 subtitle: "From Styling To Choir, All In One Place",
 image:
-"https://i.pinimg.com/736x/fd/26/cf/fd26cfb905083571d15d314af34f03d6.jpg",
+"https://i.pinimg.com/736x/76/a5/5e/76a55e97de979aaf6c65b38fd34ba57f.jpg",
 },
 ];
 
@@ -33,25 +33,25 @@ const categories = [
 name: "Groom Styling",
 items: "Suit, accessories & overall look",
 image:
-"https://i.pinimg.com/736x/5a/23/ca/5a23ca5b0bbc27ab70962c1d851136e1.jpg",
+"https://i.pinimg.com/736x/11/f5/2e/11f52e5813c9c310a35aa7d5e6b96ab0.jpg",
 },
 {
 name: "Suit Fitting",
 items: "Tailored suits & alterations",
 image:
-"https://i.pinimg.com/736x/28/ac/3b/28ac3b55d55fc14e93dcadab7eb4f291.jpg",
+"https://i.pinimg.com/1200x/ea/fe/6f/eafe6fc0b7ba8a364edc199273f31bbc.jpg",
 },
 {
 name: "Groom Portrait Shoot",
 items: "Solo, family & couple portraits",
 image:
-"https://i.pinimg.com/1200x/35/3b/82/353b8244c5eb8853f9289907bb1702d2.jpg",
+"https://i.pinimg.com/736x/e9/ad/e4/e9ade4cd9d7b49c1a114ad4e5a5b979f.jpg",
 },
 {
 name: "Choir / Band",
 items: "Church choir & live band",
 image:
-"https://i.pinimg.com/736x/47/43/ab/4743abc283cb05907a2a13967cc87322.jpg",
+"https://i.pinimg.com/736x/c8/43/58/c8435801bb827b2c881f8701d6dcd7fd.jpg",
 },
 ];
 
@@ -63,20 +63,20 @@ price: "₹9,999",
 oldPrice: "₹12,999",
 badge: "POPULAR",
 image:
-"https://i.pinimg.com/736x/06/b8/cb/06b8cba05a56695e10fa2b8f41c96c65.jpg",
+"https://i.pinimg.com/736x/f6/a4/b2/f6a4b2196f470902bea54ed5efb86a7e.jpg",
 },
 {
 name: "Premium Suit Fitting",
 price: "₹6,999",
 image:
-"https://i.pinimg.com/736x/5c/5a/d0/5c5ad0f09d6ca26783f3b22be13736e8.jpg",
+"https://i.pinimg.com/1200x/58/45/19/5845192cc3c39cc348a5dfa2f99a1765.jpg",
 },
 {
 name: "Groom Portrait Shoot",
 price: "₹19,999",
 badge: "NEW",
 image:
-"https://i.pinimg.com/736x/d1/54/c5/d154c5f5a7e310dcdb91971f7245b978.jpg",
+"https://i.pinimg.com/736x/64/43/7a/64437af4fe9243eb4135a2dfd73d725f.jpg",
 },
 {
 name: "Complete Christian Groom Package",
@@ -84,13 +84,13 @@ price: "₹39,999",
 oldPrice: "₹49,999",
 badge: "20% OFF",
 image:
-"https://i.pinimg.com/1200x/2c/d2/19/2cd219e170cc9991a32720acb9d5c461.jpg",
+"https://i.pinimg.com/1200x/bf/56/c7/bf56c723448a28aabf488b202d420294.jpg",
 },
 {
 name: "Classic Suit + Accessories",
 price: "₹14,999",
 image:
-"https://i.pinimg.com/736x/f8/fa/b7/f8fab7c8959825792517caabb40c9102.jpg",
+"https://i.pinimg.com/1200x/d8/9a/a4/d89aa467abb13112fd79793b32a10296.jpg",
 },
 {
 name: "Church Choir Service",
@@ -98,20 +98,20 @@ price: "₹24,999",
 oldPrice: "₹29,999",
 badge: "TRENDING",
 image:
-"https://i.pinimg.com/736x/04/65/8f/04658f180cb0ac3aa233317b9dfff6a7.jpg",
+"https://i.pinimg.com/1200x/04/8f/43/048f434d026fc08579317c5dc358f4ec.jpg",
 },
 {
 name: "Wedding Band (Reception)",
 price: "₹32,999",
 badge: "NEW",
 image:
-"https://i.pinimg.com/1200x/ca/bf/f5/cabff5d5049cf1d7fbc65426239538fd.jpg",
+"https://i.pinimg.com/736x/79/4d/02/794d02348769f9861b6c1c29a537cca5.jpg",
 },
 {
 name: "Pre-Wedding Portrait Session",
 price: "₹15,999",
 image:
-"https://i.pinimg.com/1200x/ae/c2/7b/aec27b164fa12b92748ffa1dfe02356b.jpg",
+"https://i.pinimg.com/736x/bf/79/50/bf7950fc0230e2175e47961fdfe302f4.jpg",
 },
 ];
 
@@ -221,7 +221,7 @@ text
     <div className="grid md:grid-cols-2 gap-8">
       <div className="relative overflow-hidden rounded-lg group cursor-pointer">
         <img
-          src="https://i.pinimg.com/1200x/7f/4b/31/7f4b31d01b321894de86819d9a02c6cb.jpg"
+          src="https://i.pinimg.com/736x/68/70/21/687021c259f438b93e9735a23c8d3669.jpg"
           alt="Christian Groom Styling"
           className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
         />
@@ -237,7 +237,7 @@ text
 
       <div className="relative overflow-hidden rounded-lg group cursor-pointer">
         <img
-          src="https://i.pinimg.com/1200x/06/7f/d4/067fd4c520b3eabef52ae39700591352.jpg"
+          src="https://i.pinimg.com/736x/41/71/24/417124b7f4720e0267c3f46dadd8da24.jpg"
           alt="Choir and Band Services"
           className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
         />

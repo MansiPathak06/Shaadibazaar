@@ -10,91 +10,91 @@ const EntertainmentVendorsPage = () => {
       id: "singer",
       name: "Live Singer",
       image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+        "https://i.pinimg.com/736x/19/be/43/19be43ad868b901396c6aac18ba5cca8.jpg",
       link: "/live-singer",
     },
     {
       id: "sufi",
       name: "Sufi Band",
       image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+        "https://i.pinimg.com/1200x/00/b9/aa/00b9aa64c4f7e060d2d88e62c45987d2.jpg",
       link: "/sufi-band",
     },
     {
       id: "qawwali",
       name: "Qawwali Group",
       image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+        "https://i.pinimg.com/736x/2e/15/b1/2e15b10a9e4129fd3a5c0e668a46145d.jpg",
       link: "/qawwali-group",
     },
     {
       id: "folk",
       name: "Folk Dance Groups",
       image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+        "https://i.pinimg.com/1200x/b5/e4/9c/b5e49c4d9689d52af22b1138d495a1b9.jpg",
       link: "/folk-dance",
     },
     {
       id: "instrumental",
       name: "Instrumental Band",
       image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+        "https://i.pinimg.com/736x/f8/b4/c8/f8b4c83674f4faaf58433c59f1f2132b.jpg",
       link: "/instrumental-band",
     },
     {
       id: "anchor",
       name: "Anchor / Emcee",
       image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+        "https://i.pinimg.com/1200x/68/36/0f/68360f467266f089fc9e3505c0cc07a0.jpg",
       link: "/anchor-emcee",
     },
     {
       id: "choreographer",
       name: "Choreographer",
       image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+        "https://i.pinimg.com/736x/fd/2c/57/fd2c57a247d0bb9baca0151dae98437b.jpg",
       link: "/choreographer",
     },
     {
       id: "dj-dance",
       name: "DJ & Dance Floor",
       image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+        "https://i.pinimg.com/736x/c9/57/4f/c9574f874183e8a7054053ffbec2df7a.jpg",
       link: "/dj-dance-floor",
     },
     {
       id: "led",
       name: "LED Wall Provider",
       image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+        "https://i.pinimg.com/736x/23/6f/b9/236fb9142ffa5fa53b8c5ffd039d3e5c.jpg",
       link: "/led-wall",
     },
     {
       id: "sound",
       name: "Sound System",
       image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+        "https://i.pinimg.com/1200x/fa/80/73/fa8073312e772a6fbf1c0ec2c2f307b5.jpg",
       link: "/sound-system",
     },
     {
       id: "celebrity",
       name: "Celebrity Performer",
       image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+        "https://i.pinimg.com/1200x/46/9b/b3/469bb37a63b588c5233ad61c05637605.jpg",
       link: "/celebrity-performer",
     },
     {
       id: "fire",
       name: "Fire Act / Jugglers",
       image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+        "https://i.pinimg.com/1200x/0a/8a/bc/0a8abc0c27a3e52cb19e6b77f6900436.jpg",
       link: "/fire-act",
     },
     {
       id: "kids",
       name: "Kids Entertainment",
       image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+        "https://i.pinimg.com/1200x/21/ea/53/21ea5358bc32ea291f006d23f3feab74.jpg",
       link: "/kids-entertainment",
     },
   ];
@@ -107,7 +107,7 @@ const EntertainmentVendorsPage = () => {
       description:
         "Professional vocalists who bring soulful melodies and enchanting performances to mesmerize your guests",
       image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+        "https://i.pinimg.com/736x/e5/d6/44/e5d644d61e71bef9f96704cf533eb947.jpg",
     },
     {
       id: 2,
@@ -116,7 +116,7 @@ const EntertainmentVendorsPage = () => {
       description:
         "Mystical Sufi music that touches the soul with spiritual melodies and traditional instruments",
       image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+        "https://i.pinimg.com/1200x/96/12/98/961298283a0ad830c180c402070a2db5.jpg",
     },
     {
       id: 3,
@@ -125,7 +125,7 @@ const EntertainmentVendorsPage = () => {
       description:
         "Authentic Qawwali performances with powerful vocals and rhythmic harmonium creating divine ambiance",
       image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+        "https://i.pinimg.com/1200x/88/7e/4c/887e4c95c17d19d0f3d616128d5068f7.jpg",
     },
     {
       id: 4,
@@ -134,7 +134,7 @@ const EntertainmentVendorsPage = () => {
       description:
         "Traditional folk dancers showcasing regional culture with vibrant costumes and energetic performances",
       image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+        "https://i.pinimg.com/736x/42/f1/18/42f118d2bc40deb10cdc117e9e9ff6c5.jpg",
     },
     {
       id: 5,
@@ -143,7 +143,7 @@ const EntertainmentVendorsPage = () => {
       description:
         "Skilled musicians creating magical atmospheres with instrumental melodies from classical to contemporary",
       image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+        "https://i.pinimg.com/1200x/c0/85/3d/c0853da258fb21e892f386ff3fd12c2f.jpg",
     },
     {
       id: 6,
@@ -152,7 +152,7 @@ const EntertainmentVendorsPage = () => {
       description:
         "Charismatic hosts who keep your event flowing smoothly with engaging commentary and crowd interaction",
       image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+        "https://i.pinimg.com/1200x/c6/50/48/c65048db0f6b3ededd41164da0044213.jpg",
     },
     {
       id: 7,
@@ -161,7 +161,7 @@ const EntertainmentVendorsPage = () => {
       description:
         "Expert dance directors who create stunning performances and teach memorable routines for your special day",
       image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+        "https://i.pinimg.com/1200x/b6/07/54/b60754e598a1c01378b40c2fc99810be.jpg",
     },
     {
       id: 8,
@@ -170,7 +170,7 @@ const EntertainmentVendorsPage = () => {
       description:
         "Complete DJ setups with premium dance floors, lighting effects, and music that keeps everyone moving",
       image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+        "https://i.pinimg.com/736x/ee/7b/93/ee7b93f7581e80dde73d3fc10382c4ba.jpg",
     },
     {
       id: 9,
@@ -179,7 +179,7 @@ const EntertainmentVendorsPage = () => {
       description:
         "High-resolution LED screens for live displays, photo slideshows, and creating immersive visual experiences",
       image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+        "https://i.pinimg.com/1200x/90/a3/f2/90a3f22793890f4e17b233bb259866d4.jpg",
     },
     {
       id: 10,
@@ -188,7 +188,7 @@ const EntertainmentVendorsPage = () => {
       description:
         "Professional audio equipment with crystal-clear sound quality ensuring every word and note is heard perfectly",
       image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+        "https://i.pinimg.com/1200x/a9/7c/9e/a97c9e9dd5fbc558992252d44124ec92.jpg",
     },
     {
       id: 11,
@@ -197,7 +197,7 @@ const EntertainmentVendorsPage = () => {
       description:
         "Star-studded performances by renowned artists that make your celebration truly extraordinary and unforgettable",
       image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+        "https://i.pinimg.com/736x/33/a9/36/33a93665af894ec121d3622e9f60e795.jpg",
     },
     {
       id: 12,
@@ -206,7 +206,7 @@ const EntertainmentVendorsPage = () => {
       description:
         "Thrilling fire performances and skilled juggling acts that add excitement and wow-factor to your event",
       image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+        "https://i.pinimg.com/1200x/0a/8a/bc/0a8abc0c27a3e52cb19e6b77f6900436.jpg",
     },
     {
       id: 13,
@@ -215,7 +215,7 @@ const EntertainmentVendorsPage = () => {
       description:
         "Engaging activities, games, and performances specially designed to keep young guests entertained and happy",
       image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+        "https://i.pinimg.com/1200x/82/0c/b6/820cb6d187ed06459301febc7d9215ca.jpg",
     },
   ];
 
@@ -248,7 +248,7 @@ const EntertainmentVendorsPage = () => {
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source
-            src="https://res.cloudinary.com/dewxpvl5s/video/upload/v1764923082/downloaded-file_5_ihqnjd.mp4"
+            src=""
             type="video/mp4"
           />
         </video>

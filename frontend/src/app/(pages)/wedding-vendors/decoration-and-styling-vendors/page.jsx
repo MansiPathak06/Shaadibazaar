@@ -9,19 +9,19 @@ const DecorationStylingVendorsPage = () => {
     {
       id: "stage",
       name: "Stage Decorators",
-      image: "https://via.placeholder.com/300x300?text=Stage+Decor",
+      image: "https://i.pinimg.com/1200x/a3/79/6d/a3796de74dc9eaa4e61b3c74eac34bd3.jpg",
       link: "/stage-decorators",
     },
     {
       id: "mandap",
       name: "Mandap/Vedi Decorators",
-      image: "https://via.placeholder.com/300x300?text=Mandap+Decor",
+      image: "https://i.pinimg.com/736x/c2/58/7d/c2587d9d9c93b7af15a73f99e7dc1cd9.jpg",
       link: "/mandap-decorators",
     },
     {
       id: "haldi",
       name: "Haldi Decor Setup",
-      image: "https://via.placeholder.com/300x300?text=Haldi+Decor",
+      image: "https://i.pinimg.com/736x/fa/46/fe/fa46fee2fd3f27fe892cf8512b52a9cb.jpg",
       link: "/haldi-decor",
     },
     {
@@ -33,43 +33,43 @@ const DecorationStylingVendorsPage = () => {
     {
       id: "floral",
       name: "Floral Decor",
-      image: "https://via.placeholder.com/300x300?text=Floral+Decor",
+      image: "https://i.pinimg.com/1200x/4a/9b/c5/4a9bc552467136bcb62ef6797e18b450.jpg",
       link: "/floral-decor",
     },
     {
       id: "balloon",
       name: "Balloon Decor",
-      image: "https://via.placeholder.com/300x300?text=Balloon+Decor",
+      image: "https://i.pinimg.com/736x/3d/b5/bc/3db5bcd769a37924b0a3b65cab9711ef.jpg",
       link: "/balloon-decor",
     },
     {
       id: "lighting",
       name: "Lighting Decor",
-      image: "https://via.placeholder.com/300x300?text=Lighting+Decor",
+      image: "https://i.pinimg.com/1200x/b0/2a/33/b02a334a9a2cc2704a1aa387b3e86fd9.jpg",
       link: "/lighting-decor",
     },
     {
       id: "entrance",
       name: "Entrance Gate Decor",
-      image: "https://via.placeholder.com/300x300?text=Entrance+Decor",
+      image: "https://i.pinimg.com/736x/14/9e/7e/149e7eac43d09e85a2f013cb16e6e933.jpg",
       link: "/entrance-decor",
     },
     {
       id: "photobooth",
       name: "Photobooth Decor",
-      image: "https://via.placeholder.com/300x300?text=Photobooth+Decor",
+      image: "https://i.pinimg.com/736x/43/e2/69/43e26995c25f4c2a8c39d6751b2dcde3.jpg",
       link: "/photobooth-decor",
     },
     {
       id: "centerpiece",
       name: "Table Centerpiece",
-      image: "https://via.placeholder.com/300x300?text=Centerpiece+Decor",
+      image: "https://i.pinimg.com/736x/10/9a/a9/109aa902758df62d701ea6b6dfafd2a5.jpg",
       link: "/centerpiece-decor",
     },
     {
       id: "props",
       name: "Props Provider",
-      image: "https://via.placeholder.com/300x300?text=Props",
+      image: "https://i.pinimg.com/1200x/f1/8a/ab/f18aaba2ac18c2fe00ad66f99c172bb1.jpg",
       link: "/props-provider",
     },
   ];
@@ -81,7 +81,7 @@ const DecorationStylingVendorsPage = () => {
       name: "Stage Decorators",
       description:
         "Stunning stage setups that create the perfect backdrop for your special moments with elegant designs and lighting",
-      image: "https://via.placeholder.com/400x300?text=Stage+Decorators",
+      image: "https://i.pinimg.com/1200x/0e/5d/e4/0e5de4f08c855eb7117b5e20affa20a4.jpg",
     },
     {
       id: 2,
@@ -89,7 +89,7 @@ const DecorationStylingVendorsPage = () => {
       name: "Mandap/Vedi Decorators",
       description:
         "Traditional and contemporary mandap designs that blend spirituality with aesthetics for your sacred ceremony",
-      image: "https://via.placeholder.com/400x300?text=Mandap+Decorators",
+      image: "https://i.pinimg.com/736x/58/b8/3a/58b83af895ac2a764d6e0744e147812c.jpg",
     },
     {
       id: 3,
@@ -97,7 +97,7 @@ const DecorationStylingVendorsPage = () => {
       name: "Haldi Decor Setup Vendor",
       description:
         "Vibrant and cheerful haldi ceremony decorations featuring marigolds, colorful drapes, and traditional elements",
-      image: "https://via.placeholder.com/400x300?text=Haldi+Decor",
+      image: "",
     },
     {
       id: 4,

@@ -10,70 +10,70 @@ const CateringVendorsPage = () => {
       id: "full-catering",
       name: "Full Catering Service",
       image:
-        "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400",
+        "https://i.pinimg.com/736x/e5/19/ff/e519ffe5cba6baa9f4e400f8bae00460.jpg",
       link: "/full-catering-service",
     },
     {
       id: "live-counters",
       name: "Live Counters Vendor",
       image:
-        "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400",
+        "https://i.pinimg.com/1200x/4f/b9/d8/4fb9d86fff5e345587603b4b8746a9ef.jpg",
       link: "/live-counters",
     },
     {
       id: "sweet-shop",
       name: "Sweet Shop Vendor",
       image:
-        "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400",
+        "https://i.pinimg.com/736x/06/54/9b/06549b8109d1e550766bf750a4c81410.jpg",
       link: "/sweet-shop",
     },
     {
       id: "halwai",
       name: "Halwai",
       image:
-        "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400",
+        "https://i.pinimg.com/1200x/5d/e1/85/5de185847b0ab191826cd44ee67515c8.jpg",
       link: "/halwai",
     },
     {
       id: "coffee-tea",
       name: "Coffee/Tea Stall",
       image:
-        "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=400",
+        "https://i.pinimg.com/1200x/b1/89/51/b18951434d0980a585c3931a4165f04e.jpg",
       link: "/coffee-tea-stall",
     },
     {
       id: "fruit-stall",
       name: "Fruit Stall",
       image:
-        "https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400",
+        "https://i.pinimg.com/736x/83/0f/e4/830fe437aaf4dec26bf59cf09e8f3c3f.jpg",
       link: "/fruit-stall",
     },
     {
       id: "chocolate-fountain",
       name: "Chocolate Fountain",
       image:
-        "https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=400",
+        "https://i.pinimg.com/736x/c0/3c/96/c03c96c9b37b4c3c21fecb6c594d3f94.jpg",
       link: "/chocolate-fountain",
     },
     {
       id: "ice-cream",
       name: "Ice Cream Counter",
       image:
-        "https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?w=400",
+        "https://i.pinimg.com/736x/55/09/0f/55090fd2a9321a625d85b016bfae3c89.jpg",
       link: "/ice-cream-counter",
     },
     {
       id: "beverages",
       name: "Water & Beverage",
       image:
-        "https://images.unsplash.com/photo-1437418747212-8d9709afab22?w=400",
+        "https://i.pinimg.com/1200x/36/92/4a/36924a7aad4d353e795d9ab1ba8711fe.jpg",
       link: "/water-beverage",
     },
     {
       id: "buffet-setup",
       name: "Buffet Setup & Staff",
       image:
-        "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400",
+        "https://i.pinimg.com/736x/99/91/c2/9991c20d1b47768922bcf8bd0e3c3acf.jpg",
       link: "/buffet-setup",
     },
   ];
@@ -86,7 +86,7 @@ const CateringVendorsPage = () => {
       description:
         "Complete catering solutions with diverse menu options, professional service, and seamless execution for your grand celebration",
       image:
-        "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400",
+        "https://i.pinimg.com/1200x/c1/19/92/c11992607f0e64b51f63bba8fdad1ff5.jpg",
     },
     {
       id: 2,
@@ -95,7 +95,7 @@ const CateringVendorsPage = () => {
       description:
         "Interactive food stations with live cooking demonstrations, offering fresh and customized dishes prepared right before your guests",
       image:
-        "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400",
+        "https://i.pinimg.com/1200x/fe/bb/60/febb60bd0b7a753aa4195454fba6e560.jpg",
     },
     {
       id: 3,
@@ -104,7 +104,7 @@ const CateringVendorsPage = () => {
       description:
         "Traditional and contemporary sweets, mithai boxes, and dessert arrangements that add sweetness to your special moments",
       image:
-        "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400",
+        "https://i.pinimg.com/736x/48/76/4f/48764fe3522563cdff861593d5a68ded.jpg",
     },
     {
       id: 4,
@@ -113,7 +113,7 @@ const CateringVendorsPage = () => {
       description:
         "Authentic traditional Indian sweets and snacks prepared with age-old recipes, bringing nostalgia and rich flavors to your celebration",
       image:
-        "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400",
+        "https://i.pinimg.com/736x/36/63/91/36639136ab91da85255560c4e969485c.jpg",
     },
     {
       id: 5,
@@ -122,7 +122,7 @@ const CateringVendorsPage = () => {
       description:
         "Specialty coffee and tea services with baristas, offering premium beverages and refreshing drinks for your guests",
       image:
-        "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=400",
+        "https://i.pinimg.com/736x/77/93/2d/77932da8a2a5d2d01c872ea58e2cd10d.jpg",
     },
     {
       id: 6,
@@ -131,7 +131,7 @@ const CateringVendorsPage = () => {
       description:
         "Fresh fruit counters with artistic displays, fruit chaats, and healthy refreshment options for health-conscious guests",
       image:
-        "https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400",
+        "https://i.pinimg.com/1200x/5f/b1/16/5fb1164ab2b6aa28e27164ac4dcd1a64.jpg",
     },
     {
       id: 7,
@@ -140,7 +140,7 @@ const CateringVendorsPage = () => {
       description:
         "Cascading chocolate fountains with assorted dipping options, creating a luxurious and interactive dessert experience",
       image:
-        "https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=400",
+        "https://i.pinimg.com/1200x/3a/d6/a3/3ad6a38d6c6fef4a194b0bfded6d92f9.jpg",
     },
     {
       id: 8,
@@ -149,7 +149,7 @@ const CateringVendorsPage = () => {
       description:
         "Premium ice cream stations with multiple flavors, live sundae bars, and frozen dessert options to delight all ages",
       image:
-        "https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?w=400",
+        "https://i.pinimg.com/736x/88/ee/87/88ee8731fabdd3d37e5d8718dfb4586a.jpg",
     },
     {
       id: 9,
@@ -158,7 +158,7 @@ const CateringVendorsPage = () => {
       description:
         "Complete beverage solutions including packaged water, soft drinks, juices, and refreshment stations throughout the venue",
       image:
-        "https://images.unsplash.com/photo-1437418747212-8d9709afab22?w=400",
+        "https://i.pinimg.com/736x/80/39/90/8039904113f39daa19943f6110a493dc.jpg",
     },
     {
       id: 10,
@@ -167,7 +167,7 @@ const CateringVendorsPage = () => {
       description:
         "Professional buffet arrangements with trained service staff ensuring smooth food service and guest satisfaction",
       image:
-        "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400",
+        "https://i.pinimg.com/736x/12/8c/83/128c830d080584643bb030e59a738bdb.jpg",
     },
   ];
 

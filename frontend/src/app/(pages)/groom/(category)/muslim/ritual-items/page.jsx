@@ -7,14 +7,14 @@ const MuslimGroomRitualItems = () => {
   const scrollContainerRef = useRef(null);
 
   const categories = [
-    { id: 1, name: 'Mehr Amount', image: 'https://via.placeholder.com/300x300/2C5F2D/FFFFFF?text=Mehr+Amount' },
-    { id: 2, name: 'Quran', image: 'https://via.placeholder.com/300x300/2C5F2D/FFFFFF?text=Quran' },
-    { id: 3, name: 'Tasbeeh', image: 'https://via.placeholder.com/300x300/2C5F2D/FFFFFF?text=Tasbeeh' },
-    { id: 4, name: 'Signature Pen', image: 'https://via.placeholder.com/300x300/2C5F2D/FFFFFF?text=Signature+Pen' },
-    { id: 5, name: 'Nikahnama Folder', image: 'https://via.placeholder.com/300x300/2C5F2D/FFFFFF?text=Nikahnama+Folder' },
-    { id: 6, name: 'Dry Fruits & Sweets', image: 'https://via.placeholder.com/300x300/2C5F2D/FFFFFF?text=Dry+Fruits' },
-    { id: 7, name: 'Groom Welcome Stole', image: 'https://via.placeholder.com/300x300/2C5F2D/FFFFFF?text=Welcome+Stole' },
-    { id: 8, name: 'Varmala (if required)', image: 'https://via.placeholder.com/300x300/2C5F2D/FFFFFF?text=Varmala' }
+    { id: 1, name: 'Mehr Amount', image: 'https://i.pinimg.com/736x/b9/c4/5b/b9c45b236c2ed5c071f96c8ae24d9a8f.jpg' },
+    { id: 2, name: 'Quran', image: 'https://i.pinimg.com/736x/5b/07/a2/5b07a22eb399bb2628d2ca00cd488d8c.jpg' },
+    { id: 3, name: 'Tasbeeh', image: 'https://i.pinimg.com/736x/d3/dd/7c/d3dd7c4f5c4c494770c0ed83ef4ca268.jpg'},
+    { id: 4, name: 'Signature Pen', image: 'https://i.pinimg.com/1200x/55/1f/5a/551f5a9aa3b9546cc436857a2356af36.jpg' },
+    { id: 5, name: 'Nikahnama Folder', image: 'https://i.pinimg.com/736x/3f/b5/84/3fb5840b2b4a1b9b98bd7c3c947ed021.jpg' },
+    { id: 6, name: 'Dry Fruits & Sweets', image: 'https://i.pinimg.com/736x/07/4b/16/074b16f07e618926366044300c00a54a.jpg' },
+    { id: 7, name: 'Groom Welcome Stole', image: 'https://i.pinimg.com/1200x/13/18/ff/1318ff7ed7a236acb7cf7c4c3dcf73c2.jpg' },
+    { id: 8, name: 'Varmala (if required)', image: 'https://i.pinimg.com/736x/d0/69/4c/d0694cedefc094787479aa6798609b67.jpg' }
   ];
 
   const scroll = (direction) => {

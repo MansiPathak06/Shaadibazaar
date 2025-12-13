@@ -9,49 +9,49 @@ const InvitationPrintingVendorsPage = () => {
     {
       id: "card-printing",
       name: "Card Printing Shop",
-      image: "https://via.placeholder.com/400x400?text=Card+Printing",
+      image: "https://i.pinimg.com/1200x/46/06/2d/46062dd48a2537a5781af5404dfb2f6e.jpg",
       link: "/card-printing",
     },
     {
       id: "digital-invitation",
       name: "Digital Invitation Designer",
-      image: "https://via.placeholder.com/400x400?text=Digital+Invitation",
+      image: "https://i.pinimg.com/1200x/ee/3f/ea/ee3fea9f057e6e39b87106a88c7191b6.jpg",
       link: "/digital-invitation",
     },
     {
       id: "ecard-video",
       name: "E-card Video Maker",
-      image: "https://via.placeholder.com/400x400?text=E-card+Video",
+      image: "https://i.pinimg.com/1200x/72/42/4c/72424c8f94355e489472d2c221e915ec.jpg",
       link: "/ecard-video",
     },
     {
       id: "whatsapp-invitation",
       name: "WhatsApp Invitation Designer",
-      image: "https://via.placeholder.com/400x400?text=WhatsApp+Invitation",
+      image: "https://i.pinimg.com/1200x/9d/08/0a/9d080a088b4f13a6999e78921c43074c.jpg",
       link: "/whatsapp-invitation",
     },
     {
       id: "box-invitation",
       name: "Box Invitation Vendor",
-      image: "https://via.placeholder.com/400x400?text=Box+Invitation",
+      image: "https://i.pinimg.com/736x/b1/73/ab/b173ab105b4114d011c66e99684bc99a.jpg",
       link: "/box-invitation",
     },
     {
       id: "gift-hamper",
       name: "Gift Hamper Packaging",
-      image: "https://via.placeholder.com/400x400?text=Gift+Hamper",
+      image: "https://i.pinimg.com/1200x/65/73/59/657359bfc7caee58baab3af362aaea18.jpg",
       link: "/gift-hamper",
     },
     {
       id: "welcome-board",
       name: "Welcome Board Designer",
-      image: "https://via.placeholder.com/400x400?text=Welcome+Board",
+      image: "https://i.pinimg.com/1200x/70/d7/ca/70d7cac01a3197b90fe961906706f193.jpg",
       link: "/welcome-board",
     },
     {
       id: "flex-printing",
       name: "Flex Printing / Vinyl Printing Vendor",
-      image: "https://via.placeholder.com/400x400?text=Flex+Printing",
+      image: "https://i.pinimg.com/1200x/cd/a0/e3/cda0e39428984a198243cb6b2dbd310f.jpg",
       link: "/flex-printing",
     },
   ];
@@ -63,7 +63,7 @@ const InvitationPrintingVendorsPage = () => {
       name: "Card Printing Shop",
       description:
         "Premium wedding card printing services with exquisite designs, luxury paper stocks, and elegant finishes for your special invitations",
-      image: "https://via.placeholder.com/400x400?text=Card+Printing",
+      image: "https://i.pinimg.com/1200x/43/b1/93/43b1934999cc9241a4d699b9118f1afa.jpg",
     },
     {
       id: 2,
@@ -71,7 +71,7 @@ const InvitationPrintingVendorsPage = () => {
       name: "Digital Invitation Designer",
       description:
         "Creative digital invitation designs that beautifully capture your wedding theme with stunning graphics and personalized touches",
-      image: "https://via.placeholder.com/400x400?text=Digital+Invitation",
+      image: "https://i.pinimg.com/1200x/8e/42/71/8e4271e4b8b95f24c01a0866b1be9cdd.jpg",
     },
     {
       id: 3,
@@ -79,7 +79,7 @@ const InvitationPrintingVendorsPage = () => {
       name: "E-card Video Maker",
       description:
         "Animated video invitations that bring your wedding story to life with cinematic effects and captivating music",
-      image: "https://via.placeholder.com/400x400?text=E-card+Video",
+      image: "https://i.pinimg.com/1200x/c3/dc/40/c3dc40a9ab5d71a932d7d80d2c5c36e0.jpg",
     },
     {
       id: 4,
@@ -87,7 +87,7 @@ const InvitationPrintingVendorsPage = () => {
       name: "WhatsApp Invitation Designer",
       description:
         "Eye-catching WhatsApp invitation designs optimized for mobile viewing with interactive elements and easy sharing options",
-      image: "https://via.placeholder.com/400x400?text=WhatsApp+Invitation",
+      image: "https://i.pinimg.com/736x/25/bc/23/25bc2396093d1092d9afb4fb2776ed76.jpg",
     },
     {
       id: 5,
@@ -95,7 +95,7 @@ const InvitationPrintingVendorsPage = () => {
       name: "Box Invitation Vendor",
       description:
         "Luxurious boxed invitations with creative packaging, premium materials, and unforgettable presentation for distinguished guests",
-      image: "https://via.placeholder.com/400x400?text=Box+Invitation",
+      image: "https://i.pinimg.com/736x/c8/79/0b/c8790ba78f0921f05c3c7bcb3aa00982.jpg",
     },
     {
       id: 6,
@@ -103,7 +103,7 @@ const InvitationPrintingVendorsPage = () => {
       name: "Gift Hamper Packaging",
       description:
         "Elegant gift hamper solutions with beautiful packaging, curated contents, and personalized arrangements for wedding guests",
-      image: "https://via.placeholder.com/400x400?text=Gift+Hamper",
+      image: "https://i.pinimg.com/1200x/e8/f6/28/e8f628712a077aae1fddf2d168a8801c.jpg",
     },
     {
       id: 7,
@@ -111,7 +111,7 @@ const InvitationPrintingVendorsPage = () => {
       name: "Welcome Board Designer",
       description:
         "Custom-designed welcome boards featuring beautiful calligraphy, floral accents, and personalized messages for your venue entrance",
-      image: "https://via.placeholder.com/400x400?text=Welcome+Board",
+      image: "https://i.pinimg.com/1200x/50/6e/07/506e073d7d50c864bdd19f985e40f874.jpg",
     },
     {
       id: 8,
@@ -119,7 +119,7 @@ const InvitationPrintingVendorsPage = () => {
       name: "Flex Printing / Vinyl Printing Vendor",
       description:
         "Large format flex and vinyl printing services for banners, backdrops, signage, and decorative displays at your wedding venue",
-      image: "https://via.placeholder.com/400x400?text=Flex+Printing",
+      image: "https://i.pinimg.com/736x/90/d3/f7/90d3f76283edaeefed17ed222f3409ab.jpg",
     },
   ];
 

@@ -10,70 +10,70 @@ const MiscellaneousVendorsPage = () => {
       id: "balloon",
       name: "Balloon Dropping",
       image:
-        "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400",
+        "https://i.pinimg.com/736x/47/66/55/4766554ae19547241a92beae8fe8d068.jpg",
       link: "/balloon-dropping",
     },
     {
       id: "coldpyro",
       name: "Cold Pyro",
       image:
-        "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=400",
+        "https://i.pinimg.com/736x/0e/3e/ba/0e3eba47e73cc95bbd9d23b82433aebe.jpg",
       link: "/cold-pyro",
     },
     {
       id: "co2jet",
       name: "CO2 Jet",
       image:
-        "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=400",
+        "https://i.pinimg.com/1200x/b8/c4/d0/b8c4d061f363287886074b680558feeb.jpg",
       link: "/co2-jet",
     },
     {
       id: "confetti",
       name: "Confetti Cannon",
       image:
-        "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400",
+        "https://i.pinimg.com/736x/2c/a6/70/2ca67045abffa55f798879e53509b293.jpg",
       link: "/confetti-cannon",
     },
     {
       id: "fog",
       name: "Fog Machine",
       image:
-        "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=400",
+        "https://i.pinimg.com/1200x/94/d2/81/94d281a704f4513ab80110e7ffb48467.jpg",
       link: "/fog-machine",
     },
     {
       id: "bubble",
       name: "Bubble Machine",
       image:
-        "https://images.unsplash.com/photo-1519741497674-611481863552?w=400",
+        "https://i.pinimg.com/1200x/e3/b5/6e/e3b56e54236532d401ea938856bbae31.jpg",
       link: "/bubble-machine",
     },
     {
       id: "snow",
       name: "Snow Machine",
       image:
-        "https://images.unsplash.com/photo-1483664852095-d6cc6870702d?w=400",
+        "https://i.pinimg.com/736x/ec/d8/42/ecd8429b1f68e6579cc92dca66737ebd.jpg",
       link: "/snow-machine",
     },
     {
       id: "puppet",
       name: "Puppet Show",
       image:
-        "https://images.unsplash.com/photo-1576610616656-d3aa5d1f4534?w=400",
+        "https://i.pinimg.com/736x/67/d8/c2/67d8c24342a26dee0258b7049ace9b54.jpg",
       link: "/puppet-show",
     },
     {
       id: "cardecor",
       name: "Car Decoration",
       image:
-        "https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=400",
+        "https://i.pinimg.com/736x/65/60/31/6560310996beef7d1fe5d9b772696a25.jpg",
       link: "/car-decoration",
     },
     {
       id: "flowershower",
       name: "Flower Shower",
       image:
-        "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=400",
+        "https://i.pinimg.com/736x/0e/94/e2/0e94e2a69fa5c56e13bdb4fb1cb8fe29.jpg",
       link: "/flower-shower",
     },
   ];
@@ -86,7 +86,7 @@ const MiscellaneousVendorsPage = () => {
       description:
         "Create magical moments with cascading balloons that drop at the perfect time, adding surprise and joy to your celebration",
       image:
-        "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600",
+        "https://i.pinimg.com/1200x/fe/d0/b0/fed0b0b0b61c613e172aafc909aa855c.jpg",
     },
     {
       id: 2,
@@ -95,7 +95,7 @@ const MiscellaneousVendorsPage = () => {
       description:
         "Safe and spectacular cold pyrotechnics and special effects that create stunning visual displays without heat or danger",
       image:
-        "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600",
+        "https://i.pinimg.com/1200x/ea/90/48/ea90486fe6ff4f7ef3ced3aeeee90dcf.jpg",
     },
     {
       id: 3,
@@ -104,7 +104,7 @@ const MiscellaneousVendorsPage = () => {
       description:
         "High-energy CO2 jets that shoot dramatic plumes of white fog, creating an electrifying atmosphere for your celebration",
       image:
-        "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=600",
+        "https://i.pinimg.com/1200x/c7/fa/45/c7fa45335e6c083a6b8a214267398b22.jpg",
     },
     {
       id: 4,
@@ -113,7 +113,7 @@ const MiscellaneousVendorsPage = () => {
       description:
         "Explosive bursts of colorful confetti that fill the air with celebration, perfect for grand entrances and special moments",
       image:
-        "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600",
+        "https://i.pinimg.com/736x/99/13/37/9913370ad2b3f9f86335e316bda38bed.jpg",
     },
     {
       id: 5,
@@ -122,7 +122,7 @@ const MiscellaneousVendorsPage = () => {
       description:
         "Professional fog machines that create enchanting, dreamy atmospheres and dramatic effects for your wedding moments",
       image:
-        "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600",
+        "https://i.pinimg.com/1200x/a7/6f/0c/a76f0cd6296f9ec80f26c5f5af944dac.jpg",
     },
     {
       id: 6,
@@ -131,7 +131,7 @@ const MiscellaneousVendorsPage = () => {
       description:
         "Whimsical bubble machines that fill your venue with thousands of floating bubbles, creating a fairytale-like ambiance",
       image:
-        "https://images.unsplash.com/photo-1519741497674-611481863552?w=600",
+        "https://i.pinimg.com/736x/29/2e/52/292e52d4de4cbd210b34996aaeb79505.jpg",
     },
     {
       id: 7,
@@ -140,7 +140,7 @@ const MiscellaneousVendorsPage = () => {
       description:
         "Artificial snow machines that transform any venue into a winter wonderland, perfect for romantic and unique celebrations",
       image:
-        "https://images.unsplash.com/photo-1483664852095-d6cc6870702d?w=600",
+        "https://i.pinimg.com/736x/5b/5e/86/5b5e86217c7ed065bf0ef9e8fde1bacf.jpg",
     },
     {
       id: 8,
@@ -149,7 +149,7 @@ const MiscellaneousVendorsPage = () => {
       description:
         "Entertaining puppet shows that delight guests of all ages with captivating stories and colorful characters",
       image:
-        "https://images.unsplash.com/photo-1576610616656-d3aa5d1f4534?w=600",
+        "https://i.pinimg.com/736x/88/31/8b/88318b6377d4121c70d8ef0b1322e66a.jpg",
     },
     {
       id: 9,
@@ -158,7 +158,7 @@ const MiscellaneousVendorsPage = () => {
       description:
         "Elegant and creative car decorations with flowers, ribbons, and ornaments for the bride, groom, and wedding party vehicles",
       image:
-        "https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=600",
+        "https://i.pinimg.com/736x/19/47/e0/1947e010a16004ad1cff5aba4fc6262c.jpg",
     },
     {
       id: 10,
@@ -167,7 +167,7 @@ const MiscellaneousVendorsPage = () => {
       description:
         "Automated flower shower machines that create stunning cascades of fresh petals, adding romance and elegance to your ceremony",
       image:
-        "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=600",
+        "https://i.pinimg.com/736x/cf/6f/bd/cf6fbdbaf2c595babc7b0f6068f10615.jpg",
     },
   ];
 

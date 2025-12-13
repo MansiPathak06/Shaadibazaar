@@ -7,14 +7,14 @@ const SikhRitualItemsPage = () => {
   const scrollContainerRef = useRef(null);
 
   const categories = [
-    { id: 1, name: 'Varmala', image: 'https://via.placeholder.com/300x300/8B4513/FFFFFF?text=Varmala' },
-    { id: 2, name: 'Pagri / Handkerchief', image: 'https://via.placeholder.com/300x300/8B4513/FFFFFF?text=Pagri' },
-    { id: 3, name: 'Kanga', image: 'https://via.placeholder.com/300x300/8B4513/FFFFFF?text=Kanga' },
-    { id: 4, name: 'Sweet Boxes', image: 'https://via.placeholder.com/300x300/8B4513/FFFFFF?text=Sweet+Boxes' },
-    { id: 5, name: 'Rumala Sahib', image: 'https://via.placeholder.com/300x300/8B4513/FFFFFF?text=Rumala+Sahib' },
-    { id: 6, name: 'Car Decoration', image: 'https://via.placeholder.com/300x300/8B4513/FFFFFF?text=Car+Decoration' },
-    { id: 7, name: 'Garlands', image: 'https://via.placeholder.com/300x300/8B4513/FFFFFF?text=Garlands' },
-    { id: 8, name: 'Gift Suits/Salwar for Bride', image: 'https://via.placeholder.com/300x300/8B4513/FFFFFF?text=Gift+Suits' }
+    { id: 1, name: 'Varmala', image: 'https://i.pinimg.com/1200x/7d/c6/4f/7dc64f5140867f13c5fa6e177eb74789.jpg' },
+    { id: 2, name: 'Pagri / Handkerchief', image: 'https://i.pinimg.com/736x/a0/19/3e/a0193e73addad5061deee6bf92988b8c.jpg' },
+    { id: 3, name: 'Kanga', image: 'https://i.pinimg.com/736x/ee/26/0f/ee260f9bb43107ec5551149b21454652.jpg' },
+    { id: 4, name: 'Sweet Boxes', image: 'https://i.pinimg.com/736x/d5/48/cf/d548cf249c18430a3a87c6bca50afb04.jpg' },
+    { id: 5, name: 'Rumala Sahib', image: 'https://i.pinimg.com/1200x/07/ce/50/07ce501ae3be5df6f97fe2442c4091d2.jpg' },
+    { id: 6, name: 'Car Decoration', image: 'https://i.pinimg.com/736x/a2/d4/dc/a2d4dc45f01ae0c8817b1e24d76dbd67.jpg' },
+    { id: 7, name: 'Garlands', image: 'https://i.pinimg.com/1200x/f9/79/d8/f979d81d875325a4fa1d835e1cbd66ae.jpg' },
+    { id: 8, name: 'Gift Suits/Salwar for Bride', image: 'https://i.pinimg.com/1200x/01/d3/a1/01d3a1fa3a755b8f774158028c9885ae.jpg' }
   ];
 
   const scroll = (direction) => {
