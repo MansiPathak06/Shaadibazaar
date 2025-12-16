@@ -22,8 +22,40 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const totalItems = 0;
 
+ 
+
   const [userRole, setUserRole] = useState(null);
-  const [userName, setUserName] = useState("");
+const [userName, setUserName] = useState("");
+
+// Initialize auth state from localStorage on mount
+useEffect(() => {
+  if (typeof window !== "undefined") {
+    const storedRole = localStorage.getItem("userRole");
+    const storedName = localStorage.getItem("userName");
+    
+    if (storedRole) {
+      setUserRole(storedRole);
+    }
+    if (storedName) {
+      setUserName(storedName);
+    }
+  }
+}, []);
+
+// Handle logout function
+const handleLogout = () => {
+  // Clear localStorage
+  localStorage.removeItem("userRole");
+  localStorage.removeItem("userName");
+  localStorage.removeItem("auth-token"); // if you have a token
+  
+  // Clear state
+  setUserRole(null);
+  setUserName("");
+  
+  // Optional: redirect to home
+  window.location.href = "/";
+};
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -342,26 +374,30 @@ const Navbar = () => {
             </div>
 
             {/* Right Icons */}
+
+{/* Right Icons */}
 <div className="flex items-center gap-3 sm:gap-4">
   {userRole ? (
     <div className="flex items-center gap-3">
       <Link
-        href="/my-account"
-        className="hidden sm:flex items-center gap-2 px-3 py-2 font-medium text-rose-500 hover:text-rose-700 text-base"
+        href={
+          userRole === 'admin' 
+            ? "/admin-dashboard" 
+            : userRole === 'vendor' 
+            ? "/vendor-dashboard" 
+            : "/user-dashboard"
+        }
+        className="flex items-center gap-2 px-3 py-2 font-medium text-rose-500 hover:text-rose-700 text-base"
       >
-        <User size={20} />
-        <span className="hidden lg:inline">My Account</span>
-      </Link>
-
-      <Link
-        href="/my-account"
-        className="sm:hidden text-rose-500 hover:text-rose-700"
-      >
-        <User size={26} />
+        <User size={20} className="hidden sm:block" />
+        <User size={26} className="sm:hidden" />
+        <span className="hidden sm:inline">
+          {userRole === 'admin' ? 'Admin Panel' : userRole === 'vendor' ? 'Vendor Panel' : 'My Account'}
+        </span>
       </Link>
 
       <button
-        className="hidden sm:block text-gray-500 hover:text-red-600 text-base font-medium"
+        className="hidden sm:block text-gray-500 hover:text-red-600 text-base font-medium cursor-pointer"
         onClick={handleLogout}
       >
         Logout
@@ -370,7 +406,7 @@ const Navbar = () => {
   ) : (
     <Link
       href="/auth"
-      className="flex items-center gap-1 cursor-pointer text-gray-700 hover:text-rose-500 text-base font-medium"
+      className="flex items-center gap-1 text-gray-700 hover:text-rose-500 text-base font-medium"
     >
       <User size={26} className="sm:hidden" />
       <User size={20} className="hidden sm:block" />
@@ -407,6 +443,7 @@ const Navbar = () => {
     {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
   </button>
 </div>
+
           </div>
 
           {/* Mobile Search Bar */}

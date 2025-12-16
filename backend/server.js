@@ -12,6 +12,8 @@ const session = require('express-session');
 const vendorProductRoutes = require('./routes/vendorProductRoutes');
 const orderRoutes = require('./routes/orderRoutes');
 const wishlistRoutes = require('./routes/wishlistRoutes');
+const serviceRoutes = require('./routes/serviceRoutes');
+const contactRoutes = require('./routes/contactRoutes');
 
 
 
@@ -51,6 +53,8 @@ app.use('/api/vendor/products', vendorProductRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/wishlist', wishlistRoutes);
 app.use('/api/service-vendors', require('./routes/serviceVendorRoutes'));
+app.use('/api', serviceRoutes);
+app.use('/api', contactRoutes);
 
 // Test route
 app.get('/', (req, res) => {

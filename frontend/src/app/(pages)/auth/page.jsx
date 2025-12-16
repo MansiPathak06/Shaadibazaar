@@ -2,7 +2,16 @@
 
 import React, { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
-import { Mail, Lock, User, Eye, EyeOff, Loader2, Heart, Sparkles } from "lucide-react";
+import {
+  Mail,
+  Lock,
+  User,
+  Eye,
+  EyeOff,
+  Loader2,
+  Heart,
+  Sparkles,
+} from "lucide-react";
 import { useSearchParams } from "next/navigation";
 
 // --- Your AuthPage component code ---
@@ -75,8 +84,18 @@ const AuthPage = () => {
       if (data.success) {
         setSuccess(data.message);
 
+        // Set the auth token
         localStorage.setItem("token", data.token);
+
+        // Set user role and name for Navbar
+        localStorage.setItem("userRole", data.user.role);
+        localStorage.setItem("userName", data.user.name);
+
+        // Optionally keep full user object if needed elsewhere
         localStorage.setItem("user", JSON.stringify(data.user));
+
+        // Dispatch custom event to update Navbar immediately (optional but recommended)
+        window.dispatchEvent(new Event("authChange"));
 
         setFormData({
           name: "",
@@ -86,13 +105,16 @@ const AuthPage = () => {
         });
 
         // ========== ADMIN REDIRECT LOGIC ==========
-        if (data.user.role === 'admin' && data.user.email === "team.zentrixinfotech@gmail.com") {
+        if (
+          data.user.role === "admin" &&
+          data.user.email === "team.zentrixinfotech@gmail.com"
+        ) {
           setTimeout(() => {
             window.location.href = "/admin-dashboard";
           }, 1500);
         }
         // ========== VENDOR REDIRECT LOGIC ==========
-        else if (data.user.role === 'vendor') {
+        else if (data.user.role === "vendor") {
           setTimeout(() => {
             window.location.href = "/vendor-dashboard";
           }, 1500);
@@ -182,7 +204,8 @@ const AuthPage = () => {
         }
 
         @keyframes float {
-          0%, 100% {
+          0%,
+          100% {
             transform: translateY(0px);
           }
           50% {
@@ -191,7 +214,8 @@ const AuthPage = () => {
         }
 
         @keyframes pulse {
-          0%, 100% {
+          0%,
+          100% {
             opacity: 1;
           }
           50% {
@@ -233,7 +257,7 @@ const AuthPage = () => {
         }
 
         .gradient-text {
-          background: linear-gradient(135deg, #F04393 0%, #2A0B8B 100%);
+          background: linear-gradient(135deg, #f04393 0%, #2a0b8b 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -261,13 +285,18 @@ const AuthPage = () => {
         }
 
         .button-hover-effect::before {
-          content: '';
+          content: "";
           position: absolute;
           top: 0;
           left: -100%;
           width: 100%;
           height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent
+          );
           transition: left 0.5s ease;
         }
 
@@ -292,18 +321,25 @@ const AuthPage = () => {
       `}</style>
 
       <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-12 bg-gradient-to-br from-[#3C4CAD] via-[#2A0B8B] to-[#F04393]">
-        
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-10 left-10 w-32 h-32 bg-[#F9C449]/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '0s' }}></div>
-          <div className="absolute top-40 right-20 w-40 h-40 bg-[#F04393]/30 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute bottom-20 left-1/3 w-36 h-36 bg-[#3C4CAD]/30 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+          <div
+            className="absolute top-10 left-10 w-32 h-32 bg-[#F9C449]/20 rounded-full blur-3xl animate-float"
+            style={{ animationDelay: "0s" }}
+          ></div>
+          <div
+            className="absolute top-40 right-20 w-40 h-40 bg-[#F04393]/30 rounded-full blur-3xl animate-float"
+            style={{ animationDelay: "1s" }}
+          ></div>
+          <div
+            className="absolute bottom-20 left-1/3 w-36 h-36 bg-[#3C4CAD]/30 rounded-full blur-3xl animate-float"
+            style={{ animationDelay: "2s" }}
+          ></div>
         </div>
 
         {/* Main Container with Rounded Corners */}
         <div className="w-full max-w-7xl mx-auto bg-white rounded-[40px] shadow-2xl overflow-hidden relative z-10">
           <div className="flex flex-col lg:flex-row min-h-[600px] lg:min-h-[700px]">
-            
             {/* Left Side - Hero Section */}
             <div className="w-full lg:w-1/2 relative bg-gradient-to-br from-[#E8A4BC] via-[#F04393] to-[#2A0B8B] min-h-[400px] lg:min-h-full flex items-center justify-center p-8 lg:p-12 rounded-t-[40px] lg:rounded-l-[40px] lg:rounded-tr-none">
               <div className="absolute inset-0 rounded-t-[40px] lg:rounded-l-[40px] lg:rounded-tr-none overflow-hidden">
@@ -312,7 +348,8 @@ const AuthPage = () => {
                   alt="Wedding Couple"
                   className="w-full h-full object-cover opacity-30 mix-blend-overlay"
                   onError={(e) => {
-                    e.target.src = "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200";
+                    e.target.src =
+                      "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200";
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#2A0B8B]/80 via-[#2A0B8B]/40 to-transparent"></div>
@@ -321,7 +358,10 @@ const AuthPage = () => {
               <div className="relative z-10 max-w-lg animate-slide-in-left">
                 {/* Decorative Elements */}
                 <div className="flex items-center gap-3 mb-6">
-                  <Heart className="w-8 h-8 text-[#F9C449] animate-pulse-slow" fill="#F9C449" />
+                  <Heart
+                    className="w-8 h-8 text-[#F9C449] animate-pulse-slow"
+                    fill="#F9C449"
+                  />
                   <div className="h-1 w-20 bg-gradient-to-r from-[#F9C449] to-transparent"></div>
                 </div>
 
@@ -334,7 +374,9 @@ const AuthPage = () => {
                 </h1>
 
                 <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
-                  Join thousands of couples who planned their perfect celebration with us. From vendors to venues, we've got everything covered.
+                  Join thousands of couples who planned their perfect
+                  celebration with us. From vendors to venues, we've got
+                  everything covered.
                 </p>
 
                 {/* Feature Pills */}
@@ -350,10 +392,16 @@ const AuthPage = () => {
                 </div>
 
                 {/* Floating Decorative Icons */}
-                <div className="absolute top-0 right-10 opacity-30 animate-float" style={{ animationDelay: '0.5s' }}>
+                <div
+                  className="absolute top-0 right-10 opacity-30 animate-float"
+                  style={{ animationDelay: "0.5s" }}
+                >
                   <div className="text-6xl">💐</div>
                 </div>
-                <div className="absolute bottom-10 left-5 opacity-30 animate-float" style={{ animationDelay: '1.5s' }}>
+                <div
+                  className="absolute bottom-10 left-5 opacity-30 animate-float"
+                  style={{ animationDelay: "1.5s" }}
+                >
                   <div className="text-5xl">🌸</div>
                 </div>
               </div>
@@ -362,7 +410,6 @@ const AuthPage = () => {
             {/* Right Side - Form Section */}
             <div className="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-8 lg:p-12 bg-white rounded-b-[40px] lg:rounded-r-[40px] lg:rounded-bl-none">
               <div className="w-full max-w-md animate-slide-in-right">
-
                 {/* Logo & Header */}
                 <div className="text-center mb-8">
                   <Link href="/" className="inline-block mb-6 group">
@@ -377,7 +424,9 @@ const AuthPage = () => {
                     {isSignIn ? "Welcome Back!" : "Join Us Today"}
                   </h3>
                   <p className="text-gray-600 text-sm sm:text-lg">
-                    {isSignIn ? "Don't have an account? " : "Already have an account? "}
+                    {isSignIn
+                      ? "Don't have an account? "
+                      : "Already have an account? "}
                     <button
                       onClick={toggleAuthMode}
                       className="text-[#F04393] font-medium cursor-pointer hover:text-[#2A0B8B] transition-colors ml-1"
@@ -392,8 +441,16 @@ const AuthPage = () => {
                 {error && (
                   <div className="mb-4 p-4 bg-red-50 border-l-4 border-red-500 text-red-700 rounded-xl animate-fade-in-up shadow-sm">
                     <div className="flex items-start">
-                      <svg className="w-5 h-5 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                      <svg
+                        className="w-5 h-5 mr-3 mt-0.5 flex-shrink-0"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                          clipRule="evenodd"
+                        />
                       </svg>
                       <span className="font-medium text-sm">{error}</span>
                     </div>
@@ -403,8 +460,16 @@ const AuthPage = () => {
                 {success && (
                   <div className="mb-4 p-4 bg-green-50 border-l-4 border-green-500 text-green-700 rounded-xl animate-fade-in-up shadow-sm">
                     <div className="flex items-start">
-                      <svg className="w-5 h-5 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      <svg
+                        className="w-5 h-5 mr-3 mt-0.5 flex-shrink-0"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
                       </svg>
                       <span className="font-medium text-sm">{success}</span>
                     </div>
@@ -419,7 +484,10 @@ const AuthPage = () => {
                     disabled={loading}
                   >
                     <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24">
-                      <path fill="#3C4CAD" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                      <path
+                        fill="#3C4CAD"
+                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                      />
                     </svg>
                     <span className="font-medium text-gray-700 group-hover:text-[#3C4CAD] text-sm sm:text-base">
                       Continue with Facebook
@@ -432,10 +500,22 @@ const AuthPage = () => {
                     disabled={loading}
                   >
                     <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24">
-                      <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
-                      <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-                      <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
-                      <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                      <path
+                        fill="#4285F4"
+                        d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                      />
+                      <path
+                        fill="#34A853"
+                        d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                      />
+                      <path
+                        fill="#FBBC05"
+                        d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                      />
+                      <path
+                        fill="#EA4335"
+                        d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                      />
                     </svg>
                     <span className="font-medium text-gray-700 group-hover:text-[#F04393] text-sm sm:text-base">
                       Continue with Google
@@ -449,15 +529,23 @@ const AuthPage = () => {
                     <div className="w-full border-t-2 border-gray-200"></div>
                   </div>
                   <div className="relative flex justify-center text-sm">
-                    <span className="px-4 bg-white text-gray-500 font-medium">Or continue with email</span>
+                    <span className="px-4 bg-white text-gray-500 font-medium">
+                      Or continue with email
+                    </span>
                   </div>
                 </div>
 
                 {/* Form */}
                 <form onSubmit={handleSubmit} className="space-y-4">
                   {!isSignIn && (
-                    <div className="animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    <div
+                      className="animate-fade-in-up"
+                      style={{ animationDelay: "0.1s" }}
+                    >
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-gray-700 mb-2"
+                      >
                         Full Name
                       </label>
                       <div className="relative">
@@ -479,8 +567,14 @@ const AuthPage = () => {
                     </div>
                   )}
 
-                  <div className="animate-fade-in-up" style={{ animationDelay: isSignIn ? '0.1s' : '0.2s' }}>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <div
+                    className="animate-fade-in-up"
+                    style={{ animationDelay: isSignIn ? "0.1s" : "0.2s" }}
+                  >
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       Email Address
                     </label>
                     <div className="relative">
@@ -501,8 +595,14 @@ const AuthPage = () => {
                     </div>
                   </div>
 
-                  <div className="animate-fade-in-up" style={{ animationDelay: isSignIn ? '0.2s' : '0.3s' }}>
-                    <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+                  <div
+                    className="animate-fade-in-up"
+                    style={{ animationDelay: isSignIn ? "0.2s" : "0.3s" }}
+                  >
+                    <label
+                      htmlFor="password"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       Password
                     </label>
                     <div className="relative">
@@ -536,8 +636,14 @@ const AuthPage = () => {
                   </div>
 
                   {!isSignIn && (
-                    <div className="animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-                      <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-2">
+                    <div
+                      className="animate-fade-in-up"
+                      style={{ animationDelay: "0.4s" }}
+                    >
+                      <label
+                        htmlFor="confirmPassword"
+                        className="block text-sm font-medium text-gray-700 mb-2"
+                      >
                         Confirm Password
                       </label>
                       <div className="relative">
@@ -601,11 +707,17 @@ const AuthPage = () => {
                 {!isSignIn && (
                   <div className="mt-6 text-center text-xs text-gray-500 leading-relaxed">
                     By signing up, you agree to our{" "}
-                    <Link href="/terms" className="text-[#F04393] hover:text-[#2A0B8B] font-semibold">
+                    <Link
+                      href="/terms"
+                      className="text-[#F04393] hover:text-[#2A0B8B] font-semibold"
+                    >
                       Terms of Service
                     </Link>{" "}
                     and{" "}
-                    <Link href="/privacy" className="text-[#F04393] hover:text-[#2A0B8B] font-semibold">
+                    <Link
+                      href="/privacy"
+                      className="text-[#F04393] hover:text-[#2A0B8B] font-semibold"
+                    >
                       Privacy Policy
                     </Link>
                   </div>
@@ -622,14 +734,16 @@ const AuthPage = () => {
 // Page-level wrapper for Suspense as required by Next.js
 export default function Page() {
   return (
-    <Suspense fallback={
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#3C4CAD] via-[#2A0B8B] to-[#F04393]">
-        <div className="text-center">
-          <Loader2 className="w-12 h-12 animate-spin text-white mx-auto mb-4" />
-          <p className="text-white font-semibold">Loading...</p>
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#3C4CAD] via-[#2A0B8B] to-[#F04393]">
+          <div className="text-center">
+            <Loader2 className="w-12 h-12 animate-spin text-white mx-auto mb-4" />
+            <p className="text-white font-semibold">Loading...</p>
+          </div>
         </div>
-      </div>
-    }>
+      }
+    >
       <AuthPage />
     </Suspense>
   );
