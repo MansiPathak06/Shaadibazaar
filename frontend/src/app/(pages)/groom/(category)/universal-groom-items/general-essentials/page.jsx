@@ -6,47 +6,47 @@ const GroomEssentialsPage = () => {
     {
       name: "Innerwear Set",
       items: "10 Items",
-      image: "https://via.placeholder.com/300x300?text=Category+Image",
+      image: "https://i.pinimg.com/1200x/e6/eb/cb/e6ebcbab23582c29954ee8ea741866b1.jpg",
     },
     {
       name: "Handkerchief",
       items: "15 Items",
-      image: "https://via.placeholder.com/300x300?text=Category+Image",
+      image: "https://i.pinimg.com/1200x/19/8f/c2/198fc2fe32f0a7c92f8796f49a9cdfcb.jpg",
     },
     {
       name: "Groom Perfume",
       items: "12 Items",
-      image: "https://via.placeholder.com/300x300?text=Category+Image",
+      image: "https://i.pinimg.com/1200x/49/63/51/4963511b3fc2e2cb1e44abb55e25f2d2.jpg",
     },
     {
       name: "Hair Gel/Spray",
       items: "8 Items",
-      image: "https://via.placeholder.com/300x300?text=Category+Image",
+      image: "https://i.pinimg.com/1200x/39/f3/41/39f341139caa985896e6c76996f04b36.jpg",
     },
     {
       name: "Wet Wipes",
       items: "6 Items",
-      image: "https://via.placeholder.com/300x300?text=Category+Image",
+      image: "https://i.pinimg.com/1200x/25/bd/4f/25bd4f0998ce1b5a6845b200d8487058.jpg",
     },
     {
       name: "Power Bank",
       items: "5 Items",
-      image: "https://via.placeholder.com/300x300?text=Category+Image",
+      image: "https://i.pinimg.com/1200x/64/9d/23/649d23a8c0f0f14290c117d4173e57eb.jpg",
     },
     {
       name: "Wallet",
       items: "18 Items",
-      image: "https://via.placeholder.com/300x300?text=Category+Image",
+      image: "https://i.pinimg.com/1200x/51/24/ad/5124add0c34789ed6f390941cdbdbcaf.jpg",
     },
     {
       name: "Belt",
       items: "14 Items",
-      image: "https://via.placeholder.com/300x300?text=Category+Image",
+      image: "https://i.pinimg.com/736x/05/6b/4d/056b4d88d8312a1ebc13a1f8e6d375a3.jpg",
     },
     {
       name: "Shoe Polish Kit",
       items: "7 Items",
-      image: "https://via.placeholder.com/300x300?text=Category+Image",
+      image: "https://i.pinimg.com/1200x/b6/06/d6/b606d6f2ed958c99789fd4b0a0ac4439.jpg",
     },
   ];
 
@@ -55,28 +55,28 @@ const GroomEssentialsPage = () => {
       name: "Premium Cotton Innerwear Set",
       price: "$39.99",
       discount: "15% OFF",
-      image: "https://via.placeholder.com/400x400?text=Product+Image",
+      image: "https://i.pinimg.com/736x/4f/46/8c/4f468ce803eb4a91b18bb5bc7e0fab33.jpg",
     },
     {
       name: "Silk Handkerchief 3-Pack",
       price: "$24.99",
-      image: "https://via.placeholder.com/400x400?text=Product+Image",
+      image: "https://i.pinimg.com/736x/b3/61/b9/b361b98dd9efeeebc1fb904b1a90a91b.jpg",
     },
     {
       name: "Luxury Groom Cologne 100ml",
       price: "$79.99",
-      image: "https://via.placeholder.com/400x400?text=Product+Image",
+      image: "https://i.pinimg.com/736x/45/03/3d/45033d82da395b0bc50a97fb86361c73.jpg",
     },
     {
       name: "Professional Hair Styling Gel",
       price: "$18.99",
-      image: "https://via.placeholder.com/400x400?text=Product+Image",
+      image: "https://i.pinimg.com/1200x/8a/e9/8d/8ae98de79a06cf3072b7b726869b573e.jpg",
     },
     {
       name: "Black Leather Wallet",
       price: "$49.99",
       discount: "20% OFF",
-      image: "https://via.placeholder.com/400x400?text=Product+Image",
+      image: "https://i.pinimg.com/736x/ca/6d/86/ca6d863109cd02df3ddea5f3606d6390.jpg",
     },
   ];
 
@@ -86,14 +86,14 @@ const GroomEssentialsPage = () => {
       discount: "30% OFF",
       price: "$59.99",
       tag: "Best Seller",
-      image: "https://via.placeholder.com/500x300?text=Featured+Product",
+      image: "https://i.pinimg.com/1200x/47/15/df/4715dfed8a3484999c216ae6c6bb3c85.jpg",
     },
     {
       name: "Premium Shoe Care Kit",
       discount: "25% OFF",
       price: "$44.99",
       tag: "Trending",
-      image: "https://via.placeholder.com/500x300?text=Featured+Product",
+      image: "https://i.pinimg.com/1200x/6a/75/53/6a7553df1b4950f36c5800a35cd6a9e8.jpg",
     },
   ];
 

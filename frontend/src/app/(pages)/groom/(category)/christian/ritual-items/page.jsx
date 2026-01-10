@@ -7,14 +7,14 @@ const ChristianGroomRitualItemsPage = () => {
   const scrollContainerRef = useRef(null);
 
   const categories = [
-    { id: 1, name: 'Wedding Rings', image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Wedding+Rings' },
-    { id: 2, name: 'Holy Bible', image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Holy+Bible' },
-    { id: 3, name: 'Certificate Folder', image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Certificate+Folder' },
-    { id: 4, name: 'Flower Bouquet', image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Flower+Bouquet' },
-    { id: 5, name: 'Car Decoration', image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Car+Decoration' },
-    { id: 6, name: 'Rosary / Cross Pendant', image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Rosary+%2F+Cross' },
-    { id: 7, name: 'Groom Boutonniere', image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Boutonniere' },
-    { id: 8, name: 'Keepsake Box', image: 'https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Keepsake+Box' }
+    { id: 1, name: 'Wedding Rings', image: 'https://i.pinimg.com/1200x/f0/50/08/f0500853433509b8a167d786b9cd60b0.jpg' },
+    { id: 2, name: 'Holy Bible', image: 'https://i.pinimg.com/1200x/5b/24/9a/5b249a415d5bed10d06b3a5cd965957b.jpg' },
+    { id: 3, name: 'Certificate Folder', image: 'https://i.pinimg.com/1200x/50/be/7d/50be7d51df78ff64b0025a7549507cdf.jpg' },
+    { id: 4, name: 'Flower Bouquet', image: 'https://i.pinimg.com/736x/ea/7e/1c/ea7e1c211cc20ae9fc8b5ef24881fbe7.jpg' },
+    { id: 5, name: 'Car Decoration', image: 'https://i.pinimg.com/736x/0e/14/0f/0e140fed7327b6e53d2246c9162185ed.jpg' },
+    { id: 6, name: 'Rosary / Cross Pendant', image: 'https://i.pinimg.com/736x/3a/26/85/3a2685a058bec149e38a4b99e193ac67.jpg' },
+    { id: 7, name: 'Groom Boutonniere', image: 'https://i.pinimg.com/1200x/b3/32/82/b33282e9ae529541ea81dea1d51889ea.jpg' },
+    { id: 8, name: 'Keepsake Box', image: 'https://i.pinimg.com/1200x/04/95/b5/0495b566d1b6f370e1999e532a8225c7.jpg' }
   ];
 
   const scroll = (direction) => {

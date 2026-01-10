@@ -2,20 +2,31 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../config/db');
-const auth = require('../middleware/authMiddleware');  // ← FIXED
-const adminAuth = require('../middleware/adminMiddleware');  // ← FIXED
+const auth = require('../middleware/authMiddleware');
+const adminAuth = require('../middleware/adminMiddleware');
+
+// ============= PUBLIC ROUTES =============
 
 // Get all services (public)
 router.get('/services', async (req, res) => {
   try {
-    const { category } = req.query;
+    const { vendor_category, subCategory, featured } = req.query;
     
     let query = 'SELECT * FROM services WHERE 1=1';
     const params = [];
     
-    if (category) {
+    if (vendor_category) {
       query += ' AND vendor_category = ?';
-      params.push(category);
+      params.push(vendor_category);
+    }
+
+    if (subCategory) {
+      query += ' AND sub_category = ?';
+      params.push(subCategory);
+    }
+
+    if (featured === 'true') {
+      query += ' AND featured = 1';
     }
     
     query += ' ORDER BY featured DESC, created_at DESC';
@@ -24,7 +35,7 @@ router.get('/services', async (req, res) => {
     
     // Parse JSON fields
     services.forEach(service => {
-      if (service.images) {
+      if (service.images && typeof service.images === 'string') {
         try {
           service.images = JSON.parse(service.images);
         } catch (e) {
@@ -40,7 +51,7 @@ router.get('/services', async (req, res) => {
   }
 });
 
-// Get single service with pricing (public)
+// Get single service (public)
 router.get('/services/:id', async (req, res) => {
   try {
     const [services] = await db.query(
@@ -53,7 +64,7 @@ router.get('/services/:id', async (req, res) => {
     }
     
     const service = services[0];
-    if (service.images) {
+    if (service.images && typeof service.images === 'string') {
       try {
         service.images = JSON.parse(service.images);
       } catch (e) {
@@ -76,16 +87,17 @@ router.get('/services/:id', async (req, res) => {
   }
 });
 
-// Get services by category (public)
-router.get('/services/category/:category', async (req, res) => {
+// ============= ADMIN ROUTES =============
+
+// Admin: Get all services
+router.get('/admin/services', auth, adminAuth, async (req, res) => {
   try {
     const [services] = await db.query(
-      'SELECT * FROM services WHERE vendor_category = ? ORDER BY featured DESC, created_at DESC',
-      [req.params.category]
+      'SELECT * FROM services ORDER BY created_at DESC'
     );
     
     services.forEach(service => {
-      if (service.images) {
+      if (service.images && typeof service.images === 'string') {
         try {
           service.images = JSON.parse(service.images);
         } catch (e) {
@@ -96,7 +108,7 @@ router.get('/services/category/:category', async (req, res) => {
     
     res.json({ success: true, services });
   } catch (error) {
-    console.error('Get category services error:', error);
+    console.error('Admin get services error:', error);
     res.status(500).json({ success: false, message: 'Server error' });
   }
 });
@@ -106,6 +118,7 @@ router.post('/admin/services', auth, adminAuth, async (req, res) => {
   try {
     const {
       vendor_category,
+      sub_category,
       service_name,
       description,
       starting_price,
@@ -125,42 +138,32 @@ router.post('/admin/services', auth, adminAuth, async (req, res) => {
       contact_phone,
       address,
       images,
-      featured,
-      pricing
+      featured
     } = req.body;
 
     const [result] = await db.query(
       `INSERT INTO services (
-        vendor_category, service_name, description, starting_price,
+        vendor_category, sub_category, service_name, description, starting_price,
         working_since, area_of_service, male_female_unisex, staff_status,
         facilities, onsite_facility, timing_requirements, product_brand,
         other_services, payment_mode, website, contact_person,
         contact_email, contact_phone, address, images, featured
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
-        vendor_category, service_name, description, starting_price,
+        vendor_category, sub_category, service_name, description, starting_price,
         working_since, area_of_service, male_female_unisex, staff_status,
         facilities, onsite_facility, timing_requirements, product_brand,
         other_services, payment_mode, website, contact_person,
-        contact_email, contact_phone, address, JSON.stringify(images), featured
+        contact_email, contact_phone, address, 
+        Array.isArray(images) ? JSON.stringify(images) : images,
+        featured || 0
       ]
     );
-
-    const serviceId = result.insertId;
-
-    // Insert pricing details
-    if (pricing && pricing.length > 0) {
-      const pricingValues = pricing.map(p => [serviceId, p.pricing_type, p.pricing_value]);
-      await db.query(
-        'INSERT INTO service_pricing (service_id, pricing_type, pricing_value) VALUES ?',
-        [pricingValues]
-      );
-    }
 
     res.status(201).json({
       success: true,
       message: 'Service created successfully',
-      serviceId
+      serviceId: result.insertId
     });
   } catch (error) {
     console.error('Create service error:', error);
@@ -171,26 +174,13 @@ router.post('/admin/services', auth, adminAuth, async (req, res) => {
 // Admin: Update service
 router.put('/admin/services/:id', auth, adminAuth, async (req, res) => {
   try {
-    const { pricing, ...serviceData } = req.body;
+    const { images, ...serviceData } = req.body;
     
-    if (serviceData.images) {
-      serviceData.images = JSON.stringify(serviceData.images);
+    if (images) {
+      serviceData.images = Array.isArray(images) ? JSON.stringify(images) : images;
     }
 
     await db.query('UPDATE services SET ? WHERE id = ?', [serviceData, req.params.id]);
-
-    // Update pricing
-    if (pricing) {
-      await db.query('DELETE FROM service_pricing WHERE service_id = ?', [req.params.id]);
-      
-      if (pricing.length > 0) {
-        const pricingValues = pricing.map(p => [req.params.id, p.pricing_type, p.pricing_value]);
-        await db.query(
-          'INSERT INTO service_pricing (service_id, pricing_type, pricing_value) VALUES ?',
-          [pricingValues]
-        );
-      }
-    }
 
     res.json({ success: true, message: 'Service updated successfully' });
   } catch (error) {

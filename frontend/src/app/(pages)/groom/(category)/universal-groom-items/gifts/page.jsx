@@ -3,27 +3,27 @@ import { ShoppingCart, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const GroomGiftsPage = () => {
   const categories = [
-    { name: 'Watch', items: '12 Items', image: 'https://via.placeholder.com/300x300?text=Watch' },
-    { name: 'Perfume Set', items: '10 Items', image: 'https://via.placeholder.com/300x300?text=Perfume+Set' },
-    { name: 'Bracelet', items: '15 Items', image: 'https://via.placeholder.com/300x300?text=Bracelet' },
-    { name: 'Wallet', items: '8 Items', image: 'https://via.placeholder.com/300x300?text=Wallet' },
-    { name: 'Belt', items: '6 Items', image: 'https://via.placeholder.com/300x300?text=Belt' },
-    { name: 'Wallet-Belt Combo', items: '9 Items', image: 'https://via.placeholder.com/300x300?text=Combo' },
-    { name: 'Groom Entry Props', items: '14 Items', image: 'https://via.placeholder.com/300x300?text=Entry+Props' },
-    { name: 'Gift Sets', items: '11 Items', image: 'https://via.placeholder.com/300x300?text=Gift+Sets' }
+    { name: 'Watch', items: '12 Items', image: 'https://i.pinimg.com/1200x/ff/44/fe/ff44fea1a26fccca53894f1d908ad082.jpg' },
+    { name: 'Perfume Set', items: '10 Items', image: 'https://i.pinimg.com/736x/01/d8/31/01d8318e4ca6fa9b447b476ecfa57b2e.jpg'},
+    { name: 'Bracelet', items: '15 Items', image: 'https://i.pinimg.com/1200x/48/94/8a/48948ab63e1eee2abe049fb57b229375.jpg' },
+    { name: 'Wallet', items: '8 Items', image: 'https://i.pinimg.com/736x/23/c9/ff/23c9ffe39e30f915d0896ddb47c8bdf6.jpg' },
+    { name: 'Belt', items: '6 Items', image: 'https://i.pinimg.com/1200x/f2/4c/e6/f24ce6ba52d2be349385be8052a9745c.jpg' },
+    { name: 'Wallet-Belt Combo', items: '9 Items', image: 'https://i.pinimg.com/1200x/c5/91/89/c591890e292eea616592adf995dece77.jpg' },
+    { name: 'Groom Entry Props', items: '14 Items', image: 'https://i.pinimg.com/1200x/17/d6/33/17d633aa3b81c3ec70c434ab43bb7e54.jpg' },
+    { name: 'Gift Sets', items: '11 Items', image: 'https://i.pinimg.com/736x/39/72/78/397278070ed6594cc536969e50eef3c0.jpg' },
   ];
 
   const products = [
-    { name: 'Premium Chronograph Watch', price: '$299.99', discount: '25% OFF', image: 'https://via.placeholder.com/400x400?text=Watch' },
-    { name: 'Luxury Perfume Set 3pc', price: '$89.99', image: 'https://via.placeholder.com/400x400?text=Perfume' },
-    { name: 'Sterling Silver Bracelet', price: '$149.99', image: 'https://via.placeholder.com/400x400?text=Bracelet' },
-    { name: 'Leather Wallet Premium', price: '$79.99', image: 'https://via.placeholder.com/400x400?text=Wallet' },
-    { name: 'LED Crown Entry Prop', price: '$124.99', image: 'https://via.placeholder.com/400x400?text=Props' }
+    { name: 'Premium Chronograph Watch', price: '$299.99', discount: '25% OFF', image: 'https://i.pinimg.com/1200x/bc/6f/b3/bc6fb3db12a1c974958cfe935e7a2809.jpg' },
+    { name: 'Luxury Perfume Set 3pc', price: '$89.99', image: 'https://i.pinimg.com/736x/c3/99/96/c39996aafb405dac6cdc52a5e6db3d8f.jpg' },
+    { name: 'Sterling Silver Bracelet', price: '$149.99', image: 'https://i.pinimg.com/1200x/ae/c5/9f/aec59fe1e9b64f6c0f78f98c16ad0b72.jpg' },
+    { name: 'Leather Wallet Premium', price: '$79.99', image: 'https://i.pinimg.com/736x/96/0e/8d/960e8da14252f813da23214e2c323c24.jpg' },
+    { name: 'LED Crown Entry Prop', price: '$124.99', image: 'https://i.pinimg.com/1200x/1f/02/f8/1f02f844d50687e15a7bba82a12de550.jpg' }
   ];
 
   const featuredProducts = [
-    { name: 'Royal Wedding Watch Gold', discount: '30% OFF', price: '$449.99', tag: 'Best Seller', image: 'https://via.placeholder.com/500x300?text=Featured+Watch' },
-    { name: 'Premium Wallet-Belt Set', discount: '35% OFF', price: '$159.99', tag: 'Trending', image: 'https://via.placeholder.com/500x300?text=Featured+Combo' }
+    { name: 'Royal Wedding Watch Gold', discount: '30% OFF', price: '$449.99', tag: 'Best Seller', image: 'https://i.pinimg.com/1200x/93/77/ac/9377acb6ec211a74dee17d157ea0992d.jpg' },
+    { name: 'Premium Wallet-Belt Set', discount: '35% OFF', price: '$159.99', tag: 'Trending', image: 'https://i.pinimg.com/1200x/a0/81/4e/a0814e636390ad0a0fde5006ad70f999.jpg' }
   ];
 
   return (

@@ -8,25 +8,25 @@ const DestinationWeddingVenuesPage = () => {
   const heroItems = [
     {
       image:
-        "https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg",
+        "https://i.pinimg.com/736x/a1/cf/89/a1cf89b38042fc5f1fb1672063093cc1.jpg",
       label: "Beach Resorts",
       slug: "beach-resorts",
     },
     {
       image:
-        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+        "https://i.pinimg.com/736x/c1/10/e8/c110e84f060fb678085404637a2be9c1.jpg",
       label: "Palace Hotels",
       slug: "palace-hotels",
     },
     {
       image:
-        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+        "https://i.pinimg.com/1200x/05/fb/0e/05fb0e639fc5f3373433f4a8594bea54.jpg",
       label: "Hill Resorts",
       slug: "hill-resorts",
     },
     {
       image:
-        "https://i.pinimg.com/736x/67/03/ef/6703ef4b1f4dba26f87a9c1b9f1cd332.jpg",
+        "https://i.pinimg.com/1200x/d9/5e/a6/d95ea6cbb324335dd8eb1a99274888bc.jpg",
       label: "Desert Camps",
       slug: "desert-camps",
     },
@@ -44,35 +44,35 @@ const DestinationWeddingVenuesPage = () => {
       slug: "beach-resorts",
       title: "Beach Resorts (Goa, Kerala)",
       image:
-        "https://i.pinimg.com/736x/b1/fd/97/b1fd971d0d42a56c183b6e17077211f3.jpg",
+        "https://i.pinimg.com/1200x/6e/97/8f/6e978fabb958c5c4fa891f2b82c53f49.jpg",
       accent: "#e91e63",
     },
     {
       slug: "palace-hotels",
       title: "Palace Hotels (Rajasthan)",
       image:
-        "https://i.pinimg.com/1200x/33/68/f9/3368f983eeafd946d980c91f15c51c20.jpg",
+        "https://i.pinimg.com/736x/7a/e3/28/7ae3287d8c8e257abf52822e97ee46b2.jpg",
       accent: "#3f51b5",
     },
     {
       slug: "hill-resorts",
       title: "Hill Resorts (Nainital, Manali, Mussoorie)",
       image:
-        "https://i.pinimg.com/1200x/9f/40/f2/9f40f2eb683ab08a3df20f82387e5cfd.jpg",
+        "https://i.pinimg.com/736x/8e/7f/68/8e7f689b109986c05ada50c75d259482.jpg",
       accent: "#ff9800",
     },
     {
       slug: "desert-camps",
       title: "Desert Camps (Jaisalmer)",
       image:
-        "https://i.pinimg.com/1200x/52/28/25/522825bf91e8e09c848c9e8d783c9873.jpg",
+        "https://i.pinimg.com/736x/35/c5/53/35c553dfa7441da5b7b837cf869b5a34.jpg",
       accent: "#9c27b0",
     },
     {
       slug: "luxury-international-resorts",
       title: "Luxury International Resorts (Dubai, Bali, Thailand)",
       image:
-        "https://i.pinimg.com/736x/ed/be/25/edbe25b54256439d445e5a879930ce55.jpg",
+        "https://i.pinimg.com/736x/33/4a/4c/334a4c9c6760f1efaea3cd114256f1f2.jpg",
       accent: "#4caf50",
     },
   ];
@@ -84,7 +84,7 @@ const DestinationWeddingVenuesPage = () => {
         {/* Background Image with Blur */}
         <div className="absolute inset-0">
           <img
-            src="https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg"
+            src="https://i.pinimg.com/736x/59/47/75/59477586d4cd30d51871a454ab9db6b9.jpg"
             alt="Destination Wedding Background"
             className="w-full h-full object-cover blur-sm scale-105"
           />
@@ -258,7 +258,7 @@ const DestinationWeddingVenuesPage = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="flex justify-center">
               <img
-                src="https://i.pinimg.com/1200x/65/6b/0e/656b0e4b605f404cb5d5edb30e0b3b76.jpg"
+                src="https://i.pinimg.com/1200x/1f/4f/12/1f4f1214d15fcdf270058cf2d08518ce.jpg"
                 alt="About Destination Venues"
                 className="rounded-lg shadow-2xl w-78 object-cover"
               />

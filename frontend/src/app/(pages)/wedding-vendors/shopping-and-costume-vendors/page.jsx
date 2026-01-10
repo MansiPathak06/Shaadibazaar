@@ -10,56 +10,56 @@ const ShoppingCostumeVendorsPage = () => {
       id: "bridal",
       name: "Bridal Wear Store",
       image:
-        "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400",
+        "https://i.pinimg.com/736x/4c/ac/3a/4cac3ada4f725b8a51f8e7ccd1dd7439.jpg",
       link: "/bridal-wear",
     },
     {
       id: "groom",
       name: "Groom Wear Store",
       image:
-        "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400",
+        "https://i.pinimg.com/736x/15/5a/8c/155a8c2a82d202b8a846ddc5c56322bb.jpg",
       link: "/groom-wear",
     },
     {
       id: "jewellery",
       name: "Jewellery Rental",
       image:
-        "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400",
+        "https://i.pinimg.com/1200x/4b/95/28/4b952870595590f1648773e60ea41a28.jpg",
       link: "/jewellery-rental",
     },
     {
       id: "artificial",
       name: "Artificial Jewellery",
       image:
-        "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400",
+        "https://i.pinimg.com/1200x/5d/ef/cc/5defccad0d6bd09af5ed3946f66ced4f.jpg",
       link: "/artificial-jewellery",
     },
     {
       id: "footwear",
       name: "Footwear Vendor",
       image:
-        "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400",
+        "https://i.pinimg.com/1200x/e2/df/d2/e2dfd23e3231c9666e2b2f855d5037e4.jpg",
       link: "/footwear",
     },
     {
       id: "pagdi",
       name: "Pagdi/Safa Artist",
       image:
-        "https://images.unsplash.com/photo-1522336284037-91f7da073525?w=400",
+        "https://i.pinimg.com/1200x/40/71/fa/4071fa535c59ba59f4e45f868ef24bc7.jpg",
       link: "/pagdi-artist",
     },
     {
       id: "turban",
       name: "Turban/Veil Vendors",
       image:
-        "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400",
+        "https://i.pinimg.com/1200x/c3/1c/a4/c31ca438fed65e049151223b8b9bfaa6.jpg",
       link: "/turban-veil",
     },
     {
       id: "costume",
       name: "Costume Rental",
       image:
-        "https://images.unsplash.com/photo-1445205170230-053b83016050?w=400",
+        "https://i.pinimg.com/1200x/38/a5/07/38a507d1c92cb8cbe6ee0c1b25e93ebd.jpg",
       link: "/costume-rental",
     },
   ];
@@ -72,7 +72,7 @@ const ShoppingCostumeVendorsPage = () => {
       description:
         "Exquisite bridal collections featuring traditional and contemporary designs with premium fabrics and intricate embellishments",
       image:
-        "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400",
+        "https://i.pinimg.com/1200x/e9/d5/28/e9d52855eb7e78e4e942f6c835895503.jpg",
     },
     {
       id: 2,
@@ -81,7 +81,7 @@ const ShoppingCostumeVendorsPage = () => {
       description:
         "Sophisticated groom attire ranging from classic sherwanis to modern suits with impeccable tailoring and style",
       image:
-        "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400",
+        "https://i.pinimg.com/1200x/95/23/af/9523af51af7a67537119a2cd02c7b54d.jpg",
     },
     {
       id: 3,
@@ -90,7 +90,7 @@ const ShoppingCostumeVendorsPage = () => {
       description:
         "Stunning collection of authentic gold and diamond jewellery sets available for rental to complete your bridal look",
       image:
-        "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400",
+        "https://i.pinimg.com/1200x/0b/87/f4/0b87f49efa6edfee744409e4f58cccd4.jpg",
     },
     {
       id: 4,
@@ -99,7 +99,7 @@ const ShoppingCostumeVendorsPage = () => {
       description:
         "Beautiful artificial jewellery pieces that perfectly mimic traditional designs at affordable prices",
       image:
-        "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400",
+        "https://i.pinimg.com/736x/c1/56/24/c15624868fcffe2c158492fed5e82ce3.jpg",
     },
     {
       id: 5,
@@ -108,7 +108,7 @@ const ShoppingCostumeVendorsPage = () => {
       description:
         "Elegant bridal and groom footwear including juttis, mojaris, and designer heels that blend comfort with style",
       image:
-        "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400",
+        "https://i.pinimg.com/736x/c1/39/c4/c139c4556a7ceaa0f1d433832be710a7.jpg",
     },
     {
       id: 6,
@@ -117,7 +117,7 @@ const ShoppingCostumeVendorsPage = () => {
       description:
         "Expert artists who create stunning traditional pagdi and safa styles with precision and artistic flair",
       image:
-        "https://images.unsplash.com/photo-1522336284037-91f7da073525?w=400",
+        "https://i.pinimg.com/736x/c0/60/85/c060852c22dcac916346aa5ee998c287.jpg",
     },
     {
       id: 7,
@@ -126,7 +126,7 @@ const ShoppingCostumeVendorsPage = () => {
       description:
         "Wide variety of turbans, veils, and dupattas in luxurious fabrics with beautiful embroidery and embellishments",
       image:
-        "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400",
+        "https://i.pinimg.com/736x/06/6f/80/066f8089f29b805d0c60eda55db24784.jpg",
     },
     {
       id: 8,
@@ -135,7 +135,7 @@ const ShoppingCostumeVendorsPage = () => {
       description:
         "Vibrant and stylish costume rentals perfect for sangeet performances and theme-based wedding celebrations",
       image:
-        "https://images.unsplash.com/photo-1445205170230-053b83016050?w=400",
+        "https://i.pinimg.com/736x/6b/84/6c/6b846c2439c163511ec855094e05da99.jpg",
     },
   ];
 

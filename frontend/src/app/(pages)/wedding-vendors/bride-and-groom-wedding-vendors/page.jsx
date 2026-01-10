@@ -1,63 +1,70 @@
 "use client";
 import React, { useRef } from "react";
+import { useRouter } from "next/navigation";
+import { Home, ChevronRight } from "lucide-react";
 
 const BrideGroomBeautyVendorsPage = () => {
+  const router = useRouter();
   const sliderRef = useRef(null);
+
+  // Category mapping for navigation
+  const categoryMap = {
+    1: "bridal-makeup",
+    2: "groom-makeup",
+    3: "hair-stylist",
+    4: "saree-draper",
+    5: "mehendi",
+    6: "nail-tech",
+    7: "spa-salon",
+    8: "pre-bridal",
+    9: "hijab-stylist",
+  };
 
   const categories = [
     {
       id: "bridal-makeup",
       name: "Bridal Makeup Artist",
-      image: "https://via.placeholder.com/400x400?text=Bridal+Makeup",
-      link: "/bridal-makeup-artist",
+      image: "https://i.pinimg.com/1200x/bf/f9/be/bff9bea01c35711b3ce8707acab2089c.jpg",
     },
     {
       id: "groom-makeup",
       name: "Groom Makeup Artist",
-      image: "https://via.placeholder.com/400x400?text=Groom+Makeup",
-      link: "/groom-makeup-artist",
+      image: "https://i.pinimg.com/736x/22/12/b8/2212b8d4b6fd60de6b972b4d468938b8.jpg",
     },
     {
       id: "hair-stylist",
       name: "Hair Stylist",
-      image: "https://via.placeholder.com/400x400?text=Hair+Stylist",
-      link: "/hair-stylist",
+      image: "https://i.pinimg.com/736x/73/dd/4d/73dd4dfdfde767a0c8fb2738a0af54ff.jpg",
     },
     {
       id: "saree-draper",
       name: "Saree Draper / Lehenga Pinning",
-      image: "https://via.placeholder.com/400x400?text=Saree+Draper",
-      link: "/saree-draper",
+      image: "https://i.pinimg.com/736x/15/88/af/1588af2e0905f63a499a48989c80b81f.jpg",
     },
     {
       id: "mehendi",
       name: "Mehendi Artist",
-      image: "https://via.placeholder.com/400x400?text=Mehendi+Artist",
-      link: "/mehendi-artist",
+      image: "https://i.pinimg.com/1200x/ea/7e/80/ea7e800cefd4427bfed87bd2388b5436.jpg",
     },
     {
       id: "nail-tech",
       name: "Nail Technician",
-      image: "https://via.placeholder.com/400x400?text=Nail+Tech",
-      link: "/nail-technician",
+      image: "https://i.pinimg.com/474x/21/5d/ab/215dab6eff414e1f14d3238405b3ff19.jpg",
     },
     {
       id: "spa-salon",
       name: "Spa & Salon Services",
-      image: "https://via.placeholder.com/400x400?text=Spa+Salon",
-      link: "/spa-salon",
+      image: "https://i.pinimg.com/736x/f8/a4/be/f8a4be723372a672a93896e2478a1a75.jpg",
     },
     {
       id: "pre-bridal",
       name: "Pre-bridal Package",
-      image: "https://via.placeholder.com/400x400?text=Pre-bridal",
-      link: "/pre-bridal-package",
+      image: "https://i.pinimg.com/736x/9f/e0/2e/9fe02ee06110644899ff414f3ba75cca.jpg",
     },
     {
       id: "hijab-stylist",
       name: "Hijab/Headgear Stylist",
-      image: "https://via.placeholder.com/400x400?text=Hijab+Stylist",
-      link: "/hijab-stylist",
+      image: "https://i.pinimg.com/736x/6c/c3/46/6cc346d8439ae84b3242ecc4c0e72326.jpg",
     },
   ];
 
@@ -68,7 +75,7 @@ const BrideGroomBeautyVendorsPage = () => {
       name: "Bridal Makeup Artist",
       description:
         "Expert bridal makeup artists creating stunning looks that enhance your natural beauty and last throughout your special day",
-      image: "https://via.placeholder.com/400x500?text=Bridal+Makeup",
+      image: "https://i.pinimg.com/1200x/49/8e/fd/498efdae882161544ec04d199bfe9bf8.jpg",
     },
     {
       id: 2,
@@ -76,7 +83,7 @@ const BrideGroomBeautyVendorsPage = () => {
       name: "Groom Makeup Artist",
       description:
         "Professional grooming services for grooms ensuring you look your absolute best with subtle, camera-ready makeup",
-      image: "https://via.placeholder.com/400x500?text=Groom+Makeup",
+      image: "https://i.pinimg.com/736x/17/15/c1/1715c16a3cc36f456270a1754b793596.jpg",
     },
     {
       id: 3,
@@ -84,7 +91,7 @@ const BrideGroomBeautyVendorsPage = () => {
       name: "Hair Stylist",
       description:
         "Creative hair styling experts who craft elegant updos, flowing curls, and personalized hairstyles for your celebration",
-      image: "https://via.placeholder.com/400x500?text=Hair+Stylist",
+      image: "https://i.pinimg.com/1200x/e7/72/f3/e772f305cee161462e43a816f62d45df.jpg",
     },
     {
       id: 4,
@@ -92,7 +99,7 @@ const BrideGroomBeautyVendorsPage = () => {
       name: "Saree Draper / Lehenga Pinning Artist",
       description:
         "Skilled artisans who drape sarees perfectly and secure lehengas flawlessly for a graceful, comfortable fit all day",
-      image: "https://via.placeholder.com/400x500?text=Saree+Draper",
+      image: "https://i.pinimg.com/736x/db/c4/55/dbc4553b46d49179489046532fd5f0b2.jpg",
     },
     {
       id: 5,
@@ -100,7 +107,7 @@ const BrideGroomBeautyVendorsPage = () => {
       name: "Mehendi Artist",
       description:
         "Traditional and contemporary mehendi designs with intricate patterns that tell your unique love story beautifully",
-      image: "https://via.placeholder.com/400x500?text=Mehendi",
+      image: "https://i.pinimg.com/736x/bd/a9/6d/bda96df7d043fccbd701f64bbf8a40a0.jpg",
     },
     {
       id: 6,
@@ -108,7 +115,7 @@ const BrideGroomBeautyVendorsPage = () => {
       name: "Nail Technician",
       description:
         "Professional nail art and manicure services creating stunning designs that complement your bridal look perfectly",
-      image: "https://via.placeholder.com/400x500?text=Nail+Tech",
+      image: "https://i.pinimg.com/1200x/8c/ef/97/8cef970448e7d1bf84ebec3ea185bfb7.jpg",
     },
     {
       id: 7,
@@ -116,7 +123,7 @@ const BrideGroomBeautyVendorsPage = () => {
       name: "Spa & Salon Services",
       description:
         "Comprehensive beauty treatments including facials, massages, and relaxation therapies for pre-wedding pampering",
-      image: "https://via.placeholder.com/400x500?text=Spa+Salon",
+      image: "https://i.pinimg.com/1200x/6a/60/e1/6a60e1ab5dab56bccbce0dd4ce73a3bd.jpg",
     },
     {
       id: 8,
@@ -124,7 +131,7 @@ const BrideGroomBeautyVendorsPage = () => {
       name: "Pre-bridal Package Vendor",
       description:
         "Complete pre-wedding beauty packages including skincare, treatments, and grooming for radiant, glowing skin",
-      image: "https://via.placeholder.com/400x500?text=Pre-bridal",
+      image: "https://i.pinimg.com/736x/ef/d9/c6/efd9c6b927b438dfa38e4f93af6fbdbd.jpg",
     },
     {
       id: 9,
@@ -132,27 +139,37 @@ const BrideGroomBeautyVendorsPage = () => {
       name: "Hijab/Headgear Stylist",
       description:
         "Specialized stylists creating elegant hijab and headgear arrangements that blend tradition with contemporary fashion",
-      image: "https://via.placeholder.com/400x500?text=Hijab+Stylist",
+      image: "https://i.pinimg.com/736x/e4/33/28/e43328428ec65959911b4b6152984b72.jpg",
     },
   ];
 
-  const scrollSlider = (direction) => {
-    if (sliderRef.current) {
-      const scrollAmount = 200;
-      sliderRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
-    }
+  const handleCategoryClick = (categoryId) => {
+    router.push(`/wedding-vendors/${categoryId}`);
   };
 
-  const handleCategoryClick = (link) => {
-    console.log("Navigate to:", link);
-    alert(`Navigating to ${link}`);
+  const handleViewAllClick = (categoryId) => {
+    router.push(`/wedding-vendors/${categoryId}`);
   };
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white border-b border-gray-200 py-3 px-4">
+        <div className="max-w-7xl mx-auto">
+          <nav className="flex items-center space-x-2 text-sm">
+            <button
+              onClick={() => router.push('/')}
+              className="flex items-center gap-1 text-gray-600 hover:text-rose-500 transition-colors cursor-pointer"
+            >
+              <Home className="w-4 h-4" />
+              <span>Home</span>
+            </button>
+            <ChevronRight className="w-4 h-4 text-gray-400" />
+            <span className="text-gray-900 font-medium">Bride & Groom Beauty Vendors</span>
+          </nav>
+        </div>
+      </div>
+
       {/* Hero Banner with Video Background */}
       <div className="relative h-[50vh] overflow-hidden">
         <video
@@ -173,14 +190,14 @@ const BrideGroomBeautyVendorsPage = () => {
             Bride & Groom Beauty Vendors
           </h1>
           <p className="text-lg md:text-xl text-center max-w-2xl drop-shadow-md">
-            Look Your Absolute Best on Your Special Day !
+            Look Your Absolute Best on Your Special Day!
           </p>
         </div>
       </div>
 
       {/* Category Slider */}
       <div className="bg-white shadow-md py-8 top-0 z-10">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-full mx-auto px-4">
           <div className="relative group">
             <div className="overflow-hidden">
               <div
@@ -191,8 +208,8 @@ const BrideGroomBeautyVendorsPage = () => {
                 {categories.map((cat) => (
                   <button
                     key={`original-${cat.id}`}
-                    onClick={() => handleCategoryClick(cat.link)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item"
+                    onClick={() => handleCategoryClick(cat.id)}
+                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-rose-300">
                       <img
@@ -211,8 +228,8 @@ const BrideGroomBeautyVendorsPage = () => {
                 {categories.map((cat) => (
                   <button
                     key={`duplicate-${cat.id}`}
-                    onClick={() => handleCategoryClick(cat.link)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item"
+                    onClick={() => handleCategoryClick(cat.id)}
+                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-rose-300">
                       <img
@@ -234,7 +251,7 @@ const BrideGroomBeautyVendorsPage = () => {
 
       {/* Vendors Grid */}
       <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {vendors.map((vendor) => (
             <div
               key={vendor.id}
@@ -253,7 +270,7 @@ const BrideGroomBeautyVendorsPage = () => {
               <div className="p-6 flex flex-col flex-1">
                 {/* Text content takes available space */}
                 <div className="flex-1">
-                  <h3 className="text-2xl font-medium text-gray-800 mb-3">
+                  <h3 className="text-2xl font-medium text-gray-800 mb-3 text-center">
                     {vendor.name}
                   </h3>
                   <h3 className="text-sm font-normal text-gray-800 mb-3">
@@ -262,7 +279,10 @@ const BrideGroomBeautyVendorsPage = () => {
                 </div>
 
                 {/* Button stays at bottom */}
-                <button className="w-full mt-6 bg-gradient-to-r from-rose-400 to-pink-500 text-white py-3 rounded-lg hover:from-rose-500 hover:to-pink-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg">
+                <button 
+                  onClick={() => handleViewAllClick(vendor.category)}
+                  className="w-full mt-6 bg-gradient-to-r from-rose-400 to-pink-500 text-white py-3 rounded-lg hover:from-rose-500 hover:to-pink-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg cursor-pointer"
+                >
                   View All →
                 </button>
               </div>

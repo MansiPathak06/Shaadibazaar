@@ -1,158 +1,129 @@
+// frontend/src/app/(pages)/wedding-vendors/entertainment-vendors/page.jsx
 "use client";
 import React, { useState, useRef } from "react";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { Home, ChevronRight } from "lucide-react";
 
 const EntertainmentVendorsPage = () => {
+  const router = useRouter();
   const sliderRef = useRef(null);
 
   const categories = [
     {
-      id: "singer",
+      id: "live-singer",
       name: "Live Singer",
-      image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
-      link: "/live-singer",
+      image: "https://i.pinimg.com/736x/19/be/43/19be43ad868b901396c6aac18ba5cca8.jpg",
     },
     {
-      id: "sufi",
+      id: "sufi-band",
       name: "Sufi Band",
-      image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
-      link: "/sufi-band",
+      image: "https://i.pinimg.com/1200x/00/b9/aa/00b9aa64c4f7e060d2d88e62c45987d2.jpg",
     },
     {
-      id: "qawwali",
+      id: "qawwali-group",
       name: "Qawwali Group",
-      image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
-      link: "/qawwali-group",
+      image: "https://i.pinimg.com/736x/2e/15/b1/2e15b10a9e4129fd3a5c0e668a46145d.jpg",
     },
     {
-      id: "folk",
+      id: "folk-dance",
       name: "Folk Dance Groups",
-      image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
-      link: "/folk-dance",
+      image: "https://i.pinimg.com/1200x/b5/e4/9c/b5e49c4d9689d52af22b1138d495a1b9.jpg",
     },
     {
-      id: "instrumental",
+      id: "instrumental-band",
       name: "Instrumental Band",
-      image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
-      link: "/instrumental-band",
+      image: "https://i.pinimg.com/736x/f8/b4/c8/f8b4c83674f4faaf58433c59f1f2132b.jpg",
     },
     {
-      id: "anchor",
+      id: "anchor-emcee",
       name: "Anchor / Emcee",
-      image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
-      link: "/anchor-emcee",
+      image: "https://i.pinimg.com/1200x/68/36/0f/68360f467266f089fc9e3505c0cc07a0.jpg",
     },
     {
       id: "choreographer",
       name: "Choreographer",
-      image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
-      link: "/choreographer",
+      image: "https://i.pinimg.com/736x/fd/2c/57/fd2c57a247d0bb9baca0151dae98437b.jpg",
     },
     {
-      id: "dj-dance",
+      id: "dj-dance-floor",
       name: "DJ & Dance Floor",
-      image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
-      link: "/dj-dance-floor",
+      image: "https://i.pinimg.com/736x/c9/57/4f/c9574f874183e8a7054053ffbec2df7a.jpg",
     },
     {
-      id: "led",
+      id: "led-wall",
       name: "LED Wall Provider",
-      image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
-      link: "/led-wall",
+      image: "https://i.pinimg.com/736x/23/6f/b9/236fb9142ffa5fa53b8c5ffd039d3e5c.jpg",
     },
     {
-      id: "sound",
+      id: "sound-system",
       name: "Sound System",
-      image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
-      link: "/sound-system",
+      image: "https://i.pinimg.com/1200x/fa/80/73/fa8073312e772a6fbf1c0ec2c2f307b5.jpg",
     },
     {
-      id: "celebrity",
+      id: "celebrity-performer",
       name: "Celebrity Performer",
-      image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
-      link: "/celebrity-performer",
+      image: "https://i.pinimg.com/1200x/46/9b/b3/469bb37a63b588c5233ad61c05637605.jpg",
     },
     {
-      id: "fire",
+      id: "fire-act",
       name: "Fire Act / Jugglers",
-      image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
-      link: "/fire-act",
+      image: "https://i.pinimg.com/1200x/0a/8a/bc/0a8abc0c27a3e52cb19e6b77f6900436.jpg",
     },
     {
-      id: "kids",
+      id: "kids-entertainment",
       name: "Kids Entertainment",
-      image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
-      link: "/kids-entertainment",
+      image: "https://i.pinimg.com/1200x/21/ea/53/21ea5358bc32ea291f006d23f3feab74.jpg",
     },
   ];
 
   const vendors = [
     {
       id: 1,
-      category: "singer",
+      category: "live-singer",
       name: "Live Singer",
       description:
         "Professional vocalists who bring soulful melodies and enchanting performances to mesmerize your guests",
-      image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+      image: "https://i.pinimg.com/736x/e5/d6/44/e5d644d61e71bef9f96704cf533eb947.jpg",
     },
     {
       id: 2,
-      category: "sufi",
+      category: "sufi-band",
       name: "Sufi Band",
       description:
         "Mystical Sufi music that touches the soul with spiritual melodies and traditional instruments",
-      image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+      image: "https://i.pinimg.com/1200x/96/12/98/961298283a0ad830c180c402070a2db5.jpg",
     },
     {
       id: 3,
-      category: "qawwali",
+      category: "qawwali-group",
       name: "Qawwali Group",
       description:
         "Authentic Qawwali performances with powerful vocals and rhythmic harmonium creating divine ambiance",
-      image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+      image: "https://i.pinimg.com/1200x/88/7e/4c/887e4c95c17d19d0f3d616128d5068f7.jpg",
     },
     {
       id: 4,
-      category: "folk",
+      category: "folk-dance",
       name: "Folk Dance Groups",
       description:
         "Traditional folk dancers showcasing regional culture with vibrant costumes and energetic performances",
-      image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+      image: "https://i.pinimg.com/736x/42/f1/18/42f118d2bc40deb10cdc117e9e9ff6c5.jpg",
     },
     {
       id: 5,
-      category: "instrumental",
+      category: "instrumental-band",
       name: "Instrumental Band",
       description:
         "Skilled musicians creating magical atmospheres with instrumental melodies from classical to contemporary",
-      image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+      image: "https://i.pinimg.com/1200x/c0/85/3d/c0853da258fb21e892f386ff3fd12c2f.jpg",
     },
     {
       id: 6,
-      category: "anchor",
+      category: "anchor-emcee",
       name: "Anchor / Emcee",
       description:
         "Charismatic hosts who keep your event flowing smoothly with engaging commentary and crowd interaction",
-      image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+      image: "https://i.pinimg.com/1200x/68/36/0f/68360f467266f089fc9e3505c0cc07a0.jpg",
     },
     {
       id: 7,
@@ -160,84 +131,85 @@ const EntertainmentVendorsPage = () => {
       name: "Choreographer",
       description:
         "Expert dance directors who create stunning performances and teach memorable routines for your special day",
-      image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+      image: "https://i.pinimg.com/736x/fd/2c/57/fd2c57a247d0bb9baca0151dae98437b.jpg",
     },
     {
       id: 8,
-      category: "dj-dance",
+      category: "dj-dance-floor",
       name: "DJ & Dance Floor Provider",
       description:
         "Complete DJ setups with premium dance floors, lighting effects, and music that keeps everyone moving",
-      image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+      image: "https://i.pinimg.com/736x/ee/7b/93/ee7b93f7581e80dde73d3fc10382c4ba.jpg",
     },
     {
       id: 9,
-      category: "led",
+      category: "led-wall",
       name: "LED Wall Provider",
       description:
         "High-resolution LED screens for live displays, photo slideshows, and creating immersive visual experiences",
-      image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+      image: "https://i.pinimg.com/1200x/90/a3/f2/90a3f22793890f4e17b233bb259866d4.jpg",
     },
     {
       id: 10,
-      category: "sound",
+      category: "sound-system",
       name: "Sound System Vendor",
       description:
         "Professional audio equipment with crystal-clear sound quality ensuring every word and note is heard perfectly",
-      image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+      image: "https://i.pinimg.com/1200x/a9/7c/9e/a97c9e9dd5fbc558992252d44124ec92.jpg",
     },
     {
       id: 11,
-      category: "celebrity",
+      category: "celebrity-performer",
       name: "Celebrity Performer",
       description:
         "Star-studded performances by renowned artists that make your celebration truly extraordinary and unforgettable",
-      image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+      image: "https://i.pinimg.com/736x/33/a9/36/33a93665af894ec121d3622e9f60e795.jpg",
     },
     {
       id: 12,
-      category: "fire",
+      category: "fire-act",
       name: "Fire Act Artist / Jugglers",
       description:
         "Thrilling fire performances and skilled juggling acts that add excitement and wow-factor to your event",
-      image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+      image: "https://i.pinimg.com/1200x/0a/8a/bc/0a8abc0c27a3e52cb19e6b77f6900436.jpg",
     },
     {
       id: 13,
-      category: "kids",
+      category: "kids-entertainment",
       name: "Kids Entertainment Team",
       description:
         "Engaging activities, games, and performances specially designed to keep young guests entertained and happy",
-      image:
-        "https://i.pinimg.com/736x/e8/9c/3a/e89c3a8f5e9e8c5f5e5f5e5f5e5f5e5f.jpg",
+      image: "https://i.pinimg.com/1200x/82/0c/b6/820cb6d187ed06459301febc7d9215ca.jpg",
     },
   ];
 
-  const scrollSlider = (direction) => {
-    if (sliderRef.current) {
-      const scrollAmount = 200;
-      sliderRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
-    }
+  const handleCategoryClick = (categoryId) => {
+    router.push(`/wedding-vendors/${categoryId}`);
   };
 
-  const handleCategoryClick = (link) => {
-    // In Next.js, you would use: router.push(link)
-    console.log("Navigate to:", link);
-    // For now, just showing an alert
-    alert(`Navigating to ${link}`);
+  const handleViewAllClick = (categoryId) => {
+    router.push(`/wedding-vendors/${categoryId}`);
   };
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white border-b border-gray-200 py-3 px-4">
+        <div className="max-w-7xl mx-auto">
+          <nav className="flex items-center space-x-2 text-sm">
+            <button
+              onClick={() => router.push('/')}
+              className="flex items-center gap-1 text-gray-600 hover:text-purple-500 transition-colors cursor-pointer"
+            >
+              <Home className="w-4 h-4" />
+              <span>Home</span>
+            </button>
+            <ChevronRight className="w-4 h-4 text-gray-400" />
+            <span className="text-gray-900 font-medium">Entertainment Vendors</span>
+          </nav>
+        </div>
+      </div>
+
       {/* Hero Banner with Video Background */}
       <div className="relative h-[50vh] overflow-hidden">
         <video
@@ -265,7 +237,7 @@ const EntertainmentVendorsPage = () => {
 
       {/* Category Slider */}
       <div className="bg-white shadow-md py-8 top-0 z-10">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-full mx-auto px-4">
           <div className="relative group">
             <div className="overflow-hidden">
               <div
@@ -276,8 +248,8 @@ const EntertainmentVendorsPage = () => {
                 {categories.map((cat) => (
                   <button
                     key={`original-${cat.id}`}
-                    onClick={() => handleCategoryClick(cat.link)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item"
+                    onClick={() => handleCategoryClick(cat.id)}
+                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-purple-300">
                       <img
@@ -296,8 +268,8 @@ const EntertainmentVendorsPage = () => {
                 {categories.map((cat) => (
                   <button
                     key={`duplicate-${cat.id}`}
-                    onClick={() => handleCategoryClick(cat.link)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item"
+                    onClick={() => handleCategoryClick(cat.id)}
+                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-purple-300">
                       <img
@@ -338,7 +310,7 @@ const EntertainmentVendorsPage = () => {
               <div className="p-6 flex flex-col flex-1">
                 {/* Text content takes available space */}
                 <div className="flex-1">
-                  <h3 className="text-2xl font-medium text-gray-800 mb-3">
+                  <h3 className="text-2xl font-medium text-gray-800 mb-3 text-center">
                     {vendor.name}
                   </h3>
                   <h3 className="text-sm font-normal text-gray-800 mb-3">
@@ -347,7 +319,10 @@ const EntertainmentVendorsPage = () => {
                 </div>
 
                 {/* Button stays at bottom */}
-                <button className="w-full mt-6 bg-gradient-to-r from-purple-400 to-indigo-500 text-white py-3 rounded-lg hover:from-purple-500 hover:to-indigo-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg">
+                <button 
+                  onClick={() => handleViewAllClick(vendor.category)}
+                  className="w-full mt-6 bg-gradient-to-r from-purple-400 to-indigo-500 text-white py-3 rounded-lg hover:from-purple-500 hover:to-indigo-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg cursor-pointer"
+                >
                   View All →
                 </button>
               </div>
@@ -376,7 +351,7 @@ const EntertainmentVendorsPage = () => {
         }
 
         .animate-scroll {
-          animation: scroll 10s linear infinite;
+          animation: scroll 20s linear infinite;
         }
 
         .pause-animation:hover {

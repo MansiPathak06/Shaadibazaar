@@ -8,25 +8,25 @@ const MixedVenuesPage = () => {
   const heroItems = [
     {
       image:
-        "https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg",
+        "https://i.pinimg.com/736x/cf/2c/bb/cf2cbb83a6438264a62d3d218e0b36e1.jpg",
       label: "Lawn + Banquet Combination",
       slug: "lawn-banquet-combination",
     },
     {
       image:
-        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+        "https://i.pinimg.com/736x/7d/6d/ee/7d6dee1535a60ce8b0579bc85a2f1fd5.jpg",
       label: "Hall + Terrace Venue",
       slug: "hall-terrace-venue",
     },
     {
       image:
-        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+        "https://i.pinimg.com/1200x/2b/eb/20/2beb2010f8ab0ebc902323575029aff9.jpg",
       label: "Hall + Poolside Venue",
       slug: "hall-poolside-venue",
     },
     {
       image:
-        "https://i.pinimg.com/736x/67/03/ef/6703ef4b1f4dba26f87a9c1b9f1cd332.jpg",
+        "https://i.pinimg.com/1200x/56/97/cc/5697ccd20abad072399605c1fb16a45a.jpg",
       label: "Lawn + Pool Area",
       slug: "lawn-pool-area",
     },
@@ -44,35 +44,35 @@ const MixedVenuesPage = () => {
       slug: "lawn-banquet-combination",
       title: "Lawn + Banquet Combination",
       image:
-        "https://i.pinimg.com/736x/b1/fd/97/b1fd971d0d42a56c183b6e17077211f3.jpg",
+        "https://i.pinimg.com/1200x/be/27/92/be279238db5476f932c612d7eb691fc7.jpg",
       accent: "#e91e63",
     },
     {
       slug: "hall-terrace-venue",
       title: "Hall + Terrace Venue",
       image:
-        "https://i.pinimg.com/1200x/33/68/f9/3368f983eeafd946d980c91f15c51c20.jpg",
+        "https://i.pinimg.com/736x/c5/66/ef/c566ef7bfb27fb50a4eb35ec10a8c5bd.jpg",
       accent: "#3f51b5",
     },
     {
       slug: "hall-poolside-venue",
       title: "Hall + Poolside Venue",
       image:
-        "https://i.pinimg.com/1200x/9f/40/f2/9f40f2eb683ab08a3df20f82387e5cfd.jpg",
+        "https://i.pinimg.com/736x/88/2d/52/882d52d3b25d66060361b1ee5ed30101.jpg",
       accent: "#ff9800",
     },
     {
       slug: "lawn-pool-area",
       title: "Lawn + Pool Area",
       image:
-        "https://i.pinimg.com/1200x/52/28/25/522825bf91e8e09c848c9e8d783c9873.jpg",
+        "https://i.pinimg.com/736x/9d/4d/11/9d4d119ef43ee1a73c1377c43d3c94bc.jpg",
       accent: "#9c27b0",
     },
     {
       slug: "tent-lawn-setup",
       title: "Tent + Lawn Setup",
       image:
-        "https://i.pinimg.com/736x/ed/be/25/edbe25b54256439d445e5a879930ce55.jpg",
+        "https://i.pinimg.com/736x/07/0f/67/070f67c54156c47225a6c473271077a8.jpg",
       accent: "#4caf50",
     },
   ];
@@ -84,7 +84,7 @@ const MixedVenuesPage = () => {
         {/* Background Image with Blur */}
         <div className="absolute inset-0">
           <img
-            src="https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg"
+            src="https://i.pinimg.com/736x/c5/90/b9/c590b97211860a2fb4fd973eacbf39e3.jpg"
             alt="Mixed Venues Background"
             className="w-full h-full object-cover blur-sm scale-105"
           />
@@ -258,7 +258,7 @@ const MixedVenuesPage = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="flex justify-center">
               <img
-                src="https://i.pinimg.com/1200x/65/6b/0e/656b0e4b605f404cb5d5edb30e0b3b76.jpg"
+                src="https://i.pinimg.com/736x/ab/a0/7d/aba07d024ce802990c18ac2d290d05df.jpg"
                 alt="About Mixed Venues"
                 className="rounded-lg shadow-2xl w-78 object-cover"
               />

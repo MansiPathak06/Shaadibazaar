@@ -10,70 +10,70 @@ const HospitalityVendorsPage = () => {
       id: "welcome",
       name: "Welcome Team",
       image:
-        "https://images.unsplash.com/photo-1511578314322-379afb476865?w=400",
+        "https://i.pinimg.com/1200x/39/53/a3/3953a32d2930946ad62d781a19ecfca7.jpg",
       link: "/welcome-team",
     },
     {
       id: "hostess",
       name: "Hostess Staff",
       image:
-        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400",
+        "https://i.pinimg.com/1200x/64/8e/df/648edfbc66654ff098b30cd8c29c2f26.jpg",
       link: "/hostess-staff",
     },
     {
       id: "guest-management",
       name: "Guest Management",
       image:
-        "https://images.unsplash.com/photo-1560439514-4e9645039924?w=400",
+        "https://i.pinimg.com/736x/9b/20/9a/9b209a232132d1f219ad57389b4e74ed.jpg",
       link: "/guest-management",
     },
     {
       id: "luggage",
       name: "Luggage Handling",
       image:
-        "https://images.unsplash.com/photo-1565893405730-093332d49d08?w=400",
+        "https://i.pinimg.com/736x/07/78/89/077889d748b9c062d19eaafd81f19083.jpg",
       link: "/luggage-handling",
     },
     {
       id: "concierge",
       name: "Concierge Desk",
       image:
-        "https://images.unsplash.com/photo-1571863533956-01c88e79957e?w=400",
+        "https://i.pinimg.com/736x/fa/ca/86/faca86b3971b15ba45e39eaf6ce975a6.jpg",
       link: "/concierge-desk",
     },
     {
       id: "room-allocation",
       name: "Room Allocation",
       image:
-        "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400",
+        "https://i.pinimg.com/1200x/8d/1e/69/8d1e69ff0519f1f677f6193dbc09116b.jpg",
       link: "/room-allocation",
     },
     {
       id: "travel",
       name: "Travel Desk",
       image:
-        "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400",
+        "https://i.pinimg.com/736x/29/06/0f/29060f79680211528676f5486297bd74.jpg",
       link: "/travel-desk",
     },
     {
       id: "security",
       name: "Security Personnel",
       image:
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400",
+        "https://i.pinimg.com/736x/56/30/55/5630555809b2673b49516b6fd59987c5.jpg",
       link: "/security-personnel",
     },
     {
       id: "valet",
       name: "Valet Parking",
       image:
-        "https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=400",
+        "https://i.pinimg.com/736x/20/37/d8/2037d8a67f0e0e2eee7f83a878e2afc2.jpg",
       link: "/valet-parking",
     },
     {
       id: "guards",
       name: "Uniformed Guards",
       image:
-        "https://images.unsplash.com/photo-1590642916589-592bca10dfbf?w=400",
+        "https://i.pinimg.com/1200x/d1/9d/ee/d19dee6580746e786c1385c7cc1d55aa.jpg",
       link: "/uniformed-guards",
     },
   ];
@@ -86,7 +86,7 @@ const HospitalityVendorsPage = () => {
       description:
         "Professional welcome team to greet your guests with warmth and hospitality, creating the perfect first impression",
       image:
-        "https://images.unsplash.com/photo-1511578314322-379afb476865?w=400",
+        "https://i.pinimg.com/1200x/a7/0b/2f/a70b2f68ecd569b8734889847d47e3c2.jpg",
     },
     {
       id: 2,
@@ -95,7 +95,7 @@ const HospitalityVendorsPage = () => {
       description:
         "Elegant and courteous hostess staff to assist guests, manage reception areas, and ensure smooth coordination",
       image:
-        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400",
+        "https://i.pinimg.com/1200x/4a/bd/48/4abd48d5199296d918699e27a79ac837.jpg",
     },
     {
       id: 3,
@@ -104,7 +104,7 @@ const HospitalityVendorsPage = () => {
       description:
         "Dedicated team to handle guest check-ins, inquiries, and ensure all attendees have a seamless experience",
       image:
-        "https://images.unsplash.com/photo-1560439514-4e9645039924?w=400",
+        "https://i.pinimg.com/736x/c5/bf/4b/c5bf4b0c38d188f80f965bf44c343328.jpg",
     },
     {
       id: 4,
@@ -113,7 +113,7 @@ const HospitalityVendorsPage = () => {
       description:
         "Efficient luggage management service to handle guest belongings with care and professionalism",
       image:
-        "https://images.unsplash.com/photo-1565893405730-093332d49d08?w=400",
+        "https://i.pinimg.com/1200x/de/fa/8f/defa8f2dc2dfcb06894a977ef1ec3f87.jpg",
     },
     {
       id: 5,
@@ -122,7 +122,7 @@ const HospitalityVendorsPage = () => {
       description:
         "Expert concierge services providing information, assistance, and local recommendations for your guests",
       image:
-        "https://images.unsplash.com/photo-1571863533956-01c88e79957e?w=400",
+        "https://i.pinimg.com/736x/6b/5a/d6/6b5ad6f61f2a57c97dffee7815b1f9e3.jpg",
     },
     {
       id: 6,
@@ -131,7 +131,7 @@ const HospitalityVendorsPage = () => {
       description:
         "Organized room allocation services ensuring guests are accommodated comfortably and efficiently",
       image:
-        "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400",
+        "https://i.pinimg.com/1200x/44/77/ec/4477ec43f7668a2c483f7bf8ad3c459b.jpg",
     },
     {
       id: 7,
@@ -140,7 +140,7 @@ const HospitalityVendorsPage = () => {
       description:
         "Complete travel coordination including transportation arrangements, bookings, and travel assistance",
       image:
-        "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400",
+        "https://i.pinimg.com/736x/9c/21/4d/9c214d98c53e4b592ea1933443191ebb.jpg",
     },
     {
       id: 8,
@@ -149,7 +149,7 @@ const HospitalityVendorsPage = () => {
       description:
         "Trained security professionals ensuring safety and peace of mind for all guests throughout the event",
       image:
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400",
+        "https://i.pinimg.com/736x/c7/94/3c/c7943cf423360c3945320acaeebe680f.jpg",
     },
     {
       id: 9,
@@ -158,7 +158,7 @@ const HospitalityVendorsPage = () => {
       description:
         "Premium valet parking services providing convenient and secure vehicle management for your guests",
       image:
-        "https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=400",
+        "https://i.pinimg.com/736x/25/85/5c/25855c52b5050a067b91a2de1986628f.jpg",
     },
     {
       id: 10,
@@ -167,7 +167,7 @@ const HospitalityVendorsPage = () => {
       description:
         "Professional uniformed guards maintaining order, security, and assisting with crowd management",
       image:
-        "https://images.unsplash.com/photo-1590642916589-592bca10dfbf?w=400",
+        "https://i.pinimg.com/1200x/61/84/c5/6184c52bb4893f5bd2f8f4a084e03cc7.jpg",
     },
   ];
 
@@ -200,7 +200,7 @@ const HospitalityVendorsPage = () => {
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source
-            src="https://res.cloudinary.com/dewxpvl5s/video/upload/v1764923082/downloaded-file_5_ihqnjd.mp4"
+            src=""
             type="video/mp4"
           />
         </video>

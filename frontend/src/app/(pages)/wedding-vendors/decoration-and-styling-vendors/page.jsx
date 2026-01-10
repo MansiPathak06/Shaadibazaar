@@ -1,189 +1,189 @@
+// frontend/src/app/(pages)/wedding-vendors/decoration-and-styling-vendors/page.jsx
 "use client";
 import React, { useState, useRef } from "react";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { Home, ChevronRight } from "lucide-react";
 
 const DecorationStylingVendorsPage = () => {
+  const router = useRouter();
   const sliderRef = useRef(null);
 
   const categories = [
     {
-      id: "stage",
+      id: "stage-decorators",
       name: "Stage Decorators",
-      image: "https://via.placeholder.com/300x300?text=Stage+Decor",
-      link: "/stage-decorators",
+      image: "https://i.pinimg.com/1200x/a3/79/6d/a3796de74dc9eaa4e61b3c74eac34bd3.jpg",
     },
     {
-      id: "mandap",
+      id: "mandap-decorators",
       name: "Mandap/Vedi Decorators",
-      image: "https://via.placeholder.com/300x300?text=Mandap+Decor",
-      link: "/mandap-decorators",
+      image: "https://i.pinimg.com/736x/c2/58/7d/c2587d9d9c93b7af15a73f99e7dc1cd9.jpg",
     },
     {
-      id: "haldi",
+      id: "haldi-decor",
       name: "Haldi Decor Setup",
-      image: "https://via.placeholder.com/300x300?text=Haldi+Decor",
-      link: "/haldi-decor",
+      image: "https://i.pinimg.com/736x/fa/46/fe/fa46fee2fd3f27fe892cf8512b52a9cb.jpg",
     },
     {
-      id: "mehendi",
+      id: "mehendi-decor",
       name: "Mehendi Decor",
-      image: "https://via.placeholder.com/300x300?text=Mehendi+Decor",
-      link: "/mehendi-decor",
+      image: "https://i.pinimg.com/1200x/b6/17/7c/b6177c624259a27cca48cce33ea83142.jpg",
     },
     {
-      id: "floral",
+      id: "floral-decor",
       name: "Floral Decor",
-      image: "https://via.placeholder.com/300x300?text=Floral+Decor",
-      link: "/floral-decor",
+      image: "https://i.pinimg.com/1200x/4a/9b/c5/4a9bc552467136bcb62ef6797e18b450.jpg",
     },
     {
-      id: "balloon",
+      id: "balloon-decor",
       name: "Balloon Decor",
-      image: "https://via.placeholder.com/300x300?text=Balloon+Decor",
-      link: "/balloon-decor",
+      image: "https://i.pinimg.com/736x/3d/b5/bc/3db5bcd769a37924b0a3b65cab9711ef.jpg",
     },
     {
-      id: "lighting",
+      id: "lighting-decor",
       name: "Lighting Decor",
-      image: "https://via.placeholder.com/300x300?text=Lighting+Decor",
-      link: "/lighting-decor",
+      image: "https://i.pinimg.com/1200x/b0/2a/33/b02a334a9a2cc2704a1aa387b3e86fd9.jpg",
     },
     {
-      id: "entrance",
+      id: "entrance-decor",
       name: "Entrance Gate Decor",
-      image: "https://via.placeholder.com/300x300?text=Entrance+Decor",
-      link: "/entrance-decor",
+      image: "https://i.pinimg.com/736x/14/9e/7e/149e7eac43d09e85a2f013cb16e6e933.jpg",
     },
     {
-      id: "photobooth",
+      id: "photobooth-decor",
       name: "Photobooth Decor",
-      image: "https://via.placeholder.com/300x300?text=Photobooth+Decor",
-      link: "/photobooth-decor",
+      image: "https://i.pinimg.com/736x/43/e2/69/43e26995c25f4c2a8c39d6751b2dcde3.jpg",
     },
     {
-      id: "centerpiece",
+      id: "centerpiece-decor",
       name: "Table Centerpiece",
-      image: "https://via.placeholder.com/300x300?text=Centerpiece+Decor",
-      link: "/centerpiece-decor",
+      image: "https://i.pinimg.com/736x/10/9a/a9/109aa902758df62d701ea6b6dfafd2a5.jpg",
     },
     {
-      id: "props",
+      id: "props-provider",
       name: "Props Provider",
-      image: "https://via.placeholder.com/300x300?text=Props",
-      link: "/props-provider",
+      image: "https://i.pinimg.com/1200x/f1/8a/ab/f18aaba2ac18c2fe00ad66f99c172bb1.jpg",
     },
   ];
 
   const vendors = [
     {
       id: 1,
-      category: "stage",
+      category: "stage-decorators",
       name: "Stage Decorators",
       description:
         "Stunning stage setups that create the perfect backdrop for your special moments with elegant designs and lighting",
-      image: "https://via.placeholder.com/400x300?text=Stage+Decorators",
+      image: "https://i.pinimg.com/1200x/0e/5d/e4/0e5de4f08c855eb7117b5e20affa20a4.jpg",
     },
     {
       id: 2,
-      category: "mandap",
+      category: "mandap-decorators",
       name: "Mandap/Vedi Decorators",
       description:
         "Traditional and contemporary mandap designs that blend spirituality with aesthetics for your sacred ceremony",
-      image: "https://via.placeholder.com/400x300?text=Mandap+Decorators",
+      image: "https://i.pinimg.com/736x/58/b8/3a/58b83af895ac2a764d6e0744e147812c.jpg",
     },
     {
       id: 3,
-      category: "haldi",
+      category: "haldi-decor",
       name: "Haldi Decor Setup Vendor",
       description:
         "Vibrant and cheerful haldi ceremony decorations featuring marigolds, colorful drapes, and traditional elements",
-      image: "https://via.placeholder.com/400x300?text=Haldi+Decor",
+      image: "https://i.pinimg.com/736x/d5/41/ce/d541ce392e4e531930feef7fbca7765c.jpg",
     },
     {
       id: 4,
-      category: "mehendi",
+      category: "mehendi-decor",
       name: "Mehendi Decor Vendor",
       description:
         "Beautiful mehendi setup with colorful cushions, umbrellas, and floral arrangements creating a festive atmosphere",
-      image: "https://via.placeholder.com/400x300?text=Mehendi+Decor",
+      image: "https://i.pinimg.com/736x/ad/5d/69/ad5d698afb415fe786838438d4bd65e9.jpg",
     },
     {
       id: 5,
-      category: "floral",
+      category: "floral-decor",
       name: "Floral Decor Vendor",
       description:
         "Exquisite floral arrangements and installations that add natural beauty and fragrance to your celebration",
-      image: "https://via.placeholder.com/400x300?text=Floral+Decor",
+      image: "https://i.pinimg.com/1200x/7f/12/42/7f1242acc3533637e515de145c25f3c4.jpg",
     },
     {
       id: 6,
-      category: "balloon",
+      category: "balloon-decor",
       name: "Balloon Decor Vendor",
       description:
         "Creative balloon artistry with arches, columns, and installations that add whimsy and color to your venue",
-      image: "https://via.placeholder.com/400x300?text=Balloon+Decor",
+      image: "https://i.pinimg.com/1200x/e9/64/aa/e964aa9187229955624628f2b7e43ee7.jpg",
     },
     {
       id: 7,
-      category: "lighting",
+      category: "lighting-decor",
       name: "Lighting Decor Vendor",
       description:
         "Transformative lighting solutions including fairy lights, chandeliers, and uplighting to create magical ambiance",
-      image: "https://via.placeholder.com/400x300?text=Lighting+Decor",
+      image: "https://i.pinimg.com/736x/b5/d1/40/b5d1408da31f3e615bb06d7a5cfa9904.jpg",
     },
     {
       id: 8,
-      category: "entrance",
+      category: "entrance-decor",
       name: "Entrance Gate Decor Vendor",
       description:
         "Grand entrance designs with floral arches, drapes, and lighting to welcome guests in style",
-      image: "https://via.placeholder.com/400x300?text=Entrance+Decor",
+      image: "https://i.pinimg.com/736x/ba/93/d4/ba93d455e7d9b4fd24db486318560af2.jpg",
     },
     {
       id: 9,
-      category: "photobooth",
+      category: "photobooth-decor",
       name: "Photobooth Decor Vendor",
       description:
         "Instagram-worthy photobooth setups with creative backdrops, props, and themed decorations for memorable photos",
-      image: "https://via.placeholder.com/400x300?text=Photobooth+Decor",
+      image: "https://i.pinimg.com/1200x/3c/07/da/3c07da704d106d2a1db601beef42da96.jpg",
     },
     {
       id: 10,
-      category: "centerpiece",
+      category: "centerpiece-decor",
       name: "Table Centerpiece Decor Artist",
       description:
         "Elegant table centerpieces featuring florals, candles, and artistic arrangements to enhance your dining experience",
-      image: "https://via.placeholder.com/400x300?text=Centerpiece+Decor",
+      image: "https://i.pinimg.com/736x/12/19/35/1219350893e1db3013f5ead9562777eb.jpg",
     },
     {
       id: 11,
-      category: "props",
+      category: "props-provider",
       name: "Props Provider",
       description:
         "Extensive collection of decorative props including vintage items, themed accessories, and customized elements",
-      image: "https://via.placeholder.com/400x300?text=Props+Provider",
+      image: "https://i.pinimg.com/1200x/a5/a1/4e/a5a14e2eb1f1d9c3d49aba1e96196b8c.jpg",
     },
   ];
 
-  const scrollSlider = (direction) => {
-    if (sliderRef.current) {
-      const scrollAmount = 200;
-      sliderRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
-    }
+  const handleCategoryClick = (categoryId) => {
+    router.push(`/wedding-vendors/${categoryId}`);
   };
 
-  const handleCategoryClick = (link) => {
-    // In Next.js, you would use: router.push(link)
-    console.log("Navigate to:", link);
-    // For now, just showing an alert
-    alert(`Navigating to ${link}`);
+  const handleViewAllClick = (categoryId) => {
+    router.push(`/wedding-vendors/${categoryId}`);
   };
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white border-b border-gray-200 py-3 px-4">
+        <div className="max-w-7xl mx-auto">
+          <nav className="flex items-center space-x-2 text-sm">
+            <button
+              onClick={() => router.push('/')}
+              className="flex items-center gap-1 text-gray-600 hover:text-rose-500 transition-colors cursor-pointer"
+            >
+              <Home className="w-4 h-4" />
+              <span>Home</span>
+            </button>
+            <ChevronRight className="w-4 h-4 text-gray-400" />
+            <span className="text-gray-900 font-medium">Decoration & Styling Vendors</span>
+          </nav>
+        </div>
+      </div>
+
       {/* Hero Banner with Video Background */}
       <div className="relative h-[50vh] overflow-hidden">
         <video
@@ -211,7 +211,7 @@ const DecorationStylingVendorsPage = () => {
 
       {/* Category Slider */}
       <div className="bg-white shadow-md py-8 top-0 z-10">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-full mx-auto px-4">
           <div className="relative group">
             <div className="overflow-hidden">
               <div
@@ -222,8 +222,8 @@ const DecorationStylingVendorsPage = () => {
                 {categories.map((cat) => (
                   <button
                     key={`original-${cat.id}`}
-                    onClick={() => handleCategoryClick(cat.link)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item"
+                    onClick={() => handleCategoryClick(cat.id)}
+                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-rose-300">
                       <img
@@ -242,8 +242,8 @@ const DecorationStylingVendorsPage = () => {
                 {categories.map((cat) => (
                   <button
                     key={`duplicate-${cat.id}`}
-                    onClick={() => handleCategoryClick(cat.link)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item"
+                    onClick={() => handleCategoryClick(cat.id)}
+                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-rose-300">
                       <img
@@ -284,7 +284,7 @@ const DecorationStylingVendorsPage = () => {
               <div className="p-6 flex flex-col flex-1">
                 {/* Text content takes available space */}
                 <div className="flex-1">
-                  <h3 className="text-2xl font-medium text-gray-800 mb-3">
+                  <h3 className="text-2xl font-medium text-gray-800 mb-3 text-center">
                     {vendor.name}
                   </h3>
                   <h3 className="text-sm font-normal text-gray-800 mb-3">
@@ -293,7 +293,10 @@ const DecorationStylingVendorsPage = () => {
                 </div>
 
                 {/* Button stays at bottom */}
-                <button className="w-full mt-6 bg-gradient-to-r from-rose-400 to-pink-500 text-white py-3 rounded-lg hover:from-rose-500 hover:to-pink-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg">
+                <button 
+                  onClick={() => handleViewAllClick(vendor.category)}
+                  className="w-full mt-6 bg-gradient-to-r from-rose-400 to-pink-500 text-white py-3 rounded-lg hover:from-rose-500 hover:to-pink-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg cursor-pointer"
+                >
                   View All →
                 </button>
               </div>
@@ -322,7 +325,7 @@ const DecorationStylingVendorsPage = () => {
         }
 
         .animate-scroll {
-          animation: scroll 10s linear infinite;
+          animation: scroll 20s linear infinite;
         }
 
         .pause-animation:hover {

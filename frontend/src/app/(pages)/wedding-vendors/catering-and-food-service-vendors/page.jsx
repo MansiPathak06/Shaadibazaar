@@ -1,80 +1,63 @@
+// frontend/src/app/(pages)/wedding-vendors/catering-and-food-service-vendors/page.jsx
 "use client";
 import React, { useState, useRef } from "react";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { Home, ChevronRight } from "lucide-react";
 
 const CateringVendorsPage = () => {
+  const router = useRouter();
   const sliderRef = useRef(null);
 
   const categories = [
     {
       id: "full-catering",
       name: "Full Catering Service",
-      image:
-        "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400",
-      link: "/full-catering-service",
+      image: "https://i.pinimg.com/736x/e5/19/ff/e519ffe5cba6baa9f4e400f8bae00460.jpg",
     },
     {
       id: "live-counters",
       name: "Live Counters Vendor",
-      image:
-        "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400",
-      link: "/live-counters",
+      image: "https://i.pinimg.com/1200x/4f/b9/d8/4fb9d86fff5e345587603b4b8746a9ef.jpg",
     },
     {
       id: "sweet-shop",
       name: "Sweet Shop Vendor",
-      image:
-        "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400",
-      link: "/sweet-shop",
+      image: "https://i.pinimg.com/736x/06/54/9b/06549b8109d1e550766bf750a4c81410.jpg",
     },
     {
       id: "halwai",
       name: "Halwai",
-      image:
-        "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400",
-      link: "/halwai",
+      image: "https://i.pinimg.com/1200x/5d/e1/85/5de185847b0ab191826cd44ee67515c8.jpg",
     },
     {
       id: "coffee-tea",
       name: "Coffee/Tea Stall",
-      image:
-        "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=400",
-      link: "/coffee-tea-stall",
+      image: "https://i.pinimg.com/1200x/b1/89/51/b18951434d0980a585c3931a4165f04e.jpg",
     },
     {
       id: "fruit-stall",
       name: "Fruit Stall",
-      image:
-        "https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400",
-      link: "/fruit-stall",
+      image: "https://i.pinimg.com/736x/83/0f/e4/830fe437aaf4dec26bf59cf09e8f3c3f.jpg",
     },
     {
       id: "chocolate-fountain",
       name: "Chocolate Fountain",
-      image:
-        "https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=400",
-      link: "/chocolate-fountain",
+      image: "https://i.pinimg.com/736x/c0/3c/96/c03c96c9b37b4c3c21fecb6c594d3f94.jpg",
     },
     {
       id: "ice-cream",
       name: "Ice Cream Counter",
-      image:
-        "https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?w=400",
-      link: "/ice-cream-counter",
+      image: "https://i.pinimg.com/736x/55/09/0f/55090fd2a9321a625d85b016bfae3c89.jpg",
     },
     {
       id: "beverages",
       name: "Water & Beverage",
-      image:
-        "https://images.unsplash.com/photo-1437418747212-8d9709afab22?w=400",
-      link: "/water-beverage",
+      image: "https://i.pinimg.com/1200x/36/92/4a/36924a7aad4d353e795d9ab1ba8711fe.jpg",
     },
     {
       id: "buffet-setup",
       name: "Buffet Setup & Staff",
-      image:
-        "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400",
-      link: "/buffet-setup",
+      image: "https://i.pinimg.com/736x/99/91/c2/9991c20d1b47768922bcf8bd0e3c3acf.jpg",
     },
   ];
 
@@ -85,8 +68,7 @@ const CateringVendorsPage = () => {
       name: "Full Catering Service",
       description:
         "Complete catering solutions with diverse menu options, professional service, and seamless execution for your grand celebration",
-      image:
-        "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400",
+      image: "https://i.pinimg.com/1200x/c1/19/92/c11992607f0e64b51f63bba8fdad1ff5.jpg",
     },
     {
       id: 2,
@@ -94,8 +76,7 @@ const CateringVendorsPage = () => {
       name: "Live Counters Vendor",
       description:
         "Interactive food stations with live cooking demonstrations, offering fresh and customized dishes prepared right before your guests",
-      image:
-        "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400",
+      image: "https://i.pinimg.com/1200x/fe/bb/60/febb60bd0b7a753aa4195454fba6e560.jpg",
     },
     {
       id: 3,
@@ -103,8 +84,7 @@ const CateringVendorsPage = () => {
       name: "Sweet Shop Vendor",
       description:
         "Traditional and contemporary sweets, mithai boxes, and dessert arrangements that add sweetness to your special moments",
-      image:
-        "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400",
+      image: "https://i.pinimg.com/736x/48/76/4f/48764fe3522563cdff861593d5a68ded.jpg",
     },
     {
       id: 4,
@@ -112,8 +92,7 @@ const CateringVendorsPage = () => {
       name: "Halwai",
       description:
         "Authentic traditional Indian sweets and snacks prepared with age-old recipes, bringing nostalgia and rich flavors to your celebration",
-      image:
-        "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400",
+      image: "https://i.pinimg.com/736x/36/63/91/36639136ab91da85255560c4e969485c.jpg",
     },
     {
       id: 5,
@@ -121,8 +100,7 @@ const CateringVendorsPage = () => {
       name: "Coffee/Tea Stall",
       description:
         "Specialty coffee and tea services with baristas, offering premium beverages and refreshing drinks for your guests",
-      image:
-        "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=400",
+      image: "https://i.pinimg.com/736x/77/93/2d/77932da8a2a5d2d01c872ea58e2cd10d.jpg",
     },
     {
       id: 6,
@@ -130,8 +108,7 @@ const CateringVendorsPage = () => {
       name: "Fruit Stall",
       description:
         "Fresh fruit counters with artistic displays, fruit chaats, and healthy refreshment options for health-conscious guests",
-      image:
-        "https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400",
+      image: "https://i.pinimg.com/1200x/5f/b1/16/5fb1164ab2b6aa28e27164ac4dcd1a64.jpg",
     },
     {
       id: 7,
@@ -139,8 +116,7 @@ const CateringVendorsPage = () => {
       name: "Chocolate Fountain Vendor",
       description:
         "Cascading chocolate fountains with assorted dipping options, creating a luxurious and interactive dessert experience",
-      image:
-        "https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=400",
+      image: "https://i.pinimg.com/1200x/3a/d6/a3/3ad6a38d6c6fef4a194b0bfded6d92f9.jpg",
     },
     {
       id: 8,
@@ -148,8 +124,7 @@ const CateringVendorsPage = () => {
       name: "Ice Cream Counter",
       description:
         "Premium ice cream stations with multiple flavors, live sundae bars, and frozen dessert options to delight all ages",
-      image:
-        "https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?w=400",
+      image: "https://i.pinimg.com/736x/88/ee/87/88ee8731fabdd3d37e5d8718dfb4586a.jpg",
     },
     {
       id: 9,
@@ -157,8 +132,7 @@ const CateringVendorsPage = () => {
       name: "Water & Beverage Supplier",
       description:
         "Complete beverage solutions including packaged water, soft drinks, juices, and refreshment stations throughout the venue",
-      image:
-        "https://images.unsplash.com/photo-1437418747212-8d9709afab22?w=400",
+      image: "https://i.pinimg.com/736x/80/39/90/8039904113f39daa19943f6110a493dc.jpg",
     },
     {
       id: 10,
@@ -166,30 +140,37 @@ const CateringVendorsPage = () => {
       name: "Buffet Setup & Service Staff",
       description:
         "Professional buffet arrangements with trained service staff ensuring smooth food service and guest satisfaction",
-      image:
-        "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400",
+      image: "https://i.pinimg.com/736x/12/8c/83/128c830d080584643bb030e59a738bdb.jpg",
     },
   ];
 
-  const scrollSlider = (direction) => {
-    if (sliderRef.current) {
-      const scrollAmount = 200;
-      sliderRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
-    }
+  const handleCategoryClick = (categoryId) => {
+    router.push(`/wedding-vendors/${categoryId}`);
   };
 
-  const handleCategoryClick = (link) => {
-    // In Next.js, you would use: router.push(link)
-    console.log("Navigate to:", link);
-    // For now, just showing an alert
-    alert(`Navigating to ${link}`);
+  const handleViewAllClick = (categoryId) => {
+    router.push(`/wedding-vendors/${categoryId}`);
   };
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white border-b border-gray-200 py-3 px-4">
+        <div className="max-w-7xl mx-auto">
+          <nav className="flex items-center space-x-2 text-sm">
+            <button
+              onClick={() => router.push('/')}
+              className="flex items-center gap-1 text-gray-600 hover:text-rose-500 transition-colors cursor-pointer"
+            >
+              <Home className="w-4 h-4" />
+              <span>Home</span>
+            </button>
+            <ChevronRight className="w-4 h-4 text-gray-400" />
+            <span className="text-gray-900 font-medium">Catering & Food Service Vendors</span>
+          </nav>
+        </div>
+      </div>
+
       {/* Hero Banner with Video Background */}
       <div className="relative h-[50vh] overflow-hidden">
         <video
@@ -217,7 +198,7 @@ const CateringVendorsPage = () => {
 
       {/* Category Slider */}
       <div className="bg-white shadow-md py-8 top-0 z-10">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-full mx-auto px-4">
           <div className="relative group">
             <div className="overflow-hidden">
               <div
@@ -228,8 +209,8 @@ const CateringVendorsPage = () => {
                 {categories.map((cat) => (
                   <button
                     key={`original-${cat.id}`}
-                    onClick={() => handleCategoryClick(cat.link)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item"
+                    onClick={() => handleCategoryClick(cat.id)}
+                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-rose-300">
                       <img
@@ -248,8 +229,8 @@ const CateringVendorsPage = () => {
                 {categories.map((cat) => (
                   <button
                     key={`duplicate-${cat.id}`}
-                    onClick={() => handleCategoryClick(cat.link)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item"
+                    onClick={() => handleCategoryClick(cat.id)}
+                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-rose-300">
                       <img
@@ -290,7 +271,7 @@ const CateringVendorsPage = () => {
               <div className="p-6 flex flex-col flex-1">
                 {/* Text content takes available space */}
                 <div className="flex-1">
-                  <h3 className="text-2xl font-medium text-gray-800 mb-3">
+                  <h3 className="text-2xl font-medium text-gray-800 mb-3 text-center">
                     {vendor.name}
                   </h3>
                   <h3 className="text-sm font-normal text-gray-800 mb-3">
@@ -299,7 +280,10 @@ const CateringVendorsPage = () => {
                 </div>
 
                 {/* Button stays at bottom */}
-                <button className="w-full mt-6 bg-gradient-to-r from-rose-400 to-pink-500 text-white py-3 rounded-lg hover:from-rose-500 hover:to-pink-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg">
+                <button 
+                  onClick={() => handleViewAllClick(vendor.category)}
+                  className="w-full mt-6 bg-gradient-to-r from-rose-400 to-pink-500 text-white py-3 rounded-lg hover:from-rose-500 hover:to-pink-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg cursor-pointer"
+                >
                   View All →
                 </button>
               </div>
@@ -328,7 +312,7 @@ const CateringVendorsPage = () => {
         }
 
         .animate-scroll {
-          animation: scroll 10s linear infinite;
+          animation: scroll 20s linear infinite;
         }
 
         .pause-animation:hover {

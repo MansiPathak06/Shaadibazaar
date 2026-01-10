@@ -1,21 +1,87 @@
 "use client";
-import React, { useState, useRef } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
+import Link from 'next/link';
 
 const MuslimGroomRitualItems = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const scrollContainerRef = useRef(null);
 
+  // Categories with slugs for routing
   const categories = [
-    { id: 1, name: 'Mehr Amount', image: 'https://via.placeholder.com/300x300/2C5F2D/FFFFFF?text=Mehr+Amount' },
-    { id: 2, name: 'Quran', image: 'https://via.placeholder.com/300x300/2C5F2D/FFFFFF?text=Quran' },
-    { id: 3, name: 'Tasbeeh', image: 'https://via.placeholder.com/300x300/2C5F2D/FFFFFF?text=Tasbeeh' },
-    { id: 4, name: 'Signature Pen', image: 'https://via.placeholder.com/300x300/2C5F2D/FFFFFF?text=Signature+Pen' },
-    { id: 5, name: 'Nikahnama Folder', image: 'https://via.placeholder.com/300x300/2C5F2D/FFFFFF?text=Nikahnama+Folder' },
-    { id: 6, name: 'Dry Fruits & Sweets', image: 'https://via.placeholder.com/300x300/2C5F2D/FFFFFF?text=Dry+Fruits' },
-    { id: 7, name: 'Groom Welcome Stole', image: 'https://via.placeholder.com/300x300/2C5F2D/FFFFFF?text=Welcome+Stole' },
-    { id: 8, name: 'Varmala (if required)', image: 'https://via.placeholder.com/300x300/2C5F2D/FFFFFF?text=Varmala' }
+    { 
+      id: 1, 
+      name: 'Mehr Amount', 
+      slug: 'mehr-amount',
+      image: 'https://i.pinimg.com/736x/b9/c4/5b/b9c45b236c2ed5c071f96c8ae24d9a8f.jpg' 
+    },
+    { 
+      id: 2, 
+      name: 'Quran', 
+      slug: 'quran',
+      image: 'https://i.pinimg.com/736x/5b/07/a2/5b07a22eb399bb2628d2ca00cd488d8c.jpg' 
+    },
+    { 
+      id: 3, 
+      name: 'Tasbeeh', 
+      slug: 'tasbeeh',
+      image: 'https://i.pinimg.com/736x/d3/dd/7c/d3dd7c4f5c4c494770c0ed83ef4ca268.jpg'
+    },
+    { 
+      id: 4, 
+      name: 'Signature Pen', 
+      slug: 'signature-pen',
+      image: 'https://i.pinimg.com/1200x/55/1f/5a/551f5a9aa3b9546cc436857a2356af36.jpg' 
+    },
+    { 
+      id: 5, 
+      name: 'Nikahnama Folder', 
+      slug: 'nikahnama-folder',
+      image: 'https://i.pinimg.com/736x/3f/b5/84/3fb5840b2b4a1b9b98bd7c3c947ed021.jpg' 
+    },
+    { 
+      id: 6, 
+      name: 'Dry Fruits & Sweets', 
+      slug: 'dry-fruits-sweets',
+      image: 'https://i.pinimg.com/736x/07/4b/16/074b16f07e618926366044300c00a54a.jpg' 
+    },
+    { 
+      id: 7, 
+      name: 'Groom Welcome Stole', 
+      slug: 'groom-welcome-stole',
+      image: 'https://i.pinimg.com/1200x/13/18/ff/1318ff7ed7a236acb7cf7c4c3dcf73c2.jpg' 
+    },
+    { 
+      id: 8, 
+      name: 'Varmala (if required)', 
+      slug: 'varmala',
+      image: 'https://i.pinimg.com/736x/d0/69/4c/d0694cedefc094787479aa6798609b67.jpg' 
+    }
   ];
+
+  // Fetch products from backend
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = async () => {
+    setLoading(true);
+    try {
+      // Fetch Muslim ritual items products
+      const response = await fetch('http://localhost:5000/api/products?category=ritual-items&religion=muslim');
+      const data = await response.json();
+
+      if (data.success) {
+        setProducts(data.products);
+      }
+    } catch (error) {
+      console.error('Failed to fetch products:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const scroll = (direction) => {
     const container = scrollContainerRef.current;
@@ -60,7 +126,7 @@ const MuslimGroomRitualItems = () => {
           <div className="w-20 h-1 bg-emerald-600"></div>
         </div>
 
-        {/* Sliding Categories */}
+        {/* Sliding Categories - Now Clickable */}
         <div className="relative">
           {/* Left Arrow */}
           <button
@@ -78,8 +144,9 @@ const MuslimGroomRitualItems = () => {
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {categories.map((category) => (
-              <div
+              <Link
                 key={category.id}
+                href={`/groom/all-products?category=ritual-items&subCategory=${category.slug}&religion=muslim`}
                 className="flex-shrink-0 w-72 group cursor-pointer"
               >
                 <div className="relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
@@ -97,7 +164,7 @@ const MuslimGroomRitualItems = () => {
                     {category.name}
                   </h3>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
@@ -122,34 +189,100 @@ const MuslimGroomRitualItems = () => {
         </div>
       </div>
 
-      {/* Featured Section */}
+      {/* Featured Section - Now with Real Products */}
       <div className="bg-gradient-to-b from-emerald-50 to-white py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-serif text-gray-800 mb-4">Featured Categories</h2>
+            <h2 className="text-3xl font-serif text-gray-800 mb-4">Featured Products</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Handpicked ritual items to make your Nikah ceremony truly memorable
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {categories.map((item) => (
-              <div key={item.id} className="group cursor-pointer">
-                <div className="relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 bg-white">
-                  <div className="aspect-square bg-gradient-to-br from-emerald-50 to-teal-50">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-medium text-gray-800 mb-1">{item.name}</h3>
-                    <p className="text-sm text-gray-500">Starting from ₹999</p>
-                  </div>
-                </div>
-              </div>
-            ))}
+          {/* Loading State */}
+          {loading && (
+            <div className="flex justify-center py-12">
+              <Loader2 className="w-12 h-12 animate-spin text-emerald-600" />
+            </div>
+          )}
+
+          {/* Products Grid */}
+          {!loading && (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {products.length === 0 ? (
+                // Show category cards if no products yet
+                categories.map((item) => (
+                  <Link
+                    key={item.id}
+                    href={`/groom/all-products?category=ritual-items&subCategory=${item.slug}&religion=muslim`}
+                    className="group cursor-pointer"
+                  >
+                    <div className="relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 bg-white">
+                      <div className="aspect-square bg-gradient-to-br from-emerald-50 to-teal-50">
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                      </div>
+                      <div className="p-4">
+                        <h3 className="font-medium text-gray-800 mb-1">{item.name}</h3>
+                        <p className="text-sm text-gray-500">View Collection</p>
+                      </div>
+                    </div>
+                  </Link>
+                ))
+              ) : (
+                // Show actual products from database
+                products.slice(0, 8).map((product) => (
+                  <Link
+                    key={product.id}
+                    href={`/groom/product/${product.id}`}
+                    className="group cursor-pointer"
+                  >
+                    <div className="relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 bg-white">
+                      <div className="aspect-square bg-gradient-to-br from-emerald-50 to-teal-50">
+                        <img
+                          src={
+                            typeof product.images === 'string'
+                              ? product.images.split(',')[0]
+                              : product.images[0]
+                          }
+                          alt={product.name}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          onError={(e) => {
+                            e.target.src = 'https://via.placeholder.com/400';
+                          }}
+                        />
+                      </div>
+                      <div className="p-4">
+                        <h3 className="font-medium text-gray-800 mb-1 line-clamp-2">
+                          {product.name}
+                        </h3>
+                        <p className="text-sm text-emerald-700 font-semibold">
+                          ₹{product.price.toLocaleString()}
+                        </p>
+                        {product.mrp && product.mrp > product.price && (
+                          <p className="text-xs text-gray-500 line-through">
+                            ₹{product.mrp.toLocaleString()}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  </Link>
+                ))
+              )}
+            </div>
+          )}
+
+          {/* View All Button */}
+          <div className="text-center mt-12">
+            <Link
+              href="/groom/all-products?category=ritual-items&religion=muslim"
+              className="inline-block px-8 py-3 bg-emerald-600 text-white rounded-full hover:bg-emerald-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
+            >
+              View All Nikah Ritual Items
+            </Link>
           </div>
         </div>
       </div>

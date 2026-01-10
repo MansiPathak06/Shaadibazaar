@@ -7,22 +7,22 @@ const OutdoorVenuesPage = () => {
   // Hero items with their subcategory slugs
   const heroItems = [
     {
-      image: "",
+      image: "https://i.pinimg.com/736x/b5/b4/fb/b5b4fb79dabef9b8e4f5c25de73d2366.jpg",
       label: "Open Lawns",
       slug: "open-lawns",
     },
     {
-      image: "",
+      image: "https://i.pinimg.com/1200x/a7/68/76/a768767aa1225659cd111547a87bfb39.jpg",
       label: "Wedding Gardens",
       slug: "wedding-gardens",
     },
     {
-      image: "",
+      image: "https://i.pinimg.com/736x/77/6d/bd/776dbd46a6adaa3b2f1589bbae7b4fa4.jpg",
       label: "Farmhouses",
       slug: "farmhouses",
     },
     {
-      image: "",
+      image: "https://i.pinimg.com/1200x/e6/61/7a/e6617a023e77ab70ad023ab51bf4f161.jpg",
       label: "Resort Lawns",
       slug: "resort-lawns",
     },
@@ -39,37 +39,37 @@ const OutdoorVenuesPage = () => {
     {
       slug: "open-lawns",
       title: "Open Lawns",
-      image: "",
+      image: "https://i.pinimg.com/1200x/36/7d/31/367d31111a8156af8fea237881740158.jpg",
       accent: "#4caf50",
     },
     {
       slug: "wedding-gardens",
       title: "Wedding Gardens",
-      image: "",
+      image: "https://i.pinimg.com/1200x/4c/ca/aa/4ccaaae25d614c0e2a57c004b967ffdf.jpg",
       accent: "#8bc34a",
     },
     {
       slug: "farmhouses",
       title: "Farmhouses",
-      image: "",
+      image: "https://i.pinimg.com/736x/ce/44/b1/ce44b12fd02c9d179454844b494c06dc.jpg",
       accent: "#ff9800",
     },
     {
       slug: "resort-lawns",
       title: "Resort Lawns",
-      image: "",
+      image: "https://i.pinimg.com/1200x/ba/60/27/ba6027d1ddfa96036dbc5a403cfe5c82.jpg",
       accent: "#00bcd4",
     },
     {
       slug: "club-lawns",
       title: "Club Lawns",
-      image: "",
+      image: "https://i.pinimg.com/1200x/1c/a6/48/1ca648f55bf4609fbe5e1eaa7cad3a5d.jpg",
       accent: "#009688",
     },
     {
       slug: "poolside-lawns",
       title: "Poolside Lawns",
-      image: "",
+      image: "https://i.pinimg.com/736x/b6/fe/db/b6fedbaa5fa68a79abb6f2c7dc61f1ad.jpg",
       accent: "#03a9f4",
     },
   ];
@@ -81,7 +81,7 @@ const OutdoorVenuesPage = () => {
         {/* Background Image with Blur */}
         <div className="absolute inset-0">
           <img
-            src=""
+            src="https://i.pinimg.com/1200x/bf/f3/4c/bff34c2085a150f82ded232ce33ccfb5.jpg"
             alt="Outdoor Venue Background"
             className="w-full h-full object-cover blur-sm scale-105"
           />
@@ -256,7 +256,7 @@ const OutdoorVenuesPage = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="flex justify-center">
               <img
-                src=""
+                src="https://i.pinimg.com/736x/71/1b/14/711b14b10a22c65f759b8c758eb8b156.jpg"
                 alt="About Outdoor Venues"
                 className="rounded-lg shadow-2xl w-78 object-cover"
               />

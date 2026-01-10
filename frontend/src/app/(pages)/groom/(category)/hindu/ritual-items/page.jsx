@@ -1,21 +1,87 @@
 "use client";
-import React, { useState, useRef } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
+import Link from 'next/link';
 
 const RitualItemsPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const scrollContainerRef = useRef(null);
 
+  // Categories with slugs for routing
   const categories = [
-    { id: 1, name: 'Varmala', image: 'https://i.pinimg.com/736x/6c/13/6f/6c136f7850f189402728248a187329a9.jpg' },
-    { id: 2, name: 'Coconut', image: 'https://i.pinimg.com/736x/2a/cc/52/2acc525707c24e2216dd4520699cab6f.jpg' },
-    { id: 3, name: 'Raksha Sutra / Kalawa', image: 'https://i.pinimg.com/1200x/a6/a7/d4/a6a7d47c55a535b6c3a42f4bd208a5ff.jpg' },
-    { id: 4, name: 'Puja Thali', image: 'https://i.pinimg.com/1200x/2f/40/e5/2f40e58cffd6ee59a97e36c25dbcfa5c.jpg' },
-    { id: 5, name: 'Haldi/Ubtan Items', image: 'https://i.pinimg.com/736x/c0/0f/35/c00f357bccc9f3f0ce9579784cea11c9.jpg' },
-    { id: 6, name: "Groom's Kalgi", image: 'https://i.pinimg.com/1200x/5d/c7/c9/5dc7c9470ca0b3bd5730e3995f294ba8.jpg' },
-    { id: 7, name: 'Gift Saree/Lehenga for Bride', image: 'https://i.pinimg.com/736x/6c/0d/08/6c0d08d91af31f85f5336555f92d7209.jpg' },
-    { id: 8, name: 'Tilak Plate Items', image: 'https://i.pinimg.com/736x/87/ae/3c/87ae3c2b59cf53ea4a045259daf546a7.jpg' }
+    { 
+      id: 1, 
+      name: 'Varmala', 
+      slug: 'varmala',
+      image: 'https://i.pinimg.com/736x/6c/13/6f/6c136f7850f189402728248a187329a9.jpg' 
+    },
+    { 
+      id: 2, 
+      name: 'Coconut', 
+      slug: 'coconut',
+      image: 'https://i.pinimg.com/736x/2a/cc/52/2acc525707c24e2216dd4520699cab6f.jpg' 
+    },
+    { 
+      id: 3, 
+      name: 'Raksha Sutra / Kalawa', 
+      slug: 'raksha-sutra-kalawa',
+      image: 'https://i.pinimg.com/1200x/a6/a7/d4/a6a7d47c55a535b6c3a42f4bd208a5ff.jpg' 
+    },
+    { 
+      id: 4, 
+      name: 'Puja Thali', 
+      slug: 'puja-thali',
+      image: 'https://i.pinimg.com/1200x/2f/40/e5/2f40e58cffd6ee59a97e36c25dbcfa5c.jpg' 
+    },
+    { 
+      id: 5, 
+      name: 'Haldi/Ubtan Items', 
+      slug: 'haldi-ubtan-items',
+      image: 'https://i.pinimg.com/736x/c0/0f/35/c00f357bccc9f3f0ce9579784cea11c9.jpg' 
+    },
+    { 
+      id: 6, 
+      name: "Groom's Kalgi", 
+      slug: 'groom-kalgi',
+      image: 'https://i.pinimg.com/1200x/5d/c7/c9/5dc7c9470ca0b3bd5730e3995f294ba8.jpg' 
+    },
+    { 
+      id: 7, 
+      name: 'Gift Saree/Lehenga for Bride', 
+      slug: 'gift-saree-lehenga',
+      image: 'https://i.pinimg.com/736x/6c/0d/08/6c0d08d91af31f85f5336555f92d7209.jpg' 
+    },
+    { 
+      id: 8, 
+      name: 'Tilak Plate Items', 
+      slug: 'tilak-plate-items',
+      image: 'https://i.pinimg.com/736x/87/ae/3c/87ae3c2b59cf53ea4a045259daf546a7.jpg' 
+    }
   ];
+
+  // Fetch products from backend
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = async () => {
+    setLoading(true);
+    try {
+      // Fetch ritual items products (you can use category=ritual-items)
+      const response = await fetch('http://localhost:5000/api/products?category=ritual-items');
+      const data = await response.json();
+
+      if (data.success) {
+        setProducts(data.products);
+      }
+    } catch (error) {
+      console.error('Failed to fetch products:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const scroll = (direction) => {
     const container = scrollContainerRef.current;
@@ -35,24 +101,22 @@ const RitualItemsPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Slim Banner */}
-     <div className="relative h-[30vh] bg-gradient-to-r from-amber-100 via-orange-50 to-amber-100 overflow-hidden bg-[url('/your-image.jpg')] bg-cover bg-center bg-blend-overlay">
-  <div className="absolute inset-0 bg-white/40"></div> {/* optional soft overlay */}
+      <div className="relative h-[30vh] bg-gradient-to-r from-amber-100 via-orange-50 to-amber-100 overflow-hidden">
+        <div className="absolute inset-0 bg-white/40"></div>
 
-  <div className="absolute inset-0 flex items-center justify-center">
-    <div className="text-center px-4">
-      <h1 className="text-4xl md:text-5xl font-serif text-amber-900 mb-2">
-        Ritual Items
-      </h1>
-      <p className="text-lg text-amber-800 font-light">
-        Sacred essentials for your special ceremonies
-      </p>
-    </div>
-  </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center px-4">
+            <h1 className="text-4xl md:text-5xl font-serif text-amber-900 mb-2">
+              Ritual Items
+            </h1>
+            <p className="text-lg text-amber-800 font-light">
+              Sacred essentials for your special ceremonies
+            </p>
+          </div>
+        </div>
 
-  {/* Decorative overlay */}
-  <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDAgTCA2MCAwIEwgNjAgNjAgTCAwIDYwIFoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0Q0QTU3NCIgc3Ryb2tlLXdpZHRoPSIwLjUiIG9wYWNpdHk9IjAuMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-20"></div>
-</div>
-
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDAgTCA2MCAwIEwgNjAgNjAgTCAwIDYwIFoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0Q0QTU3NCIgc3Ryb2tlLXdpZHRoPSIwLjUiIG9wYWNpdHk9IjAuMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-20"></div>
+      </div>
 
       {/* Categories Section */}
       <div className="max-w-7xl mx-auto px-4 py-12">
@@ -61,7 +125,7 @@ const RitualItemsPage = () => {
           <div className="w-20 h-1 bg-amber-600"></div>
         </div>
 
-        {/* Sliding Categories */}
+        {/* Sliding Categories - Now Clickable */}
         <div className="relative">
           {/* Left Arrow */}
           <button
@@ -79,8 +143,9 @@ const RitualItemsPage = () => {
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {categories.map((category) => (
-              <div
+              <Link
                 key={category.id}
+                href={`/groom/all-products?category=ritual-items&subCategory=${category.slug}`}
                 className="flex-shrink-0 w-72 group cursor-pointer"
               >
                 <div className="relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
@@ -98,7 +163,7 @@ const RitualItemsPage = () => {
                     {category.name}
                   </h3>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
@@ -123,34 +188,100 @@ const RitualItemsPage = () => {
         </div>
       </div>
 
-      {/* Featured Section */}
+      {/* Featured Section - Now with Real Products */}
       <div className="bg-gradient-to-b from-amber-50 to-white py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-serif text-gray-800 mb-4">Featured Categories</h2>
+            <h2 className="text-3xl font-serif text-gray-800 mb-4">Featured Products</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Handpicked ritual items to make your ceremonies truly memorable
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {categories.map((item) => (
-              <div key={item.id} className="group cursor-pointer">
-                <div className="relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 bg-white">
-                  <div className="aspect-square bg-gradient-to-br from-amber-50 to-orange-50">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-medium text-gray-800 mb-1">{item.name}</h3>
-                    <p className="text-sm text-gray-500">Starting from ₹999</p>
-                  </div>
-                </div>
-              </div>
-            ))}
+          {/* Loading State */}
+          {loading && (
+            <div className="flex justify-center py-12">
+              <Loader2 className="w-12 h-12 animate-spin text-amber-600" />
+            </div>
+          )}
+
+          {/* Products Grid */}
+          {!loading && (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {products.length === 0 ? (
+                // Show category cards if no products yet
+                categories.map((item) => (
+                  <Link
+                    key={item.id}
+                    href={`/groom/all-products?category=ritual-items&subCategory=${item.slug}`}
+                    className="group cursor-pointer"
+                  >
+                    <div className="relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 bg-white">
+                      <div className="aspect-square bg-gradient-to-br from-amber-50 to-orange-50">
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                      </div>
+                      <div className="p-4">
+                        <h3 className="font-medium text-gray-800 mb-1">{item.name}</h3>
+                        <p className="text-sm text-gray-500">View Collection</p>
+                      </div>
+                    </div>
+                  </Link>
+                ))
+              ) : (
+                // Show actual products from database
+                products.slice(0, 8).map((product) => (
+                  <Link
+                    key={product.id}
+                    href={`/groom/product/${product.id}`}
+                    className="group cursor-pointer"
+                  >
+                    <div className="relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 bg-white">
+                      <div className="aspect-square bg-gradient-to-br from-amber-50 to-orange-50">
+                        <img
+                          src={
+                            typeof product.images === 'string'
+                              ? product.images.split(',')[0]
+                              : product.images[0]
+                          }
+                          alt={product.name}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          onError={(e) => {
+                            e.target.src = 'https://via.placeholder.com/400';
+                          }}
+                        />
+                      </div>
+                      <div className="p-4">
+                        <h3 className="font-medium text-gray-800 mb-1 line-clamp-2">
+                          {product.name}
+                        </h3>
+                        <p className="text-sm text-amber-700 font-semibold">
+                          ₹{product.price.toLocaleString()}
+                        </p>
+                        {product.mrp && product.mrp > product.price && (
+                          <p className="text-xs text-gray-500 line-through">
+                            ₹{product.mrp.toLocaleString()}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  </Link>
+                ))
+              )}
+            </div>
+          )}
+
+          {/* View All Button */}
+          <div className="text-center mt-12">
+            <Link
+              href="/groom/all-products?category=ritual-items"
+              className="inline-block px-8 py-3 bg-amber-600 text-white rounded-full hover:bg-amber-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
+            >
+              View All Ritual Items
+            </Link>
           </div>
         </div>
       </div>

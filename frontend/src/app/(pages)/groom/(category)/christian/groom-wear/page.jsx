@@ -14,35 +14,35 @@ const ChristianGroomWearPage = () => {
   const categories = [
     {
       name: "Tuxedo",
-      image: "https://i.pinimg.com/564x/your-image-1.jpg"
+      image: "https://i.pinimg.com/1200x/14/b3/d2/14b3d20dd034eca22aa9d6be3814bf8d.jpg"
     },
     {
       name: "3-Piece Suit",
-      image: "https://i.pinimg.com/564x/your-image-2.jpg"
+      image: "https://i.pinimg.com/1200x/da/23/a5/da23a5aa231d464530ebc0f521e64b65.jpg"
     },
     {
       name: "Tie / Bow Tie",
-      image: "https://i.pinimg.com/564x/your-image-3.jpg"
+      image: "https://i.pinimg.com/1200x/0c/ab/99/0cab999e8d139c11a0086ef4b9beb4ab.jpg"
     },
     {
       name: "Boutonniere",
-      image: "https://i.pinimg.com/564x/your-image-4.jpg"
+      image: "https://i.pinimg.com/736x/4b/c9/d2/4bc9d21acd9e2c7f7ef91442d4c96daa.jpg"
     },
     {
       name: "Pocket Square",
-      image: "https://i.pinimg.com/564x/your-image-5.jpg"
+      image: "https://i.pinimg.com/1200x/1a/7f/7f/1a7f7f11744892425c140be65c09433c.jpg"
     },
     {
       name: "Leather Shoes",
-      image: "https://i.pinimg.com/564x/your-image-6.jpg"
+      image: "https://i.pinimg.com/1200x/d6/a3/8c/d6a38c3cc17309559c2bcbbd0d15de37.jpg"
     },
     {
       name: "Cufflinks",
-      image: "https://i.pinimg.com/564x/your-image-7.jpg"
+      image: "https://i.pinimg.com/1200x/af/1f/91/af1f912dcb1c293096f7ce8ad26f8889.jpg"
     },
     {
       name: "Perfume",
-      image: "https://i.pinimg.com/564x/your-image-8.jpg"
+      image: "https://i.pinimg.com/736x/79/60/5f/79605f0c5faabdb316963d15988dc2d5.jpg"
     }
   ];
 
@@ -63,7 +63,7 @@ const ChristianGroomWearPage = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=1200')`,
+            backgroundImage: `url('https://i.pinimg.com/1200x/86/fa/cf/86facf72e8d8169c5b1bc61ad82f9e8d.jpg')`,
           }}
         />
         <div className="absolute inset-0 bg-black/40" />

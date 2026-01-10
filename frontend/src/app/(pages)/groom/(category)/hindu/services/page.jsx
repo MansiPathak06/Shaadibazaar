@@ -1,11 +1,13 @@
 "use client";
 import React, { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const HinduGroomServicesPage = () => {
+  const router = useRouter();
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Hero slides data
+  // Hero slides data - UNCHANGED
   const heroSlides = [
     {
       title: "Hindu Groom Services",
@@ -27,71 +29,81 @@ const HinduGroomServicesPage = () => {
     },
   ];
 
-  // Groom services categories
+  // Groom services categories - ADDED subCategory mapping
   const categories = [
     {
       name: "Groom Makeup",
       items: "Professional Services",
       image:
         "https://i.pinimg.com/736x/60/cd/2c/60cd2cff47f931c10e54ebd2a2e70a23.jpg",
+      subCategory: "groom-makeup"
     },
     {
       name: "Hairstyling",
       items: "Expert Styling",
       image:
         "https://i.pinimg.com/1200x/3a/03/7e/3a037e8a9225b3d979434dcec1758803.jpg",
+      subCategory: "hairstyling"
     },
     {
       name: "Beard Trim/Shave",
       items: "Grooming Services",
       image:
         "https://i.pinimg.com/736x/38/71/4a/38714a9700ac21256997fb86a4e5193e.jpg",
+      subCategory: "beard-trim-shave"
     },
     {
       name: "Ubtan Session",
       items: "Pre-Wedding Ritual",
       image:
         "https://i.pinimg.com/736x/7c/1f/aa/7c1faa3d1ceb125957b31d776247e9df.jpg",
+      subCategory: "ubtan-session"
     },
     {
       name: "Groom Photoshoot",
       items: "Professional Photography",
       image:
         "https://i.pinimg.com/1200x/e5/02/23/e50223cb7c6b617e7e49a65914dd9f48.jpg",
+      subCategory: "groom-photoshoot"
     },
     {
       name: "Turban Tying Expert",
       items: "Traditional Styling",
       image:
         "https://i.pinimg.com/736x/cd/d9/64/cdd964ec4b83418af510af54dadc8cdc.jpg",
+      subCategory: "turban-tying"
     },
     {
       name: "Sehra Tying Expert",
       items: "Sehra Decoration",
       image:
         "https://i.pinimg.com/736x/9f/ff/8f/9fff8fb4c1973d80f07771fdbf5c5482.jpg",
+      subCategory: "sehra-tying"
     },
     {
       name: "Ghodi Decoration",
       items: "Horse Decoration",
       image:
         "https://i.pinimg.com/736x/4d/06/18/4d0618a3208f0ecb26ad2ce47435440e.jpg",
+      subCategory: "ghodi-decoration"
     },
     {
       name: "Band-Baja",
       items: "Traditional Music",
       image:
         "https://i.pinimg.com/1200x/05/89/9c/05899c2b478ae6a4e4b20cbd3ad00acb.jpg",
+      subCategory: "band-baja"
     },
     {
       name: "DJ for Baraat",
       items: "Music & Entertainment",
       image:
         "https://i.pinimg.com/1200x/e2/31/3e/e2313e1717a08d1fd527b292b3b3e679.jpg",
+      subCategory: "dj-baraat"
     },
   ];
 
-  // Trending services
+  // Trending services - ADDED subCategory mapping
   const trendingServices = [
     {
       name: "Groom Makeup Package",
@@ -100,12 +112,14 @@ const HinduGroomServicesPage = () => {
       badge: "POPULAR",
       image:
         "https://i.pinimg.com/1200x/4b/14/8c/4b148cd77735e99a50156e9970131e8d.jpg",
+      subCategory: "groom-makeup"
     },
     {
       name: "Professional Hairstyling",
       price: "₹4,999",
       image:
         "https://i.pinimg.com/736x/03/62/13/03621378c00396cded9be123bc3e5de2.jpg",
+      subCategory: "hairstyling"
     },
     {
       name: "Beard Trim & Shave",
@@ -113,6 +127,7 @@ const HinduGroomServicesPage = () => {
       badge: "NEW",
       image:
         "https://i.pinimg.com/736x/ce/00/f9/ce00f9d43afd3fc0ce7b8413fba69a1b.jpg",
+      subCategory: "beard-trim-shave"
     },
     {
       name: "Complete Groom Package",
@@ -121,12 +136,14 @@ const HinduGroomServicesPage = () => {
       badge: "25% OFF",
       image:
         "https://i.pinimg.com/1200x/99/e5/9c/99e59c78d7262514a18145519c5e2b89.jpg",
+      subCategory: "groom-makeup"
     },
     {
       name: "Ubtan Session",
       price: "₹6,999",
       image:
         "https://i.pinimg.com/1200x/4d/dd/b3/4dddb3883bad9ca67081ec48aa6ea740.jpg",
+      subCategory: "ubtan-session"
     },
     {
       name: "Groom Photoshoot",
@@ -135,6 +152,7 @@ const HinduGroomServicesPage = () => {
       badge: "TRENDING",
       image:
         "https://i.pinimg.com/736x/9b/94/1a/9b941ac8437db6a9680971ff73afffe6.jpg",
+      subCategory: "groom-photoshoot"
     },
     {
       name: "Turban Tying Expert",
@@ -142,18 +160,21 @@ const HinduGroomServicesPage = () => {
       badge: "NEW",
       image:
         "https://i.pinimg.com/1200x/b3/0a/43/b30a43718777f8d2a01f62063871b493.jpg",
+      subCategory: "turban-tying"
     },
     {
       name: "Sehra Tying Service",
       price: "₹4,999",
       image:
         "https://i.pinimg.com/1200x/cb/5a/d8/cb5ad8d6e9f956bcc4db877d2983ee47.jpg",
+      subCategory: "sehra-tying"
     },
     {
       name: "Ghodi Decoration",
       price: "₹18,999",
       image:
         "https://i.pinimg.com/736x/b7/24/47/b72447e516cf02e735e9e88e7ee441eb.jpg",
+      subCategory: "ghodi-decoration"
     },
     {
       name: "Band-Baja Service",
@@ -161,6 +182,7 @@ const HinduGroomServicesPage = () => {
       badge: "POPULAR",
       image:
         "https://i.pinimg.com/1200x/17/fa/7d/17fa7d11915079b2c6deac1d60ae044e.jpg",
+      subCategory: "band-baja"
     },
     {
       name: "DJ for Baraat",
@@ -169,6 +191,7 @@ const HinduGroomServicesPage = () => {
       badge: "TRENDING",
       image:
         "https://i.pinimg.com/1200x/e2/31/3e/e2313e1717a08d1fd527b292b3b3e679.jpg",
+      subCategory: "dj-baraat"
     },
   ];
 
@@ -182,9 +205,18 @@ const HinduGroomServicesPage = () => {
     );
   };
 
+  // 👇 NEW NAVIGATION FUNCTIONS
+  const handleCategoryClick = (subCategory) => {
+    router.push(`/groom/all-services?category=groom-services&subCategory=${subCategory}`);
+  };
+
+  const handleAllServicesClick = () => {
+    router.push("/groom/all-services?category=groom-services");
+  };
+
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section with Slider */}
+      {/* Hero Section with Slider - UNCHANGED + navigation on BOOK NOW */}
       <div className="relative h-[250px] overflow-hidden">
         <div
           className="flex transition-transform duration-500 ease-out h-full"
@@ -207,7 +239,10 @@ const HinduGroomServicesPage = () => {
                       {slide.title}
                     </h1>
                     <p className="text-gray-600 mb-6">{slide.subtitle}</p>
-                    <button className="bg-orange-600 text-white px-8 py-3 rounded hover:bg-orange-700 transition-colors">
+                    <button 
+                      onClick={handleAllServicesClick}
+                      className="bg-orange-600 text-white px-8 py-3 rounded hover:bg-orange-700 transition-colors cursor-pointer"
+                    >
                       BOOK NOW
                     </button>
                   </div>
@@ -217,7 +252,7 @@ const HinduGroomServicesPage = () => {
           ))}
         </div>
 
-        {/* Navigation Arrows */}
+        {/* Navigation Arrows - UNCHANGED */}
         <button
           onClick={prevSlide}
           className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all"
@@ -231,7 +266,7 @@ const HinduGroomServicesPage = () => {
           <ChevronRight className="w-6 h-6 text-gray-800" />
         </button>
 
-        {/* Dots */}
+        {/* Dots - UNCHANGED */}
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
           {heroSlides.map((_, index) => (
             <button
@@ -245,7 +280,7 @@ const HinduGroomServicesPage = () => {
         </div>
       </div>
 
-      {/* Popular Categories Section with Scrolling */}
+      {/* Popular Categories Section - SAME LAYOUT + onClick ADDED */}
       <div className="py-16 bg-gray-50">
         <div className="max-w-full mx-auto px-8">
           <h2 className="text-3xl font-light text-center text-gray-800 mb-12">
@@ -258,10 +293,11 @@ const HinduGroomServicesPage = () => {
                 <div
                   key={index}
                   className="flex-shrink-0 w-40 text-center group cursor-pointer"
+                  onClick={() => handleCategoryClick(category.subCategory)} // 👈 ADDED
                 >
                   <div className="relative mb-4 overflow-hidden rounded-full">
                     <img
-                      src={category.image}
+                      src={category.image} // 👈 ORIGINAL IMAGE
                       alt={category.name}
                       className="w-40 h-40 object-cover rounded-full group-hover:scale-110 transition-transform duration-300"
                     />
@@ -276,10 +312,13 @@ const HinduGroomServicesPage = () => {
         </div>
       </div>
 
-      {/* Featured Collections */}
+      {/* Featured Collections - SAME LAYOUT + onClick ADDED */}
       <div className="max-w-7xl mx-auto px-8 py-16">
         <div className="grid md:grid-cols-2 gap-8">
-          <div className="relative overflow-hidden rounded-lg group cursor-pointer">
+          <div 
+            className="relative overflow-hidden rounded-lg group cursor-pointer"
+            onClick={() => handleCategoryClick("groom-makeup")} // 👈 ADDED
+          >
             <img
               src="https://i.pinimg.com/736x/19/b7/25/19b7252b9c2fb31d7541d69f73764ace.jpg"
               alt="Complete Groom Package"
@@ -295,7 +334,10 @@ const HinduGroomServicesPage = () => {
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-lg group cursor-pointer">
+          <div 
+            className="relative overflow-hidden rounded-lg group cursor-pointer"
+            onClick={handleAllServicesClick} // 👈 ADDED
+          >
             <img
               src="https://i.pinimg.com/1200x/1e/4f/47/1e4f477c44601df41bf9b743d76326bc.jpg"
               alt="Premium Ritual Items"
@@ -313,7 +355,7 @@ const HinduGroomServicesPage = () => {
         </div>
       </div>
 
-      {/* Trending Services */}
+      {/* Trending Services - SAME LAYOUT + onClick ADDED */}
       <div className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-8">
           <h2 className="text-3xl font-light text-center text-gray-800 mb-4">
@@ -336,6 +378,7 @@ const HinduGroomServicesPage = () => {
               <div
                 key={index}
                 className="bg-white rounded-lg overflow-hidden group cursor-pointer shadow-sm hover:shadow-xl transition-shadow"
+                onClick={() => handleCategoryClick(service.subCategory)} // 👈 ADDED
               >
                 <div className="relative overflow-hidden">
                   {service.badge && (
@@ -344,7 +387,7 @@ const HinduGroomServicesPage = () => {
                     </div>
                   )}
                   <img
-                    src={service.image}
+                    src={service.image} // 👈 ORIGINAL IMAGE
                     alt={service.name}
                     className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
                   />
@@ -361,7 +404,10 @@ const HinduGroomServicesPage = () => {
             ))}
           </div>
           <div className="text-center">
-            <button className="group mt-12 relative inline-flex items-center gap-3 bg-orange-600 text-white px-12 py-4 rounded-full text-lg font-medium hover:bg-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+            <button 
+              onClick={handleAllServicesClick} // 👈 ADDED
+              className="group mt-12 relative inline-flex items-center gap-3 bg-orange-600 text-white px-12 py-4 rounded-full text-lg font-medium hover:bg-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+            >
               <span>VIEW ALL ITEMS</span>
               <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
@@ -371,18 +417,18 @@ const HinduGroomServicesPage = () => {
 
       <style jsx>{`
         @keyframes marquee {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
+         0% {
+           transform: translateX(0);
+         }
+         100% {
+           transform: translateX(-50%);
+         }
         }
         .animate-marquee {
-          animation: marquee 10s linear infinite;
+         animation: marquee 10s linear infinite;
         }
         .animate-marquee:hover {
-          animation-play-state: paused;
+         animation-play-state: paused;
         }
       `}</style>
     </div>

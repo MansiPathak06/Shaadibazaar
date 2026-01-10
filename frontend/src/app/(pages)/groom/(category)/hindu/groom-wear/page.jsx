@@ -1,6 +1,6 @@
-
 "use client";
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { ChevronRight, Sparkles, Heart, Star } from 'lucide-react';
 
 const GroomWearPage = () => {
@@ -12,54 +12,102 @@ const GroomWearPage = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const categories = [
+  // Hero items with slugs for navigation
+  const heroItems = [
     {
-      name: "Sherwani / Achkan",
-      image: "https://i.pinimg.com/1200x/08/52/86/0852865bef32a5b168c190f27cc1871d.jpg"
+      name: "Sherwani",
+      image: "https://i.pinimg.com/1200x/08/52/86/0852865bef32a5b168c190f27cc1871d.jpg",
+      slug: "sherwani-achkan"
     },
     {
-      name: "Kurta-Pajama",
-      image: "https://i.pinimg.com/736x/a3/ad/e0/a3ade063f790275a02d1e95c60ff52a8.jpg"
+      name: "Kurta Set",
+      image: "https://i.pinimg.com/736x/a3/ad/e0/a3ade063f790275a02d1e95c60ff52a8.jpg",
+      slug: "kurta-pajama"
     },
     {
       name: "Dhoti-Kurta",
-      image: "https://i.pinimg.com/1200x/39/18/2e/39182e12b82a24931eefe339d08a4987.jpg"
+      image: "https://i.pinimg.com/1200x/39/18/2e/39182e12b82a24931eefe339d08a4987.jpg",
+      slug: "dhoti-kurta"
+    },
+    {
+      name: "Turban",
+      image: "https://i.pinimg.com/1200x/14/7e/52/147e5251429e9f1e5576a19c2a2a899b.jpg",
+      slug: "safa-turban"
+    }
+  ];
+
+  const categories = [
+    {
+      name: "Sherwani / Achkan",
+      image: "https://i.pinimg.com/1200x/08/52/86/0852865bef32a5b168c190f27cc1871d.jpg",
+      slug: "sherwani-achkan",
+      accent: "#f97316"
+    },
+    {
+      name: "Kurta-Pajama",
+      image: "https://i.pinimg.com/736x/a3/ad/e0/a3ade063f790275a02d1e95c60ff52a8.jpg",
+      slug: "kurta-pajama",
+      accent: "#dc2626"
+    },
+    {
+      name: "Dhoti-Kurta",
+      image: "https://i.pinimg.com/1200x/39/18/2e/39182e12b82a24931eefe339d08a4987.jpg",
+      slug: "dhoti-kurta",
+      accent: "#d97706"
     },
     {
       name: "Safa / Turban",
-      image: "https://i.pinimg.com/1200x/14/7e/52/147e5251429e9f1e5576a19c2a2a899b.jpg"
+      image: "https://i.pinimg.com/1200x/14/7e/52/147e5251429e9f1e5576a19c2a2a899b.jpg",
+      slug: "safa-turban",
+      accent: "#ea580c"
     },
     {
       name: "Stole / Dupatta",
-      image: "https://i.pinimg.com/1200x/21/c3/32/21c3328e370f0b906511d626f86c3ec0.jpg"
+      image: "https://i.pinimg.com/1200x/21/c3/32/21c3328e370f0b906511d626f86c3ec0.jpg",
+      slug: "stole-dupatta",
+      accent: "#f59e0b"
     },
     {
       name: "Sehra",
-      image: "https://i.pinimg.com/736x/95/12/4b/95124b812501040acfd4a59c9d9e89dc.jpg"
+      image: "https://i.pinimg.com/736x/95/12/4b/95124b812501040acfd4a59c9d9e89dc.jpg",
+      slug: "sehra",
+      accent: "#ef4444"
     },
     {
       name: "Turban Brooch",
-      image: "https://i.pinimg.com/736x/0d/a7/a9/0da7a9360a7d63cf392c31c038605e4d.jpg"
+      image: "https://i.pinimg.com/736x/0d/a7/a9/0da7a9360a7d63cf392c31c038605e4d.jpg",
+      slug: "turban-brooch",
+      accent: "#c2410c"
     },
     {
       name: "Mojari / Jutti",
-      image: "https://i.pinimg.com/736x/e1/4d/66/e14d66a581b524b4a1d8080bf3567432.jpg"
+      image: "https://i.pinimg.com/736x/e1/4d/66/e14d66a581b524b4a1d8080bf3567432.jpg",
+      slug: "mojari-jutti",
+      accent: "#b45309"
     },
     {
       name: "Cufflinks",
-      image: "https://i.pinimg.com/1200x/b5/8b/48/b58b48830b1f9ac13b4729dfe087a24d.jpg"
+      image: "https://i.pinimg.com/1200x/b5/8b/48/b58b48830b1f9ac13b4729dfe087a24d.jpg",
+      slug: "cufflinks",
+      accent: "#f97316"
     },
     {
       name: "Wristwatch",
-      image: "https://i.pinimg.com/1200x/09/e7/2b/09e72be546c81d86cdc2185c0fe02b14.jpg"
+      image: "https://i.pinimg.com/1200x/09/e7/2b/09e72be546c81d86cdc2185c0fe02b14.jpg",
+      slug: "wristwatch",
+      accent: "#dc2626"
     },
     {
       name: "Rudraksha / Pearl Mala",
-      image: "https://i.pinimg.com/736x/0b/13/1d/0b131d62301c27fc01df9b73d30abc48.jpg"
+      image: "https://i.pinimg.com/736x/0b/13/1d/0b131d62301c27fc01df9b73d30abc48.jpg",
+      slug: "rudraksha-pearl-mala",
+      accent: "#ea580c"
     },
     {
       name: "Perfume / Attar",
-      image: "https://i.pinimg.com/736x/79/21/79/79217913bb0355eef8c15b7d09849fa3.jpg"
+      image: "https://i.pinimg.com/736x/79/21/79/79217913bb0355eef8c15b7d09849fa3.jpg",
+      slug: "perfume-attar",
+      accent: "#d97706"
     }
   ];
 
@@ -76,43 +124,68 @@ const GroomWearPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-amber-50 via-white to-orange-50">
       {/* Hero Section */}
-      <div className="relative h-[27vh] flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url('https://i.pinimg.com/1200x/78/16/62/781662a8459d3076f72e380e7105ea4b.jpg')`,
-          }}
-        />
-        <div className="absolute inset-0 bg-black/40" />
-        
-        <div className="relative z-10 text-center px-4 max-w-5xl">
-          <div className="mb-4 inline-block">
-            <Sparkles className="w-12 h-12 text-orange-400 animate-pulse" />
-          </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white drop-shadow-lg">
-            Groom Wear & Accessories
-          </h1>
-          <p className="text-lg md:text-xl text-white/90 mb-6 font-light drop-shadow">
-            Celebrate Your Special Day with Traditional Elegance!
-          </p>
-          
+      <div className="relative bg-gradient-to-r from-orange-900 via-red-900 to-orange-900 overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            }}
+          ></div>
         </div>
 
-       
+        <div className="container mx-auto px-4 py-1 mt-2 relative">
+          <div className="text-center mb-12">
+            <h1 className="text-5xl md:text-6xl font-bold text-amber-100 mb-4 tracking-wide">
+              Groom Collections
+            </h1>
+            <p className="text-xl text-amber-200 font-light">
+              Celebrate Your Special Day with Traditional Elegance!
+            </p>
+          </div>
+
+          {/* Hero Images Grid - Now Clickable */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
+            {heroItems.map((item, index) => (
+              <Link
+                key={index}
+                href={`/groom/all-products?category=groomwear&subCategory=${item.slug}`}
+                className="relative group"
+              >
+                <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-2xl relative">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
+
+                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[90%] text-center">
+                    <p className="text-gray-400 text-sm md:text-base backdrop-blur font-medium drop-shadow-md">
+                      {item.name}
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Marquee Section */}
-      <div className="bg-gradient-to-r from-orange-600 to-red-600 py-2 overflow-hidden">
-        <div className="flex animate-marquee whitespace-nowrap">
-          {[...taglines, ...taglines].map((tagline, index) => (
-            <span key={index} className="text-white text-sm font-semibold mx-6">
-              {tagline}
-            </span>
-          ))}
+      <div className="bg-gradient-to-r from-orange-900 via-red-800 to-orange-900 shadow-md sticky top-0 z-10 overflow-hidden">
+        <div className="py-2">
+          <div className="animate-marquee whitespace-nowrap inline-block">
+            {[...taglines, ...taglines].map((tagline, index) => (
+              <span key={index} className="text-amber-100 text-sm md:text-base font-light tracking-widest mx-8">
+                {tagline}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Circular Sliding Categories */}
+      {/* Circular Sliding Categories - Now Clickable */}
       <div className="py-16 bg-white">
         <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
           Explore Our Collections
@@ -120,63 +193,75 @@ const GroomWearPage = () => {
         <div className="relative h-64 overflow-hidden">
           <div className="flex gap-8 animate-scroll-infinite">
             {[...categories, ...categories].map((category, index) => (
-              <div
+              <Link
                 key={index}
+                href={`/groom/all-products?category=groomwear&subCategory=${category.slug}`}
                 className="flex-shrink-0 w-48 h-48 rounded-full overflow-hidden shadow-xl hover:scale-110 transition-transform duration-300 cursor-pointer relative group"
               >
                 <img
                   src={category.image}
                   alt={category.name}
                   className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.target.src = `https://via.placeholder.com/200/f97316/ffffff?text=${encodeURIComponent(category.name)}`;
-                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end justify-center pb-4">
                   <p className="text-white font-bold text-sm text-center px-2">{category.name}</p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Main Categories Grid */}
-      <div className="max-w-7xl mx-auto px-4 py-16">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-gray-800 mb-4">
-            Complete Your Wedding Look !
-          </h2>
-          <p className="text-xl text-gray-600">
-            From traditional attire to elegant accessories !
-          </p>
-        </div>
+      {/* Featured Collections - Now Clickable */}
+      <div className="container mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold text-orange-900 mb-8 uppercase tracking-wide">
+          Featured Collections
+        </h2>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {categories.map((category, index) => (
-            <div
+            <Link
               key={index}
-              className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer group"
+              href={`/groom/all-products?category=groomwear&subCategory=${category.slug}`}
+              className="group cursor-pointer"
             >
-              <div className="relative aspect-[3/4] overflow-hidden bg-gray-100">
-                <img
-                  src={category.image}
-                  alt={category.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  onError={(e) => {
-                    e.target.src = `https://via.placeholder.com/300x400/f97316/ffffff?text=${encodeURIComponent(category.name)}`;
-                  }}
-                />
-                <div className="absolute top-2 right-2 bg-orange-600 text-white text-xs px-2 py-1 rounded">
-                  NEW
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden transform group-hover:scale-105 transition-all duration-300 group-hover:shadow-2xl">
+                <div className="aspect-[3/4] overflow-hidden relative">
+                  <img
+                    src={category.image}
+                    alt={category.name}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute top-2 right-2 bg-orange-600 text-white text-xs px-2 py-1 rounded">
+                    NEW
+                  </div>
+                </div>
+                <div className="p-4 text-center">
+                  <h3 className="font-semibold text-gray-800 mb-2 capitalize">
+                    {category.name}
+                  </h3>
+                  <span
+                    className="text-xs px-4 py-2 rounded-full border-2 transition-colors duration-300 inline-block group-hover:text-white"
+                    style={{
+                      borderColor: category.accent,
+                      color: category.accent,
+                      backgroundColor: "transparent",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = category.accent;
+                      e.currentTarget.style.color = "white";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = "transparent";
+                      e.currentTarget.style.color = category.accent;
+                    }}
+                  >
+                    EXPLORE
+                  </span>
                 </div>
               </div>
-              <div className="p-4 text-center">
-                <h3 className="text-base font-semibold text-gray-800">
-                  {category.name}
-                </h3>
-              </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -210,27 +295,53 @@ const GroomWearPage = () => {
         </div>
       </div>
 
-      
+      {/* Collections Info Section */}
+      <div className="container mx-auto px-4 py-16">
+        <div className="bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl p-12 shadow-xl">
+          <h2 className="text-3xl font-bold text-orange-900 mb-8 text-center uppercase tracking-wide">
+            Complete Groom Collections
+          </h2>
+          <p className="text-center text-gray-700 max-w-3xl mx-auto mb-8 leading-relaxed">
+            Discover an exquisite array of groom essentials that will make your wedding day truly unforgettable. From traditional sherwanis to elegant accessories, we have everything you need to complete your groom look with sophistication and style.
+          </p>
+          <div className="text-center">
+            <Link
+              href="/groom/all-products?category=groomwear"
+              className="bg-orange-900 text-white px-8 py-3 rounded-full hover:bg-orange-800 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block"
+            >
+              EXPLORE ALL COLLECTIONS
+            </Link>
+          </div>
+        </div>
+      </div>
 
       <style jsx>{`
         @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
         }
-        
+
         @keyframes scroll-infinite {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
         }
-        
+
         .animate-marquee {
           animation: marquee 30s linear infinite;
         }
-        
+
         .animate-scroll-infinite {
           animation: scroll-infinite 40s linear infinite;
         }
-        
+
         .animate-scroll-infinite:hover {
           animation-play-state: paused;
         }

@@ -8,25 +8,25 @@ const CulturalTraditionalVenuesPage = () => {
   const heroItems = [
     {
       image:
-        "https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg",
+        "https://i.pinimg.com/736x/db/88/a2/db88a2d9cee8fd4f87db3de3e6ba5f32.jpg",
       label: "Haveli-style Venues",
       slug: "haveli-style-venues",
     },
     {
       image:
-        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+        "https://i.pinimg.com/736x/64/97/5e/64975e449965fc7e706d34e373bab09d.jpg",
       label: "Royal Palace Venues",
       slug: "royal-palace-venues",
     },
     {
       image:
-        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+        "https://i.pinimg.com/1200x/57/e4/50/57e450738128ad4326db7ed0973a143e.jpg",
       label: "Heritage Properties",
       slug: "heritage-properties",
     },
     {
       image:
-        "https://i.pinimg.com/736x/67/03/ef/6703ef4b1f4dba26f87a9c1b9f1cd332.jpg",
+        "https://i.pinimg.com/1200x/15/34/60/153460b69b859ff62d91c941f4ba6074.jpg",
       label: "Kalyana Mandapam",
       slug: "kalyana-mandapam",
     },
@@ -44,49 +44,49 @@ const CulturalTraditionalVenuesPage = () => {
       slug: "haveli-style-venues",
       title: "Haveli-style Wedding Venues",
       image:
-        "https://i.pinimg.com/736x/b1/fd/97/b1fd971d0d42a56c183b6e17077211f3.jpg",
+        "https://i.pinimg.com/1200x/43/30/34/43303435691d0b46485cb2a24fcf3af8.jpg",
       accent: "#d97706",
     },
     {
       slug: "royal-palace-venues",
       title: "Royal Palace Venues",
       image:
-        "https://i.pinimg.com/1200x/33/68/f9/3368f983eeafd946d980c91f15c51c20.jpg",
+        "https://i.pinimg.com/1200x/f1/1a/76/f11a7623f97d7748e47da44483a0dd00.jpg",
       accent: "#7c2d12",
     },
     {
       slug: "heritage-properties",
       title: "Heritage Properties",
       image:
-        "https://i.pinimg.com/1200x/9f/40/f2/9f40f2eb683ab08a3df20f82387e5cfd.jpg",
+        "https://i.pinimg.com/736x/0c/89/00/0c89006e0ab83d3dbbea1ce919578cd4.jpg",
       accent: "#92400e",
     },
     {
       slug: "rajasthani-dharamshalas",
       title: "Rajasthani Dharamshalas",
       image:
-        "https://i.pinimg.com/1200x/52/28/25/522825bf91e8e09c848c9e8d783c9873.jpg",
+        "https://i.pinimg.com/736x/a1/a5/18/a1a5187030beb080da79a8f069938149.jpg",
       accent: "#b45309",
     },
     {
       slug: "kalyana-mandapam",
       title: "Kalyana Mandapam (South India)",
       image:
-        "https://i.pinimg.com/736x/ed/be/25/edbe25b54256439d445e5a879930ce55.jpg",
+        "https://i.pinimg.com/1200x/15/34/60/153460b69b859ff62d91c941f4ba6074.jpg",
       accent: "#c2410c",
     },
     {
       slug: "traditional-courtyard-venues",
       title: "Traditional Courtyard Venues",
       image:
-        "https://i.pinimg.com/736x/60/bd/39/60bd394c51249e65e1b1616e1a88ff79.jpg",
+        "https://i.pinimg.com/1200x/be/7c/f3/be7cf33ee4176aaacc2d4ac114e4a3b2.jpg",
       accent: "#ea580c",
     },
     {
       slug: "cultural-wedding-halls",
       title: "Cultural Wedding Halls",
       image:
-        "https://i.pinimg.com/1200x/4c/f1/2e/4cf12e29898c1646395e1cb4971f304e.jpg",
+        "https://i.pinimg.com/736x/b5/ba/30/b5ba30682346fed0ac1decf643aab118.jpg",
       accent: "#dc2626",
     },
   ];
@@ -98,7 +98,7 @@ const CulturalTraditionalVenuesPage = () => {
         {/* Background Image with Blur */}
         <div className="absolute inset-0">
           <img
-            src="https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg"
+            src="https://i.pinimg.com/736x/50/d3/0f/50d30fce47714a9ba7f5a3ea4b893e3f.jpg"
             alt="Cultural Venues Background"
             className="w-full h-full object-cover blur-sm scale-105"
           />
@@ -272,7 +272,7 @@ const CulturalTraditionalVenuesPage = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="flex justify-center">
               <img
-                src="https://i.pinimg.com/1200x/65/6b/0e/656b0e4b605f404cb5d5edb30e0b3b76.jpg"
+                src="https://i.pinimg.com/1200x/31/67/c3/3167c34f2e76304bbfb560013425d258.jpg"
                 alt="About Cultural Venues"
                 className="rounded-lg shadow-2xl w-78 object-cover"
               />

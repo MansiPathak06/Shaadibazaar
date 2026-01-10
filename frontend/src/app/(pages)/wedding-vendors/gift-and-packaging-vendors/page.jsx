@@ -1,58 +1,53 @@
+// frontend/src/app/(pages)/wedding-vendors/gift-and-packaging-vendors/page.jsx
 "use client";
 import React, { useState, useRef } from "react";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { Home, ChevronRight } from "lucide-react";
 
 const GiftPackagingVendorsPage = () => {
+  const router = useRouter();
   const sliderRef = useRef(null);
 
   const categories = [
     {
       id: "return-gift",
       name: "Return Gift",
-      image: "https://via.placeholder.com/200x200/FFB6C1/FFFFFF?text=Return+Gift",
-      link: "/return-gift",
+      image: "https://i.pinimg.com/736x/e5/8f/76/e58f76c8a0a8e8d6c3b0f3e0e4e1c5e5.jpg",
     },
     {
       id: "mehendi-favors",
       name: "Mehendi Favors",
-      image: "https://via.placeholder.com/200x200/DDA0DD/FFFFFF?text=Mehendi+Favors",
-      link: "/mehendi-favors",
+      image: "https://i.pinimg.com/736x/7d/3e/8a/7d3e8a8c9f3d8e4f3c1b2a9d8e7f6c5d.jpg",
     },
     {
       id: "haldi-token",
       name: "Haldi Token Gift",
-      image: "https://via.placeholder.com/200x200/FFD700/FFFFFF?text=Haldi+Token",
-      link: "/haldi-token-gift",
+      image: "https://i.pinimg.com/736x/9b/2c/4d/9b2c4d5e6f7a8b9c0d1e2f3a4b5c6d7e.jpg",
     },
     {
       id: "shagun-envelope",
       name: "Shagun Envelope",
-      image: "https://via.placeholder.com/200x200/FF69B4/FFFFFF?text=Shagun+Envelope",
-      link: "/shagun-envelope",
+      image: "https://i.pinimg.com/736x/3f/7e/2d/3f7e2d4c5b6a7e8f9d0c1b2a3e4f5d6c.jpg",
     },
     {
       id: "gift-packaging",
       name: "Gift Packaging",
-      image: "https://via.placeholder.com/200x200/FFC0CB/FFFFFF?text=Gift+Packaging",
-      link: "/gift-packaging",
+      image: "https://i.pinimg.com/736x/8d/5c/3b/8d5c3b2a1f0e9d8c7b6a5f4e3d2c1b0a.jpg",
     },
     {
       id: "trousseau-packing",
       name: "Trousseau Packing",
-      image: "https://via.placeholder.com/200x200/E6B8E8/FFFFFF?text=Trousseau+Pack",
-      link: "/trousseau-packing",
+      image: "https://i.pinimg.com/736x/6c/4d/2e/6c4d2e3f5a7b8c9d0e1f2a3b4c5d6e7f.jpg",
     },
     {
       id: "basket-tray",
       name: "Basket & Tray Decor",
-      image: "https://via.placeholder.com/200x200/F8B8D0/FFFFFF?text=Basket+Tray",
-      link: "/basket-tray-decor",
+      image: "https://i.pinimg.com/736x/2a/5b/8c/2a5b8c9d0e1f2a3b4c5d6e7f8a9b0c1d.jpg",
     },
     {
       id: "dry-fruit-box",
       name: "Dry Fruit Box",
-      image: "https://via.placeholder.com/200x200/FFB347/FFFFFF?text=Dry+Fruit+Box",
-      link: "/dry-fruit-box",
+      image: "https://i.pinimg.com/736x/1e/9f/7d/1e9f7d8c6b5a4e3d2c1b0a9f8e7d6c5b.jpg",
     },
   ];
 
@@ -63,7 +58,7 @@ const GiftPackagingVendorsPage = () => {
       name: "Return Gift Vendor",
       description:
         "Thoughtful and unique return gifts that leave lasting impressions on your guests with personalized touches",
-      image: "https://via.placeholder.com/400x300/FFB6C1/FFFFFF?text=Return+Gift",
+      image: "https://i.pinimg.com/1200x/a3/d4/5e/a3d45e6f7a8b9c0d1e2f3a4b5c6d7e8f.jpg",
     },
     {
       id: 2,
@@ -71,7 +66,7 @@ const GiftPackagingVendorsPage = () => {
       name: "Mehendi Favors Vendor",
       description:
         "Beautiful mehendi ceremony favors with traditional designs and elegant packaging for your special celebration",
-      image: "https://via.placeholder.com/400x300/DDA0DD/FFFFFF?text=Mehendi+Favors",
+      image: "https://i.pinimg.com/1200x/5b/7c/9d/5b7c9d0e1f2a3b4c5d6e7f8a9b0c1d2e.jpg",
     },
     {
       id: 3,
@@ -79,7 +74,7 @@ const GiftPackagingVendorsPage = () => {
       name: "Haldi Token Gift Vendor",
       description:
         "Charming haldi ceremony token gifts crafted with care to mark this auspicious pre-wedding ritual",
-      image: "https://via.placeholder.com/400x300/FFD700/FFFFFF?text=Haldi+Token",
+      image: "https://i.pinimg.com/1200x/8f/2d/6c/8f2d6c5b4a3e2d1c0b9a8f7e6d5c4b3a.jpg",
     },
     {
       id: 4,
@@ -87,7 +82,7 @@ const GiftPackagingVendorsPage = () => {
       name: "Shagun Envelope Designer",
       description:
         "Exquisite custom-designed shagun envelopes with intricate patterns and premium materials for gifting",
-      image: "https://via.placeholder.com/400x300/FF69B4/FFFFFF?text=Shagun+Envelope",
+      image: "https://i.pinimg.com/1200x/7d/9e/3f/7d9e3f2c1b0a9f8e7d6c5b4a3e2d1c0b.jpg",
     },
     {
       id: 5,
@@ -95,7 +90,7 @@ const GiftPackagingVendorsPage = () => {
       name: "Bride & Groom Gift Packaging Artist",
       description:
         "Luxurious and artistic gift packaging for the bride and groom with elegant presentation and style",
-      image: "https://via.placeholder.com/400x300/FFC0CB/FFFFFF?text=Gift+Packaging",
+      image: "https://i.pinimg.com/1200x/4c/8d/2e/4c8d2e5f7a9b0c1d2e3f4a5b6c7d8e9f.jpg",
     },
     {
       id: 6,
@@ -103,7 +98,7 @@ const GiftPackagingVendorsPage = () => {
       name: "Trousseau Packing Vendor",
       description:
         "Professional trousseau packing services with beautiful arrangements and traditional presentation styles",
-      image: "https://via.placeholder.com/400x300/E6B8E8/FFFFFF?text=Trousseau+Pack",
+      image: "https://i.pinimg.com/1200x/9e/3d/7f/9e3d7f8c6b5a4e3d2c1b0a9f8e7d6c5b.jpg",
     },
     {
       id: 7,
@@ -111,7 +106,7 @@ const GiftPackagingVendorsPage = () => {
       name: "Basket & Tray Decor Vendor",
       description:
         "Stunning decorative baskets and trays for presenting gifts and sweets with artistic floral arrangements",
-      image: "https://via.placeholder.com/400x300/F8B8D0/FFFFFF?text=Basket+Tray",
+      image: "https://i.pinimg.com/1200x/2f/6c/9d/2f6c9d0e1f2a3b4c5d6e7f8a9b0c1d2e.jpg",
     },
     {
       id: 8,
@@ -119,29 +114,37 @@ const GiftPackagingVendorsPage = () => {
       name: "Dry Fruit Box Vendor",
       description:
         "Premium dry fruit boxes with elegant designs and quality packaging perfect for gifting on special occasions",
-      image: "https://via.placeholder.com/400x300/FFB347/FFFFFF?text=Dry+Fruit+Box",
+      image: "https://i.pinimg.com/1200x/6b/4e/8d/6b4e8d9c0a1f2e3d4c5b6a7f8e9d0c1b.jpg",
     },
   ];
 
-  const scrollSlider = (direction) => {
-    if (sliderRef.current) {
-      const scrollAmount = 200;
-      sliderRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
-    }
+  const handleCategoryClick = (categoryId) => {
+    router.push(`/wedding-vendors/${categoryId}`);
   };
 
-  const handleCategoryClick = (link) => {
-    // In Next.js, you would use: router.push(link)
-    console.log("Navigate to:", link);
-    // For now, just showing an alert
-    alert(`Navigating to ${link}`);
+  const handleViewAllClick = (categoryId) => {
+    router.push(`/wedding-vendors/${categoryId}`);
   };
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white border-b border-gray-200 py-3 px-4">
+        <div className="max-w-7xl mx-auto">
+          <nav className="flex items-center space-x-2 text-sm">
+            <button
+              onClick={() => router.push('/')}
+              className="flex items-center gap-1 text-gray-600 hover:text-rose-500 transition-colors cursor-pointer"
+            >
+              <Home className="w-4 h-4" />
+              <span>Home</span>
+            </button>
+            <ChevronRight className="w-4 h-4 text-gray-400" />
+            <span className="text-gray-900 font-medium">Gift & Packaging Vendors</span>
+          </nav>
+        </div>
+      </div>
+
       {/* Hero Banner with Video Background */}
       <div className="relative h-[50vh] overflow-hidden">
         <video
@@ -169,7 +172,7 @@ const GiftPackagingVendorsPage = () => {
 
       {/* Category Slider */}
       <div className="bg-white shadow-md py-8 top-0 z-10">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-full mx-auto px-4">
           <div className="relative group">
             <div className="overflow-hidden">
               <div
@@ -180,8 +183,8 @@ const GiftPackagingVendorsPage = () => {
                 {categories.map((cat) => (
                   <button
                     key={`original-${cat.id}`}
-                    onClick={() => handleCategoryClick(cat.link)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item"
+                    onClick={() => handleCategoryClick(cat.id)}
+                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-rose-300">
                       <img
@@ -200,8 +203,8 @@ const GiftPackagingVendorsPage = () => {
                 {categories.map((cat) => (
                   <button
                     key={`duplicate-${cat.id}`}
-                    onClick={() => handleCategoryClick(cat.link)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item"
+                    onClick={() => handleCategoryClick(cat.id)}
+                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-rose-300">
                       <img
@@ -242,7 +245,7 @@ const GiftPackagingVendorsPage = () => {
               <div className="p-6 flex flex-col flex-1">
                 {/* Text content takes available space */}
                 <div className="flex-1">
-                  <h3 className="text-2xl font-medium text-gray-800 mb-3">
+                  <h3 className="text-2xl font-medium text-gray-800 mb-3 text-center">
                     {vendor.name}
                   </h3>
                   <h3 className="text-sm font-normal text-gray-800 mb-3">
@@ -251,7 +254,10 @@ const GiftPackagingVendorsPage = () => {
                 </div>
 
                 {/* Button stays at bottom */}
-                <button className="w-full mt-6 bg-gradient-to-r from-rose-400 to-pink-500 text-white py-3 rounded-lg hover:from-rose-500 hover:to-pink-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg">
+                <button 
+                  onClick={() => handleViewAllClick(vendor.category)}
+                  className="w-full mt-6 bg-gradient-to-r from-rose-400 to-pink-500 text-white py-3 rounded-lg hover:from-rose-500 hover:to-pink-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg cursor-pointer"
+                >
                   View All →
                 </button>
               </div>
@@ -280,7 +286,7 @@ const GiftPackagingVendorsPage = () => {
         }
 
         .animate-scroll {
-          animation: scroll 10s linear infinite;
+          animation: scroll 20s linear infinite;
         }
 
         .pause-animation:hover {

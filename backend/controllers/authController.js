@@ -94,8 +94,11 @@ exports.signin = async (req, res) => {
   try {
     const { email, password } = req.body;
 
+    console.log('🔐 Login attempt:', { email, password: '***' }); // Debug log
+
     // Validation
     if (!email || !password) {
+      console.log('❌ Missing email or password'); // Debug log
       return res.status(400).json({ 
         success: false, 
         message: 'Email and password are required' 
@@ -103,16 +106,25 @@ exports.signin = async (req, res) => {
     }
 
     // ========== CHECK ADMINS TABLE FIRST ==========
+    console.log('🔍 Checking admins table...'); // Debug log
     const [admins] = await db.query(
       'SELECT * FROM admins WHERE email = ?',
       [email]
     );
 
+    console.log('👥 Admins found:', admins.length); // Debug log
+
     if (admins.length > 0) {
       const admin = admins[0];
+      console.log('✅ Admin found:', { id: admin.id, email: admin.email, role: admin.role }); // Debug log
+      console.log('🔑 Comparing passwords...'); // Debug log
+      
       const isPasswordValid = await bcrypt.compare(password, admin.password);
+      
+      console.log('🔓 Password valid:', isPasswordValid); // Debug log
 
       if (!isPasswordValid) {
+        console.log('❌ Invalid password for admin'); // Debug log
         return res.status(401).json({ 
           success: false, 
           message: 'Invalid email or password' 
@@ -126,6 +138,8 @@ exports.signin = async (req, res) => {
         { expiresIn: '7d' }
       );
 
+      console.log('✅ Admin login successful'); // Debug log
+
       return res.status(200).json({
         success: true,
         message: 'Admin login successful',
@@ -138,6 +152,9 @@ exports.signin = async (req, res) => {
         }
       });
     }
+
+    // Continue with users and vendors checks...
+    console.log('🔍 Admin not found, checking users table...'); // Debug log
 
     // ========== CHECK USERS TABLE ==========
     const [users] = await db.query(

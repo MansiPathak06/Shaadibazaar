@@ -1,58 +1,53 @@
+// frontend/src/app/(pages)/wedding-vendors/invitation-and-printing-vendors/page.jsx
 "use client";
 import React, { useState, useRef } from "react";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { Home, ChevronRight } from "lucide-react";
 
 const InvitationPrintingVendorsPage = () => {
+  const router = useRouter();
   const sliderRef = useRef(null);
 
   const categories = [
     {
       id: "card-printing",
       name: "Card Printing Shop",
-      image: "https://via.placeholder.com/400x400?text=Card+Printing",
-      link: "/card-printing",
+      image: "https://i.pinimg.com/1200x/46/06/2d/46062dd48a2537a5781af5404dfb2f6e.jpg",
     },
     {
       id: "digital-invitation",
       name: "Digital Invitation Designer",
-      image: "https://via.placeholder.com/400x400?text=Digital+Invitation",
-      link: "/digital-invitation",
+      image: "https://i.pinimg.com/1200x/ee/3f/ea/ee3fea9f057e6e39b87106a88c7191b6.jpg",
     },
     {
       id: "ecard-video",
       name: "E-card Video Maker",
-      image: "https://via.placeholder.com/400x400?text=E-card+Video",
-      link: "/ecard-video",
+      image: "https://i.pinimg.com/1200x/72/42/4c/72424c8f94355e489472d2c221e915ec.jpg",
     },
     {
       id: "whatsapp-invitation",
       name: "WhatsApp Invitation Designer",
-      image: "https://via.placeholder.com/400x400?text=WhatsApp+Invitation",
-      link: "/whatsapp-invitation",
+      image: "https://i.pinimg.com/1200x/9d/08/0a/9d080a088b4f13a6999e78921c43074c.jpg",
     },
     {
       id: "box-invitation",
       name: "Box Invitation Vendor",
-      image: "https://via.placeholder.com/400x400?text=Box+Invitation",
-      link: "/box-invitation",
+      image: "https://i.pinimg.com/736x/b1/73/ab/b173ab105b4114d011c66e99684bc99a.jpg",
     },
     {
       id: "gift-hamper",
       name: "Gift Hamper Packaging",
-      image: "https://via.placeholder.com/400x400?text=Gift+Hamper",
-      link: "/gift-hamper",
+      image: "https://i.pinimg.com/1200x/65/73/59/657359bfc7caee58baab3af362aaea18.jpg",
     },
     {
       id: "welcome-board",
       name: "Welcome Board Designer",
-      image: "https://via.placeholder.com/400x400?text=Welcome+Board",
-      link: "/welcome-board",
+      image: "https://i.pinimg.com/1200x/70/d7/ca/70d7cac01a3197b90fe961906706f193.jpg",
     },
     {
       id: "flex-printing",
-      name: "Flex Printing / Vinyl Printing Vendor",
-      image: "https://via.placeholder.com/400x400?text=Flex+Printing",
-      link: "/flex-printing",
+      name: "Flex/Vinyl Printing",
+      image: "https://i.pinimg.com/1200x/cd/a0/e3/cda0e39428984a198243cb6b2dbd310f.jpg",
     },
   ];
 
@@ -63,7 +58,7 @@ const InvitationPrintingVendorsPage = () => {
       name: "Card Printing Shop",
       description:
         "Premium wedding card printing services with exquisite designs, luxury paper stocks, and elegant finishes for your special invitations",
-      image: "https://via.placeholder.com/400x400?text=Card+Printing",
+      image: "https://i.pinimg.com/1200x/43/b1/93/43b1934999cc9241a4d699b9118f1afa.jpg",
     },
     {
       id: 2,
@@ -71,7 +66,7 @@ const InvitationPrintingVendorsPage = () => {
       name: "Digital Invitation Designer",
       description:
         "Creative digital invitation designs that beautifully capture your wedding theme with stunning graphics and personalized touches",
-      image: "https://via.placeholder.com/400x400?text=Digital+Invitation",
+      image: "https://i.pinimg.com/1200x/8e/42/71/8e4271e4b8b95f24c01a0866b1be9cdd.jpg",
     },
     {
       id: 3,
@@ -79,7 +74,7 @@ const InvitationPrintingVendorsPage = () => {
       name: "E-card Video Maker",
       description:
         "Animated video invitations that bring your wedding story to life with cinematic effects and captivating music",
-      image: "https://via.placeholder.com/400x400?text=E-card+Video",
+      image: "https://i.pinimg.com/1200x/c3/dc/40/c3dc40a9ab5d71a932d7d80d2c5c36e0.jpg",
     },
     {
       id: 4,
@@ -87,7 +82,7 @@ const InvitationPrintingVendorsPage = () => {
       name: "WhatsApp Invitation Designer",
       description:
         "Eye-catching WhatsApp invitation designs optimized for mobile viewing with interactive elements and easy sharing options",
-      image: "https://via.placeholder.com/400x400?text=WhatsApp+Invitation",
+      image: "https://i.pinimg.com/736x/25/bc/23/25bc2396093d1092d9afb4fb2776ed76.jpg",
     },
     {
       id: 5,
@@ -95,7 +90,7 @@ const InvitationPrintingVendorsPage = () => {
       name: "Box Invitation Vendor",
       description:
         "Luxurious boxed invitations with creative packaging, premium materials, and unforgettable presentation for distinguished guests",
-      image: "https://via.placeholder.com/400x400?text=Box+Invitation",
+      image: "https://i.pinimg.com/736x/c8/79/0b/c8790ba78f0921f05c3c7bcb3aa00982.jpg",
     },
     {
       id: 6,
@@ -103,7 +98,7 @@ const InvitationPrintingVendorsPage = () => {
       name: "Gift Hamper Packaging",
       description:
         "Elegant gift hamper solutions with beautiful packaging, curated contents, and personalized arrangements for wedding guests",
-      image: "https://via.placeholder.com/400x400?text=Gift+Hamper",
+      image: "https://i.pinimg.com/1200x/e8/f6/28/e8f628712a077aae1fddf2d168a8801c.jpg",
     },
     {
       id: 7,
@@ -111,37 +106,45 @@ const InvitationPrintingVendorsPage = () => {
       name: "Welcome Board Designer",
       description:
         "Custom-designed welcome boards featuring beautiful calligraphy, floral accents, and personalized messages for your venue entrance",
-      image: "https://via.placeholder.com/400x400?text=Welcome+Board",
+      image: "https://i.pinimg.com/1200x/50/6e/07/506e073d7d50c864bdd19f985e40f874.jpg",
     },
     {
       id: 8,
       category: "flex-printing",
-      name: "Flex Printing / Vinyl Printing Vendor",
+      name: "Flex/Vinyl Printing Vendor",
       description:
         "Large format flex and vinyl printing services for banners, backdrops, signage, and decorative displays at your wedding venue",
-      image: "https://via.placeholder.com/400x400?text=Flex+Printing",
+      image: "https://i.pinimg.com/736x/90/d3/f7/90d3f76283edaeefed17ed222f3409ab.jpg",
     },
   ];
 
-  const scrollSlider = (direction) => {
-    if (sliderRef.current) {
-      const scrollAmount = 200;
-      sliderRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
-    }
+  const handleCategoryClick = (categoryId) => {
+    router.push(`/wedding-vendors/${categoryId}`);
   };
 
-  const handleCategoryClick = (link) => {
-    // In Next.js, you would use: router.push(link)
-    console.log("Navigate to:", link);
-    // For now, just showing an alert
-    alert(`Navigating to ${link}`);
+  const handleViewAllClick = (categoryId) => {
+    router.push(`/wedding-vendors/${categoryId}`);
   };
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white border-b border-gray-200 py-3 px-4">
+        <div className="max-w-7xl mx-auto">
+          <nav className="flex items-center space-x-2 text-sm">
+            <button
+              onClick={() => router.push('/')}
+              className="flex items-center gap-1 text-gray-600 hover:text-rose-500 transition-colors cursor-pointer"
+            >
+              <Home className="w-4 h-4" />
+              <span>Home</span>
+            </button>
+            <ChevronRight className="w-4 h-4 text-gray-400" />
+            <span className="text-gray-900 font-medium">Invitation & Printing Vendors</span>
+          </nav>
+        </div>
+      </div>
+
       {/* Hero Banner with Video Background */}
       <div className="relative h-[50vh] overflow-hidden">
         <video
@@ -169,7 +172,7 @@ const InvitationPrintingVendorsPage = () => {
 
       {/* Category Slider */}
       <div className="bg-white shadow-md py-8 top-0 z-10">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-full mx-auto px-4">
           <div className="relative group">
             <div className="overflow-hidden">
               <div
@@ -180,8 +183,8 @@ const InvitationPrintingVendorsPage = () => {
                 {categories.map((cat) => (
                   <button
                     key={`original-${cat.id}`}
-                    onClick={() => handleCategoryClick(cat.link)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item"
+                    onClick={() => handleCategoryClick(cat.id)}
+                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-rose-300">
                       <img
@@ -200,8 +203,8 @@ const InvitationPrintingVendorsPage = () => {
                 {categories.map((cat) => (
                   <button
                     key={`duplicate-${cat.id}`}
-                    onClick={() => handleCategoryClick(cat.link)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item"
+                    onClick={() => handleCategoryClick(cat.id)}
+                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-rose-300">
                       <img
@@ -242,7 +245,7 @@ const InvitationPrintingVendorsPage = () => {
               <div className="p-6 flex flex-col flex-1">
                 {/* Text content takes available space */}
                 <div className="flex-1">
-                  <h3 className="text-2xl font-medium text-gray-800 mb-3">
+                  <h3 className="text-2xl font-medium text-gray-800 mb-3 text-center">
                     {vendor.name}
                   </h3>
                   <h3 className="text-sm font-normal text-gray-800 mb-3">
@@ -251,7 +254,10 @@ const InvitationPrintingVendorsPage = () => {
                 </div>
 
                 {/* Button stays at bottom */}
-                <button className="w-full mt-6 bg-gradient-to-r from-rose-400 to-pink-500 text-white py-3 rounded-lg hover:from-rose-500 hover:to-pink-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg">
+                <button 
+                  onClick={() => handleViewAllClick(vendor.category)}
+                  className="w-full mt-6 bg-gradient-to-r from-rose-400 to-pink-500 text-white py-3 rounded-lg hover:from-rose-500 hover:to-pink-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg cursor-pointer"
+                >
                   View All →
                 </button>
               </div>
@@ -280,7 +286,7 @@ const InvitationPrintingVendorsPage = () => {
         }
 
         .animate-scroll {
-          animation: scroll 10s linear infinite;
+          animation: scroll 20s linear infinite;
         }
 
         .pause-animation:hover {

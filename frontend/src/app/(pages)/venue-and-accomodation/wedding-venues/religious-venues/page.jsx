@@ -8,25 +8,25 @@ const ReligiousVenuesPage = () => {
   const heroItems = [
     {
       image:
-        "https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg",
+        "https://i.pinimg.com/736x/11/08/39/110839c4ea873c87412225c571b4e109.jpg",
       label: "Temple Mandapams",
       slug: "temple-mandapams",
     },
     {
       image:
-        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+        "https://i.pinimg.com/736x/e6/bd/9c/e6bd9cde2be6a339eb38c0753bddfa40.jpg",
       label: "Gurudwaras",
       slug: "gurudwaras",
     },
     {
       image:
-        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+        "https://i.pinimg.com/1200x/6c/ae/25/6cae25c45ef1ced18d31da486a6981fa.jpg",
       label: "Churches",
       slug: "churches",
     },
     {
       image:
-        "https://i.pinimg.com/736x/67/03/ef/6703ef4b1f4dba26f87a9c1b9f1cd332.jpg",
+        "https://i.pinimg.com/1200x/e4/c5/f6/e4c5f6f08235fc79abdfdb53ab5ca6ec.jpg",
       label: "Nikah Halls",
       slug: "nikah-halls",
     },
@@ -44,28 +44,28 @@ const ReligiousVenuesPage = () => {
       slug: "temple-mandapams",
       title: "Temples (Mandapam Wedding Halls)",
       image:
-        "https://i.pinimg.com/736x/b1/fd/97/b1fd971d0d42a56c183b6e17077211f3.jpg",
+        "https://i.pinimg.com/736x/15/90/0c/15900c0080433a719e0eda92f62d9709.jpg",
       accent: "#ff6b35",
     },
     {
       slug: "gurudwaras",
       title: "Gurudwaras (Anand Karaj)",
       image:
-        "https://i.pinimg.com/1200x/33/68/f9/3368f983eeafd946d980c91f15c51c20.jpg",
+        "https://i.pinimg.com/1200x/2f/e7/73/2fe77367a959fac7a53bd4adf1613faf.jpg",
       accent: "#ff9933",
     },
     {
       slug: "churches",
       title: "Churches",
       image:
-        "https://i.pinimg.com/1200x/9f/40/f2/9f40f2eb683ab08a3df20f82387e5cfd.jpg",
+        "https://i.pinimg.com/1200x/5b/11/ed/5b11ed7811dc7c518686d5aa71e6a1e8.jpg",
       accent: "#4a90e2",
     },
     {
       slug: "nikah-halls",
       title: "Mosques (Nikah Halls)",
       image:
-        "https://i.pinimg.com/1200x/52/28/25/522825bf91e8e09c848c9e8d783c9873.jpg",
+        "https://i.pinimg.com/1200x/4b/a1/ed/4ba1eda75452de467ccbec81d9e1549b.jpg",
       accent: "#27ae60",
     },
   ];
@@ -77,7 +77,7 @@ const ReligiousVenuesPage = () => {
         {/* Background Image with Blur */}
         <div className="absolute inset-0">
           <img
-            src="https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg"
+            src="https://i.pinimg.com/736x/aa/ad/9c/aaad9c436f18f974a03924fa1d512b34.jpg"
             alt="Religious Venue Background"
             className="w-full h-full object-cover blur-sm scale-105"
           />
@@ -252,7 +252,7 @@ const ReligiousVenuesPage = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="flex justify-center">
               <img
-                src="https://i.pinimg.com/1200x/65/6b/0e/656b0e4b605f404cb5d5edb30e0b3b76.jpg"
+                src="https://i.pinimg.com/736x/65/b0/e2/65b0e2ed3c8cf9b8be3081ea8f3dfec7.jpg"
                 alt="About Religious Venues"
                 className="rounded-lg shadow-2xl w-78 object-cover"
               />

@@ -1,4 +1,3 @@
-// src/app/(pages)/wedding-vendors/[category]/[serviceId]/page.jsx
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -19,12 +18,15 @@ import {
   ChevronRight,
   Award,
   Sparkles,
+  Calendar,
+  CreditCard,
 } from "lucide-react";
+import Link from "next/link";
 
-export default function ServiceDetailPage() {
+export default function GroomServiceDetailPage() {
   const params = useParams();
   const router = useRouter();
-  const { category, serviceId } = params;
+  const serviceId = params.id;
 
   const [service, setService] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -39,23 +41,6 @@ export default function ServiceDetailPage() {
   const [submitting, setSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
-  const categoryNames = {
-    planner: "Wedding Planner",
-    event: "Event Manager",
-    venue: "Venue Manager",
-    decorator: "Decorator",
-    caterer: "Caterer",
-    photographer: "Photographer",
-    videographer: "Videographer",
-    light: "Light & Sound",
-    dj: "DJ Setup",
-    band: "Band Baja",
-    ghodi: "Wedding Horse",
-    dhol: "Dhol Team",
-    fireworks: "Fireworks",
-    tent: "Tent House",
-  };
-
   useEffect(() => {
     fetchServiceDetails();
   }, [serviceId]);
@@ -63,9 +48,7 @@ export default function ServiceDetailPage() {
   const fetchServiceDetails = async () => {
     setLoading(true);
     try {
-      const response = await fetch(
-        `http://localhost:5000/api/services/${serviceId}`
-      );
+      const response = await fetch(`http://localhost:5000/api/services/${serviceId}`);
       const data = await response.json();
 
       if (data.success) {
@@ -124,13 +107,13 @@ export default function ServiceDetailPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-amber-50 via-orange-50 to-red-50">
         <div className="text-center">
           <div className="relative">
             <div className="absolute inset-0 blur-2xl opacity-40">
-              <Loader2 className="w-12 h-12 animate-spin text-rose-500 mx-auto" />
+              <Loader2 className="w-12 h-12 animate-spin text-orange-500 mx-auto" />
             </div>
-            <Loader2 className="w-12 h-12 animate-spin text-rose-600 mx-auto mb-3 relative" />
+            <Loader2 className="w-12 h-12 animate-spin text-orange-600 mx-auto mb-3 relative" />
           </div>
           <p className="text-gray-700 font-semibold text-sm">
             Loading service details...
@@ -143,10 +126,10 @@ export default function ServiceDetailPage() {
 
   if (!service) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-amber-50 via-orange-50 to-red-50">
         <div className="text-center bg-white rounded-3xl shadow-2xl p-8 max-w-md">
-          <div className="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Mail className="w-8 h-8 text-rose-500" />
+          <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Mail className="w-8 h-8 text-orange-500" />
           </div>
           <h2 className="text-xl font-bold text-gray-900 mb-2">
             Service Not Found
@@ -155,10 +138,10 @@ export default function ServiceDetailPage() {
             The service you're looking for doesn't exist or has been removed.
           </p>
           <button
-            onClick={() => router.back()}
-            className="px-6 py-2.5 bg-gradient-to-r from-rose-500 to-pink-600 text-white rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300 font-semibold text-sm"
+            onClick={() => router.push("/groom/hindu/services")}
+            className="px-6 py-2.5 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300 font-semibold text-sm"
           >
-            Go Back
+            Back to Services
           </button>
         </div>
       </div>
@@ -173,36 +156,27 @@ export default function ServiceDetailPage() {
       : null;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-red-50">
       {/* Breadcrumb Navigation */}
-      <div className="bg-white/80 backdrop-blur-md border-b border-rose-100 sticky top-0 z-40 shadow-sm">
+      <div className="bg-white/80 backdrop-blur-md border-b border-orange-100 sticky top-0 z-40 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-6 py-3">
           <nav className="flex items-center space-x-1 text-xs sm:text-sm">
-            <button
-              onClick={() => router.push("/")}
-              className="flex items-center gap-1 text-gray-600 hover:text-rose-600 transition-all hover:scale-105"
+            <Link
+              href="/"
+              className="flex items-center gap-1 text-gray-600 hover:text-orange-600 transition-all hover:scale-105"
             >
               <Home className="w-3.5 h-3.5" />
               <span className="font-medium">Home</span>
-            </button>
-            <ChevronRight className="w-3.5 h-3.5 text-rose-300" />
-            <button
-              onClick={() =>
-                router.push("/wedding-vendors/core-wedding-vendors")
-              }
-              className="text-gray-600 hover:text-rose-600 transition-all font-medium hover:scale-105"
+            </Link>
+            <ChevronRight className="w-3.5 h-3.5 text-orange-300" />
+            <Link
+              href="/groom/hindu/services"
+              className="text-gray-600 hover:text-orange-600 transition-all font-medium hover:scale-105"
             >
-              Wedding Vendors
-            </button>
-            <ChevronRight className="w-3.5 h-3.5 text-rose-300" />
-            <button
-              onClick={() => router.push(`/wedding-vendors/${category}`)}
-              className="text-gray-600 hover:text-rose-600 transition-all font-medium hover:scale-105"
-            >
-              {categoryNames[category] || category}
-            </button>
-            <ChevronRight className="w-3.5 h-3.5 text-rose-300" />
-            <span className="text-rose-600 font-semibold line-clamp-1 max-w-[40vw] sm:max-w-none">
+              Groom Services
+            </Link>
+            <ChevronRight className="w-3.5 h-3.5 text-orange-300" />
+            <span className="text-orange-600 font-semibold line-clamp-1 max-w-[40vw] sm:max-w-none">
               {service.service_name}
             </span>
           </nav>
@@ -211,21 +185,20 @@ export default function ServiceDetailPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-6 py-6 sm:py-8">
         {/* Hero Section with Image and Title */}
-        <div className="relative bg-white rounded-3xl shadow-2xl p-5 sm:p-6 lg:p-7 mb-6 sm:mb-8 overflow-hidden border border-rose-100">
-          <div className="absolute top-0 right-0 w-52 h-52 bg-gradient-to-br from-rose-200/30 to-pink-200/30 rounded-full blur-3xl -z-0" />
-          <div className="absolute bottom-0 left-0 w-52 h-52 bg-gradient-to-tr from-purple-200/30 to-pink-200/30 rounded-full blur-3xl -z-0" />
+        <div className="relative bg-white rounded-3xl shadow-2xl p-5 sm:p-6 lg:p-7 mb-6 sm:mb-8 overflow-hidden border border-orange-100">
+          <div className="absolute top-0 right-0 w-52 h-52 bg-gradient-to-br from-orange-200/30 to-red-200/30 rounded-full blur-3xl -z-0" />
+          <div className="absolute bottom-0 left-0 w-52 h-52 bg-gradient-to-tr from-amber-200/30 to-orange-200/30 rounded-full blur-3xl -z-0" />
 
           <div className="relative z-10 flex flex-col md:flex-row gap-6 items-center md:items-start">
             {/* Left Side - Image */}
             {firstImage && (
-              <div className="w-full md:w-72 lg:w-80 h-64 md:h-72 lg:h-80 flex-shrink-0 rounded-2xl overflow-hidden shadow-2xl ring-4 ring-rose-100 group">
+              <div className="w-full md:w-72 lg:w-80 h-64 md:h-72 lg:h-80 flex-shrink-0 rounded-2xl overflow-hidden shadow-2xl ring-4 ring-orange-100 group">
                 <img
                   src={firstImage}
                   alt={service.service_name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   onError={(e) => {
-                    e.target.src =
-                      "https://via.placeholder.com/400x400?text=Service";
+                    e.target.src = "https://via.placeholder.com/400x400?text=Service";
                   }}
                 />
               </div>
@@ -235,7 +208,7 @@ export default function ServiceDetailPage() {
             <div className="flex-1 w-full">
               <div className="flex items-start justify-between gap-3 mb-3">
                 <div className="flex-1">
-                  <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600 bg-clip-text text-transparent mb-2 leading-snug">
+                  <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-orange-600 via-red-600 to-amber-600 bg-clip-text text-transparent mb-2 leading-snug">
                     {service.service_name}
                   </h1>
                   <p className="text-sm sm:text-base text-gray-700 leading-snug line-clamp-3">
@@ -249,30 +222,6 @@ export default function ServiceDetailPage() {
                   </div>
                 )}
               </div>
-
-              {/* Rating */}
-              {service.rating > 0 && (
-                <div className="flex items-center gap-3 mb-4 bg-gradient-to-r from-amber-50 to-yellow-50 rounded-xl px-3.5 py-3 border border-amber-200">
-                  <div className="flex items-center gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className={`w-4 h-4 transition-all ${
-                          i < Math.floor(service.rating)
-                            ? "fill-amber-400 text-amber-400"
-                            : "text-gray-300"
-                        }`}
-                      />
-                    ))}
-                  </div>
-                  <span className="text-sm font-bold text-gray-800">
-                    {service.rating}
-                  </span>
-                  <span className="text-xs text-gray-600 font-medium">
-                    ({service.total_reviews} reviews)
-                  </span>
-                </div>
-              )}
 
               {/* Quick Stats */}
               <div className="grid grid-cols-2 gap-3 mb-4">
@@ -309,8 +258,8 @@ export default function ServiceDetailPage() {
               </div>
 
               {/* Price Badge */}
-              <div className="inline-block bg-gradient-to-br from-rose-500 to-pink-600 rounded-xl shadow-xl px-4 py-2.5 transform hover:scale-105 transition-all">
-                <p className="text-[9px] text-rose-100 font-semibold mb-0.5 uppercase tracking-wider">
+              <div className="inline-block bg-gradient-to-br from-orange-500 to-red-600 rounded-xl shadow-xl px-4 py-2.5 transform hover:scale-105 transition-all">
+                <p className="text-[9px] text-orange-100 font-semibold mb-0.5 uppercase tracking-wider">
                   Starting From
                 </p>
                 <p className="text-xl sm:text-2xl font-extrabold text-white leading-tight">
@@ -325,9 +274,9 @@ export default function ServiceDetailPage() {
           {/* Main Content - Left Side */}
           <div className="lg:col-span-2 space-y-5">
             {/* Service Details */}
-            <div className="bg-white rounded-2xl shadow-xl p-5 border border-rose-100 hover:shadow-2xl transition-shadow">
+            <div className="bg-white rounded-2xl shadow-xl p-5 border border-orange-100 hover:shadow-2xl transition-shadow">
               <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                <div className="bg-gradient-to-br from-rose-500 to-pink-600 p-1.5 rounded-lg">
+                <div className="bg-gradient-to-br from-orange-500 to-red-600 p-1.5 rounded-lg">
                   <CheckCircle className="w-4.5 h-4.5 text-white" />
                 </div>
                 Service Details
@@ -342,7 +291,7 @@ export default function ServiceDetailPage() {
                       <p className="text-[10px] text-violet-600 font-semibold uppercase tracking-wide">
                         Service For
                       </p>
-                      <p className="text-sm font-semibold text-gray-900">
+                      <p className="text-sm font-semibold text-gray-900 capitalize">
                         {service.male_female_unisex}
                       </p>
                     </div>
@@ -352,7 +301,7 @@ export default function ServiceDetailPage() {
                 {service.payment_mode && (
                   <div className="flex items-center gap-2.5 px-3 py-3 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl border border-green-200 hover:shadow-md transition-all">
                     <div className="bg-green-100 p-1.5 rounded-lg">
-                      <CheckCircle className="w-4 h-4 text-green-600" />
+                      <CreditCard className="w-4 h-4 text-green-600" />
                     </div>
                     <div>
                       <p className="text-[10px] text-green-600 font-semibold uppercase tracking-wide">
@@ -369,9 +318,9 @@ export default function ServiceDetailPage() {
 
             {/* Gallery */}
             {service.images && service.images.length > 1 && (
-              <div className="bg-white rounded-2xl shadow-xl p-5 border border-rose-100 hover:shadow-2xl transition-shadow">
+              <div className="bg-white rounded-2xl shadow-xl p-5 border border-orange-100 hover:shadow-2xl transition-shadow">
                 <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <div className="bg-gradient-to-br from-pink-500 to-rose-600 p-1.5 rounded-lg">
+                  <div className="bg-gradient-to-br from-red-500 to-orange-600 p-1.5 rounded-lg">
                     <Sparkles className="w-4.5 h-4.5 text-white" />
                   </div>
                   Gallery
@@ -380,15 +329,14 @@ export default function ServiceDetailPage() {
                   {service.images.slice(1).map((image, index) => (
                     <div
                       key={index}
-                      className="relative h-36 sm:h-40 rounded-xl overflow-hidden group shadow-md hover:shadow-2xl transition-all ring-2 ring-transparent hover:ring-rose-300"
+                      className="relative h-36 sm:h-40 rounded-xl overflow-hidden group shadow-md hover:shadow-2xl transition-all ring-2 ring-transparent hover:ring-orange-300"
                     >
                       <img
                         src={image}
                         alt={`${service.service_name} ${index + 2}`}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-400"
                         onError={(e) => {
-                          e.target.src =
-                            "https://via.placeholder.com/400x300?text=Image";
+                          e.target.src = "https://via.placeholder.com/400x300?text=Image";
                         }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -399,79 +347,81 @@ export default function ServiceDetailPage() {
             )}
 
             {/* Pricing Details */}
-            <div className="bg-white rounded-2xl shadow-xl p-5 border border-rose-100 hover:shadow-2xl transition-shadow">
-              <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                <div className="bg-gradient-to-br from-indigo-500 to-purple-600 p-1.5 rounded-lg">
-                  <Award className="w-4.5 h-4.5 text-white" />
-                </div>
-                Pricing Details
-              </h2>
+<div className="bg-white rounded-2xl shadow-xl p-5 border border-orange-100 hover:shadow-2xl transition-shadow">
+  <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+    <div className="bg-gradient-to-br from-indigo-500 to-purple-600 p-1.5 rounded-lg">
+      <Award className="w-4.5 h-4.5 text-white" />
+    </div>
+    Pricing Details
+  </h2>
 
-              <div className="overflow-hidden rounded-xl border border-gray-200">
-                <table className="w-full text-sm">
-                  <tbody className="divide-y divide-gray-200">
-                    {service.pricing && service.pricing.length > 0 ? (
-                      service.pricing.map((item, index) => (
-                        <tr
-                          key={index}
-                          className="hover:bg-gradient-to-r hover:from-rose-50 hover:to-pink-50 transition-all"
-                        >
-                          <td className="py-3 px-4 text-gray-700 font-semibold">
-                            {item.pricing_type}
-                          </td>
-                          <td className="py-3 px-4 text-gray-900 font-bold text-right">
-                            {item.pricing_value}
-                          </td>
-                        </tr>
-                      ))
-                    ) : (
-                      <>
-                        <tr className="hover:bg-gradient-to-r hover:from-rose-50 hover:to-pink-50 transition-all">
-                          <td className="py-3 px-4 text-gray-700 font-semibold">
-                            Working Since
-                          </td>
-                          <td className="py-3 px-4 text-gray-900 text-right font-medium">
-                            {service.working_since || "N/A"}
-                          </td>
-                        </tr>
-                        <tr className="hover:bg-gradient-to-r hover:from-rose-50 hover:to-pink-50 transition-all">
-                          <td className="py-3 px-4 text-gray-700 font-semibold">
-                            Area of Service
-                          </td>
-                          <td className="py-3 px-4 text-gray-900 text-right font-medium">
-                            {service.area_of_service || "N/A"}
-                          </td>
-                        </tr>
-                        {service.staff_status && (
-                          <tr className="hover:bg-gradient-to-r hover:from-rose-50 hover:to-pink-50 transition-all">
-                            <td className="py-3 px-4 text-gray-700 font-semibold">
-                              Staff Status
-                            </td>
-                            <td className="py-3 px-4 text-gray-900 text-right font-medium">
-                              {service.staff_status}
-                            </td>
-                          </tr>
-                        )}
-                        {service.onsite_facility && (
-                          <tr className="hover:bg-gradient-to-r hover:from-rose-50 hover:to-pink-50 transition-all">
-                            <td className="py-3 px-4 text-gray-700 font-semibold">
-                              Onsite Facility
-                            </td>
-                            <td className="py-3 px-4 text-gray-900 text-right font-medium">
-                              {service.onsite_facility}
-                            </td>
-                          </tr>
-                        )}
-                      </>
-                    )}
-                  </tbody>
-                </table>
-              </div>
-            </div>
+  {/* 👇 ADD <table> wrapper here */}
+  <div className="overflow-hidden rounded-xl border border-gray-200">
+    <table className="w-full text-sm">  {/* ✅ ADDED */}
+      <tbody className="divide-y divide-gray-200">
+        {service.pricing && service.pricing.length > 0 ? (
+          service.pricing.map((item, index) => (
+            <tr
+              key={index}
+              className="hover:bg-gradient-to-r hover:from-orange-50 hover:to-red-50 transition-all"
+            >
+              <td className="py-3 px-4 text-gray-700 font-semibold">
+                {item.pricing_type}
+              </td>
+              <td className="py-3 px-4 text-gray-900 font-bold text-right">
+                {item.pricing_value}
+              </td>
+            </tr>
+          ))
+        ) : (
+          <>
+            <tr className="hover:bg-gradient-to-r hover:from-orange-50 hover:to-red-50 transition-all">
+              <td className="py-3 px-4 text-gray-700 font-semibold">
+                Working Since
+              </td>
+              <td className="py-3 px-4 text-gray-900 text-right font-medium">
+                {service.working_since || "N/A"}
+              </td>
+            </tr>
+            <tr className="hover:bg-gradient-to-r hover:from-orange-50 hover:to-red-50 transition-all">
+              <td className="py-3 px-4 text-gray-700 font-semibold">
+                Area of Service
+              </td>
+              <td className="py-3 px-4 text-gray-900 text-right font-medium">
+                {service.area_of_service || "N/A"}
+              </td>
+            </tr>
+            {service.staff_status && (
+              <tr className="hover:bg-gradient-to-r hover:from-orange-50 hover:to-red-50 transition-all">
+                <td className="py-3 px-4 text-gray-700 font-semibold">
+                  Staff Status
+                </td>
+                <td className="py-3 px-4 text-gray-900 text-right font-medium">
+                  {service.staff_status}
+                </td>
+              </tr>
+            )}
+            {service.onsite_facility && (
+              <tr className="hover:bg-gradient-to-r hover:from-orange-50 hover:to-red-50 transition-all">
+                <td className="py-3 px-4 text-gray-700 font-semibold">
+                  Onsite Facility
+                </td>
+                <td className="py-3 px-4 text-gray-900 text-right font-medium">
+                  {service.onsite_facility}
+                </td>
+              </tr>
+            )}
+          </>
+        )}
+      </tbody>
+    </table>  {/* ✅ ADDED */}
+  </div>
+</div>
+
 
             {/* Additional Information */}
             {(service.facilities || service.other_services) && (
-              <div className="bg-white rounded-2xl shadow-xl p-5 border border-rose-100 hover:shadow-2xl transition-shadow">
+              <div className="bg-white rounded-2xl shadow-xl p-5 border border-orange-100 hover:shadow-2xl transition-shadow">
                 <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
                   <div className="bg-gradient-to-br from-cyan-500 to-blue-600 p-1.5 rounded-lg">
                     <CheckCircle className="w-4.5 h-4.5 text-white" />
@@ -508,9 +458,9 @@ export default function ServiceDetailPage() {
 
           {/* Contact Form - Right Side (Sticky) */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl shadow-2xl p-5 sticky top-20 border-2 border-rose-200 hover:shadow-3xl transition-shadow">
+            <div className="bg-white rounded-2xl shadow-2xl p-5 sticky top-20 border-2 border-orange-200 hover:shadow-3xl transition-shadow">
               <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                <div className="bg-gradient-to-br from-rose-500 to-pink-600 p-1.5 rounded-lg">
+                <div className="bg-gradient-to-br from-orange-500 to-red-600 p-1.5 rounded-lg">
                   <Mail className="w-4.5 h-4.5 text-white" />
                 </div>
                 Contact Vendor
@@ -522,9 +472,9 @@ export default function ServiceDetailPage() {
                 service.website) && (
                 <div className="space-y-2.5 mb-5 pb-4 border-b border-gray-200">
                   {service.contact_person && (
-                    <div className="flex items-center gap-2.5 p-2.5 hover:bg-gradient-to-r hover:from-rose-50 hover:to-pink-50 rounded-xl transition-all border border-transparent hover:border-rose-200">
-                      <div className="bg-rose-100 p-1.5 rounded-lg">
-                        <Users className="w-4 h-4 text-rose-600" />
+                    <div className="flex items-center gap-2.5 p-2.5 hover:bg-gradient-to-r hover:from-orange-50 hover:to-red-50 rounded-xl transition-all border border-transparent hover:border-orange-200">
+                      <div className="bg-orange-100 p-1.5 rounded-lg">
+                        <Users className="w-4 h-4 text-orange-600" />
                       </div>
                       <span className="text-sm text-gray-700 font-semibold">
                         {service.contact_person}
@@ -533,13 +483,13 @@ export default function ServiceDetailPage() {
                   )}
 
                   {service.contact_email && (
-                    <div className="flex items-center gap-2.5 p-2.5 hover:bg-gradient-to-r hover:from-rose-50 hover:to-pink-50 rounded-xl transition-all border border-transparent hover:border-rose-200">
-                      <div className="bg-rose-100 p-1.5 rounded-lg">
-                        <Mail className="w-4 h-4 text-rose-600" />
+                    <div className="flex items-center gap-2.5 p-2.5 hover:bg-gradient-to-r hover:from-orange-50 hover:to-red-50 rounded-xl transition-all border border-transparent hover:border-orange-200">
+                      <div className="bg-orange-100 p-1.5 rounded-lg">
+                        <Mail className="w-4 h-4 text-orange-600" />
                       </div>
                       <a
                         href={`mailto:${service.contact_email}`}
-                        className="text-sm text-gray-700 hover:text-rose-600 transition-colors font-semibold break-all"
+                        className="text-sm text-gray-700 hover:text-orange-600 transition-colors font-semibold break-all"
                       >
                         {service.contact_email}
                       </a>
@@ -547,13 +497,13 @@ export default function ServiceDetailPage() {
                   )}
 
                   {service.contact_phone && (
-                    <div className="flex items-center gap-2.5 p-2.5 hover:bg-gradient-to-r hover:from-rose-50 hover:to-pink-50 rounded-xl transition-all border border-transparent hover:border-rose-200">
-                      <div className="bg-rose-100 p-1.5 rounded-lg">
-                        <Phone className="w-4 h-4 text-rose-600" />
+                    <div className="flex items-center gap-2.5 p-2.5 hover:bg-gradient-to-r hover:from-orange-50 hover:to-red-50 rounded-xl transition-all border border-transparent hover:border-orange-200">
+                      <div className="bg-orange-100 p-1.5 rounded-lg">
+                        <Phone className="w-4 h-4 text-orange-600" />
                       </div>
                       <a
                         href={`tel:${service.contact_phone}`}
-                        className="text-sm text-gray-700 hover:text-rose-600 transition-colors font-semibold"
+                        className="text-sm text-gray-700 hover:text-orange-600 transition-colors font-semibold"
                       >
                         {service.contact_phone}
                       </a>
@@ -561,15 +511,15 @@ export default function ServiceDetailPage() {
                   )}
 
                   {service.website && (
-                    <div className="flex items-center gap-2.5 p-2.5 hover:bg-gradient-to-r hover:from-rose-50 hover:to-pink-50 rounded-xl transition-all border border-transparent hover:border-rose-200">
-                      <div className="bg-rose-100 p-1.5 rounded-lg">
-                        <Globe className="w-4 h-4 text-rose-600" />
+                    <div className="flex items-center gap-2.5 p-2.5 hover:bg-gradient-to-r hover:from-orange-50 hover:to-red-50 rounded-xl transition-all border border-transparent hover:border-orange-200">
+                      <div className="bg-orange-100 p-1.5 rounded-lg">
+                        <Globe className="w-4 h-4 text-orange-600" />
                       </div>
                       <a
                         href={service.website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm text-gray-700 hover:text-rose-600 transition-colors font-semibold truncate"
+                        className="text-sm text-gray-700 hover:text-orange-600 transition-colors font-semibold truncate"
                       >
                         Visit Website
                       </a>
@@ -581,9 +531,7 @@ export default function ServiceDetailPage() {
               {submitSuccess && (
                 <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-300 text-green-700 px-3 py-2.5 rounded-xl mb-3 flex items-center gap-2 shadow-lg text-sm">
                   <CheckCircle className="w-4 h-4 text-green-600" />
-                  <span className="font-semibold">
-                    Message sent successfully!
-                  </span>
+                  <span className="font-semibold">Message sent successfully!</span>
                 </div>
               )}
 
@@ -599,7 +547,7 @@ export default function ServiceDetailPage() {
                       setContactForm({ ...contactForm, name: e.target.value })
                     }
                     required
-                    className="w-full px-3.5 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500 transition-all hover:border-rose-300 text-sm"
+                    className="w-full px-3.5 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all hover:border-orange-300 text-sm"
                     placeholder="Enter your name"
                   />
                 </div>
@@ -615,7 +563,7 @@ export default function ServiceDetailPage() {
                       setContactForm({ ...contactForm, email: e.target.value })
                     }
                     required
-                    className="w-full px-3.5 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500 transition-all hover:border-rose-300 text-sm"
+                    className="w-full px-3.5 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all hover:border-orange-300 text-sm"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -631,7 +579,7 @@ export default function ServiceDetailPage() {
                       setContactForm({ ...contactForm, phone: e.target.value })
                     }
                     required
-                    className="w-full px-3.5 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500 transition-all hover:border-rose-300 text-sm"
+                    className="w-full px-3.5 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all hover:border-orange-300 text-sm"
                     placeholder="+91 XXXXXXXXXX"
                   />
                 </div>
@@ -649,7 +597,7 @@ export default function ServiceDetailPage() {
                         eventDate: e.target.value,
                       })
                     }
-                    className="w-full px-3.5 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500 transition-all hover:border-rose-300 text-sm"
+                    className="w-full px-3.5 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all hover:border-orange-300 text-sm"
                   />
                 </div>
 
@@ -667,7 +615,7 @@ export default function ServiceDetailPage() {
                     }
                     required
                     rows="4"
-                    className="w-full px-3.5 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500 transition-all hover:border-rose-300 resize-none text-sm"
+                    className="w-full px-3.5 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all hover:border-orange-300 resize-none text-sm"
                     placeholder="Tell us about your event..."
                   />
                 </div>
@@ -675,7 +623,7 @@ export default function ServiceDetailPage() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full flex items-center justify-center gap-2 px-5 py-3.5 bg-gradient-to-r from-rose-500 via-pink-500 to-purple-600 text-white rounded-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 font-bold text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  className="w-full flex items-center justify-center gap-2 px-5 py-3.5 bg-gradient-to-r from-orange-500 via-red-500 to-amber-600 text-white rounded-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 font-bold text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
                   {submitting ? (
                     <>
@@ -702,15 +650,11 @@ export default function ServiceDetailPage() {
           -webkit-box-orient: vertical;
           overflow: hidden;
         }
-
-        @keyframes gradient-shift {
-          0%,
-          100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
+        .line-clamp-3 {
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
         }
       `}</style>
     </div>

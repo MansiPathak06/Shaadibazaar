@@ -1,8 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useRouter } from "next/navigation"; // ✅ ADD THIS
 
 const SikhGroomServicesPage = () => {
+  const router = useRouter(); // ✅ ADD THIS
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Hero slides data
@@ -11,19 +13,19 @@ const SikhGroomServicesPage = () => {
       title: "Sikh Groom Services",
       subtitle: "Complete Essentials For Your Sacred Anand Karaj",
       image:
-        "https://i.pinimg.com/736x/5a/23/ca/5a23ca5b0bbc27ab70962c1d851136e1.jpg",
+        "https://i.pinimg.com/736x/2f/8b/7c/2f8b7ce2122cdf841e1b908faac2065d.jpg",
     },
     {
       title: "Traditional Sikh Wedding Services",
       subtitle: "Everything You Need For Your Blessed Union",
       image:
-        "https://i.pinimg.com/1200x/6f/f7/cf/6ff7cf9f7d29e3acd8c19250f8e4ee54.jpg",
+        "https://i.pinimg.com/736x/e3/a9/fc/e3a9fc70268b1cf01c5481384bbdd52e.jpg",
     },
     {
       title: "Complete Groom Package",
       subtitle: "Make Your Special Day Unforgettable",
       image:
-        "https://i.pinimg.com/736x/fd/26/cf/fd26cfb905083571d15d314af34f03d6.jpg",
+        "https://i.pinimg.com/1200x/87/bc/00/87bc00000e5e0924323aa97773e18bac.jpg",
     },
   ];
 
@@ -33,61 +35,71 @@ const SikhGroomServicesPage = () => {
       name: "Turban Expert",
       items: "Professional Turban Tying",
       image:
-        "https://i.pinimg.com/736x/5a/23/ca/5a23ca5b0bbc27ab70962c1d851136e1.jpg",
+        "https://i.pinimg.com/1200x/b3/0a/43/b30a43718777f8d2a01f62063871b493.jpg",
+      subCategory: "turban-expert", // ✅ ADD THIS
     },
     {
       name: "Beard Setting",
       items: "Traditional Beard Grooming",
       image:
-        "https://i.pinimg.com/736x/28/ac/3b/28ac3b55d55fc14e93dcadab7eb4f291.jpg",
+        "https://i.pinimg.com/1200x/6a/d8/06/6ad8067e4311cdc48ac3bc991eb58a04.jpg",
+      subCategory: "beard-setting", // ✅ ADD THIS
     },
     {
       name: "Groom Photoshoot",
       items: "Professional Photography",
       image:
-        "https://i.pinimg.com/1200x/35/3b/82/353b8244c5eb8853f9289907bb1702d2.jpg",
+        "https://i.pinimg.com/1200x/9b/e7/4d/9be74d0b06288d55dd74b6f570ab9513.jpg",
+      subCategory: "groom-photoshoot", // ✅ ADD THIS
     },
     {
       name: "Dhol/Nagara",
       items: "Traditional Percussion",
       image:
-        "https://i.pinimg.com/736x/47/43/ab/4743abc283cb05907a2a13967cc87322.jpg",
+        "https://i.pinimg.com/736x/35/75/42/35754262f025dfa4a799a1c02304c660.jpg",
+      subCategory: "dhol-nagara", // ✅ ADD THIS
     },
     {
       name: "Bhangra Group",
       items: "Live Dance Performance",
       image:
-        "https://i.pinimg.com/1200x/19/34/09/193409a9e82c90cabe987cc8d3270605.jpg",
+        "https://i.pinimg.com/1200x/c7/fc/40/c7fc40e2e87e7caf23ababc21d97c7aa.jpg",
+      subCategory: "bhangra-group", // ✅ ADD THIS
     },
     {
       name: "Groom Makeup",
       items: "Professional Services",
       image:
-        "https://i.pinimg.com/736x/e2/c0/ca/e2c0cae9d3d6baf3a61c6a3f5f47eaa6.jpg",
+        "https://i.pinimg.com/1200x/a4/f2/1d/a4f21d7fce67f88522a7913f851e38bb.jpg",
+      subCategory: "groom-makeup", // ✅ ADD THIS
     },
     {
       name: "Hairstyling",
       items: "Expert Hair Care",
       image:
-        "https://i.pinimg.com/736x/f8/8a/d7/f88ad798d7d542e5e511e915537deaab.jpg",
+        "https://i.pinimg.com/736x/7d/e0/79/7de079213ce731c30b5c77c45ac45466.jpg",
+      subCategory: "hairstyling", // ✅ ADD THIS
     },
     {
       name: "Ghodi Decoration",
       items: "Horse Decoration",
       image:
-        "https://i.pinimg.com/736x/f8/8a/d7/f88ad798d7d542e5e511e915537deaab.jpg",
+        "https://i.pinimg.com/736x/68/e8/0c/68e80c06f8ed1ded7aa1dec6e38ab484.jpg",
+      subCategory: "ghodi-decoration", // ✅ ADD THIS
     },
     {
       name: "Band-Baja",
       items: "Traditional Music",
       image:
-        "https://i.pinimg.com/736x/e2/c0/ca/e2c0cae9d3d6baf3a61c6a3f5f47eaa6.jpg",
+        "https://i.pinimg.com/1200x/30/44/d0/3044d0bff4c87f4521ef3098e2ec4ece.jpg",
+      subCategory: "band-baja", // ✅ ADD THIS
     },
     {
       name: "DJ for Baraat",
       items: "Music & Entertainment",
       image:
-        "https://i.pinimg.com/1200x/19/34/09/193409a9e82c90cabe987cc8d3270605.jpg",
+        "https://i.pinimg.com/736x/2b/7f/ed/2b7fedfdc7977be41791719ff9c6b5fb.jpg",
+      subCategory: "dj-baraat", // ✅ ADD THIS
     },
   ];
 
@@ -99,20 +111,24 @@ const SikhGroomServicesPage = () => {
       oldPrice: "₹8,999",
       badge: "POPULAR",
       image:
-        "https://i.pinimg.com/736x/06/b8/cb/06b8cba05a56695e10fa2b8f41c96c65.jpg",
+        "https://i.pinimg.com/1200x/63/b1/9c/63b19cb745f263388c5ac613bfadaeaf.jpg",
+      subCategory: "turban-expert", // ✅ ADD THIS
     },
+
     {
       name: "Professional Beard Setting",
       price: "₹4,999",
       image:
-        "https://i.pinimg.com/736x/5c/5a/d0/5c5ad0f09d6ca26783f3b22be13736e8.jpg",
+        "https://i.pinimg.com/736x/45/95/5b/45955bb7a9c60d26622f9e0ffad841f7.jpg",
+      subCategory: "beard-setting", // ✅ ADD THIS
     },
     {
       name: "Groom Photoshoot",
       price: "₹25,999",
       badge: "NEW",
       image:
-        "https://i.pinimg.com/736x/d1/54/c5/d154c5f5a7e310dcdb91971f7245b978.jpg",
+        "https://i.pinimg.com/1200x/42/c3/0a/42c30a25effb843a8ca85386468fcf3a.jpg",
+      subCategory: "groom-photoshoot", // ✅ ADD THIS
     },
     {
       name: "Complete Groom Package",
@@ -120,13 +136,15 @@ const SikhGroomServicesPage = () => {
       oldPrice: "₹48,999",
       badge: "25% OFF",
       image:
-        "https://i.pinimg.com/1200x/2c/d2/19/2cd219e170cc9991a32720acb9d5c461.jpg",
+        "https://i.pinimg.com/1200x/5c/54/ba/5c54ba89ec2c99650bdea23db4a1d66e.jpg",
+      subCategory: "groom-makeup", // ✅ ADD THIS
     },
     {
       name: "Dhol Service",
       price: "₹8,999",
       image:
-        "https://i.pinimg.com/736x/f8/fa/b7/f8fab7c8959825792517caabb40c9102.jpg",
+        "https://i.pinimg.com/736x/65/7b/d0/657bd090f22f8f15e72997289ea91688.jpg",
+      subCategory: "dhol-nagara", // ✅ ADD THIS
     },
     {
       name: "Nagara Players",
@@ -134,33 +152,38 @@ const SikhGroomServicesPage = () => {
       oldPrice: "₹15,999",
       badge: "TRENDING",
       image:
-        "https://i.pinimg.com/736x/04/65/8f/04658f180cb0ac3aa233317b9dfff6a7.jpg",
+        "https://i.pinimg.com/1200x/b1/ce/f4/b1cef45dbc826eb7f63abfe7a7b9cfd9.jpg",
+      subCategory: "dhol-nagara", // ✅ ADD THIS
     },
     {
       name: "Bhangra Group Performance",
       price: "₹35,999",
       badge: "POPULAR",
       image:
-        "https://i.pinimg.com/1200x/ca/bf/f5/cabff5d5049cf1d7fbc65426239538fd.jpg",
+        "https://i.pinimg.com/736x/9a/ba/90/9aba90bd8353762daa8ca7049fd1d8e3.jpg",
+      subCategory: "bhangra-group", // ✅ ADD THIS
     },
     {
       name: "Groom Makeup Package",
       price: "₹12,999",
       image:
-        "https://i.pinimg.com/1200x/ae/c2/7b/aec27b164fa12b92748ffa1dfe02356b.jpg",
+        "https://i.pinimg.com/1200x/16/4c/24/164c24f3f78e93238f62dd6ace50c95b.jpg",
+      subCategory: "groom-makeup", // ✅ ADD THIS
     },
     {
       name: "Professional Hairstyling",
       price: "₹5,999",
       image:
-        "https://i.pinimg.com/736x/04/65/8f/04658f180cb0ac3aa233317b9dfff6a7.jpg",
+        "https://i.pinimg.com/736x/14/fe/29/14fe2921664b16e86773ace696d5405f.jpg",
+      subCategory: "hairstyling", // ✅ ADD THIS
     },
     {
       name: "Ghodi Decoration",
       price: "₹18,999",
       badge: "NEW",
       image:
-        "https://i.pinimg.com/1200x/ca/bf/f5/cabff5d5049cf1d7fbc65426239538fd.jpg",
+        "https://i.pinimg.com/736x/69/b0/89/69b089243b03feb6ae72d26399effaaa.jpg",
+      subCategory: "ghodi-decoration", // ✅ ADD THIS
     },
     {
       name: "Band-Baja Service",
@@ -168,14 +191,16 @@ const SikhGroomServicesPage = () => {
       oldPrice: "₹28,999",
       badge: "TRENDING",
       image:
-        "https://i.pinimg.com/1200x/ae/c2/7b/aec27b164fa12b92748ffa1dfe02356b.jpg",
+        "https://i.pinimg.com/736x/9b/93/7f/9b937fb477137477480083d054cd16d1.jpg",
+      subCategory: "band-baja", // ✅ ADD THIS
     },
     {
       name: "DJ for Baraat",
       price: "₹28,999",
       badge: "POPULAR",
       image:
-        "https://i.pinimg.com/1200x/ae/c2/7b/aec27b164fa12b92748ffa1dfe02356b.jpg",
+        "https://i.pinimg.com/736x/c2/a5/ff/c2a5ffd4099b6569d09a7e9e52e629ad.jpg",
+      subCategory: "dj-baraat", // ✅ ADD THIS
     },
   ];
 
@@ -187,6 +212,16 @@ const SikhGroomServicesPage = () => {
     setCurrentSlide(
       (prev) => (prev - 1 + heroSlides.length) % heroSlides.length
     );
+  };
+  // ✅ ADD THESE TWO FUNCTIONS
+  const handleCategoryClick = (subCategory) => {
+    router.push(
+      `/groom/all-services?category=sikh-groom-services&subCategory=${subCategory}`
+    );
+  };
+
+  const handleAllServicesClick = () => {
+    router.push("/groom/all-services?category=sikh-groom-services");
   };
 
   return (
@@ -214,7 +249,10 @@ const SikhGroomServicesPage = () => {
                       {slide.title}
                     </h1>
                     <p className="text-gray-600 mb-6">{slide.subtitle}</p>
-                    <button className="bg-orange-600 text-white px-8 py-3 rounded hover:bg-orange-700 transition-colors">
+                    <button
+                      onClick={handleAllServicesClick}
+                      className="bg-orange-600 text-white px-8 py-3 rounded hover:bg-orange-700 transition-colors cursor-pointer"
+                    >
                       BOOK NOW
                     </button>
                   </div>
@@ -265,6 +303,7 @@ const SikhGroomServicesPage = () => {
                 <div
                   key={index}
                   className="flex-shrink-0 w-40 text-center group cursor-pointer"
+                  onClick={() => handleCategoryClick(category.subCategory)}
                 >
                   <div className="relative mb-4 overflow-hidden rounded-full">
                     <img
@@ -286,9 +325,12 @@ const SikhGroomServicesPage = () => {
       {/* Featured Collections */}
       <div className="max-w-7xl mx-auto px-8 py-16">
         <div className="grid md:grid-cols-2 gap-8">
-          <div className="relative overflow-hidden rounded-lg group cursor-pointer">
+          <div
+            className="relative overflow-hidden rounded-lg group cursor-pointer"
+            onClick={() => handleCategoryClick("groom-makeup")}
+          >
             <img
-              src="https://i.pinimg.com/1200x/7f/4b/31/7f4b31d01b321894de86819d9a02c6cb.jpg"
+              src="https://i.pinimg.com/1200x/2b/6d/f1/2b6df132298c0cb8c001837adf2e79a4.jpg"
               alt="Complete Groom Package"
               className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
             />
@@ -302,9 +344,12 @@ const SikhGroomServicesPage = () => {
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-lg group cursor-pointer">
+          <div
+            className="relative overflow-hidden rounded-lg group cursor-pointer"
+            onClick={handleAllServicesClick}
+          >
             <img
-              src="https://i.pinimg.com/1200x/06/7f/d4/067fd4c520b3eabef52ae39700591352.jpg"
+              src="https://i.pinimg.com/736x/95/99/1b/95991be48633da6a14439544e07a8b39.jpg"
               alt="Premium Services"
               className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
             />
@@ -343,6 +388,7 @@ const SikhGroomServicesPage = () => {
               <div
                 key={index}
                 className="bg-white rounded-lg overflow-hidden group cursor-pointer shadow-sm hover:shadow-xl transition-shadow"
+                onClick={() => handleCategoryClick(service.subCategory)}
               >
                 <div className="relative overflow-hidden">
                   {service.badge && (
@@ -368,10 +414,10 @@ const SikhGroomServicesPage = () => {
             ))}
           </div>
           <div className="text-center">
-            <button className="group mt-12 relative inline-flex items-center gap-3 bg-orange-600 text-white px-12 py-4 rounded-full text-lg font-medium hover:bg-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
-              <span>VIEW ALL ITEMS</span>
-              <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
+            <button
+              onClick={handleAllServicesClick} // ✅ ADD THIS
+              className="group mt-12 relative inline-flex items-center gap-3 bg-orange-600 text-white px-12 py-4 rounded-full text-lg font-medium hover:bg-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+            ></button>
           </div>
         </div>
       </div>

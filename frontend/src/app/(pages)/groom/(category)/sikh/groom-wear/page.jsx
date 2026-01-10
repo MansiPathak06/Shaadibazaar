@@ -14,35 +14,35 @@ const SikhGroomWearPage = () => {
   const categories = [
     {
       name: "Sherwani / Achkan",
-      image: "https://i.pinimg.com/564x/your-image-1.jpg"
+      image: "https://i.pinimg.com/736x/0e/77/b5/0e77b5d168001085c61bb72176f83752.jpg"
     },
     {
       name: "Punjabi Suit",
-      image: "https://i.pinimg.com/564x/your-image-2.jpg"
+      image: "https://i.pinimg.com/1200x/c4/c6/9d/c4c69d1b94ea143e51f805edf965280a.jpg"
     },
     {
       name: "Turban (Pagri)",
-      image: "https://i.pinimg.com/564x/your-image-3.jpg"
+      image: "https://i.pinimg.com/736x/54/db/1f/54db1fc696235044265c8b55f364e1b8.jpg"
     },
     {
       name: "Turban Kalgi",
-      image: "https://i.pinimg.com/564x/your-image-4.jpg"
+      image: "https://i.pinimg.com/736x/66/d3/35/66d3356ac8bf9638bb8833823ba44fbf.jpg"
     },
     {
       name: "Kada",
-      image: "https://i.pinimg.com/564x/your-image-5.jpg"
+      image: "https://i.pinimg.com/736x/cf/2c/13/cf2c13eac1da175ee654b6ec4f287a38.jpg"
     },
     {
       name: "Kirpan",
-      image: "https://i.pinimg.com/564x/your-image-6.jpg"
+      image: "https://i.pinimg.com/736x/9e/09/59/9e09599fd6439a0a97b62936176dbe04.jpg"
     },
     {
       name: "Jutti",
-      image: "https://i.pinimg.com/564x/your-image-7.jpg"
+      image: "https://i.pinimg.com/736x/e5/6b/b2/e56bb254ff06d64471aef33e6feb108f.jpg"
     },
     {
       name: "Stole",
-      image: "https://i.pinimg.com/564x/your-image-8.jpg"
+      image: "https://i.pinimg.com/1200x/4f/35/a3/4f35a3285bbb84eddc70b66a8e0fef9c.jpg"
     }
   ];
 
@@ -63,7 +63,7 @@ const SikhGroomWearPage = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1606800052052-a08af7148866?w=1200')`,
+            backgroundImage: `url('https://i.pinimg.com/736x/98/d4/11/98d411da987db560588cdbb653818900.jpg')`,
           }}
         />
         <div className="absolute inset-0 bg-black/40" />
