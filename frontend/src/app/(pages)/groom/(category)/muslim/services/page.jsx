@@ -11,27 +11,26 @@ const MuslimGroomServicesPage = () => {
    const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // ✅ ADD THIS ENTIRE FUNCTION
-  useEffect(() => {
-    fetchMuslimGroomServices();
-  }, []);
-
-  const fetchMuslimGroomServices = async () => {
-    try {
-      setLoading(true);
-      const { data, error } = await supabase
-        .from('services')
-        .select('*')
-        .eq('vendor_category', 'muslim-groom-services');
-      
-      if (error) throw error;
-      setServices(data || []);
-    } catch (error) {
-      console.error('Error fetching services:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
+ // ✅ REPLACE WITH YOUR API:
+const fetchMuslimGroomServices = async () => {
+  try {
+    setLoading(true);
+    // Use your existing products API with groomwear filters
+    const response = await fetch(
+      `http://localhost:5000/api/products?category=groomwear&religion=muslim`
+    );
+    
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    
+    const result = await response.json();
+    setServices(result.products || []);
+  } catch (error) {
+    console.error('Error fetching services:', error);
+    setServices([]); // Fallback to empty array
+  } finally {
+    setLoading(false);
+  }
+};
 
   // Hero slides data
   const heroSlides = [

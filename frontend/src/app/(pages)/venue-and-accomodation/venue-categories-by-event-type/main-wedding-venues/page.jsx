@@ -8,25 +8,25 @@ const MainWeddingVenuesPage = () => {
   const heroItems = [
     {
       image:
-        "https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg",
+        "https://i.pinimg.com/736x/4f/d1/2c/4fd12ccf0172a46ef835f6a5c855d28a.jpg",
       label: "Mandap Venues",
       slug: "mandap-venues",
     },
     {
       image:
-        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+        "https://i.pinimg.com/1200x/68/1d/a5/681da5f9ddfe3c27a23afc8e0748f049.jpg",
       label: "Reception Venues",
       slug: "reception-venues",
     },
     {
       image:
-        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+        "https://i.pinimg.com/736x/4d/88/4d/4d884d2998702c7545bb3c458a372140.jpg",
       label: "Church Wedding Halls",
       slug: "church-wedding-halls",
     },
     {
       image:
-        "https://i.pinimg.com/736x/67/03/ef/6703ef4b1f4dba26f87a9c1b9f1cd332.jpg",
+        "https://i.pinimg.com/736x/99/e7/40/99e7405621632e8f1b4ba1d2f4a27684.jpg",
       label: "Nikah Halls",
       slug: "nikah-halls",
     },
@@ -44,56 +44,56 @@ const MainWeddingVenuesPage = () => {
       slug: "mandap-venues",
       title: "Mandap Venues",
       image:
-        "https://i.pinimg.com/736x/b1/fd/97/b1fd971d0d42a56c183b6e17077211f3.jpg",
+        "https://i.pinimg.com/736x/4f/d1/2c/4fd12ccf0172a46ef835f6a5c855d28a.jpg",
       accent: "#e91e63",
     },
     {
       slug: "vedi-stage-area",
       title: "Vedi Stage Area",
       image:
-        "https://i.pinimg.com/1200x/33/68/f9/3368f983eeafd946d980c91f15c51c20.jpg",
+        "https://i.pinimg.com/736x/dd/a3/a5/dda3a57566689c8bd4e2b508531c4480.jpg",
       accent: "#3f51b5",
     },
     {
       slug: "nikah-halls",
       title: "Nikah Halls",
       image:
-        "https://i.pinimg.com/1200x/9f/40/f2/9f40f2eb683ab08a3df20f82387e5cfd.jpg",
+        "https://i.pinimg.com/736x/99/e7/40/99e7405621632e8f1b4ba1d2f4a27684.jpg",
       accent: "#ff9800",
     },
     {
       slug: "anand-karaj-gurudwara",
       title: "Anand Karaj Gurudwara",
       image:
-        "https://i.pinimg.com/1200x/52/28/25/522825bf91e8e09c848c9e8d783c9873.jpg",
+        "https://i.pinimg.com/1200x/7e/2f/7e/7e2f7eeef61ba04b268d0334854e07df.jpg",
       accent: "#9c27b0",
     },
     {
       slug: "church-wedding-halls",
       title: "Church Wedding Halls",
       image:
-        "https://i.pinimg.com/736x/ed/be/25/edbe25b54256439d445e5a879930ce55.jpg",
+        "https://i.pinimg.com/736x/4d/88/4d/4d884d2998702c7545bb3c458a372140.jpg",
       accent: "#4caf50",
     },
     {
       slug: "reception-venues",
       title: "Reception Venues",
       image:
-        "https://i.pinimg.com/736x/60/bd/39/60bd394c51249e65e1b1616e1a88ff79.jpg",
+        "https://i.pinimg.com/1200x/68/1d/a5/681da5f9ddfe3c27a23afc8e0748f049.jpg",
       accent: "#03a9f4",
     },
     {
       slug: "baraat-assembly-area",
       title: "Baraat Assembly Area",
       image:
-        "https://i.pinimg.com/1200x/4c/f1/2e/4cf12e29898c1646395e1cb4971f304e.jpg",
+        "https://i.pinimg.com/736x/06/73/27/0673271b1c4e41dcd91fb6174e77a51e.jpg",
       accent: "#ff5722",
     },
     {
       slug: "parking-grounds",
       title: "Parking Grounds",
       image:
-        "https://i.pinimg.com/1200x/4c/f1/2e/4cf12e29898c1646395e1cb4971f304e.jpg",
+        "https://i.pinimg.com/736x/99/ac/87/99ac87e2dc715fa9ab80639e303f3b5d.jpg",
       accent: "#795548",
     },
   ];
@@ -279,7 +279,7 @@ const MainWeddingVenuesPage = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="flex justify-center">
               <img
-                src="https://i.pinimg.com/1200x/65/6b/0e/656b0e4b605f404cb5d5edb30e0b3b76.jpg"
+                src="https://i.pinimg.com/1200x/7d/24/03/7d240384f24378afa83c1b97ab26bbec.jpg"
                 alt="About Wedding Venues"
                 className="rounded-lg shadow-2xl w-78 object-cover"
               />

@@ -1,77 +1,83 @@
 "use client";
 import React, { useState, useRef } from "react";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { Home, ChevronRight as BreadcrumbArrow } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const CeremonyVendorsPage = () => {
+  const router = useRouter();
   const sliderRef = useRef(null);
+
+  // Category map for vendors → actual backend categories
+  const categoryMap = {
+    1: "hindu-priest",
+    2: "mandap-setup",
+    3: "varmala-stage",
+    4: "qazi-nikah",
+    5: "doli-arrangement",
+    6: "walima-setup",
+    7: "granthi-ji",
+    8: "gurudwara-team",
+    9: "pastor-father",
+    10: "church-choir",
+  };
 
   const categories = [
     {
       id: "hindu-priest",
       name: "Hindu Priest",
       image: "https://i.pinimg.com/736x/4f/c9/e5/4fc9e57ee86914ca403440deb889a6ef.jpg",
-      link: "/hindu-priest",
     },
     {
       id: "mandap",
       name: "Mandap Setup",
       image: "https://i.pinimg.com/736x/bf/e4/6d/bfe46d6fc6ca70620a805d803378ade9.jpg",
-      link: "/mandap-setup",
     },
     {
       id: "varmala",
       name: "Varmala Stage",
       image: "https://i.pinimg.com/736x/a0/d9/80/a0d980722acf383c5ba255936ff3dd75.jpg",
-      link: "/varmala-stage",
     },
     {
       id: "qazi",
       name: "Qazi for Nikah",
       image: "https://i.pinimg.com/736x/c4/21/16/c421169e86425e7b64e1ddb32ecd7df2.jpg",
-      link: "/qazi-nikah",
     },
     {
       id: "doli",
       name: "Doli Arrangement",
       image: "https://i.pinimg.com/736x/9a/e5/e2/9ae5e27619bfc853e2aaf441c06a34c9.jpg",
-      link: "/doli-arrangement",
     },
     {
       id: "walima",
       name: "Walima Setup",
       image: "https://i.pinimg.com/474x/1c/d5/f5/1cd5f55c78713f11e7dc4f59c3472678.jpg",
-      link: "/walima-setup",
     },
     {
       id: "granthi",
       name: "Granthi Ji",
       image: "https://i.pinimg.com/1200x/fb/f8/1d/fbf81d100d13c77558205a311d8e29ad.jpg",
-      link: "/granthi-ji",
     },
     {
       id: "gurudwara",
       name: "Gurudwara Team",
       image: "https://i.pinimg.com/736x/53/a4/c8/53a4c8538bc22bb704210d78f4ea07bb.jpg",
-      link: "/gurudwara-team",
     },
     {
       id: "pastor",
       name: "Pastor/Father",
       image: "https://i.pinimg.com/1200x/39/8e/72/398e72d81f8727430338633ce965e8e1.jpg",
-      link: "/pastor-father",
     },
     {
       id: "choir",
       name: "Church Choir",
       image: "https://i.pinimg.com/736x/7b/27/95/7b2795f5ed2601c5639fdd615f4b503c.jpg",
-      link: "/church-choir",
     },
   ];
 
   const vendors = [
     {
       id: 1,
-      category: "hindu",
+      category: "hindu-priest",
       name: "Hindu Priest (Pandit Ji)",
       description:
         "Experienced and knowledgeable priests who conduct traditional Hindu wedding rituals with devotion and authenticity, ensuring every sacred moment is honored",
@@ -79,7 +85,7 @@ const CeremonyVendorsPage = () => {
     },
     {
       id: 2,
-      category: "hindu",
+      category: "mandap-setup",
       name: "Mandap Setup Vendor",
       description:
         "Beautiful and elaborate mandap designs that serve as the sacred centerpiece for your Hindu wedding ceremony, crafted with traditional elements and modern elegance",
@@ -87,7 +93,7 @@ const CeremonyVendorsPage = () => {
     },
     {
       id: 3,
-      category: "hindu",
+      category: "varmala-stage",
       name: "Varmala Stage Vendor",
       description:
         "Stunning varmala exchange stages with artistic designs and floral arrangements, creating the perfect backdrop for this beautiful wedding moment",
@@ -95,7 +101,7 @@ const CeremonyVendorsPage = () => {
     },
     {
       id: 4,
-      category: "muslim",
+      category: "qazi-nikah",
       name: "Qazi for Nikah",
       description:
         "Respected and experienced Qazi who conducts the Nikah ceremony with proper Islamic traditions, guiding couples through this sacred union with wisdom and grace",
@@ -103,7 +109,7 @@ const CeremonyVendorsPage = () => {
     },
     {
       id: 5,
-      category: "muslim",
+      category: "doli-arrangement",
       name: "Doli Arrangement",
       description:
         "Traditional and beautifully decorated doli arrangements for the bride's departure, adding emotional depth and cultural significance to this special moment",
@@ -111,7 +117,7 @@ const CeremonyVendorsPage = () => {
     },
     {
       id: 6,
-      category: "muslim",
+      category: "walima-setup",
       name: "Walima Dinner Setup",
       description:
         "Elegant and sophisticated Walima dinner arrangements with premium décor, seating, and ambiance that celebrates the couple's union with family and friends",
@@ -119,7 +125,7 @@ const CeremonyVendorsPage = () => {
     },
     {
       id: 7,
-      category: "sikh",
+      category: "granthi-ji",
       name: "Granthi Ji",
       description:
         "Dedicated Granthi Ji who performs the Anand Karaj ceremony with spiritual reverence, reciting from the Guru Granth Sahib and blessing the couple's journey together",
@@ -127,7 +133,7 @@ const CeremonyVendorsPage = () => {
     },
     {
       id: 8,
-      category: "sikh",
+      category: "gurudwara-team",
       name: "Gurudwara Coordination Team",
       description:
         "Professional coordination team that manages all aspects of Gurudwara wedding ceremonies, ensuring smooth execution of rituals and comfortable experience for guests",
@@ -135,7 +141,7 @@ const CeremonyVendorsPage = () => {
     },
     {
       id: 9,
-      category: "christian",
+      category: "pastor-father",
       name: "Pastor / Father",
       description:
         "Compassionate and experienced clergy who officiate Christian wedding ceremonies with heartfelt blessings, guiding couples through their sacred vows before God",
@@ -143,7 +149,7 @@ const CeremonyVendorsPage = () => {
     },
     {
       id: 10,
-      category: "christian",
+      category: "church-choir",
       name: "Church Choir",
       description:
         "Talented choir groups that fill your church wedding with beautiful hymns and spiritual music, creating a divine atmosphere for your special ceremony",
@@ -151,21 +157,9 @@ const CeremonyVendorsPage = () => {
     },
   ];
 
-  const scrollSlider = (direction) => {
-    if (sliderRef.current) {
-      const scrollAmount = 200;
-      sliderRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
-    }
-  };
-
-  const handleCategoryClick = (link) => {
-    // In Next.js, you would use: router.push(link)
-    console.log("Navigate to:", link);
-    // For now, just showing an alert
-    alert(`Navigating to ${link}`);
+  const handleCategoryClick = (categoryId) => {
+    // Navigate to your working wedding-vendors/[category] route
+    router.push(`/wedding-vendors/${categoryId}`);
   };
 
   return (
@@ -208,8 +202,8 @@ const CeremonyVendorsPage = () => {
                 {categories.map((cat) => (
                   <button
                     key={`original-${cat.id}`}
-                    onClick={() => handleCategoryClick(cat.link)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item"
+                    onClick={() => handleCategoryClick(cat.id)}
+                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-rose-300">
                       <img
@@ -228,8 +222,8 @@ const CeremonyVendorsPage = () => {
                 {categories.map((cat) => (
                   <button
                     key={`duplicate-${cat.id}`}
-                    onClick={() => handleCategoryClick(cat.link)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item"
+                    onClick={() => handleCategoryClick(cat.id)}
+                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-rose-300">
                       <img
@@ -249,16 +243,35 @@ const CeremonyVendorsPage = () => {
         </div>
       </div>
 
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white border-b border-gray-200 py-3 px-4">
+        <div className="max-w-7xl mx-auto">
+          <nav className="flex items-center space-x-2 text-sm">
+            <button
+              onClick={() => router.push("/")}
+              className="flex items-center gap-1 text-gray-600 hover:text-rose-500 transition-colors cursor-pointer"
+            >
+              <Home className="w-4 h-4" />
+              <span>Home</span>
+            </button>
+            <BreadcrumbArrow className="w-4 h-4 text-gray-400" />
+            <span className="text-rose-500 font-semibold text-lg">
+              Ceremony-Specific Vendors
+            </span>
+          </nav>
+        </div>
+      </div>
+
       {/* Vendors Grid */}
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {vendors.map((vendor) => (
             <div
               key={vendor.id}
-              className="bg-rose-100 rounded-t-full rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 h-full flex flex-col"
+              className="bg-rose-100 rounded-t-full rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 h-full flex flex-col cursor-pointer group"
             >
               {/* Image */}
-              <div className="relative h-50 overflow-hidden group">
+              <div className="relative h-50 overflow-hidden">
                 <img
                   src={vendor.image}
                   alt={vendor.name}
@@ -268,19 +281,22 @@ const CeremonyVendorsPage = () => {
 
               {/* Content + Button */}
               <div className="p-6 flex flex-col flex-1">
-                {/* Text content takes available space */}
                 <div className="flex-1">
-                  <h3 className="text-2xl font-medium text-gray-800 mb-3 text-center">
+                  <h3 className="text-2xl font-medium text-gray-800 mb-3 text-center group-hover:text-rose-500 transition-colors">
                     {vendor.name}
                   </h3>
-
-                  <h3 className="text-sm font-normal text-gray-800 mb-3">
+                  <p className="text-sm font-normal text-gray-800 mb-3">
                     {vendor.description}
-                  </h3>
+                  </p>
                 </div>
 
                 {/* Button stays at bottom */}
-                <button className="w-full mt-6 bg-gradient-to-r from-rose-400 to-pink-500 text-white py-3 rounded-lg hover:from-rose-500 hover:to-pink-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg">
+                <button
+                  onClick={() => {
+                    router.push(`/wedding-vendors/${categoryMap[vendor.id]}`);
+                  }}
+                  className="w-full mt-6 bg-gradient-to-r from-rose-400 to-pink-500 text-white py-3 rounded-lg hover:from-rose-500 hover:to-pink-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg cursor-pointer"
+                >
                   View All →
                 </button>
               </div>
@@ -290,15 +306,6 @@ const CeremonyVendorsPage = () => {
       </div>
 
       <style jsx>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-        .line-clamp-3 {
-          display: -webkit-box;
-          -webkit-line-clamp: 3;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
         @keyframes scroll {
           0% {
             transform: translateX(0);
@@ -307,11 +314,9 @@ const CeremonyVendorsPage = () => {
             transform: translateX(-50%);
           }
         }
-
         .animate-scroll {
           animation: scroll 10s linear infinite;
         }
-
         .pause-animation:hover {
           animation-play-state: paused;
         }

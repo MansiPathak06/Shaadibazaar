@@ -4,10 +4,10 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { Star, Filter, X, Loader2, ChevronRight, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
 
-export default function GroomAllServicesPage() {
+export default function BridalAllServicesPage() {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const category = searchParams.get("category") || "groom-services";
+  const category = searchParams.get("category") || "hindu-bridal-services";
   const subCategory = searchParams.get("subCategory") || "";
   const featured = searchParams.get("featured");
 
@@ -18,55 +18,84 @@ export default function GroomAllServicesPage() {
   const [sortBy, setSortBy] = useState("featured");
   const [showFilters, setShowFilters] = useState(false);
 
-  // ✅ FIXED: Correct category mapping for Muslim/Hindu
-const getVendorCategory = (categoryParam) => {
-  if (categoryParam === "muslim-groom-services") return "muslim-groom-services";
-  if (categoryParam === "hindu-groom-services") return "hindu-groom-services";
-  if (categoryParam === "sikh-groom-services") return "sikh-groom-services";
-  if (categoryParam === "christian-groom-services") return "christian-groom-services"; // ✅ ADD THIS
-  return "groom-services";
-};
+  // ✅ Category mapping for Hindu/Muslim bridal services
+  const getVendorCategory = (categoryParam) => {
+    if (categoryParam === "muslim-bridal-services") return "muslim-bridal-services";
+    if (categoryParam === "hindu-bridal-services") return "hindu-bridal-services";
+    if (categoryParam === "christian-bridal-services") return "christian-bridal-services";
+    if (categoryParam === "sikh-bridal-services") return "sikh-bridal-services";
+    if (categoryParam === "pre-wedding-services") return "pre-wedding-services";
 
+    return "hindu-bridal-services";
+  };
 
-// ✅ ADD THIS NEW FUNCTION
-const getSubCategories = () => {
-  if (category === "muslim-groom-services") {
-    return [
-      { value: "", label: "All Muslim Groom Services", count: services.length },
-      { value: "groom-makeover", label: "Groom Makeover", count: services.filter(s => s.sub_category === "groom-makeover").length },
-      { value: "beard-styling", label: "Beard Styling", count: services.filter(s => s.sub_category === "beard-styling").length },
-      { value: "arabic-henna", label: "Arabic Henna", count: services.filter(s => s.sub_category === "arabic-henna").length },
-      { value: "groom-photoshoot", label: "Groom Photoshoot", count: services.filter(s => s.sub_category === "groom-photoshoot").length },
-      { value: "car-decoration", label: "Car Decoration", count: services.filter(s => s.sub_category === "car-decoration").length },
-      { value: "baraat-management", label: "Baraat Management", count: services.filter(s => s.sub_category === "baraat-management").length },
-    ];
-  } else if (category === "christian-groom-services") {
-    return [
-      { value: "", label: "All Christian Groom Services", count: services.length },
-      { value: "groom-styling", label: "Groom Styling", count: services.filter(s => s.sub_category === "groom-styling").length },
-      { value: "suit-fitting", label: "Suit Fitting", count: services.filter(s => s.sub_category === "suit-fitting").length },
-      { value: "groom-portrait", label: "Groom Portrait Shoot", count: services.filter(s => s.sub_category === "groom-portrait").length },
-      { value: "choir-band", label: "Choir / Band", count: services.filter(s => s.sub_category === "choir-band").length },
-    ];
-  } else {
-    // Hindu groom services
-    return [
-      { value: "", label: "All Hindu Groom Services", count: services.length },
-      { value: "groom-makeup", label: "Groom Makeup", count: services.filter(s => s.sub_category === "groom-makeup").length },
-      { value: "hairstyling", label: "Hairstyling", count: services.filter(s => s.sub_category === "hairstyling").length },
-      { value: "beard-trim-shave", label: "Beard Trim/Shave", count: services.filter(s => s.sub_category === "beard-trim-shave").length },
-      { value: "ubtan-session", label: "Ubtan Session", count: services.filter(s => s.sub_category === "ubtan-session").length },
-      { value: "groom-photoshoot", label: "Groom Photoshoot", count: services.filter(s => s.sub_category === "groom-photoshoot").length },
-      { value: "turban-tying", label: "Turban Tying", count: services.filter(s => s.sub_category === "turban-tying").length },
-      { value: "sehra-tying", label: "Sehra Tying", count: services.filter(s => s.sub_category === "sehra-tying").length },
-      { value: "ghodi-decoration", label: "Ghodi Decoration", count: services.filter(s => s.sub_category === "ghodi-decoration").length },
-      { value: "band-baja", label: "Band-Baja", count: services.filter(s => s.sub_category === "band-baja").length },
-      { value: "dj-baraat", label: "DJ for Baraat", count: services.filter(s => s.sub_category === "dj-baraat").length },
-    ];
-  }
-};
+  // ✅ DYNAMIC SUBCATEGORIES based on category type
+  const getSubCategories = () => {
+    if (category === "muslim-bridal-services") {
+      return [
+        { value: "", label: "All Muslim Bridal Services", count: services.length },
+        { value: "bridal-makeover", label: "Bridal Makeover", count: services.filter(s => s.sub_category === "bridal-makeover").length },
+        { value: "arabic-henna", label: "Arabic Henna", count: services.filter(s => s.sub_category === "arabic-henna").length },
+        { value: "hijab-styling", label: "Hijab Styling", count: services.filter(s => s.sub_category === "hijab-styling").length },
+        { value: "bridal-photoshoot", label: "Bridal Photoshoot", count: services.filter(s => s.sub_category === "bridal-photoshoot").length },
+        { value: "pre-bridal-care", label: "Pre-Bridal Care", count: services.filter(s => s.sub_category === "pre-bridal-care").length },
+        { value: "stage-decoration", label: "Stage Decoration", count: services.filter(s => s.sub_category === "stage-decoration").length },
+        { value: "car-decoration", label: "Car Decoration", count: services.filter(s => s.sub_category === "car-decoration").length },
+      ];
+    } else if (category === "christian-bridal-services") {
+      return [
+        { value: "", label: "All Christian Bridal Services", count: services.length },
+        { value: "bridal-makeup", label: "Bridal Makeup", count: services.filter(s => s.sub_category === "bridal-makeup").length },
+        { value: "gown-tailoring", label: "Gown Tailoring", count: services.filter(s => s.sub_category === "gown-tailoring").length },
+        { value: "manicure-nails", label: "Manicure and Nails", count: services.filter(s => s.sub_category === "manicure-nails").length },
+        { value: "bridal-photoshoot", label: "Bridal Photoshoot", count: services.filter(s => s.sub_category === "bridal-photoshoot").length },
+        { value: "church-choir", label: "Church-Choir", count: services.filter(s => s.sub_category === "church-choir").length },
+        { value: "wedding-planner", label: "Wedding Planner", count: services.filter(s => s.sub_category === "wedding-planner").length },
 
-const subCategories = getSubCategories();
+      ];
+    } else if (category === "sikh-bridal-services") {
+      return [
+        { value: "", label: "All Sikh Bridal Services", count: services.length },
+       
+        { value: "chooda-ceremony", label: "Chooda-ceremony", count: services.filter(s => s.sub_category === "chooda-ceremony").length },
+        { value: "kaleera-photoshoot", label: "Kaleera Photoshoot", count: services.filter(s => s.sub_category === "kaleera-photoshoot").length },
+        { value: "mehendi-artist", label: "Mehendi Artist", count: services.filter(s => s.sub_category === "mehendi-artist").length },
+        { value: "hair-accessories", label: "Hair ACcessories", count: services.filter(s => s.sub_category === "hair-accessories").length },
+        { value: "doli-arrangement", label: "Doli Arrangement", count: services.filter(s => s.sub_category === "doli-arrangement").length },
+        { value: "bhangra-team", label: "Bhangra Team", count: services.filter(s => s.sub_category === "bhangra-team").length },
+        { value: "bridal-makeup", label: "Bridal Makeup", count: services.filter(s => s.sub_category === "bridal-makeup").length },
+      ];
+    } else if (category === "pre-wedding-services") {
+    return [
+      { value: "", label: "All Pre-Wedding Services", count: services.length },
+      { value: "pre-bridal-package", label: "Pre-Bridal Package", count: services.filter(s => s.sub_category === "pre-bridal-package").length },
+      { value: "spa-services", label: "Spa Services", count: services.filter(s => s.sub_category === "spa-services").length },
+      { value: "facial-treatments", label: "Facial Treatments", count: services.filter(s => s.sub_category === "facial-treatments").length },
+      { value: "manicure-pedicure", label: "Manicure & Pedicure", count: services.filter(s => s.sub_category === "manicure-pedicure").length },
+      { value: "nail-extensions", label: "Nail Extensions", count: services.filter(s => s.sub_category === "nail-extensions").length },
+      { value: "hair-coloring", label: "Hair Coloring", count: services.filter(s => s.sub_category === "hair-coloring").length },
+    ];
+
+}
+    else {
+      // Hindu bridal services (default)
+      return [
+        { value: "", label: "All Hindu Bridal Services", count: services.length },
+        { value: "bridal-makeup", label: "Bridal Makeup (HD/Airbrush)", count: services.filter(s => s.sub_category === "bridal-makeup").length },
+        { value: "bridal-hairstyle", label: "Bridal Hairstyle", count: services.filter(s => s.sub_category === "bridal-hairstyle").length },
+        { value: "mehendi-artist", label: "Mehendi Artist", count: services.filter(s => s.sub_category === "mehendi-artist").length },
+        { value: "pre-bridal-package", label: "Pre-Bridal Package", count: services.filter(s => s.sub_category === "pre-bridal-package").length },
+        { value: "spa-facial", label: "Spa & Facial", count: services.filter(s => s.sub_category === "spa-facial").length },
+        { value: "ubtan-ceremony", label: "Ubtan Ceremony Setup", count: services.filter(s => s.sub_category === "ubtan-ceremony").length },
+        { value: "bridal-photoshoot", label: "Bridal Photoshoot", count: services.filter(s => s.sub_category === "bridal-photoshoot").length },
+        { value: "saree-draping", label: "Saree Draping Artist", count: services.filter(s => s.sub_category === "saree-draping").length },
+        { value: "lehenga-pinning", label: "Lehenga Pinning Expert", count: services.filter(s => s.sub_category === "lehenga-pinning").length },
+      ];
+    }
+  };
+
+  const subCategories = getSubCategories();
+
   // ✅ FIXED API call with correct vendor_category
   useEffect(() => {
     fetchServices();
@@ -81,13 +110,13 @@ const subCategories = getSubCategories();
       let url = `http://localhost:5000/api/services?vendor_category=${vendorCategory}`;
       
       if (subCategory) {
-        url += `&sub_category=${subCategory}`; // ✅ FIXED: sub_category (not subCategory)
+        url += `&sub_category=${subCategory}`;
       }
       if (featured) {
         url += `&featured=true`;
       }
 
-      console.log("🔍 API URL:", url); // Debug log
+      console.log("🔍 API URL:", url);
 
       const response = await fetch(url);
       const data = await response.json();
@@ -104,48 +133,7 @@ const subCategories = getSubCategories();
       setLoading(false);
     }
   };
-  // ✅ ADD THIS ENTIRE FUNCTION
-const getCategoryInfo = () => {
-  switch (category) {
-    case "muslim-groom-services":
-      return {
-        displayName: "Muslim Groom Services",
-        isMuslim: true,
-        isHindu: false,
-        isChristian: false,
-        primaryColor: "green",
-        gradientFrom: "from-green-50",
-        gradientTo: "to-emerald-50",
-        headerGradient: "from-green-900 to-emerald-900",
-        accentColor: "emerald"
-      };
-    case "christian-groom-services":
-      return {
-        displayName: "Christian Groom Services",
-        isMuslim: false,
-        isHindu: false,
-        isChristian: true,
-        primaryColor: "blue",
-        gradientFrom: "from-blue-50",
-        gradientTo: "to-indigo-50",
-        headerGradient: "from-blue-900 to-indigo-900",
-        accentColor: "blue"
-      };
-    default: // hindu-groom-services
-      return {
-        displayName: "Hindu Groom Services",
-        isMuslim: false,
-        isHindu: true,
-        isChristian: false,
-        primaryColor: "orange",
-        gradientFrom: "from-amber-50",
-        gradientTo: "to-orange-50",
-        headerGradient: "from-orange-900 to-red-900",
-        accentColor: "amber"
-      };
-  }
-};
-const categoryInfo = getCategoryInfo();
+
   // Filter and Sort Services
   const filteredServices = services
     .filter((service) => {
@@ -168,47 +156,116 @@ const categoryInfo = getCategoryInfo();
 
   const currentSubCategory = subCategories.find((sub) => sub.value === subCategory);
 
-  // const isMuslimServices = category === "muslim-groom-services";
-  
-// ✅ ADD THIS NEW CODE
-const getBreadcrumbHref = () => {
-  if (category === "muslim-groom-services") return "/groom/muslim/services";
-  if (category === "christian-groom-services") return "/groom/christian/services";
-  return "/groom/hindu/services";
-};
+  // ✅ Dynamic theming based on category
+  const isMuslimServices = category === "muslim-bridal-services";
+  const isChristianServices = category === "christian-bridal-services";
+  const isSikhServices = category === "sikh-bridal-services";
+  const isPreWeddingServices = category === "pre-wedding-services";
 
-const breadcrumbs = [
-  { label: "Home", href: "/" },
-  { 
-    label: categoryInfo.displayName, 
-    href: getBreadcrumbHref() 
-  },
-];
+  
+  const getThemeColors = () => {
+    if (isMuslimServices) {
+      return {
+        gradient: "from-green-50 to-emerald-50",
+        headerGradient: "from-green-900 to-emerald-900",
+        accent: "text-emerald-300",
+        accentDark: "text-emerald-200",
+        button: "bg-green-600 hover:bg-green-700",
+        selected: "bg-green-100 text-green-900 border-green-300",
+        ring: "green",
+      };
+    } else if (isChristianServices) {
+      return {
+        gradient: "from-blue-50 to-indigo-50",
+        headerGradient: "from-blue-900 to-indigo-900",
+        accent: "text-blue-300",
+        accentDark: "text-blue-200",
+        button: "bg-blue-600 hover:bg-blue-700",
+        selected: "bg-blue-100 text-blue-900 border-blue-300",
+        ring: "blue",
+      };
+    } else if (isSikhServices) {
+      return {
+        gradient: "from-orange-50 to-yellow-50",
+        headerGradient: "from-orange-900 to-yellow-900",
+        accent: "text-orange-300",
+        accentDark: "text-orange-200",
+        button: "bg-orange-600 hover:bg-orange-700",
+        selected: "bg-orange-100 text-orange-900 border-orange-300",
+        ring: "orange",
+      };
+    } else if (isPreWeddingServices) {
+    return {
+      gradient: "from-purple-50 to-pink-50",
+      headerGradient: "from-purple-900 to-pink-900",
+      accent: "text-purple-300",
+      accentDark: "text-purple-200",
+      button: "bg-purple-600 hover:bg-purple-700",
+      selected: "bg-purple-100 text-purple-900 border-purple-300",
+      ring: "purple",
+    };
+}
+    else {
+      // Hindu (default - amber/orange theme)
+      return {
+        gradient: "from-amber-50 to-orange-50",
+        headerGradient: "from-orange-900 to-red-900",
+        accent: "text-amber-300",
+        accentDark: "text-amber-200",
+        button: "bg-amber-600 hover:bg-amber-700",
+        selected: "bg-orange-100 text-orange-900 border-orange-300",
+        ring: "amber",
+      };
+    }
+  };
+
+  const theme = getThemeColors();
+
+  const getCategoryLabel = () => {
+    if (isPreWeddingServices) return "Pre-Wedding Services";
+    if (isMuslimServices) return "Muslim Bridal Services";
+    if (isChristianServices) return "Christian Bridal Services";
+    if (isSikhServices) return "Sikh Bridal Services";
+    return "Hindu Bridal Services";
+  };
+
+  const getCategoryPath = () => {
+    if (isPreWeddingServices) return "/bride/pre-wedding";
+    if (isMuslimServices) return "/bride/muslim-bridal-services";
+    if (isChristianServices) return "/bride/christian-bridal-services";
+    if (isSikhServices) return "/bride/sikh-bridal-services";
+    return "/bride/hindu-bridal-services";
+  };
+  
+  const breadcrumbs = [
+    { label: "Home", href: "/" },
+    { label: getCategoryLabel(), href: getCategoryPath() },
+  ];
 
   if (subCategory && currentSubCategory) {
     breadcrumbs.push({ label: currentSubCategory.label, href: "#" });
   }
 
   return (
-   <div className={`min-h-screen bg-gradient-to-b ${categoryInfo.gradientFrom} ${categoryInfo.gradientTo}`}>
+    <div className={`min-h-screen bg-gradient-to-b ${theme.gradient}`}>
       {/* Header */}
-     <div className={`text-white py-8 bg-gradient-to-r ${categoryInfo.headerGradient}`}>
+      <div className={`text-white py-8 bg-gradient-to-r ${theme.headerGradient}`}>
         <div className="container mx-auto px-4">
           <nav className="flex items-center space-x-2 text-sm mb-4 flex-wrap">
             {breadcrumbs.map((crumb, index) => (
               <React.Fragment key={index}>
                 {index > 0 && (
-                 <ChevronRight className={`w-4 h-4 text-${categoryInfo.accentColor}-300`} />
+                  <ChevronRight className={`w-4 h-4 ${theme.accent}`} />
                 )}
                 {index === breadcrumbs.length - 1 ? (
-                  <span className={`font-medium text-${categoryInfo.accentColor}-200`}>
+                  <span className={`font-medium ${theme.accentDark}`}>
                     {crumb.label}
                   </span>
                 ) : (
-                 <Link
-  href={crumb.href}
-  className={`hover:text-white transition-colors text-${categoryInfo.accentColor}-100`}
->
+                  <Link
+                    href={crumb.href}
+                    className={`hover:text-white transition-colors ${theme.accentDark}`}
+                  >
                     {crumb.label}
                   </Link>
                 )}
@@ -216,10 +273,10 @@ const breadcrumbs = [
             ))}
           </nav>
 
-        <h1 className="text-4xl font-bold mb-2">
-  {currentSubCategory?.label || categoryInfo.displayName}
-</h1>
-          <p className={`text-${categoryInfo.accentColor}-200`}>
+          <h1 className="text-4xl font-bold mb-2">
+            {currentSubCategory?.label || getCategoryLabel()}
+          </h1>
+          <p className={theme.accentDark}>
             {filteredServices.length} services available
           </p>
         </div>
@@ -232,21 +289,21 @@ const breadcrumbs = [
             <div className="bg-white rounded-lg shadow-md p-6 sticky top-4">
               <h3 className="text-lg font-bold text-gray-900 mb-4">Filters</h3>
 
-              {/* ✅ FIXED Service Type with counts + hover */}
+              {/* Service Type with counts */}
               <div className="mb-6">
                 <h4 className="font-semibold text-gray-800 mb-3">Service Type</h4>
                 <div className="space-y-2 max-h-96 overflow-y-auto">
                   {subCategories.map((sub) => (
                     <Link
                       key={sub.value}
-                      href={`/groom/all-services?category=${category}${
+                      href={`/bride/all-services?category=${category}${
                         sub.value ? `&subCategory=${sub.value}` : ""
                       }`}
-                    className={`block px-3 py-2 rounded-lg transition-all duration-200 text-sm group hover:shadow-md ${
-  subCategory === sub.value
-    ? `bg-${categoryInfo.primaryColor}-100 text-${categoryInfo.primaryColor}-900 font-bold shadow-md border-2 border-${categoryInfo.primaryColor}-300`
-    : "text-gray-700 hover:bg-gray-50 hover:text-gray-900"
-}`}
+                      className={`block px-3 py-2 rounded-lg transition-all duration-200 text-sm group hover:shadow-md ${
+                        subCategory === sub.value
+                          ? `${theme.selected} font-bold shadow-md border-2`
+                          : "text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+                      }`}
                     >
                       <span>{sub.label}</span>
                       <span className={`ml-2 text-xs opacity-75 ${
@@ -259,7 +316,7 @@ const breadcrumbs = [
                 </div>
               </div>
 
-              {/* Price Range + Sort - SAME */}
+              {/* Price Range */}
               <div className="mb-6">
                 <h4 className="font-semibold text-gray-800 mb-3">Price Range</h4>
                 <div className="space-y-3">
@@ -270,7 +327,7 @@ const breadcrumbs = [
                     step="1000"
                     value={priceRange[1]}
                     onChange={(e) => setPriceRange([0, parseInt(e.target.value)])}
-                    className={`w-full accent-${categoryInfo.primaryColor}-600`}
+                    className={`w-full accent-${theme.ring}-600`}
                   />
                   <div className="flex justify-between text-sm text-gray-600">
                     <span>₹0</span>
@@ -279,12 +336,13 @@ const breadcrumbs = [
                 </div>
               </div>
 
+              {/* Sort By */}
               <div>
                 <h4 className="font-semibold text-gray-800 mb-3">Sort By</h4>
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                 className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-${categoryInfo.primaryColor}-500 focus:border-transparent text-sm`}
+                  className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-${theme.ring}-500 focus:border-transparent text-sm`}
                 >
                   <option value="featured">Featured</option>
                   <option value="price-low">Price: Low to High</option>
@@ -295,14 +353,15 @@ const breadcrumbs = [
             </div>
           </aside>
 
-          {/* Mobile Filter Button + Main Content - SAME AS BEFORE */}
+          {/* Mobile Filter Button */}
           <button
             onClick={() => setShowFilters(!showFilters)}
-           className={`lg:hidden fixed bottom-6 right-6 z-50 text-white p-4 rounded-full shadow-lg hover:shadow-xl bg-${categoryInfo.primaryColor}-600 hover:bg-${categoryInfo.primaryColor}-700`}
+            className={`lg:hidden fixed bottom-6 right-6 z-50 text-white p-4 rounded-full shadow-lg hover:shadow-xl ${theme.button}`}
           >
             <Filter className="w-6 h-6" />
           </button>
 
+          {/* Main Content */}
           <main className="flex-1 lg:ml-0">
             <div className="bg-white rounded-lg shadow-md p-4 mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
               <p className="text-gray-600">
@@ -311,7 +370,7 @@ const breadcrumbs = [
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className={`lg:hidden px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-${categoryInfo.primaryColor}-500 text-sm`}
+                className={`lg:hidden px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-${theme.ring}-500 text-sm`}
               >
                 <option value="featured">Featured</option>
                 <option value="price-low">Price: Low to High</option>
@@ -322,7 +381,7 @@ const breadcrumbs = [
 
             {loading && (
               <div className="flex justify-center items-center py-20">
-               <Loader2 className={`w-12 h-12 animate-spin text-${categoryInfo.primaryColor}-600`} />
+                <Loader2 className={`w-12 h-12 animate-spin ${theme.button.split(' ')[0]}`} />
               </div>
             )}
 
@@ -340,8 +399,8 @@ const breadcrumbs = [
                       No services found for "{currentSubCategory?.label || 'this category'}"
                     </p>
                     <Link
-                      href={`/groom/all-services?category=${category}`}
-                   className={`inline-block px-6 py-3 text-white rounded-lg transition-colors bg-${categoryInfo.primaryColor}-600 hover:bg-${categoryInfo.primaryColor}-700`}
+                      href={`/bride/all-services?category=${category}`}
+                      className={`inline-block px-6 py-3 text-white rounded-lg transition-colors ${theme.button}`}
                     >
                       View All Services
                     </Link>
@@ -350,7 +409,7 @@ const breadcrumbs = [
                   filteredServices.map((service) => (
                     <Link
                       key={service.id}
-                      href={`/groom/service/${service.id}`}
+                      href={`/bride/service/${service.id}`}
                       className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group"
                     >
                       <div className="aspect-[4/3] overflow-hidden relative bg-gray-100">
@@ -396,7 +455,7 @@ const breadcrumbs = [
                         <div className="flex items-baseline gap-2 pt-2 border-t">
                           {service.starting_price ? (
                             <>
-                              <span className={`text-lg font-bold text-${categoryInfo.primaryColor}-600`}>
+                              <span className={`text-lg font-bold ${theme.button.split(' ')[0]}`}>
                                 ₹{parseInt(service.starting_price).toLocaleString()}
                               </span>
                               <span className="text-sm text-gray-500">onwards</span>
@@ -415,7 +474,7 @@ const breadcrumbs = [
         </div>
       </div>
 
-      {/* Mobile Filters Modal - SAME with counts */}
+      {/* Mobile Filters Modal */}
       {showFilters && (
         <div className="lg:hidden fixed inset-0 bg-black/50 z-50">
           <div className="bg-white w-80 h-full overflow-y-auto p-6">
@@ -432,15 +491,15 @@ const breadcrumbs = [
                   {subCategories.map((sub) => (
                     <Link
                       key={sub.value}
-                      href={`/groom/all-services?category=${category}${
+                      href={`/bride/all-services?category=${category}${
                         sub.value ? `&subCategory=${sub.value}` : ""
                       }`}
                       onClick={() => setShowFilters(false)}
-                    className={`block px-3 py-2 rounded-lg text-sm transition-all duration-200 ${
-  subCategory === sub.value
-    ? `bg-${categoryInfo.primaryColor}-100 text-${categoryInfo.primaryColor}-900 font-bold shadow-md`
-    : "text-gray-700 hover:bg-gray-50 hover:text-gray-900 hover:shadow-md"
-}`}
+                      className={`block px-3 py-2 rounded-lg text-sm transition-all duration-200 ${
+                        subCategory === sub.value
+                          ? `${theme.selected} font-bold shadow-md`
+                          : "text-gray-700 hover:bg-gray-50 hover:text-gray-900 hover:shadow-md"
+                      }`}
                     >
                       <span>{sub.label}</span>
                       <span className="ml-2 text-xs opacity-75">({sub.count})</span>
@@ -457,7 +516,7 @@ const breadcrumbs = [
                   step="1000"
                   value={priceRange[1]}
                   onChange={(e) => setPriceRange([0, parseInt(e.target.value)])}
-                  className={`w-full accent-${categoryInfo.primaryColor}-600`}
+                  className={`w-full accent-${theme.ring}-600`}
                 />
                 <div className="flex justify-between text-sm text-gray-600 mt-2">
                   <span>₹0</span>

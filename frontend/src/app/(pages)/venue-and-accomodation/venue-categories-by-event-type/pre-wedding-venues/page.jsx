@@ -8,25 +8,25 @@ const PreWeddingVenuesPage = () => {
   const heroItems = [
     {
       image:
-        "https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg",
+        "https://i.pinimg.com/736x/b8/2b/ef/b82bef9e2ef633c3a8f93a0d01c0b236.jpg",
       label: "Roka Venue",
       slug: "roka-venue",
     },
     {
       image:
-        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+        "https://i.pinimg.com/736x/f9/10/ee/f910eefd37ac4b65ae695d5a2499778b.jpg",
       label: "Engagement Hall",
       slug: "engagement-hall",
     },
     {
       image:
-        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+        "https://i.pinimg.com/1200x/db/17/f9/db17f9c69ab3e0acc0dbac3ada0262cd.jpg",
       label: "Haldi Venue",
       slug: "haldi-venue",
     },
     {
       image:
-        "https://i.pinimg.com/736x/67/03/ef/6703ef4b1f4dba26f87a9c1b9f1cd332.jpg",
+        "https://i.pinimg.com/1200x/49/9e/73/499e738d8937574d784cb98b23667afa.jpg",
       label: "Mehendi Venue",
       slug: "mehendi-venue",
     },
@@ -44,49 +44,49 @@ const PreWeddingVenuesPage = () => {
       slug: "roka-venue",
       title: "Roka Venue",
       image:
-        "https://i.pinimg.com/736x/b1/fd/97/b1fd971d0d42a56c183b6e17077211f3.jpg",
+        "https://i.pinimg.com/736x/b8/2b/ef/b82bef9e2ef633c3a8f93a0d01c0b236.jpg",
       accent: "#e91e63",
     },
     {
       slug: "engagement-hall",
       title: "Engagement Hall",
       image:
-        "https://i.pinimg.com/1200x/33/68/f9/3368f983eeafd946d980c91f15c51c20.jpg",
+        "https://i.pinimg.com/736x/f9/10/ee/f910eefd37ac4b65ae695d5a2499778b.jpg",
       accent: "#3f51b5",
     },
     {
       slug: "haldi-venue",
       title: "Haldi Venue",
       image:
-        "https://i.pinimg.com/1200x/9f/40/f2/9f40f2eb683ab08a3df20f82387e5cfd.jpg",
+        "https://i.pinimg.com/1200x/db/17/f9/db17f9c69ab3e0acc0dbac3ada0262cd.jpg",
       accent: "#ff9800",
     },
     {
       slug: "mehendi-venue",
       title: "Mehendi Venue",
       image:
-        "https://i.pinimg.com/1200x/52/28/25/522825bf91e8e09c848c9e8d783c9873.jpg",
+        "https://i.pinimg.com/736x/df/f6/0a/dff60a5173a75d5f2e464b2b62ffe54e.jpg",
       accent: "#9c27b0",
     },
     {
       slug: "sangeet-banquet",
       title: "Sangeet Banquet",
       image:
-        "https://i.pinimg.com/736x/ed/be/25/edbe25b54256439d445e5a879930ce55.jpg",
+        "https://i.pinimg.com/736x/f9/d3/0f/f9d30f07fc9623c70940b78b1eb34112.jpg",
       accent: "#4caf50",
     },
     {
       slug: "cocktail-party-venues",
       title: "Cocktail Party Venues",
       image:
-        "https://i.pinimg.com/736x/60/bd/39/60bd394c51249e65e1b1616e1a88ff79.jpg",
+        "https://i.pinimg.com/1200x/08/d2/95/08d2955f0833205a81d1f672528693ee.jpg",
       accent: "#03a9f4",
     },
     {
       slug: "bachelor-bachelorette-venues",
       title: "Bachelor/Bachelorette Venues",
       image:
-        "https://i.pinimg.com/1200x/4c/f1/2e/4cf12e29898c1646395e1cb4971f304e.jpg",
+        "https://i.pinimg.com/1200x/b7/43/36/b74336b18b5745505e6c29955189f108.jpg",
       accent: "#ff5722",
     },
   ];
@@ -266,7 +266,7 @@ const PreWeddingVenuesPage = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="flex justify-center">
               <img
-                src="https://i.pinimg.com/1200x/65/6b/0e/656b0e4b605f404cb5d5edb30e0b3b76.jpg"
+                src="https://i.pinimg.com/736x/c7/48/d8/c748d89a904ea664b56ccc51687898bd.jpg"
                 alt="About Pre-Wedding Venues"
                 className="rounded-lg shadow-2xl w-78 object-cover"
               />

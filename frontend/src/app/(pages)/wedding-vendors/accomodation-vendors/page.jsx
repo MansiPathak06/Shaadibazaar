@@ -10,35 +10,35 @@ const AccommodationVendorsPage = () => {
       id: "hotel",
       name: "Hotel Booking Agents",
       image:
-        "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400",
+        "https://i.pinimg.com/736x/55/e8/cd/55e8cdd2f3fe64fe237433e3c40f5e89.jpg",
       link: "/hotel-booking",
     },
     {
       id: "guesthouse",
       name: "Guest House Provider",
       image:
-        "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=400",
+        "https://i.pinimg.com/1200x/28/a1/55/28a1552cf058234d49c76e3b99fec34a.jpg",
       link: "/guest-house",
     },
     {
       id: "resort",
       name: "Resort Booking",
       image:
-        "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400",
+        "https://i.pinimg.com/736x/80/f2/8c/80f28c830d9d9ed05cac8db7d5e9e4b5.jpg",
       link: "/resort-booking",
     },
     {
       id: "villa",
       name: "Villa / Farmhouse Provider",
       image:
-        "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=400",
+        "https://i.pinimg.com/736x/9b/83/6a/9b836a37fb82f8f033e8969d4d212715.jpg",
       link: "/villa-farmhouse",
     },
     {
       id: "homestay",
       name: "Homestay Vendor",
       image:
-        "https://images.unsplash.com/photo-1566195992011-5f6b21e539ce?w=400",
+        "https://i.pinimg.com/1200x/6e/96/b3/6e96b315b680544797ce031a60257e5f.jpg",
       link: "/homestay",
     },
   ];
@@ -51,7 +51,7 @@ const AccommodationVendorsPage = () => {
       description:
         "Professional hotel booking services offering luxurious accommodations with world-class amenities for your wedding guests",
       image:
-        "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400",
+        "https://i.pinimg.com/736x/55/e8/cd/55e8cdd2f3fe64fe237433e3c40f5e89.jpg",
     },
     {
       id: 2,
@@ -60,7 +60,7 @@ const AccommodationVendorsPage = () => {
       description:
         "Comfortable and cozy guest house arrangements providing homely atmosphere and personalized service for your guests",
       image:
-        "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=400",
+        "https://i.pinimg.com/1200x/28/a1/55/28a1552cf058234d49c76e3b99fec34a.jpg",
     },
     {
       id: 3,
@@ -69,7 +69,7 @@ const AccommodationVendorsPage = () => {
       description:
         "Exclusive resort bookings with breathtaking views and premium facilities to make your wedding celebration memorable",
       image:
-        "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400",
+        "https://i.pinimg.com/736x/80/f2/8c/80f28c830d9d9ed05cac8db7d5e9e4b5.jpg",
     },
     {
       id: 4,
@@ -78,7 +78,7 @@ const AccommodationVendorsPage = () => {
       description:
         "Spacious villas and farmhouses offering privacy and elegance with beautiful landscapes for intimate celebrations",
       image:
-        "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=400",
+        "https://i.pinimg.com/736x/9b/83/6a/9b836a37fb82f8f033e8969d4d212715.jpg",
     },
     {
       id: 5,
@@ -87,7 +87,7 @@ const AccommodationVendorsPage = () => {
       description:
         "Authentic homestay experiences providing warm hospitality and local charm for guests seeking a personal touch",
       image:
-        "https://images.unsplash.com/photo-1566195992011-5f6b21e539ce?w=400",
+        "https://i.pinimg.com/1200x/6e/96/b3/6e96b315b680544797ce031a60257e5f.jpg",
     },
     
   ];

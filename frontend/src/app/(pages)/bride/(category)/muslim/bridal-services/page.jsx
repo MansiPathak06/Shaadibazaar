@@ -1,8 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const MuslimBridalServicesPage = () => {
+  const router = useRouter();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Hero slides data
@@ -27,53 +29,60 @@ const MuslimBridalServicesPage = () => {
     },
   ];
 
-  // Bridal services categories
+  // Bridal services categories - ADDED subCategory mapping
   const categories = [
     {
       name: "Bridal Makeup (Arabic/HD)",
       items: "Premium Services",
       image:
         "https://i.pinimg.com/736x/5a/23/ca/5a23ca5b0bbc27ab70962c1d851136e1.jpg",
+      subCategory: "bridal-makeover"
     },
     {
       name: "Hijab Styling",
       items: "Expert Styling",
       image:
         "https://i.pinimg.com/736x/28/ac/3b/28ac3b55d55fc14e93dcadab7eb4f291.jpg",
+      subCategory: "hijab-styling"
     },
     {
       name: "Mehendi Artist",
       items: "Traditional Art",
       image:
         "https://i.pinimg.com/1200x/35/3b/82/353b8244c5eb8853f9289907bb1702d2.jpg",
+      subCategory: "arabic-henna"
     },
     {
       name: "Spa & Facial",
       items: "Pre-Bridal Glow",
       image:
         "https://i.pinimg.com/736x/47/43/ab/4743abc283cb05907a2a13967cc87322.jpg",
+      subCategory: "pre-bridal-care"
     },
     {
       name: "Bridal Photoshoot",
       items: "Professional Photography",
       image:
         "https://i.pinimg.com/1200x/19/34/09/193409a9e82c90cabe987cc8d3270605.jpg",
+      subCategory: "bridal-photoshoot"
     },
     {
       name: "Car Decoration",
       items: "Elegant Designs",
       image:
         "https://i.pinimg.com/736x/e2/c0/ca/e2c0cae9d3d6baf3a61c6a3f5f47eaa6.jpg",
+      subCategory: "car-decoration"
     },
     {
       name: "Stage Decoration",
       items: "Beautiful Settings",
       image:
         "https://i.pinimg.com/736x/f8/8a/d7/f88ad798d7d542e5e511e915537deaab.jpg",
+      subCategory: "stage-decoration"
     },
   ];
 
-  // Trending services
+  // Trending services - ADDED subCategory mapping
   const trendingServices = [
     {
       name: "Bridal Makeup (Arabic/HD)",
@@ -82,12 +91,14 @@ const MuslimBridalServicesPage = () => {
       badge: "POPULAR",
       image:
         "https://i.pinimg.com/736x/06/b8/cb/06b8cba05a56695e10fa2b8f41c96c65.jpg",
+      subCategory: "bridal-makeover"
     },
     {
       name: "Hijab Styling",
       price: "₹8,999",
       image:
         "https://i.pinimg.com/736x/5c/5a/d0/5c5ad0f09d6ca26783f3b22be13736e8.jpg",
+      subCategory: "hijab-styling"
     },
     {
       name: "Mehendi Artist",
@@ -95,6 +106,7 @@ const MuslimBridalServicesPage = () => {
       badge: "NEW",
       image:
         "https://i.pinimg.com/736x/d1/54/c5/d154c5f5a7e310dcdb91971f7245b978.jpg",
+      subCategory: "arabic-henna"
     },
     {
       name: "Pre-Nikah Package",
@@ -103,12 +115,14 @@ const MuslimBridalServicesPage = () => {
       badge: "25% OFF",
       image:
         "https://i.pinimg.com/1200x/2c/d2/19/2cd219e170cc9991a32720acb9d5c461.jpg",
+      subCategory: "pre-bridal-care"
     },
     {
       name: "Spa & Facial",
       price: "₹12,999",
       image:
         "https://i.pinimg.com/736x/f8/fa/b7/f8fab7c8959825792517caabb40c9102.jpg",
+      subCategory: "pre-bridal-care"
     },
     {
       name: "Bridal Photoshoot",
@@ -117,6 +131,7 @@ const MuslimBridalServicesPage = () => {
       badge: "TRENDING",
       image:
         "https://i.pinimg.com/736x/04/65/8f/04658f180cb0ac3aa233317b9dfff6a7.jpg",
+      subCategory: "bridal-photoshoot"
     },
     {
       name: "Car Decoration",
@@ -124,12 +139,14 @@ const MuslimBridalServicesPage = () => {
       badge: "NEW",
       image:
         "https://i.pinimg.com/1200x/ca/bf/f5/cabff5d5049cf1d7fbc65426239538fd.jpg",
+      subCategory: "car-decoration"
     },
     {
       name: "Stage Decoration",
       price: "₹45,999",
       image:
         "https://i.pinimg.com/1200x/ae/c2/7b/aec27b164fa12b92748ffa1dfe02356b.jpg",
+      subCategory: "stage-decoration"
     },
   ];
 
@@ -141,6 +158,15 @@ const MuslimBridalServicesPage = () => {
     setCurrentSlide(
       (prev) => (prev - 1 + heroSlides.length) % heroSlides.length
     );
+  };
+
+  // 👇 NEW NAVIGATION FUNCTIONS
+  const handleCategoryClick = (subCategory) => {
+    router.push(`/bride/all-services?category=muslim-bridal-services&subCategory=${subCategory}`);
+  };
+
+  const handleAllServicesClick = () => {
+    router.push("/bride/all-services?category=muslim-bridal-services");
   };
 
   return (
@@ -168,7 +194,10 @@ const MuslimBridalServicesPage = () => {
                       {slide.title}
                     </h1>
                     <p className="text-gray-600 mb-6">{slide.subtitle}</p>
-                    <button className="bg-emerald-600 text-white px-8 py-3 rounded hover:bg-emerald-700 transition-colors">
+                    <button 
+                      onClick={handleAllServicesClick}
+                      className="bg-emerald-600 text-white px-8 py-3 rounded hover:bg-emerald-700 transition-colors cursor-pointer"
+                    >
                       BOOK NOW
                     </button>
                   </div>
@@ -206,7 +235,7 @@ const MuslimBridalServicesPage = () => {
         </div>
       </div>
 
-      {/* Popular Categories Section with Scrolling */}
+      {/* Popular Categories Section - ADDED onClick */}
       <div className="py-16 bg-gray-50">
         <div className="max-w-full mx-auto px-8">
           <h2 className="text-3xl font-light text-center text-gray-800 mb-12">
@@ -219,6 +248,7 @@ const MuslimBridalServicesPage = () => {
                 <div
                   key={index}
                   className="flex-shrink-0 w-40 text-center group cursor-pointer"
+                  onClick={() => handleCategoryClick(category.subCategory)}
                 >
                   <div className="relative mb-4 overflow-hidden rounded-full">
                     <img
@@ -237,10 +267,13 @@ const MuslimBridalServicesPage = () => {
         </div>
       </div>
 
-      {/* Featured Collections */}
+      {/* Featured Collections - ADDED onClick */}
       <div className="max-w-7xl mx-auto px-8 py-16">
         <div className="grid md:grid-cols-2 gap-8">
-          <div className="relative overflow-hidden rounded-lg group cursor-pointer">
+          <div 
+            className="relative overflow-hidden rounded-lg group cursor-pointer"
+            onClick={() => handleCategoryClick("bridal-makeover")}
+          >
             <img
               src="https://i.pinimg.com/1200x/7f/4b/31/7f4b31d01b321894de86819d9a02c6cb.jpg"
               alt="Complete Nikah Package"
@@ -256,7 +289,10 @@ const MuslimBridalServicesPage = () => {
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-lg group cursor-pointer">
+          <div 
+            className="relative overflow-hidden rounded-lg group cursor-pointer"
+            onClick={handleAllServicesClick}
+          >
             <img
               src="https://i.pinimg.com/1200x/06/7f/d4/067fd4c520b3eabef52ae39700591352.jpg"
               alt="Premium Hijab & Makeup Services"
@@ -274,7 +310,7 @@ const MuslimBridalServicesPage = () => {
         </div>
       </div>
 
-      {/* Trending Services */}
+      {/* Trending Services - ADDED onClick */}
       <div className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-8">
           <h2 className="text-3xl font-light text-center text-gray-800 mb-4">
@@ -297,6 +333,7 @@ const MuslimBridalServicesPage = () => {
               <div
                 key={index}
                 className="bg-white rounded-lg overflow-hidden group cursor-pointer shadow-sm hover:shadow-xl transition-shadow"
+                onClick={() => handleCategoryClick(service.subCategory)}
               >
                 <div className="relative overflow-hidden">
                   {service.badge && (
@@ -322,7 +359,10 @@ const MuslimBridalServicesPage = () => {
             ))}
           </div>
           <div className="text-center">
-            <button className="group mt-12 relative inline-flex items-center gap-3 bg-emerald-600 text-white px-12 py-4 rounded-full text-lg font-medium hover:bg-emerald-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+            <button 
+              onClick={handleAllServicesClick}
+              className="group mt-12 relative inline-flex items-center gap-3 bg-emerald-600 text-white px-12 py-4 rounded-full text-lg font-medium hover:bg-emerald-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+            >
               <span>VIEW ALL SERVICES</span>
               <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>

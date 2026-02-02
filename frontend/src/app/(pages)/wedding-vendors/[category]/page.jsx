@@ -3,7 +3,15 @@
 
 import React, { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { Star, MapPin, Phone, Mail, ArrowLeft, Loader2, PhoneCall } from "lucide-react";
+import {
+  Star,
+  MapPin,
+  Phone,
+  Mail,
+  ArrowLeft,
+  Loader2,
+  PhoneCall,
+} from "lucide-react";
 
 export default function CategoryServicesPage() {
   const params = useParams();
@@ -18,310 +26,631 @@ export default function CategoryServicesPage() {
   const categoryData = {
     planner: {
       name: "Wedding Planner",
-      image: "https://i.pinimg.com/1200x/fc/e6/24/fce62422d53e0f53aac6682509df749f.jpg"
+      image:
+        "https://i.pinimg.com/1200x/fc/e6/24/fce62422d53e0f53aac6682509df749f.jpg",
     },
     event: {
       name: "Event Manager",
-      image: "https://i.pinimg.com/1200x/8f/1a/16/8f1a1635e6ac2c77469d2257e5694d6f.jpg"
+      image:
+        "https://i.pinimg.com/1200x/8f/1a/16/8f1a1635e6ac2c77469d2257e5694d6f.jpg",
     },
     venue: {
       name: "Venue Manager",
-      image: "https://i.pinimg.com/736x/57/7a/12/577a1271b9daebccea99feb87f2f1ab2.jpg"
+      image:
+        "https://i.pinimg.com/736x/57/7a/12/577a1271b9daebccea99feb87f2f1ab2.jpg",
     },
     decorator: {
       name: "Decorator",
-      image: "https://i.pinimg.com/736x/a7/62/bc/a762bced6bef3d9b13ba75388aa659c3.jpg"
+      image:
+        "https://i.pinimg.com/736x/a7/62/bc/a762bced6bef3d9b13ba75388aa659c3.jpg",
     },
     caterer: {
       name: "Caterer",
-      image: "https://i.pinimg.com/1200x/56/1d/f0/561df0ddacb3d0ddd77ef4dfa6226c9f.jpg"
+      image:
+        "https://i.pinimg.com/1200x/56/1d/f0/561df0ddacb3d0ddd77ef4dfa6226c9f.jpg",
     },
     photographer: {
       name: "Photographer",
-      image: "https://i.pinimg.com/1200x/66/77/85/66778594c92a2bf5727c4393c23059b4.jpg"
+      image:
+        "https://i.pinimg.com/1200x/66/77/85/66778594c92a2bf5727c4393c23059b4.jpg",
     },
     videographer: {
       name: "Videographer",
-      image: "https://i.pinimg.com/736x/26/8c/18/268c186fde4f43f025a503db6df6f28f.jpg"
+      image:
+        "https://i.pinimg.com/736x/26/8c/18/268c186fde4f43f025a503db6df6f28f.jpg",
     },
     light: {
       name: "Light & Sound",
-      image: "https://i.pinimg.com/736x/e3/34/d4/e334d4ffe873184bfcc6cc177cd53312.jpg"
+      image:
+        "https://i.pinimg.com/736x/e3/34/d4/e334d4ffe873184bfcc6cc177cd53312.jpg",
     },
     dj: {
       name: "DJ Setup",
-      image: "https://i.pinimg.com/736x/6f/98/b7/6f98b748da55295f92139809b72d0c0b.jpg"
+      image:
+        "https://i.pinimg.com/736x/6f/98/b7/6f98b748da55295f92139809b72d0c0b.jpg",
     },
     band: {
       name: "Band Baja",
-      image: "https://i.pinimg.com/1200x/42/94/a3/4294a34c84bcfa062fbe6d169d4686b3.jpg"
+      image:
+        "https://i.pinimg.com/1200x/42/94/a3/4294a34c84bcfa062fbe6d169d4686b3.jpg",
     },
     ghodi: {
       name: "Wedding Horse",
-      image: "https://i.pinimg.com/736x/21/73/36/21733694ad441a7ce55ef5a890ff60ab.jpg"
+      image:
+        "https://i.pinimg.com/736x/21/73/36/21733694ad441a7ce55ef5a890ff60ab.jpg",
     },
     dhol: {
       name: "Dhol Team",
-      image: "https://i.pinimg.com/736x/38/27/3e/38273ee1c85c86d8f204e189a49b2bb1.jpg"
+      image:
+        "https://i.pinimg.com/736x/38/27/3e/38273ee1c85c86d8f204e189a49b2bb1.jpg",
     },
     fireworks: {
       name: "Fireworks",
-      image: "https://i.pinimg.com/1200x/25/68/2b/25682b0657067901dbb5b5c7fbbdfe74.jpg"
+      image:
+        "https://i.pinimg.com/1200x/25/68/2b/25682b0657067901dbb5b5c7fbbdfe74.jpg",
     },
     tent: {
       name: "Tent House",
-      image: "https://i.pinimg.com/736x/8e/45/68/8e4568492a10ba340cf836e34e969647.jpg"
+      image:
+        "https://i.pinimg.com/736x/8e/45/68/8e4568492a10ba340cf836e34e969647.jpg",
     },
     // Beauty Vendor Categories - Using Card Images
     "bridal-makeup": {
       name: "Bridal Makeup Artist",
-      image: "https://i.pinimg.com/1200x/49/8e/fd/498efdae882161544ec04d199bfe9bf8.jpg"
+      image:
+        "https://i.pinimg.com/1200x/49/8e/fd/498efdae882161544ec04d199bfe9bf8.jpg",
     },
     "groom-makeup": {
       name: "Groom Makeup Artist",
-      image: "https://i.pinimg.com/736x/17/15/c1/1715c16a3cc36f456270a1754b793596.jpg"
+      image:
+        "https://i.pinimg.com/736x/17/15/c1/1715c16a3cc36f456270a1754b793596.jpg",
     },
     "hair-stylist": {
       name: "Hair Stylist",
-      image: "https://i.pinimg.com/1200x/e7/72/f3/e772f305cee161462e43a816f62d45df.jpg"
+      image:
+        "https://i.pinimg.com/1200x/e7/72/f3/e772f305cee161462e43a816f62d45df.jpg",
     },
     "saree-draper": {
       name: "Saree Draper / Lehenga Pinning Artist",
-      image: "https://i.pinimg.com/736x/db/c4/55/dbc4553b46d49179489046532fd5f0b2.jpg"
+      image:
+        "https://i.pinimg.com/736x/db/c4/55/dbc4553b46d49179489046532fd5f0b2.jpg",
     },
-    "mehendi": {
+    mehendi: {
       name: "Mehendi Artist",
-      image: "https://i.pinimg.com/736x/bd/a9/6d/bda96df7d043fccbd701f64bbf8a40a0.jpg"
+      image:
+        "https://i.pinimg.com/736x/bd/a9/6d/bda96df7d043fccbd701f64bbf8a40a0.jpg",
     },
     "nail-tech": {
       name: "Nail Technician",
-      image: "https://i.pinimg.com/1200x/8c/ef/97/8cef970448e7d1bf84ebec3ea185bfb7.jpg"
+      image:
+        "https://i.pinimg.com/1200x/8c/ef/97/8cef970448e7d1bf84ebec3ea185bfb7.jpg",
     },
     "spa-salon": {
       name: "Spa & Salon Services",
-      image: "https://i.pinimg.com/1200x/6a/60/e1/6a60e1ab5dab56bccbce0dd4ce73a3bd.jpg"
+      image:
+        "https://i.pinimg.com/1200x/6a/60/e1/6a60e1ab5dab56bccbce0dd4ce73a3bd.jpg",
     },
     "pre-bridal": {
       name: "Pre-bridal Package Vendor",
-      image: "https://i.pinimg.com/736x/ef/d9/c6/efd9c6b927b438dfa38e4f93af6fbdbd.jpg"
+      image:
+        "https://i.pinimg.com/736x/ef/d9/c6/efd9c6b927b438dfa38e4f93af6fbdbd.jpg",
     },
     "hijab-stylist": {
       name: "Hijab/Headgear Stylist",
-      image: "https://i.pinimg.com/736x/e4/33/28/e43328428ec65959911b4b6152984b72.jpg"
+      image:
+        "https://i.pinimg.com/736x/e4/33/28/e43328428ec65959911b4b6152984b72.jpg",
     },
     // Add to categoryData object (around line 50)
-"stage-decorators": {
-  name: "Stage Decorators",
-  image: "https://i.pinimg.com/1200x/0e/5d/e4/0e5de4f08c855eb7117b5e20affa20a4.jpg"
-},
-"mandap-decorators": {
-  name: "Mandap/Vedi Decorators",
-  image: "https://i.pinimg.com/736x/58/b8/3a/58b83af895ac2a764d6e0744e147812c.jpg"
-},
-"haldi-decor": {
-  name: "Haldi Decor Setup",
-  image: "https://i.pinimg.com/736x/d5/41/ce/d541ce392e4e531930feef7fbca7765c.jpg"
-},
-"mehendi-decor": {
-  name: "Mehendi Decor",
-  image: "https://i.pinimg.com/736x/ad/5d/69/ad5d698afb415fe786838438d4bd65e9.jpg"
-},
-"floral-decor": {
-  name: "Floral Decor",
-  image: "https://i.pinimg.com/1200x/7f/12/42/7f1242acc3533637e515de145c25f3c4.jpg"
-},
-"balloon-decor": {
-  name: "Balloon Decor",
-  image: "https://i.pinimg.com/1200x/e9/64/aa/e964aa9187229955624628f2b7e43ee7.jpg"
-},
-"lighting-decor": {
-  name: "Lighting Decor",
-  image: "https://i.pinimg.com/736x/b5/d1/40/b5d1408da31f3e615bb06d7a5cfa9904.jpg"
-},
-"entrance-decor": {
-  name: "Entrance Gate Decor",
-  image: "https://i.pinimg.com/736x/ba/93/d4/ba93d455e7d9b4fd24db486318560af2.jpg"
-},
-"photobooth-decor": {
-  name: "Photobooth Decor",
-  image: "https://i.pinimg.com/1200x/3c/07/da/3c07da704d106d2a1db601beef42da96.jpg"
-},
-"centerpiece-decor": {
-  name: "Table Centerpiece",
-  image: "https://i.pinimg.com/736x/12/19/35/1219350893e1db3013f5ead9562777eb.jpg"
-},
-"props-provider": {
-  name: "Props Provider",
-  image: "https://i.pinimg.com/1200x/a5/a1/4e/a5a14e2eb1f1d9c3d49aba1e96196b8c.jpg"
-},
-// Add to categoryData object
-"live-singer": {
-  name: "Live Singer",
-  image: "https://i.pinimg.com/736x/e5/d6/44/e5d644d61e71bef9f96704cf533eb947.jpg"
-},
-"sufi-band": {
-  name: "Sufi Band",
-  image: "https://i.pinimg.com/1200x/96/12/98/961298283a0ad830c180c402070a2db5.jpg"
-},
-"qawwali-group": {
-  name: "Qawwali Group",
-  image: "https://i.pinimg.com/1200x/88/7e/4c/887e4c95c17d19d0f3d616128d5068f7.jpg"
-},
-"folk-dance": {
-  name: "Folk Dance Groups",
-  image: "https://i.pinimg.com/736x/42/f1/18/42f118d2bc40deb10cdc117e9e9ff6c5.jpg"
-},
-"instrumental-band": {
-  name: "Instrumental Band",
-  image: "https://i.pinimg.com/1200x/c0/85/3d/c0853da258fb21e892f386ff3fd12c2f.jpg"
-},
-"anchor-emcee": {
-  name: "Anchor / Emcee",
-  image: "https://i.pinimg.com/1200x/c6/50/48/c65048db0f6b3ededd41164da0044213.jpg"
-},
-"choreographer": {
-  name: "Choreographer",
-  image: "https://i.pinimg.com/1200x/b6/07/54/b60754e598a1c01378b40c2fc99810be.jpg"
-},
-"dj-dance-floor": {
-  name: "DJ & Dance Floor Provider",
-  image: "https://i.pinimg.com/736x/ee/7b/93/ee7b93f7581e80dde73d3fc10382c4ba.jpg"
-},
-"led-wall": {
-  name: "LED Wall Provider",
-  image: "https://i.pinimg.com/1200x/90/a3/f2/90a3f22793890f4e17b233bb259866d4.jpg"
-},
-"sound-system": {
-  name: "Sound System Vendor",
-  image: "https://i.pinimg.com/1200x/a9/7c/9e/a97c9e9dd5fbc558992252d44124ec92.jpg"
-},
-"celebrity-performer": {
-  name: "Celebrity Performer",
-  image: "https://i.pinimg.com/736x/33/a9/36/33a93665af894ec121d3622e9f60e795.jpg"
-},
-"fire-act": {
-  name: "Fire Act / Jugglers",
-  image: "https://i.pinimg.com/1200x/0a/8a/bc/0a8abc0c27a3e52cb19e6b77f6900436.jpg"
-},
-"kids-entertainment": {
-  name: "Kids Entertainment Team",
-  image: "https://i.pinimg.com/1200x/82/0c/b6/820cb6d187ed06459301febc7d9215ca.jpg"
-},
-// Add to categoryData object
-"card-printing": {
-  name: "Card Printing Shop",
-  image: "https://i.pinimg.com/1200x/43/b1/93/43b1934999cc9241a4d699b9118f1afa.jpg"
-},
-"digital-invitation": {
-  name: "Digital Invitation Designer",
-  image: "https://i.pinimg.com/1200x/8e/42/71/8e4271e4b8b95f24c01a0866b1be9cdd.jpg"
-},
-"ecard-video": {
-  name: "E-card Video Maker",
-  image: "https://i.pinimg.com/1200x/c3/dc/40/c3dc40a9ab5d71a932d7d80d2c5c36e0.jpg"
-},
-"whatsapp-invitation": {
-  name: "WhatsApp Invitation Designer",
-  image: "https://i.pinimg.com/736x/25/bc/23/25bc2396093d1092d9afb4fb2776ed76.jpg"
-},
-"box-invitation": {
-  name: "Box Invitation Vendor",
-  image: "https://i.pinimg.com/736x/c8/79/0b/c8790ba78f0921f05c3c7bcb3aa00982.jpg"
-},
-"gift-hamper": {
-  name: "Gift Hamper Packaging",
-  image: "https://i.pinimg.com/1200x/e8/f6/28/e8f628712a077aae1fddf2d168a8801c.jpg"
-},
-"welcome-board": {
-  name: "Welcome Board Designer",
-  image: "https://i.pinimg.com/1200x/50/6e/07/506e073d7d50c864bdd19f985e40f874.jpg"
-},
-"flex-printing": {
-  name: "Flex/Vinyl Printing Vendor",
-  image: "https://i.pinimg.com/736x/90/d3/f7/90d3f76283edaeefed17ed222f3409ab.jpg"
-},
-// Add to categoryData object
-"return-gift": {
-  name: "Return Gift Vendor",
-  image: "https://i.pinimg.com/1200x/a3/d4/5e/a3d45e6f7a8b9c0d1e2f3a4b5c6d7e8f.jpg"
-},
-"mehendi-favors": {
-  name: "Mehendi Favors Vendor",
-  image: "https://i.pinimg.com/1200x/5b/7c/9d/5b7c9d0e1f2a3b4c5d6e7f8a9b0c1d2e.jpg"
-},
-"haldi-token": {
-  name: "Haldi Token Gift Vendor",
-  image: "https://i.pinimg.com/1200x/8f/2d/6c/8f2d6c5b4a3e2d1c0b9a8f7e6d5c4b3a.jpg"
-},
-"shagun-envelope": {
-  name: "Shagun Envelope Designer",
-  image: "https://i.pinimg.com/1200x/7d/9e/3f/7d9e3f2c1b0a9f8e7d6c5b4a3e2d1c0b.jpg"
-},
-"gift-packaging": {
-  name: "Gift Packaging Artist",
-  image: "https://i.pinimg.com/1200x/4c/8d/2e/4c8d2e5f7a9b0c1d2e3f4a5b6c7d8e9f.jpg"
-},
-"trousseau-packing": {
-  name: "Trousseau Packing Vendor",
-  image: "https://i.pinimg.com/1200x/9e/3d/7f/9e3d7f8c6b5a4e3d2c1b0a9f8e7d6c5b.jpg"
-},
-"basket-tray": {
-  name: "Basket & Tray Decor Vendor",
-  image: "https://i.pinimg.com/1200x/2f/6c/9d/2f6c9d0e1f2a3b4c5d6e7f8a9b0c1d2e.jpg"
-},
-"dry-fruit-box": {
-  name: "Dry Fruit Box Vendor",
-  image: "https://i.pinimg.com/1200x/6b/4e/8d/6b4e8d9c0a1f2e3d4c5b6a7f8e9d0c1b.jpg"
-},
-// Add to categoryData object
-"full-catering": {
-  name: "Full Catering Service",
-  image: "https://i.pinimg.com/1200x/c1/19/92/c11992607f0e64b51f63bba8fdad1ff5.jpg"
-},
-"live-counters": {
-  name: "Live Counters Vendor",
-  image: "https://i.pinimg.com/1200x/fe/bb/60/febb60bd0b7a753aa4195454fba6e560.jpg"
-},
-"sweet-shop": {
-  name: "Sweet Shop Vendor",
-  image: "https://i.pinimg.com/736x/48/76/4f/48764fe3522563cdff861593d5a68ded.jpg"
-},
-"halwai": {
-  name: "Halwai",
-  image: "https://i.pinimg.com/736x/36/63/91/36639136ab91da85255560c4e969485c.jpg"
-},
-"coffee-tea": {
-  name: "Coffee/Tea Stall",
-  image: "https://i.pinimg.com/736x/77/93/2d/77932da8a2a5d2d01c872ea58e2cd10d.jpg"
-},
-"fruit-stall": {
-  name: "Fruit Stall",
-  image: "https://i.pinimg.com/1200x/5f/b1/16/5fb1164ab2b6aa28e27164ac4dcd1a64.jpg"
-},
-"chocolate-fountain": {
-  name: "Chocolate Fountain Vendor",
-  image: "https://i.pinimg.com/1200x/3a/d6/a3/3ad6a38d6c6fef4a194b0bfded6d92f9.jpg"
-},
-"ice-cream": {
-  name: "Ice Cream Counter",
-  image: "https://i.pinimg.com/736x/88/ee/87/88ee8731fabdd3d37e5d8718dfb4586a.jpg"
-},
-"beverages": {
-  name: "Water & Beverage Supplier",
-  image: "https://i.pinimg.com/736x/80/39/90/8039904113f39daa19943f6110a493dc.jpg"
-},
-"buffet-setup": {
-  name: "Buffet Setup & Service Staff",
-  image: "https://i.pinimg.com/736x/12/8c/83/128c830d080584643bb030e59a738bdb.jpg"
-},
+    "stage-decorators": {
+      name: "Stage Decorators",
+      image:
+        "https://i.pinimg.com/1200x/0e/5d/e4/0e5de4f08c855eb7117b5e20affa20a4.jpg",
+    },
+    "mandap-decorators": {
+      name: "Mandap/Vedi Decorators",
+      image:
+        "https://i.pinimg.com/736x/58/b8/3a/58b83af895ac2a764d6e0744e147812c.jpg",
+    },
+    "haldi-decor": {
+      name: "Haldi Decor Setup",
+      image:
+        "https://i.pinimg.com/736x/d5/41/ce/d541ce392e4e531930feef7fbca7765c.jpg",
+    },
+    "mehendi-decor": {
+      name: "Mehendi Decor",
+      image:
+        "https://i.pinimg.com/736x/ad/5d/69/ad5d698afb415fe786838438d4bd65e9.jpg",
+    },
+    "floral-decor": {
+      name: "Floral Decor",
+      image:
+        "https://i.pinimg.com/1200x/7f/12/42/7f1242acc3533637e515de145c25f3c4.jpg",
+    },
+    "balloon-decor": {
+      name: "Balloon Decor",
+      image:
+        "https://i.pinimg.com/1200x/e9/64/aa/e964aa9187229955624628f2b7e43ee7.jpg",
+    },
+    "lighting-decor": {
+      name: "Lighting Decor",
+      image:
+        "https://i.pinimg.com/736x/b5/d1/40/b5d1408da31f3e615bb06d7a5cfa9904.jpg",
+    },
+    "entrance-decor": {
+      name: "Entrance Gate Decor",
+      image:
+        "https://i.pinimg.com/736x/ba/93/d4/ba93d455e7d9b4fd24db486318560af2.jpg",
+    },
+    "photobooth-decor": {
+      name: "Photobooth Decor",
+      image:
+        "https://i.pinimg.com/1200x/3c/07/da/3c07da704d106d2a1db601beef42da96.jpg",
+    },
+    "centerpiece-decor": {
+      name: "Table Centerpiece",
+      image:
+        "https://i.pinimg.com/736x/12/19/35/1219350893e1db3013f5ead9562777eb.jpg",
+    },
+    "props-provider": {
+      name: "Props Provider",
+      image:
+        "https://i.pinimg.com/1200x/a5/a1/4e/a5a14e2eb1f1d9c3d49aba1e96196b8c.jpg",
+    },
+    // Add to categoryData object
+    "live-singer": {
+      name: "Live Singer",
+      image:
+        "https://i.pinimg.com/736x/e5/d6/44/e5d644d61e71bef9f96704cf533eb947.jpg",
+    },
+    "sufi-band": {
+      name: "Sufi Band",
+      image:
+        "https://i.pinimg.com/1200x/96/12/98/961298283a0ad830c180c402070a2db5.jpg",
+    },
+    "qawwali-group": {
+      name: "Qawwali Group",
+      image:
+        "https://i.pinimg.com/1200x/88/7e/4c/887e4c95c17d19d0f3d616128d5068f7.jpg",
+    },
+    "folk-dance": {
+      name: "Folk Dance Groups",
+      image:
+        "https://i.pinimg.com/736x/42/f1/18/42f118d2bc40deb10cdc117e9e9ff6c5.jpg",
+    },
+    "instrumental-band": {
+      name: "Instrumental Band",
+      image:
+        "https://i.pinimg.com/1200x/c0/85/3d/c0853da258fb21e892f386ff3fd12c2f.jpg",
+    },
+    "anchor-emcee": {
+      name: "Anchor / Emcee",
+      image:
+        "https://i.pinimg.com/1200x/c6/50/48/c65048db0f6b3ededd41164da0044213.jpg",
+    },
+    choreographer: {
+      name: "Choreographer",
+      image:
+        "https://i.pinimg.com/1200x/b6/07/54/b60754e598a1c01378b40c2fc99810be.jpg",
+    },
+    "dj-dance-floor": {
+      name: "DJ & Dance Floor Provider",
+      image:
+        "https://i.pinimg.com/736x/ee/7b/93/ee7b93f7581e80dde73d3fc10382c4ba.jpg",
+    },
+    "led-wall": {
+      name: "LED Wall Provider",
+      image:
+        "https://i.pinimg.com/1200x/90/a3/f2/90a3f22793890f4e17b233bb259866d4.jpg",
+    },
+    "sound-system": {
+      name: "Sound System Vendor",
+      image:
+        "https://i.pinimg.com/1200x/a9/7c/9e/a97c9e9dd5fbc558992252d44124ec92.jpg",
+    },
+    "celebrity-performer": {
+      name: "Celebrity Performer",
+      image:
+        "https://i.pinimg.com/736x/33/a9/36/33a93665af894ec121d3622e9f60e795.jpg",
+    },
+    "fire-act": {
+      name: "Fire Act / Jugglers",
+      image:
+        "https://i.pinimg.com/1200x/0a/8a/bc/0a8abc0c27a3e52cb19e6b77f6900436.jpg",
+    },
+    "kids-entertainment": {
+      name: "Kids Entertainment Team",
+      image:
+        "https://i.pinimg.com/1200x/82/0c/b6/820cb6d187ed06459301febc7d9215ca.jpg",
+    },
+    // Add to categoryData object
+    "card-printing": {
+      name: "Card Printing Shop",
+      image:
+        "https://i.pinimg.com/1200x/43/b1/93/43b1934999cc9241a4d699b9118f1afa.jpg",
+    },
+    "digital-invitation": {
+      name: "Digital Invitation Designer",
+      image:
+        "https://i.pinimg.com/1200x/8e/42/71/8e4271e4b8b95f24c01a0866b1be9cdd.jpg",
+    },
+    "ecard-video": {
+      name: "E-card Video Maker",
+      image:
+        "https://i.pinimg.com/1200x/c3/dc/40/c3dc40a9ab5d71a932d7d80d2c5c36e0.jpg",
+    },
+    "whatsapp-invitation": {
+      name: "WhatsApp Invitation Designer",
+      image:
+        "https://i.pinimg.com/736x/25/bc/23/25bc2396093d1092d9afb4fb2776ed76.jpg",
+    },
+    "box-invitation": {
+      name: "Box Invitation Vendor",
+      image:
+        "https://i.pinimg.com/736x/c8/79/0b/c8790ba78f0921f05c3c7bcb3aa00982.jpg",
+    },
+    "gift-hamper": {
+      name: "Gift Hamper Packaging",
+      image:
+        "https://i.pinimg.com/1200x/e8/f6/28/e8f628712a077aae1fddf2d168a8801c.jpg",
+    },
+    "welcome-board": {
+      name: "Welcome Board Designer",
+      image:
+        "https://i.pinimg.com/1200x/50/6e/07/506e073d7d50c864bdd19f985e40f874.jpg",
+    },
+    "flex-printing": {
+      name: "Flex/Vinyl Printing Vendor",
+      image:
+        "https://i.pinimg.com/736x/90/d3/f7/90d3f76283edaeefed17ed222f3409ab.jpg",
+    },
+    // Add to categoryData object
+    "return-gift": {
+      name: "Return Gift Vendor",
+      image:
+        "https://i.pinimg.com/1200x/a3/d4/5e/a3d45e6f7a8b9c0d1e2f3a4b5c6d7e8f.jpg",
+    },
+    "mehendi-favors": {
+      name: "Mehendi Favors Vendor",
+      image:
+        "https://i.pinimg.com/1200x/5b/7c/9d/5b7c9d0e1f2a3b4c5d6e7f8a9b0c1d2e.jpg",
+    },
+    "haldi-token": {
+      name: "Haldi Token Gift Vendor",
+      image:
+        "https://i.pinimg.com/1200x/8f/2d/6c/8f2d6c5b4a3e2d1c0b9a8f7e6d5c4b3a.jpg",
+    },
+    "shagun-envelope": {
+      name: "Shagun Envelope Designer",
+      image:
+        "https://i.pinimg.com/1200x/7d/9e/3f/7d9e3f2c1b0a9f8e7d6c5b4a3e2d1c0b.jpg",
+    },
+    "gift-packaging": {
+      name: "Gift Packaging Artist",
+      image:
+        "https://i.pinimg.com/1200x/4c/8d/2e/4c8d2e5f7a9b0c1d2e3f4a5b6c7d8e9f.jpg",
+    },
+    "trousseau-packing": {
+      name: "Trousseau Packing Vendor",
+      image:
+        "https://i.pinimg.com/1200x/9e/3d/7f/9e3d7f8c6b5a4e3d2c1b0a9f8e7d6c5b.jpg",
+    },
+    "basket-tray": {
+      name: "Basket & Tray Decor Vendor",
+      image:
+        "https://i.pinimg.com/1200x/2f/6c/9d/2f6c9d0e1f2a3b4c5d6e7f8a9b0c1d2e.jpg",
+    },
+    "dry-fruit-box": {
+      name: "Dry Fruit Box Vendor",
+      image:
+        "https://i.pinimg.com/1200x/6b/4e/8d/6b4e8d9c0a1f2e3d4c5b6a7f8e9d0c1b.jpg",
+    },
+    // Add to categoryData object
+    "full-catering": {
+      name: "Full Catering Service",
+      image:
+        "https://i.pinimg.com/1200x/c1/19/92/c11992607f0e64b51f63bba8fdad1ff5.jpg",
+    },
+    "live-counters": {
+      name: "Live Counters Vendor",
+      image:
+        "https://i.pinimg.com/1200x/fe/bb/60/febb60bd0b7a753aa4195454fba6e560.jpg",
+    },
+    "sweet-shop": {
+      name: "Sweet Shop Vendor",
+      image:
+        "https://i.pinimg.com/736x/48/76/4f/48764fe3522563cdff861593d5a68ded.jpg",
+    },
+    halwai: {
+      name: "Halwai",
+      image:
+        "https://i.pinimg.com/736x/36/63/91/36639136ab91da85255560c4e969485c.jpg",
+    },
+    "coffee-tea": {
+      name: "Coffee/Tea Stall",
+      image:
+        "https://i.pinimg.com/736x/77/93/2d/77932da8a2a5d2d01c872ea58e2cd10d.jpg",
+    },
+    "fruit-stall": {
+      name: "Fruit Stall",
+      image:
+        "https://i.pinimg.com/1200x/5f/b1/16/5fb1164ab2b6aa28e27164ac4dcd1a64.jpg",
+    },
+    "chocolate-fountain": {
+      name: "Chocolate Fountain Vendor",
+      image:
+        "https://i.pinimg.com/1200x/3a/d6/a3/3ad6a38d6c6fef4a194b0bfded6d92f9.jpg",
+    },
+    "ice-cream": {
+      name: "Ice Cream Counter",
+      image:
+        "https://i.pinimg.com/736x/88/ee/87/88ee8731fabdd3d37e5d8718dfb4586a.jpg",
+    },
+    beverages: {
+      name: "Water & Beverage Supplier",
+      image:
+        "https://i.pinimg.com/736x/80/39/90/8039904113f39daa19943f6110a493dc.jpg",
+    },
+    "buffet-setup": {
+      name: "Buffet Setup & Service Staff",
+      image:
+        "https://i.pinimg.com/736x/12/8c/83/128c830d080584643bb030e59a738bdb.jpg",
+    },
 
+    // ADD THESE NEW CATEGORIES (after "buffet-setup")
+    "hindu-priest": {
+      name: "Hindu Priest (Pandit Ji)",
+      image:
+        "https://i.pinimg.com/736x/c5/0d/5d/c50d5d69fbb57f7d22df6b2033e4ad9b.jpg",
+    },
+    "mandap-setup": {
+      name: "Mandap Setup Experts",
+      image:
+        "https://i.pinimg.com/736x/c6/42/e3/c642e3610858dd111a18bcecc0312b36.jpg",
+    },
+    "varmala-stage": {
+      name: "Varmala Stage Designers",
+      image:
+        "https://i.pinimg.com/1200x/07/ab/c5/07abc5b7953e6166c5cbb535ff8ce0c1.jpg",
+    },
+    "qazi-nikah": {
+      name: "Qazi for Nikah Ceremony",
+      image:
+        "https://i.pinimg.com/736x/ac/de/a7/acdea7230a9b712c588d1f980159b1dc.jpg",
+    },
+    "doli-arrangement": {
+      name: "Doli Arrangement Services",
+      image:
+        "https://i.pinimg.com/736x/a3/67/db/a367dba3a832caa48f1509135a54234d.jpg",
+    },
+    "walima-setup": {
+      name: "Walima Dinner Specialists",
+      image:
+        "https://i.pinimg.com/1200x/b1/7b/32/b17b32138d759d5f68c6b910b28eba83.jpg",
+    },
+    "granthi-ji": {
+      name: "Granthi Ji Services",
+      image:
+        "https://i.pinimg.com/1200x/f2/e9/92/f2e992821117eab5d0ec02c120561042.jpg",
+    },
+    "gurudwara-team": {
+      name: "Gurudwara Coordination Team",
+      image:
+        "https://i.pinimg.com/736x/7c/85/69/7c8569209bc5bab7f147910b02274250.jpg",
+    },
+    "pastor-father": {
+      name: "Pastor / Father Services",
+      image:
+        "https://i.pinimg.com/1200x/6f/bd/b1/6fbdb1535dbfa7c1a4eca84d09a5bfc3.jpg",
+    },
+    "church-choir": {
+      name: "Church Choir Groups",
+      image:
+        "https://i.pinimg.com/1200x/a7/f7/22/a7f722d8c5e20b894e133c3b3880f916.jpg",
+    },
+    // Hospitality categories
+    welcome: {
+      name: "Welcome Team Services",
+      image:
+        "https://i.pinimg.com/1200x/a7/0b/2f/a70b2f68ecd569b8734889847d47e3c2.jpg",
+    },
+    hostess: {
+      name: "Hostess Staff Experts",
+      image:
+        "https://i.pinimg.com/1200x/4a/bd/48/4abd48d5199296d918699e27a79ac837.jpg",
+    },
+    "guest-management": {
+      name: "Guest Management Team",
+      image:
+        "https://i.pinimg.com/736x/c5/bf/4b/c5bf4b0c38d188f80f965bf44c343328.jpg",
+    },
+    "luggage-handling-staff": {
+      name: "Luggage Handling Staff",
 
+      image:
+        "https://i.pinimg.com/1200x/de/fa/8f/defa8f2dc2dfcb06894a977ef1ec3f87.jpg",
+    },
+    "concierge-desk": {
+      name: "Concierge Desk",
 
+      image:
+        "https://i.pinimg.com/736x/6b/5a/d6/6b5ad6f61f2a57c97dffee7815b1f9e3.jpg",
+    },
+    "room-allocation": {
+      name: "Room Allocation Team",
 
+      image:
+        "https://i.pinimg.com/1200x/44/77/ec/4477ec43f7668a2c483f7bf8ad3c459b.jpg",
+    },
+    "travel-desk": {
+      name: "Travel Desk",
 
+      image:
+        "https://i.pinimg.com/736x/9c/21/4d/9c214d98c53e4b592ea1933443191ebb.jpg",
+    },
+    "security-personnel": {
+      name: "Security Personnel",
+
+      image:
+        "https://i.pinimg.com/736x/c7/94/3c/c7943cf423360c3945320acaeebe680f.jpg",
+    },
+    "valet-parking-team": {
+      name: "Valet Parking Team",
+
+      image:
+        "https://i.pinimg.com/736x/25/85/5c/25855c52b5050a067b91a2de1986628f.jpg",
+    },
+    "uniformed-guards": {
+      name: "Uniformed Guards",
+
+      image:
+        "https://i.pinimg.com/1200x/61/84/c5/6184c52bb4893f5bd2f8f4a084e03cc7.jpg",
+    },
+    // Transport & Logistics Categories
+"luxury-car": {
+  name: "Luxury Car Rental",
+  image: "https://i.pinimg.com/736x/23/0d/40/230d40c7e5b8ba2b6e37bd71d02536df.jpg",
+},
+"vintage-car": {
+  name: "Vintage Car Vendor",
+  image: "https://i.pinimg.com/736x/66/ed/62/66ed6219ce04c0dabac072a6e857a411.jpg",
+},
+"bus-traveller": {
+  name: "Bus/Traveller for Guests",
+  image: "https://i.pinimg.com/1200x/7f/88/d7/7f88d746e1ff0591dbfdc588c7c04a8c.jpg",
+},
+cab: {
+  name: "Cab Arrangements",
+  image: "https://i.pinimg.com/736x/ed/40/5a/ed405a2ba00170d6359e6e9e4d0e0e36.jpg",
+},
+parking: {
+  name: "Parking Vendor",
+  image: "https://i.pinimg.com/736x/32/10/5d/32105dab31728d71ea19b73c79168a26.jpg",
+},
+logistics: {
+  name: "Logistics Delivery Vendor",
+  image: "https://i.pinimg.com/736x/46/06/e6/4606e6ed6db487e57590e5e9e76fc66b.jpg",
+},
+"luggage-transport": {
+  name: "Luggage Transport Vendor",
+  image: "https://i.pinimg.com/1200x/c0/52/8b/c0528b8186c23e133370181bb316b027.jpg",
+},
+// Event Setup & Infrastructure Categories
+"tent-house": {
+  name: "Tent House Vendor",
+  image: "https://i.pinimg.com/736x/69/27/00/692700e25b11ff377ef33ddaaf32a503.jpg",
+},
+"stage-setup": {
+  name: "Stage Setup Vendor",
+  image: "https://i.pinimg.com/1200x/79/1a/ea/791aeaa2b5e3c177e644f41e2f9f2f6d.jpg",
+},
+"truss-rigging": {
+  name: "Truss & Rigging Vendor",
+  image: "https://i.pinimg.com/736x/c5/e6/e4/c5e6e43d838fd41790b328bcd4aa91fd.jpg",
+},
+"led-screen": {
+  name: "LED Screen Supplier",
+  image: "https://i.pinimg.com/736x/c6/43/24/c6432485f119f94bd03b9373a6391fa7.jpg",
+},
+"generator-power": {
+  name: "Generator & Power Backup Supplier",
+  image: "https://i.pinimg.com/1200x/b6/dd/6a/b6dd6a776a59453ed327ce5f318bfac8.jpg",
+},
+"portable-ac": {
+  name: "Portable AC/Cooler Vendor",
+  image: "https://i.pinimg.com/736x/b8/e1/fe/b8e1fe7b2b56f30b0e488ea6998bdea5.jpg",
+},
+"seating-arrangement": {
+  name: "Seating Arrangement Vendor",
+  image: "https://i.pinimg.com/736x/98/62/00/98620029bd4ee47c7e9f36deb24c1fe9.jpg",
+},
+"table-linen": {
+  name: "Table Linen Provider",
+  image: "https://i.pinimg.com/736x/b8/a9/99/b8a999f9e90ec5c918710a6050be05e1.jpg",
+},
+carpeting: {
+  name: "Carpeting Vendor",
+  image: "https://i.pinimg.com/1200x/bd/a8/77/bda877253ce0f84f6e2bce6bee01244b.jpg",
+},
+// Shopping & Costume Categories
+"bridal-wear": {
+  name: "Bridal Wear Store",
+  image: "https://i.pinimg.com/1200x/e9/d5/28/e9d52855eb7e78e4e942f6c835895503.jpg",
+},
+"groom-wear": {
+  name: "Groom Wear Store",
+  image: "https://i.pinimg.com/1200x/95/23/af/9523af51af7a67537119a2cd02c7b54d.jpg",
+},
+"jewellery-rental": {
+  name: "Jewellery Rental Vendor",
+  image: "https://i.pinimg.com/1200x/0b/87/f4/0b87f49efa6edfee744409e4f58cccd4.jpg",
+},
+"artificial-jewellery": {
+  name: "Artificial Jewellery Vendor",
+  image: "https://i.pinimg.com/736x/c1/56/24/c15624868fcffe2c158492fed5e82ce3.jpg",
+},
+footwear: {
+  name: "Footwear Vendor",
+  image: "https://i.pinimg.com/736x/c1/39/c4/c139c4556a7ceaa0f1d433832be710a7.jpg",
+},
+"pagdi-artist": {
+  name: "Pagdi/Safa Tying Artist",
+  image: "https://i.pinimg.com/736x/c0/60/85/c060852c22dcac916346aa5ee998c287.jpg",
+},
+"turban-veil": {
+  name: "Turban/Veil Vendors",
+  image: "https://i.pinimg.com/736x/06/6f/80/066f8089f29b805d0c60eda55db24784.jpg",
+},
+"costume-rental": {
+  name: "Costume Rental for Sangeet",
+  image: "https://i.pinimg.com/736x/6b/84/6c/6b846c2439c163511ec855094e05da99.jpg",
+},
+// Miscellaneous Categories
+"balloon-dropping": {
+  name: "Balloon Dropping Setup",
+  image: "https://i.pinimg.com/1200x/fe/d0/b0/fed0b0b0b61c613e172aafc909aa855c.jpg",
+},
+"cold-pyro": {
+  name: "Cold Pyro & Special Effects",
+  image: "https://i.pinimg.com/1200x/ea/90/48/ea90486fe6ff4f7ef3ced3aeeee90dcf.jpg",
+},
+"co2-jet": {
+  name: "CO2 Jet Vendor",
+  image: "https://i.pinimg.com/1200x/c7/fa/45/c7fa45335e6c083a6b8a214267398b22.jpg",
+},
+"confetti-cannon": {
+  name: "Confetti Cannon Vendor",
+  image: "https://i.pinimg.com/736x/99/13/37/9913370ad2b3f9f86335e316bda38bed.jpg",
+},
+"fog-machine": {
+  name: "Fog Machine Vendor",
+  image: "https://i.pinimg.com/1200x/a7/6f/0c/a76f0cd6296f9ec80f26c5f5af944dac.jpg",
+},
+"bubble-machine": {
+  name: "Bubble Machine Vendor",
+  image: "https://i.pinimg.com/736x/29/2e/52/292e52d4de4cbd210b34996aaeb79505.jpg",
+},
+"snow-machine": {
+  name: "Snow Machine Vendor",
+  image: "https://i.pinimg.com/736x/5b/5e/86/5b5e86217c7ed065bf0ef9e8fde1bacf.jpg",
+},
+"puppet-show": {
+  name: "Puppet Show Vendor",
+  image: "https://i.pinimg.com/736x/88/31/8b/88318b6377d4121c70d8ef0b1322e66a.jpg",
+},
+"car-decoration": {
+  name: "Car Decoration Vendor",
+  image: "https://i.pinimg.com/736x/19/47/e0/1947e010a16004ad1cff5aba4fc6262c.jpg",
+},
+"flower-shower": {
+  name: "Flower Shower Machine Vendor",
+  image: "https://i.pinimg.com/736x/cf/6f/bd/cf6fbdbaf2c595babc7b0f6068f10615.jpg",
+},
   };
 
-  const currentCategory = categoryData[category] || { name: "Services", image: "" };
+  const currentCategory = categoryData[category] || {
+    name: category?.toUpperCase() || "Services",
+    image: "",
+  };
 
   useEffect(() => {
     fetchServices();
@@ -331,7 +660,7 @@ export default function CategoryServicesPage() {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:5000/api/services/category/${category}`
+        `http://localhost:5000/api/services/category/${category}`,
       );
       const data = await response.json();
 
@@ -375,7 +704,7 @@ export default function CategoryServicesPage() {
       {/* Header with Background Image */}
       <div className="relative h-[40vh] overflow-hidden">
         {/* Background Image - Always use image, never video */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${currentCategory.image})` }}
         >
@@ -397,6 +726,26 @@ export default function CategoryServicesPage() {
           <p className="text-lg text-white/90 drop-shadow-md">
             Browse our verified {currentCategory.name.toLowerCase()} services
           </p>
+        </div>
+      </div>
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white/80 backdrop-blur-md border-b border-white/20 py-4 px-4">
+        <div className="max-w-7xl mx-auto">
+          <nav className="flex items-center space-x-2 text-sm">
+            <button
+              onClick={() => router.push("/")}
+              className="flex items-center gap-1 text-gray-700 hover:text-rose-500 transition-colors cursor-pointer font-medium"
+            >
+              <span className="w-4 h-4">🏠</span>
+              <span>Home</span>
+            </button>
+            <span className="text-gray-400">/</span>
+            <span className="text-gray-600 font-medium">Wedding Vendors</span>
+            <span className="text-gray-400">/</span>
+            <span className="text-rose-500 font-semibold text-base">
+              {currentCategory.name}
+            </span>
+          </nav>
         </div>
       </div>
 
@@ -464,7 +813,9 @@ export default function CategoryServicesPage() {
                     {service.area_of_service && (
                       <div className="flex items-start gap-1.5 text-gray-700 text-sm mb-2">
                         <MapPin className="w-4 h-4 text-rose-500 flex-shrink-0 mt-0.5" />
-                        <span className="line-clamp-1">{service.area_of_service}</span>
+                        <span className="line-clamp-1">
+                          {service.area_of_service}
+                        </span>
                       </div>
                     )}
 
@@ -478,7 +829,10 @@ export default function CategoryServicesPage() {
                         )}
                         {service.starting_price && (
                           <span className="text-gray-500 text-xs">
-                            | Starting from <span className="font-bold text-rose-500">₹{service.starting_price?.toLocaleString("en-IN")}</span>
+                            | Starting from{" "}
+                            <span className="font-bold text-rose-500">
+                              ₹{service.starting_price?.toLocaleString("en-IN")}
+                            </span>
                           </span>
                         )}
                       </div>
@@ -504,7 +858,13 @@ export default function CategoryServicesPage() {
                       <PhoneCall className="w-4 h-4" />
                       Call Now
                     </button>
-                    <button className="flex-1 px-4 py-2.5 cursor-pointer bg-gradient-to-r from-rose-400 to-pink-500 text-white rounded-lg hover:shadow-lg transition-all duration-300 font-semibold text-sm shadow-sm">
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation(); // Prevent card click
+                        handleServiceClick(service.id); // Routes to /wedding-vendors/[category]/[serviceId]
+                      }}
+                      className="flex-1 px-4 py-2.5 cursor-pointer bg-gradient-to-r from-rose-400 to-pink-500 text-white rounded-lg hover:shadow-lg transition-all duration-300 font-semibold text-sm shadow-sm"
+                    >
                       View Details
                     </button>
                   </div>

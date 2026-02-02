@@ -1,8 +1,10 @@
 "use client";
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { ShoppingCart, ChevronLeft, ChevronRight, Star, Clock, MapPin, Heart, Share2 } from 'lucide-react';
 
 const PreWeddingPage = () => {
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState('all');
 
   const categories = [
@@ -10,37 +12,43 @@ const PreWeddingPage = () => {
       name: 'Pre-bridal Package', 
       items: '15 Packages', 
       image: 'https://i.pinimg.com/736x/ff/a1/f2/ffa1f2edb50196451f35ad564dcb4c1e.jpg',
-      description: 'Complete beauty transformation for your special day'
+      description: 'Complete beauty transformation for your special day',
+      subCategory: 'pre-bridal-package'
     },
     { 
       name: 'Spa Services', 
       items: '20 Treatments', 
       image: 'https://i.pinimg.com/736x/e9/ae/70/e9ae708944a296977491e4dcd0199c53.jpg',
-      description: 'Relaxation and rejuvenation therapy'
+      description: 'Relaxation and rejuvenation therapy',
+      subCategory: 'spa-services'
     },
     { 
       name: 'Facial Treatments', 
       items: '12 Options', 
       image: 'https://i.pinimg.com/736x/86/a8/05/86a805c94bec1f6ba8c7fba054b5959b.jpg',
-      description: 'Glowing skin for your big day'
+      description: 'Glowing skin for your big day',
+      subCategory: 'facial-treatments'
     },
     { 
       name: 'Manicure & Pedicure', 
       items: '18 Styles', 
       image: 'https://i.pinimg.com/736x/5a/2d/a2/5a2da272f5d641418635146a8ea293c7.jpg',
-      description: 'Perfect hands and feet grooming'
+      description: 'Perfect hands and feet grooming',
+      subCategory: 'manicure-pedicure'
     },
     { 
       name: 'Nail Extensions', 
       items: '25 Designs', 
       image: 'https://i.pinimg.com/736x/8f/54/89/8f5489c49480b58d145077f7dd54a588.jpg',
-      description: 'Stunning nail art and extensions'
+      description: 'Stunning nail art and extensions',
+      subCategory: 'nail-extensions'
     },
     { 
       name: 'Hair Coloring', 
       items: '30 Shades', 
       image: 'https://i.pinimg.com/1200x/23/02/82/2302823f50fecfb378d3195c0834776d.jpg',
-      description: 'Transform your look with vibrant colors'
+      description: 'Transform your look with vibrant colors',
+      subCategory: 'hair-coloring'
     }
   ];
 
@@ -54,7 +62,8 @@ const PreWeddingPage = () => {
       image: 'https://i.pinimg.com/736x/2f/ac/29/2fac29140b3e78f3e7bf6540e565c219.jpg',
       services: ['Full Body Spa', 'Facial Treatment', 'Manicure & Pedicure', 'Hair Styling'],
       duration: '6 Hours',
-      rating: 4.9
+      rating: 4.9,
+      subCategory: 'pre-bridal-package'
     },
     {
       name: 'Luxury Pre-Wedding Spa Retreat',
@@ -65,7 +74,8 @@ const PreWeddingPage = () => {
       image: 'https://i.pinimg.com/1200x/4a/57/1f/4a571fe4b3f4f8eece5395f8354fd21f.jpg',
       services: ['Aromatherapy', 'Body Massage', 'Steam Bath', 'Skin Polishing'],
       duration: '8 Hours',
-      rating: 4.8
+      rating: 4.8,
+      subCategory: 'spa-services'
     }
   ];
 
@@ -80,7 +90,8 @@ const PreWeddingPage = () => {
       image: 'https://i.pinimg.com/736x/2f/5d/cf/2f5dcfd75256fc8578b3d9734edfc248.jpg',
       salon: 'Bella Beauty Studio',
       location: 'Downtown',
-      bestseller: true
+      bestseller: true,
+      subCategory: 'facial-treatments'
     },
     {
       name: 'Full Body Spa Therapy',
@@ -91,7 +102,8 @@ const PreWeddingPage = () => {
       reviews: 189,
       image: 'https://i.pinimg.com/1200x/01/64/33/0164335901e7bcb07c6b2e7e30280c1d.jpg',
       salon: 'Serenity Spa',
-      location: 'Uptown'
+      location: 'Uptown',
+      subCategory: 'spa-services'
     },
     {
       name: 'Luxury Gel Manicure & Pedicure',
@@ -103,7 +115,8 @@ const PreWeddingPage = () => {
       image: 'https://i.pinimg.com/736x/d6/30/04/d63004813c51215d0ffccf8efe5ffd23.jpg',
       salon: 'Nail Paradise',
       location: 'City Center',
-      trending: true
+      trending: true,
+      subCategory: 'manicure-pedicure'
     },
     {
       name: 'Acrylic Nail Extensions - Bridal',
@@ -114,7 +127,8 @@ const PreWeddingPage = () => {
       reviews: 278,
       image: 'https://i.pinimg.com/1200x/3c/b7/bb/3cb7bb2b4c7bc6653846d20cb6c49450.jpg',
       salon: 'Glamour Nails',
-      location: 'Mall Road'
+      location: 'Mall Road',
+      subCategory: 'nail-extensions'
     },
     {
       name: 'Balayage Hair Coloring',
@@ -126,7 +140,8 @@ const PreWeddingPage = () => {
       image: 'https://i.pinimg.com/736x/02/ee/cf/02eecf92ff19ca06b3b7086f631b9628.jpg',
       salon: 'Hair Haven',
       location: 'Fashion District',
-      bestseller: true
+      bestseller: true,
+      subCategory: 'hair-coloring'
     },
     {
       name: 'Diamond Facial with Massage',
@@ -137,7 +152,8 @@ const PreWeddingPage = () => {
       reviews: 201,
       image: 'https://i.pinimg.com/736x/c7/41/3e/c7413e1f7fcd0c04471b9b5b9287c9f1.jpg',
       salon: 'Elite Beauty',
-      location: 'Downtown'
+      location: 'Downtown',
+      subCategory: 'facial-treatments'
     },
     {
       name: 'Aromatherapy Spa Package',
@@ -148,7 +164,8 @@ const PreWeddingPage = () => {
       reviews: 143,
       image: 'https://i.pinimg.com/736x/b1/53/b6/b153b64c37217537d29946c4cf24caac.jpg',
       salon: 'Tranquil Touch',
-      location: 'Spa District'
+      location: 'Spa District',
+      subCategory: 'spa-services'
     },
     {
       name: 'French Manicure & Spa Pedicure',
@@ -159,7 +176,8 @@ const PreWeddingPage = () => {
       reviews: 267,
       image: 'https://i.pinimg.com/1200x/a6/12/95/a612952fe2a4516f5461ddcb78229129.jpg',
       salon: 'Polished Perfection',
-      location: 'Westside'
+      location: 'Westside',
+      subCategory: 'manicure-pedicure'
     }
   ];
 
@@ -190,6 +208,19 @@ const PreWeddingPage = () => {
     }
   ];
 
+  // Navigation handlers
+  const handleCategoryClick = (subCategory) => {
+    router.push(`/bride/all-services?category=pre-wedding-services&subCategory=${subCategory}`);
+  };
+
+  const handleAllServicesClick = () => {
+    router.push("/bride/all-services?category=pre-wedding-services");
+  };
+
+  const handleServiceClick = (subCategory) => {
+    router.push(`/bride/all-services?category=pre-wedding-services&subCategory=${subCategory}`);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-white">
       {/* Hero Section */}
@@ -209,10 +240,16 @@ const PreWeddingPage = () => {
                 Comprehensive pre-wedding beauty treatments and wellness packages designed to make you shine. From luxurious spa sessions to expert hair and nail services.
               </p>
               <div className="flex gap-4">
-                <button className="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-yellow-300 hover:text-purple-700 transition-colors shadow-lg">
+                <button 
+                  onClick={handleAllServicesClick}
+                  className="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-yellow-300 hover:text-purple-700 transition-colors shadow-lg cursor-pointer"
+                >
                   Book Now
                 </button>
-                <button className="border-2 border-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-colors">
+                <button 
+                  onClick={handleAllServicesClick}
+                  className="border-2 border-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-colors cursor-pointer"
+                >
                   View Packages
                 </button>
               </div>
@@ -266,6 +303,7 @@ const PreWeddingPage = () => {
           {categories.map((category, index) => (
             <div
               key={index}
+              onClick={() => handleCategoryClick(category.subCategory)}
               className="group bg-white rounded-3xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-300 border border-gray-100"
             >
               <div className="relative h-56 overflow-hidden">
@@ -309,7 +347,8 @@ const PreWeddingPage = () => {
             {featuredPackages.map((pkg, index) => (
               <div
                 key={index}
-                className="relative bg-gradient-to-br from-purple-100 to-pink-100 rounded-3xl overflow-hidden group hover:shadow-2xl transition-all duration-300"
+                onClick={() => handleCategoryClick(pkg.subCategory)}
+                className="relative bg-gradient-to-br from-purple-100 to-pink-100 rounded-3xl overflow-hidden group hover:shadow-2xl transition-all duration-300 cursor-pointer"
               >
                 <span className="absolute top-6 right-6 bg-yellow-400 text-purple-800 text-sm font-bold px-4 py-2 rounded-full z-10 shadow-lg">
                   {pkg.tag}
@@ -400,7 +439,8 @@ const PreWeddingPage = () => {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl overflow-hidden group hover:shadow-2xl transition-all duration-300 border border-gray-100"
+                onClick={() => handleServiceClick(service.subCategory)}
+                className="bg-white rounded-2xl overflow-hidden group hover:shadow-2xl transition-all duration-300 border border-gray-100 cursor-pointer"
               >
                 <div className="relative h-64 overflow-hidden">
                   <img 
@@ -419,10 +459,16 @@ const PreWeddingPage = () => {
                     </span>
                   )}
                   <div className="absolute top-3 right-3 flex gap-2">
-                    <button className="bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors">
+                    <button 
+                      onClick={(e) => e.stopPropagation()}
+                      className="bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors"
+                    >
                       <Heart size={18} className="text-gray-700" />
                     </button>
-                    <button className="bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors">
+                    <button 
+                      onClick={(e) => e.stopPropagation()}
+                      className="bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors"
+                    >
                       <Share2 size={18} className="text-gray-700" />
                     </button>
                   </div>
@@ -457,7 +503,13 @@ const PreWeddingPage = () => {
                       <div className="text-xs text-gray-500">{service.location}</div>
                     </div>
                   </div>
-                  <button className="w-full bg-purple-600 text-white py-3 rounded-xl font-semibold hover:bg-purple-700 transition-colors flex items-center justify-center gap-2 shadow-md">
+                  <button 
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleServiceClick(service.subCategory);
+                    }}
+                    className="w-full bg-purple-600 text-white py-3 rounded-xl font-semibold hover:bg-purple-700 transition-colors flex items-center justify-center gap-2 shadow-md"
+                  >
                     <ShoppingCart size={18} />
                     Book Now
                   </button>
@@ -564,10 +616,16 @@ const PreWeddingPage = () => {
             Book your pre-wedding beauty services today and get ready to shine on your special day. Our expert team is here to make you look and feel amazing.
           </p>
           <div className="flex gap-4 justify-center">
-            <button className="bg-purple-600 text-white px-10 py-4 rounded-full font-semibold hover:bg-purple-700 transition-colors shadow-lg text-lg">
+            <button 
+              onClick={handleAllServicesClick}
+              className="bg-purple-600 text-white px-10 py-4 rounded-full font-semibold hover:bg-purple-700 transition-colors shadow-lg text-lg cursor-pointer"
+            >
               Book Consultation
             </button>
-            <button className="border-2 border-purple-600 text-purple-600 px-10 py-4 rounded-full font-semibold hover:bg-purple-600 hover:text-white transition-colors text-lg">
+            <button 
+              onClick={handleAllServicesClick}
+              className="border-2 border-purple-600 text-purple-600 px-10 py-4 rounded-full font-semibold hover:bg-purple-600 hover:text-white transition-colors text-lg cursor-pointer"
+            >
               View All Packages
             </button>
           </div>

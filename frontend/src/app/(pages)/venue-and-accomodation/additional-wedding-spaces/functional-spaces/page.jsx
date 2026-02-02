@@ -8,25 +8,25 @@ const FunctionalSpacesPage = () => {
   const heroItems = [
     {
       image:
-        "https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg",
+        "https://i.pinimg.com/736x/c6/61/ce/c661ce996617cffb686a21846ec4dc43.jpg",
       label: "Catering Kitchen Area",
       slug: "catering-kitchen-area",
     },
     {
       image:
-        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+        "https://i.pinimg.com/736x/a8/fc/0c/a8fc0c24425749b2860839f44ca74e76.jpg",
       label: "Buffet Section",
       slug: "buffet-section",
     },
     {
       image:
-        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+        "https://i.pinimg.com/736x/92/f3/4a/92f34a75cffad94b08cd714e3304b2bc.jpg",
       label: "Bar Counter Area",
       slug: "bar-counter-area",
     },
     {
       image:
-        "https://i.pinimg.com/736x/67/03/ef/6703ef4b1f4dba26f87a9c1b9f1cd332.jpg",
+        "https://i.pinimg.com/1200x/6a/b5/e8/6ab5e859139a108e2c7ab56f866b30e7.jpg",
       label: "Dance Floor",
       slug: "dance-floor",
     },
@@ -44,63 +44,63 @@ const FunctionalSpacesPage = () => {
       slug: "catering-kitchen-area",
       title: "Catering Kitchen Area",
       image:
-        "https://i.pinimg.com/736x/b1/fd/97/b1fd971d0d42a56c183b6e17077211f3.jpg",
+        "https://i.pinimg.com/736x/c6/61/ce/c661ce996617cffb686a21846ec4dc43.jpg",
       accent: "#e91e63",
     },
     {
       slug: "buffet-section",
       title: "Buffet Section",
       image:
-        "https://i.pinimg.com/1200x/33/68/f9/3368f983eeafd946d980c91f15c51c20.jpg",
+        "https://i.pinimg.com/736x/a8/fc/0c/a8fc0c24425749b2860839f44ca74e76.jpg",
       accent: "#3f51b5",
     },
     {
       slug: "bar-counter-area",
       title: "Bar Counter Area",
       image:
-        "https://i.pinimg.com/1200x/9f/40/f2/9f40f2eb683ab08a3df20f82387e5cfd.jpg",
+        "https://i.pinimg.com/736x/92/f3/4a/92f34a75cffad94b08cd714e3304b2bc.jpg",
       accent: "#ff9800",
     },
     {
       slug: "dance-floor",
       title: "Dance Floor",
       image:
-        "https://i.pinimg.com/1200x/52/28/25/522825bf91e8e09c848c9e8d783c9873.jpg",
+        "https://i.pinimg.com/1200x/6a/b5/e8/6ab5e859139a108e2c7ab56f866b30e7.jpg",
       accent: "#9c27b0",
     },
     {
       slug: "dj-stage",
       title: "DJ Stage",
       image:
-        "https://i.pinimg.com/736x/ed/be/25/edbe25b54256439d445e5a879930ce55.jpg",
+        "https://i.pinimg.com/736x/ef/a4/71/efa471caadcc0c6c03abab4957c0e699.jpg",
       accent: "#4caf50",
     },
     {
       slug: "photobooth-zone",
       title: "Photobooth Zone",
       image:
-        "https://i.pinimg.com/736x/60/bd/39/60bd394c51249e65e1b1616e1a88ff79.jpg",
+        "https://i.pinimg.com/736x/cf/c3/39/cfc339fd4764faf6530b4421a0813002.jpg",
       accent: "#03a9f4",
     },
     {
       slug: "makeup-room",
       title: "Makeup Room",
       image:
-        "https://i.pinimg.com/1200x/4c/f1/2e/4cf12e29898c1646395e1cb4971f304e.jpg",
+        "https://i.pinimg.com/736x/bc/4f/01/bc4f01f1a4710690d6a5d41a9432d5f2.jpg",
       accent: "#ff5722",
     },
     {
       slug: "storage-area",
       title: "Storage Area",
       image:
-        "https://i.pinimg.com/736x/b1/fd/97/b1fd971d0d42a56c183b6e17077211f3.jpg",
+        "https://i.pinimg.com/736x/91/ad/4f/91ad4fb40a150783090dbc2e50eb6ce3.jpg",
       accent: "#607d8b",
     },
     {
       slug: "generator-zone",
       title: "Generator Zone",
       image:
-        "https://i.pinimg.com/1200x/33/68/f9/3368f983eeafd946d980c91f15c51c20.jpg",
+        "https://i.pinimg.com/1200x/6f/b7/c5/6fb7c5bccbf221594ae85c7bb73b7566.jpg",
       accent: "#795548",
     },
   ];
@@ -286,7 +286,7 @@ const FunctionalSpacesPage = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="flex justify-center">
               <img
-                src="https://i.pinimg.com/1200x/65/6b/0e/656b0e4b605f404cb5d5edb30e0b3b76.jpg"
+                src="https://i.pinimg.com/736x/31/26/c1/3126c147c1e708d8d6fc6cfcb7ad3b25.jpg"
                 alt="About Functional Spaces"
                 className="rounded-lg shadow-2xl w-78 object-cover"
               />

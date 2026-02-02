@@ -1,73 +1,79 @@
 "use client";
-import React, { useState, useRef } from "react";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import React, { useRef } from "react";
+import { Home, ChevronRight as BreadcrumbArrow } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const ShoppingCostumeVendorsPage = () => {
+  const router = useRouter();
   const sliderRef = useRef(null);
+
+  // Map vendor id → category slug (used by "View All" button)
+  const categoryMap = {
+    1: "bridal-wear",
+    2: "groom-wear",
+    3: "jewellery-rental",
+    4: "artificial-jewellery",
+    5: "footwear",
+    6: "pagdi-artist",
+    7: "turban-veil",
+    8: "costume-rental",
+  };
 
   const categories = [
     {
-      id: "bridal",
+      id: "bridal-wear",
       name: "Bridal Wear Store",
       image:
         "https://i.pinimg.com/736x/4c/ac/3a/4cac3ada4f725b8a51f8e7ccd1dd7439.jpg",
-      link: "/bridal-wear",
     },
     {
-      id: "groom",
+      id: "groom-wear",
       name: "Groom Wear Store",
       image:
         "https://i.pinimg.com/736x/15/5a/8c/155a8c2a82d202b8a846ddc5c56322bb.jpg",
-      link: "/groom-wear",
     },
     {
-      id: "jewellery",
+      id: "jewellery-rental",
       name: "Jewellery Rental",
       image:
         "https://i.pinimg.com/1200x/4b/95/28/4b952870595590f1648773e60ea41a28.jpg",
-      link: "/jewellery-rental",
     },
     {
-      id: "artificial",
+      id: "artificial-jewellery",
       name: "Artificial Jewellery",
       image:
         "https://i.pinimg.com/1200x/5d/ef/cc/5defccad0d6bd09af5ed3946f66ced4f.jpg",
-      link: "/artificial-jewellery",
     },
     {
       id: "footwear",
       name: "Footwear Vendor",
       image:
         "https://i.pinimg.com/1200x/e2/df/d2/e2dfd23e3231c9666e2b2f855d5037e4.jpg",
-      link: "/footwear",
     },
     {
-      id: "pagdi",
+      id: "pagdi-artist",
       name: "Pagdi/Safa Artist",
       image:
         "https://i.pinimg.com/1200x/40/71/fa/4071fa535c59ba59f4e45f868ef24bc7.jpg",
-      link: "/pagdi-artist",
     },
     {
-      id: "turban",
+      id: "turban-veil",
       name: "Turban/Veil Vendors",
       image:
         "https://i.pinimg.com/1200x/c3/1c/a4/c31ca438fed65e049151223b8b9bfaa6.jpg",
-      link: "/turban-veil",
     },
     {
-      id: "costume",
+      id: "costume-rental",
       name: "Costume Rental",
       image:
         "https://i.pinimg.com/1200x/38/a5/07/38a507d1c92cb8cbe6ee0c1b25e93ebd.jpg",
-      link: "/costume-rental",
     },
   ];
 
   const vendors = [
     {
       id: 1,
-      category: "bridal",
+      category: "bridal-wear",
       name: "Bridal Wear Store",
       description:
         "Exquisite bridal collections featuring traditional and contemporary designs with premium fabrics and intricate embellishments",
@@ -76,7 +82,7 @@ const ShoppingCostumeVendorsPage = () => {
     },
     {
       id: 2,
-      category: "groom",
+      category: "groom-wear",
       name: "Groom Wear Store",
       description:
         "Sophisticated groom attire ranging from classic sherwanis to modern suits with impeccable tailoring and style",
@@ -85,7 +91,7 @@ const ShoppingCostumeVendorsPage = () => {
     },
     {
       id: 3,
-      category: "jewellery",
+      category: "jewellery-rental",
       name: "Jewellery Rental Vendor",
       description:
         "Stunning collection of authentic gold and diamond jewellery sets available for rental to complete your bridal look",
@@ -94,7 +100,7 @@ const ShoppingCostumeVendorsPage = () => {
     },
     {
       id: 4,
-      category: "artificial",
+      category: "artificial-jewellery",
       name: "Artificial Jewellery Vendor",
       description:
         "Beautiful artificial jewellery pieces that perfectly mimic traditional designs at affordable prices",
@@ -112,7 +118,7 @@ const ShoppingCostumeVendorsPage = () => {
     },
     {
       id: 6,
-      category: "pagdi",
+      category: "pagdi-artist",
       name: "Pagdi/Safa Tying Artist",
       description:
         "Expert artists who create stunning traditional pagdi and safa styles with precision and artistic flair",
@@ -121,7 +127,7 @@ const ShoppingCostumeVendorsPage = () => {
     },
     {
       id: 7,
-      category: "turban",
+      category: "turban-veil",
       name: "Turban/Veil Vendors",
       description:
         "Wide variety of turbans, veils, and dupattas in luxurious fabrics with beautiful embroidery and embellishments",
@@ -130,7 +136,7 @@ const ShoppingCostumeVendorsPage = () => {
     },
     {
       id: 8,
-      category: "costume",
+      category: "costume-rental",
       name: "Costume Rental for Sangeet",
       description:
         "Vibrant and stylish costume rentals perfect for sangeet performances and theme-based wedding celebrations",
@@ -139,21 +145,9 @@ const ShoppingCostumeVendorsPage = () => {
     },
   ];
 
-  const scrollSlider = (direction) => {
-    if (sliderRef.current) {
-      const scrollAmount = 200;
-      sliderRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
-    }
-  };
-
-  const handleCategoryClick = (link) => {
-    // In Next.js, you would use: router.push(link)
-    console.log("Navigate to:", link);
-    // For now, just showing an alert
-    alert(`Navigating to ${link}`);
+  // Handle category clicks to navigate to specific category page
+  const handleCategoryClick = (categoryId) => {
+    router.push(`/wedding-vendors/${categoryId}`);
   };
 
   return (
@@ -196,8 +190,8 @@ const ShoppingCostumeVendorsPage = () => {
                 {categories.map((cat) => (
                   <button
                     key={`original-${cat.id}`}
-                    onClick={() => handleCategoryClick(cat.link)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item"
+                    onClick={() => handleCategoryClick(cat.id)}
+                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-rose-300">
                       <img
@@ -211,13 +205,13 @@ const ShoppingCostumeVendorsPage = () => {
                     </span>
                   </button>
                 ))}
-                
+
                 {/* Duplicate categories for seamless loop */}
                 {categories.map((cat) => (
                   <button
                     key={`duplicate-${cat.id}`}
-                    onClick={() => handleCategoryClick(cat.link)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item"
+                    onClick={() => handleCategoryClick(cat.id)}
+                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-rose-300">
                       <img
@@ -237,16 +231,35 @@ const ShoppingCostumeVendorsPage = () => {
         </div>
       </div>
 
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white border-b border-gray-200 py-3 px-4">
+        <div className="max-w-7xl mx-auto">
+          <nav className="flex items-center space-x-2 text-sm">
+            <button
+              onClick={() => router.push("/")}
+              className="flex items-center gap-1 text-gray-600 hover:text-rose-500 transition-colors cursor-pointer"
+            >
+              <Home className="w-4 h-4" />
+              <span>Home</span>
+            </button>
+            <BreadcrumbArrow className="w-4 h-4 text-gray-400" />
+            <span className="text-rose-500 font-semibold text-lg">
+              Shopping & Costume Vendors
+            </span>
+          </nav>
+        </div>
+      </div>
+
       {/* Vendors Grid */}
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {vendors.map((vendor) => (
             <div
               key={vendor.id}
-              className="bg-rose-100 rounded-t-full rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 h-full flex flex-col"
+              className="bg-rose-100 rounded-t-full rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 h-full flex flex-col cursor-pointer group"
             >
               {/* Image */}
-              <div className="relative h-50 overflow-hidden group">
+              <div className="relative h-50 overflow-hidden">
                 <img
                   src={vendor.image}
                   alt={vendor.name}
@@ -256,19 +269,22 @@ const ShoppingCostumeVendorsPage = () => {
 
               {/* Content + Button */}
               <div className="p-6 flex flex-col flex-1">
-                {/* Text content takes available space */}
                 <div className="flex-1">
-                  <h3 className="text-2xl font-medium text-gray-800 mb-3 text-center">
+                  <h3 className="text-2xl font-medium text-gray-800 mb-3 text-center group-hover:text-rose-500 transition-colors">
                     {vendor.name}
                   </h3>
-
-                  <h3 className="text-sm font-normal text-gray-800 mb-3">
+                  <p className="text-sm font-normal text-gray-800 mb-3">
                     {vendor.description}
-                  </h3>
+                  </p>
                 </div>
 
-                {/* Button stays at bottom */}
-                <button className="w-full mt-6 bg-gradient-to-r from-rose-400 to-pink-500 text-white py-3 rounded-lg hover:from-rose-500 hover:to-pink-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg">
+                {/* View All Button - Routes to category page */}
+                <button
+                  onClick={() => {
+                    router.push(`/wedding-vendors/${categoryMap[vendor.id]}`);
+                  }}
+                  className="w-full mt-6 bg-gradient-to-r from-rose-400 to-pink-500 text-white py-3 rounded-lg hover:from-rose-500 hover:to-pink-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg cursor-pointer"
+                >
                   View All →
                 </button>
               </div>
@@ -281,12 +297,6 @@ const ShoppingCostumeVendorsPage = () => {
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
         }
-        .line-clamp-3 {
-          display: -webkit-box;
-          -webkit-line-clamp: 3;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
         @keyframes scroll {
           0% {
             transform: translateX(0);
@@ -295,11 +305,9 @@ const ShoppingCostumeVendorsPage = () => {
             transform: translateX(-50%);
           }
         }
-
         .animate-scroll {
           animation: scroll 10s linear infinite;
         }
-
         .pause-animation:hover {
           animation-play-state: paused;
         }

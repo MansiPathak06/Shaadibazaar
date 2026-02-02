@@ -10,7 +10,7 @@ const PhotographyMediaVendorsPage = () => {
       id: "traditional",
       name: "Traditional Photography",
       image:
-        "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=400",
+        "https://i.pinimg.com/1200x/43/bc/b5/43bcb5d61f8287ff8b7b029c8bf09f0e.jpg",
       link: "/traditional-photography",
     },
     {
@@ -24,14 +24,14 @@ const PhotographyMediaVendorsPage = () => {
       id: "drone",
       name: "Drone Camera Operator",
       image:
-        "https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=400",
+        "https://i.pinimg.com/736x/c1/4d/a0/c14da01b3f35f3be360b8adbfad4fc27.jpg",
       link: "/drone-camera",
     },
     {
       id: "cinematic",
       name: "Cinematic Videography",
       image:
-        "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=400",
+        "https://i.pinimg.com/736x/42/26/91/422691e09e79e96b7075ef306a9c2d07.jpg",
       link: "/cinematic-videography",
     },
     {
@@ -52,28 +52,28 @@ const PhotographyMediaVendorsPage = () => {
       id: "editing",
       name: "Photo Editing & Album",
       image:
-        "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400",
+        "https://i.pinimg.com/736x/1e/41/63/1e416367adbed8e867540981117a8a8f.jpg",
       link: "/photo-editing-album",
     },
     {
       id: "360camera",
       name: "360° Camera Booth",
       image:
-        "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400",
+        "https://i.pinimg.com/736x/5c/4a/33/5c4a337d9a058c51ba10359d9b72b634.jpg",
       link: "/360-camera-booth",
     },
     {
       id: "photobooth",
       name: "Photobooth with Props",
       image:
-        "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400",
+        "https://i.pinimg.com/1200x/b3/1c/18/b31c1864046a65dc8f3bb76acf272821.jpg",
       link: "/photobooth-props",
     },
     {
       id: "polaroid",
       name: "Instant Print Polaroid",
       image:
-        "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400",
+        "https://i.pinimg.com/1200x/83/96/65/8396657fc32672823d77d1ae531e0e07.jpg",
       link: "/instant-print-polaroid",
     },
   ];
@@ -86,7 +86,7 @@ const PhotographyMediaVendorsPage = () => {
       description:
         "Classic and timeless photography capturing formal portraits and traditional wedding moments with elegance and grace",
       image:
-        "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800",
+        "https://i.pinimg.com/1200x/43/bc/b5/43bcb5d61f8287ff8b7b029c8bf09f0e.jpg",
     },
     {
       id: 2,
@@ -95,7 +95,7 @@ const PhotographyMediaVendorsPage = () => {
       description:
         "Natural and spontaneous moments captured beautifully, telling your wedding story through genuine emotions and expressions",
       image:
-        "https://images.unsplash.com/photo-1519741497674-611481863552?w=800",
+        "https://i.pinimg.com/1200x/f0/fe/dc/f0fedc1c36059b6dc1b043d312f9e44a.jpg",
     },
     {
       id: 3,
@@ -104,7 +104,7 @@ const PhotographyMediaVendorsPage = () => {
       description:
         "Breathtaking aerial shots and cinematic overhead views that add a stunning perspective to your wedding coverage",
       image:
-        "https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=800",
+        "https://i.pinimg.com/736x/c1/4d/a0/c14da01b3f35f3be360b8adbfad4fc27.jpg",
     },
     {
       id: 4,
@@ -113,7 +113,7 @@ const PhotographyMediaVendorsPage = () => {
       description:
         "Hollywood-style wedding films with artistic direction, perfect color grading, and emotional storytelling that feels like a movie",
       image:
-        "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800",
+        "https://i.pinimg.com/736x/42/26/91/422691e09e79e96b7075ef306a9c2d07.jpg",
     },
     {
       id: 5,
@@ -140,7 +140,7 @@ const PhotographyMediaVendorsPage = () => {
       description:
         "Professional post-production services with retouching, color correction, and beautifully designed albums to treasure forever",
       image:
-        "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800",
+        "https://i.pinimg.com/736x/1e/41/63/1e416367adbed8e867540981117a8a8f.jpg",
     },
     {
       id: 8,
@@ -149,7 +149,7 @@ const PhotographyMediaVendorsPage = () => {
       description:
         "Interactive 360-degree video booth creating stunning slow-motion rotating videos that wow your guests and go viral",
       image:
-        "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=800",
+        "https://i.pinimg.com/736x/5c/4a/33/5c4a337d9a058c51ba10359d9b72b634.jpg",
     },
     {
       id: 9,
@@ -158,7 +158,7 @@ const PhotographyMediaVendorsPage = () => {
       description:
         "Fun and entertaining photo booth with creative props and backdrops, giving guests instant memories and entertainment",
       image:
-        "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800",
+        "https://i.pinimg.com/1200x/b3/1c/18/b31c1864046a65dc8f3bb76acf272821.jpg",
     },
     {
       id: 10,
@@ -167,7 +167,7 @@ const PhotographyMediaVendorsPage = () => {
       description:
         "Nostalgic instant photography service providing guests with immediate physical prints as memorable wedding favors",
       image:
-        "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=800",
+        "https://i.pinimg.com/1200x/83/96/65/8396657fc32672823d77d1ae531e0e07.jpg",
     },
   ];
 

@@ -8,7 +8,7 @@ const HotelAccommodationPage = () => {
   const heroItems = [
     {
       image:
-        "https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg",
+        "https://i.pinimg.com/736x/0d/9b/b2/0d9bb28273c611d58d422ae473454456.jpg",
       label: "5-Star Hotels",
       slug: "5-star-hotels",
     },
@@ -20,7 +20,7 @@ const HotelAccommodationPage = () => {
     },
     {
       image:
-        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+        "https://i.pinimg.com/1200x/9d/31/25/9d312567943302c5854f3eca950f8a5f.jpg",
       label: "Budget Hotels",
       slug: "budget-hotels",
     },
@@ -44,7 +44,7 @@ const HotelAccommodationPage = () => {
       slug: "5-star-hotels",
       title: "5-Star Hotels",
       image:
-        "https://i.pinimg.com/736x/b1/fd/97/b1fd971d0d42a56c183b6e17077211f3.jpg",
+        "https://i.pinimg.com/736x/0d/9b/b2/0d9bb28273c611d58d422ae473454456.jpg",
       accent: "#e91e63",
     },
     {
@@ -86,7 +86,7 @@ const HotelAccommodationPage = () => {
       slug: "executive-rooms-vip",
       title: "Executive Rooms for VIP Guests",
       image:
-        "https://i.pinimg.com/1200x/4c/f1/2e/4cf12e29898c1646395e1cb4971f304e.jpg",
+        "https://i.pinimg.com/1200x/62/33/7c/62337c6fb4529bb0baec43238f70bdfc.jpg",
       accent: "#ff5722",
     },
   ];
