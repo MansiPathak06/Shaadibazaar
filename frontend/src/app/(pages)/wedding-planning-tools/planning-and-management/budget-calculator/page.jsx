@@ -872,7 +872,7 @@ export default function BudgetCalculatorPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700">
                         <div className="flex items-start gap-3">
                             <div className="w-2 h-2 bg-pink-500 rounded-full mt-2"></div>
-                            <p>Set aside 10-15% of your budget for unexpected expenses</p>
+                            <p>Set aside 10-15% of your budget for unexpected expense</p>
                         </div>
                         <div className="flex items-start gap-3">
                             <div className="w-2 h-2 bg-pink-500 rounded-full mt-2"></div>
