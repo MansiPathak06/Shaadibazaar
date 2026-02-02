@@ -33,12 +33,12 @@ export default function LogisticsAndVendorManagementTools() {
     {
       title: "Loading/Unloading Scripts",
       description: "Step-by-step instructions for efficient loading and unloading of wedding materials. Assign responsibilities, optimize timing, and ensure smooth logistics on the big day.",
-      image: ""
+      image: "https://i.pinimg.com/1200x/e0/e9/d4/e0e9d43d96875627da8a771762a56030.jpg"
     },
     {
       title: "Permission Documents File",
       description: "Secure storage for all permits, venue contracts, and authorization letters. Keep insurance certificates, alcohol permits, and venue agreements organized and accessible.",
-      image: ""
+      image: "https://i.pinimg.com/736x/94/9d/12/949d121c4eecc542ca29d2506c311e5a.jpg"
     }
   ];
 
