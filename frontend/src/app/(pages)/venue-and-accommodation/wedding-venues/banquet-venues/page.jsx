@@ -3,118 +3,126 @@ import React from "react";
 import Link from "next/link";
 import { Sparkles, MapPin, Users, Calendar } from "lucide-react";
 
-const GuestHousesPage = () => {
+const BanquetVenuesPage = () => {
   // Hero items with their subcategory slugs
   const heroItems = [
     {
       image:
-        "https://i.pinimg.com/736x/7f/5e/74/7f5e749e86a77fa3fe9ebd7bb130d37d.jpg",
-      label: "Family Guest Houses",
-      slug: "family-guest-houses",
+        "https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg",
+      label: "Luxury Banquets",
+      slug: "luxury-banquets",
     },
     {
       image:
-        "https://i.pinimg.com/1200x/ac/00/61/ac0061d07dfd87b850264a2bc5d10566.jpg",
-      label: "Government Guest Houses",
-      slug: "government-guest-houses",
+        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+      label: "Hotel Banquet Halls",
+      slug: "hotel-banquet-halls",
     },
     {
       image:
-        "https://i.pinimg.com/1200x/d3/c1/40/d3c1407f99da5fe4c5f0b771d70f210f.jpg",
-      label: "Private Guest Houses",
-      slug: "private-guest-houses",
+        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+      label: "Hotel Banquet Halls",
+      slug: "hotel-banquet-halls",
     },
+
     {
       image:
-        "https://i.pinimg.com/1200x/33/6a/f3/336af32ebc15345c997adfdf3932fb41.jpg",
-      label: "Dharamshalas",
-      slug: "dharamshalas",
+        "https://i.pinimg.com/736x/67/03/ef/6703ef4b1f4dba26f87a9c1b9f1cd332.jpg",
+      label: "AC/Non-AC Banquets",
+      slug: "ac-non-ac-banquets",
     },
   ];
-
   const features = [
-    { icon: Users, text: "Comfortable Stays", color: "text-pink-300" },
-    { icon: MapPin, text: "Prime Locations", color: "text-purple-300" },
-    { icon: Calendar, text: "Easy Booking", color: "text-fuchsia-300" },
+    { icon: Users, text: "50-5000 Guests", color: "text-pink-300" },
+    { icon: MapPin, text: "Premium Locations", color: "text-purple-300" },
+    { icon: Calendar, text: "Flexible Booking", color: "text-fuchsia-300" },
   ];
 
   // Category collections (bottom section)
   const categories = [
     {
-      slug: "family-guest-houses",
-      title: "Family Guest Houses",
+      slug: "indoor-banquet-halls",
+      title: "Indoor Banquet Halls",
       image:
-        "https://i.pinimg.com/736x/7f/5e/74/7f5e749e86a77fa3fe9ebd7bb130d37d.jpg",
+        "https://i.pinimg.com/736x/b1/fd/97/b1fd971d0d42a56c183b6e17077211f3.jpg",
       accent: "#e91e63",
     },
     {
-      slug: "government-guest-houses",
-      title: "Government Guest Houses",
+      slug: "luxury-banquets",
+      title: "Luxury Banquets",
       image:
-        "https://i.pinimg.com/1200x/ac/00/61/ac0061d07dfd87b850264a2bc5d10566.jpg",
+        "https://i.pinimg.com/1200x/33/68/f9/3368f983eeafd946d980c91f15c51c20.jpg",
       accent: "#3f51b5",
     },
     {
-      slug: "private-guest-houses",
-      title: "Private Guest Houses",
+      slug: "budget-banquet-halls",
+      title: "Budget Banquet Halls",
       image:
-        "https://i.pinimg.com/1200x/d3/c1/40/d3c1407f99da5fe4c5f0b771d70f210f.jpg",
+        "https://i.pinimg.com/1200x/9f/40/f2/9f40f2eb683ab08a3df20f82387e5cfd.jpg",
       accent: "#ff9800",
     },
     {
-      slug: "dharamshalas",
-      title: "Dharamshalas",
+      slug: "ac-non-ac-banquets",
+      title: "AC/Non-AC Banquets",
       image:
-        "https://i.pinimg.com/1200x/33/6a/f3/336af32ebc15345c997adfdf3932fb41.jpg",
+        "https://i.pinimg.com/1200x/52/28/25/522825bf91e8e09c848c9e8d783c9873.jpg",
       accent: "#9c27b0",
     },
     {
-      slug: "budget-guest-houses",
-      title: "Budget Guest Houses",
+      slug: "hotel-banquet-halls",
+      title: "Hotel Banquet Halls",
       image:
-        "https://i.pinimg.com/1200x/d2/91/63/d29163e94bf7966e319479ddb0eb9433.jpg",
+        "https://i.pinimg.com/736x/ed/be/25/edbe25b54256439d445e5a879930ce55.jpg",
       accent: "#4caf50",
     },
     {
-      slug: "luxury-guest-houses",
-      title: "Luxury Guest Houses",
+      slug: "community-center-banquets",
+      title: "Community Center Banquets",
       image:
-        "https://i.pinimg.com/736x/95/c3/d4/95c3d47c44f4c52f6528d6f9af552874.jpg",
+        "https://i.pinimg.com/736x/60/bd/39/60bd394c51249e65e1b1616e1a88ff79.jpg",
       accent: "#03a9f4",
+    },
+    {
+      slug: "government-banquet-halls",
+      title: "Government Banquet Halls",
+      image:
+        "https://i.pinimg.com/1200x/4c/f1/2e/4cf12e29898c1646395e1cb4971f304e.jpg",
+      accent: "#ff5722",
     },
   ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-50 to-pink-50">
       {/* Hero Section */}
+
+    {/* Hero Section */}
+    {/* Hero Section */}
       <div className="relative h-[70vh] md:h-[77vh] overflow-hidden">
         {/* Background Image with Blur */}
         <div className="absolute inset-0">
           <img
             src="https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg"
-            alt="Guest House Background"
+            alt="Banquet Background"
             className="w-full h-full object-cover blur-sm scale-105"
           />
           {/* Dark overlay for better text readability */}
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
-
         {/* Content Overlay */}
         <div className="relative h-full flex flex-col items-center justify-center px-4 py-6">
+          {/* Category Badge */}
+          
           {/* Main Heading */}
           <h1 className="text-3xl md:text-5xl mt-5 font-bold text-white mb-3 text-center leading-tight max-w-3xl">
-            Your Home Away From Home
+            Exploring venues and
             <br />
-            Comfort & Hospitality
+            conquering memories
           </h1>
-
           {/* Description */}
           <p className="text-sm md:text-base text-white/90 text-center max-w-xl mb-4 leading-relaxed">
-            Discover comfortable and welcoming guest houses perfect for your
-            accommodation needs. From family-friendly stays to traditional
-            dharamshalas.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.
           </p>
-
           {/* Features */}
           <div className="flex flex-wrap gap-3 justify-center mb-4">
             {features.map((feature, index) => (
@@ -127,13 +135,12 @@ const GuestHousesPage = () => {
               </div>
             ))}
           </div>
-
           {/* Hero Images Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-3xl w-full">
             {heroItems.map((item, index) => (
               <Link
                 key={index}
-                href={`/wedding-venues/all-venues?category=guest-houses&subCategory=${item.slug}`}
+                href={`/wedding-venues/all-venues?category=banquet-venues&subCategory=${item.slug}`}
                 className="relative group"
               >
                 <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-xl relative">
@@ -144,7 +151,7 @@ const GuestHousesPage = () => {
                   />
                   {/* Gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-
+                  
                   {/* Text overlay */}
                   <div className="absolute bottom-2 left-0 right-0 px-2 text-center">
                     <p className="text-white text-[10px] md:text-xs font-semibold drop-shadow-lg">
@@ -155,7 +162,6 @@ const GuestHousesPage = () => {
               </Link>
             ))}
           </div>
-
           {/* Pagination Dots */}
           <div className="flex gap-2 mt-4">
             <div className="w-1.5 h-1.5 rounded-full bg-white"></div>
@@ -170,22 +176,22 @@ const GuestHousesPage = () => {
         <div className="py-2">
           <div className="animate-marquee whitespace-nowrap inline-block">
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              ✨ COMFORTABLE ACCOMMODATIONS FOR EVERY NEED
+              ✨ EXCEPTIONAL VENUES FOR UNFORGETTABLE MOMENTS
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              🏡 EXPERIENCE WARMTH & HOSPITALITY
+              🎊 CELEBRATE IN STYLE & ELEGANCE
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              🛏️ YOUR PERFECT STAY AWAITS
+              🏛️ WHERE MEMORIES ARE MADE
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              ✨ COMFORTABLE ACCOMMODATIONS FOR EVERY NEED
+              ✨ EXCEPTIONAL VENUES FOR UNFORGETTABLE MOMENTS
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              🏡 EXPERIENCE WARMTH & HOSPITALITY
+              🎊 CELEBRATE IN STYLE & ELEGANCE
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              🛏️ YOUR PERFECT STAY AWAITS
+              🏛️ WHERE MEMORIES ARE MADE
             </span>
           </div>
         </div>
@@ -209,48 +215,40 @@ const GuestHousesPage = () => {
       {/* Featured Collections - Now Clickable */}
       <div className="container mx-auto px-40 py-16">
         <h2 className="text-3xl font-bold text-purple-900 mb-8 uppercase tracking-wide">
-          Featured Guest House Categories
+          Featured Venue Categories
         </h2>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mb-10">
           {categories.map((category, index) => (
-            <Link
-              key={index}
-              href={`/wedding-venues/all-venues?category=guest-houses&subCategory=${category.slug}`}
-              className="group cursor-pointer"
-            >
+          <Link
+  key={index}
+  href={`/wedding-venues/banquet-venues/${category.slug}`}
+  className="group cursor-pointer"
+>
               <div className="bg-white rounded-lg shadow-md overflow-hidden transform group-hover:scale-105 transition-all duration-300 group-hover:shadow-lg">
-                {/* Image */}
-                <div className="h-42 md:h-65 overflow-hidden relative">
-                  <img
-                    src={category.image}
-                    alt={category.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
+    {/* Image */}
+    <div className="h-42 md:h-65 overflow-hidden relative">
+      <img
+        src={category.image}
+        alt={category.title}
+        className="w-full h-full object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    </div>
 
-                {/* Text */}
-                <div className="p-3 text-center">
-                  <h3 className="text-sm font-semibold text-gray-800 mb-1 capitalize">
-                    {category.title}
-                  </h3>
-                  <span
-                    className="text-[10px] px-3 py-1.5 rounded-full border transition-colors duration-300 inline-block group-hover:text-white"
-                    style={{
-                      borderColor: category.accent,
-                      color: category.accent,
-                      backgroundColor: "transparent",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = category.accent;
-                      e.currentTarget.style.color = "white";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = "transparent";
-                      e.currentTarget.style.color = category.accent;
-                    }}
-                  >
+                 {/* Text */}
+    <div className="p-3 text-center">
+      <h3 className="text-sm font-semibold text-gray-800 mb-1 capitalize">
+        {category.title}
+      </h3>
+      <span
+        className="text-[10px] px-3 py-1.5 rounded-full border transition-colors duration-300 inline-block group-hover:text-white"
+        style={{
+          borderColor: category.accent,
+          color: category.accent,
+          backgroundColor: "transparent",
+        }}
+      >
                     EXPLORE
                   </span>
                 </div>
@@ -266,26 +264,26 @@ const GuestHousesPage = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="flex justify-center">
               <img
-                src="https://i.pinimg.com/1200x/d9/24/d7/d924d719e2d3e23aaeced3e04c01e0f6.jpg"
-                alt="About Guest Houses"
+                src="https://i.pinimg.com/1200x/65/6b/0e/656b0e4b605f404cb5d5edb30e0b3b76.jpg"
+                alt="About Venues"
                 className="rounded-lg shadow-2xl w-78 object-cover"
               />
             </div>
 
             <div>
               <h2 className="text-3xl font-bold text-purple-900 mb-6 uppercase tracking-wide">
-                About Our Guest Houses
+                About Our Venues
               </h2>
               <p className="text-gray-700 mb-4 leading-relaxed">
-                We understand that finding the right accommodation is essential
-                for a comfortable and memorable stay. Our curated collection of
-                guest houses offers something for every traveler and budget.
+                We understand that finding the perfect venue is crucial to
+                making your celebration truly memorable. Our curated collection
+                of banquet halls offers something for every style and budget.
               </p>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                From family-friendly guest houses to traditional dharamshalas,
-                each property in our collection has been carefully selected to
-                ensure quality, comfort, and genuine hospitality for you and
-                your loved ones.
+                From luxurious hotel banquets to budget-friendly community
+                centers, each venue in our collection has been carefully
+                selected to ensure quality, comfort, and an unforgettable
+                experience for you and your guests.
               </p>
               <div className="grid grid-cols-3 gap-6 text-center">
                 <div>
@@ -299,9 +297,9 @@ const GuestHousesPage = () => {
                     </svg>
                   </div>
                   <h4 className="font-semibold text-purple-900">
-                    HOMELY COMFORT
+                    PREMIUM SPACES
                   </h4>
-                  <p className="text-sm text-gray-600 mt-2">Cozy Stays</p>
+                  <p className="text-sm text-gray-600 mt-2">Elegant Venues</p>
                 </div>
                 <div>
                   <div className="text-purple-600 mb-2">
@@ -318,7 +316,7 @@ const GuestHousesPage = () => {
                     </svg>
                   </div>
                   <h4 className="font-semibold text-purple-900">
-                    VERIFIED PROPERTIES
+                    VERIFIED VENUES
                   </h4>
                   <p className="text-sm text-gray-600 mt-2">Quality Assured</p>
                 </div>
@@ -339,7 +337,7 @@ const GuestHousesPage = () => {
                   </div>
                   <h4 className="font-semibold text-purple-900">BEST VALUE</h4>
                   <p className="text-sm text-gray-600 mt-2">
-                    Affordable Rates
+                    Competitive Pricing
                   </p>
                 </div>
               </div>
@@ -352,20 +350,20 @@ const GuestHousesPage = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-12 shadow-xl">
           <h2 className="text-3xl font-bold text-purple-900 mb-8 text-center uppercase tracking-wide">
-            Complete Guest House Collections
+            Complete Venue Collections
           </h2>
           <p className="text-center text-gray-700 max-w-3xl mx-auto mb-8 leading-relaxed">
-            Explore our extensive range of guest houses perfect for family
-            stays, spiritual journeys, and comfortable accommodations. From
-            modern facilities to traditional dharamshalas, we have the ideal
-            place for your stay.
+            Explore our extensive range of banquet venues perfect for weddings,
+            receptions, and special celebrations. From grand luxury halls to
+            intimate budget-friendly spaces, we have the ideal venue to bring
+            your vision to life.
           </p>
           <div className="text-center">
             <Link
-              href="/wedding-venues/all-venues?category=guest-houses"
+              href="/wedding-venues/all-venues?category=banquet-venues"
               className="bg-purple-900 text-white px-8 py-3 rounded-full hover:bg-purple-800 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block"
             >
-              EXPLORE ALL GUEST HOUSES
+              EXPLORE ALL VENUES
             </Link>
           </div>
         </div>
@@ -374,4 +372,4 @@ const GuestHousesPage = () => {
   );
 };
 
-export default GuestHousesPage;
+export default BanquetVenuesPage;

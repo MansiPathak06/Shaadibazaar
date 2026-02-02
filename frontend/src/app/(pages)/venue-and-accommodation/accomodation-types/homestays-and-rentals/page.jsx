@@ -132,7 +132,7 @@ const HomestaysAndRentalsPage = () => {
             {heroItems.map((item, index) => (
               <Link
                 key={index}
-                href={`/homestays-and-rentals/all-accommodations?category=homestays-and-rentals&subCategory=${item.slug}`}
+                href={`/venue-and-accommodation/all-venues?category=homestays-and-rentals&subCategory=${item.slug}`}
                 className="relative group"
               >
                 <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-xl relative">
@@ -215,7 +215,7 @@ const HomestaysAndRentalsPage = () => {
           {categories.map((category, index) => (
             <Link
               key={index}
-              href={`/homestays-and-rentals/all-accommodations?category=homestays-and-rentals&subCategory=${category.slug}`}
+              href={`/venue-and-accommodation/all-venues?category=homestays-and-rentals&subCategory=${category.slug}`}
               className="group cursor-pointer"
             >
               <div className="bg-white rounded-lg shadow-md overflow-hidden transform group-hover:scale-105 transition-all duration-300 group-hover:shadow-lg">
@@ -360,7 +360,7 @@ const HomestaysAndRentalsPage = () => {
           </p>
           <div className="text-center">
             <Link
-              href="/homestays-and-rentals/all-accommodations?category=homestays-and-rentals"
+              href="/venue-and-accommodation/all-venues?category=homestays-and-rentals"
               className="bg-purple-900 text-white px-8 py-3 rounded-full hover:bg-purple-800 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block"
             >
               EXPLORE ALL ACCOMMODATIONS
