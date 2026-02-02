@@ -3,57 +3,57 @@ export default function MediaAndProductionTools() {
     {
       title: "DSLR & Mirrorless Cameras",
       description: "Professional-grade cameras for capturing stunning wedding moments in high resolution. Full-frame sensors and interchangeable lenses deliver exceptional image quality in any lighting condition.",
-      image: "https://i.pinimg.com/1200x/6e/77/f8/6e77f844142e60f5ae66b449a6c477d8.jpg"
+      image: "https://i.pinimg.com/1200x/78/af/64/78af64d8085525b2e0cf28761a2ecf22.jpg"
     },
     {
       title: "Drone Camera",
       description: "Capture breathtaking aerial shots and cinematic footage of your venue and celebration. Create stunning overhead perspectives that add a unique dimension to your wedding video.",
-      image: "https://i.pinimg.com/736x/5e/7f/7a/5e7f7a57b4cc5dc9b1f82aa90f35b2d6.jpg"
+      image: "https://i.pinimg.com/736x/25/94/0b/25940b9b6681582500343767a6923c6c.jpg"
     },
     {
       title: "GoPro Action Cameras",
       description: "Compact and versatile cameras perfect for unique angles and immersive POV shots. Waterproof and durable design allows creative filming in any wedding scenario.",
-      image: "https://i.pinimg.com/736x/be/8f/a2/be8fa2da56cafa72020a797b371049f1.jpg"
+      image: "https://i.pinimg.com/736x/66/b2/b5/66b2b545ba6934b203411479ac146f38.jpg"
     },
     {
       title: "Lighting Stands",
       description: "Adjustable and sturdy stands to position your lighting equipment precisely. Essential for creating professional lighting setups that enhance photo and video quality.",
-      image: "https://i.pinimg.com/1200x/fc/0e/d2/fc0ed2dd7130a5fe1584359e5b4846cd.jpg"
+      image: "https://i.pinimg.com/736x/ed/ab/e1/edabe1205d92e4ff110644d490525f52.jpg"
     },
     {
       title: "Softboxes",
       description: "Diffuse harsh light for flattering portraits and romantic ambiance. Create soft, even lighting that eliminates unflattering shadows and highlights natural beauty.",
-      image: "https://i.pinimg.com/1200x/6c/dc/12/6cdc121ea4f3a50f38798f53be30f03c.jpg"
+      image: "https://i.pinimg.com/736x/9c/b1/9b/9cb19ba3081d7082e01a1f74d388aa70.jpg"
     },
     {
       title: "Gimbal Stabilizer",
       description: "Achieve smooth, cinematic video footage with professional stabilization. Eliminate camera shake and create fluid movement shots that rival Hollywood productions.",
-      image: "https://i.pinimg.com/736x/66/c5/81/66c5814e6969f9de6e86ce2a44bb480e.jpg"
+      image: "https://i.pinimg.com/736x/41/10/36/411036e76b66cd8760881c44d318d3ab.jpg"
     },
     {
       title: "Tripods",
       description: "Stable support for cameras and lighting equipment during long ceremonies and speeches. Heavy-duty construction ensures shake-free shots in any environment.",
-      image: "https://i.pinimg.com/1200x/78/42/2f/78422f627a4c889ea7e6e92907b2bbcf.jpg"
+      image: "https://i.pinimg.com/1200x/59/ae/98/59ae9849571e150f735e1de342433d20.jpg"
     },
     {
       title: "Memory Cards",
       description: "High-capacity, high-speed storage for thousands of photos and hours of 4K video. Reliable performance ensures you never miss a precious moment due to storage limitations.",
-      image: "https://i.pinimg.com/1200x/a2/58/93/a2589338b74e223b88ae73589ee2ccc2.jpg"
+      image: "https://i.pinimg.com/1200x/14/1a/76/141a76506810bfbca43bb2186f1b3e0f.jpg"
     },
     {
       title: "Backup Hard Drives",
       description: "Secure, portable storage solutions to protect your irreplaceable wedding memories. Multiple backup copies ensure your photos and videos are safe for generations.",
-      image: "https://i.pinimg.com/1200x/c3/46/61/c346611a9859cf0f5224f498ac9a5ae1.jpg"
+      image: "https://i.pinimg.com/1200x/4e/f9/cf/4ef9cf865f1c492a1dedf95fa2ff600d.jpg"
     },
     {
       title: "LED Wall Controllers",
       description: "Manage dynamic visual displays and lighting effects for modern wedding venues. Create synchronized light shows and stunning visual backdrops that wow your guests.",
-      image: "https://i.pinimg.com/1200x/66/81/0d/66810d3dea919815a11ef99649fba02f.jpg"
+      image: "https://i.pinimg.com/1200x/85/27/30/8527300871188cd8dbe20f32e31c642e.jpg"
     },
     {
       title: "Audio Mixer",
       description: "Professional sound control for crystal-clear ceremony audio and reception entertainment. Balance multiple microphones and music sources for perfect sound quality.",
-      image: "https://i.pinimg.com/736x/16/18/0f/16180f598dc535f01062bb16db038cc9.jpg"
+      image: "https://i.pinimg.com/1200x/71/14/29/711429a675a8cce93933f2ba67dfbda0.jpg"
     },
   
   ];

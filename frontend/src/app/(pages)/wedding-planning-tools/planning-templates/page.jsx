@@ -3,12 +3,12 @@ export default function PlanningTemplates() {
     {
       title: "Wedding Day Timeline",
       description: "A comprehensive hour-by-hour schedule for your entire wedding day. Coordinate with vendors, track ceremony timing, reception events, and ensure everything runs smoothly from start to finish.",
-      image: "https://i.pinimg.com/1200x/6e/77/f8/6e77f844142e60f5ae66b449a6c477d8.jpg"
+      image: "https://i.pinimg.com/736x/a1/72/97/a1729703f068d2e5e213f819d3dea52d.jpg"
     },
     {
       title: "Ceremony Flow Chart",
       description: "Detailed sequence of your wedding ceremony from processional to recessional. Map out every moment including vows, ring exchange, readings, and special rituals with precise timing.",
-      image: "https://i.pinimg.com/736x/5e/7f/7a/5e7f7a57b4cc5dc9b1f82aa90f35b2d6.jpg"
+      image: "https://i.pinimg.com/1200x/53/01/9a/53019a860973d2967015b448e646a8b2.jpg"
     },
     {
       title: "Decor Checklist",
@@ -23,27 +23,27 @@ export default function PlanningTemplates() {
     {
       title: "Bride Prep Checklist",
       description: "Essential timeline and checklist for the bride's preparation day. Coordinate hair, makeup, dress fitting, accessories, and ensure nothing is forgotten on your special morning.",
-      image: "https://i.pinimg.com/1200x/6c/dc/12/6cdc121ea4f3a50f38798f53be30f03c.jpg"
+      image: "https://i.pinimg.com/736x/5e/78/a5/5e78a517973396f1b4610475744aa4f5.jpg"
     },
     {
       title: "Groom Prep Checklist",
       description: "Organized preparation guide for the groom and groomsmen. Track suit fittings, grooming appointments, accessories, and ensure a stress-free getting-ready experience.",
-      image: "https://i.pinimg.com/736x/66/c5/81/66c5814e6969f9de6e86ce2a44bb480e.jpg"
+      image: "https://i.pinimg.com/1200x/b2/63/dd/b263dd44c3f668c19060488a99175490.jpg"
     },
     {
       title: "Photobooth Checklist",
       description: "Planning tool for your photobooth setup and props. List backdrop options, fun props, signage, and technical requirements to create memorable guest experiences.",
-      image: "https://i.pinimg.com/1200x/78/42/2f/78422f627a4c889ea7e6e92907b2bbcf.jpg"
+      image: "https://i.pinimg.com/1200x/e5/41/92/e54192a2280fab3118c9ac503d296c39.jpg"
     },
     {
       title: "Shot List",
       description: "Detailed photography checklist ensuring all important moments are captured. List must-have shots, family groupings, couple portraits, and special detail photos.",
-      image: "https://i.pinimg.com/1200x/a2/58/93/a2589338b74e223b88ae73589ee2ccc2.jpg"
+      image: "https://i.pinimg.com/1200x/ff/af/a3/ffafa3d8b677a7ada14c5ec371c174cd.jpg"
     },
     {
       title: "DJ Playlist Sheet",
       description: "Curated music planning template for your reception. Organize songs for ceremony, cocktail hour, dinner, first dance, and party time with special requests and do-not-play lists.",
-      image: "https://i.pinimg.com/1200x/c3/46/61/c346611a9859cf0f5224f498ac9a5ae1.jpg"
+      image: "https://i.pinimg.com/1200x/df/27/21/df2721100600bba06aeffa92e76db0ce.jpg"
     },
     {
       title: "Baraat Timeline Sheet",
