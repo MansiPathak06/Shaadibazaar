@@ -7,22 +7,22 @@ const DecorativeZonesPage = () => {
   // Hero items with their subcategory slugs
   const heroItems = [
     {
-      image: "https://via.placeholder.com/400x600/9333ea/ffffff?text=Entrance+Gate",
+      image: "https://i.pinimg.com/736x/d2/59/4b/d2594b57dd002d3e22c74e7bcb0a1b13.jpg",
       label: "Entrance Gate",
       slug: "entrance-gate",
     },
     {
-      image: "https://via.placeholder.com/400x600/ec4899/ffffff?text=Mandap+Stage",
+      image: "https://i.pinimg.com/736x/4f/d1/2c/4fd12ccf0172a46ef835f6a5c855d28a.jpg",
       label: "Mandap / Stage",
       slug: "mandap-stage",
     },
     {
-      image: "https://via.placeholder.com/400x600/8b5cf6/ffffff?text=Jaimala+Stage",
+      image: "https://i.pinimg.com/1200x/15/a0/f0/15a0f0826b6d3ecc9104847b74962d5d.jpg",
       label: "Jaimala Stage",
       slug: "jaimala-stage",
     },
     {
-      image: "https://via.placeholder.com/400x600/d946ef/ffffff?text=Couple+Seating",
+      image: "https://i.pinimg.com/1200x/b6/aa/da/b6aada4971e5a7c88c9c060895b28aa7.jpg",
       label: "Couple Seating Area",
       slug: "couple-seating-area",
     },
@@ -39,49 +39,49 @@ const DecorativeZonesPage = () => {
     {
       slug: "entrance-gate",
       title: "Entrance Gate",
-      image: "https://via.placeholder.com/600x400/9333ea/ffffff?text=Entrance+Gate",
+      image: "https://i.pinimg.com/736x/d2/59/4b/d2594b57dd002d3e22c74e7bcb0a1b13.jpg",
       accent: "#9333ea",
     },
     {
       slug: "mandap-stage",
       title: "Mandap / Stage",
-      image: "https://via.placeholder.com/600x400/ec4899/ffffff?text=Mandap+Stage",
+      image: "https://i.pinimg.com/736x/4f/d1/2c/4fd12ccf0172a46ef835f6a5c855d28a.jpg",
       accent: "#ec4899",
     },
     {
       slug: "jaimala-stage",
       title: "Jaimala Stage",
-      image: "https://via.placeholder.com/600x400/8b5cf6/ffffff?text=Jaimala+Stage",
+      image: "https://i.pinimg.com/1200x/15/a0/f0/15a0f0826b6d3ecc9104847b74962d5d.jpg",
       accent: "#8b5cf6",
     },
     {
       slug: "couple-seating-area",
       title: "Couple Seating Area",
-      image: "https://via.placeholder.com/600x400/d946ef/ffffff?text=Couple+Seating",
+      image: "https://i.pinimg.com/1200x/b6/aa/da/b6aada4971e5a7c88c9c060895b28aa7.jpg",
       accent: "#d946ef",
     },
     {
       slug: "mehendi-corner",
       title: "Mehendi Corner",
-      image: "https://via.placeholder.com/600x400/f59e0b/ffffff?text=Mehendi+Corner",
+      image: "https://i.pinimg.com/736x/60/60/49/60604978979eab50a6c7f0ef70302ccf.jpg",
       accent: "#f59e0b",
     },
     {
       slug: "haldi-decor-space",
       title: "Haldi Decor Space",
-      image: "https://via.placeholder.com/600x400/eab308/ffffff?text=Haldi+Decor",
+      image: "https://i.pinimg.com/1200x/e5/4f/52/e54f526656fdb39af2740ef894d5b65e.jpg",
       accent: "#eab308",
     },
     {
       slug: "photo-backdrop-walls",
       title: "Photo Backdrop Walls",
-      image: "https://via.placeholder.com/600x400/06b6d4/ffffff?text=Photo+Backdrop",
+      image: "https://i.pinimg.com/1200x/8d/9c/fd/8d9cfd5202835092fc254ead771c601c.jpg",
       accent: "#06b6d4",
     },
     {
       slug: "lounge-seating-area",
       title: "Lounge Seating Area",
-      image: "https://via.placeholder.com/600x400/10b981/ffffff?text=Lounge+Seating",
+      image: "https://i.pinimg.com/736x/a3/77/2c/a3772c54160160f0014e388bf169399c.jpg",
       accent: "#10b981",
     },
   ];
@@ -267,7 +267,7 @@ const DecorativeZonesPage = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="flex justify-center">
               <img
-                src="https://via.placeholder.com/500x600/9333ea/ffffff?text=About+Decorative+Zones"
+                src="https://i.pinimg.com/736x/28/5f/ba/285fbacd32bdb3ee3711027fe045ec14.jpg"
                 alt="About Decorative Zones"
                 className="rounded-lg shadow-2xl w-78 object-cover"
               />

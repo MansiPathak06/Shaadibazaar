@@ -8,25 +8,25 @@ const HomestaysAndRentalsPage = () => {
   const heroItems = [
     {
       image:
-        "https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg",
+        "https://i.pinimg.com/1200x/ce/b6/fc/ceb6fc58f4cbf7ecd2fe0cadde9b6d37.jpg",
       label: "Airbnb-style Apartments",
       slug: "airbnb-style-apartments",
     },
     {
       image:
-        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+        "https://i.pinimg.com/1200x/73/89/0e/73890e9e4ffa1c4b19de309c6524b406.jpg",
       label: "Homestay Private Rooms",
       slug: "homestay-private-rooms",
     },
     {
       image:
-        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+        "https://i.pinimg.com/1200x/07/be/75/07be75cb390b26318c746299f0f471b6.jpg",
       label: "Farmhouse Stay",
       slug: "farmhouse-stay",
     },
     {
       image:
-        "https://i.pinimg.com/736x/67/03/ef/6703ef4b1f4dba26f87a9c1b9f1cd332.jpg",
+        "https://i.pinimg.com/736x/95/c3/d4/95c3d47c44f4c52f6528d6f9af552874.jpg",
       label: "Villas on Rent",
       slug: "villas-on-rent",
     },
@@ -44,42 +44,42 @@ const HomestaysAndRentalsPage = () => {
       slug: "airbnb-style-apartments",
       title: "Airbnb-style Apartments",
       image:
-        "https://i.pinimg.com/736x/b1/fd/97/b1fd971d0d42a56c183b6e17077211f3.jpg",
+        "https://i.pinimg.com/1200x/ce/b6/fc/ceb6fc58f4cbf7ecd2fe0cadde9b6d37.jpg",
       accent: "#e91e63",
     },
     {
       slug: "homestay-private-rooms",
       title: "Homestay Private Rooms",
       image:
-        "https://i.pinimg.com/1200x/33/68/f9/3368f983eeafd946d980c91f15c51c20.jpg",
+        "https://i.pinimg.com/736x/84/3d/5b/843d5b7092bfb16be57cfbde7abf96d1.jpg",
       accent: "#3f51b5",
     },
     {
       slug: "farmhouse-stay",
       title: "Farmhouse Stay",
       image:
-        "https://i.pinimg.com/1200x/9f/40/f2/9f40f2eb683ab08a3df20f82387e5cfd.jpg",
+        "https://i.pinimg.com/1200x/07/be/75/07be75cb390b26318c746299f0f471b6.jpg",
       accent: "#ff9800",
     },
     {
       slug: "villas-on-rent",
       title: "Villas on Rent",
       image:
-        "https://i.pinimg.com/1200x/52/28/25/522825bf91e8e09c848c9e8d783c9873.jpg",
+        "https://i.pinimg.com/736x/95/c3/d4/95c3d47c44f4c52f6528d6f9af552874.jpg",
       accent: "#9c27b0",
     },
     {
       slug: "studio-apartments",
       title: "Studio Apartments",
       image:
-        "https://i.pinimg.com/736x/ed/be/25/edbe25b54256439d445e5a879930ce55.jpg",
+        "https://i.pinimg.com/1200x/6d/60/de/6d60de76f916bcb276d2a033152f0362.jpg",
       accent: "#4caf50",
     },
     {
       slug: "hostels",
       title: "Hostels",
       image:
-        "https://i.pinimg.com/736x/60/bd/39/60bd394c51249e65e1b1616e1a88ff79.jpg",
+        "https://i.pinimg.com/736x/9c/03/97/9c0397ad9f3000017ecbf3fd38ee6cbf.jpg",
       accent: "#03a9f4",
     },
   ];
@@ -265,7 +265,7 @@ const HomestaysAndRentalsPage = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="flex justify-center">
               <img
-                src="https://i.pinimg.com/1200x/65/6b/0e/656b0e4b605f404cb5d5edb30e0b3b76.jpg"
+                src="https://i.pinimg.com/1200x/6d/cb/2c/6dcb2c60a2d6a5f63b049db0a42169b4.jpg"
                 alt="About Homestays"
                 className="rounded-lg shadow-2xl w-78 object-cover"
               />

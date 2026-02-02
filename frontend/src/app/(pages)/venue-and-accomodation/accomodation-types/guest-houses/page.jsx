@@ -8,25 +8,25 @@ const GuestHousesPage = () => {
   const heroItems = [
     {
       image:
-        "https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg",
+        "https://i.pinimg.com/736x/7f/5e/74/7f5e749e86a77fa3fe9ebd7bb130d37d.jpg",
       label: "Family Guest Houses",
       slug: "family-guest-houses",
     },
     {
       image:
-        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+        "https://i.pinimg.com/1200x/ac/00/61/ac0061d07dfd87b850264a2bc5d10566.jpg",
       label: "Government Guest Houses",
       slug: "government-guest-houses",
     },
     {
       image:
-        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+        "https://i.pinimg.com/1200x/d3/c1/40/d3c1407f99da5fe4c5f0b771d70f210f.jpg",
       label: "Private Guest Houses",
       slug: "private-guest-houses",
     },
     {
       image:
-        "https://i.pinimg.com/736x/67/03/ef/6703ef4b1f4dba26f87a9c1b9f1cd332.jpg",
+        "https://i.pinimg.com/1200x/33/6a/f3/336af32ebc15345c997adfdf3932fb41.jpg",
       label: "Dharamshalas",
       slug: "dharamshalas",
     },
@@ -44,42 +44,42 @@ const GuestHousesPage = () => {
       slug: "family-guest-houses",
       title: "Family Guest Houses",
       image:
-        "https://i.pinimg.com/736x/b1/fd/97/b1fd971d0d42a56c183b6e17077211f3.jpg",
+        "https://i.pinimg.com/736x/7f/5e/74/7f5e749e86a77fa3fe9ebd7bb130d37d.jpg",
       accent: "#e91e63",
     },
     {
       slug: "government-guest-houses",
       title: "Government Guest Houses",
       image:
-        "https://i.pinimg.com/1200x/33/68/f9/3368f983eeafd946d980c91f15c51c20.jpg",
+        "https://i.pinimg.com/1200x/ac/00/61/ac0061d07dfd87b850264a2bc5d10566.jpg",
       accent: "#3f51b5",
     },
     {
       slug: "private-guest-houses",
       title: "Private Guest Houses",
       image:
-        "https://i.pinimg.com/1200x/9f/40/f2/9f40f2eb683ab08a3df20f82387e5cfd.jpg",
+        "https://i.pinimg.com/1200x/d3/c1/40/d3c1407f99da5fe4c5f0b771d70f210f.jpg",
       accent: "#ff9800",
     },
     {
       slug: "dharamshalas",
       title: "Dharamshalas",
       image:
-        "https://i.pinimg.com/1200x/52/28/25/522825bf91e8e09c848c9e8d783c9873.jpg",
+        "https://i.pinimg.com/1200x/33/6a/f3/336af32ebc15345c997adfdf3932fb41.jpg",
       accent: "#9c27b0",
     },
     {
       slug: "budget-guest-houses",
       title: "Budget Guest Houses",
       image:
-        "https://i.pinimg.com/736x/ed/be/25/edbe25b54256439d445e5a879930ce55.jpg",
+        "https://i.pinimg.com/1200x/d2/91/63/d29163e94bf7966e319479ddb0eb9433.jpg",
       accent: "#4caf50",
     },
     {
       slug: "luxury-guest-houses",
       title: "Luxury Guest Houses",
       image:
-        "https://i.pinimg.com/736x/60/bd/39/60bd394c51249e65e1b1616e1a88ff79.jpg",
+        "https://i.pinimg.com/736x/95/c3/d4/95c3d47c44f4c52f6528d6f9af552874.jpg",
       accent: "#03a9f4",
     },
   ];
@@ -266,7 +266,7 @@ const GuestHousesPage = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="flex justify-center">
               <img
-                src="https://i.pinimg.com/1200x/65/6b/0e/656b0e4b605f404cb5d5edb30e0b3b76.jpg"
+                src="https://i.pinimg.com/1200x/d9/24/d7/d924d719e2d3e23aaeced3e04c01e0f6.jpg"
                 alt="About Guest Houses"
                 className="rounded-lg shadow-2xl w-78 object-cover"
               />

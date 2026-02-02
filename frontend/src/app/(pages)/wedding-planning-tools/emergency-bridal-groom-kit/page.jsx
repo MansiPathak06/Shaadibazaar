@@ -3,67 +3,67 @@ export default function EmergencyBridalGroomKit() {
     {
       title: "Safety Pins",
       description: "Essential for quick wardrobe fixes. Perfect for securing loose hems, adjusting straps, or fixing unexpected tears in clothing. Keep multiple sizes on hand for various emergencies.",
-      image: ""
+      image: "https://i.pinimg.com/1200x/b3/36/a5/b336a536e0534a68e4d3d349d58ff9b7.jpg"
     },
     {
       title: "U-Pins",
       description: "Must-have for hair emergencies and veil adjustments. Secure updos, fix fallen hair accessories, and keep your hairstyle looking flawless throughout the celebration.",
-      image: ""
+      image: "https://i.pinimg.com/1200x/c0/6b/09/c06b099c5cd01864886c010bf525ea7d.jpg"
     },
     {
       title: "Makeup Fixing Spray",
       description: "Lock in your makeup for all-day wear. Prevents smudging, controls shine, and keeps you looking fresh from ceremony through reception and photos.",
-      image: ""
+      image: "https://i.pinimg.com/736x/07/5d/de/075dde54189d92005daba763dc4d3034.jpg"
     },
     {
       title: "Sewing Kit",
       description: "Complete emergency repair solution with needles, thread in various colors, and small scissors. Handle torn seams, loose buttons, and fabric emergencies on the spot.",
-      image: ""
+      image: "https://i.pinimg.com/1200x/1b/ee/50/1bee50636361a3cb55b0f32465c6860e.jpg"
     },
     {
       title: "Stain Remover",
       description: "Instant treatment for unexpected spills and stains. Quickly address wine, food, or makeup marks on wedding attire to keep everyone looking pristine.",
-      image: ""
+      image: "https://i.pinimg.com/736x/2c/07/0c/2c070c87a1cf017fde3265ea0e30da54.jpg"
     },
     {
       title: "Bandaids",
       description: "Protection for blisters and minor cuts. Essential for painful shoes and unexpected scrapes. Include various sizes for different needs throughout the day.",
-      image: ""
+      image: "https://i.pinimg.com/1200x/f5/bd/1f/f5bd1f3423fc75884fb3ab2568cf1362.jpg"
     },
     {
       title: "Tissues & Wet Wipes",
       description: "Handle tears of joy and clean up small messes. Wet wipes perfect for makeup touch-ups, hand cleaning, and quick refreshes between events.",
-      image: ""
+      image: "https://i.pinimg.com/1200x/74/34/44/74344463b1974d47f1e2a8da887ef818.jpg"
     },
     {
       title: "Mini Deodorant",
       description: "Stay fresh and confident all day long. Compact size perfect for quick touch-ups during dancing, photos, and throughout your celebration.",
-      image: ""
+      image: "https://i.pinimg.com/1200x/7c/2e/81/7c2e81452a143233c987704624331582.jpg"
     },
     {
       title: "Hair Spray",
       description: "Keep your hairstyle perfect through every moment. Tame flyaways, secure updos, and maintain your look from first look to last dance.",
-      image: ""
+      image: "https://i.pinimg.com/736x/f9/41/bd/f941bdd45000dc4136f61d2e53ab01db.jpg"
     },
     {
       title: "Perfume",
       description: "Maintain your signature scent throughout the day. Travel-size bottle for convenient touch-ups that keep you smelling wonderful for every embrace and photo.",
-      image: ""
+      image: "https://i.pinimg.com/736x/12/8f/94/128f940217ef4498d44fca10d10c7b6c.jpg"
     },
     {
       title: "Shoe Polish",
       description: "Keep shoes looking brand new all day. Quick fixes for scuffs and marks on dress shoes. Matching colors for both bride and groom footwear.",
-      image: ""
+      image: "https://i.pinimg.com/736x/73/9e/ac/739eacda83734eb38d1b80bc6d1977cd.jpg"
     },
     {
       title: "Sanitary Kit",
       description: "Essential feminine hygiene products for peace of mind. Include various options to ensure comfort and confidence throughout your special day.",
-      image: ""
+      image: "https://i.pinimg.com/1200x/50/53/d6/5053d6c12a158a58e47e91a3c0de80e9.jpg"
     },
     {
       title: "Painkiller Tablets",
       description: "Relief for headaches, muscle tension, or unexpected aches. Keep your celebration comfortable and pain-free so you can enjoy every moment worry-free.",
-      image: ""
+      image: "https://i.pinimg.com/1200x/23/b7/fe/23b7feab330156c8a85de430d4df830a.jpg"
     }
   ];
 

@@ -8,25 +8,25 @@ const PostWeddingVenuesPage = () => {
   const heroItems = [
     {
       image:
-        "https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg",
+        "https://i.pinimg.com/1200x/49/d6/85/49d6859a8ede22c27ff6be4f8145cdb8.jpg",
       label: "Reception Banquets",
       slug: "reception-banquets",
     },
     {
       image:
-        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+        "https://i.pinimg.com/1200x/39/6d/79/396d7972665e72563319830a7870f0db.jpg",
       label: "Walima Venues",
       slug: "walima-venues",
     },
     {
       image:
-        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+        "https://i.pinimg.com/736x/ba/90/d6/ba90d60e37f9b8cbd5da2747f25c3529.jpg",
       label: "Pagphera Ceremony",
       slug: "pagphera-ceremony-venues",
     },
     {
       image:
-        "https://i.pinimg.com/736x/67/03/ef/6703ef4b1f4dba26f87a9c1b9f1cd332.jpg",
+        "https://i.pinimg.com/736x/6a/a8/c4/6aa8c453890d963aafc60f1aa33a01bb.jpg",
       label: "Home Lawn Venues",
       slug: "home-lawn-venues",
     },
@@ -44,7 +44,7 @@ const PostWeddingVenuesPage = () => {
       slug: "reception-banquets",
       title: "Reception Banquets",
       image:
-        "https://i.pinimg.com/736x/b1/fd/97/b1fd971d0d42a56c183b6e17077211f3.jpg",
+        "https://i.pinimg.com/1200x/49/d6/85/49d6859a8ede22c27ff6be4f8145cdb8.jpg",
       accent: "#e91e63",
     },
     {
@@ -58,21 +58,21 @@ const PostWeddingVenuesPage = () => {
       slug: "pagphera-ceremony-venues",
       title: "Pagphera Ceremony Venues",
       image:
-        "https://i.pinimg.com/1200x/9f/40/f2/9f40f2eb683ab08a3df20f82387e5cfd.jpg",
+        "https://i.pinimg.com/1200x/ed/20/f4/ed20f47675d71323e0eb59499e48c1d7.jpg",
       accent: "#ff9800",
     },
     {
       slug: "home-lawn-venues",
       title: "Home Lawn Venues",
       image:
-        "https://i.pinimg.com/1200x/52/28/25/522825bf91e8e09c848c9e8d783c9873.jpg",
+        "https://i.pinimg.com/736x/6a/a8/c4/6aa8c453890d963aafc60f1aa33a01bb.jpg",
       accent: "#9c27b0",
     },
     {
       slug: "dining-halls",
       title: "Dining Halls",
       image:
-        "https://i.pinimg.com/736x/ed/be/25/edbe25b54256439d445e5a879930ce55.jpg",
+        "https://i.pinimg.com/736x/da/b3/d7/dab3d7ab973170b6e1d5598a6a30012b.jpg",
       accent: "#4caf50",
     },
   ];
@@ -258,7 +258,7 @@ const PostWeddingVenuesPage = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="flex justify-center">
               <img
-                src="https://i.pinimg.com/1200x/65/6b/0e/656b0e4b605f404cb5d5edb30e0b3b76.jpg"
+                src="https://i.pinimg.com/736x/d1/2d/7c/d12d7c4044896bf3fea741335fabd254.jpg"
                 alt="About Post-Wedding Venues"
                 className="rounded-lg shadow-2xl w-78 object-cover"
               />

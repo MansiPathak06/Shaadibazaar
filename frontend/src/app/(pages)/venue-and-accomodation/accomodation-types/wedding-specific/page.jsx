@@ -8,25 +8,25 @@ const WeddingAccommodationPage = () => {
   const heroItems = [
     {
       image:
-        "https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg",
+        "https://i.pinimg.com/1200x/85/65/d6/8565d66c8dd90813b4e2a7f5f377032c.jpg",
       label: "Baraat Accommodation",
       slug: "baraat-accommodation-block",
     },
     {
       image:
-        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+        "https://i.pinimg.com/1200x/e7/c8/42/e7c842ba90aa9a6533de8c0c5974601f.jpg",
       label: "Bride's Family Block",
       slug: "brides-family-accommodation-block",
     },
     {
       image:
-        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+        "https://i.pinimg.com/1200x/0f/6e/20/0f6e202acf9c613baabcb50cba0c44a7.jpg",
       label: "Groom's Suite",
       slug: "grooms-suite",
     },
     {
       image:
-        "https://i.pinimg.com/736x/67/03/ef/6703ef4b1f4dba26f87a9c1b9f1cd332.jpg",
+        "https://i.pinimg.com/736x/98/a8/a7/98a8a7791ba6a9e440fb1443f93dd16b.jpg",
       label: "Bridal Makeup Room",
       slug: "bridal-makeup-room",
     },
@@ -44,70 +44,70 @@ const WeddingAccommodationPage = () => {
       slug: "baraat-accommodation-block",
       title: "Baraat Accommodation Block",
       image:
-        "https://i.pinimg.com/736x/b1/fd/97/b1fd971d0d42a56c183b6e17077211f3.jpg",
+        "https://i.pinimg.com/1200x/85/65/d6/8565d66c8dd90813b4e2a7f5f377032c.jpg",
       accent: "#e91e63",
     },
     {
       slug: "brides-family-accommodation-block",
       title: "Bride's Family Accommodation Block",
       image:
-        "https://i.pinimg.com/1200x/33/68/f9/3368f983eeafd946d980c91f15c51c20.jpg",
+        "https://i.pinimg.com/1200x/e7/c8/42/e7c842ba90aa9a6533de8c0c5974601f.jpg",
       accent: "#3f51b5",
     },
     {
       slug: "grooms-suite",
       title: "Groom's Suite",
       image:
-        "https://i.pinimg.com/1200x/9f/40/f2/9f40f2eb683ab08a3df20f82387e5cfd.jpg",
+        "https://i.pinimg.com/1200x/0f/6e/20/0f6e202acf9c613baabcb50cba0c44a7.jpg",
       accent: "#ff9800",
     },
     {
       slug: "bridal-makeup-room",
       title: "Bridal Makeup Room",
       image:
-        "https://i.pinimg.com/1200x/52/28/25/522825bf91e8e09c848c9e8d783c9873.jpg",
+        "https://i.pinimg.com/1200x/ae/dc/8e/aedc8eaa2ce619473916b184d23aff46.jpg",
       accent: "#9c27b0",
     },
     {
       slug: "grooms-dressing-room",
       title: "Groom's Dressing Room",
       image:
-        "https://i.pinimg.com/736x/ed/be/25/edbe25b54256439d445e5a879930ce55.jpg",
+        "https://i.pinimg.com/736x/cb/9c/df/cb9cdfa45c963415585167b7e5adcb40.jpg",
       accent: "#4caf50",
     },
     {
       slug: "vip-guest-rooms",
       title: "VIP Guest Rooms",
       image:
-        "https://i.pinimg.com/736x/60/bd/39/60bd394c51249e65e1b1616e1a88ff79.jpg",
+        "https://i.pinimg.com/736x/0e/ea/0c/0eea0cb05994e078b9783b79e9e0f879.jpg",
       accent: "#03a9f4",
     },
     {
       slug: "hospitality-lounge",
       title: "Hospitality Lounge",
       image:
-        "https://i.pinimg.com/1200x/4c/f1/2e/4cf12e29898c1646395e1cb4971f304e.jpg",
+        "https://i.pinimg.com/1200x/d6/15/41/d6154123743431057f62ec5b63878747.jpg",
       accent: "#ff5722",
     },
     {
       slug: "command-center-room",
       title: "Command Center Room",
       image:
-        "https://i.pinimg.com/736x/b1/fd/97/b1fd971d0d42a56c183b6e17077211f3.jpg",
+        "https://i.pinimg.com/1200x/54/58/38/5458381e70a20a9b209bae3babfe09ea.jpg",
       accent: "#607d8b",
     },
     {
       slug: "changing-rooms",
       title: "Changing Rooms",
       image:
-        "https://i.pinimg.com/1200x/33/68/f9/3368f983eeafd946d980c91f15c51c20.jpg",
+        "https://i.pinimg.com/736x/c2/d8/d6/c2d8d681807bb76f5084e4b6f3f96a57.jpg",
       accent: "#e91e63",
     },
     {
       slug: "haldi-mehendi-venue-rooms",
       title: "Haldi/Mehendi Venue Rooms",
       image:
-        "https://i.pinimg.com/1200x/9f/40/f2/9f40f2eb683ab08a3df20f82387e5cfd.jpg",
+        "https://i.pinimg.com/736x/29/a4/dc/29a4dc8e13b57e7d5803223f29eb0a1f.jpg",
       accent: "#ffc107",
     },
   ];
@@ -289,7 +289,7 @@ const WeddingAccommodationPage = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="flex justify-center">
               <img
-                src="https://i.pinimg.com/1200x/65/6b/0e/656b0e4b605f404cb5d5edb30e0b3b76.jpg"
+                src="https://i.pinimg.com/1200x/5f/48/2c/5f482c3d40a52a5c160b22ac20131590.jpg"
                 alt="About Wedding Accommodation"
                 className="rounded-lg shadow-2xl w-78 object-cover"
               />

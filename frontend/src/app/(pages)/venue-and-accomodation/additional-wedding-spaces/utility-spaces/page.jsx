@@ -8,19 +8,19 @@ const UtilitySpacesPage = () => {
   const heroItems = [
     {
       image:
-        "https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg",
+        "https://i.pinimg.com/736x/4c/b1/58/4cb15821eeb77cffc9180ecf2cd9ca6c.jpg",
       label: "Washrooms",
       slug: "washrooms",
     },
     {
       image:
-        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+        "https://i.pinimg.com/736x/96/9d/6c/969d6cdddd23d32014aed3b08e202296.jpg",
       label: "Changing Rooms",
       slug: "changing-rooms",
     },
     {
       image:
-        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+        "https://i.pinimg.com/1200x/4d/8d/86/4d8d8679fa09f8a00dbb56f5271744c7.jpg",
       label: "Security Room",
       slug: "security-room",
     },
@@ -44,35 +44,35 @@ const UtilitySpacesPage = () => {
       slug: "washrooms",
       title: "Washrooms",
       image:
-        "https://i.pinimg.com/736x/b1/fd/97/b1fd971d0d42a56c183b6e17077211f3.jpg",
+        "https://i.pinimg.com/736x/4c/b1/58/4cb15821eeb77cffc9180ecf2cd9ca6c.jpg",
       accent: "#2196f3",
     },
     {
       slug: "changing-rooms",
       title: "Changing Rooms",
       image:
-        "https://i.pinimg.com/1200x/33/68/f9/3368f983eeafd946d980c91f15c51c20.jpg",
+        "https://i.pinimg.com/736x/96/9d/6c/969d6cdddd23d32014aed3b08e202296.jpg",
       accent: "#9c27b0",
     },
     {
       slug: "security-room",
       title: "Security Room",
       image:
-        "https://i.pinimg.com/1200x/9f/40/f2/9f40f2eb683ab08a3df20f82387e5cfd.jpg",
+        "https://i.pinimg.com/1200x/4d/8d/86/4d8d8679fa09f8a00dbb56f5271744c7.jpg",
       accent: "#f44336",
     },
     {
       slug: "lost-found-counter",
       title: "Lost & Found Counter",
       image:
-        "https://i.pinimg.com/1200x/52/28/25/522825bf91e8e09c848c9e8d783c9873.jpg",
+        "https://i.pinimg.com/1200x/54/c4/d9/54c4d95f59dce49d5883304320f08840.jpg",
       accent: "#ff9800",
     },
     {
       slug: "registration-desk",
       title: "Registration Desk",
       image:
-        "https://i.pinimg.com/736x/ed/be/25/edbe25b54256439d445e5a879930ce55.jpg",
+        "https://i.pinimg.com/1200x/cd/fc/06/cdfc06fbc428f868bfe6db1e5b9f208f.jpg",
       accent: "#4caf50",
     },
   ];
@@ -258,7 +258,7 @@ const UtilitySpacesPage = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="flex justify-center">
               <img
-                src="https://i.pinimg.com/1200x/65/6b/0e/656b0e4b605f404cb5d5edb30e0b3b76.jpg"
+                src="https://i.pinimg.com/736x/86/83/16/868316124b59c68666f6624359840c6f.jpg"
                 alt="About Utility Spaces"
                 className="rounded-lg shadow-2xl w-78 object-cover"
               />

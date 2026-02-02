@@ -8,27 +8,27 @@ export default function PlanningKits() {
     {
       title: "Budget Planner File",
       description: "Complete financial planning system with category breakdowns, expense trackers, and payment schedules. Keep your wedding finances organized and under control with detailed budget worksheets.",
-      image: "https://i.pinimg.com/736x/5e/7f/7a/5e7f7a57b4cc5dc9b1f82aa90f35b2d6.jpg"
+      image: "https://i.pinimg.com/736x/8b/d9/1f/8bd91f37722cd66672580a8543443f0c.jpg"
     },
     {
       title: "Vendor Contract Folder",
       description: "Professional organization system for all vendor agreements and documents. Store contracts, quotes, correspondence, and payment receipts in one secure, organized folder.",
-      image: "https://i.pinimg.com/736x/be/8f/a2/be8fa2da56cafa72020a797b371049f1.jpg"
+      image: "https://i.pinimg.com/1200x/11/8b/59/118b593a6115ddc03e95eb994f6260e7.jpg"
     },
     {
       title: "Guest List Register",
       description: "Elegant register to track all guest information including addresses, RSVPs, meal preferences, and gift records. Maintain accurate guest counts and manage invitations with ease.",
-      image: "https://i.pinimg.com/1200x/fc/0e/d2/fc0ed2dd7130a5fe1584359e5b4846cd.jpg"
+      image: "https://i.pinimg.com/1200x/79/1a/1a/791a1a62a2cda0e26cd1ec5d2c7c395f.jpg"
     },
     {
       title: "Timeline Printouts",
       description: "Beautifully designed timeline templates for every phase of wedding planning. From 12-month countdowns to day-of schedules, stay on track with clear, printable timelines.",
-      image: "https://i.pinimg.com/1200x/6c/dc/12/6cdc121ea4f3a50f38798f53be30f03c.jpg"
+      image: "https://i.pinimg.com/1200x/54/c2/fd/54c2fda843189154157c03c1be65008b.jpg"
     },
     {
       title: "Event Flow Sheets",
       description: "Detailed minute-by-minute schedules for your wedding day. Coordinate ceremony, reception, and vendor timings to ensure everything runs smoothly from start to finish.",
-      image: "https://i.pinimg.com/736x/66/c5/81/66c5814e6969f9de6e86ce2a44bb480e.jpg"
+      image: "https://i.pinimg.com/1200x/db/8a/3c/db8a3c36ac832d1f621f68fabddff8c7.jpg"
     },
     
   ];

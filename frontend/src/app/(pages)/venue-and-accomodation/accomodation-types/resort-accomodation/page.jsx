@@ -8,25 +8,25 @@ const ResortAccommodationPage = () => {
   const heroItems = [
     {
       image:
-        "https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg",
+        "https://i.pinimg.com/1200x/5c/c7/2a/5cc72a923b7e3a2200571bd5348a2c36.jpg",
       label: "Luxury Resorts",
       slug: "luxury-resorts",
     },
     {
       image:
-        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+        "https://i.pinimg.com/736x/7c/32/34/7c3234270d04f784b389c41994920429.jpg",
       label: "Eco Resorts",
       slug: "eco-resorts",
     },
     {
       image:
-        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+        "https://i.pinimg.com/1200x/e6/e6/33/e6e6331a6f048bc1f0f26b175ae65a94.jpg",
       label: "Cottage Stays",
       slug: "cottage-stays",
     },
     {
       image:
-        "https://i.pinimg.com/736x/67/03/ef/6703ef4b1f4dba26f87a9c1b9f1cd332.jpg",
+        "https://i.pinimg.com/736x/8a/ac/cf/8aaccf7dd3bbb14a8923b1a25c7a4658.jpg",
       label: "Villa Resorts",
       slug: "villa-resorts",
     },
@@ -44,49 +44,49 @@ const ResortAccommodationPage = () => {
       slug: "luxury-resorts",
       title: "Luxury Resorts",
       image:
-        "https://i.pinimg.com/736x/b1/fd/97/b1fd971d0d42a56c183b6e17077211f3.jpg",
+        "https://i.pinimg.com/1200x/5c/c7/2a/5cc72a923b7e3a2200571bd5348a2c36.jpg",
       accent: "#e91e63",
     },
     {
       slug: "eco-resorts",
       title: "Eco Resorts",
       image:
-        "https://i.pinimg.com/1200x/33/68/f9/3368f983eeafd946d980c91f15c51c20.jpg",
+        "https://i.pinimg.com/736x/7c/32/34/7c3234270d04f784b389c41994920429.jpg",
       accent: "#4caf50",
     },
     {
       slug: "cottage-stays",
       title: "Cottage Stays",
       image:
-        "https://i.pinimg.com/1200x/9f/40/f2/9f40f2eb683ab08a3df20f82387e5cfd.jpg",
+        "https://i.pinimg.com/1200x/e6/e6/33/e6e6331a6f048bc1f0f26b175ae65a94.jpg",
       accent: "#ff9800",
     },
     {
       slug: "villa-resorts",
       title: "Villa Resorts",
       image:
-        "https://i.pinimg.com/1200x/52/28/25/522825bf91e8e09c848c9e8d783c9873.jpg",
+        "https://i.pinimg.com/736x/8a/ac/cf/8aaccf7dd3bbb14a8923b1a25c7a4658.jpg",
       accent: "#9c27b0",
     },
     {
       slug: "forest-resorts",
       title: "Forest Resorts",
       image:
-        "https://i.pinimg.com/736x/ed/be/25/edbe25b54256439d445e5a879930ce55.jpg",
+        "https://i.pinimg.com/1200x/58/dd/80/58dd80e47e79d1c9e09dec257a4f90e3.jpg",
       accent: "#2e7d32",
     },
     {
       slug: "beach-resorts",
       title: "Beach Resorts",
       image:
-        "https://i.pinimg.com/736x/60/bd/39/60bd394c51249e65e1b1616e1a88ff79.jpg",
+        "https://i.pinimg.com/1200x/25/63/61/256361e4e5a74288716bae3b2fb46e99.jpg",
       accent: "#03a9f4",
     },
     {
       slug: "hill-station-resorts",
       title: "Hill Station Resorts",
       image:
-        "https://i.pinimg.com/1200x/4c/f1/2e/4cf12e29898c1646395e1cb4971f304e.jpg",
+        "https://i.pinimg.com/1200x/67/7c/d7/677cd7addce9e1f577df0f307de6ebb0.jpg",
       accent: "#795548",
     },
   ];

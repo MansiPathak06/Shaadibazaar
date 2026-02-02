@@ -3,27 +3,27 @@ export default function LogisticsAndVendorManagementTools() {
     {
       title: "Vendor Contact List",
       description: "Centralized directory of all vendor contacts with phone numbers, emails, and emergency contacts. Quick access to florists, caterers, photographers, and all service providers in one organized list.",
-      image: ""
+      image: "https://i.pinimg.com/1200x/19/fe/06/19fe066120f7ca1d1c9d20f8541f3e4b.jpg"
     },
     {
       title: "Delivery Schedule Sheet",
       description: "Comprehensive timeline tracking all vendor deliveries and arrival times. Coordinate cake delivery, floral arrangements, equipment setup, and ensure everything arrives on schedule.",
-      image: ""
+      image: "https://i.pinimg.com/736x/c3/a8/99/c3a89907c87fab1a10cc134014d7f3ca.jpg"
     },
     {
       title: "Pickup/Drop Checklist",
       description: "Track rental items, borrowed decorations, and return schedules. Ensure nothing gets lost with detailed pickup and drop-off documentation for all wedding materials.",
-      image: ""
+      image: "https://i.pinimg.com/1200x/b9/5b/45/b95b457406458947aace64a26e20d1e2.jpg"
     },
     {
       title: "Vendor Payment Tracker",
       description: "Monitor all vendor payments including deposits, installments, and final balances. Track payment deadlines, payment methods, and maintain receipts for complete financial transparency.",
-      image: ""
+      image: "https://i.pinimg.com/1200x/49/9b/8b/499b8b0b46238df722340d6373efc2c0.jpg"
     },
     {
       title: "Inventory Control Sheet",
       description: "Maintain detailed records of all wedding inventory from decorations to favors. Track quantities, locations, and condition of items to ensure nothing is forgotten or misplaced.",
-      image: ""
+      image: "https://i.pinimg.com/1200x/f4/81/12/f4811268de3520079fce77c44585292e.jpg"
     },
     {
       title: "Material Movement Passes",

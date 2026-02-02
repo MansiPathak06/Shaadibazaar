@@ -8,25 +8,25 @@ const ModernUniqueVenuesPage = () => {
   const heroItems = [
     {
       image:
-        "https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg",
+        "https://i.pinimg.com/736x/e8/9c/e5/e89ce55c0ee2b9c4b22ffbefe4988187.jpg",
       label: "Rooftop Venues",
       slug: "rooftop-venues",
     },
     {
       image:
-        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+        "https://i.pinimg.com/736x/04/cb/42/04cb4237b77bdd0a196be6133718d7db.jpg",
       label: "Private Villas",
       slug: "private-villas",
     },
     {
       image:
-        "https://i.pinimg.com/736x/50/f7/ec/50f7ec7c372b1a6d78745c450c1ca2a0.jpg",
+        "https://i.pinimg.com/736x/d9/54/27/d954277b1cbac2aaff149b04a3e596bf.jpg",
       label: "Glass House Venues",
       slug: "glass-house-venues",
     },
     {
       image:
-        "https://i.pinimg.com/736x/67/03/ef/6703ef4b1f4dba26f87a9c1b9f1cd332.jpg",
+        "https://i.pinimg.com/736x/0f/47/65/0f4765daac5d011252b1dc37c56ecfae.jpg",
       label: "Riverfront Venues",
       slug: "riverfront-venues",
     },
@@ -44,77 +44,77 @@ const ModernUniqueVenuesPage = () => {
       slug: "rooftop-venues",
       title: "Rooftop Venues",
       image:
-        "https://i.pinimg.com/736x/b1/fd/97/b1fd971d0d42a56c183b6e17077211f3.jpg",
+        "https://i.pinimg.com/736x/e8/9c/e5/e89ce55c0ee2b9c4b22ffbefe4988187.jpg",
       accent: "#e91e63",
     },
     {
       slug: "private-villas",
       title: "Private Villas",
       image:
-        "https://i.pinimg.com/1200x/33/68/f9/3368f983eeafd946d980c91f15c51c20.jpg",
+        "https://i.pinimg.com/736x/04/cb/42/04cb4237b77bdd0a196be6133718d7db.jpg",
       accent: "#3f51b5",
     },
     {
       slug: "glass-house-venues",
       title: "Glass House Venues",
       image:
-        "https://i.pinimg.com/1200x/9f/40/f2/9f40f2eb683ab08a3df20f82387e5cfd.jpg",
+        "https://i.pinimg.com/736x/d9/54/27/d954277b1cbac2aaff149b04a3e596bf.jpg",
       accent: "#ff9800",
     },
     {
       slug: "riverfront-venues",
       title: "Riverfront Venues",
       image:
-        "https://i.pinimg.com/1200x/52/28/25/522825bf91e8e09c848c9e8d783c9873.jpg",
+        "https://i.pinimg.com/736x/0f/47/65/0f4765daac5d011252b1dc37c56ecfae.jpg",
       accent: "#9c27b0",
     },
     {
       slug: "lakeside-venues",
       title: "Lakeside Venues",
       image:
-        "https://i.pinimg.com/736x/ed/be/25/edbe25b54256439d445e5a879930ce55.jpg",
+        "https://i.pinimg.com/1200x/d1/09/2b/d1092bdbb202db257c28a1cf5dcad628.jpg",
       accent: "#4caf50",
     },
     {
       slug: "boathouse-wedding-spaces",
       title: "Boathouse Wedding Spaces",
       image:
-        "https://i.pinimg.com/736x/60/bd/39/60bd394c51249e65e1b1616e1a88ff79.jpg",
+        "https://i.pinimg.com/736x/43/49/6e/43496e95584979a98dd6efc02fae06d9.jpg",
       accent: "#03a9f4",
     },
     {
       slug: "cruise-wedding-venue",
       title: "Cruise Wedding Venue",
       image:
-        "https://i.pinimg.com/1200x/4c/f1/2e/4cf12e29898c1646395e1cb4971f304e.jpg",
+        "https://i.pinimg.com/1200x/6f/40/2d/6f402df5a1aae2d2c733de809caa5216.jpg",
       accent: "#ff5722",
     },
     {
       slug: "barn-style-venues",
       title: "Barn-Style Venues",
       image:
-        "https://i.pinimg.com/736x/b1/fd/97/b1fd971d0d42a56c183b6e17077211f3.jpg",
+        "https://i.pinimg.com/736x/d6/a5/cd/d6a5cdad2540482b748a7bd06f2eb437.jpg",
       accent: "#795548",
     },
     {
       slug: "factory-warehouse-venues",
       title: "Factory / Warehouse Converted Venues",
       image:
-        "https://i.pinimg.com/1200x/33/68/f9/3368f983eeafd946d980c91f15c51c20.jpg",
+        "https://i.pinimg.com/1200x/19/67/84/1967843497a6ff1110c53b90bf3198aa.jpg",
       accent: "#607d8b",
     },
     {
       slug: "art-galleries",
       title: "Art Galleries",
       image:
-        "https://i.pinimg.com/1200x/9f/40/f2/9f40f2eb683ab08a3df20f82387e5cfd.jpg",
+        "https://i.pinimg.com/736x/0a/20/63/0a20635d9e9054fd4a789ee28a1a6082.jpg",
       accent: "#e91e63",
     },
     {
       slug: "sports-clubs-gymkhana",
       title: "Sports Clubs / Gymkhana",
       image:
-        "https://i.pinimg.com/1200x/52/28/25/522825bf91e8e09c848c9e8d783c9873.jpg",
+        "https://i.pinimg.com/736x/2a/c5/56/2ac5568540233b2dcc4f416577558299.jpg",
       accent: "#4caf50",
     },
   ];
@@ -300,7 +300,7 @@ const ModernUniqueVenuesPage = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="flex justify-center">
               <img
-                src="https://i.pinimg.com/1200x/65/6b/0e/656b0e4b605f404cb5d5edb30e0b3b76.jpg"
+                src="https://i.pinimg.com/1200x/13/a8/69/13a8691a82ff9ab7df7c9fe25f778462.jpg"
                 alt="About Modern Venues"
                 className="rounded-lg shadow-2xl w-78 object-cover"
               />
