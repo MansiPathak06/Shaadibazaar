@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ChevronRight, Sparkles, Heart, Star } from 'lucide-react';
 
-const GroomWearPage = () => {
+const SikhGroomWearPage = () => {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
@@ -16,109 +16,85 @@ const GroomWearPage = () => {
   const heroItems = [
     {
       name: "Sherwani",
-      image: "https://i.pinimg.com/1200x/08/52/86/0852865bef32a5b168c190f27cc1871d.jpg",
+      image: "https://i.pinimg.com/736x/0e/77/b5/0e77b5d168001085c61bb72176f83752.jpg",
       slug: "sherwani-achkan"
     },
     {
-      name: "Kurta Set",
-      image: "https://i.pinimg.com/736x/a3/ad/e0/a3ade063f790275a02d1e95c60ff52a8.jpg",
-      slug: "kurta-pajama"
-    },
-    {
-      name: "Dhoti-Kurta",
-      image: "https://i.pinimg.com/1200x/39/18/2e/39182e12b82a24931eefe339d08a4987.jpg",
-      slug: "dhoti-kurta"
+      name: "Punjabi Suit",
+      image: "https://i.pinimg.com/1200x/c4/c6/9d/c4c69d1b94ea143e51f805edf965280a.jpg",
+      slug: "punjabi-suit"
     },
     {
       name: "Turban",
-      image: "https://i.pinimg.com/1200x/14/7e/52/147e5251429e9f1e5576a19c2a2a899b.jpg",
-      slug: "safa-turban"
+      image: "https://i.pinimg.com/736x/54/db/1f/54db1fc696235044265c8b55f364e1b8.jpg",
+      slug: "turban-pagri"
+    },
+    {
+      name: "Kalgi",
+      image: "https://i.pinimg.com/736x/66/d3/35/66d3356ac8bf9638bb8833823ba44fbf.jpg",
+      slug: "turban-kalgi"
     }
   ];
 
   const categories = [
     {
       name: "Sherwani / Achkan",
-      image: "https://i.pinimg.com/1200x/08/52/86/0852865bef32a5b168c190f27cc1871d.jpg",
+      image: "https://i.pinimg.com/736x/0e/77/b5/0e77b5d168001085c61bb72176f83752.jpg",
       slug: "sherwani-achkan",
       accent: "#f97316"
     },
     {
-      name: "Kurta-Pajama",
-      image: "https://i.pinimg.com/736x/a3/ad/e0/a3ade063f790275a02d1e95c60ff52a8.jpg",
-      slug: "kurta-pajama",
+      name: "Punjabi Suit",
+      image: "https://i.pinimg.com/1200x/c4/c6/9d/c4c69d1b94ea143e51f805edf965280a.jpg",
+      slug: "punjabi-suit",
       accent: "#dc2626"
     },
     {
-      name: "Dhoti-Kurta",
-      image: "https://i.pinimg.com/1200x/39/18/2e/39182e12b82a24931eefe339d08a4987.jpg",
-      slug: "dhoti-kurta",
+      name: "Turban (Pagri)",
+      image: "https://i.pinimg.com/736x/54/db/1f/54db1fc696235044265c8b55f364e1b8.jpg",
+      slug: "turban-pagri",
       accent: "#d97706"
     },
     {
-      name: "Safa / Turban",
-      image: "https://i.pinimg.com/1200x/14/7e/52/147e5251429e9f1e5576a19c2a2a899b.jpg",
-      slug: "safa-turban",
+      name: "Turban Kalgi",
+      image: "https://i.pinimg.com/736x/66/d3/35/66d3356ac8bf9638bb8833823ba44fbf.jpg",
+      slug: "turban-kalgi",
       accent: "#ea580c"
     },
     {
-      name: "Stole / Dupatta",
-      image: "https://i.pinimg.com/1200x/21/c3/32/21c3328e370f0b906511d626f86c3ec0.jpg",
-      slug: "stole-dupatta",
+      name: "Kada",
+      image: "https://i.pinimg.com/736x/cf/2c/13/cf2c13eac1da175ee654b6ec4f287a38.jpg",
+      slug: "kada",
       accent: "#f59e0b"
     },
     {
-      name: "Sehra",
-      image: "https://i.pinimg.com/736x/95/12/4b/95124b812501040acfd4a59c9d9e89dc.jpg",
-      slug: "sehra",
+      name: "Kirpan",
+      image: "https://i.pinimg.com/736x/9e/09/59/9e09599fd6439a0a97b62936176dbe04.jpg",
+      slug: "kirpan",
       accent: "#ef4444"
     },
     {
-      name: "Turban Brooch",
-      image: "https://i.pinimg.com/736x/0d/a7/a9/0da7a9360a7d63cf392c31c038605e4d.jpg",
-      slug: "turban-brooch",
+      name: "Jutti",
+      image: "https://i.pinimg.com/736x/e5/6b/b2/e56bb254ff06d64471aef33e6feb108f.jpg",
+      slug: "jutti",
       accent: "#c2410c"
     },
     {
-      name: "Mojari / Jutti",
-      image: "https://i.pinimg.com/736x/e1/4d/66/e14d66a581b524b4a1d8080bf3567432.jpg",
-      slug: "mojari-jutti",
+      name: "Stole",
+      image: "https://i.pinimg.com/1200x/4f/35/a3/4f35a3285bbb84eddc70b66a8e0fef9c.jpg",
+      slug: "stole",
       accent: "#b45309"
-    },
-    {
-      name: "Cufflinks",
-      image: "https://i.pinimg.com/1200x/b5/8b/48/b58b48830b1f9ac13b4729dfe087a24d.jpg",
-      slug: "cufflinks",
-      accent: "#f97316"
-    },
-    {
-      name: "Wristwatch",
-      image: "https://i.pinimg.com/1200x/09/e7/2b/09e72be546c81d86cdc2185c0fe02b14.jpg",
-      slug: "wristwatch",
-      accent: "#dc2626"
-    },
-    {
-      name: "Rudraksha / Pearl Mala",
-      image: "https://i.pinimg.com/736x/0b/13/1d/0b131d62301c27fc01df9b73d30abc48.jpg",
-      slug: "rudraksha-pearl-mala",
-      accent: "#ea580c"
-    },
-    {
-      name: "Perfume / Attar",
-      image: "https://i.pinimg.com/736x/79/21/79/79217913bb0355eef8c15b7d09849fa3.jpg",
-      slug: "perfume-attar",
-      accent: "#d97706"
     }
   ];
 
   const taglines = [
-    "✨ Dress Like Royalty",
-    "👑 Your Perfect Wedding Look",
+    "✨ Dress Like a Sardar",
+    "👑 Your Perfect Sikh Wedding Look",
     "💫 Tradition Meets Elegance",
-    "🌟 Make Your Day Unforgettable",
-    "✨ Crafted with Love",
-    "👔 Sophisticated Groom Style",
-    "💍 Your Journey to Perfection"
+    "🌟 Celebrate Your Heritage",
+    "✨ Authentic Punjabi Style",
+    "👔 Regal Groom Attire",
+    "💍 Waheguru Ji Ka Khalsa, Waheguru Ji Ki Fateh"
   ];
 
   return (
@@ -137,10 +113,10 @@ const GroomWearPage = () => {
         <div className="container mx-auto px-4 py-1 mt-2 relative">
           <div className="text-center mb-12">
             <h1 className="text-5xl md:text-6xl font-bold text-amber-100 mb-4 tracking-wide">
-              Groom Collections
+              Sikh Groom Collections
             </h1>
             <p className="text-xl text-amber-200 font-light">
-              Celebrate Your Special Day with Traditional Elegance!
+              Celebrate Your Anand Karaj with Authentic Punjabi Elegance!
             </p>
           </div>
 
@@ -149,7 +125,7 @@ const GroomWearPage = () => {
             {heroItems.map((item, index) => (
               <Link
                 key={index}
-                href={`/groom/all-products?category=groomwear&subCategory=${item.slug}`}
+                href={`/groom/all-products?category=sikh-groomwear&subCategory=${item.slug}`}
                 className="relative group"
               >
                 <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-2xl relative">
@@ -157,6 +133,9 @@ const GroomWearPage = () => {
                     src={item.image}
                     alt={item.name}
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                    onError={(e) => {
+                      e.target.src = `https://via.placeholder.com/300x400/f97316/ffffff?text=${encodeURIComponent(item.name)}`;
+                    }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
 
@@ -195,13 +174,16 @@ const GroomWearPage = () => {
             {[...categories, ...categories].map((category, index) => (
               <Link
                 key={index}
-                href={`/groom/all-products?category=groomwear&subCategory=${category.slug}`}
+                href={`/groom/all-products?category=sikh-groomwear&subCategory=${category.slug}`}
                 className="flex-shrink-0 w-48 h-48 rounded-full overflow-hidden shadow-xl hover:scale-110 transition-transform duration-300 cursor-pointer relative group"
               >
                 <img
                   src={category.image}
                   alt={category.name}
                   className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.src = `https://via.placeholder.com/200/f97316/ffffff?text=${encodeURIComponent(category.name)}`;
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end justify-center pb-4">
                   <p className="text-white font-bold text-sm text-center px-2">{category.name}</p>
@@ -222,7 +204,7 @@ const GroomWearPage = () => {
           {categories.map((category, index) => (
             <Link
               key={index}
-              href={`/groom/all-products?category=groomwear&subCategory=${category.slug}`}
+              href={`/groom/all-products?category=sikh-groomwear&subCategory=${category.slug}`}
               className="group cursor-pointer"
             >
               <div className="bg-white rounded-lg shadow-lg overflow-hidden transform group-hover:scale-105 transition-all duration-300 group-hover:shadow-2xl">
@@ -231,6 +213,9 @@ const GroomWearPage = () => {
                     src={category.image}
                     alt={category.name}
                     className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.src = `https://via.placeholder.com/300x400/f97316/ffffff?text=${encodeURIComponent(category.name)}`;
+                    }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="absolute top-2 right-2 bg-orange-600 text-white text-xs px-2 py-1 rounded">
@@ -275,21 +260,21 @@ const GroomWearPage = () => {
                 <Sparkles className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-2">Premium Quality</h3>
-              <p className="text-gray-600">Handpicked collections with finest craftsmanship</p>
+              <p className="text-gray-600">Handpicked collections with finest Punjabi craftsmanship</p>
             </div>
             <div className="p-8">
               <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Star className="w-8 h-8 text-white fill-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">Traditional Elegance</h3>
-              <p className="text-gray-600">Authentic designs that honor your heritage</p>
+              <h3 className="text-xl font-bold text-gray-800 mb-2">Authentic Tradition</h3>
+              <p className="text-gray-600">Designs that honor Sikh heritage and values</p>
             </div>
             <div className="p-8">
               <div className="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Heart className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-2">Complete Collection</h3>
-              <p className="text-gray-600">Everything you need for your perfect day</p>
+              <p className="text-gray-600">Everything for your sacred Anand Karaj ceremony</p>
             </div>
           </div>
         </div>
@@ -299,14 +284,14 @@ const GroomWearPage = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl p-12 shadow-xl">
           <h2 className="text-3xl font-bold text-orange-900 mb-8 text-center uppercase tracking-wide">
-            Complete Groom Collections
+            Complete Sikh Groom Collections
           </h2>
           <p className="text-center text-gray-700 max-w-3xl mx-auto mb-8 leading-relaxed">
-            Discover an exquisite array of groom essentials that will make your wedding day truly unforgettable. From traditional sherwanis to elegant accessories, we have everything you need to complete your groom look with sophistication and style.
+            Discover an exquisite array of traditional Sikh groom essentials that will make your Anand Karaj truly unforgettable. From majestic sherwanis and vibrant Punjabi suits to sacred Kakars and elegant accessories, we have everything you need to honor your heritage with style and dignity.
           </p>
           <div className="text-center">
             <Link
-              href="/groom/all-products?category=groomwear"
+              href="/groom/all-products?category=sikh-groomwear"
               className="bg-orange-900 text-white px-8 py-3 rounded-full hover:bg-orange-800 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block"
             >
               EXPLORE ALL COLLECTIONS
@@ -350,4 +335,4 @@ const GroomWearPage = () => {
   );
 };
 
-export default GroomWearPage;
+export default SikhGroomWearPage;

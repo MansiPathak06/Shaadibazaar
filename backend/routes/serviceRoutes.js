@@ -200,4 +200,38 @@ router.delete('/admin/services/:id', auth, adminAuth, async (req, res) => {
   }
 });
 
+// Get services by category (PUBLIC) - 🔥 MISSING ROUTE
+router.get('/services/category/:category', async (req, res) => {
+  try {
+    const { category } = req.params;
+    
+    const [services] = await db.query(
+      'SELECT * FROM services WHERE vendor_category = ? ORDER BY featured DESC, created_at DESC',
+      [category]
+    );
+    
+    // Parse JSON fields
+    services.forEach(service => {
+      if (service.images && typeof service.images === 'string') {
+        try {
+          service.images = JSON.parse(service.images);
+        } catch (e) {
+          service.images = [];
+        }
+      }
+    });
+    
+    res.json({ 
+      success: true, 
+      services: services 
+    });
+  } catch (error) {
+    console.error('Get services by category error:', error);
+    res.status(500).json({ 
+      success: false, 
+      message: 'Server error' 
+    });
+  }
+});
+
 module.exports = router;

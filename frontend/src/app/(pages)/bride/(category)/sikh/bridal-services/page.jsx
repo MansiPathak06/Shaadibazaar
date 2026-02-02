@@ -1,8 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const SikhBridalServicesPage = () => {
+  const router = useRouter();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Hero slides data
@@ -27,53 +29,60 @@ const SikhBridalServicesPage = () => {
     },
   ];
 
-  // Bridal services categories
+  // Bridal services categories - ADDED subCategory mapping
   const categories = [
     {
       name: "Sikh Bridal Makeup",
       items: "Premium Services",
       image:
         "https://i.pinimg.com/736x/c4/a0/62/c4a062383b4900d59fcb94665361a9a7.jpg",
+      subCategory: "bridal-makeup"
     },
     {
       name: "Chooda Ceremony Expert",
       items: "Traditional Rituals",
       image:
         "https://i.pinimg.com/1200x/07/24/3f/07243f857b53dbfdd28e189c9a2f10b1.jpg",
+      subCategory: "chooda-ceremony"
     },
     {
       name: "Kaleera Photoshoot",
       items: "Memorable Moments",
       image:
         "https://i.pinimg.com/736x/a6/02/ae/a602ae94a81fd15fdf7f450ca7e1b824.jpg",
+      subCategory: "kaleera-photoshoot"
     },
     {
       name: "Mehendi Artist",
       items: "Traditional Art",
       image:
         "https://i.pinimg.com/1200x/a8/ad/1a/a8ad1a1459825d6b895975b5122951bd.jpg",
+      subCategory: "mehendi-artist"
     },
     {
       name: "Hair Accessories",
       items: "Traditional Adornments",
       image:
         "https://i.pinimg.com/736x/de/41/74/de4174e0f14ec4067bde0fc18b8d7d11.jpg",
+      subCategory: "hair-accessories"
     },
     {
       name: "Doli Arrangement",
       items: "Traditional Send-off",
       image:
         "https://i.pinimg.com/736x/a3/67/db/a367dba3a832caa48f1509135a54234d.jpg",
+      subCategory: "doli-arrangement"
     },
     {
       name: "Bhangra Team",
       items: "Celebration & Entertainment",
       image:
         "https://i.pinimg.com/736x/f7/5e/92/f75e928de149d8b01cf6ee74cf4fc040.jpg",
+      subCategory: "bhangra-team"
     },
   ];
 
-  // Trending services
+  // Trending services - ADDED subCategory mapping
   const trendingServices = [
     {
       name: "Sikh Bridal Makeup",
@@ -82,6 +91,7 @@ const SikhBridalServicesPage = () => {
       badge: "POPULAR",
       image:
         "https://i.pinimg.com/1200x/86/67/bc/8667bccb1d49906f2894f5080afe1034.jpg",
+      subCategory: "bridal-makeup"
     },
     {
       name: "Chooda Ceremony Expert",
@@ -89,6 +99,7 @@ const SikhBridalServicesPage = () => {
       badge: "TRENDING",
       image:
         "https://i.pinimg.com/736x/4c/a2/ac/4ca2acdbcc1030cf16d5a4241ea6ed37.jpg",
+      subCategory: "chooda-ceremony"
     },
     {
       name: "Kaleera Photoshoot",
@@ -96,12 +107,14 @@ const SikhBridalServicesPage = () => {
       badge: "NEW",
       image:
         "https://i.pinimg.com/736x/ec/f3/00/ecf3001fcf8036ce65a90a3c0e6d095e.jpg",
+      subCategory: "kaleera-photoshoot"
     },
     {
       name: "Mehendi Artist",
       price: "₹15,999",
       image:
         "https://i.pinimg.com/736x/2d/25/ad/2d25adb76ceacef936435e57fd1e1e59.jpg",
+      subCategory: "mehendi-artist"
     },
     {
       name: "Hair Accessories Styling",
@@ -110,6 +123,7 @@ const SikhBridalServicesPage = () => {
       badge: "25% OFF",
       image:
         "https://i.pinimg.com/736x/75/b4/ca/75b4ca8a0eabe73c13141cf75e4c00e8.jpg",
+      subCategory: "hair-accessories"
     },
     {
       name: "Doli Arrangement",
@@ -117,6 +131,7 @@ const SikhBridalServicesPage = () => {
       badge: "TRENDING",
       image:
         "https://i.pinimg.com/736x/fa/9c/32/fa9c323ee01c41edfb00b23feaa8098f.jpg",
+      subCategory: "doli-arrangement"
     },
     {
       name: "Bhangra Team Performance",
@@ -125,6 +140,7 @@ const SikhBridalServicesPage = () => {
       badge: "NEW",
       image:
         "https://i.pinimg.com/1200x/cd/9e/d0/cd9ed0d476daf3bb847a701ebc57ba69.jpg",
+      subCategory: "bhangra-team"
     },
     {
       name: "Complete Bridal Package",
@@ -133,6 +149,7 @@ const SikhBridalServicesPage = () => {
       badge: "BEST VALUE",
       image:
         "https://i.pinimg.com/736x/60/29/5d/60295d53d13a0e5b53ae5dcf464e2dd7.jpg",
+      subCategory: "bridal-makeup"
     },
   ];
 
@@ -144,6 +161,15 @@ const SikhBridalServicesPage = () => {
     setCurrentSlide(
       (prev) => (prev - 1 + heroSlides.length) % heroSlides.length
     );
+  };
+
+  // 👇 NEW NAVIGATION FUNCTIONS
+  const handleCategoryClick = (subCategory) => {
+    router.push(`/bride/all-services?category=sikh-bridal-services&subCategory=${subCategory}`);
+  };
+
+  const handleAllServicesClick = () => {
+    router.push("/bride/all-services?category=sikh-bridal-services");
   };
 
   return (
@@ -171,7 +197,10 @@ const SikhBridalServicesPage = () => {
                       {slide.title}
                     </h1>
                     <p className="text-gray-600 mb-6">{slide.subtitle}</p>
-                    <button className="bg-amber-600 text-white px-8 py-3 rounded hover:bg-amber-700 transition-colors">
+                    <button 
+                      onClick={handleAllServicesClick}
+                      className="bg-amber-600 text-white px-8 py-3 rounded hover:bg-amber-700 transition-colors cursor-pointer"
+                    >
                       BOOK NOW
                     </button>
                   </div>
@@ -209,7 +238,7 @@ const SikhBridalServicesPage = () => {
         </div>
       </div>
 
-      {/* Popular Categories Section with Scrolling */}
+      {/* Popular Categories Section - ADDED onClick */}
       <div className="py-16 bg-gray-50">
         <div className="max-w-full mx-auto px-8">
           <h2 className="text-3xl font-light text-center text-gray-800 mb-12">
@@ -222,6 +251,7 @@ const SikhBridalServicesPage = () => {
                 <div
                   key={index}
                   className="flex-shrink-0 w-40 text-center group cursor-pointer"
+                  onClick={() => handleCategoryClick(category.subCategory)}
                 >
                   <div className="relative mb-4 overflow-hidden rounded-full">
                     <img
@@ -240,10 +270,13 @@ const SikhBridalServicesPage = () => {
         </div>
       </div>
 
-      {/* Featured Collections */}
+      {/* Featured Collections - ADDED onClick */}
       <div className="max-w-7xl mx-auto px-8 py-16">
         <div className="grid md:grid-cols-2 gap-8">
-          <div className="relative overflow-hidden rounded-lg group cursor-pointer">
+          <div 
+            className="relative overflow-hidden rounded-lg group cursor-pointer"
+            onClick={() => handleCategoryClick("bridal-makeup")}
+          >
             <img
               src="https://i.pinimg.com/736x/03/19/5e/03195e2aabb0f811239cc3a445ce73d5.jpg"
               alt="Complete Sikh Bridal Package"
@@ -259,7 +292,10 @@ const SikhBridalServicesPage = () => {
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-lg group cursor-pointer">
+          <div 
+            className="relative overflow-hidden rounded-lg group cursor-pointer"
+            onClick={() => handleCategoryClick("chooda-ceremony")}
+          >
             <img
               src="https://i.pinimg.com/736x/45/bd/24/45bd249ae59dc3a172b2ab6e16a318e2.jpg"
               alt="Chooda & Kaleera Ceremony"
@@ -277,7 +313,7 @@ const SikhBridalServicesPage = () => {
         </div>
       </div>
 
-      {/* Trending Services */}
+      {/* Trending Services - ADDED onClick */}
       <div className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-8">
           <h2 className="text-3xl font-light text-center text-gray-800 mb-4">
@@ -300,6 +336,7 @@ const SikhBridalServicesPage = () => {
               <div
                 key={index}
                 className="bg-white rounded-lg overflow-hidden group cursor-pointer shadow-sm hover:shadow-xl transition-shadow"
+                onClick={() => handleCategoryClick(service.subCategory)}
               >
                 <div className="relative overflow-hidden">
                   {service.badge && (
@@ -325,7 +362,10 @@ const SikhBridalServicesPage = () => {
             ))}
           </div>
           <div className="text-center">
-            <button className="group mt-12 relative inline-flex items-center gap-3 bg-amber-600 text-white px-12 py-4 rounded-full text-lg font-medium hover:bg-amber-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+            <button 
+              onClick={handleAllServicesClick}
+              className="group mt-12 relative inline-flex items-center gap-3 bg-amber-600 text-white px-12 py-4 rounded-full text-lg font-medium hover:bg-amber-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+            >
               <span>VIEW ALL SERVICES</span>
               <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>

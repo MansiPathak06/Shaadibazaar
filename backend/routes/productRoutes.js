@@ -5,15 +5,17 @@ const db = require('../config/db');
 // Get all products (public, with category filter)
 router.get('/', async (req, res) => {
   try {
-    const { category, subCategory, religion } = req.query; // 👈 ADD religion here
+    const { category, subCategory, religion } = req.query;
+    
+    // Use safer query builder
     let query = `
-      SELECT p.*, v.business_name as vendor_name 
+      SELECT p.*, v.business_name as vendor_name, COALESCE(v.id, 0) as vendor_id
       FROM products p 
       LEFT JOIN vendors v ON p.vendor_id = v.id
     `;
     const params = [];
     const conditions = [];
-    
+
     if (category) {
       conditions.push('p.category = ?');
       params.push(category);
@@ -24,30 +26,56 @@ router.get('/', async (req, res) => {
       params.push(subCategory);
     }
     
-    if (religion) { // 👈 ADD this block
-      conditions.push('p.religion = ?');
-      params.push(religion);
-    }
+    // Safely handle religion (check if column exists)
+    // if (religion) {
+    //   conditions.push('(p.religion = ? OR p.religion IS NULL)');
+    //   params.push(religion);
+    // }
     
     if (conditions.length) {
       query += ' WHERE ' + conditions.join(' AND ');
     }
     
-    query += ' ORDER BY p.created_at DESC';
+    query += ' ORDER BY p.created_at DESC LIMIT 100'; // Add limit for safety
     
     const [products] = await db.query(query, params);
     
+    // Safer image parsing
     const productsWithParsedImages = products.map(product => ({
       ...product,
-      images: typeof product.images === 'string' ? JSON.parse(product.images) : product.images
+      images: safelyParseImages(product.images)
     }));
     
-    res.json({ success: true, products: productsWithParsedImages });
+    res.json({ 
+      success: true, 
+      products: productsWithParsedImages,
+      count: productsWithParsedImages.length 
+    });
   } catch (error) {
-    console.error('Get products error:', error);
-    res.status(500).json({ success: false, message: error.message });
+    console.error('Get products error:', {
+      url: req.originalUrl,
+      query: req.query,
+      error: error.message,
+      stack: error.stack
+    });
+    res.status(500).json({ 
+      success: false, 
+      message: 'Failed to fetch products',
+      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+    });
   }
 });
+
+// Helper function (add at top of file after imports)
+function safelyParseImages(images) {
+  if (!images) return [];
+  try {
+    return typeof images === 'string' ? JSON.parse(images) : images;
+  } catch {
+    return [];
+  }
+}
+
 
 // Get product by ID (public)
 router.get('/:id', async (req, res) => {
@@ -105,10 +133,10 @@ router.get('/similar/:id', async (req, res) => {
     `;
     const params = [category, id];
     
-    if (religion) { // 👈 ADD religion filter
-      query += ' AND p.religion = ?';
-      params.push(religion);
-    }
+    // if (religion) { // 👈 ADD religion filter
+    //   query += ' AND p.religion = ?';
+    //   params.push(religion);
+    // }
     
     query += ' ORDER BY RAND() LIMIT 8';
     

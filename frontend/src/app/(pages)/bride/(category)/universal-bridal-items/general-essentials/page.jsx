@@ -1,30 +1,129 @@
+"use client";
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import { ShoppingCart, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const BridalEssentialsPage = () => {
+  const router = useRouter();
+
+  // Categories with subCategory mapping
   const categories = [
-    { name: 'Innerwear / Shapewear', items: '8 Items', image: 'https://i.pinimg.com/1200x/b6/6c/33/b66c33dc869eb3b957cb461aa90b33f8.jpg' },
-    { name: 'Safety pins, U-pins', items: '12 Items', image: 'https://i.pinimg.com/1200x/cd/a9/96/cda9962dd92f10bda92fa514b8ce1287.jpg' },
-    { name: 'Makeup touch-up kit', items: '6 Items', image: 'https://i.pinimg.com/736x/39/b6/8e/39b68ed87e7a3b78ef14e4611a775f0f.jpg' },
-    { name: 'Wet wipes', items: '5 Items', image:' https://i.pinimg.com/1200x/76/10/d3/7610d370059b12f590f2d42644f8fca4.jpg' },
-    { name: 'Power bank', items: '4 Items', image: 'https://i.pinimg.com/736x/9f/79/59/9f7959637881661dfc9c285871a094b9.jpg' },
-    { name: 'Clutch/potli', items: '15 Items', image: 'https://i.pinimg.com/1200x/18/d4/3d/18d43d0d6a9642d098554a3fe267e3c2.jpg' },
-    { name: 'Perfume', items: '10 Items', image: 'https://i.pinimg.com/1200x/14/03/25/140325850d39c57f4844c42352ab4fb1.jpg' },
-    { name: 'Hand sanitizer', items: '7 Items', image: 'https://i.pinimg.com/1200x/57/4a/6c/574a6c8b725bfcebb3b4aed7e17ed201.jpg' }
+    { 
+      name: 'Innerwear / Shapewear', 
+      items: '8 Items', 
+      image: 'https://i.pinimg.com/1200x/b6/6c/33/b66c33dc869eb3b957cb461aa90b33f8.jpg',
+      subCategory: 'innerwear-shapewear'
+    },
+    { 
+      name: 'Safety pins, U-pins', 
+      items: '12 Items', 
+      image: 'https://i.pinimg.com/1200x/cd/a9/96/cda9962dd92f10bda92fa514b8ce1287.jpg',
+      subCategory: 'safety-pins'
+    },
+    { 
+      name: 'Makeup touch-up kit', 
+      items: '6 Items', 
+      image: 'https://i.pinimg.com/736x/39/b6/8e/39b68ed87e7a3b78ef14e4611a775f0f.jpg',
+      subCategory: 'makeup-touchup-kit'
+    },
+    { 
+      name: 'Wet wipes', 
+      items: '5 Items', 
+      image: 'https://i.pinimg.com/1200x/76/10/d3/7610d370059b12f590f2d42644f8fca4.jpg',
+      subCategory: 'wet-wipes'
+    },
+    { 
+      name: 'Power bank', 
+      items: '4 Items', 
+      image: 'https://i.pinimg.com/736x/9f/79/59/9f7959637881661dfc9c285871a094b9.jpg',
+      subCategory: 'power-bank'
+    },
+    { 
+      name: 'Clutch/potli', 
+      items: '15 Items', 
+      image: 'https://i.pinimg.com/1200x/18/d4/3d/18d43d0d6a9642d098554a3fe267e3c2.jpg',
+      subCategory: 'clutch-potli'
+    },
+    { 
+      name: 'Perfume', 
+      items: '10 Items', 
+      image: 'https://i.pinimg.com/1200x/14/03/25/140325850d39c57f4844c42352ab4fb1.jpg',
+      subCategory: 'perfume'
+    },
+    { 
+      name: 'Hand sanitizer', 
+      items: '7 Items', 
+      image: 'https://i.pinimg.com/1200x/57/4a/6c/574a6c8b725bfcebb3b4aed7e17ed201.jpg',
+      subCategory: 'hand-sanitizer'
+    }
   ];
 
+  // Products with subCategory mapping
   const products = [
-    { name: 'Bridal Shapewear Bodysuit', price: '$45.99', discount: '20% OFF', image: 'https://i.pinimg.com/1200x/77/f0/ea/77f0ea94b838161fa17ef57ac21f08d4.jpg' },
-    { name: 'Gold Safety Pin Set (50pcs)', price: '$12.99', image: 'https://i.pinimg.com/1200x/13/1a/3d/131a3d53ec804d1ce13709951420e00a.jpg' },
-    { name: 'Bridal Touch-Up Kit Pouch', price: '$34.99', image: 'https://i.pinimg.com/1200x/e7/0c/99/e70c99ec8fa2d713708dbfc13eae48ca.jpg' },
-    { name: 'Premium Wet Wipes Pack', price: '$8.99', image: 'https://i.pinimg.com/736x/37/32/5c/37325ccf1b8be1a0f0318657bf5172bd.jpg' },
-    { name: 'Rose Gold Power Bank 10000mAh', price: '$29.99', image: 'https://i.pinimg.com/1200x/34/89/f5/3489f5de9e928713f866d3b68c101f83.jpg' }
+    { 
+      name: 'Bridal Shapewear Bodysuit', 
+      price: '$45.99', 
+      discount: '20% OFF', 
+      image: 'https://i.pinimg.com/1200x/77/f0/ea/77f0ea94b838161fa17ef57ac21f08d4.jpg',
+      subCategory: 'innerwear-shapewear'
+    },
+    { 
+      name: 'Gold Safety Pin Set (50pcs)', 
+      price: '$12.99', 
+      image: 'https://i.pinimg.com/1200x/13/1a/3d/131a3d53ec804d1ce13709951420e00a.jpg',
+      subCategory: 'safety-pins'
+    },
+    { 
+      name: 'Bridal Touch-Up Kit Pouch', 
+      price: '$34.99', 
+      image: 'https://i.pinimg.com/1200x/e7/0c/99/e70c99ec8fa2d713708dbfc13eae48ca.jpg',
+      subCategory: 'makeup-touchup-kit'
+    },
+    { 
+      name: 'Premium Wet Wipes Pack', 
+      price: '$8.99', 
+      image: 'https://i.pinimg.com/736x/37/32/5c/37325ccf1b8be1a0f0318657bf5172bd.jpg',
+      subCategory: 'wet-wipes'
+    },
+    { 
+      name: 'Rose Gold Power Bank 10000mAh', 
+      price: '$29.99', 
+      image: 'https://i.pinimg.com/1200x/34/89/f5/3489f5de9e928713f866d3b68c101f83.jpg',
+      subCategory: 'power-bank'
+    }
   ];
 
+  // Featured products with subCategory mapping
   const featuredProducts = [
-    { name: 'Luxury Bridal Clutch Pearl', discount: '25% OFF', price: '$89.99', tag: 'Best Seller', image: 'https://i.pinimg.com/736x/31/81/82/3181826831c963f5f3bae16821bdacf6.jpg' },
-    { name: 'Designer Potli Bag Golden', discount: '30% OFF', price: '$64.99', tag: 'Trending', image: 'https://i.pinimg.com/736x/df/eb/71/dfeb71e74f403009a6f3dfaff62cb6ec.jpg'},
+    { 
+      name: 'Luxury Bridal Clutch Pearl', 
+      discount: '25% OFF', 
+      price: '$89.99', 
+      tag: 'Best Seller', 
+      image: 'https://i.pinimg.com/736x/31/81/82/3181826831c963f5f3bae16821bdacf6.jpg',
+      subCategory: 'clutch-potli'
+    },
+    { 
+      name: 'Designer Potli Bag Golden', 
+      discount: '30% OFF', 
+      price: '$64.99', 
+      tag: 'Trending', 
+      image: 'https://i.pinimg.com/736x/df/eb/71/dfeb71e74f403009a6f3dfaff62cb6ec.jpg',
+      subCategory: 'clutch-potli'
+    },
   ];
+
+const handleCategoryClick = (subCategory) => {
+  router.push(`/bride/all-products?category=general-essentials&subCategory=${subCategory}`);
+};
+
+const handleAllProductsClick = () => {
+  router.push("/bride/all-products?category=general-essentials");
+};
+
+const handleProductClick = (subCategory) => {
+  router.push(`/bride/all-products?category=general-essentials&subCategory=${subCategory}`);
+};
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-purple-50">
@@ -38,7 +137,10 @@ const BridalEssentialsPage = () => {
               <br />
               <span className="text-rose-500">& Wedding Day Must-Haves</span>
             </h1>
-            <button className="mt-6 bg-rose-500 text-white px-8 py-3 rounded-full hover:bg-rose-600 transition-colors shadow-lg">
+            <button 
+              onClick={handleAllProductsClick}
+              className="mt-6 bg-rose-500 text-white px-8 py-3 rounded-full hover:bg-rose-600 transition-colors shadow-lg cursor-pointer"
+            >
               Shop Now
             </button>
           </div>
@@ -60,10 +162,12 @@ const BridalEssentialsPage = () => {
           </div>
         </div>
 
+        {/* Category Grid - ADDED onClick */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
           {categories.map((category, index) => (
             <div
               key={index}
+              onClick={() => handleCategoryClick(category.subCategory)}
               className="group bg-white rounded-2xl overflow-hidden cursor-pointer hover:shadow-xl transition-all duration-300 border border-gray-100"
             >
               <div className="aspect-square bg-gray-200 overflow-hidden">
@@ -81,12 +185,13 @@ const BridalEssentialsPage = () => {
           ))}
         </div>
 
-        {/* Featured Promotions */}
+        {/* Featured Promotions - ADDED onClick */}
         <div className="grid md:grid-cols-2 gap-6 mb-12">
           {featuredProducts.map((product, index) => (
             <div
               key={index}
-              className="relative bg-gradient-to-br from-rose-100 to-pink-50 rounded-3xl overflow-hidden group hover:shadow-xl transition-shadow"
+              onClick={() => handleCategoryClick(product.subCategory)}
+              className="relative bg-gradient-to-br from-rose-100 to-pink-50 rounded-3xl overflow-hidden group hover:shadow-xl transition-shadow cursor-pointer"
             >
               <span className="absolute top-4 right-4 bg-rose-500 text-white text-xs px-3 py-1 rounded-full z-10">
                 {product.tag}
@@ -115,7 +220,10 @@ const BridalEssentialsPage = () => {
         {/* Product Grid */}
         <div className="flex items-center justify-between mb-8">
           <div className="flex gap-6">
-            <button className="text-gray-800 font-semibold border-b-2 border-rose-500 pb-2">
+            <button 
+              onClick={handleAllProductsClick}
+              className="text-gray-800 font-semibold border-b-2 border-rose-500 pb-2 cursor-pointer"
+            >
               All Items
             </button>
             <button className="text-gray-500 hover:text-gray-800 pb-2">Trending</button>
@@ -131,11 +239,13 @@ const BridalEssentialsPage = () => {
           </div>
         </div>
 
+        {/* Product Cards - ADDED onClick */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
           {products.map((product, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl overflow-hidden group hover:shadow-xl transition-all duration-300 border border-gray-100"
+              onClick={() => handleProductClick(product.subCategory)}
+              className="bg-white rounded-2xl overflow-hidden group hover:shadow-xl transition-all duration-300 border border-gray-100 cursor-pointer"
             >
               <div className="aspect-square bg-gray-200 overflow-hidden">
                 <img 
@@ -165,9 +275,12 @@ const BridalEssentialsPage = () => {
           ))}
         </div>
 
-        {/* Bottom Featured Section */}
+        {/* Bottom Featured Section - ADDED onClick */}
         <div className="grid md:grid-cols-2 gap-6 mt-12">
-          <div className="bg-gradient-to-br from-amber-100 to-orange-50 rounded-3xl p-8 relative overflow-hidden">
+          <div 
+            onClick={() => handleCategoryClick('perfume')}
+            className="bg-gradient-to-br from-amber-100 to-orange-50 rounded-3xl p-8 relative overflow-hidden cursor-pointer hover:shadow-xl transition-shadow"
+          >
             <div className="relative z-10">
               <p className="text-amber-700 font-semibold mb-2">Premium Collection</p>
               <h3 className="text-3xl font-bold text-gray-800 mb-4">
@@ -182,7 +295,10 @@ const BridalEssentialsPage = () => {
             </div>
             <div className="absolute right-0 top-0 w-48 h-full bg-white/20"></div>
           </div>
-          <div className="bg-gradient-to-br from-blue-100 to-cyan-50 rounded-3xl p-8 relative overflow-hidden">
+          <div 
+            onClick={() => handleCategoryClick('hand-sanitizer')}
+            className="bg-gradient-to-br from-blue-100 to-cyan-50 rounded-3xl p-8 relative overflow-hidden cursor-pointer hover:shadow-xl transition-shadow"
+          >
             <div className="relative z-10">
               <p className="text-blue-700 font-semibold mb-2">Essential Care</p>
               <h3 className="text-3xl font-bold text-gray-800 mb-4">

@@ -1,80 +1,86 @@
 "use client";
-import React, { useState, useRef } from "react";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import React, { useRef } from "react";
+import { Home, ChevronRight as BreadcrumbArrow } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const EventInfrastructurePage = () => {
+  const router = useRouter();
   const sliderRef = useRef(null);
+
+  // Map vendor id → category slug (used by "View All" button)
+  const categoryMap = {
+    1: "tent-house",
+    2: "stage-setup",
+    3: "truss-rigging",
+    4: "led-screen",
+    5: "generator-power",
+    6: "portable-ac",
+    7: "seating-arrangement",
+    8: "table-linen",
+    9: "carpeting",
+  };
 
   const categories = [
     {
-      id: "tent",
+      id: "tent-house",
       name: "Tent House",
       image:
         "https://i.pinimg.com/1200x/c4/21/83/c42183a20b9d2bbdebdf0bcea8718ad2.jpg",
-      link: "/tent-house",
     },
     {
-      id: "stage",
+      id: "stage-setup",
       name: "Stage Setup",
       image:
         "https://i.pinimg.com/1200x/f8/8a/d7/f88ad798d7d542e5e511e915537deaab.jpg",
-      link: "/stage-setup",
     },
     {
-      id: "truss",
+      id: "truss-rigging",
       name: "Truss & Rigging",
       image:
         "https://i.pinimg.com/736x/89/2b/cc/892bcc284cb29bbd326cdd4efceadc21.jpg",
-      link: "/truss-rigging",
     },
     {
-      id: "led",
+      id: "led-screen",
       name: "LED Screen",
       image:
         "https://i.pinimg.com/1200x/0d/12/69/0d1269c40f23e68d52e9ae8d826a9eb0.jpg",
-      link: "/led-screen",
     },
     {
-      id: "generator",
+      id: "generator-power",
       name: "Generator & Power",
       image:
         "https://i.pinimg.com/736x/75/30/10/753010077e42c29f97d1aef38ac0c4bd.jpg",
-      link: "/generator-power",
     },
     {
-      id: "ac",
+      id: "portable-ac",
       name: "Portable AC/Cooler",
       image:
         "https://i.pinimg.com/736x/ed/83/bc/ed83bc4dd2a568c92f5709379bcee7ac.jpg",
-      link: "/portable-ac",
     },
     {
-      id: "seating",
+      id: "seating-arrangement",
       name: "Seating Arrangement",
       image:
         "https://i.pinimg.com/1200x/1f/d1/8f/1fd18f12a12f589235f337409aaadc66.jpg",
-      link: "/seating-arrangement",
     },
     {
-      id: "linen",
+      id: "table-linen",
       name: "Table Linen",
       image:
         "https://i.pinimg.com/736x/a0/53/01/a05301bc1397833d1ed859fbe9670c1b.jpg",
-      link: "/table-linen",
     },
     {
-      id: "carpet",
+      id: "carpeting",
       name: "Carpeting",
       image:
         "https://i.pinimg.com/1200x/8c/67/b2/8c67b22b4956da2a20a79f4bfe6968de.jpg",
-      link: "/carpeting",
     },
   ];
 
   const vendors = [
     {
       id: 1,
-      category: "tent",
+      category: "tent-house",
       name: "Tent House Vendor",
       description:
         "Premium quality tents and canopies for all event sizes, providing weather protection and elegant coverage for your outdoor celebrations with customizable options",
@@ -83,7 +89,7 @@ const EventInfrastructurePage = () => {
     },
     {
       id: 2,
-      category: "stage",
+      category: "stage-setup",
       name: "Stage Setup Vendor",
       description:
         "Professional stage construction and design services with modular systems, ensuring a stunning focal point for performances, speeches, and ceremonies",
@@ -92,7 +98,7 @@ const EventInfrastructurePage = () => {
     },
     {
       id: 3,
-      category: "truss",
+      category: "truss-rigging",
       name: "Truss & Rigging Vendor",
       description:
         "Heavy-duty truss systems and rigging solutions for lighting, sound equipment, and decorative elements with certified safety standards and structural integrity",
@@ -101,7 +107,7 @@ const EventInfrastructurePage = () => {
     },
     {
       id: 4,
-      category: "led",
+      category: "led-screen",
       name: "LED Screen Supplier",
       description:
         "High-resolution LED display screens in various sizes for live streaming, presentations, and visual displays with crystal-clear picture quality",
@@ -110,7 +116,7 @@ const EventInfrastructurePage = () => {
     },
     {
       id: 5,
-      category: "generator",
+      category: "generator-power",
       name: "Generator & Power Backup Supplier",
       description:
         "Reliable power generation and backup solutions ensuring uninterrupted electricity supply for all your event equipment and lighting needs",
@@ -119,7 +125,7 @@ const EventInfrastructurePage = () => {
     },
     {
       id: 6,
-      category: "ac",
+      category: "portable-ac",
       name: "Portable AC/Cooler Vendor",
       description:
         "Climate control solutions with portable air conditioning units and industrial coolers to keep your guests comfortable in any weather conditions",
@@ -128,7 +134,7 @@ const EventInfrastructurePage = () => {
     },
     {
       id: 7,
-      category: "seating",
+      category: "seating-arrangement",
       name: "Seating Arrangement Vendor",
       description:
         "Comprehensive seating solutions including chairs, sofas, and benches in various styles from elegant chiavari chairs to comfortable lounge seating",
@@ -137,7 +143,7 @@ const EventInfrastructurePage = () => {
     },
     {
       id: 8,
-      category: "linen",
+      category: "table-linen",
       name: "Table Linen Provider",
       description:
         "Premium quality tablecloths, runners, napkins, and overlays in diverse colors and fabrics to complement your event theme and decor perfectly",
@@ -146,7 +152,7 @@ const EventInfrastructurePage = () => {
     },
     {
       id: 9,
-      category: "carpet",
+      category: "carpeting",
       name: "Carpeting Vendor",
       description:
         "Event carpeting and flooring solutions including red carpets, decorative rugs, and artificial grass to enhance aesthetics and comfort for your guests",
@@ -155,21 +161,9 @@ const EventInfrastructurePage = () => {
     },
   ];
 
-  const scrollSlider = (direction) => {
-    if (sliderRef.current) {
-      const scrollAmount = 200;
-      sliderRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
-    }
-  };
-
-  const handleCategoryClick = (link) => {
-    // In Next.js, you would use: router.push(link)
-    console.log("Navigate to:", link);
-    // For now, just showing an alert
-    alert(`Navigating to ${link}`);
+  // Handle category clicks to navigate to specific category page
+  const handleCategoryClick = (categoryId) => {
+    router.push(`/wedding-vendors/${categoryId}`);
   };
 
   return (
@@ -212,8 +206,8 @@ const EventInfrastructurePage = () => {
                 {categories.map((cat) => (
                   <button
                     key={`original-${cat.id}`}
-                    onClick={() => handleCategoryClick(cat.link)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item"
+                    onClick={() => handleCategoryClick(cat.id)}
+                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-blue-300">
                       <img
@@ -232,8 +226,8 @@ const EventInfrastructurePage = () => {
                 {categories.map((cat) => (
                   <button
                     key={`duplicate-${cat.id}`}
-                    onClick={() => handleCategoryClick(cat.link)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item"
+                    onClick={() => handleCategoryClick(cat.id)}
+                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-blue-300">
                       <img
@@ -253,16 +247,35 @@ const EventInfrastructurePage = () => {
         </div>
       </div>
 
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white border-b border-gray-200 py-3 px-4">
+        <div className="max-w-7xl mx-auto">
+          <nav className="flex items-center space-x-2 text-sm">
+            <button
+              onClick={() => router.push("/")}
+              className="flex items-center gap-1 text-gray-600 hover:text-blue-500 transition-colors cursor-pointer"
+            >
+              <Home className="w-4 h-4" />
+              <span>Home</span>
+            </button>
+            <BreadcrumbArrow className="w-4 h-4 text-gray-400" />
+            <span className="text-blue-500 font-semibold text-lg">
+              Event Setup & Infrastructure Vendors
+            </span>
+          </nav>
+        </div>
+      </div>
+
       {/* Vendors Grid */}
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {vendors.map((vendor) => (
             <div
               key={vendor.id}
-              className="bg-blue-50 rounded-t-full rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 h-full flex flex-col"
+              className="bg-blue-50 rounded-t-full rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 h-full flex flex-col cursor-pointer group"
             >
               {/* Image */}
-              <div className="relative h-50 overflow-hidden group">
+              <div className="relative h-50 overflow-hidden">
                 <img
                   src={vendor.image}
                   alt={vendor.name}
@@ -272,19 +285,22 @@ const EventInfrastructurePage = () => {
 
               {/* Content + Button */}
               <div className="p-6 flex flex-col flex-1">
-                {/* Text content takes available space */}
                 <div className="flex-1">
-                  <h3 className="text-2xl font-medium text-gray-800 mb-3 text-center">
+                  <h3 className="text-2xl font-medium text-gray-800 mb-3 text-center group-hover:text-blue-500 transition-colors">
                     {vendor.name}
                   </h3>
-
-                  <h3 className="text-sm font-normal text-gray-800 mb-3">
+                  <p className="text-sm font-normal text-gray-800 mb-3">
                     {vendor.description}
-                  </h3>
+                  </p>
                 </div>
 
-                {/* Button stays at bottom */}
-                <button className="w-full mt-6 bg-gradient-to-r from-blue-400 to-indigo-500 text-white py-3 rounded-lg hover:from-blue-500 hover:to-indigo-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg">
+                {/* View All Button - Routes to category page */}
+                <button
+                  onClick={() => {
+                    router.push(`/wedding-vendors/${categoryMap[vendor.id]}`);
+                  }}
+                  className="w-full mt-6 bg-gradient-to-r from-blue-400 to-indigo-500 text-white py-3 rounded-lg hover:from-blue-500 hover:to-indigo-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg cursor-pointer"
+                >
                   View All →
                 </button>
               </div>
@@ -297,12 +313,6 @@ const EventInfrastructurePage = () => {
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
         }
-        .line-clamp-3 {
-          display: -webkit-box;
-          -webkit-line-clamp: 3;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
         @keyframes scroll {
           0% {
             transform: translateX(0);
@@ -311,11 +321,9 @@ const EventInfrastructurePage = () => {
             transform: translateX(-50%);
           }
         }
-
         .animate-scroll {
           animation: scroll 10s linear infinite;
         }
-
         .pause-animation:hover {
           animation-play-state: paused;
         }

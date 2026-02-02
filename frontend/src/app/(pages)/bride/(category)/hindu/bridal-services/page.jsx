@@ -1,8 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 
-const BridalServicesPage = () => {
+const HinduBridalServicesPage = () => {
+  const router = useRouter();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Hero slides data
@@ -27,65 +29,74 @@ const BridalServicesPage = () => {
     },
   ];
 
-  // Bridal services categories
+  // Bridal services categories - ADDED subCategory mapping
   const categories = [
     {
       name: "Bridal Makeup (HD/Airbrush)",
       items: "Premium Services",
       image:
         "https://i.pinimg.com/1200x/4a/72/f7/4a72f7640852deaa02e9d5ece467ebd5.jpg",
+      subCategory: "bridal-makeup"
     },
     {
       name: "Bridal Hairstyle",
       items: "Expert Styling",
       image:
         "https://i.pinimg.com/1200x/33/b5/4a/33b54a15eb71618b07f5284034421f42.jpg",
+      subCategory: "bridal-hairstyle"
     },
     {
       name: "Mehendi Artist",
       items: "Traditional Art",
       image:
         "https://i.pinimg.com/736x/d3/53/32/d35332d3efe5ae4578735e5009989483.jpg",
+      subCategory: "mehendi-artist"
     },
     {
       name: "Pre-Bridal Package",
       items: "Complete Care",
       image:
         "https://i.pinimg.com/1200x/1e/42/d3/1e42d327b264bd4377b9e1b173cae3a7.jpg",
+      subCategory: "pre-bridal-package"
     },
     {
       name: "Spa & Facial",
       items: "Relaxation & Glow",
       image:
         "https://i.pinimg.com/1200x/8c/9f/a7/8c9fa7dbc6e87d9a2d83c5bf0acf7874.jpg",
+      subCategory: "spa-facial"
     },
     {
       name: "Ubtan Ceremony Setup",
       items: "Traditional Rituals",
       image:
         "https://i.pinimg.com/736x/ba/2f/ef/ba2fef4e969cc81ffd9f492680112850.jpg",
+      subCategory: "ubtan-ceremony"
     },
     {
       name: "Bridal Photoshoot",
       items: "Professional Photography",
       image:
         "https://i.pinimg.com/736x/07/2e/22/072e22cacc647ba3fb1ad13dbe7929ee.jpg",
+      subCategory: "bridal-photoshoot"
     },
     {
       name: "Saree Draping Artist",
       items: "Perfect Pleats",
       image:
         "https://i.pinimg.com/736x/0b/83/45/0b83452c904e01aa6991791f4140c40e.jpg",
+      subCategory: "saree-draping"
     },
     {
       name: "Lehenga Pinning Expert",
       items: "Flawless Fitting",
       image:
         "https://i.pinimg.com/736x/e6/24/1e/e6241e3135200ee7abcf7afeb4e19981.jpg",
+      subCategory: "lehenga-pinning"
     },
   ];
 
-  // Trending services
+  // Trending services - ADDED subCategory mapping
   const trendingServices = [
     {
       name: "Bridal Makeup (HD/Airbrush)",
@@ -94,12 +105,14 @@ const BridalServicesPage = () => {
       badge: "POPULAR",
       image:
         "https://i.pinimg.com/1200x/ad/cf/0c/adcf0c8813ca543ee0b4428bc858af4b.jpg",
+      subCategory: "bridal-makeup"
     },
     {
       name: "Bridal Hairstyle",
       price: "₹8,999",
       image:
         "https://i.pinimg.com/1200x/42/1e/6c/421e6c836556c740823f642b4d53e840.jpg",
+      subCategory: "bridal-hairstyle"
     },
     {
       name: "Mehendi Artist",
@@ -107,6 +120,7 @@ const BridalServicesPage = () => {
       badge: "NEW",
       image:
         "https://i.pinimg.com/1200x/51/1e/67/511e6764416f9e3aef92eb84cdb0d93c.jpg",
+      subCategory: "mehendi-artist"
     },
     {
       name: "Pre-Bridal Package",
@@ -115,12 +129,14 @@ const BridalServicesPage = () => {
       badge: "25% OFF",
       image:
         "https://i.pinimg.com/736x/e3/b0/4f/e3b04f6a2ac298df797b88b43a5e1638.jpg",
+      subCategory: "pre-bridal-package"
     },
     {
       name: "Spa & Facial",
       price: "₹12,999",
       image:
         "https://i.pinimg.com/1200x/26/e4/d2/26e4d2cf52534582c6fe7734cbb28b66.jpg",
+      subCategory: "spa-facial"
     },
     {
       name: "Ubtan Ceremony Setup",
@@ -128,6 +144,7 @@ const BridalServicesPage = () => {
       badge: "TRENDING",
       image:
         "https://i.pinimg.com/1200x/63/b5/97/63b597c6b1529a18c4a5522428d1affa.jpg",
+      subCategory: "ubtan-ceremony"
     },
     {
       name: "Bridal Photoshoot",
@@ -136,18 +153,21 @@ const BridalServicesPage = () => {
       badge: "NEW",
       image:
         "https://i.pinimg.com/736x/6a/c2/8d/6ac28d1342af096b2b22891837f683e2.jpg",
+      subCategory: "bridal-photoshoot"
     },
     {
       name: "Saree Draping Artist",
       price: "₹5,999",
       image:
         "https://i.pinimg.com/1200x/53/7e/33/537e33ba39e0e66021d22787007b6f65.jpg",
+      subCategory: "saree-draping"
     },
     {
       name: "Lehenga Pinning Expert",
       price: "₹4,999",
       image:
         "https://i.pinimg.com/736x/1c/2a/e1/1c2ae1612addc1e99ff083087fd26af6.jpg",
+      subCategory: "lehenga-pinning"
     },
   ];
 
@@ -159,6 +179,15 @@ const BridalServicesPage = () => {
     setCurrentSlide(
       (prev) => (prev - 1 + heroSlides.length) % heroSlides.length
     );
+  };
+
+  // 👇 UPDATED NAVIGATION FUNCTIONS - Fixed route to match your structure
+  const handleCategoryClick = (subCategory) => {
+    router.push(`/bride/all-services?category=hindu-bridal-services&subCategory=${subCategory}`);
+  };
+
+  const handleAllServicesClick = () => {
+    router.push("/bride/all-services?category=hindu-bridal-services");
   };
 
   return (
@@ -180,13 +209,16 @@ const BridalServicesPage = () => {
                 <div className="max-w-7xl mx-auto px-8 w-full">
                   <div className="max-w-md">
                     <p className="text-sm text-gray-600 mb-2 uppercase tracking-wide">
-                      BRIDAL SERVICES
+                      HINDU BRIDAL SERVICES
                     </p>
                     <h1 className="text-5xl font-light text-gray-800 mb-4">
                       {slide.title}
                     </h1>
                     <p className="text-gray-600 mb-6">{slide.subtitle}</p>
-                    <button className="bg-amber-600 text-white px-8 py-3 rounded hover:bg-amber-700 transition-colors">
+                    <button 
+                      onClick={handleAllServicesClick}
+                      className="bg-amber-600 text-white px-8 py-3 rounded hover:bg-amber-700 transition-colors cursor-pointer"
+                    >
                       BOOK NOW
                     </button>
                   </div>
@@ -224,7 +256,7 @@ const BridalServicesPage = () => {
         </div>
       </div>
 
-      {/* Popular Categories Section with Scrolling */}
+      {/* Popular Categories Section - ADDED onClick */}
       <div className="py-16 bg-gray-50">
         <div className="max-w-full mx-auto px-8">
           <h2 className="text-3xl font-light text-center text-gray-800 mb-12">
@@ -237,6 +269,7 @@ const BridalServicesPage = () => {
                 <div
                   key={index}
                   className="flex-shrink-0 w-40 text-center group cursor-pointer"
+                  onClick={() => handleCategoryClick(category.subCategory)}
                 >
                   <div className="relative mb-4 overflow-hidden rounded-full">
                     <img
@@ -255,10 +288,13 @@ const BridalServicesPage = () => {
         </div>
       </div>
 
-      {/* Featured Collections */}
+      {/* Featured Collections - ADDED onClick */}
       <div className="max-w-7xl mx-auto px-8 py-16">
         <div className="grid md:grid-cols-2 gap-8">
-          <div className="relative overflow-hidden rounded-lg group cursor-pointer">
+          <div 
+            className="relative overflow-hidden rounded-lg group cursor-pointer"
+            onClick={() => handleCategoryClick("bridal-makeup")}
+          >
             <img
               src="https://i.pinimg.com/1200x/da/50/3b/da503bdc0dbd46fc3de989f924401a6a.jpg"
               alt="Complete Bridal Package"
@@ -274,7 +310,10 @@ const BridalServicesPage = () => {
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-lg group cursor-pointer">
+          <div 
+            className="relative overflow-hidden rounded-lg group cursor-pointer"
+            onClick={handleAllServicesClick}
+          >
             <img
               src="https://i.pinimg.com/1200x/13/42/f5/1342f5fbb86ee9c2b30b649e0da2056f.jpg"
               alt="Premium Makeup Services"
@@ -292,7 +331,7 @@ const BridalServicesPage = () => {
         </div>
       </div>
 
-      {/* Trending Services */}
+      {/* Trending Services - ADDED onClick */}
       <div className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-8">
           <h2 className="text-3xl font-light text-center text-gray-800 mb-4">
@@ -315,6 +354,7 @@ const BridalServicesPage = () => {
               <div
                 key={index}
                 className="bg-white rounded-lg overflow-hidden group cursor-pointer shadow-sm hover:shadow-xl transition-shadow"
+                onClick={() => handleCategoryClick(service.subCategory)}
               >
                 <div className="relative overflow-hidden">
                   {service.badge && (
@@ -332,16 +372,18 @@ const BridalServicesPage = () => {
                   <h3 className="text-md text-gray-800 mb-2">{service.name}</h3>
                   <div className="flex items-center justify-center gap-2">
                     <span className="text-xs font-medium text-gray-800">
-                     Click hhere to explore more!
+                      Click here to explore more!
                     </span>
-                    
                   </div>
                 </div>
               </div>
             ))}
           </div>
           <div className="text-center">
-            <button className="group mt-12 relative inline-flex items-center gap-3 bg-amber-600 text-white px-12 py-4 rounded-full text-lg font-medium hover:bg-amber-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+            <button 
+              onClick={handleAllServicesClick}
+              className="group mt-12 relative inline-flex items-center gap-3 bg-amber-600 text-white px-12 py-4 rounded-full text-lg font-medium hover:bg-amber-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+            >
               <span>VIEW ALL SERVICES</span>
               <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
@@ -369,4 +411,4 @@ const BridalServicesPage = () => {
   );
 };
 
-export default BridalServicesPage;
+export default HinduBridalServicesPage;

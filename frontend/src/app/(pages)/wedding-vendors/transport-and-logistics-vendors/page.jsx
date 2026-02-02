@@ -1,9 +1,22 @@
 "use client";
-import React, { useState, useRef } from "react";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import React, { useRef } from "react";
+import { Home, ChevronRight as BreadcrumbArrow } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const TransportLogisticsPage = () => {
+  const router = useRouter();
   const sliderRef = useRef(null);
+
+  // Map vendor id → category slug (used by "View All" button)
+  const categoryMap = {
+    1: "luxury-car",
+    2: "vintage-car",
+    3: "bus-traveller",
+    4: "cab",
+    5: "parking",
+    6: "logistics",
+    7: "luggage-transport",
+  };
 
   const categories = [
     {
@@ -11,49 +24,42 @@ const TransportLogisticsPage = () => {
       name: "Luxury Car Rental",
       image:
         "https://i.pinimg.com/1200x/5a/79/4a/5a794a7e5d069395b17431e87f9eae48.jpg",
-      link: "/luxury-car-rental",
     },
     {
       id: "vintage-car",
       name: "Vintage Car",
       image:
         "https://i.pinimg.com/736x/db/d1/b4/dbd1b4767644fe85a6e2162a1fa441dc.jpg",
-      link: "/vintage-car",
     },
     {
       id: "bus-traveller",
       name: "Bus/Traveller",
       image:
         "https://i.pinimg.com/736x/9b/8e/a0/9b8ea053b25177c34d75d42b61548787.jpg",
-      link: "/bus-traveller",
     },
     {
       id: "cab",
       name: "Cab Arrangements",
       image:
         "https://i.pinimg.com/1200x/a3/98/34/a39834d7316d7f87cd90401afff2a794.jpg",
-      link: "/cab-arrangements",
     },
     {
       id: "parking",
       name: "Parking Vendor",
       image:
         "https://i.pinimg.com/1200x/db/54/49/db5449b9db71eda8231d6f1fd6476623.jpg",
-      link: "/parking-vendor",
     },
     {
       id: "logistics",
       name: "Logistics Delivery",
       image:
         "https://i.pinimg.com/1200x/85/0c/4d/850c4dd67e7f062851c1d78a2b15b196.jpg",
-      link: "/logistics-delivery",
     },
     {
-      id: "luggage",
+      id: "luggage-transport",
       name: "Luggage Transport",
       image:
         "https://i.pinimg.com/736x/bf/1a/14/bf1a14efc3f6a81cc990ed992d9b88c6.jpg",
-      link: "/luggage-transport",
     },
   ];
 
@@ -114,7 +120,7 @@ const TransportLogisticsPage = () => {
     },
     {
       id: 7,
-      category: "luggage",
+      category: "luggage-transport",
       name: "Luggage Transport Vendor",
       description:
         "Safe and secure luggage transportation services for out-of-town guests and wedding party members",
@@ -123,21 +129,9 @@ const TransportLogisticsPage = () => {
     },
   ];
 
-  const scrollSlider = (direction) => {
-    if (sliderRef.current) {
-      const scrollAmount = 200;
-      sliderRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
-    }
-  };
-
-  const handleCategoryClick = (link) => {
-    // In Next.js, you would use: router.push(link)
-    console.log("Navigate to:", link);
-    // For now, just showing an alert
-    alert(`Navigating to ${link}`);
+  // Handle category clicks to navigate to specific category page
+  const handleCategoryClick = (categoryId) => {
+    router.push(`/wedding-vendors/${categoryId}`);
   };
 
   return (
@@ -169,7 +163,7 @@ const TransportLogisticsPage = () => {
 
       {/* Category Slider */}
       <div className="bg-white shadow-md py-8 top-0 z-10">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-full mx-auto px-4">
           <div className="relative group">
             <div className="overflow-hidden">
               <div
@@ -180,8 +174,8 @@ const TransportLogisticsPage = () => {
                 {categories.map((cat) => (
                   <button
                     key={`original-${cat.id}`}
-                    onClick={() => handleCategoryClick(cat.link)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item"
+                    onClick={() => handleCategoryClick(cat.id)}
+                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-blue-300">
                       <img
@@ -200,8 +194,8 @@ const TransportLogisticsPage = () => {
                 {categories.map((cat) => (
                   <button
                     key={`duplicate-${cat.id}`}
-                    onClick={() => handleCategoryClick(cat.link)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item"
+                    onClick={() => handleCategoryClick(cat.id)}
+                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-blue-300">
                       <img
@@ -221,16 +215,35 @@ const TransportLogisticsPage = () => {
         </div>
       </div>
 
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white border-b border-gray-200 py-3 px-4">
+        <div className="max-w-7xl mx-auto">
+          <nav className="flex items-center space-x-2 text-sm">
+            <button
+              onClick={() => router.push("/")}
+              className="flex items-center gap-1 text-gray-600 hover:text-blue-500 transition-colors cursor-pointer"
+            >
+              <Home className="w-4 h-4" />
+              <span>Home</span>
+            </button>
+            <BreadcrumbArrow className="w-4 h-4 text-gray-400" />
+            <span className="text-blue-500 font-semibold text-lg">
+              Transport & Logistics Vendors
+            </span>
+          </nav>
+        </div>
+      </div>
+
       {/* Vendors Grid */}
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {vendors.map((vendor) => (
             <div
               key={vendor.id}
-              className="bg-blue-100 rounded-t-full rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 h-full flex flex-col"
+              className="bg-blue-100 rounded-t-full rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 h-full flex flex-col cursor-pointer group"
             >
               {/* Image */}
-              <div className="relative h-50 overflow-hidden group">
+              <div className="relative h-50 overflow-hidden">
                 <img
                   src={vendor.image}
                   alt={vendor.name}
@@ -240,18 +253,22 @@ const TransportLogisticsPage = () => {
 
               {/* Content + Button */}
               <div className="p-6 flex flex-col flex-1">
-                {/* Text content takes available space */}
                 <div className="flex-1">
-                  <h3 className="text-2xl font-medium text-gray-800 mb-3">
+                  <h3 className="text-2xl font-medium text-gray-800 mb-3 text-center group-hover:text-blue-500 transition-colors">
                     {vendor.name}
                   </h3>
-                  <h3 className="text-sm font-normal text-gray-800 mb-3">
+                  <p className="text-sm font-normal text-gray-800 mb-3">
                     {vendor.description}
-                  </h3>
+                  </p>
                 </div>
 
-                {/* Button stays at bottom */}
-                <button className="w-full mt-6 bg-gradient-to-r from-blue-400 to-cyan-500 text-white py-3 rounded-lg hover:from-blue-500 hover:to-cyan-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg">
+                {/* View All Button - Routes to category page */}
+                <button
+                  onClick={() => {
+                    router.push(`/wedding-vendors/${categoryMap[vendor.id]}`);
+                  }}
+                  className="w-full mt-6 bg-gradient-to-r from-blue-400 to-cyan-500 text-white py-3 rounded-lg hover:from-blue-500 hover:to-cyan-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg cursor-pointer"
+                >
                   View All →
                 </button>
               </div>
@@ -264,12 +281,6 @@ const TransportLogisticsPage = () => {
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
         }
-        .line-clamp-3 {
-          display: -webkit-box;
-          -webkit-line-clamp: 3;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
         @keyframes scroll {
           0% {
             transform: translateX(0);
@@ -278,11 +289,9 @@ const TransportLogisticsPage = () => {
             transform: translateX(-50%);
           }
         }
-
         .animate-scroll {
           animation: scroll 10s linear infinite;
         }
-
         .pause-animation:hover {
           animation-play-state: paused;
         }
