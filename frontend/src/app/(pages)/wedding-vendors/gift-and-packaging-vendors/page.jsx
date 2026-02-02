@@ -12,42 +12,42 @@ const GiftPackagingVendorsPage = () => {
     {
       id: "return-gift",
       name: "Return Gift",
-      image: "https://i.pinimg.com/1200x/3d/f9/52/3df9527549e819695dcc91df495ccf52.jpg",
+      image: "https://i.pinimg.com/736x/bd/5b/ee/bd5bee0a101bfc27b4cbe8548c11a96c.jpg",
     },
     {
       id: "mehendi-favors",
       name: "Mehendi Favors",
-      image: "https://i.pinimg.com/736x/98/cc/d6/98ccd6021ba1e66cbcec878afb593918.jpg",
+      image: "https://i.pinimg.com/736x/76/19/97/76199713092a488ae064700f964a1435.jpg",
     },
     {
       id: "haldi-token",
       name: "Haldi Token Gift",
-      image: "https://i.pinimg.com/736x/69/0b/71/690b717332ec7158a7a1e0fa73898217.jpg",
+      image: "https://i.pinimg.com/1200x/de/e9/74/dee9747d0d2fa0f1c95e4aa86961dfbd.jpg",
     },
     {
       id: "shagun-envelope",
       name: "Shagun Envelope",
-      image: "https://i.pinimg.com/1200x/f9/d6/e3/f9d6e3f6652724ffa6be8a60549b12ce.jpg",
+      image: "https://i.pinimg.com/1200x/51/24/1c/51241c952404e7537c122399142cb7bb.jpg",
     },
     {
       id: "gift-packaging",
       name: "Gift Packaging",
-      image: "https://i.pinimg.com/736x/8d/5c/3b/8d5c3b2a1f0e9d8c7b6a5f4e3d2c1b0a.jpg",
+      image: "https://i.pinimg.com/736x/11/cd/2f/11cd2f2c767775569bb191c6e701437d.jpg",
     },
     {
       id: "trousseau-packing",
       name: "Trousseau Packing",
-      image: "https://i.pinimg.com/736x/6c/4d/2e/6c4d2e3f5a7b8c9d0e1f2a3b4c5d6e7f.jpg",
+      image: "https://i.pinimg.com/736x/b5/06/20/b50620eb3d32fa627742405490c3442d.jpg",
     },
     {
       id: "basket-tray",
       name: "Basket & Tray Decor",
-      image: "https://i.pinimg.com/736x/2a/5b/8c/2a5b8c9d0e1f2a3b4c5d6e7f8a9b0c1d.jpg",
+      image: "https://i.pinimg.com/736x/fe/ad/44/fead44fb924a23039d14098fee6d4cc2.jpg",
     },
     {
       id: "dry-fruit-box",
       name: "Dry Fruit Box",
-      image: "https://i.pinimg.com/736x/1e/9f/7d/1e9f7d8c6b5a4e3d2c1b0a9f8e7d6c5b.jpg",
+      image: "https://i.pinimg.com/736x/b5/29/e6/b529e6f8763d4e8fc7f78019b6210e39.jpg",
     },
   ];
 
@@ -58,7 +58,7 @@ const GiftPackagingVendorsPage = () => {
       name: "Return Gift Vendor",
       description:
         "Thoughtful and unique return gifts that leave lasting impressions on your guests with personalized touches",
-      image: "https://i.pinimg.com/1200x/a3/d4/5e/a3d45e6f7a8b9c0d1e2f3a4b5c6d7e8f.jpg",
+      image: "https://i.pinimg.com/736x/bd/5b/ee/bd5bee0a101bfc27b4cbe8548c11a96c.jpg",
     },
     {
       id: 2,
@@ -66,7 +66,7 @@ const GiftPackagingVendorsPage = () => {
       name: "Mehendi Favors Vendor",
       description:
         "Beautiful mehendi ceremony favors with traditional designs and elegant packaging for your special celebration",
-      image: "https://i.pinimg.com/1200x/5b/7c/9d/5b7c9d0e1f2a3b4c5d6e7f8a9b0c1d2e.jpg",
+      image: "https://i.pinimg.com/736x/76/19/97/76199713092a488ae064700f964a1435.jpg",
     },
     {
       id: 3,
@@ -74,7 +74,7 @@ const GiftPackagingVendorsPage = () => {
       name: "Haldi Token Gift Vendor",
       description:
         "Charming haldi ceremony token gifts crafted with care to mark this auspicious pre-wedding ritual",
-      image: "https://i.pinimg.com/1200x/8f/2d/6c/8f2d6c5b4a3e2d1c0b9a8f7e6d5c4b3a.jpg",
+      image: "https://i.pinimg.com/1200x/de/e9/74/dee9747d0d2fa0f1c95e4aa86961dfbd.jpg",
     },
     {
       id: 4,
@@ -82,7 +82,7 @@ const GiftPackagingVendorsPage = () => {
       name: "Shagun Envelope Designer",
       description:
         "Exquisite custom-designed shagun envelopes with intricate patterns and premium materials for gifting",
-      image: "https://i.pinimg.com/1200x/7d/9e/3f/7d9e3f2c1b0a9f8e7d6c5b4a3e2d1c0b.jpg",
+      image: "https://i.pinimg.com/1200x/51/24/1c/51241c952404e7537c122399142cb7bb.jpg",
     },
     {
       id: 5,
@@ -90,7 +90,7 @@ const GiftPackagingVendorsPage = () => {
       name: "Bride & Groom Gift Packaging Artist",
       description:
         "Luxurious and artistic gift packaging for the bride and groom with elegant presentation and style",
-      image: "https://i.pinimg.com/1200x/4c/8d/2e/4c8d2e5f7a9b0c1d2e3f4a5b6c7d8e9f.jpg",
+      image: "https://i.pinimg.com/736x/11/cd/2f/11cd2f2c767775569bb191c6e701437d.jpg",
     },
     {
       id: 6,
@@ -98,7 +98,7 @@ const GiftPackagingVendorsPage = () => {
       name: "Trousseau Packing Vendor",
       description:
         "Professional trousseau packing services with beautiful arrangements and traditional presentation styles",
-      image: "https://i.pinimg.com/1200x/9e/3d/7f/9e3d7f8c6b5a4e3d2c1b0a9f8e7d6c5b.jpg",
+      image: "https://i.pinimg.com/736x/b5/06/20/b50620eb3d32fa627742405490c3442d.jpg",
     },
     {
       id: 7,
@@ -106,7 +106,7 @@ const GiftPackagingVendorsPage = () => {
       name: "Basket & Tray Decor Vendor",
       description:
         "Stunning decorative baskets and trays for presenting gifts and sweets with artistic floral arrangements",
-      image: "https://i.pinimg.com/1200x/2f/6c/9d/2f6c9d0e1f2a3b4c5d6e7f8a9b0c1d2e.jpg",
+      image: "https://i.pinimg.com/736x/fe/ad/44/fead44fb924a23039d14098fee6d4cc2.jpg",
     },
     {
       id: 8,
@@ -114,7 +114,7 @@ const GiftPackagingVendorsPage = () => {
       name: "Dry Fruit Box Vendor",
       description:
         "Premium dry fruit boxes with elegant designs and quality packaging perfect for gifting on special occasions",
-      image: "https://i.pinimg.com/1200x/6b/4e/8d/6b4e8d9c0a1f2e3d4c5b6a7f8e9d0c1b.jpg",
+      image: "https://i.pinimg.com/736x/b5/29/e6/b529e6f8763d4e8fc7f78019b6210e39.jpg",
     },
   ];
 

@@ -15,7 +15,7 @@ const AdditionalSupportServicesPage = () => {
     {
       id: "fire-safety",
       name: "Fire Safety Team",
-      image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=400&h=400&fit=crop",
+      image: "https://i.pinimg.com/1200x/b6/05/57/b6055778474cda49a7bedfe720634502.jpg",
       link: "/fire-safety",
     },
     {
@@ -33,7 +33,7 @@ const AdditionalSupportServicesPage = () => {
     {
       id: "license",
       name: "License Coordinator",
-      image: "https://images.unsplash.com/photo-1554224311-beee460c201f?w=400&h=400&fit=crop",
+      image: "https://i.pinimg.com/1200x/0c/41/36/0c413633cacf1351bf1a8917b374b797.jpg",
       link: "/license-coordinator",
     },
     {
@@ -51,7 +51,7 @@ const AdditionalSupportServicesPage = () => {
     {
       id: "medical",
       name: "Medical Emergency",
-      image: "https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?w=400&h=400&fit=crop",
+      image: "https://i.pinimg.com/736x/85/e0/cd/85e0cdbb16c84e2eed582143df8743ba.jpg",
       link: "/medical-emergency",
     },
   ];
@@ -71,7 +71,7 @@ const AdditionalSupportServicesPage = () => {
       name: "Fire Safety Team",
       description:
         "Professional fire safety personnel equipped with modern firefighting equipment to ensure complete safety compliance and emergency preparedness",
-      image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=600&h=400&fit=crop",
+      image: "https://i.pinimg.com/1200x/b6/05/57/b6055778474cda49a7bedfe720634502.jpg",
     },
     {
       id: 3,
@@ -95,7 +95,7 @@ const AdditionalSupportServicesPage = () => {
       name: "Government License Coordinator",
       description:
         "Streamlined coordination for all government approvals, permits, and licenses required for your event to ensure full legal compliance",
-      image: "https://images.unsplash.com/photo-1554224311-beee460c201f?w=600&h=400&fit=crop",
+      image: "https://i.pinimg.com/1200x/0c/41/36/0c413633cacf1351bf1a8917b374b797.jpg",
     },
     {
       id: 6,
@@ -119,7 +119,7 @@ const AdditionalSupportServicesPage = () => {
       name: "Medical Emergency Staff",
       description:
         "Trained medical professionals and paramedics on standby with first-aid equipment to handle any medical emergencies during your event",
-      image: "https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?w=600&h=400&fit=crop",
+      image: "https://i.pinimg.com/736x/85/e0/cd/85e0cdbb16c84e2eed582143df8743ba.jpg",
     },
   ];
 
