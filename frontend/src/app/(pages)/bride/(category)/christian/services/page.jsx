@@ -1,21 +1,83 @@
 "use client";
 import React, { useState } from 'react';
+import { useRouter } from "next/navigation";
 
 const ChristianBridalPage = () => {
+  const router = useRouter();
   const [showAllCategories, setShowAllCategories] = useState(false);
   
+  // Categories with subCategory mapping added
   const categories = [
-    { name: 'Bridal Makeup & Hair', items: 45, image: 'https://i.pinimg.com/736x/c6/c1/7a/c6c17ad5650f10b7033550859752fcf9.jpg' },
-    { name: 'Gown Tailoring', items: 32, image: 'https://i.pinimg.com/736x/80/ac/32/80ac320ce4768c005c872a7df4b15128.jpg' },
-    { name: 'Manicure & Nails', items: 28, image: 'https://i.pinimg.com/736x/e0/2a/df/e02adfe185d4420081631a3c4f1f763a.jpg' },
-    { name: 'Bridal Photoshoot', items: 38, image: 'https://i.pinimg.com/1200x/a8/6c/95/a86c95cea8d04f15a32210e30a8bb3c5.jpg' },
-    { name: 'Church Choir', items: 15, image: 'https://i.pinimg.com/736x/87/42/7d/87427d49d83a5ae182e27b81bb8c10f2.jpg' },
-    { name: 'Wedding Planner', items: 22, image: 'https://i.pinimg.com/736x/1c/9c/75/1c9c75e023dd7b360fd27ee8705f6572.jpg' },
-    { name: 'Bridal Bouquet', items: 35, image: 'https://i.pinimg.com/736x/54/74/dc/5474dcfa1d4460961738ac3da0ab217c.jpg' },
-    { name: 'Wedding Veil', items: 25, image: 'https://i.pinimg.com/1200x/b8/b2/27/b8b22721c6dc4abde9c60f582a8cd455.jpg' },
-    { name: 'Bridal Accessories', items: 40, image: 'https://i.pinimg.com/1200x/17/ea/f1/17eaf1ede8babc3f2173162256decc0a.jpg' },
-    { name: 'Wedding Invitations', items: 30, image: 'https://i.pinimg.com/1200x/ec/ef/c9/ecefc95160bfe9936d528fd09300489d.jpg' }
+    { 
+      name: 'Bridal Makeup & Hair', 
+      items: 45, 
+      image: 'https://i.pinimg.com/736x/c6/c1/7a/c6c17ad5650f10b7033550859752fcf9.jpg',
+      subCategory: 'bridal-makeup'
+    },
+    { 
+      name: 'Gown Tailoring', 
+      items: 32, 
+      image: 'https://i.pinimg.com/736x/80/ac/32/80ac320ce4768c005c872a7df4b15128.jpg',
+      subCategory: 'gown-tailoring'
+    },
+    { 
+      name: 'Manicure & Nails', 
+      items: 28, 
+      image: 'https://i.pinimg.com/736x/e0/2a/df/e02adfe185d4420081631a3c4f1f763a.jpg',
+      subCategory: 'manicure-nails'
+    },
+    { 
+      name: 'Bridal Photoshoot', 
+      items: 38, 
+      image: 'https://i.pinimg.com/1200x/a8/6c/95/a86c95cea8d04f15a32210e30a8bb3c5.jpg',
+      subCategory: 'bridal-photoshoot'
+    },
+    { 
+      name: 'Church Choir', 
+      items: 15, 
+      image: 'https://i.pinimg.com/736x/87/42/7d/87427d49d83a5ae182e27b81bb8c10f2.jpg',
+      subCategory: 'church-choir'
+    },
+    { 
+      name: 'Wedding Planner', 
+      items: 22, 
+      image: 'https://i.pinimg.com/736x/1c/9c/75/1c9c75e023dd7b360fd27ee8705f6572.jpg',
+      subCategory: 'wedding-planner'
+    },
+    { 
+      name: 'Bridal Bouquet', 
+      items: 35, 
+      image: 'https://i.pinimg.com/736x/54/74/dc/5474dcfa1d4460961738ac3da0ab217c.jpg',
+      subCategory: 'bridal-bouquet'
+    },
+    { 
+      name: 'Wedding Veil', 
+      items: 25, 
+      image: 'https://i.pinimg.com/1200x/b8/b2/27/b8b22721c6dc4abde9c60f582a8cd455.jpg',
+      subCategory: 'wedding-veil'
+    },
+    { 
+      name: 'Bridal Accessories', 
+      items: 40, 
+      image: 'https://i.pinimg.com/1200x/17/ea/f1/17eaf1ede8babc3f2173162256decc0a.jpg',
+      subCategory: 'bridal-accessories'
+    },
+    { 
+      name: 'Wedding Invitations', 
+      items: 30, 
+      image: 'https://i.pinimg.com/1200x/ec/ef/c9/ecefc95160bfe9936d528fd09300489d.jpg',
+      subCategory: 'wedding-invitations'
+    }
   ];
+
+  // 👇 NEW NAVIGATION FUNCTIONS
+  const handleCategoryClick = (subCategory) => {
+    router.push(`/bride/all-services?category=christian-bridal-services&subCategory=${subCategory}`);
+  };
+
+  const handleAllServicesClick = () => {
+    router.push("/bride/all-services?category=christian-bridal-services");
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -42,7 +104,10 @@ const ChristianBridalPage = () => {
             <p className="text-gray-700 text-base mb-4 max-w-xl font-medium">
               Discover exquisite bridal services crafted with elegance and grace for your special day
             </p>
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+            <button 
+              onClick={handleAllServicesClick}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 cursor-pointer"
+            >
               Explore Services
             </button>
           </div>
@@ -72,11 +137,12 @@ const ChristianBridalPage = () => {
         </div>
         
 
-        {/* Category Grid */}
+        {/* Category Grid - ADDED onClick */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-8">
           {(showAllCategories ? categories : categories.slice(0, 5)).map((category, index) => (
             <div 
               key={index}
+              onClick={() => handleCategoryClick(category.subCategory)}
               className="bg-white rounded-lg overflow-hidden h-[300px] shadow-sm hover:shadow-md transition-shadow cursor-pointer group"
             >
               <div className="aspect-square bg-gray-100 overflow-hidden">
@@ -106,10 +172,13 @@ const ChristianBridalPage = () => {
           </div>
         )}
 
-        {/* Featured Services Section */}
+        {/* Featured Services Section - ADDED onClick */}
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           {/* Bridal Makeup Card */}
-          <div className="relative h-80 rounded-xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+          <div 
+            onClick={() => handleCategoryClick('bridal-makeup')}
+            className="relative h-80 rounded-xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+          >
             <img 
               src="https://i.pinimg.com/1200x/dc/3e/3d/dc3e3d296b565d735d5ca36b5e893880.jpg" 
               alt="Premium Bridal Makeup"
@@ -130,7 +199,10 @@ const ChristianBridalPage = () => {
           </div>
 
           {/* Gown Tailoring Card */}
-          <div className="relative h-80 rounded-xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+          <div 
+            onClick={() => handleCategoryClick('gown-tailoring')}
+            className="relative h-80 rounded-xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+          >
             <img 
               src="https://i.pinimg.com/1200x/df/48/ff/df48ff6643b0997b78b9cf1a59c430c2.jpg" 
               alt="Custom Gown Tailoring"
@@ -151,7 +223,10 @@ const ChristianBridalPage = () => {
           </div>
 
           {/* Wedding Planner Card */}
-          <div className="relative h-80 rounded-xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+          <div 
+            onClick={() => handleCategoryClick('wedding-planner')}
+            className="relative h-80 rounded-xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+          >
             <img 
               src="https://i.pinimg.com/736x/ce/a5/08/cea508866f75e704cd7daa5cf242b65f.jpg" 
               alt="Wedding Planning Services"
@@ -182,7 +257,7 @@ const ChristianBridalPage = () => {
         </svg>
       </div>
 
-      {/* Shop by Package Section */}
+      {/* Shop by Package Section - ADDED onClick */}
       <div className="mb-12">
         {/* Section Header */}
         <div className="text-center mb-8">
@@ -196,7 +271,10 @@ const ChristianBridalPage = () => {
         {/* Package Cards */}
         <div className="grid md:grid-cols-3 gap-6 px-25">
           {/* Complete Wedding Package Card */}
-          <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group">
+          <div 
+            onClick={handleAllServicesClick}
+            className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group"
+          >
             <div className="text-4xl mb-4">👰</div>
             <h3 className="text-xl font-semibold text-gray-800 mb-2">Complete Wedding Package</h3>
             <p className="text-gray-600 text-sm mb-4">Everything you need for the perfect wedding</p>
@@ -220,7 +298,10 @@ const ChristianBridalPage = () => {
           </div>
 
           {/* Bridal Beauty Package Card */}
-          <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group">
+          <div 
+            onClick={() => handleCategoryClick('bridal-makeup')}
+            className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group"
+          >
             <div className="text-4xl mb-4">💄</div>
             <h3 className="text-xl font-semibold text-gray-800 mb-2">Bridal Beauty Package</h3>
             <p className="text-gray-600 text-sm mb-4">Look stunning on your special day</p>
@@ -244,7 +325,10 @@ const ChristianBridalPage = () => {
           </div>
 
           {/* Church Ceremony Package Card */}
-          <div className="bg-gradient-to-br from-purple-50 to-violet-50 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group">
+          <div 
+            onClick={() => handleCategoryClick('church-choir')}
+            className="bg-gradient-to-br from-purple-50 to-violet-50 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group"
+          >
             <div className="text-4xl mb-4">⛪</div>
             <h3 className="text-xl font-semibold text-gray-800 mb-2">Church Ceremony Package</h3>
             <p className="text-gray-600 text-sm mb-4">Sacred services for your holy union</p>

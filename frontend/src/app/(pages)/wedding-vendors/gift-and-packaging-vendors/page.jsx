@@ -12,22 +12,22 @@ const GiftPackagingVendorsPage = () => {
     {
       id: "return-gift",
       name: "Return Gift",
-      image: "https://i.pinimg.com/736x/e5/8f/76/e58f76c8a0a8e8d6c3b0f3e0e4e1c5e5.jpg",
+      image: "https://i.pinimg.com/1200x/3d/f9/52/3df9527549e819695dcc91df495ccf52.jpg",
     },
     {
       id: "mehendi-favors",
       name: "Mehendi Favors",
-      image: "https://i.pinimg.com/736x/7d/3e/8a/7d3e8a8c9f3d8e4f3c1b2a9d8e7f6c5d.jpg",
+      image: "https://i.pinimg.com/736x/98/cc/d6/98ccd6021ba1e66cbcec878afb593918.jpg",
     },
     {
       id: "haldi-token",
       name: "Haldi Token Gift",
-      image: "https://i.pinimg.com/736x/9b/2c/4d/9b2c4d5e6f7a8b9c0d1e2f3a4b5c6d7e.jpg",
+      image: "https://i.pinimg.com/736x/69/0b/71/690b717332ec7158a7a1e0fa73898217.jpg",
     },
     {
       id: "shagun-envelope",
       name: "Shagun Envelope",
-      image: "https://i.pinimg.com/736x/3f/7e/2d/3f7e2d4c5b6a7e8f9d0c1b2a3e4f5d6c.jpg",
+      image: "https://i.pinimg.com/1200x/f9/d6/e3/f9d6e3f6652724ffa6be8a60549b12ce.jpg",
     },
     {
       id: "gift-packaging",

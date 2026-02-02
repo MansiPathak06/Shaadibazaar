@@ -1,87 +1,93 @@
 "use client";
-import React, { useState, useRef } from "react";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import React, { useRef } from "react";
+import { Home, ChevronRight as BreadcrumbArrow } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const MiscellaneousVendorsPage = () => {
+  const router = useRouter();
   const sliderRef = useRef(null);
+
+  // Map vendor id → category slug (used by "View All" button)
+  const categoryMap = {
+    1: "balloon-dropping",
+    2: "cold-pyro",
+    3: "co2-jet",
+    4: "confetti-cannon",
+    5: "fog-machine",
+    6: "bubble-machine",
+    7: "snow-machine",
+    8: "puppet-show",
+    9: "car-decoration",
+    10: "flower-shower",
+  };
 
   const categories = [
     {
-      id: "balloon",
+      id: "balloon-dropping",
       name: "Balloon Dropping",
       image:
         "https://i.pinimg.com/736x/47/66/55/4766554ae19547241a92beae8fe8d068.jpg",
-      link: "/balloon-dropping",
     },
     {
-      id: "coldpyro",
+      id: "cold-pyro",
       name: "Cold Pyro",
       image:
         "https://i.pinimg.com/736x/0e/3e/ba/0e3eba47e73cc95bbd9d23b82433aebe.jpg",
-      link: "/cold-pyro",
     },
     {
-      id: "co2jet",
+      id: "co2-jet",
       name: "CO2 Jet",
       image:
         "https://i.pinimg.com/1200x/b8/c4/d0/b8c4d061f363287886074b680558feeb.jpg",
-      link: "/co2-jet",
     },
     {
-      id: "confetti",
+      id: "confetti-cannon",
       name: "Confetti Cannon",
       image:
         "https://i.pinimg.com/736x/2c/a6/70/2ca67045abffa55f798879e53509b293.jpg",
-      link: "/confetti-cannon",
     },
     {
-      id: "fog",
+      id: "fog-machine",
       name: "Fog Machine",
       image:
         "https://i.pinimg.com/1200x/94/d2/81/94d281a704f4513ab80110e7ffb48467.jpg",
-      link: "/fog-machine",
     },
     {
-      id: "bubble",
+      id: "bubble-machine",
       name: "Bubble Machine",
       image:
         "https://i.pinimg.com/1200x/e3/b5/6e/e3b56e54236532d401ea938856bbae31.jpg",
-      link: "/bubble-machine",
     },
     {
-      id: "snow",
+      id: "snow-machine",
       name: "Snow Machine",
       image:
         "https://i.pinimg.com/736x/ec/d8/42/ecd8429b1f68e6579cc92dca66737ebd.jpg",
-      link: "/snow-machine",
     },
     {
-      id: "puppet",
+      id: "puppet-show",
       name: "Puppet Show",
       image:
         "https://i.pinimg.com/736x/67/d8/c2/67d8c24342a26dee0258b7049ace9b54.jpg",
-      link: "/puppet-show",
     },
     {
-      id: "cardecor",
+      id: "car-decoration",
       name: "Car Decoration",
       image:
         "https://i.pinimg.com/736x/65/60/31/6560310996beef7d1fe5d9b772696a25.jpg",
-      link: "/car-decoration",
     },
     {
-      id: "flowershower",
+      id: "flower-shower",
       name: "Flower Shower",
       image:
         "https://i.pinimg.com/736x/0e/94/e2/0e94e2a69fa5c56e13bdb4fb1cb8fe29.jpg",
-      link: "/flower-shower",
     },
   ];
 
   const vendors = [
     {
       id: 1,
-      category: "balloon",
+      category: "balloon-dropping",
       name: "Balloon Dropping Setup",
       description:
         "Create magical moments with cascading balloons that drop at the perfect time, adding surprise and joy to your celebration",
@@ -90,7 +96,7 @@ const MiscellaneousVendorsPage = () => {
     },
     {
       id: 2,
-      category: "coldpyro",
+      category: "cold-pyro",
       name: "Cold Pyro & Special Effects",
       description:
         "Safe and spectacular cold pyrotechnics and special effects that create stunning visual displays without heat or danger",
@@ -99,7 +105,7 @@ const MiscellaneousVendorsPage = () => {
     },
     {
       id: 3,
-      category: "co2jet",
+      category: "co2-jet",
       name: "CO2 Jet Vendor",
       description:
         "High-energy CO2 jets that shoot dramatic plumes of white fog, creating an electrifying atmosphere for your celebration",
@@ -108,7 +114,7 @@ const MiscellaneousVendorsPage = () => {
     },
     {
       id: 4,
-      category: "confetti",
+      category: "confetti-cannon",
       name: "Confetti Cannon Vendor",
       description:
         "Explosive bursts of colorful confetti that fill the air with celebration, perfect for grand entrances and special moments",
@@ -117,7 +123,7 @@ const MiscellaneousVendorsPage = () => {
     },
     {
       id: 5,
-      category: "fog",
+      category: "fog-machine",
       name: "Fog Machine Vendor",
       description:
         "Professional fog machines that create enchanting, dreamy atmospheres and dramatic effects for your wedding moments",
@@ -126,7 +132,7 @@ const MiscellaneousVendorsPage = () => {
     },
     {
       id: 6,
-      category: "bubble",
+      category: "bubble-machine",
       name: "Bubble Machine Vendor",
       description:
         "Whimsical bubble machines that fill your venue with thousands of floating bubbles, creating a fairytale-like ambiance",
@@ -135,7 +141,7 @@ const MiscellaneousVendorsPage = () => {
     },
     {
       id: 7,
-      category: "snow",
+      category: "snow-machine",
       name: "Snow Machine Vendor",
       description:
         "Artificial snow machines that transform any venue into a winter wonderland, perfect for romantic and unique celebrations",
@@ -144,7 +150,7 @@ const MiscellaneousVendorsPage = () => {
     },
     {
       id: 8,
-      category: "puppet",
+      category: "puppet-show",
       name: "Puppet Show Vendor",
       description:
         "Entertaining puppet shows that delight guests of all ages with captivating stories and colorful characters",
@@ -153,7 +159,7 @@ const MiscellaneousVendorsPage = () => {
     },
     {
       id: 9,
-      category: "cardecor",
+      category: "car-decoration",
       name: "Car Decoration Vendor",
       description:
         "Elegant and creative car decorations with flowers, ribbons, and ornaments for the bride, groom, and wedding party vehicles",
@@ -162,7 +168,7 @@ const MiscellaneousVendorsPage = () => {
     },
     {
       id: 10,
-      category: "flowershower",
+      category: "flower-shower",
       name: "Flower Shower Machine Vendor",
       description:
         "Automated flower shower machines that create stunning cascades of fresh petals, adding romance and elegance to your ceremony",
@@ -171,21 +177,9 @@ const MiscellaneousVendorsPage = () => {
     },
   ];
 
-  const scrollSlider = (direction) => {
-    if (sliderRef.current) {
-      const scrollAmount = 200;
-      sliderRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
-    }
-  };
-
-  const handleCategoryClick = (link) => {
-    // In Next.js, you would use: router.push(link)
-    console.log("Navigate to:", link);
-    // For now, just showing an alert
-    alert(`Navigating to ${link}`);
+  // Handle category clicks to navigate to specific category page
+  const handleCategoryClick = (categoryId) => {
+    router.push(`/wedding-vendors/${categoryId}`);
   };
 
   return (
@@ -228,8 +222,8 @@ const MiscellaneousVendorsPage = () => {
                 {categories.map((cat) => (
                   <button
                     key={`original-${cat.id}`}
-                    onClick={() => handleCategoryClick(cat.link)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item"
+                    onClick={() => handleCategoryClick(cat.id)}
+                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-rose-300">
                       <img
@@ -243,13 +237,13 @@ const MiscellaneousVendorsPage = () => {
                     </span>
                   </button>
                 ))}
-                
+
                 {/* Duplicate categories for seamless loop */}
                 {categories.map((cat) => (
                   <button
                     key={`duplicate-${cat.id}`}
-                    onClick={() => handleCategoryClick(cat.link)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item"
+                    onClick={() => handleCategoryClick(cat.id)}
+                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-rose-300">
                       <img
@@ -269,16 +263,35 @@ const MiscellaneousVendorsPage = () => {
         </div>
       </div>
 
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white border-b border-gray-200 py-3 px-4">
+        <div className="max-w-7xl mx-auto">
+          <nav className="flex items-center space-x-2 text-sm">
+            <button
+              onClick={() => router.push("/")}
+              className="flex items-center gap-1 text-gray-600 hover:text-rose-500 transition-colors cursor-pointer"
+            >
+              <Home className="w-4 h-4" />
+              <span>Home</span>
+            </button>
+            <BreadcrumbArrow className="w-4 h-4 text-gray-400" />
+            <span className="text-rose-500 font-semibold text-lg">
+              Miscellaneous Vendors
+            </span>
+          </nav>
+        </div>
+      </div>
+
       {/* Vendors Grid */}
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {vendors.map((vendor) => (
             <div
               key={vendor.id}
-              className="bg-rose-100 rounded-t-full rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 h-full flex flex-col"
+              className="bg-rose-100 rounded-t-full rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 h-full flex flex-col cursor-pointer group"
             >
               {/* Image */}
-              <div className="relative h-50 overflow-hidden group">
+              <div className="relative h-50 overflow-hidden">
                 <img
                   src={vendor.image}
                   alt={vendor.name}
@@ -288,19 +301,22 @@ const MiscellaneousVendorsPage = () => {
 
               {/* Content + Button */}
               <div className="p-6 flex flex-col flex-1">
-                {/* Text content takes available space */}
                 <div className="flex-1">
-                  <h3 className="text-2xl font-medium text-gray-800 mb-3 text-center">
+                  <h3 className="text-2xl font-medium text-gray-800 mb-3 text-center group-hover:text-rose-500 transition-colors">
                     {vendor.name}
                   </h3>
-
-                  <h3 className="text-sm font-normal text-gray-800 mb-3">
+                  <p className="text-sm font-normal text-gray-800 mb-3">
                     {vendor.description}
-                  </h3>
+                  </p>
                 </div>
 
-                {/* Button stays at bottom */}
-                <button className="w-full mt-6 bg-gradient-to-r from-rose-400 to-pink-500 text-white py-3 rounded-lg hover:from-rose-500 hover:to-pink-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg">
+                {/* View All Button - Routes to category page */}
+                <button
+                  onClick={() => {
+                    router.push(`/wedding-vendors/${categoryMap[vendor.id]}`);
+                  }}
+                  className="w-full mt-6 bg-gradient-to-r from-rose-400 to-pink-500 text-white py-3 rounded-lg hover:from-rose-500 hover:to-pink-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg cursor-pointer"
+                >
                   View All →
                 </button>
               </div>
@@ -313,12 +329,6 @@ const MiscellaneousVendorsPage = () => {
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
         }
-        .line-clamp-3 {
-          display: -webkit-box;
-          -webkit-line-clamp: 3;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
         @keyframes scroll {
           0% {
             transform: translateX(0);
@@ -327,11 +337,9 @@ const MiscellaneousVendorsPage = () => {
             transform: translateX(-50%);
           }
         }
-
         .animate-scroll {
           animation: scroll 10s linear infinite;
         }
-
         .pause-animation:hover {
           animation-play-state: paused;
         }

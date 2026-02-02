@@ -1,80 +1,76 @@
 "use client";
-import React, { useState, useRef } from "react";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import React, { useRef } from "react";
+import { Home, ChevronRight as BreadcrumbArrow } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const HospitalityVendorsPage = () => {
+  const router = useRouter();
   const sliderRef = useRef(null);
+
+  // Map vendor id → category slug (used by "View All" button)
+  const categoryMap = {
+    1: "welcome",
+    2: "hostess",
+    3: "guest-management",
+    4: "luggage-handling-staff",
+    5: "concierge-desk",
+    6: "room-allocation",
+    7: "travel-desk",
+    8: "security-personnel",
+    9: "valet-parking-team",
+    10: "uniformed-guards",
+  };
 
   const categories = [
     {
       id: "welcome",
       name: "Welcome Team",
-      image:
-        "https://i.pinimg.com/1200x/39/53/a3/3953a32d2930946ad62d781a19ecfca7.jpg",
-      link: "/welcome-team",
+      image: "https://i.pinimg.com/1200x/39/53/a3/3953a32d2930946ad62d781a19ecfca7.jpg",
     },
     {
       id: "hostess",
       name: "Hostess Staff",
-      image:
-        "https://i.pinimg.com/1200x/64/8e/df/648edfbc66654ff098b30cd8c29c2f26.jpg",
-      link: "/hostess-staff",
+      image: "https://i.pinimg.com/1200x/64/8e/df/648edfbc66654ff098b30cd8c29c2f26.jpg",
     },
     {
       id: "guest-management",
       name: "Guest Management",
-      image:
-        "https://i.pinimg.com/736x/9b/20/9a/9b209a232132d1f219ad57389b4e74ed.jpg",
-      link: "/guest-management",
+      image: "https://i.pinimg.com/736x/9b/20/9a/9b209a232132d1f219ad57389b4e74ed.jpg",
     },
     {
       id: "luggage",
       name: "Luggage Handling",
-      image:
-        "https://i.pinimg.com/736x/07/78/89/077889d748b9c062d19eaafd81f19083.jpg",
-      link: "/luggage-handling",
+      image: "https://i.pinimg.com/736x/07/78/89/077889d748b9c062d19eaafd81f19083.jpg",
     },
     {
       id: "concierge",
       name: "Concierge Desk",
-      image:
-        "https://i.pinimg.com/736x/fa/ca/86/faca86b3971b15ba45e39eaf6ce975a6.jpg",
-      link: "/concierge-desk",
+      image: "https://i.pinimg.com/736x/fa/ca/86/faca86b3971b15ba45e39eaf6ce975a6.jpg",
     },
     {
       id: "room-allocation",
       name: "Room Allocation",
-      image:
-        "https://i.pinimg.com/1200x/8d/1e/69/8d1e69ff0519f1f677f6193dbc09116b.jpg",
-      link: "/room-allocation",
+      image: "https://i.pinimg.com/1200x/8d/1e/69/8d1e69ff0519f1f677f6193dbc09116b.jpg",
     },
     {
       id: "travel",
       name: "Travel Desk",
-      image:
-        "https://i.pinimg.com/736x/29/06/0f/29060f79680211528676f5486297bd74.jpg",
-      link: "/travel-desk",
+      image: "https://i.pinimg.com/736x/29/06/0f/29060f79680211528676f5486297bd74.jpg",
     },
     {
       id: "security",
       name: "Security Personnel",
-      image:
-        "https://i.pinimg.com/736x/56/30/55/5630555809b2673b49516b6fd59987c5.jpg",
-      link: "/security-personnel",
+      image: "https://i.pinimg.com/736x/56/30/55/5630555809b2673b49516b6fd59987c5.jpg",
     },
     {
       id: "valet",
       name: "Valet Parking",
-      image:
-        "https://i.pinimg.com/736x/20/37/d8/2037d8a67f0e0e2eee7f83a878e2afc2.jpg",
-      link: "/valet-parking",
+      image: "https://i.pinimg.com/736x/20/37/d8/2037d8a67f0e0e2eee7f83a878e2afc2.jpg",
     },
     {
       id: "guards",
       name: "Uniformed Guards",
-      image:
-        "https://i.pinimg.com/1200x/d1/9d/ee/d19dee6580746e786c1385c7cc1d55aa.jpg",
-      link: "/uniformed-guards",
+      image: "https://i.pinimg.com/1200x/d1/9d/ee/d19dee6580746e786c1385c7cc1d55aa.jpg",
     },
   ];
 
@@ -83,109 +79,77 @@ const HospitalityVendorsPage = () => {
       id: 1,
       category: "welcome",
       name: "Welcome Team",
-      description:
-        "Professional welcome team to greet your guests with warmth and hospitality, creating the perfect first impression",
-      image:
-        "https://i.pinimg.com/1200x/a7/0b/2f/a70b2f68ecd569b8734889847d47e3c2.jpg",
+      description: "Professional welcome team to greet your guests with warmth and hospitality, creating the perfect first impression",
+      image: "https://i.pinimg.com/1200x/a7/0b/2f/a70b2f68ecd569b8734889847d47e3c2.jpg",
     },
     {
       id: 2,
       category: "hostess",
       name: "Hostess Staff",
-      description:
-        "Elegant and courteous hostess staff to assist guests, manage reception areas, and ensure smooth coordination",
-      image:
-        "https://i.pinimg.com/1200x/4a/bd/48/4abd48d5199296d918699e27a79ac837.jpg",
+      description: "Elegant and courteous hostess staff to assist guests, manage reception areas, and ensure smooth coordination",
+      image: "https://i.pinimg.com/1200x/4a/bd/48/4abd48d5199296d918699e27a79ac837.jpg",
     },
     {
       id: 3,
       category: "guest-management",
       name: "Guest Management Team",
-      description:
-        "Dedicated team to handle guest check-ins, inquiries, and ensure all attendees have a seamless experience",
-      image:
-        "https://i.pinimg.com/736x/c5/bf/4b/c5bf4b0c38d188f80f965bf44c343328.jpg",
+      description: "Dedicated team to handle guest check-ins, inquiries, and ensure all attendees have a seamless experience",
+      image: "https://i.pinimg.com/736x/c5/bf/4b/c5bf4b0c38d188f80f965bf44c343328.jpg",
     },
     {
       id: 4,
       category: "luggage",
       name: "Luggage Handling Staff",
-      description:
-        "Efficient luggage management service to handle guest belongings with care and professionalism",
-      image:
-        "https://i.pinimg.com/1200x/de/fa/8f/defa8f2dc2dfcb06894a977ef1ec3f87.jpg",
+      description: "Efficient luggage management service to handle guest belongings with care and professionalism",
+      image: "https://i.pinimg.com/1200x/de/fa/8f/defa8f2dc2dfcb06894a977ef1ec3f87.jpg",
     },
     {
       id: 5,
       category: "concierge",
       name: "Concierge Desk",
-      description:
-        "Expert concierge services providing information, assistance, and local recommendations for your guests",
-      image:
-        "https://i.pinimg.com/736x/6b/5a/d6/6b5ad6f61f2a57c97dffee7815b1f9e3.jpg",
+      description: "Expert concierge services providing information, assistance, and local recommendations for your guests",
+      image: "https://i.pinimg.com/736x/6b/5a/d6/6b5ad6f61f2a57c97dffee7815b1f9e3.jpg",
     },
     {
       id: 6,
       category: "room-allocation",
       name: "Room Allocation Team",
-      description:
-        "Organized room allocation services ensuring guests are accommodated comfortably and efficiently",
-      image:
-        "https://i.pinimg.com/1200x/44/77/ec/4477ec43f7668a2c483f7bf8ad3c459b.jpg",
+      description: "Organized room allocation services ensuring guests are accommodated comfortably and efficiently",
+      image: "https://i.pinimg.com/1200x/44/77/ec/4477ec43f7668a2c483f7bf8ad3c459b.jpg",
     },
     {
       id: 7,
       category: "travel",
       name: "Travel Desk",
-      description:
-        "Complete travel coordination including transportation arrangements, bookings, and travel assistance",
-      image:
-        "https://i.pinimg.com/736x/9c/21/4d/9c214d98c53e4b592ea1933443191ebb.jpg",
+      description: "Complete travel coordination including transportation arrangements, bookings, and travel assistance",
+      image: "https://i.pinimg.com/736x/9c/21/4d/9c214d98c53e4b592ea1933443191ebb.jpg",
     },
     {
       id: 8,
       category: "security",
       name: "Security Personnel",
-      description:
-        "Trained security professionals ensuring safety and peace of mind for all guests throughout the event",
-      image:
-        "https://i.pinimg.com/736x/c7/94/3c/c7943cf423360c3945320acaeebe680f.jpg",
+      description: "Trained security professionals ensuring safety and peace of mind for all guests throughout the event",
+      image: "https://i.pinimg.com/736x/c7/94/3c/c7943cf423360c3945320acaeebe680f.jpg",
     },
     {
       id: 9,
       category: "valet",
       name: "Valet Parking Team",
-      description:
-        "Premium valet parking services providing convenient and secure vehicle management for your guests",
-      image:
-        "https://i.pinimg.com/736x/25/85/5c/25855c52b5050a067b91a2de1986628f.jpg",
+      description: "Premium valet parking services providing convenient and secure vehicle management for your guests",
+      image: "https://i.pinimg.com/736x/25/85/5c/25855c52b5050a067b91a2de1986628f.jpg",
     },
     {
       id: 10,
       category: "guards",
       name: "Uniformed Guards",
-      description:
-        "Professional uniformed guards maintaining order, security, and assisting with crowd management",
-      image:
-        "https://i.pinimg.com/1200x/61/84/c5/6184c52bb4893f5bd2f8f4a084e03cc7.jpg",
+      description: "Professional uniformed guards maintaining order, security, and assisting with crowd management",
+      image: "https://i.pinimg.com/1200x/61/84/c5/6184c52bb4893f5bd2f8f4a084e03cc7.jpg",
     },
   ];
 
-  const scrollSlider = (direction) => {
-    if (sliderRef.current) {
-      const scrollAmount = 200;
-      sliderRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
-    }
-  };
-
-  const handleCategoryClick = (link) => {
-    // In Next.js, you would use: router.push(link)
-    console.log("Navigate to:", link);
-    // For now, just showing an alert
-    alert(`Navigating to ${link}`);
+  // ✅ FIXED: Category clicks & Vendor "View All" go to WORKING route
+  const handleCategoryClick = (categoryId) => {
+    router.push(`/wedding-vendors/${categoryId}`);
   };
 
   return (
@@ -199,10 +163,7 @@ const HospitalityVendorsPage = () => {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source
-            src=""
-            type="video/mp4"
-          />
+          <source src="https://res.cloudinary.com/dewxpvl5s/video/upload/v1764923082/downloaded-file_5_ihqnjd.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60"></div>
         <div className="relative h-full flex flex-col items-center justify-center text-white px-4 z-10">
@@ -228,8 +189,8 @@ const HospitalityVendorsPage = () => {
                 {categories.map((cat) => (
                   <button
                     key={`original-${cat.id}`}
-                    onClick={() => handleCategoryClick(cat.link)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item"
+                    onClick={() => handleCategoryClick(cat.id)}
+                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-rose-300">
                       <img
@@ -248,8 +209,8 @@ const HospitalityVendorsPage = () => {
                 {categories.map((cat) => (
                   <button
                     key={`duplicate-${cat.id}`}
-                    onClick={() => handleCategoryClick(cat.link)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item"
+                    onClick={() => handleCategoryClick(cat.id)}
+                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-rose-300">
                       <img
@@ -269,16 +230,35 @@ const HospitalityVendorsPage = () => {
         </div>
       </div>
 
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white border-b border-gray-200 py-3 px-4">
+        <div className="max-w-7xl mx-auto">
+          <nav className="flex items-center space-x-2 text-sm">
+            <button
+              onClick={() => router.push("/")}
+              className="flex items-center gap-1 text-gray-600 hover:text-rose-500 transition-colors cursor-pointer"
+            >
+              <Home className="w-4 h-4" />
+              <span>Home</span>
+            </button>
+            <BreadcrumbArrow className="w-4 h-4 text-gray-400" />
+            <span className="text-rose-500 font-semibold text-lg">
+              Hospitality & Guest Management Vendors
+            </span>
+          </nav>
+        </div>
+      </div>
+
       {/* Vendors Grid */}
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {vendors.map((vendor) => (
             <div
               key={vendor.id}
-              className="bg-rose-100 rounded-t-full rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 h-full flex flex-col"
+              className="bg-rose-100 rounded-t-full rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 h-full flex flex-col cursor-pointer group"
             >
               {/* Image */}
-              <div className="relative h-50 overflow-hidden group">
+              <div className="relative h-50 overflow-hidden">
                 <img
                   src={vendor.image}
                   alt={vendor.name}
@@ -288,19 +268,22 @@ const HospitalityVendorsPage = () => {
 
               {/* Content + Button */}
               <div className="p-6 flex flex-col flex-1">
-                {/* Text content takes available space */}
                 <div className="flex-1">
-                  <h3 className="text-2xl font-medium text-gray-800 mb-3 text-center">
+                  <h3 className="text-2xl font-medium text-gray-800 mb-3 text-center group-hover:text-rose-500 transition-colors">
                     {vendor.name}
                   </h3>
-
-                  <h3 className="text-sm font-normal text-gray-800 mb-3">
+                  <p className="text-sm font-normal text-gray-800 mb-3">
                     {vendor.description}
-                  </h3>
+                  </p>
                 </div>
 
-                {/* Button stays at bottom */}
-                <button className="w-full mt-6 bg-gradient-to-r from-rose-400 to-pink-500 text-white py-3 rounded-lg hover:from-rose-500 hover:to-pink-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg">
+                {/* ✅ FIXED BUTTON - Goes to working wedding-vendors route */}
+                <button
+                  onClick={() => {
+                    router.push(`/wedding-vendors/${categoryMap[vendor.id]}`);
+                  }}
+                  className="w-full mt-6 bg-gradient-to-r from-rose-400 to-pink-500 text-white py-3 rounded-lg hover:from-rose-500 hover:to-pink-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg cursor-pointer"
+                >
                   View All →
                 </button>
               </div>
@@ -313,12 +296,6 @@ const HospitalityVendorsPage = () => {
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
         }
-        .line-clamp-3 {
-          display: -webkit-box;
-          -webkit-line-clamp: 3;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
         @keyframes scroll {
           0% {
             transform: translateX(0);
@@ -327,11 +304,9 @@ const HospitalityVendorsPage = () => {
             transform: translateX(-50%);
           }
         }
-
         .animate-scroll {
           animation: scroll 10s linear infinite;
         }
-
         .pause-animation:hover {
           animation-play-state: paused;
         }
