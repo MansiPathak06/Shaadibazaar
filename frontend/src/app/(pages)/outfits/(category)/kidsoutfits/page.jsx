@@ -312,7 +312,7 @@ const KidsOutfits = () => {
         <div className="container mx-auto px-6 sm:px-8 lg:px-16">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Shop By <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Age</span>
+              Shop By <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>Age</span>
             </h2>
             <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Find the perfect fit for your little ones at every stage</p>
           </div>
@@ -348,7 +348,7 @@ const KidsOutfits = () => {
         <div className="container mx-auto px-6 sm:px-8 lg:px-16">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Shop By <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>category</span>
+              Shop By <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>category</span>
             </h2>
             <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Tiny Trends for Every Little Star</p>
           </div>
@@ -393,7 +393,7 @@ const KidsOutfits = () => {
         <div className="container mx-auto px-6 sm:px-8 lg:px-16">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Trending Kids <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>fashion</span>
+              Trending Kids <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>fashion</span>
             </h2>
             <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Adorable Looks, Fresh Trends!</p>
           </div>

@@ -125,7 +125,7 @@ const AccommodationVendorsPage = () => {
             type="video/mp4"
           />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-black/60 via-black/40 to-black/60"></div>
         <div className="relative h-full flex flex-col items-center justify-center text-white px-4 z-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-2 text-center drop-shadow-lg">
             Accommodation Vendors
@@ -150,7 +150,7 @@ const AccommodationVendorsPage = () => {
                   <button
                     key={`original-${cat.id}`}
                     onClick={() => handleCategoryClick(cat.link)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item"
+                    className="flex flex-col items-center min-w-[110px] shrink-0 transition-all hover:scale-105 group/item"
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-rose-300">
                       <img
@@ -170,7 +170,7 @@ const AccommodationVendorsPage = () => {
                   <button
                     key={`duplicate-${cat.id}`}
                     onClick={() => handleCategoryClick(cat.link)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item"
+                    className="flex flex-col items-center min-w-[110px] shrink-0 transition-all hover:scale-105 group/item"
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-rose-300">
                       <img
@@ -221,7 +221,7 @@ const AccommodationVendorsPage = () => {
                 </div>
 
                 {/* Button stays at bottom */}
-                <button className="w-full mt-6 bg-gradient-to-r from-rose-400 to-pink-500 text-white py-3 rounded-lg hover:from-rose-500 hover:to-pink-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg">
+                <button className="w-full mt-6 bg-linear-to-r from-rose-400 to-pink-500 text-white py-3 rounded-lg hover:from-rose-500 hover:to-pink-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg">
                   View All →
                 </button>
               </div>

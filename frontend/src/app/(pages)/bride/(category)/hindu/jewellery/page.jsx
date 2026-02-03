@@ -279,13 +279,13 @@ const BridalJewelleryPage = () => {
                 alt={slide.title}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-white/80 to-transparent flex items-center">
+              <div className="absolute inset-0 bg-linear-to-r from-white/80 to-transparent flex items-center">
                 <div className="max-w-7xl mx-auto px-8 w-full">
                   <div className="max-w-md">
                     <p className="text-sm text-gray-600 mb-2 uppercase tracking-wide">
                       BRIDAL COLLECTION
                     </p>
-                    <h1 className="text-5xl font-light text-gray-800 mb-4">
+                    <h1 className="text-5xl font-light text-gray-800 mb-4 uppercase">
                       {slide.title}
                     </h1>
                     <p className="text-gray-600 mb-6">{slide.subtitle}</p>
@@ -330,8 +330,8 @@ const BridalJewelleryPage = () => {
       {/* Popular Categories Section with Scrolling */}
       <div className="py-16 bg-gray-50">
         <div className="max-w-full mx-auto px-8">
-          <h2 className="text-3xl font-light text-center text-gray-800 mb-12">
-            Popular Categories
+          <h2 className="text-4xl md:text-5xl font-light text-center text-gray-800 mb-12">
+            <span className="text-gray-900">Popular</span> <span className="text-orange-600">Categories</span>
           </h2>
 
           <div className="relative overflow-hidden">
@@ -340,7 +340,7 @@ const BridalJewelleryPage = () => {
                 <Link
                   key={index}
                   href={`/bride/all-products?category=jewellery&subCategory=${category.slug}`}
-                  className="flex-shrink-0 w-40 text-center group cursor-pointer"
+                  className="shrink-0 w-40 text-center group cursor-pointer"
                 >
                   <div className="relative mb-4 overflow-hidden rounded-full">
                     <img
@@ -371,7 +371,7 @@ const BridalJewelleryPage = () => {
               alt="Traditional Sets"
               className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
+            <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
               <h3 className="text-white text-2xl font-light mb-2">
                 Traditional Bridal Sets
               </h3>
@@ -390,7 +390,7 @@ const BridalJewelleryPage = () => {
               alt="Gold Filled Bracelets"
               className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
+            <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
               <h3 className="text-white text-2xl font-light mb-2">
                 Best Gold Filled Bracelets
               </h3>
@@ -405,7 +405,7 @@ const BridalJewelleryPage = () => {
       {/* Trending Products */}
       <div className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-8">
-          <h2 className="text-3xl font-light text-center text-gray-800 mb-4">
+          <h2 className="text-4xl md:text-5xl  font-light text-center text-gray-800 mb-4">
             Trending Products
           </h2>
           <div className="flex justify-center gap-4 mb-12">
@@ -440,7 +440,7 @@ const BridalJewelleryPage = () => {
                   />
                 </div>
                 <div className="p-4 text-center">
-                  <h3 className="text-sm text-gray-800 mb-2">
+                  <h3 className="text-lg text-gray-800 mb-2">
                     {product.name}
                   </h3>
                   

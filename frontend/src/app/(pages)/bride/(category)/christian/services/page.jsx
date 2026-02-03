@@ -91,7 +91,7 @@ const ChristianBridalPage = () => {
             className="w-full h-full object-cover"
           />
           {/* Lighter overlay for better visibility */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white/15 via-blue-50/70 to-purple-50/75"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-white/15 via-blue-50/70 to-purple-50/75"></div>
         </div>
 
         {/* Content */}
@@ -184,7 +184,7 @@ const ChristianBridalPage = () => {
               alt="Premium Bridal Makeup"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+            <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent"></div>
             <div className="absolute top-50 bottom-0 left-0 right-0 p-6 backdrop-blur-md bg-white/10">
               <div className="bg-blue-500/90 text-white text-xs font-semibold px-3 py-1 rounded-full inline-block mb-2">
                 PREMIUM PACKAGE
@@ -208,7 +208,7 @@ const ChristianBridalPage = () => {
               alt="Custom Gown Tailoring"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+            <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent"></div>
             <div className="absolute top-50 bottom-0 left-0 right-0 p-6 backdrop-blur-md bg-white/10">
               <div className="bg-purple-500/90 text-white text-xs font-semibold px-3 py-1 rounded-full inline-block mb-2">
                 CUSTOM DESIGN
@@ -232,7 +232,7 @@ const ChristianBridalPage = () => {
               alt="Wedding Planning Services"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+            <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent"></div>
             <div className="absolute top-50 bottom-0 left-0 right-0 p-6 backdrop-blur-md bg-white/10">
               <div className="bg-pink-500/90 text-white text-xs font-semibold px-3 py-1 rounded-full inline-block mb-2">
                 FULL SERVICE
@@ -273,7 +273,7 @@ const ChristianBridalPage = () => {
           {/* Complete Wedding Package Card */}
           <div 
             onClick={handleAllServicesClick}
-            className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group"
+            className="bg-linear-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group"
           >
             <div className="text-4xl mb-4">👰</div>
             <h3 className="text-xl font-semibold text-gray-800 mb-2">Complete Wedding Package</h3>
@@ -300,7 +300,7 @@ const ChristianBridalPage = () => {
           {/* Bridal Beauty Package Card */}
           <div 
             onClick={() => handleCategoryClick('bridal-makeup')}
-            className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group"
+            className="bg-linear-to-br from-pink-50 to-rose-50 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group"
           >
             <div className="text-4xl mb-4">💄</div>
             <h3 className="text-xl font-semibold text-gray-800 mb-2">Bridal Beauty Package</h3>
@@ -327,7 +327,7 @@ const ChristianBridalPage = () => {
           {/* Church Ceremony Package Card */}
           <div 
             onClick={() => handleCategoryClick('church-choir')}
-            className="bg-gradient-to-br from-purple-50 to-violet-50 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group"
+            className="bg-linear-to-br from-purple-50 to-violet-50 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group"
           >
             <div className="text-4xl mb-4">⛪</div>
             <h3 className="text-xl font-semibold text-gray-800 mb-2">Church Ceremony Package</h3>

@@ -127,7 +127,7 @@ const TeamModule = ({ members, tasks, onAddMember, onAddTask, onToggleTaskStatus
                             <div key={member.id} className="flex items-center justify-between p-3 hover:bg-rose-50 rounded-xl transition-colors cursor-pointer group border border-transparent hover:border-rose-100">
                                 <div className="flex items-center gap-3">
                                     <div className="relative">
-                                        <div className="w-10 h-10 bg-gradient-to-br from-rose-400 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md shadow-rose-200">
+                                        <div className="w-10 h-10 bg-linear-to-br from-rose-400 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md shadow-rose-200">
                                             {member.avatar}
                                         </div>
                                         <span className={cn("absolute bottom-0 right-0 w-3 h-3 border-2 border-white rounded-full",
@@ -545,10 +545,10 @@ const AnalyticsModule = ({ expenses, expensesByDate }) => (
                         <ResponsiveContainer width="100%" height="100%">
                             <AreaChart data={expensesByDate}>
                                 <defs>
-                                    <linearGradient id="colorCost" x1="0" y1="0" x2="0" y2="1">
+                                    <linearlinear id="colorCost" x1="0" y1="0" x2="0" y2="1">
                                         <stop offset="5%" stopColor="#f43f5e" stopOpacity={0.8} />
                                         <stop offset="95%" stopColor="#f43f5e" stopOpacity={0} />
-                                    </linearGradient>
+                                    </linearlinear>
                                 </defs>
                                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#fae8ff" />
                                 <XAxis dataKey="date" axisLine={false} tickLine={false} />
@@ -764,7 +764,7 @@ export default function EventManagementSoftware() {
                         {isSidebarOpen && <span>Settings</span>}
                     </button>
                     <div className="mt-4 flex items-center gap-3 px-2">
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-rose-400 to-pink-500 border border-white ring-2 ring-rose-100" />
+                        <div className="w-8 h-8 rounded-full bg-linear-to-tr from-rose-400 to-pink-500 border border-white ring-2 ring-rose-100" />
                         {isSidebarOpen && (
                             <div className="flex-1 min-w-0">
                                 <p className="text-sm font-medium text-gray-900 truncate">Jane Cooper</p>

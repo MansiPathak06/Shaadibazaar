@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useRef } from "react";
-import { ChevronLeft, ChevronRight, Shield } from "lucide-react";
+import { Home, ChevronRight as BreadcrumbArrow, Shield } from "lucide-react";
 
 const AdditionalSupportServicesPage = () => {
   const sliderRef = useRef(null);
@@ -137,7 +137,6 @@ const AdditionalSupportServicesPage = () => {
     // In Next.js, you would use: router.push(link)
     console.log("Navigate to:", link);
     // For now, just showing an alert
-    alert(`Navigating to ${link}`);
   };
 
   return (
@@ -156,9 +155,9 @@ const AdditionalSupportServicesPage = () => {
             type="video/mp4"
           />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-black/60 via-black/40 to-black/60"></div>
         <div className="relative h-full flex flex-col items-center justify-center text-white px-4 z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-2 text-center drop-shadow-lg">
+          <h1 className="text-4xl md:text-6xl font-medium uppercase mb-2 text-center drop-shadow-lg">
             Additional Support Services
           </h1>
           <p className="text-lg md:text-xl text-center max-w-2xl drop-shadow-md">
@@ -181,7 +180,7 @@ const AdditionalSupportServicesPage = () => {
                   <button
                     key={`original-${cat.id}`}
                     onClick={() => handleCategoryClick(cat.link)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item"
+                    className="flex flex-col items-center min-w-[110px] shrink-0 transition-all hover:scale-105 group/item"
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-blue-300">
                       <img
@@ -201,7 +200,7 @@ const AdditionalSupportServicesPage = () => {
                   <button
                     key={`duplicate-${cat.id}`}
                     onClick={() => handleCategoryClick(cat.link)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item"
+                    className="flex flex-col items-center min-w-[110px] shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-blue-300">
                       <img
@@ -218,6 +217,22 @@ const AdditionalSupportServicesPage = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className="bg-white border-b border-gray-200 py-3 px-4">
+        <div className="max-w-7xl mx-auto">
+          <nav className="flex items-center space-x-2 text-sm">
+            <button
+              onClick={() => router.push('/')}
+              className="flex items-center gap-1 text-gray-600 hover:text-rose-500 transition-colors cursor-pointer"
+            >
+              <Home className="w-4 h-4" />
+              <span>Home</span>
+            </button>
+            <BreadcrumbArrow className="w-4 h-4 text-gray-400" />
+            <span className="text-rose-500 font-medium text-lg">Additional Support Services</span>
+          </nav>
         </div>
       </div>
 
@@ -252,7 +267,7 @@ const AdditionalSupportServicesPage = () => {
                 </div>
 
                 {/* Button stays at bottom */}
-                <button className="w-full mt-6 bg-gradient-to-r from-blue-400 to-blue-600 text-white py-3 rounded-lg hover:from-blue-500 hover:to-blue-700 transition-all duration-300 font-medium shadow-md hover:shadow-lg">
+                <button className="w-full mt-6 bg-linear-to-r from-blue-400 to-blue-600 text-white py-3 rounded-lg hover:from-blue-500 hover:to-blue-700 transition-all duration-300 font-medium shadow-md hover:shadow-lg">
                   View All →
                 </button>
               </div>

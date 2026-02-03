@@ -56,7 +56,7 @@ const FootwearCollection = () => {
   ];
 
   return (
-    <div className="w-full bg-gradient-to-b from-white via-rose-50/30 to-white">
+    <div className="w-full bg-linear-to-b from-white via-rose-50/30 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
         {/* Hero Section with Modern Typography */}
@@ -92,8 +92,8 @@ const FootwearCollection = () => {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
 
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                {/* linear Overlay */}
+                <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent"></div>
 
                 {/* Tag */}
                 <div className="absolute top-6 left-6">
@@ -180,7 +180,7 @@ const FootwearCollection = () => {
                   />
 
                   {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-gray-900 via-gray-900/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
 
                   {/* Content */}
                   <div className="absolute bottom-0 left-0 right-0 p-5">

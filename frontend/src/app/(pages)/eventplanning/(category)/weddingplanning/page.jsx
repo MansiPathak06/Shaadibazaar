@@ -114,7 +114,7 @@ export default function WeddingPlanning() {
       </div>
 
       {/* Why Choose Us Section */}
-      <section className="py-24 px-4 bg-gradient-to-b from-white to-rose-50">
+      <section className="py-24 px-4 bg-linear-to-b from-white to-rose-50">
         <div className="max-w-7xl mx-auto">
 
           <div className="text-center mb-16">
@@ -203,7 +203,7 @@ export default function WeddingPlanning() {
                   alt={`Wedding ${i + 1}`}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
                   <span className="text-white font-medium text-lg">View Gallery</span>
                 </div>
               </div>
@@ -249,7 +249,7 @@ export default function WeddingPlanning() {
 
       {/* Contact Section */}
       {/* Contact Section */}
-<section className="py-20 px-4 bg-gradient-to-b from-rose-50 via-white to-rose-50 relative overflow-hidden">
+<section className="py-20 px-4 bg-linear-to-b from-rose-50 via-white to-rose-50 relative overflow-hidden">
   {/* Decorative Background Elements */}
   <div className="absolute top-0 left-0 w-72 h-72 bg-rose-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
   <div className="absolute top-0 right-0 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
@@ -258,12 +258,12 @@ export default function WeddingPlanning() {
   <div className="max-w-6xl mx-auto relative z-10">
     {/* Header Section */}
     <div className="text-center mb-16">
-      <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-rose-400 to-rose-500 rounded-full mb-6 shadow-lg">
+      <div className="inline-flex items-center justify-center w-20 h-20 bg-linear-to-br from-rose-400 to-rose-500 rounded-full mb-6 shadow-lg">
         <Heart className="w-10 h-10 text-white animate-pulse" />
       </div>
       <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium text-gray-800 mb-4 leading-tight uppercase">
         Let's Create Your
-        <span className="block text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-rose-600">
+        <span className="block text-transparent bg-clip-text bg-linear-to-r from-rose-400 to-rose-600">
           Perfect Day
         </span>
       </h2>
@@ -276,7 +276,7 @@ export default function WeddingPlanning() {
     <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-16">
       {/* Phone Card */}
       <div className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-rose-100 hover:border-rose-300">
-        <div className="absolute inset-0 bg-gradient-to-br from-rose-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-rose-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         <div className="relative p-8 text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-rose-100 rounded-full mb-4 group-hover:bg-rose-400 group-hover:scale-110 transition-all duration-300">
             <Phone className="w-8 h-8 text-rose-400 group-hover:text-white transition-colors duration-300" />
@@ -294,7 +294,7 @@ export default function WeddingPlanning() {
 
       {/* Email Card */}
       <div className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-rose-100 hover:border-rose-300">
-        <div className="absolute inset-0 bg-gradient-to-br from-rose-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-rose-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         <div className="relative p-8 text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-rose-100 rounded-full mb-4 group-hover:bg-rose-400 group-hover:scale-110 transition-all duration-300">
             <Mail className="w-8 h-8 text-rose-400 group-hover:text-white transition-colors duration-300" />
@@ -312,7 +312,7 @@ export default function WeddingPlanning() {
 
       {/* Location Card */}
       <div className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-rose-100 hover:border-rose-300">
-        <div className="absolute inset-0 bg-gradient-to-br from-rose-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-rose-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         <div className="relative p-8 text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-rose-100 rounded-full mb-4 group-hover:bg-rose-400 group-hover:scale-110 transition-all duration-300">
             <MapPin className="w-8 h-8 text-rose-400 group-hover:text-white transition-colors duration-300" />

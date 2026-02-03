@@ -76,8 +76,8 @@ export default function BannerCollection() {
                 style={{ backgroundImage: `url(${banner.bgImage})` }}
               />
               
-              {/* Gradient Overlay */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${banner.bgColor} opacity-85`} />
+              {/* linear Overlay */}
+              <div className={`absolute inset-0 bg-linear-to-br ${banner.bgColor} opacity-85`} />
               
               {/* Content */}
               <div className="relative h-full p-6 flex flex-col justify-between">

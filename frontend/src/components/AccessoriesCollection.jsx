@@ -13,7 +13,7 @@ const CollectionShowcase = () => {
             description: 'Exquisite handcrafted pieces',
             image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&h=600&fit=crop',
             icon: Sparkles,
-            gradient: 'from-purple-500 to-pink-500'
+            linear: 'from-purple-500 to-pink-500'
         },
         {
             id: 2,
@@ -21,7 +21,7 @@ const CollectionShowcase = () => {
             description: 'Premium leather collection',
             image: 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800&h=600&fit=crop',
             icon: ShoppingBag,
-            gradient: 'from-amber-500 to-orange-500'
+            linear: 'from-amber-500 to-orange-500'
         },
         {
             id: 3,
@@ -29,7 +29,7 @@ const CollectionShowcase = () => {
             description: 'Luxury timepieces',
             image: 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=800&h=600&fit=crop',
             icon: Watch,
-            gradient: 'from-blue-500 to-cyan-500'
+            linear: 'from-blue-500 to-cyan-500'
         },
         {
             id: 4,
@@ -37,7 +37,7 @@ const CollectionShowcase = () => {
             description: 'Premium footwear',
             image: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800&h=600&fit=crop',
             icon: Footprints,
-            gradient: 'from-red-500 to-rose-500'
+            linear: 'from-red-500 to-rose-500'
         },
         {
             id: 5,
@@ -45,7 +45,7 @@ const CollectionShowcase = () => {
             description: 'Stunning accessories',
             image: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&h=600&fit=crop',
             icon: Scissors,
-            gradient: 'from-emerald-500 to-teal-500'
+            linear: 'from-emerald-500 to-teal-500'
         },
         {
             id: 6,
@@ -53,7 +53,7 @@ const CollectionShowcase = () => {
             description: 'Signature fragrances',
             image: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=800&h=600&fit=crop',
             icon: Droplet,
-            gradient: 'from-violet-500 to-purple-500'
+            linear: 'from-violet-500 to-purple-500'
         }
     ];
 
@@ -98,7 +98,7 @@ const CollectionShowcase = () => {
                                                 alt={collection.title}
                                                 className="w-full h-full object-cover"
                                             />
-                                            <div className={`absolute inset-0 bg-gradient-to-br ${collection.gradient} opacity-40`}></div>
+                                            <div className={`absolute inset-0 bg-linear-to-br ${collection.linear} opacity-40`}></div>
                                             <div className="absolute top-6 left-6">
                                                 <div className="bg-white/20 backdrop-blur-md p-3 rounded-2xl">
                                                     <Icon className="w-8 h-8 text-white" />
@@ -110,7 +110,7 @@ const CollectionShowcase = () => {
                             </div>
 
                             {/* Content Side */}
-                            <div className="p-12 flex flex-col justify-center bg-gradient-to-br from-gray-50 to-white">
+                            <div className="p-12 flex flex-col justify-center bg-linear-to-br from-gray-50 to-white">
                                 <div className="relative h-64">
                                     {collections.map((collection, index) => (
                                         <div
@@ -169,9 +169,9 @@ const CollectionShowcase = () => {
                                             alt={collection.title}
                                             className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                                         />
-                                        <div className={`absolute inset-0 bg-gradient-to-br ${collection.gradient} opacity-20 group-hover:opacity-40 transition-opacity duration-300`}></div>
+                                        <div className={`absolute inset-0 bg-linear-to-br ${collection.linear} opacity-20 group-hover:opacity-40 transition-opacity duration-300`}></div>
                                         <div className="absolute top-3 right-3">
-                                            <div className={`bg-gradient-to-br ${collection.gradient} p-2.5 rounded-xl shadow-lg transform group-hover:rotate-12 transition-transform duration-300`}>
+                                            <div className={`bg-linear-to-br ${collection.linear} p-2.5 rounded-xl shadow-lg transform group-hover:rotate-12 transition-transform duration-300`}>
                                                 <Icon className="w-5 h-5 text-white" />
                                             </div>
                                         </div>

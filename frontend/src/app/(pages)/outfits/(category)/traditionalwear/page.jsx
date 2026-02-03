@@ -240,7 +240,7 @@ const TraditionalWear = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative w-full h-[550px] md:h-[650px] lg:h-[700px] bg-gradient-to-br from-rose-50 via-orange-50 to-yellow-50 overflow-hidden mb-12 md:mb-16">
+      <section className="relative w-full h-[550px] md:h-[650px] lg:h-[700px] bg-linear-to-br from-rose-50 via-orange-50 to-yellow-50 overflow-hidden mb-12 md:mb-16">
         <div className="container mx-auto px-6 sm:px-8 lg:px-16 h-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 h-full items-center">
             {/* Left Content */}
@@ -293,7 +293,7 @@ const TraditionalWear = () => {
               key={feature.id}
               className="flex items-start gap-5 p-8 bg-white rounded-2xl hover:shadow-2xl transition-shadow duration-300 border border-gray-100"
             >
-              <div className="flex-shrink-0 w-20 h-20 bg-rose-50 rounded-full flex items-center justify-center">
+              <div className="shrink-0 w-20 h-20 bg-rose-50 rounded-full flex items-center justify-center">
                 {feature.icon}
               </div>
               <div>
@@ -313,7 +313,7 @@ const TraditionalWear = () => {
       <section className="container mx-auto px-6 sm:px-8 lg:px-16 py-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-            Bridal <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>showcase</span>
+            Bridal <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>showcase</span>
           </h2>
           <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">
             Explore our exclusive bridal collection featuring exquisite lehengas, sarees, and accessories
@@ -330,7 +330,7 @@ const TraditionalWear = () => {
                 className="object-cover object-top group-hover:scale-110 transition-transform duration-700"
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
+              <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent">
                 <div className="absolute bottom-8 left-8 right-8 text-white">
                   <h3 className="text-3xl font-normal mb-3">{item.title}</h3>
                   <p className="text-gray-200 text-lg mb-5">{item.subtitle}</p>
@@ -415,7 +415,7 @@ const TraditionalWear = () => {
       <section className="container mx-auto px-6 sm:px-8 lg:px-16 py-16">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-            Shop By <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Category</span>
+            Shop By <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>Category</span>
           </h2>
           <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Find What You Love, Faster</p>
         </div>
@@ -430,7 +430,7 @@ const TraditionalWear = () => {
                   className="object-cover object-top group-hover:scale-110 transition-transform duration-500"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent">
+                <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent">
                   <div className="absolute bottom-6 left-6 right-6 text-white">
                     <h3 className="text-2xl font-normal mb-2">{category.name}</h3>
                     <p className="text-gray-200 text-sm">{category.count}</p>
@@ -454,7 +454,7 @@ const TraditionalWear = () => {
                 className="object-cover object-top group-hover:scale-110 transition-transform duration-700"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
+              <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-transparent">
                 <div className="absolute bottom-10 left-10 right-10 text-white">
                   <span className="bg-rose-500 px-4 py-2 rounded-full text-sm font-normal mb-4 inline-block">
                     {collection.discount}
@@ -474,10 +474,10 @@ const TraditionalWear = () => {
       </section>
 
       {/* Featured Products Section - BRIDAL */}
-      <section className="container mx-auto px-6 sm:px-8 lg:px-16 py-4 bg-gradient-to-b from-gray-50 to-white rounded-3xl my-12">
+      <section className="container mx-auto px-6 sm:px-8 lg:px-16 py-4 bg-linear-to-b from-gray-50 to-white rounded-3xl my-12">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-            Featured <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Bridal</span> Collection
+            Featured <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>Bridal</span> Collection
           </h2>
           <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Handpicked bridal wear, crafted with love and detail</p>
         </div>
@@ -641,7 +641,7 @@ const TraditionalWear = () => {
       <section className="container mx-auto px-6 sm:px-8 lg:px-16  bg-linear-to-b from-gray-50 to-white rounded-3xl my-12">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-            Featured <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Groom</span> Collection
+            Featured <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>Groom</span> Collection
           </h2>
           <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">
             Handpicked groom attire, crafted with elegance and precision
@@ -790,12 +790,12 @@ const TraditionalWear = () => {
 
       {/* Additional Features Section */}
       <section className="container mx-auto px-6 sm:px-8 lg:px-16 py-12 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-rose-300/30 to-pink-300/30 rounded-full filter blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-br from-orange-300/30 to-yellow-300/30 rounded-full filter blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-linear-to-br from-rose-300/30 to-pink-300/30 rounded-full filter blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-linear-to-br from-orange-300/30 to-yellow-300/30 rounded-full filter blur-3xl animate-pulse delay-1000"></div>
 
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-            Why <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Choose</span> Us
+            Why <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>Choose</span> Us
           </h2>
           <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Experience the perfect blend of quality, service, and authenticity</p>
         </div>
@@ -824,10 +824,10 @@ const TraditionalWear = () => {
                   {feature.description}
                 </p>
 
-                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-rose-400 via-pink-400 to-orange-400 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-16 h-1 bg-linear-to-r from-rose-400 via-pink-400 to-orange-400 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
               </div>
 
-              <div className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-br from-rose-500 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:rotate-12 transform">
+              <div className="absolute -top-4 -right-4 w-12 h-12 bg-linear-to-br from-rose-500 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:rotate-12 transform">
                 {index + 1}
               </div>
             </div>
@@ -924,7 +924,7 @@ const TraditionalWear = () => {
             </div>
           </div>
 
-          <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-rose-500 via-pink-500 to-orange-500"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-2 bg-linear-to-r from-rose-500 via-pink-500 to-orange-500"></div>
         </div>
       </section>
     </div>

@@ -16,7 +16,7 @@ export default function MiddleSlider() {
       badge: "50% OFF",
       rating: 4.5,
       image: "https://images.unsplash.com/photo-1505693314120-0d443867891c?w=400&h=300&fit=crop",
-      gradient: "from-blue-600 via-blue-700 to-indigo-800"
+      linear: "from-blue-600 via-blue-700 to-indigo-800"
     },
     {
       title: "Furniture",
@@ -26,7 +26,7 @@ export default function MiddleSlider() {
       badge: "BESTSELLER",
       rating: 4.8,
       image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop",
-      gradient: "from-purple-600 via-purple-700 to-pink-800"
+      linear: "from-purple-600 via-purple-700 to-pink-800"
     },
     {
       title: "Home Decor",
@@ -36,7 +36,7 @@ export default function MiddleSlider() {
       badge: "NEW",
       rating: 4.3,
       image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=400&h=300&fit=crop",
-      gradient: "from-emerald-600 via-teal-700 to-cyan-800"
+      linear: "from-emerald-600 via-teal-700 to-cyan-800"
     },
     {
       title: "Kitchen",
@@ -46,7 +46,7 @@ export default function MiddleSlider() {
       badge: "TRENDING",
       rating: 4.6,
       image: "https://images.unsplash.com/photo-1556911220-bff31c812dba?w=400&h=300&fit=crop",
-      gradient: "from-orange-600 via-red-700 to-rose-800"
+      linear: "from-orange-600 via-red-700 to-rose-800"
     },
     {
       title: "Electronics",
@@ -56,7 +56,7 @@ export default function MiddleSlider() {
       badge: "HOT DEAL",
       rating: 4.7,
       image: "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=300&fit=crop",
-      gradient: "from-indigo-600 via-blue-700 to-cyan-800"
+      linear: "from-indigo-600 via-blue-700 to-cyan-800"
     }
   ];
 
@@ -95,7 +95,7 @@ export default function MiddleSlider() {
   return (
     <div className="relative w-full max-w-7xl mx-auto px-4 py-8">
       {/* Slider Container */}
-      <div className={`relative h-[400px] rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br ${slides[currentSlide].gradient} transition-all duration-700`}>
+      <div className={`relative h-100 rounded-3xl overflow-hidden shadow-2xl bg-linear-to-br ${slides[currentSlide].linear} transition-all duration-700`}>
         
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
@@ -114,7 +114,7 @@ export default function MiddleSlider() {
         <div className="relative h-full flex items-center justify-between px-12 md:px-20 z-10">
           
           {/* Left: Product Info */}
-          <div className={`text-white space-y-4 max-w-xl transition-all duration-500 ${isAnimating ? 'opacity-0 translate-x-[-20px]' : 'opacity-100 translate-x-0'}`}>
+          <div className={`text-white space-y-4 max-w-xl transition-all duration-500 ${isAnimating ? 'opacity-0 -translate-x-5' : 'opacity-100 translate-x-0'}`}>
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-yellow-400 text-gray-900 px-4 py-1.5 rounded-full text-sm font-bold shadow-lg">
               <Star className="w-4 h-4 fill-current" />
@@ -176,7 +176,7 @@ export default function MiddleSlider() {
                   className="w-full h-full object-cover"
                 />
                 {/* Image Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
 
               {/* Floating Badge */}
@@ -221,7 +221,7 @@ export default function MiddleSlider() {
             disabled={isAnimating}
             className={`transition-all duration-300 rounded-full ${
               currentSlide === index 
-                ? 'w-12 h-3 bg-gradient-to-r from-blue-600 to-purple-600 shadow-lg' 
+                ? 'w-12 h-3 bg-linear-to-r from-blue-600 to-purple-600 shadow-lg' 
                 : 'w-3 h-3 bg-gray-300 hover:bg-gray-400 hover:scale-125'
             }`}
           />

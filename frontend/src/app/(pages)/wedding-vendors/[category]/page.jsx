@@ -708,7 +708,7 @@ footwear: {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${currentCategory.image})` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/50 to-black/70"></div>
         </div>
 
         {/* Content */}
@@ -774,7 +774,7 @@ footwear: {
                 {/* Top Section: Image on Left, Details on Right */}
                 <div className="flex h-[220px]">
                   {/* Left Side - Service Image */}
-                  <div className="relative w-[200px] flex-shrink-0 overflow-hidden">
+                  <div className="relative w-[200px] shrink-0 overflow-hidden">
                     {service.images && service.images.length > 0 && (
                       <img
                         src={
@@ -812,7 +812,7 @@ footwear: {
                     {/* Location */}
                     {service.area_of_service && (
                       <div className="flex items-start gap-1.5 text-gray-700 text-sm mb-2">
-                        <MapPin className="w-4 h-4 text-rose-500 flex-shrink-0 mt-0.5" />
+                        <MapPin className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
                         <span className="line-clamp-1">
                           {service.area_of_service}
                         </span>
@@ -863,7 +863,7 @@ footwear: {
                         e.stopPropagation(); // Prevent card click
                         handleServiceClick(service.id); // Routes to /wedding-vendors/[category]/[serviceId]
                       }}
-                      className="flex-1 px-4 py-2.5 cursor-pointer bg-gradient-to-r from-rose-400 to-pink-500 text-white rounded-lg hover:shadow-lg transition-all duration-300 font-semibold text-sm shadow-sm"
+                      className="flex-1 px-4 py-2.5 cursor-pointer bg-linear-to-r from-rose-400 to-pink-500 text-white rounded-lg hover:shadow-lg transition-all duration-300 font-semibold text-sm shadow-sm"
                     >
                       View Details
                     </button>

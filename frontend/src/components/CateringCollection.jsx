@@ -64,7 +64,7 @@ const CateringCollection = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-b from-white to-gray-50 py-20 px-4">
+    <div className="bg-linear-to-b from-white to-gray-50 py-20 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
@@ -102,8 +102,8 @@ const CateringCollection = () => {
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                   />
                   
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                  {/* linear Overlay */}
+                  <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent"></div>
                   
                   {/* Icon Badge */}
                   <div className={`absolute top-6 right-6 ${service.color} p-4 rounded-2xl shadow-xl transform group-hover:rotate-12 transition-transform duration-300`}>

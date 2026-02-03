@@ -18,7 +18,7 @@ const Card = ({ children, className = "" }) => (
 const Button = ({ children, variant = "primary", onClick, className = "", size = "md" }) => {
     const baseStyle = "inline-flex items-center justify-center font-medium transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2";
     const variants = {
-        primary: "bg-gradient-to-r from-rose-500 to-pink-600 text-white hover:from-rose-600 hover:to-pink-700 focus:ring-rose-500 shadow-md hover:shadow-lg",
+        primary: "bg-linear-to-r from-rose-500 to-pink-600 text-white hover:from-rose-600 hover:to-pink-700 focus:ring-rose-500 shadow-md hover:shadow-lg",
         secondary: "bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 focus:ring-gray-200",
         danger: "bg-red-50 text-red-600 hover:bg-red-100 focus:ring-red-500",
         ghost: "text-gray-500 hover:text-gray-700 hover:bg-gray-100"
@@ -518,7 +518,7 @@ export default function WeddingPlanningSoftware() {
                     {/* --- TASKS TAB --- */}
                     {activeTab === 'tasks' && (
                         <div className="max-w-3xl mx-auto">
-                            <div className="bg-gradient-to-r from-rose-500 to-pink-600 rounded-2xl p-8 text-white mb-8 shadow-xl">
+                            <div className="bg-linear-to-r from-rose-500 to-pink-600 rounded-2xl p-8 text-white mb-8 shadow-xl">
                                 <div className="flex justify-between items-center">
                                     <div>
                                         <h2 className="text-3xl font-bold mb-2">

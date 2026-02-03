@@ -211,7 +211,7 @@ const BridalMakeupHairAccessoriesPage = () => {
           {heroSlides.map((slide, index) => (
             <div key={index} className="min-w-full h-full relative">
               <img src={slide.image} alt={slide.title} className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-r from-white/80 to-transparent flex items-center">
+              <div className="absolute inset-0 bg-linear-to-r from-white/80 to-transparent flex items-center">
                 <div className="max-w-7xl mx-auto px-8 w-full">
                   <div className="max-w-md">
                     <p className="text-sm text-gray-600 mb-2 uppercase tracking-wide">
@@ -262,7 +262,7 @@ const BridalMakeupHairAccessoriesPage = () => {
       {/* Popular Categories Section with Grid Layout for Clickability */}
       <div className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-8">
-          <h2 className="text-3xl font-light text-center text-gray-800 mb-12">
+          <h2 className="text-4xl md:text-5xl font-light uppercase text-center text-gray-800 mb-12">
             Popular Categories
           </h2>
 
@@ -273,7 +273,7 @@ const BridalMakeupHairAccessoriesPage = () => {
                 href={`/bride/all-products?category=${encodeURIComponent(
                   category.category
                 )}&subCategory=${encodeURIComponent(category.subCategory)}`}
-                className="flex-shrink-0 text-center group cursor-pointer"
+                className="shrink-0 text-center group cursor-pointer"
               >
                 <div className="relative mb-4 overflow-hidden rounded-full">
                   <img
@@ -282,7 +282,7 @@ const BridalMakeupHairAccessoriesPage = () => {
                     className="w-full aspect-square object-cover rounded-full group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
-                <h3 className="text-sm font-medium text-gray-800 mb-1">
+                <h3 className="text-md font-medium text-gray-800 mb-1">
                   {category.name.toUpperCase()}
                 </h3>
                 <p className="text-xs text-gray-500">{category.items}</p>
@@ -304,7 +304,7 @@ const BridalMakeupHairAccessoriesPage = () => {
               alt="Bridal Hair & Extensions"
               className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
+            <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
               <h3 className="text-white text-2xl font-light mb-2">
                 Signature Bridal Hair & Extensions
               </h3>
@@ -323,7 +323,7 @@ const BridalMakeupHairAccessoriesPage = () => {
               alt="Airbrush Bridal Makeup"
               className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
+            <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
               <h3 className="text-white text-2xl font-light mb-2">
                 HD & Airbrush Bridal Makeup Packages
               </h3>
@@ -338,7 +338,7 @@ const BridalMakeupHairAccessoriesPage = () => {
       {/* Trending Products with Links */}
       <div className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-8">
-          <h2 className="text-3xl font-light text-center text-gray-800 mb-4">
+          <h2 className="text-4xl md:text-5xl uppercase font-light text-center text-gray-800 mb-8">
             Trending Makeup & Hair Picks
           </h2>
           <div className="flex justify-center gap-4 mb-12">
@@ -375,7 +375,7 @@ const BridalMakeupHairAccessoriesPage = () => {
                   />
                 </div>
                 <div className="p-4 text-center">
-                  <h3 className="text-sm text-gray-800 mb-1">{product.name}</h3>
+                  <h3 className="text-lg text-gray-800 mb-1">{product.name}</h3>
                  
                 </div>
               </Link>

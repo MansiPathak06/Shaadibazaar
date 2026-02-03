@@ -92,9 +92,9 @@ const BridalWearPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-amber-50 to-orange-50">
+    <div className="min-h-screen bg-linear-to-b from-amber-50 to-orange-50">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-rose-900 via-red-900 to-rose-900 overflow-hidden">
+      <div className="relative bg-linear-to-r from-rose-900 via-red-900 to-rose-900 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0"
@@ -106,7 +106,7 @@ const BridalWearPage = () => {
 
         <div className="container mx-auto px-4 py-1 mt-2 relative">
           <div className="text-center mb-12">
-            <h1 className="text-5xl md:text-6xl font-bold text-amber-100 mb-4 tracking-wide">
+            <h1 className="text-5xl md:text-6xl font-medium uppercase text-amber-100 mb-4 tracking-wide">
               Bridal Collections
             </h1>
             <p className="text-xl text-amber-200 font-light">
@@ -128,8 +128,8 @@ const BridalWearPage = () => {
                     alt={item.label}
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                   />
-                  {/* Dark gradient for readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
+                  {/* Dark linear for readability */}
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent"></div>
 
                   {/* Text on the image at bottom */}
                   <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[90%] text-center">
@@ -145,7 +145,7 @@ const BridalWearPage = () => {
       </div>
 
       {/* Marquee Tagline */}
-      <div className="bg-gradient-to-r from-rose-900 via-red-800 to-rose-900 shadow-md sticky top-0 z-10 overflow-hidden">
+      <div className="bg-linear-to-r from-rose-900 via-red-800 to-rose-900 shadow-md sticky top-0 z-10 overflow-hidden">
         <div className="py-2">
           <div className="animate-marquee whitespace-nowrap inline-block">
             <span className="text-amber-100 text-sm md:text-base font-light tracking-widest mx-8">
@@ -186,9 +186,9 @@ const BridalWearPage = () => {
       `}</style>
 
       {/* Featured Collections - Now Clickable */}
-      <div className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-rose-900 mb-8 uppercase tracking-wide">
-          Featured Collections
+      <div className="container mx-auto px-4 py-10">
+        <h2 className="text-4xl md:text-5xl font-medium text-rose-900 mb-8 uppercase tracking-wide">
+          <span className="text-gray-900">Featured</span> <span className="text-orange-600">Collection</span>
         </h2>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-16">
@@ -205,10 +205,10 @@ const BridalWearPage = () => {
                     alt={category.title}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div className="p-4 text-center">
-                  <h3 className="font-semibold text-gray-800 mb-2 capitalize">
+                  <h3 className="font-medium text-lg text-gray-800 mb-2 capitalize">
                     {category.title}
                   </h3>
                   <span
@@ -249,7 +249,7 @@ const BridalWearPage = () => {
             </div>
 
             <div>
-              <h2 className="text-3xl font-bold text-rose-900 mb-6 uppercase tracking-wide">
+              <h2 className="text-4xl md:text-5xl font-medium text-rose-900 mb-6 uppercase tracking-wide">
                 About Us
               </h2>
               <p className="text-gray-700 mb-4 leading-relaxed">
@@ -279,7 +279,7 @@ const BridalWearPage = () => {
                       />
                     </svg>
                   </div>
-                  <h4 className="font-semibold text-rose-900">
+                  <h4 className="font-normal text-rose-900">
                     DAZZLING ELEGANCE
                   </h4>
                   <p className="text-sm text-gray-600 mt-2">Timeless Designs</p>
@@ -298,7 +298,7 @@ const BridalWearPage = () => {
                       />
                     </svg>
                   </div>
-                  <h4 className="font-semibold text-rose-900">
+                  <h4 className="font-normal text-rose-900">
                     ULTIMATE COMFORT
                   </h4>
                   <p className="text-sm text-gray-600 mt-2">Luxurious Fabrics</p>
@@ -313,7 +313,7 @@ const BridalWearPage = () => {
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   </div>
-                  <h4 className="font-semibold text-rose-900">
+                  <h4 className="font-normal text-rose-900">
                     SUSTAINABLE STYLE
                   </h4>
                   <p className="text-sm text-gray-600 mt-2">Ethically Sourced</p>
@@ -326,8 +326,8 @@ const BridalWearPage = () => {
 
       {/* Collections Info Section */}
       <div className="container mx-auto px-4 py-16">
-        <div className="bg-gradient-to-r from-rose-50 to-amber-50 rounded-2xl p-12 shadow-xl">
-          <h2 className="text-3xl font-bold text-rose-900 mb-8 text-center uppercase tracking-wide">
+        <div className="bg-linear-to-r from-rose-50 to-amber-50 rounded-2xl p-12 shadow-xl">
+          <h2 className="text-4xl md:text-5xl font-medium text-rose-900 mb-8 text-center uppercase tracking-wide">
             Complete Bridal Collections
           </h2>
           <p className="text-center text-gray-700 max-w-3xl mx-auto mb-8 leading-relaxed">

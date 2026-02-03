@@ -99,9 +99,9 @@ const MuslimBridalWearPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-emerald-50 to-teal-50">
+    <div className="min-h-screen bg-linear-to-b from-emerald-50 to-teal-50">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-emerald-900 via-teal-900 to-emerald-900 overflow-hidden">
+      <div className="relative bg-linear-to-r from-emerald-900 via-teal-900 to-emerald-900 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
@@ -131,8 +131,8 @@ const MuslimBridalWearPage = () => {
                     alt={item.title}
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                   />
-                  {/* Dark gradient for readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
+                  {/* Dark linear for readability */}
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent"></div>
 
                   {/* Text on the image at bottom */}
                   <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[90%] text-center">
@@ -155,7 +155,7 @@ const MuslimBridalWearPage = () => {
       </div>
 
       {/* Marquee Tagline */}
-      <div className="bg-gradient-to-r from-emerald-900 via-teal-800 to-emerald-900 shadow-md sticky top-0 z-10 overflow-hidden">
+      <div className="bg-linear-to-r from-emerald-900 via-teal-800 to-emerald-900 shadow-md sticky top-0 z-10 overflow-hidden">
         <div className="py-2">
           <div className="animate-marquee whitespace-nowrap inline-block">
             <span className="text-amber-100 text-sm md:text-base font-light tracking-widest mx-8">
@@ -215,7 +215,7 @@ const MuslimBridalWearPage = () => {
                     alt={category.title}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <span className="text-white text-sm font-semibold bg-emerald-900/80 px-4 py-2 rounded-full">
                       Explore Now
                     </span>
@@ -308,7 +308,7 @@ const MuslimBridalWearPage = () => {
 
       {/* Collections Info Section */}
       <div className="container mx-auto px-4 py-16">
-        <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-12 shadow-xl">
+        <div className="bg-linear-to-r from-emerald-50 to-teal-50 rounded-2xl p-12 shadow-xl">
           <h2 className="text-3xl font-bold text-emerald-900 mb-8 text-center uppercase tracking-wide">
             Complete Muslim Bridal Collections
           </h2>

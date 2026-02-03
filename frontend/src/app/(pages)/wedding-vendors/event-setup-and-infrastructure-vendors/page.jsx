@@ -182,9 +182,9 @@ const EventInfrastructurePage = () => {
             type="video/mp4"
           />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-black/60 via-black/40 to-black/60"></div>
         <div className="relative h-full flex flex-col items-center justify-center text-white px-4 z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-2 text-center drop-shadow-lg">
+          <h1 className="text-4xl md:text-6xl font-medium uppercase mb-2 text-center drop-shadow-lg">
             Event Setup & Infrastructure Vendors
           </h1>
           <p className="text-lg md:text-xl text-center max-w-2xl drop-shadow-md">
@@ -207,7 +207,7 @@ const EventInfrastructurePage = () => {
                   <button
                     key={`original-${cat.id}`}
                     onClick={() => handleCategoryClick(cat.id)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
+                    className="flex flex-col items-center min-w-27.5 shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-blue-300">
                       <img
@@ -227,7 +227,7 @@ const EventInfrastructurePage = () => {
                   <button
                     key={`duplicate-${cat.id}`}
                     onClick={() => handleCategoryClick(cat.id)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
+                    className="flex flex-col items-center min-w-27.5 shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-blue-300">
                       <img
@@ -259,7 +259,7 @@ const EventInfrastructurePage = () => {
               <span>Home</span>
             </button>
             <BreadcrumbArrow className="w-4 h-4 text-gray-400" />
-            <span className="text-blue-500 font-semibold text-lg">
+            <span className="text-blue-500 font-medium text-lg">
               Event Setup & Infrastructure Vendors
             </span>
           </nav>
@@ -299,7 +299,7 @@ const EventInfrastructurePage = () => {
                   onClick={() => {
                     router.push(`/wedding-vendors/${categoryMap[vendor.id]}`);
                   }}
-                  className="w-full mt-6 bg-gradient-to-r from-blue-400 to-indigo-500 text-white py-3 rounded-lg hover:from-blue-500 hover:to-indigo-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg cursor-pointer"
+                  className="w-full mt-6 bg-linear-to-r from-blue-400 to-indigo-500 text-white py-3 rounded-lg hover:from-blue-500 hover:to-indigo-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg cursor-pointer"
                 >
                   View All →
                 </button>

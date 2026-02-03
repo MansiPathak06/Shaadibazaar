@@ -14,7 +14,7 @@ const slides = [
     price: "Starting at ₹2,999",
     subtitle: "Bridal gold, diamond & imitation jewellery",
     image: "https://i.pinimg.com/1200x/e6/85/d5/e685d5100f680666552f648b16c5e5b9.jpg",
-    link: "/products/jewellery"
+    link: "/products/jewellery",
   },
   {
     title: "Bridal Lehenga",
@@ -74,7 +74,7 @@ const slides = [
   return (
     <div className="relative w-full max-w-7xl mx-auto overflow-hidden rounded-2xl px-2">
       {/* Slider Container */}
-      <div className="relative h-50 md:h-84 bg-gradient-to-r from-rose-200 to-amber-300 rounded-2xl overflow-hidden">
+      <div className="relative h-50 md:h-84 bg-linear-to-r from-rose-200 to-amber-300 rounded-2xl overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute top-4 left-8 w-6 h-6 bg-yellow-400 rounded-full opacity-70 animate-pulse"></div>
         <div className="absolute top-8 right-12 w-8 h-8 bg-yellow-400 rounded-full opacity-70 animate-pulse delay-100"></div>
@@ -93,16 +93,16 @@ const slides = [
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
               
-              {/* Overlay Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
+              {/* Overlay linear */}
+              <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/40 to-transparent"></div>
               
               {/* Content Overlay on Image */}
               <div className="absolute inset-0 flex flex-col justify-center px-8 md:px-12 text-white z-10">
                 <div className="max-w-xl">
-                  <h2 className="text-3xl md:text-5xl font-bold mb-3 drop-shadow-lg">
+                  <h2 className="text-3xl md:text-5xl font-medium mb-3 drop-shadow-lg">
                     {slides[currentSlide].title}
                   </h2>
-                  <p className="text-4xl md:text-6xl font-extrabold mb-2 text-yellow-400 drop-shadow-lg">
+                  <p className="text-4xl md:text-6xl font-medium mb-2 text-yellow-400 drop-shadow-lg">
                     From {slides[currentSlide].price}
                   </p>
                   <p className="text-lg md:text-xl opacity-90 mb-6 drop-shadow-md">
@@ -112,7 +112,7 @@ const slides = [
                   {/* Button in front of image */}
                   <button
                     onClick={() => handleShopNow(slides[currentSlide].link)}
-                    className="group inline-flex items-center gap-3 bg-white text-rose-600 px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl hover:bg-yellow-400 hover:text-gray-900 transition-all duration-300 hover:scale-105"
+                    className="group inline-flex items-center gap-3 bg-white text-rose-600 px-8 py-4 rounded-full font-medium cursor-pointer text-lg shadow-xl hover:shadow-2xl hover:bg-yellow-400 hover:text-gray-900 transition-all duration-300 hover:scale-105"
                   >
                     <span>Shop Now</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
@@ -131,14 +131,14 @@ const slides = [
         {/* Navigation Arrows */}
         <button
           onClick={goToPrevious}
-          className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm hover:bg-white rounded-full p-2 md:p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-20"
+          className="absolute left-2 cursor-pointer  md:left-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm hover:bg-white rounded-full p-2 md:p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-20"
           aria-label="Previous slide"
         >
           <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-rose-600" />
         </button>
         <button
           onClick={goToNext}
-          className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm hover:bg-white rounded-full p-2 md:p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-20"
+          className="absolute right-2 cursor-pointer md:right-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm hover:bg-white rounded-full p-2 md:p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-20"
           aria-label="Next slide"
         >
           <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-rose-600" />

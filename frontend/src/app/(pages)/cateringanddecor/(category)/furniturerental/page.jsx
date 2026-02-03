@@ -131,7 +131,7 @@ export default function WeddingFurnitureSite() {
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-18">
                         <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-                            Explore Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-pink-500">Collection</span>
+                            Explore Our <span className="text-transparent bg-clip-text bg-linear-to-r from-rose-500 to-pink-500">Collection</span>
                         </h2>
                         <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">
                             Choose from our curated range of wedding furniture categories, each crafted to fit your unique style
@@ -211,7 +211,7 @@ export default function WeddingFurnitureSite() {
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-                            Our Past <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">Creations</span>
+                            Our Past <span className="bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500">Creations</span>
                         </h2>
                         <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">
                             A glimpse into the weddings we've transformed — every detail handcrafted with love
@@ -229,7 +229,7 @@ export default function WeddingFurnitureSite() {
                                     alt={image.label}
                                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
+                                <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-60" />
                                 <div className="absolute bottom-0 left-0 right-0 p-6">
                                     <h3 className="text-white text-lg font-medium">
                                         {image.label}

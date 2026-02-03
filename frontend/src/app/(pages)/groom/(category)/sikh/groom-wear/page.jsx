@@ -57,7 +57,7 @@ const SikhGroomWearPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-amber-50 via-white to-orange-50">
+    <div className="min-h-screen bg-linear-to-b from-amber-50 via-white to-orange-50">
       {/* Hero Section */}
       <div className="relative h-[27vh] flex items-center justify-center overflow-hidden">
         <div 
@@ -82,7 +82,7 @@ const SikhGroomWearPage = () => {
       </div>
 
       {/* Marquee Section */}
-      <div className="bg-gradient-to-r from-orange-600 to-red-600 py-2 overflow-hidden">
+      <div className="bg-linear-to-r from-orange-600 to-red-600 py-2 overflow-hidden">
         <div className="flex animate-marquee whitespace-nowrap">
           {[...taglines, ...taglines].map((tagline, index) => (
             <span key={index} className="text-white text-sm font-semibold mx-6">
@@ -102,7 +102,7 @@ const SikhGroomWearPage = () => {
             {[...categories, ...categories].map((category, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-48 h-48 rounded-full overflow-hidden shadow-xl hover:scale-110 transition-transform duration-300 cursor-pointer relative group"
+                className="shrink-0 w-48 h-48 rounded-full overflow-hidden shadow-xl hover:scale-110 transition-transform duration-300 cursor-pointer relative group"
               >
                 <img
                   src={category.image}
@@ -112,7 +112,7 @@ const SikhGroomWearPage = () => {
                     e.target.src = `https://via.placeholder.com/200/f97316/ffffff?text=${encodeURIComponent(category.name)}`;
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end justify-center pb-4">
+                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent flex items-end justify-center pb-4">
                   <p className="text-white font-bold text-sm text-center px-2">{category.name}</p>
                 </div>
               </div>
@@ -162,7 +162,7 @@ const SikhGroomWearPage = () => {
       </div>
 
       {/* Feature Section */}
-      <div className="bg-gradient-to-r from-amber-100 to-orange-100 py-16">
+      <div className="bg-linear-to-r from-amber-100 to-orange-100 py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="p-8">

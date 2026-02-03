@@ -98,9 +98,9 @@ const ChristianGroomWearPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-blue-50">
+    <div className="min-h-screen bg-linear-to-b from-slate-50 via-white to-blue-50">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 overflow-hidden">
+      <div className="relative bg-linear-to-r from-slate-900 via-blue-900 to-slate-900 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0"
@@ -137,7 +137,7 @@ const ChristianGroomWearPage = () => {
                       e.target.src = `https://via.placeholder.com/300x400/1e3a5f/ffffff?text=${encodeURIComponent(item.name)}`;
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent"></div>
 
                   <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[90%] text-center">
                     <p className="text-gray-400 text-sm md:text-base backdrop-blur font-medium drop-shadow-md">
@@ -152,7 +152,7 @@ const ChristianGroomWearPage = () => {
       </div>
 
       {/* Marquee Section */}
-      <div className="bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 shadow-md sticky top-0 z-10 overflow-hidden">
+      <div className="bg-linear-to-r from-slate-900 via-blue-800 to-slate-900 shadow-md sticky top-0 z-10 overflow-hidden">
         <div className="py-2">
           <div className="animate-marquee whitespace-nowrap inline-block">
             {[...taglines, ...taglines].map((tagline, index) => (
@@ -175,7 +175,7 @@ const ChristianGroomWearPage = () => {
               <Link
                 key={index}
                 href={`/groom/all-products?category=christian-groomwear&subCategory=${category.slug}`}
-                className="flex-shrink-0 w-48 h-48 rounded-full overflow-hidden shadow-xl hover:scale-110 transition-transform duration-300 cursor-pointer relative group"
+                className="shrink-0 w-48 h-48 rounded-full overflow-hidden shadow-xl hover:scale-110 transition-transform duration-300 cursor-pointer relative group"
               >
                 <img
                   src={category.image}
@@ -185,7 +185,7 @@ const ChristianGroomWearPage = () => {
                     e.target.src = `https://via.placeholder.com/200/1e3a5f/ffffff?text=${encodeURIComponent(category.name)}`;
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end justify-center pb-4">
+                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent flex items-end justify-center pb-4">
                   <p className="text-white font-bold text-sm text-center px-2">{category.name}</p>
                 </div>
               </Link>
@@ -217,7 +217,7 @@ const ChristianGroomWearPage = () => {
                       e.target.src = `https://via.placeholder.com/300x400/1e3a5f/ffffff?text=${encodeURIComponent(category.name)}`;
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="absolute top-2 right-2 bg-blue-800 text-white text-xs px-2 py-1 rounded">
                     NEW
                   </div>
@@ -252,7 +252,7 @@ const ChristianGroomWearPage = () => {
       </div>
 
       {/* Feature Section */}
-      <div className="bg-gradient-to-r from-slate-100 to-blue-100 py-16">
+      <div className="bg-linear-to-r from-slate-100 to-blue-100 py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="p-8">
@@ -282,7 +282,7 @@ const ChristianGroomWearPage = () => {
 
       {/* Collections Info Section */}
       <div className="container mx-auto px-4 py-16">
-        <div className="bg-gradient-to-r from-slate-50 to-blue-50 rounded-2xl p-12 shadow-xl">
+        <div className="bg-linear-to-r from-slate-50 to-blue-50 rounded-2xl p-12 shadow-xl">
           <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center uppercase tracking-wide">
             Complete Groom Collections
           </h2>

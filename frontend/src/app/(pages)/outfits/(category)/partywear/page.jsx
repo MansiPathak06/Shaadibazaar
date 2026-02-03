@@ -288,7 +288,7 @@ const PartyWear = () => {
       <section className="relative py-16 md:py-24 overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {/* Floating gradient orbs */}
+          {/* Floating linear orbs */}
           <div className="absolute top-10 left-10 w-64 h-64 bg-rose-200/30 rounded-full blur-3xl animate-pulse" />
           <div className="absolute bottom-20 right-20 w-80 h-80 bg-purple-200/20 rounded-full blur-3xl animate-pulse delay-700" />
           <div className="absolute top-1/2 left-1/3 w-72 h-72 bg-pink-200/25 rounded-full blur-3xl animate-pulse delay-1000" />
@@ -296,7 +296,7 @@ const PartyWear = () => {
           {/* Animated grid pattern */}
           <div className="absolute inset-0 opacity-[0.03]"
             style={{
-              backgroundImage: 'radial-gradient(circle, #ec4899 1px, transparent 1px)',
+              backgroundImage: 'radial-linear(circle, #ec4899 1px, transparent 1px)',
               backgroundSize: '50px 50px'
             }}
           />
@@ -314,7 +314,7 @@ const PartyWear = () => {
                 }}
               >
                 {/* Hover glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-b from-rose-100/0 via-rose-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl blur-xl transform scale-95" />
+                <div className="absolute inset-0 bg-linear-to-b from-rose-100/0 via-rose-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl blur-xl transform scale-95" />
 
                 {/* Icon container with enhanced animations */}
                 <div className="relative mb-6">
@@ -323,14 +323,14 @@ const PartyWear = () => {
 
                   {/* Rotating border ring */}
                   <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-rose-400 via-pink-400 to-purple-400 animate-spin-slow"
+                    <div className="absolute inset-0 rounded-full bg-linear-to-r from-rose-400 via-pink-400 to-purple-400 animate-spin-slow"
                       style={{ padding: '2px' }}>
                       <div className="w-full h-full rounded-full bg-white" />
                     </div>
                   </div>
 
                   {/* Main icon circle */}
-                  <div className="relative bg-gradient-to-br from-rose-50 to-rose-100 p-6 rounded-full group-hover:from-rose-500 group-hover:to-pink-600 transition-all duration-500 shadow-lg group-hover:shadow-rose-300 group-hover:shadow-2xl group-hover:scale-110 group-hover:-rotate-6">
+                  <div className="relative bg-linear-to-br from-rose-50 to-rose-100 p-6 rounded-full group-hover:from-rose-500 group-hover:to-pink-600 transition-all duration-500 shadow-lg group-hover:shadow-rose-300 group-hover:shadow-2xl group-hover:scale-110 group-hover:-rotate-6">
                     <feature.icon className="w-8 h-8 text-rose-500 group-hover:text-white transition-all duration-500 group-hover:scale-110 group-hover:rotate-6" />
                   </div>
 
@@ -346,7 +346,7 @@ const PartyWear = () => {
                   </h3>
 
                   {/* Animated underline */}
-                  <div className="w-0 h-0.5 bg-gradient-to-r from-rose-400 to-pink-500 mx-auto group-hover:w-16 transition-all duration-500 rounded-full" />
+                  <div className="w-0 h-0.5 bg-linear-to-r from-rose-400 to-pink-500 mx-auto group-hover:w-16 transition-all duration-500 rounded-full" />
 
                   <p className="text-gray-600 text-md leading-relaxed group-hover:text-gray-800 transition-colors duration-300 px-4">
                     {feature.description}
@@ -361,7 +361,7 @@ const PartyWear = () => {
         </div>
 
         {/* Bottom wave decoration */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-rose-200 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-rose-200 to-transparent" />
       </section>
 
       <style jsx>{`
@@ -408,7 +408,7 @@ const PartyWear = () => {
         <div className="container mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Discover Your <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>style</span>
+              Discover Your <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>style</span>
             </h2>
             <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Your style journey starts here</p>
           </div>
@@ -425,7 +425,7 @@ const PartyWear = () => {
                   className="object-cover group-hover:scale-110 object-top transition-transform duration-500"
                   sizes="(max-width: 768px) 50vw, 25vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent">
+                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent">
                   <div className="absolute bottom-6 left-0 right-0 text-center px-4">
                     <h3 className="text-white text-xl font-medium">
                       {category.title}
@@ -443,7 +443,7 @@ const PartyWear = () => {
         <div className="container mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Trending <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>collection</span>
+              Trending <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>collection</span>
             </h2>
             <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Curated styles for every occasion</p>
           </div>
@@ -457,7 +457,7 @@ const PartyWear = () => {
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent">
                   <div className="absolute bottom-8 left-8 right-8 text-white">
                     <span className="text-sm font-normal text-rose-400 mb-2 block">{collection.items}</span>
                     <h3 className="text-2xl font-medium mb-2">{collection.title}</h3>
@@ -478,12 +478,12 @@ const PartyWear = () => {
       {/* Week Deal Banner Section */}
       <section className="py-12 md:py-16">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="relative h-[350px] md:h-[450px] rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-r from-purple-100 to-pink-100">
+          <div className="relative h-[350px] md:h-[450px] rounded-3xl overflow-hidden shadow-2xl bg-linear-to-r from-purple-100 to-pink-100">
             <div className="grid grid-cols-1 lg:grid-cols-2 h-full">
               {/* Left Content */}
               <div className="flex flex-col justify-center p-8 md:p-12 lg:p-16">
                 <span className="text-rose-500 font-semibold text-sm uppercase tracking-wide mb-3">
-                  Limited Time <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>offer</span>
+                  Limited Time <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>offer</span>
                 </span>
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium text-gray-900 mb-4">
                   WEEK DEAL
@@ -519,7 +519,7 @@ const PartyWear = () => {
           <div className="text-center mb-10">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-                TOP <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>products</span>
+                TOP <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>products</span>
               </h2>
               <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Discover what's winning hearts</p>
             </div>
@@ -690,25 +690,25 @@ const PartyWear = () => {
       {/* Explore More Section */}
       <section className="py-12 sm:py-16 lg:py-20 relative overflow-hidden">
         {/* Background ambient effects */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-rose-50/30 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-b from-transparent via-rose-50/30 to-transparent pointer-events-none" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="relative bg-gradient-to-br from-rose-50 via-orange-50 to-pink-50 rounded-3xl lg:rounded-[2.5rem] p-8 sm:p-12 lg:p-16 xl:p-20 text-center overflow-hidden shadow-2xl hover:shadow-rose-200/50 transition-shadow duration-700 group">
+          <div className="relative bg-linear-to-br from-rose-50 via-orange-50 to-pink-50 rounded-3xl lg:rounded-[2.5rem] p-8 sm:p-12 lg:p-16 xl:p-20 text-center overflow-hidden shadow-2xl hover:shadow-rose-200/50 transition-shadow duration-700 group">
 
-            {/* Animated gradient overlay */}
+            {/* Animated linear overlay */}
             <div
               className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000"
               style={{
-                background: 'linear-gradient(45deg, #fef2f2, #fff7ed, #fce7f3, #fef2f2)',
+                background: 'linear-linear(45deg, #fef2f2, #fff7ed, #fce7f3, #fef2f2)',
                 backgroundSize: '400% 400%',
-                animation: 'gradientShift 8s ease infinite'
+                animation: 'linearShift 8s ease infinite'
               }}
             />
 
-            {/* Animated mesh gradient orbs */}
-            <div className="absolute top-0 right-0 w-64 sm:w-80 lg:w-96 h-64 sm:h-80 lg:h-96 bg-gradient-to-bl from-rose-300 via-rose-200 to-transparent rounded-full opacity-30 blur-3xl -mr-32 sm:-mr-40 -mt-32 sm:-mt-40 animate-pulse group-hover:scale-125 transition-transform duration-1000" />
-            <div className="absolute bottom-0 left-0 w-48 sm:w-64 lg:w-80 h-48 sm:h-64 lg:h-80 bg-gradient-to-tr from-orange-300 via-yellow-200 to-transparent rounded-full opacity-30 blur-3xl -ml-24 sm:-ml-32 -mb-24 sm:-mb-32 animate-pulse delay-700 group-hover:scale-125 transition-transform duration-1000" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 sm:w-96 h-72 sm:h-96 bg-gradient-to-r from-pink-200 via-rose-200 to-orange-200 rounded-full opacity-20 blur-3xl animate-pulse delay-1000" />
+            {/* Animated mesh linear orbs */}
+            <div className="absolute top-0 right-0 w-64 sm:w-80 lg:w-96 h-64 sm:h-80 lg:h-96 bg-linear-to-bl from-rose-300 via-rose-200 to-transparent rounded-full opacity-30 blur-3xl -mr-32 sm:-mr-40 -mt-32 sm:-mt-40 animate-pulse group-hover:scale-125 transition-transform duration-1000" />
+            <div className="absolute bottom-0 left-0 w-48 sm:w-64 lg:w-80 h-48 sm:h-64 lg:h-80 bg-linear-to-tr from-orange-300 via-yellow-200 to-transparent rounded-full opacity-30 blur-3xl -ml-24 sm:-ml-32 -mb-24 sm:-mb-32 animate-pulse delay-700 group-hover:scale-125 transition-transform duration-1000" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 sm:w-96 h-72 sm:h-96 bg-linear-to-r from-pink-200 via-rose-200 to-orange-200 rounded-full opacity-20 blur-3xl animate-pulse delay-1000" />
 
             {/* Floating particles */}
             <div className="absolute top-10 left-10 w-2 h-2 bg-rose-400 rounded-full opacity-60 animate-float" />
@@ -718,7 +718,7 @@ const PartyWear = () => {
 
             {/* Shimmer effect */}
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1500 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12" />
+              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1500 bg-linear-to-r from-transparent via-white/30 to-transparent skew-x-12" />
             </div>
 
             {/* Content */}
@@ -732,7 +732,7 @@ const PartyWear = () => {
               </div>
 
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-gray-900 mb-4 leading-tight group-hover:scale-105 transition-transform duration-300">
-                <span className="inline-block bg-gradient-to-r from-gray-900 via-rose-600 to-gray-900 bg-clip-text text-transparent animate-gradient-x">
+                <span className="inline-block bg-linear-to-r from-gray-900 via-rose-600 to-gray-900 bg-clip-text text-transparent animate-linear-x">
                   Explore More
                 </span>
               </h2>
@@ -742,13 +742,13 @@ const PartyWear = () => {
               </p>
 
               <Link href={ALL_PRODUCTS_URL}>
-                <button className="group/btn relative bg-gradient-to-r from-rose-500 via-rose-600 to-pink-600 hover:from-rose-600 hover:via-pink-600 hover:to-rose-600 text-white px-8 sm:px-12 py-3.5 sm:py-4 rounded-full font-normal cursor-pointer text-base sm:text-lg transition-all duration-500 shadow-xl hover:shadow-2xl hover:shadow-rose-300/50 inline-flex items-center gap-3 overflow-hidden transform hover:scale-105 hover:-translate-y-1">
+                <button className="group/btn relative bg-linear-to-r from-rose-500 via-rose-600 to-pink-600 hover:from-rose-600 hover:via-pink-600 hover:to-rose-600 text-white px-8 sm:px-12 py-3.5 sm:py-4 rounded-full font-normal cursor-pointer text-base sm:text-lg transition-all duration-500 shadow-xl hover:shadow-2xl hover:shadow-rose-300/50 inline-flex items-center gap-3 overflow-hidden transform hover:scale-105 hover:-translate-y-1">
 
                   {/* Button shimmer effect */}
-                  <div className="absolute inset-0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+                  <div className="absolute inset-0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000 bg-linear-to-r from-transparent via-white/30 to-transparent" />
 
                   {/* Button glow */}
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-rose-400 to-pink-400 opacity-0 group-hover/btn:opacity-50 blur-xl transition-opacity duration-500" />
+                  <div className="absolute inset-0 rounded-full bg-linear-to-r from-rose-400 to-pink-400 opacity-0 group-hover/btn:opacity-50 blur-xl transition-opacity duration-500" />
 
                   <span className="relative z-10">View All Products</span>
                   <span className="relative z-10 text-xl sm:text-2xl group-hover/btn:translate-x-2 transition-transform duration-300">
@@ -791,7 +791,7 @@ const PartyWear = () => {
       </section>
 
       <style jsx>{`
-  @keyframes gradientShift {
+  @keyframes linearShift {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
@@ -808,7 +808,7 @@ const PartyWear = () => {
     }
   }
 
-  @keyframes gradient-x {
+  @keyframes linear-x {
     0%, 100% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
   }
@@ -817,9 +817,9 @@ const PartyWear = () => {
     animation: float 3s ease-in-out infinite;
   }
 
-  .animate-gradient-x {
+  .animate-linear-x {
     background-size: 200% auto;
-    animation: gradient-x 3s linear infinite;
+    animation: linear-x 3s linear infinite;
   }
 
   .delay-500 {

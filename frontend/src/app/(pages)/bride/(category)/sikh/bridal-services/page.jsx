@@ -187,7 +187,7 @@ const SikhBridalServicesPage = () => {
                 alt={slide.title}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-white/80 to-transparent flex items-center">
+              <div className="absolute inset-0 bg-linear-to-r from-white/80 to-transparent flex items-center">
                 <div className="max-w-7xl mx-auto px-8 w-full">
                   <div className="max-w-md">
                     <p className="text-sm text-gray-600 mb-2 uppercase tracking-wide">
@@ -250,7 +250,7 @@ const SikhBridalServicesPage = () => {
               {[...categories, ...categories].map((category, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 w-40 text-center group cursor-pointer"
+                  className="shrink-0 w-40 text-center group cursor-pointer"
                   onClick={() => handleCategoryClick(category.subCategory)}
                 >
                   <div className="relative mb-4 overflow-hidden rounded-full">
@@ -282,7 +282,7 @@ const SikhBridalServicesPage = () => {
               alt="Complete Sikh Bridal Package"
               className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
+            <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
               <h3 className="text-white text-2xl font-light mb-2">
                 Complete Sikh Bridal Package
               </h3>
@@ -301,7 +301,7 @@ const SikhBridalServicesPage = () => {
               alt="Chooda & Kaleera Ceremony"
               className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
+            <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
               <h3 className="text-white text-2xl font-light mb-2">
                 Chooda & Kaleera Ceremony
               </h3>

@@ -98,9 +98,9 @@ const SikhGroomWearPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-amber-50 via-white to-orange-50">
+    <div className="min-h-screen bg-linear-to-b from-amber-50 via-white to-orange-50">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-orange-900 via-red-900 to-orange-900 overflow-hidden">
+      <div className="relative bg-linear-to-r from-orange-900 via-red-900 to-orange-900 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0"
@@ -112,7 +112,7 @@ const SikhGroomWearPage = () => {
 
         <div className="container mx-auto px-4 py-1 mt-2 relative">
           <div className="text-center mb-12">
-            <h1 className="text-5xl md:text-6xl font-bold text-amber-100 mb-4 tracking-wide">
+            <h1 className="text-5xl md:text-6xl uppercase font-medium text-amber-100 mb-4 tracking-wide">
               Sikh Groom Collections
             </h1>
             <p className="text-xl text-amber-200 font-light">
@@ -128,7 +128,7 @@ const SikhGroomWearPage = () => {
                 href={`/groom/all-products?category=sikh-groomwear&subCategory=${item.slug}`}
                 className="relative group"
               >
-                <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-2xl relative">
+                <div className="aspect-3/4 overflow-hidden rounded-lg shadow-2xl relative">
                   <img
                     src={item.image}
                     alt={item.name}
@@ -137,7 +137,7 @@ const SikhGroomWearPage = () => {
                       e.target.src = `https://via.placeholder.com/300x400/f97316/ffffff?text=${encodeURIComponent(item.name)}`;
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent"></div>
 
                   <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[90%] text-center">
                     <p className="text-gray-400 text-sm md:text-base backdrop-blur font-medium drop-shadow-md">
@@ -152,7 +152,7 @@ const SikhGroomWearPage = () => {
       </div>
 
       {/* Marquee Section */}
-      <div className="bg-gradient-to-r from-orange-900 via-red-800 to-orange-900 shadow-md sticky top-0 z-10 overflow-hidden">
+      <div className="bg-linear-to-r from-orange-900 via-red-800 to-orange-900 shadow-md sticky top-0 z-10 overflow-hidden">
         <div className="py-2">
           <div className="animate-marquee whitespace-nowrap inline-block">
             {[...taglines, ...taglines].map((tagline, index) => (
@@ -166,7 +166,7 @@ const SikhGroomWearPage = () => {
 
       {/* Circular Sliding Categories - Now Clickable */}
       <div className="py-16 bg-white">
-        <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
+        <h2 className="text-4xl md:text-5xl uppercase font-medium text-center mb-12 text-gray-800">
           Explore Our Collections
         </h2>
         <div className="relative h-64 overflow-hidden">
@@ -175,7 +175,7 @@ const SikhGroomWearPage = () => {
               <Link
                 key={index}
                 href={`/groom/all-products?category=sikh-groomwear&subCategory=${category.slug}`}
-                className="flex-shrink-0 w-48 h-48 rounded-full overflow-hidden shadow-xl hover:scale-110 transition-transform duration-300 cursor-pointer relative group"
+                className="shrink-0 w-48 h-48 rounded-full overflow-hidden shadow-xl hover:scale-110 transition-transform duration-300 cursor-pointer relative group"
               >
                 <img
                   src={category.image}
@@ -185,8 +185,8 @@ const SikhGroomWearPage = () => {
                     e.target.src = `https://via.placeholder.com/200/f97316/ffffff?text=${encodeURIComponent(category.name)}`;
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end justify-center pb-4">
-                  <p className="text-white font-bold text-sm text-center px-2">{category.name}</p>
+                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent flex items-end justify-center pb-4">
+                  <p className="text-white font-normal text-sm text-center px-2">{category.name}</p>
                 </div>
               </Link>
             ))}
@@ -195,12 +195,12 @@ const SikhGroomWearPage = () => {
       </div>
 
       {/* Featured Collections - Now Clickable */}
-      <div className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-orange-900 mb-8 uppercase tracking-wide">
-          Featured Collections
+      <div className="container mx-auto px-4 mb-9">
+        <h2 className="text-4xl md:text-5xl font-medium text-orange-900 mb-8 uppercase tracking-wide">
+          <span className='text-gray-900'>Featured</span> <span className='text-orange-600'>Collection</span>
         </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {categories.map((category, index) => (
             <Link
               key={index}
@@ -208,7 +208,7 @@ const SikhGroomWearPage = () => {
               className="group cursor-pointer"
             >
               <div className="bg-white rounded-lg shadow-lg overflow-hidden transform group-hover:scale-105 transition-all duration-300 group-hover:shadow-2xl">
-                <div className="aspect-[3/4] overflow-hidden relative">
+                <div className="aspect-3/4 overflow-hidden relative">
                   <img
                     src={category.image}
                     alt={category.name}
@@ -217,13 +217,13 @@ const SikhGroomWearPage = () => {
                       e.target.src = `https://via.placeholder.com/300x400/f97316/ffffff?text=${encodeURIComponent(category.name)}`;
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="absolute top-2 right-2 bg-orange-600 text-white text-xs px-2 py-1 rounded">
                     NEW
                   </div>
                 </div>
                 <div className="p-4 text-center">
-                  <h3 className="font-semibold text-gray-800 mb-2 capitalize">
+                  <h3 className="font-medium text-lg text-gray-800 mb-2 capitalize">
                     {category.name}
                   </h3>
                   <span
@@ -250,41 +250,77 @@ const SikhGroomWearPage = () => {
           ))}
         </div>
       </div>
-
       {/* Feature Section */}
-      <div className="bg-gradient-to-r from-amber-100 to-orange-100 py-16">
+      <div className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div className="p-8">
-              <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Sparkles className="w-8 h-8 text-white" />
+
+          {/* Heading */}
+          <div className="text-center mb-14">
+            <h2 className="text-4xl md:text-5xl font-medium text-gray-800 uppercase">
+              Why <span className='text-orange-600'>Choose</span> Our <span className='text-orange-600'>Collection</span>
+            </h2>
+            <p className="text-gray-600 mt-3 text-lg">
+              Crafted with devotion, designed with tradition
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+            {/* Card 1 */}
+            <div className="group bg-white/70 backdrop-blur-md border border-orange-200 rounded-2xl p-10 shadow-md hover:shadow-xl transition duration-300 hover:-translate-y-2">
+              <div className="w-18 h-18 bg-linear-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition">
+                <Sparkles className="w-9 h-9 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">Premium Quality</h3>
-              <p className="text-gray-600">Handpicked collections with finest Punjabi craftsmanship</p>
+
+              <h3 className="text-2xl font-normal text-gray-800 mb-3">
+                Premium Quality
+              </h3>
+
+              <p className="text-gray-600 leading-relaxed">
+                Handpicked collections crafted with finest Punjabi artistry and premium fabrics.
+              </p>
             </div>
-            <div className="p-8">
-              <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Star className="w-8 h-8 text-white fill-white" />
+
+            {/* Card 2 */}
+            <div className="group bg-white/70 backdrop-blur-md border border-orange-200 rounded-2xl p-10 shadow-md hover:shadow-xl transition duration-300 hover:-translate-y-2">
+              <div className="w-18 h-18 bg-linear-to-br from-red-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition">
+                <Star className="w-9 h-9 text-white fill-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">Authentic Tradition</h3>
-              <p className="text-gray-600">Designs that honor Sikh heritage and values</p>
+
+              <h3 className="text-2xl font-normal text-gray-800 mb-3">
+                Authentic Tradition
+              </h3>
+
+              <p className="text-gray-600 leading-relaxed">
+                Designs rooted in Sikh heritage, honoring culture and sacred values.
+              </p>
             </div>
-            <div className="p-8">
-              <div className="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Heart className="w-8 h-8 text-white" />
+
+            {/* Card 3 */}
+            <div className="group bg-white/70 backdrop-blur-md border border-orange-200 rounded-2xl p-10 shadow-md hover:shadow-xl transition duration-300 hover:-translate-y-2">
+              <div className="w-18 h-18 bg-linear-to-br from-amber-500 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition">
+                <Heart className="w-9 h-9 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">Complete Collection</h3>
-              <p className="text-gray-600">Everything for your sacred Anand Karaj ceremony</p>
+
+              <h3 className="text-2xl font-normal text-gray-800 mb-3">
+                Complete Collection
+              </h3>
+
+              <p className="text-gray-600 leading-relaxed">
+                Everything you need for your sacred Anand Karaj ceremony in one place.
+              </p>
             </div>
+
           </div>
         </div>
       </div>
 
+
       {/* Collections Info Section */}
-      <div className="container mx-auto px-4 py-16">
-        <div className="bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl p-12 shadow-xl">
-          <h2 className="text-3xl font-bold text-orange-900 mb-8 text-center uppercase tracking-wide">
-            Complete Sikh Groom Collections
+      <div className="container mx-auto px-4 ">
+        <div className="bg-white rounded-2xl p-12 shadow-xl">
+          <h2 className="text-4xl md:text-5xl font-medium text-orange-900 mb-8 text-center uppercase tracking-wide">
+            Complete <span className='text-orange-600'>Sikn</span> Groom <span className='text-orange-600'>Collections</span>
           </h2>
           <p className="text-center text-gray-700 max-w-3xl mx-auto mb-8 leading-relaxed">
             Discover an exquisite array of traditional Sikh groom essentials that will make your Anand Karaj truly unforgettable. From majestic sherwanis and vibrant Punjabi suits to sacred Kakars and elegant accessories, we have everything you need to honor your heritage with style and dignity.

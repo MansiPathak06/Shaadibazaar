@@ -301,7 +301,7 @@ const HairStyling = () => {
                     alt={service.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
                 </div>
                 <div className="absolute inset-0 p-8 flex flex-col justify-end text-white">
                   <h3 className="text-3xl font-serif mb-4 transform group-hover:translate-y-[-4px] transition-transform duration-300">
@@ -313,7 +313,7 @@ const HairStyling = () => {
                   <div className="space-y-2 mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform group-hover:translate-y-0 translate-y-4">
                     {service.services.slice(0, 4).map((item, idx) => (
                       <div key={idx} className="flex items-start">
-                        <CheckCircle className="w-4 h-4 mr-2 mt-1 text-rose-400 flex-shrink-0" />
+                        <CheckCircle className="w-4 h-4 mr-2 mt-1 text-rose-400 shrink-0" />
                         <span className="text-sm text-gray-200">{item}</span>
                       </div>
                     ))}
@@ -396,7 +396,7 @@ const HairStyling = () => {
                   <div className="space-y-2 mb-4">
                     {pkg.features.slice(0, 5).map((feature, idx) => (
                       <div key={idx} className="flex items-start">
-                        <CheckCircle className="w-4 h-4 mr-2 text-rose-400 flex-shrink-0 mt-0.5" />
+                        <CheckCircle className="w-4 h-4 mr-2 text-rose-400 shrink-0 mt-0.5" />
                         <span className="text-xs text-gray-700">{feature}</span>
                       </div>
                     ))}
@@ -423,7 +423,7 @@ const HairStyling = () => {
       </div>
 
       {/* Stylists Section */}
-      <div className="py-20 bg-gradient-to-b from-rose-50 to-white">
+      <div className="py-20 bg-linear-to-b from-rose-50 to-white">
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div className="relative h-96 md:h-full rounded-2xl overflow-hidden shadow-2xl animate-[slideRight_1s_ease-out]">
@@ -493,11 +493,11 @@ const HairStyling = () => {
 
                   <div className="space-y-1 mb-3 flex-grow">
                     <div className="flex items-center text-gray-600 text-xs">
-                      <MapPin className="w-3 h-3 mr-2 text-rose-400 flex-shrink-0" />
+                      <MapPin className="w-3 h-3 mr-2 text-rose-400 shrink-0" />
                       <span className="truncate">{stylist.location}</span>
                     </div>
                     <div className="flex items-center text-gray-600 text-xs">
-                      <Users className="w-3 h-3 mr-2 text-rose-400 flex-shrink-0" />
+                      <Users className="w-3 h-3 mr-2 text-rose-400 shrink-0" />
                       {stylist.portfolio}+ Brides
                     </div>
                   </div>
@@ -545,7 +545,7 @@ const HairStyling = () => {
             {testimonials.map((testimonial, index) => (
               <div
                 key={testimonial.id}
-                className="bg-gradient-to-br from-rose-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 animate-[slideUp_0.6s_ease-out]"
+                className="bg-linear-to-br from-rose-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 animate-[slideUp_0.6s_ease-out]"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <div className="flex items-center mb-6">
@@ -728,7 +728,7 @@ const HairStyling = () => {
                       className="flex items-start animate-[slideRight_0.5s_ease-out]"
                       style={{ animationDelay: `${idx * 0.05}s` }}
                     >
-                      <CheckCircle className="w-6 h-6 mr-3 text-rose-400 flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="w-6 h-6 mr-3 text-rose-400 shrink-0 mt-0.5" />
                       <span className="text-gray-700">{feature}</span>
                     </div>
                   ))}

@@ -45,20 +45,20 @@ function RealisticCurtain({ side, isOpen, color, pattern }) {
     canvas.width = 1024
     canvas.height = 2048
     
-    // Base velvet color gradient
-    const gradient = ctx.createLinearGradient(0, 0, 0, 2048)
+    // Base velvet color linear
+    const linear = ctx.createLinearlinear(0, 0, 0, 2048)
     if (pattern === 'products') {
-      gradient.addColorStop(0, '#8b0000')
-      gradient.addColorStop(0.3, '#b91c1c')
-      gradient.addColorStop(0.7, '#991b1b')
-      gradient.addColorStop(1, '#7f1d1d')
+      linear.addColorStop(0, '#8b0000')
+      linear.addColorStop(0.3, '#b91c1c')
+      linear.addColorStop(0.7, '#991b1b')
+      linear.addColorStop(1, '#7f1d1d')
     } else {
-      gradient.addColorStop(0, '#78350f')
-      gradient.addColorStop(0.3, '#92400e')
-      gradient.addColorStop(0.7, '#a16207')
-      gradient.addColorStop(1, '#854d0e')
+      linear.addColorStop(0, '#78350f')
+      linear.addColorStop(0.3, '#92400e')
+      linear.addColorStop(0.7, '#a16207')
+      linear.addColorStop(1, '#854d0e')
     }
-    ctx.fillStyle = gradient
+    ctx.fillStyle = linear
     ctx.fillRect(0, 0, 1024, 2048)
     
     // Add velvet pile texture (fine vertical lines)
@@ -511,7 +511,7 @@ function Scene({ curtainsOpen }) {
       {/* Magical floating particles */}
       <MagicalParticles />
       
-      {/* Background with atmospheric gradient */}
+      {/* Background with atmospheric linear */}
       <mesh position={[0, 0, -10]}>
         <planeGeometry args={[60, 45]} />
         <meshStandardMaterial 
@@ -567,7 +567,7 @@ export default function WeddingGatePage() {
   ]
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-gradient-to-br from-red-950 via-amber-950 to-yellow-950">
+    <div className="relative w-full h-screen overflow-hidden bg-linear-to-br from-red-950 via-amber-950 to-yellow-950">
       {/* Three.js Canvas */}
       <div className="absolute inset-0">
         <Canvas 
@@ -592,16 +592,16 @@ export default function WeddingGatePage() {
         >
           <button
             onClick={showProducts}
-            className="group relative px-12 py-5 text-2xl font-extrabold uppercase tracking-widest bg-gradient-to-br from-red-700 via-red-800 to-red-900 text-yellow-300 border-4 border-yellow-500 rounded-2xl shadow-[0_0_30px_rgba(234,179,8,0.5)] hover:scale-110 hover:shadow-[0_0_50px_rgba(234,179,8,0.8)] transition-all duration-500 overflow-hidden"
+            className="group relative px-12 py-5 text-2xl font-extrabold uppercase tracking-widest bg-linear-to-br from-red-700 via-red-800 to-red-900 text-yellow-300 border-4 border-yellow-500 rounded-2xl shadow-[0_0_30px_rgba(234,179,8,0.5)] hover:scale-110 hover:shadow-[0_0_50px_rgba(234,179,8,0.8)] transition-all duration-500 overflow-hidden"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
+            <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
             <span className="relative">🌸 Products 🌸</span>
           </button>
           <button
             onClick={showServices}
-            className="group relative px-12 py-5 text-2xl font-extrabold uppercase tracking-widest bg-gradient-to-br from-amber-700 via-amber-800 to-amber-900 text-yellow-300 border-4 border-yellow-500 rounded-2xl shadow-[0_0_30px_rgba(234,179,8,0.5)] hover:scale-110 hover:shadow-[0_0_50px_rgba(234,179,8,0.8)] transition-all duration-500 overflow-hidden"
+            className="group relative px-12 py-5 text-2xl font-extrabold uppercase tracking-widest bg-linear-to-br from-amber-700 via-amber-800 to-amber-900 text-yellow-300 border-4 border-yellow-500 rounded-2xl shadow-[0_0_30px_rgba(234,179,8,0.5)] hover:scale-110 hover:shadow-[0_0_50px_rgba(234,179,8,0.8)] transition-all duration-500 overflow-hidden"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
+            <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
             <span className="relative">🌺 Services 🌺</span>
           </button>
         </div>
@@ -610,7 +610,7 @@ export default function WeddingGatePage() {
         {curtainsOpen && (
           <button
             onClick={closeCurtains}
-            className="fixed top-12 right-12 w-20 h-20 rounded-full bg-gradient-to-br from-red-700 via-red-800 to-red-950 border-4 border-yellow-500 text-yellow-300 text-4xl shadow-2xl hover:rotate-180 hover:scale-125 transition-all duration-700 flex items-center justify-center pointer-events-auto backdrop-blur-sm animate-fadeIn"
+            className="fixed top-12 right-12 w-20 h-20 rounded-full bg-linear-to-br from-red-700 via-red-800 to-red-950 border-4 border-yellow-500 text-yellow-300 text-4xl shadow-2xl hover:rotate-180 hover:scale-125 transition-all duration-700 flex items-center justify-center pointer-events-auto backdrop-blur-sm animate-fadeIn"
             style={{ zIndex: 50 }}
           >
             ✕
@@ -639,12 +639,12 @@ export default function WeddingGatePage() {
                 {(activeSection === 'products' ? products : services).map((item, i) => (
                   <div
                     key={i}
-                    className="group relative bg-gradient-to-br from-yellow-50 via-white to-yellow-100 border-4 border-red-700 rounded-3xl shadow-2xl p-10 hover:-translate-y-4 hover:scale-105 hover:shadow-[0_20px_80px_rgba(234,179,8,0.6)] transition-all duration-500 overflow-hidden backdrop-blur-sm"
+                    className="group relative bg-linear-to-br from-yellow-50 via-white to-yellow-100 border-4 border-red-700 rounded-3xl shadow-2xl p-10 hover:-translate-y-4 hover:scale-105 hover:shadow-[0_20px_80px_rgba(234,179,8,0.6)] transition-all duration-500 overflow-hidden backdrop-blur-sm"
                     style={{
                       animation: `fadeInUp 0.6s ease-out ${i * 0.1}s both`
                     }}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-red-600/0 via-amber-500/0 to-red-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute inset-0 bg-linear-to-br from-red-600/0 via-amber-500/0 to-red-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-400/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
                     <div className="relative z-10">
                       <div className="text-7xl mb-6 transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 drop-shadow-lg">
@@ -652,7 +652,7 @@ export default function WeddingGatePage() {
                       </div>
                       <h3 className="text-2xl font-bold text-red-900 mb-4 tracking-wide">{item.title}</h3>
                       <p className="text-red-800 leading-relaxed">{item.desc}</p>
-                      <div className="mt-6 h-1.5 w-24 mx-auto bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 rounded-full group-hover:w-32 transition-all duration-500"></div>
+                      <div className="mt-6 h-1.5 w-24 mx-auto bg-linear-to-r from-red-600 via-yellow-500 to-red-600 rounded-full group-hover:w-32 transition-all duration-500"></div>
                     </div>
                   </div>
                 ))}
@@ -697,12 +697,12 @@ export default function WeddingGatePage() {
         }
         
         ::-webkit-scrollbar-thumb {
-          background: linear-gradient(to bottom, #eab308, #fbbf24);
+          background: linear-linear(to bottom, #eab308, #fbbf24);
           border-radius: 10px;
         }
         
         ::-webkit-scrollbar-thumb:hover {
-          background: linear-gradient(to bottom, #fbbf24, #eab308);
+          background: linear-linear(to bottom, #fbbf24, #eab308);
         }
       `}</style>
     </div>

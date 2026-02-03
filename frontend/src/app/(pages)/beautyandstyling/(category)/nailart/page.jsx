@@ -306,9 +306,9 @@ const NailArt = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-white to-pink-50">
+    <div className="min-h-screen bg-linear-to-br from-rose-50 via-white to-pink-50">
       {/* Hero Section */}
-      <div className="relative min-h-screen bg-gradient-to-br from-pink-100 via-rose-50 to-white overflow-hidden">
+      <div className="relative min-h-screen bg-linear-to-br from-pink-100 via-rose-50 to-white overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-20 w-72 h-72 bg-rose-400 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-pink-400 rounded-full blur-3xl animate-pulse delay-1000"></div>
@@ -355,7 +355,7 @@ const NailArt = () => {
       </div>
 
       {/* Unleashing Creativity Section */}
-      <div className="py-8 bg-gradient-to-br from-rose-50 via-white to-pink-50">
+      <div className="py-8 bg-linear-to-br from-rose-50 via-white to-pink-50">
         <div className="container mx-auto px-30">
 
           <div className="text-center mb-16">
@@ -381,7 +381,7 @@ const NailArt = () => {
                       alt={service.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+                    <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent"></div>
                   </div>
 
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
@@ -413,7 +413,7 @@ const NailArt = () => {
       </div>
 
       {/* Why Choose Us */}
-      <div className="py-14 bg-gradient-to-br from-rose-50 via-white to-pink-50">
+      <div className="py-14 bg-linear-to-br from-rose-50 via-white to-pink-50">
         <div className="container mx-auto px-30">
 
           <div className="text-center mb-16">
@@ -447,7 +447,7 @@ const NailArt = () => {
       </div>
 
       {/* Portfolio Section */}
-      <div className="py-20 bg-gradient-to-br from-rose-50 via-white to-pink-50">
+      <div className="py-20 bg-linear-to-br from-rose-50 via-white to-pink-50">
         <div className="container mx-auto px-30">
 
           <div className="text-center mb-16">
@@ -471,7 +471,7 @@ const NailArt = () => {
                     alt={item.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
 
                 <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
@@ -492,7 +492,7 @@ const NailArt = () => {
       </div>
 
       {/* Pricing Section */}
-      <div className="py-8 bg-gradient-to-b from-white to-rose-50">
+      <div className="py-8 bg-linear-to-b from-white to-rose-50">
         <div className="container mx-auto px-30">
 
           <div className="text-center mb-16">
@@ -563,7 +563,7 @@ const NailArt = () => {
       </div>
 
       {/* Packages Section */}
-      <div className="py-20 bg-gradient-to-b from-white to-rose-50">
+      <div className="py-20 bg-linear-to-b from-white to-rose-50">
         <div className="container mx-auto px-30">
 
           <div className="text-center mb-16">
@@ -627,7 +627,7 @@ const NailArt = () => {
                   <div className="space-y-3 mb-6">
                     {pkg.features.slice(0, 6).map((feature, idx) => (
                       <div key={idx} className="flex items-start">
-                        <CheckCircle className="w-5 h-5 mr-2 text-rose-400 flex-shrink-0 mt-0.5" />
+                        <CheckCircle className="w-5 h-5 mr-2 text-rose-400 shrink-0 mt-0.5" />
                         <span className="text-sm text-gray-700">{feature}</span>
                       </div>
                     ))}
@@ -654,7 +654,7 @@ const NailArt = () => {
       </div>
 
       {/* Our Masters Section */}
-      <div className="py-8 bg-gradient-to-b from-rose-50 to-white">
+      <div className="py-8 bg-linear-to-b from-rose-50 to-white">
         <div className="container mx-auto px-30">
 
           <div className="text-center mb-16">
@@ -677,7 +677,7 @@ const NailArt = () => {
                     alt={master.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent"></div>
                 </div>
 
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
@@ -708,7 +708,7 @@ const NailArt = () => {
       </div>
 
       {/* Testimonials */}
-      <div className="py-20 bg-gradient-to-b from-rose-50 to-white">
+      <div className="py-20 bg-linear-to-b from-rose-50 to-white">
         <div className="container mx-auto px-30">
 
 
@@ -723,7 +723,7 @@ const NailArt = () => {
             {testimonials.map((testimonial, index) => (
               <div
                 key={testimonial.id}
-                className="bg-gradient-to-br from-rose-50 to-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 animate-[slideUp_0.6s_ease-out]"
+                className="bg-linear-to-br from-rose-50 to-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 animate-[slideUp_0.6s_ease-out]"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <div className="flex mb-4">
@@ -752,7 +752,7 @@ const NailArt = () => {
       </div>
 
       {/* Blog Section */}
-      <div className="py-20 bg-gradient-to-b from-rose-50 to-white">
+      <div className="py-20 bg-linear-to-b from-rose-50 to-white">
         <div className="container mx-auto px-30">
 
           <div className="text-center mb-16">
@@ -893,7 +893,7 @@ const NailArt = () => {
                 <div className="grid md:grid-cols-2 gap-3">
                   {selectedPackage.features.map((feature, idx) => (
                     <div key={idx} className="flex items-start">
-                      <CheckCircle className="w-5 h-5 mr-2 text-rose-400 flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="w-5 h-5 mr-2 text-rose-400 shrink-0 mt-0.5" />
                       <span className="text-gray-700">{feature}</span>
                     </div>
                   ))}
