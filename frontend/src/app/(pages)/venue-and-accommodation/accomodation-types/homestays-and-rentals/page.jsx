@@ -1,100 +1,86 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { Sparkles, MapPin, Users, Calendar } from "lucide-react";
+import { Sparkles, MapPin, Users, Calendar, Home, Coffee } from "lucide-react";
 
-const MainWeddingVenuesPage = () => {
+const HomestaysAndRentalsPage = () => {
   // Hero items with their subcategory slugs
   const heroItems = [
     {
       image:
-        "https://i.pinimg.com/736x/4f/d1/2c/4fd12ccf0172a46ef835f6a5c855d28a.jpg",
-      label: "Mandap Venues",
-      slug: "mandap-venues",
+        "https://i.pinimg.com/1200x/ce/b6/fc/ceb6fc58f4cbf7ecd2fe0cadde9b6d37.jpg",
+      label: "Airbnb-style Apartments",
+      slug: "airbnb-style-apartments",
     },
     {
       image:
-        "https://i.pinimg.com/1200x/68/1d/a5/681da5f9ddfe3c27a23afc8e0748f049.jpg",
-      label: "Reception Venues",
-      slug: "reception-venues",
+        "https://i.pinimg.com/1200x/73/89/0e/73890e9e4ffa1c4b19de309c6524b406.jpg",
+      label: "Homestay Private Rooms",
+      slug: "homestay-private-rooms",
     },
     {
       image:
-        "https://i.pinimg.com/736x/4d/88/4d/4d884d2998702c7545bb3c458a372140.jpg",
-      label: "Church Wedding Halls",
-      slug: "church-wedding-halls",
+        "https://i.pinimg.com/1200x/07/be/75/07be75cb390b26318c746299f0f471b6.jpg",
+      label: "Farmhouse Stay",
+      slug: "farmhouse-stay",
     },
     {
       image:
-        "https://i.pinimg.com/736x/99/e7/40/99e7405621632e8f1b4ba1d2f4a27684.jpg",
-      label: "Nikah Halls",
-      slug: "nikah-halls",
+        "https://i.pinimg.com/736x/95/c3/d4/95c3d47c44f4c52f6528d6f9af552874.jpg",
+      label: "Villas on Rent",
+      slug: "villas-on-rent",
     },
   ];
 
   const features = [
-    { icon: Users, text: "100-2000 Guests", color: "text-pink-300" },
-    { icon: MapPin, text: "Sacred Locations", color: "text-purple-300" },
-    { icon: Calendar, text: "Flexible Dates", color: "text-fuchsia-300" },
+    { icon: Home, text: "Cozy Accommodations", color: "text-pink-300" },
+    { icon: MapPin, text: "Prime Locations", color: "text-purple-300" },
+    { icon: Coffee, text: "Home-like Comfort", color: "text-fuchsia-300" },
   ];
 
   // Category collections (bottom section)
   const categories = [
     {
-      slug: "mandap-venues",
-      title: "Mandap Venues",
+      slug: "airbnb-style-apartments",
+      title: "Airbnb-style Apartments",
       image:
-        "https://i.pinimg.com/736x/4f/d1/2c/4fd12ccf0172a46ef835f6a5c855d28a.jpg",
+        "https://i.pinimg.com/1200x/ce/b6/fc/ceb6fc58f4cbf7ecd2fe0cadde9b6d37.jpg",
       accent: "#e91e63",
     },
     {
-      slug: "vedi-stage-area",
-      title: "Vedi Stage Area",
+      slug: "homestay-private-rooms",
+      title: "Homestay Private Rooms",
       image:
-        "https://i.pinimg.com/736x/dd/a3/a5/dda3a57566689c8bd4e2b508531c4480.jpg",
+        "https://i.pinimg.com/736x/84/3d/5b/843d5b7092bfb16be57cfbde7abf96d1.jpg",
       accent: "#3f51b5",
     },
     {
-      slug: "nikah-halls",
-      title: "Nikah Halls",
+      slug: "farmhouse-stay",
+      title: "Farmhouse Stay",
       image:
-        "https://i.pinimg.com/736x/99/e7/40/99e7405621632e8f1b4ba1d2f4a27684.jpg",
+        "https://i.pinimg.com/1200x/07/be/75/07be75cb390b26318c746299f0f471b6.jpg",
       accent: "#ff9800",
     },
     {
-      slug: "anand-karaj-gurudwara",
-      title: "Anand Karaj Gurudwara",
+      slug: "villas-on-rent",
+      title: "Villas on Rent",
       image:
-        "https://i.pinimg.com/1200x/7e/2f/7e/7e2f7eeef61ba04b268d0334854e07df.jpg",
+        "https://i.pinimg.com/736x/95/c3/d4/95c3d47c44f4c52f6528d6f9af552874.jpg",
       accent: "#9c27b0",
     },
     {
-      slug: "church-wedding-halls",
-      title: "Church Wedding Halls",
+      slug: "studio-apartments",
+      title: "Studio Apartments",
       image:
-        "https://i.pinimg.com/736x/4d/88/4d/4d884d2998702c7545bb3c458a372140.jpg",
+        "https://i.pinimg.com/1200x/6d/60/de/6d60de76f916bcb276d2a033152f0362.jpg",
       accent: "#4caf50",
     },
     {
-      slug: "reception-venues",
-      title: "Reception Venues",
+      slug: "hostels",
+      title: "Hostels",
       image:
-        "https://i.pinimg.com/1200x/68/1d/a5/681da5f9ddfe3c27a23afc8e0748f049.jpg",
+        "https://i.pinimg.com/736x/9c/03/97/9c0397ad9f3000017ecbf3fd38ee6cbf.jpg",
       accent: "#03a9f4",
-    },
-    {
-      slug: "baraat-assembly-area",
-      title: "Baraat Assembly Area",
-      image:
-        "https://i.pinimg.com/736x/06/73/27/0673271b1c4e41dcd91fb6174e77a51e.jpg",
-      accent: "#ff5722",
-    },
-    {
-      slug: "parking-grounds",
-      title: "Parking Grounds",
-      image:
-        "https://i.pinimg.com/736x/99/ac/87/99ac87e2dc715fa9ab80639e303f3b5d.jpg",
-      accent: "#795548",
     },
   ];
 
@@ -106,7 +92,7 @@ const MainWeddingVenuesPage = () => {
         <div className="absolute inset-0">
           <img
             src="https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg"
-            alt="Wedding Venue Background"
+            alt="Homestay Background"
             className="w-full h-full object-cover blur-sm scale-105"
           />
           {/* Dark overlay for better text readability */}
@@ -117,15 +103,15 @@ const MainWeddingVenuesPage = () => {
         <div className="relative h-full flex flex-col items-center justify-center px-4 py-6">
           {/* Main Heading */}
           <h1 className="text-3xl md:text-5xl mt-5 font-bold text-white mb-3 text-center leading-tight max-w-3xl">
-            Sacred Spaces for
+            Your Home Away From Home
             <br />
-            Your Special Day
+            Awaits You
           </h1>
 
           {/* Description */}
           <p className="text-sm md:text-base text-white/90 text-center max-w-xl mb-4 leading-relaxed">
-            Discover the perfect venue for your wedding ceremony. From traditional mandaps 
-            to elegant church halls, find sacred spaces that honor your traditions.
+            Discover comfortable and affordable accommodations that feel like home. 
+            From cozy apartments to luxurious villas, find your perfect stay.
           </p>
 
           {/* Features */}
@@ -146,7 +132,7 @@ const MainWeddingVenuesPage = () => {
             {heroItems.map((item, index) => (
               <Link
                 key={index}
-                href={`/wedding-venues/all-venues?category=main-wedding-venues&subCategory=${item.slug}`}
+                href={`/venue-and-accommodation/all-venues?category=homestays-and-rentals&subCategory=${item.slug}`}
                 className="relative group"
               >
                 <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-xl relative">
@@ -157,7 +143,7 @@ const MainWeddingVenuesPage = () => {
                   />
                   {/* linear overlay */}
                   <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent"></div>
-                  
+
                   {/* Text overlay */}
                   <div className="absolute bottom-2 left-0 right-0 px-2 text-center">
                     <p className="text-white text-[10px] md:text-xs font-semibold drop-shadow-lg">
@@ -183,22 +169,22 @@ const MainWeddingVenuesPage = () => {
         <div className="py-2">
           <div className="animate-marquee whitespace-nowrap inline-block">
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              ✨ SACRED VENUES FOR DIVINE CEREMONIES
+              ✨ COMFORTABLE STAYS FOR EVERY TRAVELER
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              💒 WHERE TRADITIONS COME ALIVE
+              🏡 EXPERIENCE LOCAL HOSPITALITY
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              🙏 BLESSED SPACES FOR YOUR UNION
+              🌟 YOUR PERFECT HOME AWAY FROM HOME
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              ✨ SACRED VENUES FOR DIVINE CEREMONIES
+              ✨ COMFORTABLE STAYS FOR EVERY TRAVELER
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              💒 WHERE TRADITIONS COME ALIVE
+              🏡 EXPERIENCE LOCAL HOSPITALITY
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              🙏 BLESSED SPACES FOR YOUR UNION
+              🌟 YOUR PERFECT HOME AWAY FROM HOME
             </span>
           </div>
         </div>
@@ -222,14 +208,14 @@ const MainWeddingVenuesPage = () => {
       {/* Featured Collections - Now Clickable */}
       <div className="container mx-auto px-40 py-16">
         <h2 className="text-3xl font-bold text-purple-900 mb-8 uppercase tracking-wide">
-          Featured Wedding Venue Categories
+          Featured Accommodation Categories
         </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mb-10">
           {categories.map((category, index) => (
             <Link
               key={index}
-              href={`/wedding-venues/all-venues?category=main-wedding-venues&subCategory=${category.slug}`}
+              href={`/venue-and-accommodation/all-venues?category=homestays-and-rentals&subCategory=${category.slug}`}
               className="group cursor-pointer"
             >
               <div className="bg-white rounded-lg shadow-md overflow-hidden transform group-hover:scale-105 transition-all duration-300 group-hover:shadow-lg">
@@ -279,26 +265,25 @@ const MainWeddingVenuesPage = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="flex justify-center">
               <img
-                src="https://i.pinimg.com/1200x/7d/24/03/7d240384f24378afa83c1b97ab26bbec.jpg"
-                alt="About Wedding Venues"
+                src="https://i.pinimg.com/1200x/6d/cb/2c/6dcb2c60a2d6a5f63b049db0a42169b4.jpg"
+                alt="About Homestays"
                 className="rounded-lg shadow-2xl w-78 object-cover"
               />
             </div>
 
             <div>
               <h2 className="text-3xl font-bold text-purple-900 mb-6 uppercase tracking-wide">
-                About Our Wedding Venues
+                About Our Homestays & Rentals
               </h2>
               <p className="text-gray-700 mb-4 leading-relaxed">
-                Your wedding ceremony deserves a venue that honors your traditions 
-                and creates the perfect ambiance for your sacred union. Our curated 
-                collection of wedding venues respects diverse cultures and faiths.
+                We believe that great travel experiences start with comfortable 
+                accommodations. Our curated collection of homestays and rentals 
+                offers authentic local experiences combined with modern amenities.
               </p>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                From traditional mandaps and gurudwaras to elegant churches and nikah 
-                halls, each venue has been carefully selected to provide the sanctity 
-                and beauty your special day deserves. We also offer dedicated spaces 
-                for receptions, baraat assemblies, and ample parking facilities.
+                From charming homestay rooms to fully-equipped villas, cozy 
+                farmhouses to convenient studio apartments, each property has been 
+                carefully vetted to ensure you have a memorable and comfortable stay.
               </p>
               <div className="grid grid-cols-3 gap-6 text-center">
                 <div>
@@ -312,9 +297,9 @@ const MainWeddingVenuesPage = () => {
                     </svg>
                   </div>
                   <h4 className="font-semibold text-purple-900">
-                    SACRED SPACES
+                    COZY SPACES
                   </h4>
-                  <p className="text-sm text-gray-600 mt-2">Divine Venues</p>
+                  <p className="text-sm text-gray-600 mt-2">Comfortable Living</p>
                 </div>
                 <div>
                   <div className="text-purple-600 mb-2">
@@ -331,9 +316,9 @@ const MainWeddingVenuesPage = () => {
                     </svg>
                   </div>
                   <h4 className="font-semibold text-purple-900">
-                    ALL FAITHS
+                    VERIFIED HOSTS
                   </h4>
-                  <p className="text-sm text-gray-600 mt-2">Inclusive Options</p>
+                  <p className="text-sm text-gray-600 mt-2">Trusted Properties</p>
                 </div>
                 <div>
                   <div className="text-purple-600 mb-2">
@@ -350,9 +335,9 @@ const MainWeddingVenuesPage = () => {
                       />
                     </svg>
                   </div>
-                  <h4 className="font-semibold text-purple-900">BEST VALUE</h4>
+                  <h4 className="font-semibold text-purple-900">GREAT RATES</h4>
                   <p className="text-sm text-gray-600 mt-2">
-                    Affordable Luxury
+                    Affordable Prices
                   </p>
                 </div>
               </div>
@@ -365,20 +350,20 @@ const MainWeddingVenuesPage = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="bg-linear-to-r from-purple-50 to-pink-50 rounded-2xl p-12 shadow-xl">
           <h2 className="text-3xl font-bold text-purple-900 mb-8 text-center uppercase tracking-wide">
-            Complete Wedding Venue Collections
+            Complete Accommodation Collections
           </h2>
           <p className="text-center text-gray-700 max-w-3xl mx-auto mb-8 leading-relaxed">
-            Explore our comprehensive range of wedding ceremony venues that cater 
-            to all faiths and traditions. From mandaps and vedi stages to churches 
-            and gurudwaras, find the perfect sacred space for your wedding ceremony, 
-            complete with reception areas, baraat assembly grounds, and parking facilities.
+            Explore our diverse range of homestays and rental properties perfect 
+            for short stays, long-term rentals, and everything in between. From 
+            budget-friendly hostels to luxurious private villas, find the perfect 
+            place that suits your travel style and budget.
           </p>
           <div className="text-center">
             <Link
-              href="/wedding-venues/all-venues?category=main-wedding-venues"
+              href="/venue-and-accommodation/all-venues?category=homestays-and-rentals"
               className="bg-purple-900 text-white px-8 py-3 rounded-full hover:bg-purple-800 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block"
             >
-              EXPLORE ALL WEDDING VENUES
+              EXPLORE ALL ACCOMMODATIONS
             </Link>
           </div>
         </div>
@@ -387,4 +372,4 @@ const MainWeddingVenuesPage = () => {
   );
 };
 
-export default MainWeddingVenuesPage;
+export default HomestaysAndRentalsPage;

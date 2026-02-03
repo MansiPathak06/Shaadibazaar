@@ -3,77 +3,91 @@ import React from "react";
 import Link from "next/link";
 import { Sparkles, MapPin, Users, Calendar } from "lucide-react";
 
-const PostWeddingVenuesPage = () => {
+const PreWeddingVenuesPage = () => {
   // Hero items with their subcategory slugs
   const heroItems = [
     {
       image:
-        "https://i.pinimg.com/1200x/49/d6/85/49d6859a8ede22c27ff6be4f8145cdb8.jpg",
-      label: "Reception Banquets",
-      slug: "reception-banquets",
+        "https://i.pinimg.com/736x/b8/2b/ef/b82bef9e2ef633c3a8f93a0d01c0b236.jpg",
+      label: "Roka Venue",
+      slug: "roka-venue",
     },
     {
       image:
-        "https://i.pinimg.com/1200x/39/6d/79/396d7972665e72563319830a7870f0db.jpg",
-      label: "Walima Venues",
-      slug: "walima-venues",
+        "https://i.pinimg.com/736x/f9/10/ee/f910eefd37ac4b65ae695d5a2499778b.jpg",
+      label: "Engagement Hall",
+      slug: "engagement-hall",
     },
     {
       image:
-        "https://i.pinimg.com/736x/ba/90/d6/ba90d60e37f9b8cbd5da2747f25c3529.jpg",
-      label: "Pagphera Ceremony",
-      slug: "pagphera-ceremony-venues",
+        "https://i.pinimg.com/1200x/db/17/f9/db17f9c69ab3e0acc0dbac3ada0262cd.jpg",
+      label: "Haldi Venue",
+      slug: "haldi-venue",
     },
     {
       image:
-        "https://i.pinimg.com/736x/6a/a8/c4/6aa8c453890d963aafc60f1aa33a01bb.jpg",
-      label: "Home Lawn Venues",
-      slug: "home-lawn-venues",
+        "https://i.pinimg.com/1200x/49/9e/73/499e738d8937574d784cb98b23667afa.jpg",
+      label: "Mehendi Venue",
+      slug: "mehendi-venue",
     },
   ];
 
   const features = [
     { icon: Users, text: "Intimate to Grand", color: "text-pink-300" },
-    { icon: MapPin, text: "Premium Locations", color: "text-purple-300" },
-    { icon: Calendar, text: "Flexible Booking", color: "text-fuchsia-300" },
+    { icon: MapPin, text: "Perfect Locations", color: "text-purple-300" },
+    { icon: Calendar, text: "Flexible Dates", color: "text-fuchsia-300" },
   ];
 
   // Category collections (bottom section)
   const categories = [
     {
-      slug: "reception-banquets",
-      title: "Reception Banquets",
+      slug: "roka-venue",
+      title: "Roka Venue",
       image:
-        "https://i.pinimg.com/1200x/49/d6/85/49d6859a8ede22c27ff6be4f8145cdb8.jpg",
+        "https://i.pinimg.com/736x/b8/2b/ef/b82bef9e2ef633c3a8f93a0d01c0b236.jpg",
       accent: "#e91e63",
     },
     {
-      slug: "walima-venues",
-      title: "Walima Venues",
+      slug: "engagement-hall",
+      title: "Engagement Hall",
       image:
-        "https://i.pinimg.com/1200x/33/68/f9/3368f983eeafd946d980c91f15c51c20.jpg",
+        "https://i.pinimg.com/736x/f9/10/ee/f910eefd37ac4b65ae695d5a2499778b.jpg",
       accent: "#3f51b5",
     },
     {
-      slug: "pagphera-ceremony-venues",
-      title: "Pagphera Ceremony Venues",
+      slug: "haldi-venue",
+      title: "Haldi Venue",
       image:
-        "https://i.pinimg.com/1200x/ed/20/f4/ed20f47675d71323e0eb59499e48c1d7.jpg",
+        "https://i.pinimg.com/1200x/db/17/f9/db17f9c69ab3e0acc0dbac3ada0262cd.jpg",
       accent: "#ff9800",
     },
     {
-      slug: "home-lawn-venues",
-      title: "Home Lawn Venues",
+      slug: "mehendi-venue",
+      title: "Mehendi Venue",
       image:
-        "https://i.pinimg.com/736x/6a/a8/c4/6aa8c453890d963aafc60f1aa33a01bb.jpg",
+        "https://i.pinimg.com/736x/df/f6/0a/dff60a5173a75d5f2e464b2b62ffe54e.jpg",
       accent: "#9c27b0",
     },
     {
-      slug: "dining-halls",
-      title: "Dining Halls",
+      slug: "sangeet-banquet",
+      title: "Sangeet Banquet",
       image:
-        "https://i.pinimg.com/736x/da/b3/d7/dab3d7ab973170b6e1d5598a6a30012b.jpg",
+        "https://i.pinimg.com/736x/f9/d3/0f/f9d30f07fc9623c70940b78b1eb34112.jpg",
       accent: "#4caf50",
+    },
+    {
+      slug: "cocktail-party-venues",
+      title: "Cocktail Party Venues",
+      image:
+        "https://i.pinimg.com/1200x/08/d2/95/08d2955f0833205a81d1f672528693ee.jpg",
+      accent: "#03a9f4",
+    },
+    {
+      slug: "bachelor-bachelorette-venues",
+      title: "Bachelor/Bachelorette Venues",
+      image:
+        "https://i.pinimg.com/1200x/b7/43/36/b74336b18b5745505e6c29955189f108.jpg",
+      accent: "#ff5722",
     },
   ];
 
@@ -85,7 +99,7 @@ const PostWeddingVenuesPage = () => {
         <div className="absolute inset-0">
           <img
             src="https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg"
-            alt="Post-Wedding Background"
+            alt="Pre-Wedding Background"
             className="w-full h-full object-cover blur-sm scale-105"
           />
           {/* Dark overlay for better text readability */}
@@ -96,15 +110,14 @@ const PostWeddingVenuesPage = () => {
         <div className="relative h-full flex flex-col items-center justify-center px-4 py-6">
           {/* Main Heading */}
           <h1 className="text-3xl md:text-5xl mt-5 font-bold text-white mb-3 text-center leading-tight max-w-3xl">
-            Celebrate Your New Beginning
+            Celebrate Every Tradition
             <br />
-            with Perfect Post-Wedding Venues
+            Before the Big Day
           </h1>
 
           {/* Description */}
           <p className="text-sm md:text-base text-white/90 text-center max-w-xl mb-4 leading-relaxed">
-            From reception celebrations to walima ceremonies, find the ideal venue to 
-            continue your wedding festivities with elegance and joy.
+            From intimate roka ceremonies to vibrant sangeet nights, discover the perfect venues for every pre-wedding celebration that makes your journey to marriage unforgettable.
           </p>
 
           {/* Features */}
@@ -125,7 +138,7 @@ const PostWeddingVenuesPage = () => {
             {heroItems.map((item, index) => (
               <Link
                 key={index}
-                href={`/wedding-venues/all-venues?category=post-wedding-venues&subCategory=${item.slug}`}
+                href={`/venue-and-accommodation/all-venues?category=pre-wedding-venues&subCategory=${item.slug}`}
                 className="relative group"
               >
                 <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-xl relative">
@@ -136,7 +149,7 @@ const PostWeddingVenuesPage = () => {
                   />
                   {/* linear overlay */}
                   <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent"></div>
-
+                  
                   {/* Text overlay */}
                   <div className="absolute bottom-2 left-0 right-0 px-2 text-center">
                     <p className="text-white text-[10px] md:text-xs font-semibold drop-shadow-lg">
@@ -162,22 +175,22 @@ const PostWeddingVenuesPage = () => {
         <div className="py-2">
           <div className="animate-marquee whitespace-nowrap inline-block">
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              ✨ CELEBRATE YOUR NEW JOURNEY TOGETHER
+              ✨ PERFECT VENUES FOR EVERY PRE-WEDDING CELEBRATION
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              🎊 PERFECT VENUES FOR POST-WEDDING FESTIVITIES
+              🎊 FROM ROKA TO SANGEET, WE'VE GOT YOU COVERED
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              🏛️ WHERE CELEBRATIONS CONTINUE
+              🏛️ WHERE TRADITIONS COME ALIVE
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              ✨ CELEBRATE YOUR NEW JOURNEY TOGETHER
+              ✨ PERFECT VENUES FOR EVERY PRE-WEDDING CELEBRATION
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              🎊 PERFECT VENUES FOR POST-WEDDING FESTIVITIES
+              🎊 FROM ROKA TO SANGEET, WE'VE GOT YOU COVERED
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              🏛️ WHERE CELEBRATIONS CONTINUE
+              🏛️ WHERE TRADITIONS COME ALIVE
             </span>
           </div>
         </div>
@@ -199,16 +212,16 @@ const PostWeddingVenuesPage = () => {
       `}</style>
 
       {/* Featured Collections - Now Clickable */}
-      <div className="container mx-auto px-40 py-16">
+      <div className="container mx-auto px-4 md:px-8 lg:px-40 py-16">
         <h2 className="text-3xl font-bold text-purple-900 mb-8 uppercase tracking-wide">
-          Featured Post-Wedding Venue Categories
+          Featured Pre-Wedding Venue Categories
         </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mb-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-10">
           {categories.map((category, index) => (
             <Link
               key={index}
-              href={`/wedding-venues/all-venues?category=post-wedding-venues&subCategory=${category.slug}`}
+              href={`/venue-and-accommodation/all-venues?category=pre-wedding-venues&subCategory=${category.slug}`}
               className="group cursor-pointer"
             >
               <div className="bg-white rounded-lg shadow-md overflow-hidden transform group-hover:scale-105 transition-all duration-300 group-hover:shadow-lg">
@@ -258,27 +271,21 @@ const PostWeddingVenuesPage = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="flex justify-center">
               <img
-                src="https://i.pinimg.com/736x/d1/2d/7c/d12d7c4044896bf3fea741335fabd254.jpg"
-                alt="About Post-Wedding Venues"
+                src="https://i.pinimg.com/736x/c7/48/d8/c748d89a904ea664b56ccc51687898bd.jpg"
+                alt="About Pre-Wedding Venues"
                 className="rounded-lg shadow-2xl w-78 object-cover"
               />
             </div>
 
             <div>
               <h2 className="text-3xl font-bold text-purple-900 mb-6 uppercase tracking-wide">
-                About Our Post-Wedding Venues
+                About Our Pre-Wedding Venues
               </h2>
               <p className="text-gray-700 mb-4 leading-relaxed">
-                Your wedding journey doesn't end with the ceremony. From grand 
-                reception banquets to intimate walima gatherings and traditional 
-                pagphera ceremonies, we offer the perfect venues to celebrate 
-                every special moment after your big day.
+                Every pre-wedding ceremony is a unique celebration of love, tradition, and family bonds. Our carefully curated collection of venues offers the perfect backdrop for each special moment leading up to your big day.
               </p>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                Whether you're hosting a lavish reception, a heartfelt walima, 
-                or an intimate family gathering at home, our curated collection 
-                of post-wedding venues ensures your celebrations continue with 
-                the same elegance and joy.
+                From intimate roka ceremonies to grand sangeet nights, vibrant mehendi functions to elegant cocktail parties, we have venues that match every celebration style, guest count, and budget requirement.
               </p>
               <div className="grid grid-cols-3 gap-6 text-center">
                 <div>
@@ -292,9 +299,9 @@ const PostWeddingVenuesPage = () => {
                     </svg>
                   </div>
                   <h4 className="font-semibold text-purple-900">
-                    DIVERSE SPACES
+                    DIVERSE VENUES
                   </h4>
-                  <p className="text-sm text-gray-600 mt-2">Multiple Options</p>
+                  <p className="text-sm text-gray-600 mt-2">All Celebrations</p>
                 </div>
                 <div>
                   <div className="text-purple-600 mb-2">
@@ -311,9 +318,9 @@ const PostWeddingVenuesPage = () => {
                     </svg>
                   </div>
                   <h4 className="font-semibold text-purple-900">
-                    VERIFIED VENUES
+                    TRADITION-FRIENDLY
                   </h4>
-                  <p className="text-sm text-gray-600 mt-2">Quality Assured</p>
+                  <p className="text-sm text-gray-600 mt-2">Cultural Respect</p>
                 </div>
                 <div>
                   <div className="text-purple-600 mb-2">
@@ -330,9 +337,9 @@ const PostWeddingVenuesPage = () => {
                       />
                     </svg>
                   </div>
-                  <h4 className="font-semibold text-purple-900">BEST VALUE</h4>
+                  <h4 className="font-semibold text-purple-900">FLEXIBLE PACKAGES</h4>
                   <p className="text-sm text-gray-600 mt-2">
-                    Competitive Pricing
+                    Budget Options
                   </p>
                 </div>
               </div>
@@ -345,20 +352,17 @@ const PostWeddingVenuesPage = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="bg-linear-to-r from-purple-50 to-pink-50 rounded-2xl p-12 shadow-xl">
           <h2 className="text-3xl font-bold text-purple-900 mb-8 text-center uppercase tracking-wide">
-            Complete Post-Wedding Venue Collections
+            Complete Pre-Wedding Venue Collections
           </h2>
           <p className="text-center text-gray-700 max-w-3xl mx-auto mb-8 leading-relaxed">
-            Discover our comprehensive range of post-wedding venues designed for 
-            receptions, walima ceremonies, pagphera gatherings, and intimate family 
-            celebrations. Each venue is carefully selected to make your post-wedding 
-            festivities as memorable as your special day.
+            Discover our comprehensive selection of pre-wedding venues designed for every ceremonial need. From traditional roka and engagement halls to vibrant sangeet banquets and modern cocktail spaces, create unforgettable memories at every step of your wedding journey.
           </p>
           <div className="text-center">
             <Link
-              href="/wedding-venues/all-venues?category=post-wedding-venues"
+              href="/venue-and-accommodation/all-venues?category=pre-wedding-venues"
               className="bg-purple-900 text-white px-8 py-3 rounded-full hover:bg-purple-800 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block"
             >
-              EXPLORE ALL VENUES
+              EXPLORE ALL PRE-WEDDING VENUES
             </Link>
           </div>
         </div>
@@ -367,4 +371,4 @@ const PostWeddingVenuesPage = () => {
   );
 };
 
-export default PostWeddingVenuesPage;
+export default PreWeddingVenuesPage;

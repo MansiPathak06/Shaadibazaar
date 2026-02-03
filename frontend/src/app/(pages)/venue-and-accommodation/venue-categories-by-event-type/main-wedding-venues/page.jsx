@@ -3,84 +3,98 @@ import React from "react";
 import Link from "next/link";
 import { Sparkles, MapPin, Users, Calendar } from "lucide-react";
 
-const GuestHousesPage = () => {
+const MainWeddingVenuesPage = () => {
   // Hero items with their subcategory slugs
   const heroItems = [
     {
       image:
-        "https://i.pinimg.com/736x/7f/5e/74/7f5e749e86a77fa3fe9ebd7bb130d37d.jpg",
-      label: "Family Guest Houses",
-      slug: "family-guest-houses",
+        "https://i.pinimg.com/736x/4f/d1/2c/4fd12ccf0172a46ef835f6a5c855d28a.jpg",
+      label: "Mandap Venues",
+      slug: "mandap-venues",
     },
     {
       image:
-        "https://i.pinimg.com/1200x/ac/00/61/ac0061d07dfd87b850264a2bc5d10566.jpg",
-      label: "Government Guest Houses",
-      slug: "government-guest-houses",
+        "https://i.pinimg.com/1200x/68/1d/a5/681da5f9ddfe3c27a23afc8e0748f049.jpg",
+      label: "Reception Venues",
+      slug: "reception-venues",
     },
     {
       image:
-        "https://i.pinimg.com/1200x/d3/c1/40/d3c1407f99da5fe4c5f0b771d70f210f.jpg",
-      label: "Private Guest Houses",
-      slug: "private-guest-houses",
+        "https://i.pinimg.com/736x/4d/88/4d/4d884d2998702c7545bb3c458a372140.jpg",
+      label: "Church Wedding Halls",
+      slug: "church-wedding-halls",
     },
     {
       image:
-        "https://i.pinimg.com/1200x/33/6a/f3/336af32ebc15345c997adfdf3932fb41.jpg",
-      label: "Dharamshalas",
-      slug: "dharamshalas",
+        "https://i.pinimg.com/736x/99/e7/40/99e7405621632e8f1b4ba1d2f4a27684.jpg",
+      label: "Nikah Halls",
+      slug: "nikah-halls",
     },
   ];
 
   const features = [
-    { icon: Users, text: "Comfortable Stays", color: "text-pink-300" },
-    { icon: MapPin, text: "Prime Locations", color: "text-purple-300" },
-    { icon: Calendar, text: "Easy Booking", color: "text-fuchsia-300" },
+    { icon: Users, text: "100-2000 Guests", color: "text-pink-300" },
+    { icon: MapPin, text: "Sacred Locations", color: "text-purple-300" },
+    { icon: Calendar, text: "Flexible Dates", color: "text-fuchsia-300" },
   ];
 
   // Category collections (bottom section)
   const categories = [
     {
-      slug: "family-guest-houses",
-      title: "Family Guest Houses",
+      slug: "mandap-venues",
+      title: "Mandap Venues",
       image:
-        "https://i.pinimg.com/736x/7f/5e/74/7f5e749e86a77fa3fe9ebd7bb130d37d.jpg",
+        "https://i.pinimg.com/736x/4f/d1/2c/4fd12ccf0172a46ef835f6a5c855d28a.jpg",
       accent: "#e91e63",
     },
     {
-      slug: "government-guest-houses",
-      title: "Government Guest Houses",
+      slug: "vedi-stage-area",
+      title: "Vedi Stage Area",
       image:
-        "https://i.pinimg.com/1200x/ac/00/61/ac0061d07dfd87b850264a2bc5d10566.jpg",
+        "https://i.pinimg.com/736x/dd/a3/a5/dda3a57566689c8bd4e2b508531c4480.jpg",
       accent: "#3f51b5",
     },
     {
-      slug: "private-guest-houses",
-      title: "Private Guest Houses",
+      slug: "nikah-halls",
+      title: "Nikah Halls",
       image:
-        "https://i.pinimg.com/1200x/d3/c1/40/d3c1407f99da5fe4c5f0b771d70f210f.jpg",
+        "https://i.pinimg.com/736x/99/e7/40/99e7405621632e8f1b4ba1d2f4a27684.jpg",
       accent: "#ff9800",
     },
     {
-      slug: "dharamshalas",
-      title: "Dharamshalas",
+      slug: "anand-karaj-gurudwara",
+      title: "Anand Karaj Gurudwara",
       image:
-        "https://i.pinimg.com/1200x/33/6a/f3/336af32ebc15345c997adfdf3932fb41.jpg",
+        "https://i.pinimg.com/1200x/7e/2f/7e/7e2f7eeef61ba04b268d0334854e07df.jpg",
       accent: "#9c27b0",
     },
     {
-      slug: "budget-guest-houses",
-      title: "Budget Guest Houses",
+      slug: "church-wedding-halls",
+      title: "Church Wedding Halls",
       image:
-        "https://i.pinimg.com/1200x/d2/91/63/d29163e94bf7966e319479ddb0eb9433.jpg",
+        "https://i.pinimg.com/736x/4d/88/4d/4d884d2998702c7545bb3c458a372140.jpg",
       accent: "#4caf50",
     },
     {
-      slug: "luxury-guest-houses",
-      title: "Luxury Guest Houses",
+      slug: "reception-venues",
+      title: "Reception Venues",
       image:
-        "https://i.pinimg.com/736x/95/c3/d4/95c3d47c44f4c52f6528d6f9af552874.jpg",
+        "https://i.pinimg.com/1200x/68/1d/a5/681da5f9ddfe3c27a23afc8e0748f049.jpg",
       accent: "#03a9f4",
+    },
+    {
+      slug: "baraat-assembly-area",
+      title: "Baraat Assembly Area",
+      image:
+        "https://i.pinimg.com/736x/06/73/27/0673271b1c4e41dcd91fb6174e77a51e.jpg",
+      accent: "#ff5722",
+    },
+    {
+      slug: "parking-grounds",
+      title: "Parking Grounds",
+      image:
+        "https://i.pinimg.com/736x/99/ac/87/99ac87e2dc715fa9ab80639e303f3b5d.jpg",
+      accent: "#795548",
     },
   ];
 
@@ -92,7 +106,7 @@ const GuestHousesPage = () => {
         <div className="absolute inset-0">
           <img
             src="https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg"
-            alt="Guest House Background"
+            alt="Wedding Venue Background"
             className="w-full h-full object-cover blur-sm scale-105"
           />
           {/* Dark overlay for better text readability */}
@@ -103,16 +117,15 @@ const GuestHousesPage = () => {
         <div className="relative h-full flex flex-col items-center justify-center px-4 py-6">
           {/* Main Heading */}
           <h1 className="text-3xl md:text-5xl mt-5 font-bold text-white mb-3 text-center leading-tight max-w-3xl">
-            Your Home Away From Home
+            Sacred Spaces for
             <br />
-            Comfort & Hospitality
+            Your Special Day
           </h1>
 
           {/* Description */}
           <p className="text-sm md:text-base text-white/90 text-center max-w-xl mb-4 leading-relaxed">
-            Discover comfortable and welcoming guest houses perfect for your
-            accommodation needs. From family-friendly stays to traditional
-            dharamshalas.
+            Discover the perfect venue for your wedding ceremony. From traditional mandaps 
+            to elegant church halls, find sacred spaces that honor your traditions.
           </p>
 
           {/* Features */}
@@ -133,7 +146,7 @@ const GuestHousesPage = () => {
             {heroItems.map((item, index) => (
               <Link
                 key={index}
-                href={`/wedding-venues/all-venues?category=guest-houses&subCategory=${item.slug}`}
+                href={`/venue-and-accommodation/all-venues?category=main-wedding-venues&subCategory=${item.slug}`}
                 className="relative group"
               >
                 <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-xl relative">
@@ -144,7 +157,7 @@ const GuestHousesPage = () => {
                   />
                   {/* linear overlay */}
                   <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent"></div>
-
+                  
                   {/* Text overlay */}
                   <div className="absolute bottom-2 left-0 right-0 px-2 text-center">
                     <p className="text-white text-[10px] md:text-xs font-semibold drop-shadow-lg">
@@ -170,22 +183,22 @@ const GuestHousesPage = () => {
         <div className="py-2">
           <div className="animate-marquee whitespace-nowrap inline-block">
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              ✨ COMFORTABLE ACCOMMODATIONS FOR EVERY NEED
+              ✨ SACRED VENUES FOR DIVINE CEREMONIES
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              🏡 EXPERIENCE WARMTH & HOSPITALITY
+              💒 WHERE TRADITIONS COME ALIVE
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              🛏️ YOUR PERFECT STAY AWAITS
+              🙏 BLESSED SPACES FOR YOUR UNION
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              ✨ COMFORTABLE ACCOMMODATIONS FOR EVERY NEED
+              ✨ SACRED VENUES FOR DIVINE CEREMONIES
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              🏡 EXPERIENCE WARMTH & HOSPITALITY
+              💒 WHERE TRADITIONS COME ALIVE
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              🛏️ YOUR PERFECT STAY AWAITS
+              🙏 BLESSED SPACES FOR YOUR UNION
             </span>
           </div>
         </div>
@@ -207,16 +220,16 @@ const GuestHousesPage = () => {
       `}</style>
 
       {/* Featured Collections - Now Clickable */}
-      <div className="container mx-auto px-40 py-16">
+      <div className="container mx-auto px-4 md:px-8 lg:px-40 py-16">
         <h2 className="text-3xl font-bold text-purple-900 mb-8 uppercase tracking-wide">
-          Featured Guest House Categories
+          Featured Wedding Venue Categories
         </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mb-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-10">
           {categories.map((category, index) => (
             <Link
               key={index}
-              href={`/wedding-venues/all-venues?category=guest-houses&subCategory=${category.slug}`}
+              href={`/venue-and-accommodation/all-venues?category=main-wedding-venues&subCategory=${category.slug}`}
               className="group cursor-pointer"
             >
               <div className="bg-white rounded-lg shadow-md overflow-hidden transform group-hover:scale-105 transition-all duration-300 group-hover:shadow-lg">
@@ -266,26 +279,26 @@ const GuestHousesPage = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="flex justify-center">
               <img
-                src="https://i.pinimg.com/1200x/d9/24/d7/d924d719e2d3e23aaeced3e04c01e0f6.jpg"
-                alt="About Guest Houses"
+                src="https://i.pinimg.com/1200x/7d/24/03/7d240384f24378afa83c1b97ab26bbec.jpg"
+                alt="About Wedding Venues"
                 className="rounded-lg shadow-2xl w-78 object-cover"
               />
             </div>
 
             <div>
               <h2 className="text-3xl font-bold text-purple-900 mb-6 uppercase tracking-wide">
-                About Our Guest Houses
+                About Our Wedding Venues
               </h2>
               <p className="text-gray-700 mb-4 leading-relaxed">
-                We understand that finding the right accommodation is essential
-                for a comfortable and memorable stay. Our curated collection of
-                guest houses offers something for every traveler and budget.
+                Your wedding ceremony deserves a venue that honors your traditions 
+                and creates the perfect ambiance for your sacred union. Our curated 
+                collection of wedding venues respects diverse cultures and faiths.
               </p>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                From family-friendly guest houses to traditional dharamshalas,
-                each property in our collection has been carefully selected to
-                ensure quality, comfort, and genuine hospitality for you and
-                your loved ones.
+                From traditional mandaps and gurudwaras to elegant churches and nikah 
+                halls, each venue has been carefully selected to provide the sanctity 
+                and beauty your special day deserves. We also offer dedicated spaces 
+                for receptions, baraat assemblies, and ample parking facilities.
               </p>
               <div className="grid grid-cols-3 gap-6 text-center">
                 <div>
@@ -299,9 +312,9 @@ const GuestHousesPage = () => {
                     </svg>
                   </div>
                   <h4 className="font-semibold text-purple-900">
-                    HOMELY COMFORT
+                    SACRED SPACES
                   </h4>
-                  <p className="text-sm text-gray-600 mt-2">Cozy Stays</p>
+                  <p className="text-sm text-gray-600 mt-2">Divine Venues</p>
                 </div>
                 <div>
                   <div className="text-purple-600 mb-2">
@@ -318,9 +331,9 @@ const GuestHousesPage = () => {
                     </svg>
                   </div>
                   <h4 className="font-semibold text-purple-900">
-                    VERIFIED PROPERTIES
+                    ALL FAITHS
                   </h4>
-                  <p className="text-sm text-gray-600 mt-2">Quality Assured</p>
+                  <p className="text-sm text-gray-600 mt-2">Inclusive Options</p>
                 </div>
                 <div>
                   <div className="text-purple-600 mb-2">
@@ -339,7 +352,7 @@ const GuestHousesPage = () => {
                   </div>
                   <h4 className="font-semibold text-purple-900">BEST VALUE</h4>
                   <p className="text-sm text-gray-600 mt-2">
-                    Affordable Rates
+                    Affordable Luxury
                   </p>
                 </div>
               </div>
@@ -352,20 +365,20 @@ const GuestHousesPage = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="bg-linear-to-r from-purple-50 to-pink-50 rounded-2xl p-12 shadow-xl">
           <h2 className="text-3xl font-bold text-purple-900 mb-8 text-center uppercase tracking-wide">
-            Complete Guest House Collections
+            Complete Wedding Venue Collections
           </h2>
           <p className="text-center text-gray-700 max-w-3xl mx-auto mb-8 leading-relaxed">
-            Explore our extensive range of guest houses perfect for family
-            stays, spiritual journeys, and comfortable accommodations. From
-            modern facilities to traditional dharamshalas, we have the ideal
-            place for your stay.
+            Explore our comprehensive range of wedding ceremony venues that cater 
+            to all faiths and traditions. From mandaps and vedi stages to churches 
+            and gurudwaras, find the perfect sacred space for your wedding ceremony, 
+            complete with reception areas, baraat assembly grounds, and parking facilities.
           </p>
           <div className="text-center">
             <Link
-              href="/wedding-venues/all-venues?category=guest-houses"
+              href="/venue-and-accommodation/all-venues?category=main-wedding-venues"
               className="bg-purple-900 text-white px-8 py-3 rounded-full hover:bg-purple-800 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block"
             >
-              EXPLORE ALL GUEST HOUSES
+              EXPLORE ALL WEDDING VENUES
             </Link>
           </div>
         </div>
@@ -374,4 +387,4 @@ const GuestHousesPage = () => {
   );
 };
 
-export default GuestHousesPage;
+export default MainWeddingVenuesPage;

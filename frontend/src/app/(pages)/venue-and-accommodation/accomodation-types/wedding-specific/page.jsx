@@ -1,93 +1,114 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { Sparkles, MapPin, Users, Calendar } from "lucide-react";
+import { Home, Users, Calendar, Heart } from "lucide-react";
 
-const PreWeddingVenuesPage = () => {
+const WeddingAccommodationPage = () => {
   // Hero items with their subcategory slugs
   const heroItems = [
     {
       image:
-        "https://i.pinimg.com/736x/b8/2b/ef/b82bef9e2ef633c3a8f93a0d01c0b236.jpg",
-      label: "Roka Venue",
-      slug: "roka-venue",
+        "https://i.pinimg.com/1200x/85/65/d6/8565d66c8dd90813b4e2a7f5f377032c.jpg",
+      label: "Baraat Accommodation",
+      slug: "baraat-accommodation-block",
     },
     {
       image:
-        "https://i.pinimg.com/736x/f9/10/ee/f910eefd37ac4b65ae695d5a2499778b.jpg",
-      label: "Engagement Hall",
-      slug: "engagement-hall",
+        "https://i.pinimg.com/1200x/e7/c8/42/e7c842ba90aa9a6533de8c0c5974601f.jpg",
+      label: "Bride's Family Block",
+      slug: "brides-family-accommodation-block",
     },
     {
       image:
-        "https://i.pinimg.com/1200x/db/17/f9/db17f9c69ab3e0acc0dbac3ada0262cd.jpg",
-      label: "Haldi Venue",
-      slug: "haldi-venue",
+        "https://i.pinimg.com/1200x/0f/6e/20/0f6e202acf9c613baabcb50cba0c44a7.jpg",
+      label: "Groom's Suite",
+      slug: "grooms-suite",
     },
     {
       image:
-        "https://i.pinimg.com/1200x/49/9e/73/499e738d8937574d784cb98b23667afa.jpg",
-      label: "Mehendi Venue",
-      slug: "mehendi-venue",
+        "https://i.pinimg.com/736x/98/a8/a7/98a8a7791ba6a9e440fb1443f93dd16b.jpg",
+      label: "Bridal Makeup Room",
+      slug: "bridal-makeup-room",
     },
   ];
 
   const features = [
-    { icon: Users, text: "Intimate to Grand", color: "text-pink-300" },
-    { icon: MapPin, text: "Perfect Locations", color: "text-purple-300" },
-    { icon: Calendar, text: "Flexible Dates", color: "text-fuchsia-300" },
+    { icon: Home, text: "Premium Rooms", color: "text-pink-300" },
+    { icon: Users, text: "Group Bookings", color: "text-purple-300" },
+    { icon: Calendar, text: "Multi-Day Stays", color: "text-fuchsia-300" },
   ];
 
   // Category collections (bottom section)
   const categories = [
     {
-      slug: "roka-venue",
-      title: "Roka Venue",
+      slug: "baraat-accommodation-block",
+      title: "Baraat Accommodation Block",
       image:
-        "https://i.pinimg.com/736x/b8/2b/ef/b82bef9e2ef633c3a8f93a0d01c0b236.jpg",
+        "https://i.pinimg.com/1200x/85/65/d6/8565d66c8dd90813b4e2a7f5f377032c.jpg",
       accent: "#e91e63",
     },
     {
-      slug: "engagement-hall",
-      title: "Engagement Hall",
+      slug: "brides-family-accommodation-block",
+      title: "Bride's Family Accommodation Block",
       image:
-        "https://i.pinimg.com/736x/f9/10/ee/f910eefd37ac4b65ae695d5a2499778b.jpg",
+        "https://i.pinimg.com/1200x/e7/c8/42/e7c842ba90aa9a6533de8c0c5974601f.jpg",
       accent: "#3f51b5",
     },
     {
-      slug: "haldi-venue",
-      title: "Haldi Venue",
+      slug: "grooms-suite",
+      title: "Groom's Suite",
       image:
-        "https://i.pinimg.com/1200x/db/17/f9/db17f9c69ab3e0acc0dbac3ada0262cd.jpg",
+        "https://i.pinimg.com/1200x/0f/6e/20/0f6e202acf9c613baabcb50cba0c44a7.jpg",
       accent: "#ff9800",
     },
     {
-      slug: "mehendi-venue",
-      title: "Mehendi Venue",
+      slug: "bridal-makeup-room",
+      title: "Bridal Makeup Room",
       image:
-        "https://i.pinimg.com/736x/df/f6/0a/dff60a5173a75d5f2e464b2b62ffe54e.jpg",
+        "https://i.pinimg.com/1200x/ae/dc/8e/aedc8eaa2ce619473916b184d23aff46.jpg",
       accent: "#9c27b0",
     },
     {
-      slug: "sangeet-banquet",
-      title: "Sangeet Banquet",
+      slug: "grooms-dressing-room",
+      title: "Groom's Dressing Room",
       image:
-        "https://i.pinimg.com/736x/f9/d3/0f/f9d30f07fc9623c70940b78b1eb34112.jpg",
+        "https://i.pinimg.com/736x/cb/9c/df/cb9cdfa45c963415585167b7e5adcb40.jpg",
       accent: "#4caf50",
     },
     {
-      slug: "cocktail-party-venues",
-      title: "Cocktail Party Venues",
+      slug: "vip-guest-rooms",
+      title: "VIP Guest Rooms",
       image:
-        "https://i.pinimg.com/1200x/08/d2/95/08d2955f0833205a81d1f672528693ee.jpg",
+        "https://i.pinimg.com/736x/0e/ea/0c/0eea0cb05994e078b9783b79e9e0f879.jpg",
       accent: "#03a9f4",
     },
     {
-      slug: "bachelor-bachelorette-venues",
-      title: "Bachelor/Bachelorette Venues",
+      slug: "hospitality-lounge",
+      title: "Hospitality Lounge",
       image:
-        "https://i.pinimg.com/1200x/b7/43/36/b74336b18b5745505e6c29955189f108.jpg",
+        "https://i.pinimg.com/1200x/d6/15/41/d6154123743431057f62ec5b63878747.jpg",
       accent: "#ff5722",
+    },
+    {
+      slug: "command-center-room",
+      title: "Command Center Room",
+      image:
+        "https://i.pinimg.com/1200x/54/58/38/5458381e70a20a9b209bae3babfe09ea.jpg",
+      accent: "#607d8b",
+    },
+    {
+      slug: "changing-rooms",
+      title: "Changing Rooms",
+      image:
+        "https://i.pinimg.com/736x/c2/d8/d6/c2d8d681807bb76f5084e4b6f3f96a57.jpg",
+      accent: "#e91e63",
+    },
+    {
+      slug: "haldi-mehendi-venue-rooms",
+      title: "Haldi/Mehendi Venue Rooms",
+      image:
+        "https://i.pinimg.com/736x/29/a4/dc/29a4dc8e13b57e7d5803223f29eb0a1f.jpg",
+      accent: "#ffc107",
     },
   ];
 
@@ -99,7 +120,7 @@ const PreWeddingVenuesPage = () => {
         <div className="absolute inset-0">
           <img
             src="https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg"
-            alt="Pre-Wedding Background"
+            alt="Wedding Accommodation Background"
             className="w-full h-full object-cover blur-sm scale-105"
           />
           {/* Dark overlay for better text readability */}
@@ -109,13 +130,15 @@ const PreWeddingVenuesPage = () => {
         <div className="relative h-full flex flex-col items-center justify-center px-4 py-6">
           {/* Main Heading */}
           <h1 className="text-3xl md:text-5xl mt-5 font-bold text-white mb-3 text-center leading-tight max-w-3xl">
-            Celebrate Every Tradition
+            Comfort & Convenience for
             <br />
-            Before the Big Day
+            Your Wedding Celebrations
           </h1>
           {/* Description */}
           <p className="text-sm md:text-base text-white/90 text-center max-w-xl mb-4 leading-relaxed">
-            From intimate roka ceremonies to vibrant sangeet nights, discover the perfect venues for every pre-wedding celebration that makes your journey to marriage unforgettable.
+            Premium accommodation spaces designed for wedding parties, guests, and
+            special pre-wedding ceremonies. Make every moment memorable with the
+            perfect rooms.
           </p>
           {/* Features */}
           <div className="flex flex-wrap gap-3 justify-center mb-4">
@@ -134,7 +157,7 @@ const PreWeddingVenuesPage = () => {
             {heroItems.map((item, index) => (
               <Link
                 key={index}
-                href={`/wedding-venues/all-venues?category=pre-wedding-venues&subCategory=${item.slug}`}
+                href={`/venue-and-accommodation/all-venues?category=wedding-accommodation&subCategory=${item.slug}`}
                 className="relative group"
               >
                 <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-xl relative">
@@ -145,7 +168,7 @@ const PreWeddingVenuesPage = () => {
                   />
                   {/* linear overlay */}
                   <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent"></div>
-                  
+
                   {/* Text overlay */}
                   <div className="absolute bottom-2 left-0 right-0 px-2 text-center">
                     <p className="text-white text-[10px] md:text-xs font-semibold drop-shadow-lg">
@@ -170,22 +193,22 @@ const PreWeddingVenuesPage = () => {
         <div className="py-2">
           <div className="animate-marquee whitespace-nowrap inline-block">
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              ✨ PERFECT VENUES FOR EVERY PRE-WEDDING CELEBRATION
+              ✨ LUXURIOUS STAYS FOR YOUR SPECIAL DAY
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              🎊 FROM ROKA TO SANGEET, WE'VE GOT YOU COVERED
+              🏨 COMFORT MEETS CELEBRATION
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              🏛️ WHERE TRADITIONS COME ALIVE
+              💝 SPACES DESIGNED FOR WEDDING PARTIES
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              ✨ PERFECT VENUES FOR EVERY PRE-WEDDING CELEBRATION
+              ✨ LUXURIOUS STAYS FOR YOUR SPECIAL DAY
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              🎊 FROM ROKA TO SANGEET, WE'VE GOT YOU COVERED
+              🏨 COMFORT MEETS CELEBRATION
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              🏛️ WHERE TRADITIONS COME ALIVE
+              💝 SPACES DESIGNED FOR WEDDING PARTIES
             </span>
           </div>
         </div>
@@ -209,14 +232,14 @@ const PreWeddingVenuesPage = () => {
       {/* Featured Collections - Now Clickable */}
       <div className="container mx-auto px-40 py-16">
         <h2 className="text-3xl font-bold text-purple-900 mb-8 uppercase tracking-wide">
-          Featured Pre-Wedding Venue Categories
+          Featured Accommodation Categories
         </h2>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mb-10">
           {categories.map((category, index) => (
             <Link
               key={index}
-              href={`/wedding-venues/all-venues?category=pre-wedding-venues&subCategory=${category.slug}`}
+              href={`/venue-and-accommodation/all-venues?category=wedding-accommodation&subCategory=${category.slug}`}
               className="group cursor-pointer"
             >
               <div className="bg-white rounded-lg shadow-md overflow-hidden transform group-hover:scale-105 transition-all duration-300 group-hover:shadow-lg">
@@ -266,37 +289,38 @@ const PreWeddingVenuesPage = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="flex justify-center">
               <img
-                src="https://i.pinimg.com/736x/c7/48/d8/c748d89a904ea664b56ccc51687898bd.jpg"
-                alt="About Pre-Wedding Venues"
+                src="https://i.pinimg.com/1200x/5f/48/2c/5f482c3d40a52a5c160b22ac20131590.jpg"
+                alt="About Wedding Accommodation"
                 className="rounded-lg shadow-2xl w-78 object-cover"
               />
             </div>
 
             <div>
               <h2 className="text-3xl font-bold text-purple-900 mb-6 uppercase tracking-wide">
-                About Our Pre-Wedding Venues
+                About Our Accommodation
               </h2>
               <p className="text-gray-700 mb-4 leading-relaxed">
-                Every pre-wedding ceremony is a unique celebration of love, tradition, and family bonds. Our carefully curated collection of venues offers the perfect backdrop for each special moment leading up to your big day.
+                We understand that wedding celebrations require more than just a
+                venue. Our comprehensive accommodation options ensure that your
+                guests, family members, and wedding party have the perfect spaces
+                to prepare, relax, and celebrate.
               </p>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                From intimate roka ceremonies to grand sangeet nights, vibrant mehendi functions to elegant cocktail parties, we have venues that match every celebration style, guest count, and budget requirement.
+                From luxurious bridal suites to spacious baraat accommodation
+                blocks, each space is designed to provide comfort and convenience
+                during your special celebrations. Whether it's getting ready rooms,
+                VIP guest accommodations, or dedicated ceremony spaces, we have
+                everything you need.
               </p>
               <div className="grid grid-cols-3 gap-6 text-center">
                 <div>
                   <div className="text-purple-600 mb-2">
-                    <svg
-                      className="w-12 h-12 mx-auto"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
-                    </svg>
+                    <Heart className="w-12 h-12 mx-auto" />
                   </div>
                   <h4 className="font-semibold text-purple-900">
-                    DIVERSE VENUES
+                    LUXURY SPACES
                   </h4>
-                  <p className="text-sm text-gray-600 mt-2">All Celebrations</p>
+                  <p className="text-sm text-gray-600 mt-2">Premium Comfort</p>
                 </div>
                 <div>
                   <div className="text-purple-600 mb-2">
@@ -313,28 +337,17 @@ const PreWeddingVenuesPage = () => {
                     </svg>
                   </div>
                   <h4 className="font-semibold text-purple-900">
-                    TRADITION-FRIENDLY
+                    VERIFIED ROOMS
                   </h4>
-                  <p className="text-sm text-gray-600 mt-2">Cultural Respect</p>
+                  <p className="text-sm text-gray-600 mt-2">Quality Assured</p>
                 </div>
                 <div>
                   <div className="text-purple-600 mb-2">
-                    <svg
-                      className="w-12 h-12 mx-auto"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
+                    <Users className="w-12 h-12 mx-auto" />
                   </div>
-                  <h4 className="font-semibold text-purple-900">FLEXIBLE PACKAGES</h4>
+                  <h4 className="font-semibold text-purple-900">GROUP FRIENDLY</h4>
                   <p className="text-sm text-gray-600 mt-2">
-                    Budget Options
+                    Flexible Bookings
                   </p>
                 </div>
               </div>
@@ -347,17 +360,20 @@ const PreWeddingVenuesPage = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="bg-linear-to-r from-purple-50 to-pink-50 rounded-2xl p-12 shadow-xl">
           <h2 className="text-3xl font-bold text-purple-900 mb-8 text-center uppercase tracking-wide">
-            Complete Pre-Wedding Venue Collections
+            Complete Accommodation Solutions
           </h2>
           <p className="text-center text-gray-700 max-w-3xl mx-auto mb-8 leading-relaxed">
-            Discover our comprehensive selection of pre-wedding venues designed for every ceremonial need. From traditional roka and engagement halls to vibrant sangeet banquets and modern cocktail spaces, create unforgettable memories at every step of your wedding journey.
+            Explore our extensive range of wedding accommodation options perfect
+            for the entire wedding party. From baraat blocks to bridal makeup
+            rooms, VIP guest suites to ceremony preparation spaces, we provide
+            every type of accommodation you need for a seamless wedding experience.
           </p>
           <div className="text-center">
             <Link
-              href="/wedding-venues/all-venues?category=pre-wedding-venues"
+              href="/venue-and-accommodation/all-venues?category=wedding-accommodation"
               className="bg-purple-900 text-white px-8 py-3 rounded-full hover:bg-purple-800 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block"
             >
-              EXPLORE ALL PRE-WEDDING VENUES
+              EXPLORE ALL ACCOMMODATIONS
             </Link>
           </div>
         </div>
@@ -366,4 +382,4 @@ const PreWeddingVenuesPage = () => {
   );
 };
 
-export default PreWeddingVenuesPage;
+export default WeddingAccommodationPage;

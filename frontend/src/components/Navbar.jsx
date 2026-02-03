@@ -382,7 +382,7 @@ const Navbar = () => {
             },
             {
               name: "Main-Wedding Venues",
-              link: "/venue-and-accomodation/venue-categories-by-event-type/main-wedding-venues",
+              link: "/venue-and-accommodation/venue-categories-by-event-type/main-wedding-venues",
             },
             {
               name: "Post-Wedding Venues",

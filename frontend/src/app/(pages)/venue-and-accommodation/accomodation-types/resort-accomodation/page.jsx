@@ -138,7 +138,7 @@ const ResortAccommodationPage = () => {
             {heroItems.map((item, index) => (
               <Link
                 key={index}
-                href={`/wedding-venues/all-venues?category=resort-accommodation&subCategory=${item.slug}`}
+                href={`/venue-and-accommodation/all-venues?category=resort-accommodation&subCategory=${item.slug}`}
                 className="relative group"
               >
                 <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-xl relative">
@@ -221,7 +221,7 @@ const ResortAccommodationPage = () => {
           {categories.map((category, index) => (
             <Link
               key={index}
-              href={`/wedding-venues/all-venues?category=resort-accommodation&subCategory=${category.slug}`}
+              href={`/venue-and-accommodation/all-venues?category=resort-accommodation&subCategory=${category.slug}`}
               className="group cursor-pointer"
             >
               <div className="bg-white rounded-lg shadow-md overflow-hidden transform group-hover:scale-105 transition-all duration-300 group-hover:shadow-lg">
@@ -359,7 +359,7 @@ const ResortAccommodationPage = () => {
           </p>
           <div className="text-center">
             <Link
-              href="/wedding-venues/all-venues?category=resort-accommodation"
+              href="/venue-and-accommodation/all-venues?category=resort-accommodation"
               className="bg-purple-900 text-white px-8 py-3 rounded-full hover:bg-purple-800 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block"
             >
               EXPLORE ALL RESORTS

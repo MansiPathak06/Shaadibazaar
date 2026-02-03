@@ -1,85 +1,85 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { Sparkles, MapPin, Users, Calendar, Home, Coffee } from "lucide-react";
+import { Sparkles, MapPin, Users, Calendar } from "lucide-react";
 
-const HomestaysAndRentalsPage = () => {
+const GuestHousesPage = () => {
   // Hero items with their subcategory slugs
   const heroItems = [
     {
       image:
-        "https://i.pinimg.com/1200x/ce/b6/fc/ceb6fc58f4cbf7ecd2fe0cadde9b6d37.jpg",
-      label: "Airbnb-style Apartments",
-      slug: "airbnb-style-apartments",
+        "https://i.pinimg.com/736x/7f/5e/74/7f5e749e86a77fa3fe9ebd7bb130d37d.jpg",
+      label: "Family Guest Houses",
+      slug: "family-guest-houses",
     },
     {
       image:
-        "https://i.pinimg.com/1200x/73/89/0e/73890e9e4ffa1c4b19de309c6524b406.jpg",
-      label: "Homestay Private Rooms",
-      slug: "homestay-private-rooms",
+        "https://i.pinimg.com/1200x/ac/00/61/ac0061d07dfd87b850264a2bc5d10566.jpg",
+      label: "Government Guest Houses",
+      slug: "government-guest-houses",
     },
     {
       image:
-        "https://i.pinimg.com/1200x/07/be/75/07be75cb390b26318c746299f0f471b6.jpg",
-      label: "Farmhouse Stay",
-      slug: "farmhouse-stay",
+        "https://i.pinimg.com/1200x/d3/c1/40/d3c1407f99da5fe4c5f0b771d70f210f.jpg",
+      label: "Private Guest Houses",
+      slug: "private-guest-houses",
     },
     {
       image:
-        "https://i.pinimg.com/736x/95/c3/d4/95c3d47c44f4c52f6528d6f9af552874.jpg",
-      label: "Villas on Rent",
-      slug: "villas-on-rent",
+        "https://i.pinimg.com/1200x/33/6a/f3/336af32ebc15345c997adfdf3932fb41.jpg",
+      label: "Dharamshalas",
+      slug: "dharamshalas",
     },
   ];
 
   const features = [
-    { icon: Home, text: "Cozy Accommodations", color: "text-pink-300" },
+    { icon: Users, text: "Comfortable Stays", color: "text-pink-300" },
     { icon: MapPin, text: "Prime Locations", color: "text-purple-300" },
-    { icon: Coffee, text: "Home-like Comfort", color: "text-fuchsia-300" },
+    { icon: Calendar, text: "Easy Booking", color: "text-fuchsia-300" },
   ];
 
   // Category collections (bottom section)
   const categories = [
     {
-      slug: "airbnb-style-apartments",
-      title: "Airbnb-style Apartments",
+      slug: "family-guest-houses",
+      title: "Family Guest Houses",
       image:
-        "https://i.pinimg.com/1200x/ce/b6/fc/ceb6fc58f4cbf7ecd2fe0cadde9b6d37.jpg",
+        "https://i.pinimg.com/736x/7f/5e/74/7f5e749e86a77fa3fe9ebd7bb130d37d.jpg",
       accent: "#e91e63",
     },
     {
-      slug: "homestay-private-rooms",
-      title: "Homestay Private Rooms",
+      slug: "government-guest-houses",
+      title: "Government Guest Houses",
       image:
-        "https://i.pinimg.com/736x/84/3d/5b/843d5b7092bfb16be57cfbde7abf96d1.jpg",
+        "https://i.pinimg.com/1200x/ac/00/61/ac0061d07dfd87b850264a2bc5d10566.jpg",
       accent: "#3f51b5",
     },
     {
-      slug: "farmhouse-stay",
-      title: "Farmhouse Stay",
+      slug: "private-guest-houses",
+      title: "Private Guest Houses",
       image:
-        "https://i.pinimg.com/1200x/07/be/75/07be75cb390b26318c746299f0f471b6.jpg",
+        "https://i.pinimg.com/1200x/d3/c1/40/d3c1407f99da5fe4c5f0b771d70f210f.jpg",
       accent: "#ff9800",
     },
     {
-      slug: "villas-on-rent",
-      title: "Villas on Rent",
+      slug: "dharamshalas",
+      title: "Dharamshalas",
       image:
-        "https://i.pinimg.com/736x/95/c3/d4/95c3d47c44f4c52f6528d6f9af552874.jpg",
+        "https://i.pinimg.com/1200x/33/6a/f3/336af32ebc15345c997adfdf3932fb41.jpg",
       accent: "#9c27b0",
     },
     {
-      slug: "studio-apartments",
-      title: "Studio Apartments",
+      slug: "budget-guest-houses",
+      title: "Budget Guest Houses",
       image:
-        "https://i.pinimg.com/1200x/6d/60/de/6d60de76f916bcb276d2a033152f0362.jpg",
+        "https://i.pinimg.com/1200x/d2/91/63/d29163e94bf7966e319479ddb0eb9433.jpg",
       accent: "#4caf50",
     },
     {
-      slug: "hostels",
-      title: "Hostels",
+      slug: "luxury-guest-houses",
+      title: "Luxury Guest Houses",
       image:
-        "https://i.pinimg.com/736x/9c/03/97/9c0397ad9f3000017ecbf3fd38ee6cbf.jpg",
+        "https://i.pinimg.com/736x/95/c3/d4/95c3d47c44f4c52f6528d6f9af552874.jpg",
       accent: "#03a9f4",
     },
   ];
@@ -92,7 +92,7 @@ const HomestaysAndRentalsPage = () => {
         <div className="absolute inset-0">
           <img
             src="https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg"
-            alt="Homestay Background"
+            alt="Guest House Background"
             className="w-full h-full object-cover blur-sm scale-105"
           />
           {/* Dark overlay for better text readability */}
@@ -105,13 +105,14 @@ const HomestaysAndRentalsPage = () => {
           <h1 className="text-3xl md:text-5xl mt-5 font-bold text-white mb-3 text-center leading-tight max-w-3xl">
             Your Home Away From Home
             <br />
-            Awaits You
+            Comfort & Hospitality
           </h1>
 
           {/* Description */}
           <p className="text-sm md:text-base text-white/90 text-center max-w-xl mb-4 leading-relaxed">
-            Discover comfortable and affordable accommodations that feel like home. 
-            From cozy apartments to luxurious villas, find your perfect stay.
+            Discover comfortable and welcoming guest houses perfect for your
+            accommodation needs. From family-friendly stays to traditional
+            dharamshalas.
           </p>
 
           {/* Features */}
@@ -132,7 +133,7 @@ const HomestaysAndRentalsPage = () => {
             {heroItems.map((item, index) => (
               <Link
                 key={index}
-                href={`/homestays-and-rentals/all-accommodations?category=homestays-and-rentals&subCategory=${item.slug}`}
+                href={`/venue-and-accommodation/all-venues?category=guest-houses&subCategory=${item.slug}`}
                 className="relative group"
               >
                 <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-xl relative">
@@ -169,22 +170,22 @@ const HomestaysAndRentalsPage = () => {
         <div className="py-2">
           <div className="animate-marquee whitespace-nowrap inline-block">
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              ✨ COMFORTABLE STAYS FOR EVERY TRAVELER
+              ✨ COMFORTABLE ACCOMMODATIONS FOR EVERY NEED
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              🏡 EXPERIENCE LOCAL HOSPITALITY
+              🏡 EXPERIENCE WARMTH & HOSPITALITY
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              🌟 YOUR PERFECT HOME AWAY FROM HOME
+              🛏️ YOUR PERFECT STAY AWAITS
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              ✨ COMFORTABLE STAYS FOR EVERY TRAVELER
+              ✨ COMFORTABLE ACCOMMODATIONS FOR EVERY NEED
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              🏡 EXPERIENCE LOCAL HOSPITALITY
+              🏡 EXPERIENCE WARMTH & HOSPITALITY
             </span>
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
-              🌟 YOUR PERFECT HOME AWAY FROM HOME
+              🛏️ YOUR PERFECT STAY AWAITS
             </span>
           </div>
         </div>
@@ -208,14 +209,14 @@ const HomestaysAndRentalsPage = () => {
       {/* Featured Collections - Now Clickable */}
       <div className="container mx-auto px-40 py-16">
         <h2 className="text-3xl font-bold text-purple-900 mb-8 uppercase tracking-wide">
-          Featured Accommodation Categories
+          Featured Guest House Categories
         </h2>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mb-10">
           {categories.map((category, index) => (
             <Link
               key={index}
-              href={`/homestays-and-rentals/all-accommodations?category=homestays-and-rentals&subCategory=${category.slug}`}
+              href={`/venue-and-accommodation/all-venues?category=guest-houses&subCategory=${category.slug}`}
               className="group cursor-pointer"
             >
               <div className="bg-white rounded-lg shadow-md overflow-hidden transform group-hover:scale-105 transition-all duration-300 group-hover:shadow-lg">
@@ -265,25 +266,26 @@ const HomestaysAndRentalsPage = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="flex justify-center">
               <img
-                src="https://i.pinimg.com/1200x/6d/cb/2c/6dcb2c60a2d6a5f63b049db0a42169b4.jpg"
-                alt="About Homestays"
+                src="https://i.pinimg.com/1200x/d9/24/d7/d924d719e2d3e23aaeced3e04c01e0f6.jpg"
+                alt="About Guest Houses"
                 className="rounded-lg shadow-2xl w-78 object-cover"
               />
             </div>
 
             <div>
               <h2 className="text-3xl font-bold text-purple-900 mb-6 uppercase tracking-wide">
-                About Our Homestays & Rentals
+                About Our Guest Houses
               </h2>
               <p className="text-gray-700 mb-4 leading-relaxed">
-                We believe that great travel experiences start with comfortable 
-                accommodations. Our curated collection of homestays and rentals 
-                offers authentic local experiences combined with modern amenities.
+                We understand that finding the right accommodation is essential
+                for a comfortable and memorable stay. Our curated collection of
+                guest houses offers something for every traveler and budget.
               </p>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                From charming homestay rooms to fully-equipped villas, cozy 
-                farmhouses to convenient studio apartments, each property has been 
-                carefully vetted to ensure you have a memorable and comfortable stay.
+                From family-friendly guest houses to traditional dharamshalas,
+                each property in our collection has been carefully selected to
+                ensure quality, comfort, and genuine hospitality for you and
+                your loved ones.
               </p>
               <div className="grid grid-cols-3 gap-6 text-center">
                 <div>
@@ -297,9 +299,9 @@ const HomestaysAndRentalsPage = () => {
                     </svg>
                   </div>
                   <h4 className="font-semibold text-purple-900">
-                    COZY SPACES
+                    HOMELY COMFORT
                   </h4>
-                  <p className="text-sm text-gray-600 mt-2">Comfortable Living</p>
+                  <p className="text-sm text-gray-600 mt-2">Cozy Stays</p>
                 </div>
                 <div>
                   <div className="text-purple-600 mb-2">
@@ -316,9 +318,9 @@ const HomestaysAndRentalsPage = () => {
                     </svg>
                   </div>
                   <h4 className="font-semibold text-purple-900">
-                    VERIFIED HOSTS
+                    VERIFIED PROPERTIES
                   </h4>
-                  <p className="text-sm text-gray-600 mt-2">Trusted Properties</p>
+                  <p className="text-sm text-gray-600 mt-2">Quality Assured</p>
                 </div>
                 <div>
                   <div className="text-purple-600 mb-2">
@@ -335,9 +337,9 @@ const HomestaysAndRentalsPage = () => {
                       />
                     </svg>
                   </div>
-                  <h4 className="font-semibold text-purple-900">GREAT RATES</h4>
+                  <h4 className="font-semibold text-purple-900">BEST VALUE</h4>
                   <p className="text-sm text-gray-600 mt-2">
-                    Affordable Prices
+                    Affordable Rates
                   </p>
                 </div>
               </div>
@@ -350,20 +352,20 @@ const HomestaysAndRentalsPage = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="bg-linear-to-r from-purple-50 to-pink-50 rounded-2xl p-12 shadow-xl">
           <h2 className="text-3xl font-bold text-purple-900 mb-8 text-center uppercase tracking-wide">
-            Complete Accommodation Collections
+            Complete Guest House Collections
           </h2>
           <p className="text-center text-gray-700 max-w-3xl mx-auto mb-8 leading-relaxed">
-            Explore our diverse range of homestays and rental properties perfect 
-            for short stays, long-term rentals, and everything in between. From 
-            budget-friendly hostels to luxurious private villas, find the perfect 
-            place that suits your travel style and budget.
+            Explore our extensive range of guest houses perfect for family
+            stays, spiritual journeys, and comfortable accommodations. From
+            modern facilities to traditional dharamshalas, we have the ideal
+            place for your stay.
           </p>
           <div className="text-center">
             <Link
-              href="/homestays-and-rentals/all-accommodations?category=homestays-and-rentals"
+              href="/venue-and-accommodation/all-venues?category=guest-houses"
               className="bg-purple-900 text-white px-8 py-3 rounded-full hover:bg-purple-800 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block"
             >
-              EXPLORE ALL ACCOMMODATIONS
+              EXPLORE ALL GUEST HOUSES
             </Link>
           </div>
         </div>
@@ -372,4 +374,4 @@ const HomestaysAndRentalsPage = () => {
   );
 };
 
-export default HomestaysAndRentalsPage;
+export default GuestHousesPage;
