@@ -303,99 +303,39 @@ export default function CategoryServicesPage() {
       image:
         "https://i.pinimg.com/736x/90/d3/f7/90d3f76283edaeefed17ed222f3409ab.jpg",
     },
-    // Add to categoryData object
-    "return-gift": {
-      name: "Return Gift Vendor",
-      image:
-        "https://i.pinimg.com/1200x/a3/d4/5e/a3d45e6f7a8b9c0d1e2f3a4b5c6d7e8f.jpg",
-    },
-    "mehendi-favors": {
-      name: "Mehendi Favors Vendor",
-      image:
-        "https://i.pinimg.com/1200x/5b/7c/9d/5b7c9d0e1f2a3b4c5d6e7f8a9b0c1d2e.jpg",
-    },
-    "haldi-token": {
-      name: "Haldi Token Gift Vendor",
-      image:
-        "https://i.pinimg.com/1200x/8f/2d/6c/8f2d6c5b4a3e2d1c0b9a8f7e6d5c4b3a.jpg",
-    },
-    "shagun-envelope": {
-      name: "Shagun Envelope Designer",
-      image:
-        "https://i.pinimg.com/1200x/7d/9e/3f/7d9e3f2c1b0a9f8e7d6c5b4a3e2d1c0b.jpg",
-    },
-    "gift-packaging": {
-      name: "Gift Packaging Artist",
-      image:
-        "https://i.pinimg.com/1200x/4c/8d/2e/4c8d2e5f7a9b0c1d2e3f4a5b6c7d8e9f.jpg",
-    },
-    "trousseau-packing": {
-      name: "Trousseau Packing Vendor",
-      image:
-        "https://i.pinimg.com/1200x/9e/3d/7f/9e3d7f8c6b5a4e3d2c1b0a9f8e7d6c5b.jpg",
-    },
-    "basket-tray": {
-      name: "Basket & Tray Decor Vendor",
-      image:
-        "https://i.pinimg.com/1200x/2f/6c/9d/2f6c9d0e1f2a3b4c5d6e7f8a9b0c1d2e.jpg",
-    },
-    "dry-fruit-box": {
-      name: "Dry Fruit Box Vendor",
-      image:
-        "https://i.pinimg.com/1200x/6b/4e/8d/6b4e8d9c0a1f2e3d4c5b6a7f8e9d0c1b.jpg",
-    },
-    // Add to categoryData object
-    "full-catering": {
-      name: "Full Catering Service",
-      image:
-        "https://i.pinimg.com/1200x/c1/19/92/c11992607f0e64b51f63bba8fdad1ff5.jpg",
-    },
-    "live-counters": {
-      name: "Live Counters Vendor",
-      image:
-        "https://i.pinimg.com/1200x/fe/bb/60/febb60bd0b7a753aa4195454fba6e560.jpg",
-    },
-    "sweet-shop": {
-      name: "Sweet Shop Vendor",
-      image:
-        "https://i.pinimg.com/736x/48/76/4f/48764fe3522563cdff861593d5a68ded.jpg",
-    },
-    halwai: {
-      name: "Halwai",
-      image:
-        "https://i.pinimg.com/736x/36/63/91/36639136ab91da85255560c4e969485c.jpg",
-    },
-    "coffee-tea": {
-      name: "Coffee/Tea Stall",
-      image:
-        "https://i.pinimg.com/736x/77/93/2d/77932da8a2a5d2d01c872ea58e2cd10d.jpg",
-    },
-    "fruit-stall": {
-      name: "Fruit Stall",
-      image:
-        "https://i.pinimg.com/1200x/5f/b1/16/5fb1164ab2b6aa28e27164ac4dcd1a64.jpg",
-    },
-    "chocolate-fountain": {
-      name: "Chocolate Fountain Vendor",
-      image:
-        "https://i.pinimg.com/1200x/3a/d6/a3/3ad6a38d6c6fef4a194b0bfded6d92f9.jpg",
-    },
-    "ice-cream": {
-      name: "Ice Cream Counter",
-      image:
-        "https://i.pinimg.com/736x/88/ee/87/88ee8731fabdd3d37e5d8718dfb4586a.jpg",
-    },
-    beverages: {
-      name: "Water & Beverage Supplier",
-      image:
-        "https://i.pinimg.com/736x/80/39/90/8039904113f39daa19943f6110a493dc.jpg",
-    },
-    "buffet-setup": {
-      name: "Buffet Setup & Service Staff",
-      image:
-        "https://i.pinimg.com/736x/12/8c/83/128c830d080584643bb030e59a738bdb.jpg",
-    },
-
+    // Updated Gift & Packaging Categories (with matching images from the page)
+"return-gift": {
+  name: "Return Gift Vendor",
+  image: "https://i.pinimg.com/736x/bd/5b/ee/bd5bee0a101bfc27b4cbe8548c11a96c.jpg",
+},
+"mehendi-favors": {
+  name: "Mehendi Favors Vendor",
+  image: "https://i.pinimg.com/736x/76/19/97/76199713092a488ae064700f964a1435.jpg",
+},
+"haldi-token": {
+  name: "Haldi Token Gift Vendor",
+  image: "https://i.pinimg.com/1200x/de/e9/74/dee9747d0d2fa0f1c95e4aa86961dfbd.jpg",
+},
+"shagun-envelope": {
+  name: "Shagun Envelope Designer",
+  image: "https://i.pinimg.com/1200x/51/24/1c/51241c952404e7537c122399142cb7bb.jpg",
+},
+"gift-packaging": {
+  name: "Bride & Groom Gift Packaging Artist",
+  image: "https://i.pinimg.com/736x/11/cd/2f/11cd2f2c767775569bb191c6e701437d.jpg",
+},
+"trousseau-packing": {
+  name: "Trousseau Packing Vendor",
+  image: "https://i.pinimg.com/736x/b5/06/20/b50620eb3d32fa627742405490c3442d.jpg",
+},
+"basket-tray": {
+  name: "Basket & Tray Decor Vendor",
+  image: "https://i.pinimg.com/736x/fe/ad/44/fead44fb924a23039d14098fee6d4cc2.jpg",
+},
+"dry-fruit-box": {
+  name: "Dry Fruit Box Vendor",
+  image: "https://i.pinimg.com/736x/b5/29/e6/b529e6f8763d4e8fc7f78019b6210e39.jpg",
+},
     // ADD THESE NEW CATEGORIES (after "buffet-setup")
     "hindu-priest": {
       name: "Hindu Priest (Pandit Ji)",
@@ -645,6 +585,101 @@ footwear: {
   name: "Flower Shower Machine Vendor",
   image: "https://i.pinimg.com/736x/cf/6f/bd/cf6fbdbaf2c595babc7b0f6068f10615.jpg",
 },
+// Add these new entries to the categoryData object:
+
+"hotel": {
+  name: "Hotel Booking Agents",
+  image: "https://i.pinimg.com/736x/55/e8/cd/55e8cdd2f3fe64fe237433e3c40f5e89.jpg",
+},
+"guesthouse": {
+  name: "Guest House Provider",
+  image: "https://i.pinimg.com/1200x/28/a1/55/28a1552cf058234d49c76e3b99fec34a.jpg",
+},
+"resort": {
+  name: "Resort Booking",
+  image: "https://i.pinimg.com/736x/80/f2/8c/80f28c830d9d9ed05cac8db7d5e9e4b5.jpg",
+},
+"villa": {
+  name: "Villa / Farmhouse Provider",
+  image: "https://i.pinimg.com/736x/9b/83/6a/9b836a37fb82f8f033e8969d4d212715.jpg",
+},
+"homestay": {
+  name: "Homestay Vendor",
+  image: "https://i.pinimg.com/1200x/6e/96/b3/6e96b315b680544797ce031a60257e5f.jpg",
+},
+ "traditional-photography": {
+    name: "Traditional Photography",
+    image: "https://i.pinimg.com/1200x/43/bc/b5/43bcb5d61f8287ff8b7b029c8bf09f0e.jpg",
+  },
+  "candid-photography": {
+    name: "Candid Photography",
+    image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=400",
+  },
+  "drone-camera-operator": {
+    name: "Drone Camera Operator",
+    image: "https://i.pinimg.com/736x/c1/4d/a0/c14da01b3f35f3be360b8adbfad4fc27.jpg",
+  },
+  "cinematic-videography": {
+    name: "Cinematic Videography",
+    image: "https://i.pinimg.com/736x/42/26/91/422691e09e79e96b7075ef306a9c2d07.jpg",
+  },
+  "livestream-stream": {
+    name: "LED Live Streaming",
+    image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400",
+  },
+  "reel-creator": {
+    name: "Wedding Reel Creator",
+    image: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=400",
+  },
+  "editing-vendor": {
+    name: "Photo Editing & Album",
+    image: "https://i.pinimg.com/736x/1e/41/63/1e416367adbed8e867540981117a8a8f.jpg",
+  },
+  "360camera": {
+    name: "360° Camera Booth",
+    image: "https://i.pinimg.com/736x/5c/4a/33/5c4a337d9a058c51ba10359d9b72b634.jpg",
+  },
+  "photobooth": {
+    name: "Photobooth with Props",
+    image: "https://i.pinimg.com/1200x/b3/1c/18/b31c1864046a65dc8f3bb76acf272821.jpg",
+  },
+  "polaroid": {
+    name: "Instant Print Polaroid",
+    image: "https://i.pinimg.com/1200x/83/96/65/8396657fc32672823d77d1ae531e0e07.jpg",
+  },
+  "insurance": {
+    name: "Event Insurance",
+    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=400&fit=crop",
+  },
+  "fire-safety": {
+    name: "Fire Safety Team",
+    image: "https://i.pinimg.com/1200x/b6/05/57/b6055778474cda49a7bedfe720634502.jpg",
+  },
+  "crowd": {
+    name: "Crowd Management",
+    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&h=400&fit=crop",
+  },
+  "drone": {
+    name: "Drone Permission",
+    image: "https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=400&h=400&fit=crop",
+  },
+  "license": {
+    name: "License Coordinator",
+    image: "https://i.pinimg.com/1200x/0c/41/36/0c413633cacf1351bf1a8917b374b797.jpg",
+  },
+  "cleaning": {
+    name: "Cleaning Team",
+    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&h=400&fit=crop",
+  },
+  "sanitization": {
+    name: "Sanitization Team",
+    image: "https://images.unsplash.com/photo-1584744982491-665216d95f8b?w=400&h=400&fit=crop",
+  },
+  "medical": {
+    name: "Medical Emergency",
+    image: "https://i.pinimg.com/736x/85/e0/cd/85e0cdbb16c84e2eed582143df8743ba.jpg",
+  },
+  
   };
 
   const currentCategory = categoryData[category] || {

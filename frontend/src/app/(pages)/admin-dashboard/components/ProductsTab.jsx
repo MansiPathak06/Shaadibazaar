@@ -99,6 +99,7 @@ export default function ProductsTab({
       { value: "bridal-sandals-flats", label: "Bridal Sandals/Flats" },
       { value: "hand-clutch-potli-bag", label: "Hand Clutch/Potli Bag" },
       { value: "bridal-robe-for-makeup", label: "Bridal Robe for Makeup" },
+      
     ],
     "ritual-items": [
     { value: "varmala", label: "Varmala" },
@@ -109,6 +110,7 @@ export default function ProductsTab({
     { value: "groom-kalgi", label: "Groom's Kalgi" },
     { value: "gift-saree-lehenga", label: "Gift Saree/Lehenga" },
     { value: "tilak-plate-items", label: "Tilak Plate Items" },
+
      // Muslim - ADD THESE
   { value: "mehr-amount", label: "Mehr Amount" },
   { value: "quran", label: "Quran" },

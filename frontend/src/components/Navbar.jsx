@@ -273,21 +273,21 @@ const handleLogout = () => {
           name: "Venue Categories by Event Type",
           icon: Moon,
           pages: [
-            { name: "Pre-Wedding Venues", link: "/venue-and-accomodation/venue-categories-by-event-type/pre-wedding-venues" },
+            { name: "Pre-Wedding Venues", link: "/venue-and-accommodation/venue-categories-by-event-type/pre-wedding-venues" },
             {
               name: "Main-Wedding Venues",
-              link: "/venue-and-accomodation/venue-categories-by-event-type/main-wedding-venues",
+              link: "/venue-and-accommodation/venue-categories-by-event-type/main-wedding-venues",
             },
-            { name: "Post-Wedding Venues", link: "/venue-and-accomodation/venue-categories-by-event-type/post-wedding-venues" },
+            { name: "Post-Wedding Venues", link: "/venue-and-accommodation/venue-categories-by-event-type/post-wedding-venues" },
           ],
         },
         {
           name: "Additional Wedding Spaces Needed",
           icon: Moon,
           pages: [
-            { name: "Functional Spaces", link: "/venue-and-accomodation/additional-wedding-spaces/functional-spaces" },
-            { name: "Decorative Zones", link: "/venue-and-accomodation/additional-wedding-spaces/decorative-zones" },
-            { name: "Utility Spaces", link: "/venue-and-accomodation/additional-wedding-spaces/utility-spaces" },
+            { name: "Functional Spaces", link: "/venue-and-accommodation/additional-wedding-spaces/functional-spaces" },
+            { name: "Decorative Zones", link: "/venue-and-accommodation/additional-wedding-spaces/decorative-zones" },
+            { name: "Utility Spaces", link: "/venue-and-accommodation/additional-wedding-spaces/utility-spaces" },
           ],
         },
       ],

@@ -31,6 +31,10 @@ export default function AllVenuesPage() {
     "homestays-and-rentals": "Homestays & Rentals",
     "hotel-accommodation": "Hotel Accommodation",
     "wedding-specific": "Wedding Specific Venues",
+     "wedding-accommodation": "Wedding Accommodation",
+       "main-wedding-venues": "Main Wedding Venues",
+       "pre-wedding-venues": "Pre-Wedding Venues", 
+       "post-wedding-venues": "Post-Wedding Venues",
   };
 
   // Subcategory display names mapping
@@ -51,7 +55,61 @@ export default function AllVenuesPage() {
     "studio-apartments": "Studio Apartments",
     "hostels": "Hostels",
     
-    // Add more subcategories as needed
+    // Hotel Accommodation subcategories - ADD THESE:
+  "5-star-hotels": "5-Star Hotels",
+  "4-star-hotels": "4-Star Hotels",
+  "3-star-hotels": "3-Star Hotels",
+  "boutique-hotels": "Boutique Hotels",
+  "budget-hotels": "Budget Hotels",
+  "serviced-apartments": "Serviced Apartments",
+  "executive-rooms-vip": "Executive Rooms for VIP Guests",
+
+   // Resort Accommodation subcategories - ADD THESE:
+  "luxury-resorts": "Luxury Resorts",
+  "eco-resorts": "Eco Resorts",
+  "cottage-stays": "Cottage Stays",
+  "villa-resorts": "Villa Resorts",
+  "forest-resorts": "Forest Resorts",
+  "beach-resorts": "Beach Resorts",
+  "hill-station-resorts": "Hill Station Resorts",
+
+  // Wedding Accommodation subcategories - ADD THESE:
+  "baraat-accommodation-block": "Baraat Accommodation Block",
+  "brides-family-accommodation-block": "Bride's Family Accommodation Block",
+  "grooms-suite": "Groom's Suite",
+  "bridal-makeup-room": "Bridal Makeup Room",
+  "grooms-dressing-room": "Groom's Dressing Room",
+  "vip-guest-rooms": "VIP Guest Rooms",
+  "hospitality-lounge": "Hospitality Lounge",
+  "command-center-room": "Command Center Room",
+  "changing-rooms": "Changing Rooms",
+  "haldi-mehendi-venue-rooms": "Haldi/Mehendi Venue Rooms",
+
+   // Main Wedding Venues subcategories - ADD THESE:
+  "mandap-venues": "Mandap Venues",
+  "vedi-stage-area": "Vedi Stage Area",
+  "nikah-halls": "Nikah Halls",
+  "anand-karaj-gurudwara": "Anand Karaj Gurudwara",
+  "church-wedding-halls": "Church Wedding Halls",
+  "reception-venues": "Reception Venues",
+  "baraat-assembly-area": "Baraat Assembly Area",
+  "parking-grounds": "Parking Grounds",
+
+  // Pre-Wedding Venues subcategories - ADD THESE:
+"roka-venue": "Roka Venue",
+"engagement-hall": "Engagement Hall",
+"haldi-venue": "Haldi Venue",
+"mehendi-venue": "Mehendi Venue",
+"sangeet-banquet": "Sangeet Banquet",
+"cocktail-party-venues": "Cocktail Party Venues",
+"bachelor-bachelorette-venues": "Bachelor/Bachelorette Venues",
+
+// Post-Wedding Venues subcategories - ADD THESE:
+"reception-banquets": "Reception Banquets",
+"walima-venues": "Walima Venues",
+"pagphera-ceremony-venues": "Pagphera Ceremony Venues",
+"home-lawn-venues": "Home Lawn Venues",
+"dining-halls": "Dining Halls",
   };
 
   const categoryImages = {
@@ -71,6 +129,67 @@ export default function AllVenuesPage() {
     "villas-on-rent": "https://i.pinimg.com/736x/95/c3/d4/95c3d47c44f4c52f6528d6f9af552874.jpg",
     "studio-apartments": "https://i.pinimg.com/1200x/6d/60/de/6d60de76f916bcb276d2a033152f0362.jpg",
     "hostels": "https://i.pinimg.com/736x/9c/03/97/9c0397ad9f3000017ecbf3fd38ee6cbf.jpg",
+
+    // Hotel Accommodation category images - OPTIONAL:
+  "hotel-accommodation": "https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg",
+  "5-star-hotels": "https://i.pinimg.com/736x/0d/9b/b2/0d9bb28273c611d58d422ae473454456.jpg",
+  "4-star-hotels": "https://i.pinimg.com/1200x/33/68/f9/3368f983eeafd946d980c91f15c51c20.jpg",
+  "3-star-hotels": "https://i.pinimg.com/1200x/9f/40/f2/9f40f2eb683ab08a3df20f82387e5cfd.jpg",
+  "boutique-hotels": "https://i.pinimg.com/1200x/52/28/25/522825bf91e8e09c848c9e8d783c9873.jpg",
+  "budget-hotels": "https://i.pinimg.com/736x/ed/be/25/edbe25b54256439d445e5a879930ce55.jpg",
+  "serviced-apartments": "https://i.pinimg.com/736x/60/bd/39/60bd394c51249e65e1b1616e1a88ff79.jpg",
+  "executive-rooms-vip": "https://i.pinimg.com/1200x/62/33/7c/62337c6fb4529bb0baec43238f70bdfc.jpg",
+
+  // Resort Accommodation - OPTIONAL:
+  "resort-accommodation": "https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg",
+  "luxury-resorts": "https://i.pinimg.com/1200x/5c/c7/2a/5cc72a923b7e3a2200571bd5348a2c36.jpg",
+  "eco-resorts": "https://i.pinimg.com/736x/7c/32/34/7c3234270d04f784b389c41994920429.jpg",
+  "cottage-stays": "https://i.pinimg.com/1200x/e6/e6/33/e6e6331a6f048bc1f0f26b175ae65a94.jpg",
+  "villa-resorts": "https://i.pinimg.com/736x/8a/ac/cf/8aaccf7dd3bbb14a8923b1a25c7a4658.jpg",
+  "forest-resorts": "https://i.pinimg.com/1200x/58/dd/80/58dd80e47e79d1c9e09dec257a4f90e3.jpg",
+  "beach-resorts": "https://i.pinimg.com/1200x/25/63/61/256361e4e5a74288716bae3b2fb46e99.jpg",
+  "hill-station-resorts": "https://i.pinimg.com/1200x/67/7c/d7/677cd7addce9e1f577df0f307de6ebb0.jpg",
+
+  "wedding-accommodation": "https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg",
+  "baraat-accommodation-block": "https://i.pinimg.com/1200x/85/65/d6/8565d66c8dd90813b4e2a7f5f377032c.jpg",
+  "brides-family-accommodation-block": "https://i.pinimg.com/1200x/e7/c8/42/e7c842ba90aa9a6533de8c0c5974601f.jpg",
+  "grooms-suite": "https://i.pinimg.com/1200x/0f/6e/20/0f6e202acf9c613baabcb50cba0c44a7.jpg",
+  "bridal-makeup-room": "https://i.pinimg.com/1200x/ae/dc/8e/aedc8eaa2ce619473916b184d23aff46.jpg",
+  "grooms-dressing-room": "https://i.pinimg.com/736x/cb/9c/df/cb9cdfa45c963415585167b7e5adcb40.jpg",
+  "vip-guest-rooms": "https://i.pinimg.com/736x/0e/ea/0c/0eea0cb05994e078b9783b79e9e0f879.jpg",
+  "hospitality-lounge": "https://i.pinimg.com/1200x/d6/15/41/d6154123743431057f62ec5b63878747.jpg",
+  "command-center-room": "https://i.pinimg.com/1200x/54/58/38/5458381e70a20a9b209bae3babfe09ea.jpg",
+  "changing-rooms": "https://i.pinimg.com/736x/c2/d8/d6/c2d8d681807bb76f5084e4b6f3f96a57.jpg",
+  "haldi-mehendi-venue-rooms": "https://i.pinimg.com/736x/29/a4/dc/29a4dc8e13b57e7d5803223f29eb0a1f.jpg",
+
+// Main Wedding Venues - ADD THESE:
+  "main-wedding-venues": "https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg",
+  "mandap-venues": "https://i.pinimg.com/736x/4f/d1/2c/4fd12ccf0172a46ef835f6a5c855d28a.jpg",
+  "vedi-stage-area": "https://i.pinimg.com/736x/dd/a3/a5/dda3a57566689c8bd4e2b508531c4480.jpg",
+  "nikah-halls": "https://i.pinimg.com/736x/99/e7/40/99e7405621632e8f1b4ba1d2f4a27684.jpg",
+  "anand-karaj-gurudwara": "https://i.pinimg.com/1200x/7e/2f/7e/7e2f7eeef61ba04b268d0334854e07df.jpg",
+  "church-wedding-halls": "https://i.pinimg.com/736x/4d/88/4d/4d884d2998702c7545bb3c458a372140.jpg",
+  "reception-venues": "https://i.pinimg.com/1200x/68/1d/a5/681da5f9ddfe3c27a23afc8e0748f049.jpg",
+  "baraat-assembly-area": "https://i.pinimg.com/736x/06/73/27/0673271b1c4e41dcd91fb6174e77a51e.jpg",
+  "parking-grounds": "https://i.pinimg.com/736x/99/ac/87/99ac87e2dc715fa9ab80639e303f3b5d.jpg",
+
+  // Pre-Wedding Venues - ADD THESE:
+"pre-wedding-venues": "https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg",
+"roka-venue": "https://i.pinimg.com/736x/b8/2b/ef/b82bef9e2ef633c3a8f93a0d01c0b236.jpg",
+"engagement-hall": "https://i.pinimg.com/736x/f9/10/ee/f910eefd37ac4b65ae695d5a2499778b.jpg",
+"haldi-venue": "https://i.pinimg.com/1200x/db/17/f9/db17f9c69ab3e0acc0dbac3ada0262cd.jpg",
+"mehendi-venue": "https://i.pinimg.com/736x/df/f6/0a/dff60a5173a75d5f2e464b2b62ffe54e.jpg",
+"sangeet-banquet": "https://i.pinimg.com/736x/f9/d3/0f/f9d30f07fc9623c70940b78b1eb34112.jpg",
+"cocktail-party-venues": "https://i.pinimg.com/1200x/08/d2/95/08d2955f0833205a81d1f672528693ee.jpg",
+"bachelor-bachelorette-venues": "https://i.pinimg.com/1200x/b7/43/36/b74336b18b5745505e6c29955189f108.jpg",
+
+// Post-Wedding Venues - ADD THESE:
+"post-wedding-venues": "https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg",
+"reception-banquets": "https://i.pinimg.com/1200x/49/d6/85/49d6859a8ede22c27ff6be4f8145cdb8.jpg",
+"walima-venues": "https://i.pinimg.com/1200x/33/68/f9/3368f983eeafd946d980c91f15c51c20.jpg",
+"pagphera-ceremony-venues": "https://i.pinimg.com/1200x/ed/20/f4/ed20f47675d71323e0eb59499e48c1d7.jpg",
+"home-lawn-venues": "https://i.pinimg.com/736x/6a/a8/c4/6aa8c453890d963aafc60f1aa33a01bb.jpg",
+"dining-halls": "https://i.pinimg.com/736x/da/b3/d7/dab3d7ab973170b6e1d5598a6a30012b.jpg",
   };
 
   const currentTitle = subCategory 
@@ -126,16 +245,27 @@ export default function AllVenuesPage() {
     }
   };
 
-  const handleBackClick = () => {
-    if (subCategory) {
-      // If viewing subcategory, go back to category page
-      router.push(`/venue-and-accommodation/accommodation-types/${category}`);
+const handleBackClick = () => {
+  if (subCategory) {
+    // If viewing subcategory, go back to category page
+    if (category === "main-wedding-venues") {
+      router.push(`/wedding-venues/main-wedding-venues`);
+    } else if (category === "pre-wedding-venues") {
+      router.push(`/wedding-venues/pre-wedding-venues`);
+    } else if (category === "post-wedding-venues") {
+      router.push(`/wedding-venues/post-wedding-venues`);
     } else {
-      // If viewing category, go back to main venue page
+      router.push(`/venue-and-accommodation/accommodation-types/${category}`);
+    }
+  } else {
+    // If viewing category, go back to main page
+    if (category === "main-wedding-venues" || category === "pre-wedding-venues" || category === "post-wedding-venues") {
+      router.push("/wedding-venues");
+    } else {
       router.push("/venue-and-accommodation");
     }
-  };
-
+  }
+};
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -178,38 +308,44 @@ export default function AllVenuesPage() {
       {/* Breadcrumb */}
       <div className="bg-white/80 backdrop-blur-md border-b border-white/20 py-4 px-4">
         <div className="max-w-7xl mx-auto">
-          <nav className="flex items-center space-x-2 text-sm">
-            <button
-              onClick={() => router.push("/")}
-              className="flex items-center gap-1 text-gray-700 hover:text-purple-500 transition-colors cursor-pointer font-medium"
-            >
-              <span className="w-4 h-4">🏠</span>
-              <span>Home</span>
-            </button>
-            <span className="text-gray-400">/</span>
-            <button
-              onClick={() => router.push("/venue-and-accommodation")}
-              className="text-gray-600 hover:text-purple-500 transition-colors cursor-pointer font-medium"
-            >
-              Venues & Accommodation
-            </button>
-            {category && (
-              <>
-                <span className="text-gray-400">/</span>
-                <span className="text-gray-600 font-medium">
-                  {categoryDisplayNames[category]}
-                </span>
-              </>
-            )}
-            {subCategory && (
-              <>
-                <span className="text-gray-400">/</span>
-                <span className="text-purple-500 font-semibold text-base">
-                  {subCategoryDisplayNames[subCategory]}
-                </span>
-              </>
-            )}
-          </nav>
+         <nav className="flex items-center space-x-2 text-sm">
+  <button
+    onClick={() => router.push("/")}
+    className="flex items-center gap-1 text-gray-700 hover:text-purple-500 transition-colors cursor-pointer font-medium"
+  >
+    <span className="w-4 h-4">🏠</span>
+    <span>Home</span>
+  </button>
+  <span className="text-gray-400">/</span>
+ <button
+  onClick={() => router.push(
+    category === "main-wedding-venues" || category === "pre-wedding-venues" || category === "post-wedding-venues"
+      ? "/wedding-venues" 
+      : "/venue-and-accommodation"
+  )}
+  className="text-gray-600 hover:text-purple-500 transition-colors cursor-pointer font-medium"
+>
+  {category === "main-wedding-venues" || category === "pre-wedding-venues" || category === "post-wedding-venues"
+    ? "Wedding Venues" 
+    : "Venues & Accommodation"}
+</button>
+  {category && (
+    <>
+      <span className="text-gray-400">/</span>
+      <span className="text-gray-600 font-medium">
+        {categoryDisplayNames[category]}
+      </span>
+    </>
+  )}
+  {subCategory && (
+    <>
+      <span className="text-gray-400">/</span>
+      <span className="text-purple-500 font-semibold text-base">
+        {subCategoryDisplayNames[subCategory]}
+      </span>
+    </>
+  )}
+</nav>
         </div>
       </div>
 

@@ -105,6 +105,7 @@ const PreWeddingVenuesPage = () => {
           {/* Dark overlay for better text readability */}
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
+
         {/* Content Overlay */}
         <div className="relative h-full flex flex-col items-center justify-center px-4 py-6">
           {/* Main Heading */}
@@ -113,10 +114,12 @@ const PreWeddingVenuesPage = () => {
             <br />
             Before the Big Day
           </h1>
+
           {/* Description */}
           <p className="text-sm md:text-base text-white/90 text-center max-w-xl mb-4 leading-relaxed">
             From intimate roka ceremonies to vibrant sangeet nights, discover the perfect venues for every pre-wedding celebration that makes your journey to marriage unforgettable.
           </p>
+
           {/* Features */}
           <div className="flex flex-wrap gap-3 justify-center mb-4">
             {features.map((feature, index) => (
@@ -129,12 +132,13 @@ const PreWeddingVenuesPage = () => {
               </div>
             ))}
           </div>
+
           {/* Hero Images Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-3xl w-full">
             {heroItems.map((item, index) => (
               <Link
                 key={index}
-                href={`/wedding-venues/all-venues?category=pre-wedding-venues&subCategory=${item.slug}`}
+                href={`/venue-and-accommodation/all-venues?category=pre-wedding-venues&subCategory=${item.slug}`}
                 className="relative group"
               >
                 <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-xl relative">
@@ -156,6 +160,7 @@ const PreWeddingVenuesPage = () => {
               </Link>
             ))}
           </div>
+
           {/* Pagination Dots */}
           <div className="flex gap-2 mt-4">
             <div className="w-1.5 h-1.5 rounded-full bg-white"></div>
@@ -207,16 +212,16 @@ const PreWeddingVenuesPage = () => {
       `}</style>
 
       {/* Featured Collections - Now Clickable */}
-      <div className="container mx-auto px-40 py-16">
+      <div className="container mx-auto px-4 md:px-8 lg:px-40 py-16">
         <h2 className="text-3xl font-bold text-purple-900 mb-8 uppercase tracking-wide">
           Featured Pre-Wedding Venue Categories
         </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mb-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-10">
           {categories.map((category, index) => (
             <Link
               key={index}
-              href={`/wedding-venues/all-venues?category=pre-wedding-venues&subCategory=${category.slug}`}
+              href={`/venue-and-accommodation/all-venues?category=pre-wedding-venues&subCategory=${category.slug}`}
               className="group cursor-pointer"
             >
               <div className="bg-white rounded-lg shadow-md overflow-hidden transform group-hover:scale-105 transition-all duration-300 group-hover:shadow-lg">
@@ -354,7 +359,7 @@ const PreWeddingVenuesPage = () => {
           </p>
           <div className="text-center">
             <Link
-              href="/wedding-venues/all-venues?category=pre-wedding-venues"
+              href="/venue-and-accommodation/all-venues?category=pre-wedding-venues"
               className="bg-purple-900 text-white px-8 py-3 rounded-full hover:bg-purple-800 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block"
             >
               EXPLORE ALL PRE-WEDDING VENUES

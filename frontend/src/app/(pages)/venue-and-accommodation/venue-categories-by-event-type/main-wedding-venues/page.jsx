@@ -146,7 +146,7 @@ const MainWeddingVenuesPage = () => {
             {heroItems.map((item, index) => (
               <Link
                 key={index}
-                href={`/wedding-venues/all-venues?category=main-wedding-venues&subCategory=${item.slug}`}
+                href={`/venue-and-accommodation/all-venues?category=main-wedding-venues&subCategory=${item.slug}`}
                 className="relative group"
               >
                 <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-xl relative">
@@ -220,7 +220,7 @@ const MainWeddingVenuesPage = () => {
       `}</style>
 
       {/* Featured Collections - Now Clickable */}
-      <div className="container mx-auto px-40 py-16">
+      <div className="container mx-auto px-4 md:px-8 lg:px-40 py-16">
         <h2 className="text-3xl font-bold text-purple-900 mb-8 uppercase tracking-wide">
           Featured Wedding Venue Categories
         </h2>
@@ -229,7 +229,7 @@ const MainWeddingVenuesPage = () => {
           {categories.map((category, index) => (
             <Link
               key={index}
-              href={`/wedding-venues/all-venues?category=main-wedding-venues&subCategory=${category.slug}`}
+              href={`/venue-and-accommodation/all-venues?category=main-wedding-venues&subCategory=${category.slug}`}
               className="group cursor-pointer"
             >
               <div className="bg-white rounded-lg shadow-md overflow-hidden transform group-hover:scale-105 transition-all duration-300 group-hover:shadow-lg">
@@ -375,7 +375,7 @@ const MainWeddingVenuesPage = () => {
           </p>
           <div className="text-center">
             <Link
-              href="/wedding-venues/all-venues?category=main-wedding-venues"
+              href="/venue-and-accommodation/all-venues?category=main-wedding-venues"
               className="bg-purple-900 text-white px-8 py-3 rounded-full hover:bg-purple-800 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block"
             >
               EXPLORE ALL WEDDING VENUES
