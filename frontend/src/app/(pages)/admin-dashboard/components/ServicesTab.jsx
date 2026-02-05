@@ -929,7 +929,6 @@ const serviceCategories = [
                 </div>
               </div>
 
-<<<<<<< HEAD
               {/* ✅ SUBCATEGORY - Only show if category has subcategories */}
               {availableSubCategories.length > 0 && (
                 <div className="mt-6">
@@ -953,20 +952,6 @@ const serviceCategories = [
                       </option>
                     ))}
                   </select>
-=======
-              {/* ✅ SUBCATEGORY DISPLAY */}
-              <div className="mt-6 p-5 bg-linear-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-2xl">
-                <label className="block text-sm font-semibold text-green-800 mb-3">
-                  ✅ Sub Category (Auto-filled)
-                </label>
-                <div className="flex items-center gap-3 p-4 bg-white border-2 border-green-100 rounded-xl shadow-sm">
-                  <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
-                    <span className="text-xs font-bold text-white">✓</span>
-                  </div>
-                  <span className="text-lg font-semibold text-gray-900">
-                    {serviceForm.sub_category || "Select category above to auto-fill"}
-                  </span>
->>>>>>> 0f786ad6fa23c13fde3ef7546ce3ede740ea8422
                 </div>
               )}
 
@@ -1446,14 +1431,7 @@ const serviceCategories = [
                 </tr>
               ) : (
                 filteredServices.map((service) => (
-<<<<<<< HEAD
-                  <tr
-                    key={service.id}
-                    className="hover:bg-gradient-to-r hover:from-gray-50 hover:to-blue-50 transition-all duration-200"
-                  >
-=======
                   <tr key={service.id} className="hover:bg-linear-to-r hover:from-gray-50 hover:to-blue-50 transition-all duration-200">
->>>>>>> 0f786ad6fa23c13fde3ef7546ce3ede740ea8422
                     <td className="px-8 py-6">
                       <div className="flex items-center gap-4">
                         {service.images && service.images.length > 0 && (
