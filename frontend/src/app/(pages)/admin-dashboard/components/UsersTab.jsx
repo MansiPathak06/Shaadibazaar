@@ -86,7 +86,7 @@ export default function UsersTab({
       <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-gradient-to-r from-[#3C4CAD] to-[#2A0B8B] text-white">
+            <thead className="bg-linear-to-r from-[#3C4CAD] to-[#2A0B8B] text-white">
               <tr>
                 <th className="px-6 py-4 text-left text-sm font-semibold">ID</th>
                 <th className="px-6 py-4 text-left text-sm font-semibold">Name</th>
@@ -111,7 +111,7 @@ export default function UsersTab({
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white font-semibold">
+                        <div className="w-10 h-10 bg-linear-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white font-semibold">
                           {user.name.charAt(0).toUpperCase()}
                         </div>
                         <span className="font-medium text-gray-900">{user.name}</span>
@@ -172,7 +172,7 @@ export default function UsersTab({
       </div>
 
       {/* Summary Footer */}
-      <div className="mt-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6">
+      <div className="mt-6 bg-linear-to-r from-blue-50 to-indigo-50 rounded-xl p-6">
         <div className="flex items-center justify-between flex-wrap gap-4">
           <div>
             <p className="text-sm text-gray-600 mb-1">Total Registered Users</p>

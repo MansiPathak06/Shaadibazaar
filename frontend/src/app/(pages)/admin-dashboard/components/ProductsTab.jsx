@@ -99,6 +99,7 @@ export default function ProductsTab({
       { value: "bridal-sandals-flats", label: "Bridal Sandals/Flats" },
       { value: "hand-clutch-potli-bag", label: "Hand Clutch/Potli Bag" },
       { value: "bridal-robe-for-makeup", label: "Bridal Robe for Makeup" },
+      
     ],
     "ritual-items": [
     { value: "varmala", label: "Varmala" },
@@ -109,6 +110,7 @@ export default function ProductsTab({
     { value: "groom-kalgi", label: "Groom's Kalgi" },
     { value: "gift-saree-lehenga", label: "Gift Saree/Lehenga" },
     { value: "tilak-plate-items", label: "Tilak Plate Items" },
+
      // Muslim - ADD THESE
   { value: "mehr-amount", label: "Mehr Amount" },
   { value: "quran", label: "Quran" },
@@ -180,7 +182,7 @@ export default function ProductsTab({
               setShowBulkImport(false);
               setEditingProduct(null);
             }}
-            className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#E8A4BC] to-[#F04393] text-white rounded-lg hover:shadow-lg transition-all"
+            className="flex items-center gap-2 px-4 py-2 bg-linear-to-r from-[#E8A4BC] to-[#F04393] text-white rounded-lg hover:shadow-lg transition-all"
           >
             <Plus className="w-5 h-5" />
             Add Product
@@ -515,7 +517,7 @@ export default function ProductsTab({
               <button
                 type="submit"
                 disabled={loading}
-                className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-[#E8A4BC] to-[#F04393] text-white rounded-lg hover:shadow-lg disabled:opacity-50 transition-all"
+                className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-linear-to-r from-[#E8A4BC] to-[#F04393] text-white rounded-lg hover:shadow-lg disabled:opacity-50 transition-all"
               >
                 {loading ? (
                   <>
@@ -577,7 +579,7 @@ export default function ProductsTab({
       <div className="bg-white rounded-xl shadow-md overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-gradient-to-r from-[#E8A4BC]/20 to-[#F04393]/20">
+            <thead className="bg-linear-to-r from-[#E8A4BC]/20 to-[#F04393]/20">
               <tr>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
                   Product

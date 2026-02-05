@@ -106,7 +106,7 @@ export default function EngagementPlanning() {
         </video>
 
         {/* Overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-br from-rose-500/60 via-pink-400/50 to-rose-400/60"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-rose-500/60 via-pink-400/50 to-rose-400/60"></div>
         <div className="absolute inset-0 bg-black/30"></div>
 
         {/* Floating Hearts Animation */}
@@ -148,7 +148,7 @@ export default function EngagementPlanning() {
       </div>
 
       {/* Video Section */}
-      <div className="py-24 px-4 bg-gradient-to-b from-rose-50 to-white">
+      <div className="py-24 px-4 bg-linear-to-b from-rose-50 to-white">
         <div className="max-w-6xl mx-auto">
 
 
@@ -187,7 +187,7 @@ export default function EngagementPlanning() {
                 key={idx}
                 onMouseEnter={() => setActiveService(idx)}
                 className={`p-8 rounded-2xl transition-all duration-300 cursor-pointer ${activeService === idx
-                  ? 'bg-gradient-to-br from-rose-400 to-pink-300 text-white shadow-2xl transform scale-105'
+                  ? 'bg-linear-to-br from-rose-400 to-pink-300 text-white shadow-2xl transform scale-105'
                   : 'bg-rose-50 text-gray-700 hover:shadow-lg'
                   }`}
               >
@@ -203,7 +203,7 @@ export default function EngagementPlanning() {
       </div>
 
       {/* Gallery Section */}
-      <div className="pt-26 px-4 bg-gradient-to-b from-white to-rose-50">
+      <div className="pt-26 px-4 bg-linear-to-b from-white to-rose-50">
         <div className="max-w-6xl mx-auto">
 
           <div className="text-center mb-16">
@@ -260,7 +260,7 @@ export default function EngagementPlanning() {
               <div
                 key={idx}
                 className={`rounded-3xl p-8 transition-all duration-300 ${pkg.popular
-                  ? 'bg-gradient-to-br from-rose-400 to-pink-400 text-white shadow-2xl transform scale-105'
+                  ? 'bg-linear-to-br from-rose-400 to-pink-400 text-white shadow-2xl transform scale-105'
                   : 'bg-rose-50 text-gray-800 hover:shadow-xl'
                   }`}
               >
@@ -276,7 +276,7 @@ export default function EngagementPlanning() {
                 <ul className="space-y-4 mb-8">
                   {pkg.features.map((feature, i) => (
                     <li key={i} className="flex items-start">
-                      <CheckCircle className={`w-6 h-6 mr-3 flex-shrink-0 ${pkg.popular ? 'text-white' : 'text-rose-400'}`} />
+                      <CheckCircle className={`w-6 h-6 mr-3 shrink-0 ${pkg.popular ? 'text-white' : 'text-rose-400'}`} />
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -296,7 +296,7 @@ export default function EngagementPlanning() {
       </div>
 
       {/* Testimonials Section */}
-      <div className="pt-26 pb-20 px-4 bg-gradient-to-b from-rose-50 to-white">
+      <div className="pt-26 pb-20 px-4 bg-linear-to-b from-rose-50 to-white">
         <div className="max-w-6xl mx-auto">
 
           <div className="text-center mb-16">
@@ -326,7 +326,7 @@ export default function EngagementPlanning() {
       </div>
 
       {/* CTA Section */}
-      <div className="py-20 px-4 bg-gradient-to-br from-rose-400 via-pink-400 to-rose-300">
+      <div className="py-20 px-4 bg-linear-to-br from-rose-400 via-pink-400 to-rose-300">
         <div className="max-w-4xl mx-auto text-center">
           <Heart className="w-20 h-20 text-white mx-auto mb-6 animate-pulse" />
           <h2 className="text-5xl font-bold text-white mb-6">

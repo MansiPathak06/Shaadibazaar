@@ -99,7 +99,7 @@ export default function AllServices() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-rose-50 to-pink-50 py-16 px-4">
+    <div className="min-h-screen bg-linear-to-br from-rose-50 to-pink-50 py-16 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-12">
@@ -212,7 +212,7 @@ export default function AllServices() {
                     )}
 
                     <Link href={`/cateringanddecor/all-services/${service.id}`}>
-                      <button className="bg-gradient-to-r from-rose-500 to-pink-500 text-white px-6 py-3 rounded-xl hover:from-rose-600 hover:to-pink-600 w-full font-semibold transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105">
+                      <button className="bg-linear-to-r from-rose-500 to-pink-500 text-white px-6 py-3 rounded-xl hover:from-rose-600 hover:to-pink-600 w-full font-semibold transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105">
                         View Details & Book
                       </button>
                     </Link>

@@ -1,13 +1,19 @@
 "use client";
 import React, { useState, useRef } from "react";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+<<<<<<< HEAD
+import { ChevronLeft, ChevronRight as BreadcrumbArrow, Home } from "lucide-react";
+=======
+import { useRouter } from "next/navigation";
+import { Home, ChevronRight } from "lucide-react";
+>>>>>>> 3cc04b20ed1d998a550991e32d5f6cf86d08862a
 
 const PhotographyMediaVendorsPage = () => {
+  const router = useRouter();
   const sliderRef = useRef(null);
 
   const categories = [
     {
-      id: "traditional",
+      id: "traditional-photography",
       name: "Traditional Photography",
       image:
         "https://i.pinimg.com/1200x/43/bc/b5/43bcb5d61f8287ff8b7b029c8bf09f0e.jpg",
@@ -81,7 +87,7 @@ const PhotographyMediaVendorsPage = () => {
   const vendors = [
     {
       id: 1,
-      category: "traditional",
+      category: "traditional-photography",
       name: "Traditional Photography",
       description:
         "Classic and timeless photography capturing formal portraits and traditional wedding moments with elegance and grace",
@@ -90,7 +96,7 @@ const PhotographyMediaVendorsPage = () => {
     },
     {
       id: 2,
-      category: "candid",
+      category: "candid-photography",
       name: "Candid Photography",
       description:
         "Natural and spontaneous moments captured beautifully, telling your wedding story through genuine emotions and expressions",
@@ -99,7 +105,7 @@ const PhotographyMediaVendorsPage = () => {
     },
     {
       id: 3,
-      category: "drone",
+      category: "drone-camera-operator",
       name: "Drone Camera Operator",
       description:
         "Breathtaking aerial shots and cinematic overhead views that add a stunning perspective to your wedding coverage",
@@ -108,7 +114,7 @@ const PhotographyMediaVendorsPage = () => {
     },
     {
       id: 4,
-      category: "cinematic",
+      category: "cinematic-videography",
       name: "Cinematic Videography",
       description:
         "Hollywood-style wedding films with artistic direction, perfect color grading, and emotional storytelling that feels like a movie",
@@ -117,7 +123,7 @@ const PhotographyMediaVendorsPage = () => {
     },
     {
       id: 5,
-      category: "livestream",
+      category: "livestream-stream",
       name: "LED Live Streaming Team",
       description:
         "Professional live streaming services with LED screens allowing distant loved ones to witness your special moments in real-time",
@@ -126,7 +132,7 @@ const PhotographyMediaVendorsPage = () => {
     },
     {
       id: 6,
-      category: "reel",
+      category: "reel-creator",
       name: "Wedding Reel Creator",
       description:
         "Trendy and engaging wedding reels for social media, capturing highlights in short, shareable, and creative video formats",
@@ -135,7 +141,7 @@ const PhotographyMediaVendorsPage = () => {
     },
     {
       id: 7,
-      category: "editing",
+      category: "editing-vendor",
       name: "Photo Editing & Album Vendor",
       description:
         "Professional post-production services with retouching, color correction, and beautifully designed albums to treasure forever",
@@ -171,25 +177,33 @@ const PhotographyMediaVendorsPage = () => {
     },
   ];
 
-  const scrollSlider = (direction) => {
-    if (sliderRef.current) {
-      const scrollAmount = 200;
-      sliderRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
-    }
+  const handleCategoryClick = (categoryId) => {
+    router.push(`/wedding-vendors/${categoryId}`);
   };
 
-  const handleCategoryClick = (link) => {
-    // In Next.js, you would use: router.push(link)
-    console.log("Navigate to:", link);
-    // For now, just showing an alert
-    alert(`Navigating to ${link}`);
+  const handleViewAllClick = (categoryId) => {
+    router.push(`/wedding-vendors/${categoryId}`);
   };
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white border-b border-gray-200 py-3 px-4">
+        <div className="max-w-7xl mx-auto">
+          <nav className="flex items-center space-x-2 text-sm">
+            <button
+              onClick={() => router.push('/')}
+              className="flex items-center gap-1 text-gray-600 hover:text-rose-500 transition-colors cursor-pointer"
+            >
+              <Home className="w-4 h-4" />
+              <span>Home</span>
+            </button>
+            <ChevronRight className="w-4 h-4 text-gray-400" />
+            <span className="text-gray-900 font-medium">Photography & Media Vendors</span>
+          </nav>
+        </div>
+      </div>
+
       {/* Hero Banner with Video Background */}
       <div className="relative h-[50vh] overflow-hidden">
         <video
@@ -204,9 +218,9 @@ const PhotographyMediaVendorsPage = () => {
             type="video/mp4"
           />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-black/60 via-black/40 to-black/60"></div>
         <div className="relative h-full flex flex-col items-center justify-center text-white px-4 z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-2 text-center drop-shadow-lg">
+          <h1 className="text-4xl md:text-6xl font-medium uppercase mb-2 text-center drop-shadow-lg">
             Photography & Media Vendors
           </h1>
           <p className="text-lg md:text-xl text-center max-w-2xl drop-shadow-md">
@@ -228,8 +242,13 @@ const PhotographyMediaVendorsPage = () => {
                 {categories.map((cat) => (
                   <button
                     key={`original-${cat.id}`}
+<<<<<<< HEAD
                     onClick={() => handleCategoryClick(cat.link)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item"
+                    className="flex flex-col items-center min-w-27.5 shrink-0 transition-all hover:scale-105 group/item"
+=======
+                    onClick={() => handleCategoryClick(cat.id)}
+                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
+>>>>>>> 3cc04b20ed1d998a550991e32d5f6cf86d08862a
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-rose-300">
                       <img
@@ -248,8 +267,13 @@ const PhotographyMediaVendorsPage = () => {
                 {categories.map((cat) => (
                   <button
                     key={`duplicate-${cat.id}`}
+<<<<<<< HEAD
                     onClick={() => handleCategoryClick(cat.link)}
-                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item"
+                    className="flex flex-col items-center min-w-27.5 shrink-0 transition-all hover:scale-105 group/item"
+=======
+                    onClick={() => handleCategoryClick(cat.id)}
+                    className="flex flex-col items-center min-w-[110px] flex-shrink-0 transition-all hover:scale-105 group/item cursor-pointer"
+>>>>>>> 3cc04b20ed1d998a550991e32d5f6cf86d08862a
                   >
                     <div className="relative w-24 h-24 rounded-full overflow-hidden mb-3 shadow-md group-hover/item:shadow-xl transition-all border-4 border-white group-hover/item:border-rose-300">
                       <img
@@ -266,6 +290,22 @@ const PhotographyMediaVendorsPage = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className="bg-white border-b border-gray-200 py-3 px-4">
+        <div className="max-w-7xl mx-auto">
+          <nav className="flex items-center space-x-2 text-sm">
+            <button
+              onClick={() => router.push('/')}
+              className="flex items-center gap-1 text-gray-600 hover:text-rose-500 transition-colors cursor-pointer"
+            >
+              <Home className="w-4 h-4" />
+              <span>Home</span>
+            </button>
+            <BreadcrumbArrow className="w-4 h-4 text-gray-400" />
+            <span className="text-rose-500 font-medium text-lg">Photography & Media Vendors</span>
+          </nav>
         </div>
       </div>
 
@@ -300,7 +340,14 @@ const PhotographyMediaVendorsPage = () => {
                 </div>
 
                 {/* Button stays at bottom */}
-                <button className="w-full mt-6 bg-gradient-to-r from-rose-400 to-pink-500 text-white py-3 rounded-lg hover:from-rose-500 hover:to-pink-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg">
+<<<<<<< HEAD
+                <button className="w-full mt-6 bg-linear-to-r from-rose-400 to-pink-500 text-white py-3 rounded-lg hover:from-rose-500 hover:to-pink-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg">
+=======
+                <button 
+                  onClick={() => handleViewAllClick(vendor.category)}
+                  className="w-full mt-6 bg-gradient-to-r from-rose-400 to-pink-500 text-white py-3 rounded-lg hover:from-rose-500 hover:to-pink-600 transition-all duration-300 font-medium shadow-md hover:shadow-lg cursor-pointer"
+                >
+>>>>>>> 3cc04b20ed1d998a550991e32d5f6cf86d08862a
                   View All →
                 </button>
               </div>

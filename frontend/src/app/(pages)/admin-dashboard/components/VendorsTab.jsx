@@ -88,7 +88,7 @@ export default function VendorsTab({
       <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-gradient-to-r from-[#F9C449] to-[#F04393] text-white">
+            <thead className="bg-linear-to-r from-[#F9C449] to-[#F04393] text-white">
               <tr>
                 <th className="px-6 py-4 text-left text-sm font-semibold">ID</th>
                 <th className="px-6 py-4 text-left text-sm font-semibold">Business Name</th>
@@ -114,7 +114,7 @@ export default function VendorsTab({
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-orange-600 rounded-full flex items-center justify-center text-white font-semibold">
+                        <div className="w-10 h-10 bg-linear-to-br from-yellow-400 to-orange-600 rounded-full flex items-center justify-center text-white font-semibold">
                           {vendor.business_name ? vendor.business_name.charAt(0).toUpperCase() : 'V'}
                         </div>
                         <div>
@@ -147,7 +147,7 @@ export default function VendorsTab({
                     <td className="px-6 py-4">
                       {vendor.address ? (
                         <div className="flex items-start gap-2">
-                          <MapPin className="w-4 h-4 text-gray-400 mt-0.5 flex-shrink-0" />
+                          <MapPin className="w-4 h-4 text-gray-400 mt-0.5 shrink-0" />
                           <span className="text-sm text-gray-700 line-clamp-2">
                             {vendor.address}
                           </span>
@@ -214,7 +214,7 @@ export default function VendorsTab({
       </div>
 
       {/* Summary Footer */}
-      <div className="mt-6 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl p-6">
+      <div className="mt-6 bg-linear-to-r from-yellow-50 to-orange-50 rounded-xl p-6">
         <div className="flex items-center justify-between flex-wrap gap-4">
           <div>
             <p className="text-sm text-gray-600 mb-1">Total Vendors</p>
@@ -242,7 +242,7 @@ export default function VendorsTab({
       {pendingVendors.length > 0 && (
         <div className="mt-6 bg-orange-50 border-l-4 border-orange-500 p-4 rounded-xl">
           <div className="flex items-center gap-3">
-            <XCircle className="w-5 h-5 text-orange-500 flex-shrink-0" />
+            <XCircle className="w-5 h-5 text-orange-500 shrink-0" />
             <div>
               <p className="font-medium text-orange-900">
                 {pendingVendors.length} vendor{pendingVendors.length > 1 ? 's' : ''} awaiting approval

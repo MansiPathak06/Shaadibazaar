@@ -123,7 +123,7 @@ export default function AdminDashboard() {
       }`}
       style={{
         background: selectedMetric === title
-          ? `linear-gradient(135deg, ${color}40 0%, ${color}20 100%)`
+          ? `linear-linear(135deg, ${color}40 0%, ${color}20 100%)`
           : color
       }}
     >
@@ -175,13 +175,13 @@ export default function AdminDashboard() {
     <div className="flex h-screen bg-[#E8E6DC] font-sans">
       
       {/* Enhanced Sidebar */}
-      <div className={`${isCollapsed ? 'w-20' : 'w-64'} bg-gradient-to-b from-[#2C2C2C] to-[#1F1F1F] text-white flex flex-col overflow-hidden transition-all duration-300 ease-in-out shadow-2xl`}>
+      <div className={`${isCollapsed ? 'w-20' : 'w-64'} bg-linear-to-b from-[#2C2C2C] to-[#1F1F1F] text-white flex flex-col overflow-hidden transition-all duration-300 ease-in-out shadow-2xl`}>
         
         {/* Sidebar Header */}
-        <div className="p-6 sticky top-0 bg-gradient-to-b from-[#2C2C2C] via-[#2C2C2C] to-transparent z-50">
+        <div className="p-6 sticky top-0 bg-linear-to-b from-[#2C2C2C] via-[#2C2C2C] to-transparent z-50">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-[#5B5FED] to-[#3D3FBF] rounded-lg flex items-center justify-center hover:shadow-lg transition-shadow">
+              <div className="w-10 h-10 bg-linear-to-br from-[#5B5FED] to-[#3D3FBF] rounded-lg flex items-center justify-center hover:shadow-lg transition-shadow">
                 <ShoppingCart className="w-5 h-5 text-white" />
               </div>
               {!isCollapsed && (
@@ -202,9 +202,9 @@ export default function AdminDashboard() {
 
           {/* User Profile Card */}
           {!isCollapsed && (
-            <div className="bg-gradient-to-r from-[#5B5FED]/20 to-[#3D3FBF]/20 rounded-xl p-4 mb-6 border border-[#5B5FED]/30 hover:border-[#5B5FED]/60 transition-all">
+            <div className="bg-linear-to-r from-[#5B5FED]/20 to-[#3D3FBF]/20 rounded-xl p-4 mb-6 border border-[#5B5FED]/30 hover:border-[#5B5FED]/60 transition-all">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center text-lg font-bold hover:shadow-lg transition-shadow">
+                <div className="w-12 h-12 bg-linear-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center text-lg font-bold hover:shadow-lg transition-shadow">
                   👤
                 </div>
                 <div className="flex-1">
@@ -213,7 +213,7 @@ export default function AdminDashboard() {
                 </div>
                 <Bell className="w-4 h-4 text-gray-400 hover:text-white cursor-pointer transition-colors" />
               </div>
-              <div className="h-1 bg-gradient-to-r from-[#5B5FED] to-transparent rounded-full"></div>
+              <div className="h-1 bg-linear-to-r from-[#5B5FED] to-transparent rounded-full"></div>
             </div>
           )}
 
@@ -261,15 +261,15 @@ export default function AdminDashboard() {
                         onClick={() => setActiveTab(item.name)}
                         className={`w-full flex items-center gap-3 px-3 py-3 rounded-lg transition-all duration-200 group relative ${
                           activeTab === item.name
-                            ? 'bg-gradient-to-r from-[#5B5FED] to-[#3D3FBF] text-white shadow-lg shadow-[#5B5FED]/30'
+                            ? 'bg-linear-to-r from-[#5B5FED] to-[#3D3FBF] text-white shadow-lg shadow-[#5B5FED]/30'
                             : 'text-gray-400 hover:bg-gray-700/50 hover:text-gray-200'
                         }`}
                       >
                         {activeTab === item.name && (
-                          <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-white to-transparent rounded-r-lg"></div>
+                          <div className="absolute left-0 top-0 bottom-0 w-1 bg-linear-to-b from-white to-transparent rounded-r-lg"></div>
                         )}
 
-                        <item.icon className={`w-5 h-5 flex-shrink-0 transition-transform ${activeTab === item.name ? 'scale-110' : 'group-hover:scale-110'}`} />
+                        <item.icon className={`w-5 h-5 shrink-0 transition-transform ${activeTab === item.name ? 'scale-110' : 'group-hover:scale-110'}`} />
 
                         {!isCollapsed && (
                           <>
@@ -302,7 +302,7 @@ export default function AdminDashboard() {
         {/* Logout Button */}
         <div className="p-3 border-t border-gray-700">
           <button className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 hover:bg-red-500/10 hover:text-red-400 transition-all duration-200 group ${isCollapsed ? 'justify-center' : ''}`}>
-            <LogOut className="w-5 h-5 flex-shrink-0 group-hover:rotate-180 transition-transform duration-300" />
+            <LogOut className="w-5 h-5 shrink-0 group-hover:rotate-180 transition-transform duration-300" />
             {!isCollapsed && <span className="text-sm font-medium">Log Out</span>}
           </button>
         </div>
@@ -325,7 +325,7 @@ export default function AdminDashboard() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 overflow-auto bg-gradient-to-br from-[#F8F9FB] to-[#E8E6DC]">
+      <div className="flex-1 overflow-auto bg-linear-to-br from-[#F8F9FB] to-[#E8E6DC]">
         <div className="p-8">
           
           {/* Header Section */}
@@ -404,7 +404,7 @@ export default function AdminDashboard() {
               color="#E3F2FD"
               onClick={() => setSelectedMetric('Total Users')}
             />
-            <div className="bg-gradient-to-br from-[#5B5FED] to-[#3D3FBF] rounded-2xl p-6 flex flex-col justify-between hover:shadow-xl transition-all cursor-pointer transform hover:scale-105">
+            <div className="bg-linear-to-br from-[#5B5FED] to-[#3D3FBF] rounded-2xl p-6 flex flex-col justify-between hover:shadow-xl transition-all cursor-pointer transform hover:scale-105">
               <div>
                 <p className="text-sm text-white/80 mb-2">Upgrade</p>
                 <p className="text-xs text-white/70">Unlock powerful tools and opportunities</p>
@@ -446,13 +446,13 @@ export default function AdminDashboard() {
                     )}
 
                     <div
-                      className={`w-full bg-gradient-to-t from-[#5B5FED] to-[#7E82F5] rounded-t-lg relative transition-all duration-300 ${
+                      className={`w-full bg-linear-to-t from-[#5B5FED] to-[#7E82F5] rounded-t-lg relative transition-all duration-300 ${
                         hoveredBar === index ? 'shadow-lg scale-105' : ''
                       }`}
                       style={{ height: `${bar.height}%` }}
                     >
                       {hoveredBar === index && (
-                        <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-[#5B5FED] to-[#3D3FBF] text-white px-3 py-1 rounded-lg text-xs font-semibold whitespace-nowrap shadow-lg">
+                        <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-linear-to-r from-[#5B5FED] to-[#3D3FBF] text-white px-3 py-1 rounded-lg text-xs font-semibold whitespace-nowrap shadow-lg">
                           Peak: ${(Math.random() * 50000 + 30000).toFixed(0)}
                         </div>
                       )}
@@ -493,7 +493,7 @@ export default function AdminDashboard() {
                     cx="64"
                     cy="64"
                     r="56"
-                    stroke="url(#gradient)"
+                    stroke="url(#linear)"
                     strokeWidth="12"
                     fill="none"
                     strokeDasharray="220"
@@ -501,10 +501,10 @@ export default function AdminDashboard() {
                     className="transition-all duration-500"
                   />
                   <defs>
-                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <linearlinear id="linear" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" stopColor="#5B5FED" />
                       <stop offset="100%" stopColor="#3D3FBF" />
-                    </linearGradient>
+                    </linearlinear>
                   </defs>
                 </svg>
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -549,10 +549,10 @@ export default function AdminDashboard() {
                 {filteredSales.map((sale, index) => (
                   <div
                     key={index}
-                    className="flex items-center justify-between p-3 hover:bg-gradient-to-r hover:from-[#5B5FED]/5 hover:to-transparent rounded-lg transition-all cursor-pointer group"
+                    className="flex items-center justify-between p-3 hover:bg-linear-to-r hover:from-[#5B5FED]/5 hover:to-transparent rounded-lg transition-all cursor-pointer group"
                   >
                     <div className="flex items-center gap-3 flex-1 min-w-0">
-                      <div className="w-10 h-10 bg-gradient-to-br from-[#5B5FED] to-[#3D3FBF] rounded-full flex items-center justify-center text-lg flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <div className="w-10 h-10 bg-linear-to-br from-[#5B5FED] to-[#3D3FBF] rounded-full flex items-center justify-center text-lg shrink-0 group-hover:scale-110 transition-transform">
                         {sale.img}
                       </div>
                       <div className="min-w-0">
@@ -605,11 +605,11 @@ export default function AdminDashboard() {
                     {filteredOrders.map((order, index) => (
                       <tr
                         key={index}
-                        className="border-b border-gray-100 hover:bg-gradient-to-r hover:from-[#5B5FED]/5 hover:to-transparent transition-all duration-200 group cursor-pointer"
+                        className="border-b border-gray-100 hover:bg-linear-to-r hover:from-[#5B5FED]/5 hover:to-transparent transition-all duration-200 group cursor-pointer"
                       >
                         <td className="py-4 px-4">
                           <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center text-sm font-bold text-white flex-shrink-0">
+                            <div className="w-10 h-10 bg-linear-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center text-sm font-bold text-white shrink-0">
                               {order.img}
                             </div>
                             <span className="text-sm font-semibold text-gray-900 group-hover:text-[#5B5FED] transition-colors">

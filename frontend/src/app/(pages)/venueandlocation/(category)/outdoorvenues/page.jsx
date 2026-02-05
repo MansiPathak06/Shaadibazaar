@@ -53,12 +53,12 @@ function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-emerald-50 via-white to-rose-50 overflow-hidden">
+    <section className="relative min-h-screen bg-linear-to-br from-emerald-50 via-white to-rose-50 overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 sm:top-20 left-5 sm:left-10 w-48 sm:w-72 h-48 sm:h-72 bg-gradient-to-r from-leaf to-emerald-300 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-10 sm:bottom-20 right-5 sm:right-10 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-r from-rose-200 to-pink-300 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-56 sm:w-80 h-56 sm:h-80 bg-gradient-to-r from-amber-200 to-yellow-300 rounded-full blur-3xl animate-pulse delay-500"></div>
+        <div className="absolute top-10 sm:top-20 left-5 sm:left-10 w-48 sm:w-72 h-48 sm:h-72 bg-linear-to-r from-leaf to-emerald-300 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-10 sm:bottom-20 right-5 sm:right-10 w-64 sm:w-96 h-64 sm:h-96 bg-linear-to-r from-rose-200 to-pink-300 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-56 sm:w-80 h-56 sm:h-80 bg-linear-to-r from-amber-200 to-yellow-300 rounded-full blur-3xl animate-pulse delay-500"></div>
       </div>
 
       {/* Main hero image with modern overlay */}
@@ -69,7 +69,7 @@ function Hero() {
           className="h-full w-full object-cover"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-r from-black/60 via-black/30 to-transparent" />
 
         {/* Floating decorative elements */}
         <div className="absolute top-1/4 right-1/4 animate-float">
@@ -101,7 +101,7 @@ function Hero() {
                 <span className="block">
                   {HERO.title.split(" ").slice(0, 2).join(" ")}
                 </span>
-                <span className="block bg-gradient-to-r from-white via-emerald-100 to-rose-100 bg-clip-text text-transparent">
+                <span className="block bg-linear-to-r from-white via-emerald-100 to-rose-100 bg-clip-text text-transparent">
                   {HERO.title.split(" ").slice(2).join(" ")}
                 </span>
               </h1>
@@ -130,10 +130,10 @@ function Hero() {
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
                 <a
                   href={HERO.ctas[0].to}
-                  className="group relative inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-light rounded-full bg-gradient-to-r from-leaf to-emerald-600 text-white shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 overflow-hidden"
+                  className="group relative inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-light rounded-full bg-linear-to-r from-leaf to-emerald-600 text-white shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 overflow-hidden"
                 >
                   <span className="relative z-10">{HERO.ctas[0].label}</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-leaf opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-linear-to-r from-emerald-600 to-leaf opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </a>
                 <a
                   href={HERO.ctas[1].to}
@@ -225,12 +225,12 @@ function Stats() {
   ];
 
   return (
-    <section className="relative pt-16 sm:pt-20 lg:pt-30 bg-gradient-to-br from-slate-50 via-white to-blue-50 overflow-hidden">
+    <section className="relative pt-16 sm:pt-20 lg:pt-30 bg-linear-to-br from-slate-50 via-white to-blue-50 overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-10 left-10 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-r from-pink-200 to-purple-200 rounded-full blur-2xl animate-pulse"></div>
-        <div className="absolute bottom-10 right-10 w-32 sm:w-40 h-32 sm:h-40 bg-gradient-to-r from-blue-200 to-indigo-200 rounded-full blur-2xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-36 sm:w-48 h-36 sm:h-48 bg-gradient-to-r from-emerald-200 to-teal-200 rounded-full blur-3xl animate-pulse delay-500"></div>
+        <div className="absolute top-10 left-10 w-24 sm:w-32 h-24 sm:h-32 bg-linear-to-r from-pink-200 to-purple-200 rounded-full blur-2xl animate-pulse"></div>
+        <div className="absolute bottom-10 right-10 w-32 sm:w-40 h-32 sm:h-40 bg-linear-to-r from-blue-200 to-indigo-200 rounded-full blur-2xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-36 sm:w-48 h-36 sm:h-48 bg-linear-to-r from-emerald-200 to-teal-200 rounded-full blur-3xl animate-pulse delay-500"></div>
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -254,9 +254,9 @@ function Stats() {
         {/* Bottom decoration */}
         <div className="flex justify-center mt-12 sm:mt-16">
           <div className="flex items-center gap-2 text-gray-400">
-            <div className="w-12 sm:w-16 h-px bg-gradient-to-r from-transparent to-gray-300"></div>
+            <div className="w-12 sm:w-16 h-px bg-linear-to-r from-transparent to-gray-300"></div>
             <Star className="w-4 h-4 fill-current" />
-            <div className="w-12 sm:w-16 h-px bg-gradient-to-l from-transparent to-gray-300"></div>
+            <div className="w-12 sm:w-16 h-px bg-linear-to-l from-transparent to-gray-300"></div>
           </div>
         </div>
       </div>
@@ -331,15 +331,15 @@ function StatCard({ stat, index }) {
     >
       {/* Card */}
       <div className="relative h-full bg-white/70 backdrop-blur-xl border border-white/30 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:bg-white/80">
-        {/* Gradient border effect */}
+        {/* linear border effect */}
         <div
-          className={`absolute inset-0 bg-gradient-to-r ${stat.color} rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-sm`}
+          className={`absolute inset-0 bg-linear-to-r ${stat.color} rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-sm`}
         ></div>
 
         {/* Icon with floating animation */}
         <div className="relative mb-4 sm:mb-6">
           <div
-            className={`inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-r ${stat.color} shadow-lg group-hover:scale-110 transition-transform duration-300`}
+            className={`inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-linear-to-r ${stat.color} shadow-lg group-hover:scale-110 transition-transform duration-300`}
           >
             <IconComponent
               className="w-6 h-6 sm:w-8 sm:h-8 text-white"
@@ -349,19 +349,19 @@ function StatCard({ stat, index }) {
 
           {/* Floating particles */}
           <div className="absolute -top-1 -right-1 w-2 sm:w-3 h-2 sm:h-3 bg-white rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping"></div>
-          <div className="absolute -bottom-1 -left-1 w-1.5 sm:w-2 h-1.5 sm:h-2 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-pulse"></div>
+          <div className="absolute -bottom-1 -left-1 w-1.5 sm:w-2 h-1.5 sm:h-2 bg-linear-to-r from-pink-400 to-purple-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-pulse"></div>
         </div>
 
         {/* Counter */}
         <div className="text-center">
           <div className="flex items-baseline justify-center mb-2">
             <span
-              className={`text-4xl lg:text-5xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`}
+              className={`text-4xl lg:text-5xl font-bold bg-linear-to-r ${stat.color} bg-clip-text text-transparent`}
             >
               {count}
             </span>
             <span
-              className={`text-2xl lg:text-3xl font-light bg-gradient-to-r ${stat.color} bg-clip-text text-transparent ml-1`}
+              className={`text-2xl lg:text-3xl font-light bg-linear-to-r ${stat.color} bg-clip-text text-transparent ml-1`}
             >
               {stat.suffix}
             </span>
@@ -374,7 +374,7 @@ function StatCard({ stat, index }) {
           {/* Progress bar */}
           <div className="w-full bg-gray-100 rounded-full h-1 mt-3 sm:mt-4">
             <div
-              className={`h-1 bg-gradient-to-r ${stat.color} rounded-full transition-all duration-1000 ease-out`}
+              className={`h-1 bg-linear-to-r ${stat.color} rounded-full transition-all duration-1000 ease-out`}
               style={{
                 width: isVisible ? "100%" : "0%",
                 transitionDelay: `${index * 200 + 500}ms`,
@@ -385,7 +385,7 @@ function StatCard({ stat, index }) {
 
         {/* Hover glow effect */}
         <div
-          className={`absolute inset-0 bg-gradient-to-r ${stat.color} rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+          className={`absolute inset-0 bg-linear-to-r ${stat.color} rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
         ></div>
       </div>
     </div>
@@ -398,52 +398,52 @@ function Highlights() {
       title: "Scenic and spacious venues",
       desc: "Open lawns, garden aisles, and elegant outdoor stages for every scale.",
       icon: Flower2,
-      gradient: "from-pink-500 via-rose-500 to-red-500",
-      bgGradient: "from-pink-50 to-rose-50",
+      linear: "from-pink-500 via-rose-500 to-red-500",
+      bglinear: "from-pink-50 to-rose-50",
     },
     {
       title: "Elegant décor customization",
       desc: "Floral arches, fairy lights, and thematic setups tailored to your vision.",
       icon: Sparkles,
-      gradient: "from-purple-500 via-violet-500 to-indigo-500",
-      bgGradient: "from-purple-50 to-violet-50",
+      linear: "from-purple-500 via-violet-500 to-indigo-500",
+      bglinear: "from-purple-50 to-violet-50",
     },
     {
       title: "Seamless event coordination",
       desc: "Vendor management, timelines, and guest flow handled end‑to‑end.",
       icon: Target,
-      gradient: "from-blue-500 via-cyan-500 to-teal-500",
-      bgGradient: "from-blue-50 to-cyan-50",
+      linear: "from-blue-500 via-cyan-500 to-teal-500",
+      bglinear: "from-blue-50 to-cyan-50",
     },
     {
       title: "Picture‑perfect lighting",
       desc: "Golden‑hour planning and professional lighting rigs for stunning visuals.",
       icon: Lightbulb,
-      gradient: "from-amber-500 via-yellow-500 to-orange-500",
-      bgGradient: "from-amber-50 to-yellow-50",
+      linear: "from-amber-500 via-yellow-500 to-orange-500",
+      bglinear: "from-amber-50 to-yellow-50",
     },
     {
       title: "Weddings to soirées",
       desc: "Designed for weddings, engagements, receptions, parties, and more.",
       icon: Eye,
-      gradient: "from-emerald-500 via-green-500 to-lime-500",
-      bgGradient: "from-emerald-50 to-green-50",
+      linear: "from-emerald-500 via-green-500 to-lime-500",
+      bglinear: "from-emerald-50 to-green-50",
     },
     {
       title: "Weather contingency plans",
       desc: "Elegant tent options and covered areas to ensure your event goes perfectly.",
       icon: Umbrella,
-      gradient: "from-slate-500 via-gray-500 to-zinc-500",
-      bgGradient: "from-slate-50 to-gray-50",
+      linear: "from-slate-500 via-gray-500 to-zinc-500",
+      bglinear: "from-slate-50 to-gray-50",
     },
   ];
 
   return (
-    <section className="relative bg-gradient-to-br from-white via-gray-50 to-blue-50 overflow-hidden">
+    <section className="relative bg-linear-to-br from-white via-gray-50 to-blue-50 overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-10 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-r from-purple-300 to-pink-300 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-56 sm:w-80 h-56 sm:h-80 bg-gradient-to-r from-blue-300 to-indigo-300 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-20 left-10 w-64 sm:w-96 h-64 sm:h-96 bg-linear-to-r from-purple-300 to-pink-300 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-56 sm:w-80 h-56 sm:h-80 bg-linear-to-r from-blue-300 to-indigo-300 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
@@ -509,14 +509,14 @@ function HighlightCard({ highlight, index }) {
     >
       {/* Glassmorphism Card */}
       <div className="relative h-full bg-white/60 backdrop-blur-xl border border-white/30 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:bg-white/70 overflow-hidden">
-        {/* Gradient background overlay */}
+        {/* linear background overlay */}
         <div
-          className={`absolute inset-0 bg-gradient-to-br ${highlight.bgGradient} opacity-0 group-hover:opacity-30 transition-all duration-500 rounded-2xl sm:rounded-3xl`}
+          className={`absolute inset-0 bg-linear-to-br ${highlight.bglinear} opacity-0 group-hover:opacity-30 transition-all duration-500 rounded-2xl sm:rounded-3xl`}
         ></div>
 
         {/* Animated border glow */}
         <div
-          className={`absolute inset-0 bg-gradient-to-r ${highlight.gradient} rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 -z-10 blur-sm`}
+          className={`absolute inset-0 bg-linear-to-r ${highlight.linear} rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 -z-10 blur-sm`}
         ></div>
 
         {/* Floating particles */}
@@ -524,13 +524,13 @@ function HighlightCard({ highlight, index }) {
           <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-white rounded-full animate-ping"></div>
         </div>
         <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-          <div className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full animate-pulse"></div>
+          <div className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-linear-to-r from-pink-400 to-purple-400 rounded-full animate-pulse"></div>
         </div>
 
         {/* Icon with enhanced styling */}
         <div className="relative mb-4 sm:mb-6">
           <div
-            className={`inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-r ${highlight.gradient} shadow-lg group-hover:scale-110 transition-all duration-300`}
+            className={`inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-linear-to-r ${highlight.linear} shadow-lg group-hover:scale-110 transition-all duration-300`}
           >
             <IconComponent
               className="w-6 h-6 sm:w-8 sm:h-8 text-white"
@@ -540,7 +540,7 @@ function HighlightCard({ highlight, index }) {
 
           {/* Icon glow effect */}
           <div
-            className={`absolute inset-0 w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-r ${highlight.gradient} opacity-0 group-hover:opacity-40 blur-lg transition-opacity duration-300`}
+            className={`absolute inset-0 w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-linear-to-r ${highlight.linear} opacity-0 group-hover:opacity-40 blur-lg transition-opacity duration-300`}
           ></div>
         </div>
 
@@ -557,7 +557,7 @@ function HighlightCard({ highlight, index }) {
         {/* Progress indicator */}
         <div className="absolute bottom-0 left-0 w-full h-1 bg-gray-100 rounded-b-2xl sm:rounded-b-3xl overflow-hidden">
           <div
-            className={`h-full bg-gradient-to-r ${highlight.gradient} transition-all duration-1000 ease-out`}
+            className={`h-full bg-linear-to-r ${highlight.linear} transition-all duration-1000 ease-out`}
             style={{
               width: isVisible ? "100%" : "0%",
               transitionDelay: `${index * 100 + 300}ms`,
@@ -594,8 +594,8 @@ function Categories() {
       ],
       priceRange: "$$",
       priceLevel: 2,
-      gradient: "from-pink-500 via-rose-500 to-red-500",
-      bgGradient: "from-pink-50 to-rose-50",
+      linear: "from-pink-500 via-rose-500 to-red-500",
+      bglinear: "from-pink-50 to-rose-50",
       image:
         "https://images.unsplash.com/photo-1469371670807-013ccf25f16e?q=80&w=1200&auto=format&fit=crop",
     },
@@ -612,8 +612,8 @@ function Categories() {
       ],
       priceRange: "$$$",
       priceLevel: 3,
-      gradient: "from-purple-500 via-violet-500 to-indigo-500",
-      bgGradient: "from-purple-50 to-violet-50",
+      linear: "from-purple-500 via-violet-500 to-indigo-500",
+      bglinear: "from-purple-50 to-violet-50",
       image:
         "https://images.unsplash.com/photo-1574800457230-80c1ec54b0fb?q=80&w=1200&auto=format&fit=crop",
     },
@@ -626,8 +626,8 @@ function Categories() {
       features: ["Ocean views", "Sunset ceremonies", "Beach activities"],
       priceRange: "$$$",
       priceLevel: 3,
-      gradient: "from-blue-500 via-cyan-500 to-teal-500",
-      bgGradient: "from-blue-50 to-cyan-50",
+      linear: "from-blue-500 via-cyan-500 to-teal-500",
+      bglinear: "from-blue-50 to-cyan-50",
       image:
         "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1200&auto=format&fit=crop",
     },
@@ -640,8 +640,8 @@ function Categories() {
       features: ["Rustic décor", "Farm-to-table dining", "Cozy fire pits"],
       priceRange: "$$",
       priceLevel: 2,
-      gradient: "from-amber-500 via-yellow-500 to-orange-500",
-      bgGradient: "from-amber-50 to-yellow-50",
+      linear: "from-amber-500 via-yellow-500 to-orange-500",
+      bglinear: "from-amber-50 to-yellow-50",
       image:
         "https://images.unsplash.com/photo-1560184897-43d0b1a3a3c7?q=80&w=1200&auto=format&fit=crop",
     },
@@ -658,8 +658,8 @@ function Categories() {
       ],
       priceRange: "$$$$",
       priceLevel: 4,
-      gradient: "from-emerald-500 via-green-500 to-lime-500",
-      bgGradient: "from-emerald-50 to-green-50",
+      linear: "from-emerald-500 via-green-500 to-lime-500",
+      bglinear: "from-emerald-50 to-green-50",
       image:
         "https://images.unsplash.com/photo-1501117716987-c8e2aee3f227?q=80&w=1200&auto=format&fit=crop",
     },
@@ -672,8 +672,8 @@ function Categories() {
       features: ["Wine tastings", "Vineyard tours", "Scenic hill views"],
       priceRange: "$$$",
       priceLevel: 3,
-      gradient: "from-violet-500 via-purple-500 to-fuchsia-500",
-      bgGradient: "from-violet-50 to-purple-50",
+      linear: "from-violet-500 via-purple-500 to-fuchsia-500",
+      bglinear: "from-violet-50 to-purple-50",
       image:
         "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1200&auto=format&fit=crop",
     },
@@ -682,13 +682,13 @@ function Categories() {
   return (
     <section
       id="venues"
-      className="relative bg-gradient-to-br from-gray-50 via-white to-indigo-50 overflow-hidden"
+      className="relative bg-linear-to-br from-gray-50 via-white to-indigo-50 overflow-hidden"
     >
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-10 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-r from-pink-300 to-purple-300 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-56 sm:w-80 h-56 sm:h-80 bg-gradient-to-r from-blue-300 to-indigo-300 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/3 w-48 sm:w-72 h-48 sm:h-72 bg-gradient-to-r from-emerald-300 to-teal-300 rounded-full blur-3xl animate-pulse delay-500"></div>
+        <div className="absolute top-20 left-10 w-64 sm:w-96 h-64 sm:h-96 bg-linear-to-r from-pink-300 to-purple-300 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-56 sm:w-80 h-56 sm:h-80 bg-linear-to-r from-blue-300 to-indigo-300 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/3 w-48 sm:w-72 h-48 sm:h-72 bg-linear-to-r from-emerald-300 to-teal-300 rounded-full blur-3xl animate-pulse delay-500"></div>
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
@@ -718,11 +718,11 @@ function Categories() {
           <div className="inline-flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
             <a
               href="#booking"
-              className="group relative inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 overflow-hidden"
+              className="group relative inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-full bg-linear-to-r from-indigo-600 to-purple-600 text-white shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 overflow-hidden"
             >
               <Calendar className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
               <span className="relative z-10">Book Your Venue</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-linear-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </a>
             <a
               href="/contact"
@@ -790,7 +790,7 @@ function CategoryCard({ category, index }) {
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
           {/* Floating price badge */}
           <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-md rounded-full px-2 py-1.5 shadow-lg">
@@ -802,7 +802,7 @@ function CategoryCard({ category, index }) {
           {/* Category badge */}
           <div className="absolute bottom-3 left-3 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-3 group-hover:translate-y-0">
             <div
-              className={`inline-flex items-center gap-2 bg-gradient-to-r ${category.gradient} rounded-full px-3 py-1.5`}
+              className={`inline-flex items-center gap-2 bg-linear-to-r ${category.linear} rounded-full px-3 py-1.5`}
             >
               <IconComponent className="w-4 h-4 text-white" />
               <span className="text-white font-medium text-xs">
@@ -818,7 +818,7 @@ function CategoryCard({ category, index }) {
             {/* Header */}
             <div className="flex items-center mb-4">
               <div
-                className={`inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-r ${category.gradient} shadow-lg mr-3`}
+                className={`inline-flex items-center justify-center w-10 h-10 rounded-xl bg-linear-to-r ${category.linear} shadow-lg mr-3`}
               >
                 <IconComponent className="w-5 h-5 text-white" />
               </div>
@@ -859,7 +859,7 @@ function CategoryCard({ category, index }) {
               {category.features.slice(0, 3).map((feature, idx) => (
                 <div key={idx} className="flex items-center gap-2">
                   <div
-                    className={`w-4 h-4 rounded-full bg-gradient-to-r ${category.gradient} flex items-center justify-center`}
+                    className={`w-4 h-4 rounded-full bg-linear-to-r ${category.linear} flex items-center justify-center`}
                   >
                     <Check className="w-2.5 h-2.5 text-white" />
                   </div>
@@ -873,7 +873,7 @@ function CategoryCard({ category, index }) {
           <div className="flex flex-col sm:flex-row gap-2">
             <a
               href="#booking"
-              className={`flex-1 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-gradient-to-r ${category.gradient} text-white text-sm font-light shadow-md hover:scale-105 transition-all`}
+              className={`flex-1 inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-linear-to-r ${category.linear} text-white text-sm font-light shadow-md hover:scale-105 transition-all`}
             >
               <Calendar className="w-4 h-4 mr-1.5" /> Check Availability
             </a>
@@ -902,8 +902,8 @@ function Services() {
         "Setup & breakdown",
       ],
       icon: ClipboardList,
-      gradient: "from-indigo-500 via-purple-500 to-pink-500",
-      bgGradient: "from-indigo-50 to-purple-50",
+      linear: "from-indigo-500 via-purple-500 to-pink-500",
+      bglinear: "from-indigo-50 to-purple-50",
     },
     {
       title: "Catering & Bar Services",
@@ -915,8 +915,8 @@ function Services() {
         "Bar packages",
       ],
       icon: ChefHat,
-      gradient: "from-orange-500 via-red-500 to-pink-500",
-      bgGradient: "from-orange-50 to-red-50",
+      linear: "from-orange-500 via-red-500 to-pink-500",
+      bglinear: "from-orange-50 to-red-50",
     },
     {
       title: "Décor & Styling",
@@ -928,8 +928,8 @@ function Services() {
         "Theme styling",
       ],
       icon: Palette,
-      gradient: "from-green-500 via-emerald-500 to-teal-500",
-      bgGradient: "from-green-50 to-emerald-50",
+      linear: "from-green-500 via-emerald-500 to-teal-500",
+      bglinear: "from-green-50 to-emerald-50",
     },
     {
       title: "Photography & Videography",
@@ -941,8 +941,8 @@ function Services() {
         "Photo booths",
       ],
       icon: Camera,
-      gradient: "from-blue-500 via-indigo-500 to-purple-500",
-      bgGradient: "from-blue-50 to-indigo-50",
+      linear: "from-blue-500 via-indigo-500 to-purple-500",
+      bglinear: "from-blue-50 to-indigo-50",
     },
     {
       title: "Entertainment & Music",
@@ -954,8 +954,8 @@ function Services() {
         "Special performances",
       ],
       icon: Music,
-      gradient: "from-violet-500 via-purple-500 to-fuchsia-500",
-      bgGradient: "from-violet-50 to-purple-50",
+      linear: "from-violet-500 via-purple-500 to-fuchsia-500",
+      bglinear: "from-violet-50 to-purple-50",
     },
     {
       title: "Transportation & Logistics",
@@ -967,18 +967,18 @@ function Services() {
         "Logistics planning",
       ],
       icon: Car,
-      gradient: "from-amber-500 via-yellow-500 to-orange-500",
-      bgGradient: "from-amber-50 to-yellow-50",
+      linear: "from-amber-500 via-yellow-500 to-orange-500",
+      bglinear: "from-amber-50 to-yellow-50",
     },
   ];
 
   return (
-    <section className="relative bg-gradient-to-br from-gray-50 via-white to-purple-50 overflow-hidden">
+    <section className="relative bg-linear-to-br from-gray-50 via-white to-purple-50 overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-10 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-r from-purple-300 to-pink-300 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-56 sm:w-80 h-56 sm:h-80 bg-gradient-to-r from-blue-300 to-indigo-300 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/3 w-48 sm:w-72 h-48 sm:h-72 bg-gradient-to-r from-emerald-300 to-teal-300 rounded-full blur-3xl animate-pulse delay-500"></div>
+        <div className="absolute top-20 left-10 w-64 sm:w-96 h-64 sm:h-96 bg-linear-to-r from-purple-300 to-pink-300 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-56 sm:w-80 h-56 sm:h-80 bg-linear-to-r from-blue-300 to-indigo-300 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/3 w-48 sm:w-72 h-48 sm:h-72 bg-linear-to-r from-emerald-300 to-teal-300 rounded-full blur-3xl animate-pulse delay-500"></div>
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
@@ -1006,7 +1006,7 @@ function Services() {
         <div className="text-center mt-16 sm:mt-20">
           <a
             href="#booking"
-            className="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-light rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+            className="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-light rounded-full bg-linear-to-r from-purple-600 to-pink-600 text-white shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
           >
             Start Planning Your Event
             <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -1050,15 +1050,15 @@ function ServiceCard({ service, index }) {
       }}
     >
       <div className="relative h-full bg-white/70 backdrop-blur-xl border border-white/30 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105">
-        {/* Gradient background overlay */}
+        {/* linear background overlay */}
         <div
-          className={`absolute inset-0 bg-gradient-to-br ${service.bgGradient} opacity-0 group-hover:opacity-30 transition-all duration-500 rounded-2xl sm:rounded-3xl`}
+          className={`absolute inset-0 bg-linear-to-br ${service.bglinear} opacity-0 group-hover:opacity-30 transition-all duration-500 rounded-2xl sm:rounded-3xl`}
         ></div>
 
         {/* Icon */}
         <div className="relative mb-4 sm:mb-6">
           <div
-            className={`inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-r ${service.gradient} shadow-lg group-hover:scale-110 transition-transform duration-300`}
+            className={`inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-linear-to-r ${service.linear} shadow-lg group-hover:scale-110 transition-transform duration-300`}
           >
             <IconComponent
               className="w-6 h-6 sm:w-8 sm:h-8 text-white"
@@ -1081,7 +1081,7 @@ function ServiceCard({ service, index }) {
             {service.features.map((feature, idx) => (
               <div key={idx} className="flex items-center gap-3">
                 <div
-                  className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-gradient-to-r ${service.gradient} flex items-center justify-center flex-shrink-0`}
+                  className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-linear-to-r ${service.linear} flex items-center justify-center shrink-0`}
                 >
                   <Check
                     className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white"
@@ -1098,7 +1098,7 @@ function ServiceCard({ service, index }) {
 
         {/* Hover glow effect */}
         <div
-          className={`absolute inset-0 bg-gradient-to-r ${service.gradient} rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+          className={`absolute inset-0 bg-linear-to-r ${service.linear} rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
         ></div>
       </div>
     </div>
@@ -1172,10 +1172,10 @@ function Gallery() {
   };
 
   return (
-    <section className="relative bg-gradient-to-br from-white via-gray-50 to-indigo-50 overflow-hidden">
+    <section className="relative bg-linear-to-br from-white via-gray-50 to-indigo-50 overflow-hidden">
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-10 w-56 sm:w-80 h-56 sm:h-80 bg-gradient-to-r from-pink-300 to-purple-300 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-r from-blue-300 to-indigo-300 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-20 left-10 w-56 sm:w-80 h-56 sm:h-80 bg-linear-to-r from-pink-300 to-purple-300 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-64 sm:w-96 h-64 sm:h-96 bg-linear-to-r from-blue-300 to-indigo-300 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
@@ -1207,13 +1207,13 @@ function Gallery() {
             <div className="flex gap-2">
               <button
                 onClick={prev}
-                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white flex items-center justify-center hover:scale-110 transition-all duration-300 shadow-lg"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-linear-to-r from-indigo-600 to-purple-600 text-white flex items-center justify-center hover:scale-110 transition-all duration-300 shadow-lg"
               >
                 <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
               <button
                 onClick={next}
-                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white flex items-center justify-center hover:scale-110 transition-all duration-300 shadow-lg"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-linear-to-r from-indigo-600 to-purple-600 text-white flex items-center justify-center hover:scale-110 transition-all duration-300 shadow-lg"
               >
                 <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
@@ -1232,7 +1232,7 @@ function Gallery() {
                 className="h-64 sm:h-96 lg:h-[500px] w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
               {/* Image Info Overlay */}
               <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6">
@@ -1240,7 +1240,7 @@ function Gallery() {
                   <div className="flex items-center justify-between gap-3">
                     <div>
                       <div
-                        className={`inline-flex items-center gap-2 bg-gradient-to-r ${getCategoryColor(
+                        className={`inline-flex items-center gap-2 bg-linear-to-r ${getCategoryColor(
                           GALLERY[index].category
                         )} rounded-full px-2 sm:px-3 py-0.5 sm:py-1 mb-1 sm:mb-2`}
                       >
@@ -1252,7 +1252,7 @@ function Gallery() {
                         {GALLERY[index].alt}
                       </p>
                     </div>
-                    <button className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center hover:scale-110 transition-transform flex-shrink-0">
+                    <button className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center hover:scale-110 transition-transform shrink-0">
                       <Heart className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />
                     </button>
                   </div>
@@ -1278,10 +1278,10 @@ function Gallery() {
                       className="h-40 sm:h-48 w-full object-cover transition-transform duration-500 group-hover:scale-110"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                    <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent"></div>
                     <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4">
                       <div
-                        className={`inline-flex items-center gap-1 bg-gradient-to-r ${getCategoryColor(
+                        className={`inline-flex items-center gap-1 bg-linear-to-r ${getCategoryColor(
                           GALLERY[idx].category
                         )} rounded-full px-2 py-0.5 sm:px-2 sm:py-1 mb-1`}
                       >
@@ -1308,7 +1308,7 @@ function Gallery() {
               onClick={() => setIndex(i)}
               className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
                 i === index
-                  ? "bg-gradient-to-r from-indigo-600 to-purple-600 scale-125"
+                  ? "bg-linear-to-r from-indigo-600 to-purple-600 scale-125"
                   : "bg-gray-300 hover:bg-gray-400"
               }`}
             />
@@ -1321,27 +1321,27 @@ function Gallery() {
             {
               icon: Sparkles,
               text: "Walk down floral aisles",
-              gradient: "from-pink-500 to-rose-500",
+              linear: "from-pink-500 to-rose-500",
             },
             {
               icon: Sparkles,
               text: "Exchange vows under golden sunsets",
-              gradient: "from-amber-500 to-orange-500",
+              linear: "from-amber-500 to-orange-500",
             },
             {
               icon: Sparkles,
               text: "Dine beneath a canopy of stars",
-              gradient: "from-purple-500 to-violet-500",
+              linear: "from-purple-500 to-violet-500",
             },
             {
               icon: Sparkles,
               text: "Create magical memories",
-              gradient: "from-blue-500 to-indigo-500",
+              linear: "from-blue-500 to-indigo-500",
             },
           ].map((item, i) => (
             <div key={i} className="text-center group">
               <div
-                className={`inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-r ${item.gradient} shadow-lg mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300`}
+                className={`inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-linear-to-r ${item.linear} shadow-lg mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300`}
               >
                 <item.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               </div>
@@ -1368,7 +1368,7 @@ function Testimonials() {
       rating: 5,
       avatar:
         "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=400&auto=format&fit=crop",
-      gradient: "from-pink-500 to-rose-500",
+      linear: "from-pink-500 to-rose-500",
       location: "Mumbai",
     },
     {
@@ -1379,7 +1379,7 @@ function Testimonials() {
       rating: 5,
       avatar:
         "https://images.unsplash.com/photo-1544006659-f0b21884ce1d?q=80&w=400&auto=format&fit=crop",
-      gradient: "from-purple-500 to-violet-500",
+      linear: "from-purple-500 to-violet-500",
       location: "Jaipur",
     },
     {
@@ -1390,7 +1390,7 @@ function Testimonials() {
       rating: 5,
       avatar:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop",
-      gradient: "from-blue-500 to-cyan-500",
+      linear: "from-blue-500 to-cyan-500",
       location: "Goa",
     },
     {
@@ -1401,7 +1401,7 @@ function Testimonials() {
       rating: 5,
       avatar:
         "https://images.unsplash.com/photo-1494790108755-2616c6671d50?q=80&w=400&auto=format&fit=crop",
-      gradient: "from-amber-500 to-orange-500",
+      linear: "from-amber-500 to-orange-500",
       location: "Delhi",
     },
   ];
@@ -1414,11 +1414,11 @@ function Testimonials() {
   }, []);
 
   return (
-    <section className="relative bg-gradient-to-br from-gray-50 via-white to-rose-50 overflow-hidden">
+    <section className="relative bg-linear-to-br from-gray-50 via-white to-rose-50 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-10 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-r from-rose-300 to-pink-300 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-56 sm:w-80 h-56 sm:h-80 bg-gradient-to-r from-purple-300 to-violet-300 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-20 left-10 w-64 sm:w-96 h-64 sm:h-96 bg-linear-to-r from-rose-300 to-pink-300 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-56 sm:w-80 h-56 sm:h-80 bg-linear-to-r from-purple-300 to-violet-300 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
@@ -1433,7 +1433,7 @@ function Testimonials() {
 
           <h2 className="font-display text-3xl sm:text-4xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
             What Our Couples
-            <span className="block bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="block bg-linear-to-r from-rose-600 via-pink-600 to-purple-600 bg-clip-text text-transparent">
               Say
             </span>
           </h2>
@@ -1449,7 +1449,7 @@ function Testimonials() {
           <div className="relative max-w-4xl mx-auto">
             <div className="bg-white/70 backdrop-blur-xl border border-white/30 rounded-2xl sm:rounded-3xl p-8 sm:p-12 shadow-2xl">
               <div
-                className={`absolute -top-4 sm:-top-6 left-8 sm:left-12 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${TESTIMONIALS[currentTestimonial].gradient} rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg`}
+                className={`absolute -top-4 sm:-top-6 left-8 sm:left-12 w-10 h-10 sm:w-12 sm:h-12 bg-linear-to-r ${TESTIMONIALS[currentTestimonial].linear} rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg`}
               >
                 <Quote className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
@@ -1514,7 +1514,7 @@ function Testimonials() {
               onClick={() => setCurrentTestimonial(i)}
               className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-all duration-300 ${
                 i === currentTestimonial
-                  ? `bg-gradient-to-r ${TESTIMONIALS[i].gradient} scale-125`
+                  ? `bg-linear-to-r ${TESTIMONIALS[i].linear} scale-125`
                   : "bg-gray-300 hover:bg-gray-400"
               }`}
             />
@@ -1530,7 +1530,7 @@ function Testimonials() {
             { number: "50+", label: "Venues", icon: MapPin },
           ].map((stat, i) => (
             <div key={i} className="text-center group">
-              <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 shadow-lg mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-linear-to-r from-rose-500 to-pink-500 shadow-lg mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
                 <stat.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               </div>
               <div className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1 sm:mb-2">
@@ -1580,7 +1580,7 @@ function TestimonialCard({ testimonial, index }) {
     >
       <div className="relative bg-white/70 backdrop-blur-xl border border-white/30 rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105">
         <div
-          className={`absolute -top-3 sm:-top-4 right-6 sm:right-8 w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-r ${testimonial.gradient} rounded-full flex items-center justify-center shadow-lg`}
+          className={`absolute -top-3 sm:-top-4 right-6 sm:right-8 w-7 h-7 sm:w-8 sm:h-8 bg-linear-to-r ${testimonial.linear} rounded-full flex items-center justify-center shadow-lg`}
         >
           <Quote className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
         </div>

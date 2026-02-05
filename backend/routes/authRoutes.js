@@ -99,7 +99,7 @@ router.post('/forgot-password', async (req, res) => {
           <style>
             body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f9fafb; margin: 0; padding: 0; }
             .container { max-width: 600px; margin: 40px auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
-            .header { background: linear-gradient(135deg, #fb7185 0%, #f43f5e 100%); padding: 40px 30px; text-align: center; }
+            .header { background: linear-linear(135deg, #fb7185 0%, #f43f5e 100%); padding: 40px 30px; text-align: center; }
             .header h1 { color: #ffffff; margin: 0; font-size: 28px; }
             .content { padding: 40px 30px; }
             .content h2 { color: #1f2937; margin-top: 0; font-size: 24px; }

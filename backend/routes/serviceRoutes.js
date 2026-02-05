@@ -7,7 +7,7 @@ const adminAuth = require('../middleware/adminMiddleware');
 
 // ============= PUBLIC ROUTES =============
 
-// Get all services (public)
+// Get all services (public) - Works for both services AND venues
 router.get('/services', async (req, res) => {
   try {
     const { vendor_category, subCategory, featured } = req.query;
@@ -83,6 +83,155 @@ router.get('/services/:id', async (req, res) => {
     res.json({ success: true, service });
   } catch (error) {
     console.error('Get service error:', error);
+    res.status(500).json({ success: false, message: 'Server error' });
+  }
+});
+
+// Get services by category (PUBLIC)
+router.get('/services/category/:category', async (req, res) => {
+  try {
+    const { category } = req.params;
+    
+    const [services] = await db.query(
+      'SELECT * FROM services WHERE vendor_category = ? ORDER BY featured DESC, created_at DESC',
+      [category]
+    );
+    
+    // Parse JSON fields
+    services.forEach(service => {
+      if (service.images && typeof service.images === 'string') {
+        try {
+          service.images = JSON.parse(service.images);
+        } catch (e) {
+          service.images = [];
+        }
+      }
+    });
+    
+    res.json({ 
+      success: true, 
+      services: services 
+    });
+  } catch (error) {
+    console.error('Get services by category error:', error);
+    res.status(500).json({ 
+      success: false, 
+      message: 'Server error' 
+    });
+  }
+});
+
+// ============= VENUES ROUTES (Using same services table) =============
+
+// Get all venues (public) - Just an alias that queries services table
+router.get('/venues', async (req, res) => {
+  try {
+    const { category, subCategory, featured } = req.query;
+    
+    let query = 'SELECT * FROM services WHERE 1=1';
+    const params = [];
+    
+    // Venues use vendor_category field, just like services
+    if (category) {
+      query += ' AND vendor_category = ?';
+      params.push(category);
+    }
+
+    if (subCategory) {
+      query += ' AND sub_category = ?';
+      params.push(subCategory);
+    }
+
+    if (featured === 'true') {
+      query += ' AND featured = 1';
+    }
+    
+    query += ' ORDER BY featured DESC, created_at DESC';
+    
+    const [venues] = await db.query(query, params);
+    
+    // Parse JSON fields
+    venues.forEach(venue => {
+      if (venue.images && typeof venue.images === 'string') {
+        try {
+          venue.images = JSON.parse(venue.images);
+        } catch (e) {
+          venue.images = [];
+        }
+      }
+    });
+    
+    // Return as 'venues' instead of 'services' for frontend compatibility
+    res.json({ success: true, venues });
+  } catch (error) {
+    console.error('Get venues error:', error);
+    res.status(500).json({ success: false, message: 'Server error' });
+  }
+});
+
+// Get single venue (public) - Queries services table
+router.get('/venues/:id', async (req, res) => {
+  try {
+    const [venues] = await db.query(
+      'SELECT * FROM services WHERE id = ?',
+      [req.params.id]
+    );
+    
+    if (venues.length === 0) {
+      return res.status(404).json({ success: false, message: 'Venue not found' });
+    }
+    
+    const venue = venues[0];
+    
+    // Parse JSON fields
+    if (venue.images && typeof venue.images === 'string') {
+      try {
+        venue.images = JSON.parse(venue.images);
+      } catch (e) {
+        venue.images = [];
+      }
+    }
+    
+    // Return as 'venue' instead of 'service' for frontend compatibility
+    res.json({ success: true, venue });
+  } catch (error) {
+    console.error('Get venue error:', error);
+    res.status(500).json({ success: false, message: 'Server error' });
+  }
+});
+
+// Get venues by category (public) - Queries services table
+router.get('/venues/category/:category', async (req, res) => {
+  try {
+    const { category } = req.params;
+    const { subCategory } = req.query;
+    
+    let query = 'SELECT * FROM services WHERE vendor_category = ?';
+    const params = [category];
+    
+    if (subCategory) {
+      query += ' AND sub_category = ?';
+      params.push(subCategory);
+    }
+    
+    query += ' ORDER BY featured DESC, created_at DESC';
+    
+    const [venues] = await db.query(query, params);
+    
+    // Parse JSON fields
+    venues.forEach(venue => {
+      if (venue.images && typeof venue.images === 'string') {
+        try {
+          venue.images = JSON.parse(venue.images);
+        } catch (e) {
+          venue.images = [];
+        }
+      }
+    });
+    
+    res.json({ success: true, venues });
+  } catch (error) {
+    console.error('Get venues by category error:', error);
     res.status(500).json({ success: false, message: 'Server error' });
   }
 });
@@ -197,40 +346,6 @@ router.delete('/admin/services/:id', auth, adminAuth, async (req, res) => {
   } catch (error) {
     console.error('Delete service error:', error);
     res.status(500).json({ success: false, message: 'Server error' });
-  }
-});
-
-// Get services by category (PUBLIC) - 🔥 MISSING ROUTE
-router.get('/services/category/:category', async (req, res) => {
-  try {
-    const { category } = req.params;
-    
-    const [services] = await db.query(
-      'SELECT * FROM services WHERE vendor_category = ? ORDER BY featured DESC, created_at DESC',
-      [category]
-    );
-    
-    // Parse JSON fields
-    services.forEach(service => {
-      if (service.images && typeof service.images === 'string') {
-        try {
-          service.images = JSON.parse(service.images);
-        } catch (e) {
-          service.images = [];
-        }
-      }
-    });
-    
-    res.json({ 
-      success: true, 
-      services: services 
-    });
-  } catch (error) {
-    console.error('Get services by category error:', error);
-    res.status(500).json({ 
-      success: false, 
-      message: 'Server error' 
-    });
   }
 });
 

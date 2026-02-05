@@ -349,7 +349,7 @@ const MehndiArtist = () => {
             alt="Mehndi Art"
             className="w-full h-full object-cover opacity-70 animate-[zoom_20s_ease-in-out_infinite]"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-transparent"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-black via-black/50 to-transparent"></div>
         </div>
         <div className="relative z-10 container mx-auto px-4 md:px-8 h-full flex items-center">
           <div className="max-w-3xl text-white animate-[slideUp_1s_ease-out]">
@@ -442,7 +442,7 @@ const MehndiArtist = () => {
                 className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 flex flex-col animate-[slideUp_0.6s_ease-out]"
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
-                <div className="relative h-80 bg-gradient-to-br from-rose-100 to-rose-50 overflow-hidden group">
+                <div className="relative h-80 bg-linear-to-br from-rose-100 to-rose-50 overflow-hidden group">
                   <img
                     src={artist.image}
                     alt={artist.name}
@@ -481,15 +481,15 @@ const MehndiArtist = () => {
 
                   <div className="space-y-2 mb-4 flex-grow">
                     <div className="flex items-center text-gray-600 text-xs">
-                      <MapPin className="w-3 h-3 mr-2 text-rose-400 flex-shrink-0" />
+                      <MapPin className="w-3 h-3 mr-2 text-rose-400 shrink-0" />
                       <span className="truncate">{artist.location}</span>
                     </div>
                     <div className="flex items-center text-gray-600 text-xs">
-                      <Users className="w-3 h-3 mr-2 text-rose-400 flex-shrink-0" />
+                      <Users className="w-3 h-3 mr-2 text-rose-400 shrink-0" />
                       {artist.portfolio}+ Brides Served
                     </div>
                     <div className="flex items-center text-gray-600 text-xs">
-                      <Award className="w-3 h-3 mr-2 text-rose-400 flex-shrink-0" />
+                      <Award className="w-3 h-3 mr-2 text-rose-400 shrink-0" />
                       {artist.reviews} Reviews
                     </div>
                   </div>
@@ -529,7 +529,7 @@ const MehndiArtist = () => {
       </div>
 
       {/* Packages Section */}
-      <div className="py-20 px-20 bg-gradient-to-b from-rose-50 to-white">
+      <div className="py-20 px-20 bg-linear-to-b from-rose-50 to-white">
         <div className="container mx-auto px-4 md:px-8">
 
 
@@ -590,7 +590,7 @@ const MehndiArtist = () => {
                   <div className="space-y-2 mb-4">
                     {pkg.features.slice(0, 5).map((feature, idx) => (
                       <div key={idx} className="flex items-start">
-                        <CheckCircle className="w-4 h-4 mr-2 text-rose-400 flex-shrink-0 mt-0.5" />
+                        <CheckCircle className="w-4 h-4 mr-2 text-rose-400 shrink-0 mt-0.5" />
                         <span className="text-xs text-gray-700">{feature}</span>
                       </div>
                     ))}
@@ -659,7 +659,7 @@ const MehndiArtist = () => {
                     alt={design.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
                   <h3 className="text-xl font-medium mb-2">{design.title}</h3>
@@ -681,7 +681,7 @@ const MehndiArtist = () => {
       </div>
 
       {/* Testimonials */}
-      <div className="py-20 px-20 bg-gradient-to-b from-rose-50 to-white">
+      <div className="py-20 px-20 bg-linear-to-b from-rose-50 to-white">
         <div className="container mx-auto px-4 md:px-8">
 
 
@@ -882,7 +882,7 @@ const MehndiArtist = () => {
                       className="flex items-start animate-[slideRight_0.5s_ease-out]"
                       style={{ animationDelay: `${idx * 0.05}s` }}
                     >
-                      <CheckCircle className="w-6 h-6 mr-3 text-rose-400 flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="w-6 h-6 mr-3 text-rose-400 shrink-0 mt-0.5" />
                       <span className="text-gray-700">{feature}</span>
                     </div>
                   ))}

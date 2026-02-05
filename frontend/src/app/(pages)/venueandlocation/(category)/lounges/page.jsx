@@ -107,7 +107,7 @@ export default function Lounges() {
     : loungeServices.filter(service => service.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-rose-50">
+    <div className="min-h-screen bg-linear-to-b from-white to-rose-50">
       {/* Hero Section */}
       <section className="relative h-[60vh] md:h-[70vh] lg:h-[80vh] overflow-hidden">
         <div className="absolute inset-0 bg-black/40 z-10" />
@@ -157,10 +157,10 @@ export default function Lounges() {
           {/* Stats Section */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8 ">
             {/* Weddings Served Card */}
-            <div className="relative group bg-gradient-to-br from-rose-50 to-white p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-2xl text-center overflow-hidden transition-all duration-500 hover:-translate-y-2">
-              <div className="absolute inset-0 bg-gradient-to-br from-rose-400/20 to-pink-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="relative group bg-linear-to-br from-rose-50 to-white p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-2xl text-center overflow-hidden transition-all duration-500 hover:-translate-y-2">
+              <div className="absolute inset-0 bg-linear-to-br from-rose-400/20 to-pink-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
-                <div className="text-4xl md:text-5xl font-medium bg-gradient-to-r from-rose-500 to-pink-500 bg-clip-text text-transparent mb-3">
+                <div className="text-4xl md:text-5xl font-medium bg-linear-to-r from-rose-500 to-pink-500 bg-clip-text text-transparent mb-3">
                   500+
                 </div>
                 <div className="text-sm md:text-base font-medium text-gray-700 group-hover:text-gray-900 transition-colors">
@@ -171,10 +171,10 @@ export default function Lounges() {
             </div>
 
             {/* Lounge Designs Card */}
-            <div className="relative group bg-gradient-to-br from-purple-50 to-white p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-2xl text-center overflow-hidden transition-all duration-500 hover:-translate-y-2">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-400/20 to-indigo-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="relative group bg-linear-to-br from-purple-50 to-white p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-2xl text-center overflow-hidden transition-all duration-500 hover:-translate-y-2">
+              <div className="absolute inset-0 bg-linear-to-br from-purple-400/20 to-indigo-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
-                <div className="text-4xl md:text-5xl font-medium bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent mb-3">
+                <div className="text-4xl md:text-5xl font-medium bg-linear-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent mb-3">
                   50+
                 </div>
                 <div className="text-sm md:text-base font-medium text-gray-700 group-hover:text-gray-900 transition-colors">
@@ -185,10 +185,10 @@ export default function Lounges() {
             </div>
 
             {/* Satisfaction Card */}
-            <div className="relative group bg-gradient-to-br from-emerald-50 to-white p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-2xl text-center overflow-hidden transition-all duration-500 hover:-translate-y-2">
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/20 to-teal-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="relative group bg-linear-to-br from-emerald-50 to-white p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-2xl text-center overflow-hidden transition-all duration-500 hover:-translate-y-2">
+              <div className="absolute inset-0 bg-linear-to-br from-emerald-400/20 to-teal-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
-                <div className="text-4xl md:text-5xl font-medium bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent mb-3">
+                <div className="text-4xl md:text-5xl font-medium bg-linear-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent mb-3">
                   100%
                 </div>
                 <div className="text-sm md:text-base font-medium text-gray-700 group-hover:text-gray-900 transition-colors">
@@ -199,10 +199,10 @@ export default function Lounges() {
             </div>
 
             {/* 24/7 Support Card */}
-            <div className="relative group bg-gradient-to-br from-amber-50 to-white p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-2xl text-center overflow-hidden transition-all duration-500 hover:-translate-y-2">
-              <div className="absolute inset-0 bg-gradient-to-br from-amber-400/20 to-orange-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="relative group bg-linear-to-br from-amber-50 to-white p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-2xl text-center overflow-hidden transition-all duration-500 hover:-translate-y-2">
+              <div className="absolute inset-0 bg-linear-to-br from-amber-400/20 to-orange-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
-                <div className="text-4xl md:text-5xl font-medium bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent mb-3">
+                <div className="text-4xl md:text-5xl font-medium bg-linear-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent mb-3">
                   24/7
                 </div>
                 <div className="text-sm md:text-base font-medium text-gray-700 group-hover:text-gray-900 transition-colors">
@@ -303,7 +303,7 @@ export default function Lounges() {
       </section>
 
       {/* Video Gallery Section */}
-      <section className="py-12 md:py-16 lg:py-20 px-4 bg-gradient-to-b from-white to-rose-50">
+      <section className="py-12 md:py-16 lg:py-20 px-4 bg-linear-to-b from-white to-rose-50">
         <div className="max-w-7xl mx-auto">
 
           <div className="text-center mb-16">
@@ -324,7 +324,7 @@ export default function Lounges() {
                 <source src="https://res.cloudinary.com/dewxpvl5s/video/upload/v1761458860/downloaded-file_1_icd3vh.mp4" type="video/mp4" />
                 Your browser does not support video playback.
               </video>
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 md:p-6">
+              <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/70 to-transparent p-4 md:p-6">
                 <h3 className="text-white font-medium text-lg md:text-xl">Luxury Lounge Setup</h3>
                 <p className="text-white/90 text-sm">Complete setup process & final result</p>
               </div>
@@ -340,7 +340,7 @@ export default function Lounges() {
                 <source src="https://res.cloudinary.com/dewxpvl5s/video/upload/v1761458993/downloaded-file_2_yilcyc.mp4" type="video/mp4" />
                 Your browser does not support video playback.
               </video>
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 md:p-6">
+              <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/70 to-transparent p-4 md:p-6">
                 <h3 className="text-white font-medium text-lg md:text-xl">Boho Chic Design</h3>
                 <p className="text-white/90 text-sm">Behind the scenes & guest experience</p>
               </div>
@@ -353,7 +353,7 @@ export default function Lounges() {
 
 
       {/* Gallery Section */}
-      <section className="py-12 md:py-16 lg:py-20 px-4 bg-gradient-to-b from-white to-rose-50">
+      <section className="py-12 md:py-16 lg:py-20 px-4 bg-linear-to-b from-white to-rose-50">
         <div className="max-w-7xl mx-auto">
 
           <div className="text-center mb-16">

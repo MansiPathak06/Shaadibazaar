@@ -151,7 +151,7 @@ export default function ProductDetail() {
 
   if (loading)
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
+      <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-purple-50 via-pink-50 to-blue-50">
         <div className="relative">
           <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-purple-500"></div>
           <Sparkles className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-purple-500 animate-pulse" size={24} />
@@ -161,7 +161,7 @@ export default function ProductDetail() {
 
   if (error || !product)
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-linear-to-br from-purple-50 via-pink-50 to-blue-50">
         <div className="text-6xl mb-4 animate-bounce">😞</div>
         <h2 className="text-2xl font-bold text-gray-900 mb-2">
           Product Not Found
@@ -171,7 +171,7 @@ export default function ProductDetail() {
         </p>
         <Link
           href="/accessories/all-products?category=jewellery"
-          className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
+          className="px-6 py-3 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
         >
           Back to Products
         </Link>
@@ -194,7 +194,7 @@ export default function ProductDetail() {
     }).format(price);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 py-8 relative overflow-hidden">
+    <div className="min-h-screen bg-linear-to-br from-purple-50 via-pink-50 to-blue-50 py-8 relative overflow-hidden">
       {/* Animated Background Blobs */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
       <div className="absolute top-0 right-0 w-96 h-96 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
@@ -233,7 +233,7 @@ export default function ProductDetail() {
             {/* Left Side - Images */}
             <div className="space-y-4 animate-in fade-in slide-in-from-left-8 duration-700 delay-150">
               {/* Main Image */}
-              <div className="relative aspect-square bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl overflow-hidden group">
+              <div className="relative aspect-square bg-linear-to-br from-purple-100 to-pink-100 rounded-2xl overflow-hidden group">
                 <img
                   src={images[selectedImage] || images[0] || "/placeholder.jpg"}
                   alt={product.name}
@@ -243,12 +243,12 @@ export default function ProductDetail() {
                   }}
                 />
                 {discount > 0 && (
-                  <div className="absolute top-4 right-4 bg-gradient-to-r from-pink-500 to-rose-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg animate-bounce">
+                  <div className="absolute top-4 right-4 bg-linear-to-r from-pink-500 to-rose-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg animate-bounce">
                     {discount}% OFF
                   </div>
                 )}
                 {product.featured && (
-                  <div className="absolute top-4 left-4 bg-gradient-to-r from-amber-400 to-yellow-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg flex items-center gap-1">
+                  <div className="absolute top-4 left-4 bg-linear-to-r from-amber-400 to-yellow-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg flex items-center gap-1">
                     <Sparkles size={16} className="animate-pulse" />
                     FEATURED
                   </div>
@@ -285,7 +285,7 @@ export default function ProductDetail() {
             <div className="space-y-6 animate-in fade-in slide-in-from-right-8 duration-700 delay-300">
               {/* Product Name */}
               <div>
-                <h1 className="text-3xl md:text-5xl font-medium bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent mb-2 leading-tight">
+                <h1 className="text-3xl md:text-5xl font-medium bg-linear-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent mb-2 leading-tight">
                   {product.name}
                 </h1>
                 <p className="text-sm md:text-lg text-gray-500 capitalize flex items-center gap-2">
@@ -297,7 +297,7 @@ export default function ProductDetail() {
               {/* Rating */}
               {product.rating && (
                 <div className="flex items-center gap-3">
-                  <div className="flex items-center gap-1 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-3 py-1.5 rounded-full shadow-lg">
+                  <div className="flex items-center gap-1 bg-linear-to-r from-green-500 to-emerald-600 text-white px-3 py-1.5 rounded-full shadow-lg">
                     <span className="font-medium ">{product.rating}</span>
                     <Star className="w-4 h-4 fill-white" />
                   </div>
@@ -308,9 +308,9 @@ export default function ProductDetail() {
               )}
 
               {/* Price */}
-              <div className="border-t border-b border-purple-100 py-6 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl px-4">
+              <div className="border-t border-b border-purple-100 py-6 bg-linear-to-r from-purple-50 to-pink-50 rounded-xl px-4">
                 <div className="flex items-baseline gap-3 mb-2">
-                  <span className="text-4xl md:text-5xl font-medium bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                  <span className="text-4xl md:text-5xl font-medium bg-linear-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                     {formatINR(product.price)}
                   </span>
                   {product.mrp && product.mrp > product.price && (
@@ -358,7 +358,7 @@ export default function ProductDetail() {
                     >
                       <Minus className="w-5 h-5 text-purple-600" />
                     </button>
-                    <span className="text-2xl font-bold w-16 text-center bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                    <span className="text-2xl font-bold w-16 text-center bg-linear-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                       {quantity}
                     </span>
                     <button
@@ -377,9 +377,9 @@ export default function ProductDetail() {
                 <button
                   onClick={handleBuyNow}
                   disabled={product.stock === 0}
-                  className="group relative w-full cursor-pointer text-xl bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 bg-size-200 bg-pos-0 hover:bg-pos-100 text-white py-4 rounded-xl font-medium transition-all duration-500 disabled:from-gray-300 disabled:to-gray-300 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg hover:shadow-2xl hover:-translate-y-1 overflow-hidden"
+                  className="group relative w-full cursor-pointer text-xl bg-linear-to-r from-purple-600 via-pink-600 to-purple-600 bg-size-200 bg-pos-0 hover:bg-pos-100 text-white py-4 rounded-xl font-medium transition-all duration-500 disabled:from-gray-300 disabled:to-gray-300 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg hover:shadow-2xl hover:-translate-y-1 overflow-hidden"
                 >
-                  <span className="absolute inset-0 bg-gradient-to-r from-pink-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                  <span className="absolute inset-0 bg-linear-to-r from-pink-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
                   <ShoppingCart className="w-5 h-5 relative z-10 group-hover:animate-bounce" />
                   <span className="relative z-10">Buy Now</span>
                 </button>
@@ -387,12 +387,12 @@ export default function ProductDetail() {
                 <button
                   onClick={handleAddToCart}
                   disabled={product.stock === 0}
-                  className="group w-full bg-white cursor-pointer text-purple-600 border-2 text-xl border-purple-500 py-4 rounded-xl font-medium hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 transition-all duration-300 disabled:border-gray-300 disabled:text-gray-300 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-md hover:shadow-xl hover:-translate-y-1"
+                  className="group w-full bg-white cursor-pointer text-purple-600 border-2 text-xl border-purple-500 py-4 rounded-xl font-medium hover:bg-linear-to-r hover:from-purple-50 hover:to-pink-50 transition-all duration-300 disabled:border-gray-300 disabled:text-gray-300 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-md hover:shadow-xl hover:-translate-y-1"
                 >
                   {addedToCart ? (
                     <>
                       <Check className="w-5 h-5 animate-bounce" />
-                      <span className="bg-gradient-to-r cursor-pointer from-purple-600 to-pink-600 bg-clip-text text-transparent">Added to Cart</span>
+                      <span className="bg-linear-to-r cursor-pointer from-purple-600 to-pink-600 bg-clip-text text-transparent">Added to Cart</span>
                     </>
                   ) : (
                     <>
@@ -431,9 +431,9 @@ export default function ProductDetail() {
               {/* Trust Badges */}
               <div className="grid grid-cols-3 gap-3 pt-4">
                 {/* Free Shipping Badge */}
-                <div className="group relative flex flex-col items-center p-4 bg-gradient-to-br from-purple-50 via-pink-50 to-purple-50 rounded-xl border border-purple-200 hover:border-purple-400 hover:shadow-xl transition-all duration-500 cursor-pointer overflow-hidden hover:-translate-y-1">
+                <div className="group relative flex flex-col items-center p-4 bg-linear-to-br from-purple-50 via-pink-50 to-purple-50 rounded-xl border border-purple-200 hover:border-purple-400 hover:shadow-xl transition-all duration-500 cursor-pointer overflow-hidden hover:-translate-y-1">
                   {/* Animated background on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-100 to-pink-100 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
+                  <div className="absolute inset-0 bg-linear-to-r from-purple-100 to-pink-100 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
 
                   {/* Icon with animation */}
                   <div className="relative z-10 mb-2 p-2 bg-white rounded-full shadow-md group-hover:shadow-lg transition-shadow duration-300">
@@ -452,9 +452,9 @@ export default function ProductDetail() {
                 </div>
 
                 {/* Secure Payment Badge */}
-                <div className="group relative flex flex-col items-center p-4 bg-gradient-to-br from-purple-50 via-pink-50 to-purple-50 rounded-xl border border-purple-200 hover:border-purple-400 hover:shadow-xl transition-all duration-500 cursor-pointer overflow-hidden hover:-translate-y-1">
+                <div className="group relative flex flex-col items-center p-4 bg-linear-to-br from-purple-50 via-pink-50 to-purple-50 rounded-xl border border-purple-200 hover:border-purple-400 hover:shadow-xl transition-all duration-500 cursor-pointer overflow-hidden hover:-translate-y-1">
                   {/* Animated background on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-100 to-pink-100 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
+                  <div className="absolute inset-0 bg-linear-to-r from-purple-100 to-pink-100 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
 
                   {/* Icon with animation */}
                   <div className="relative z-10 mb-2 p-2 bg-white rounded-full shadow-md group-hover:shadow-lg transition-shadow duration-300">
@@ -473,9 +473,9 @@ export default function ProductDetail() {
                 </div>
 
                 {/* Easy Returns Badge */}
-                <div className="group relative flex flex-col items-center p-4 bg-gradient-to-br from-purple-50 via-pink-50 to-purple-50 rounded-xl border border-purple-200 hover:border-purple-400 hover:shadow-xl transition-all duration-500 cursor-pointer overflow-hidden hover:-translate-y-1">
+                <div className="group relative flex flex-col items-center p-4 bg-linear-to-br from-purple-50 via-pink-50 to-purple-50 rounded-xl border border-purple-200 hover:border-purple-400 hover:shadow-xl transition-all duration-500 cursor-pointer overflow-hidden hover:-translate-y-1">
                   {/* Animated background on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-100 to-pink-100 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
+                  <div className="absolute inset-0 bg-linear-to-r from-purple-100 to-pink-100 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
 
                   {/* Icon with animation */}
                   <div className="relative z-10 mb-2 p-2 bg-white rounded-full shadow-md group-hover:shadow-lg transition-shadow duration-300">
@@ -497,10 +497,10 @@ export default function ProductDetail() {
               {showLoginModal && (
                 <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 animate-in fade-in duration-200">
                   <div className="bg-white p-8 rounded-2xl shadow-2xl max-w-sm w-full mx-4 text-center animate-in zoom-in-95 duration-300">
-                    <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div className="w-16 h-16 bg-linear-to-br from-purple-100 to-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
                       <Heart className="w-8 h-8 text-purple-600" />
                     </div>
-                    <h2 className="text-2xl font-bold mb-2 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Login Required</h2>
+                    <h2 className="text-2xl font-bold mb-2 bg-linear-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Login Required</h2>
                     <p className="text-gray-600 mb-6">Please login to continue</p>
                     <div className="flex gap-3">
                       <button
@@ -508,7 +508,7 @@ export default function ProductDetail() {
                           setShowLoginModal(false);
                           router.push("/auth");
                         }}
-                        className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
+                        className="flex-1 bg-linear-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
                       >
                         Go to Login
                       </button>
@@ -526,8 +526,8 @@ export default function ProductDetail() {
           </div>
 
           {/* Product Description */}
-          <div className="border-t border-purple-100 p-6 lg:p-8 bg-gradient-to-br from-purple-50/50 to-pink-50/50">
-            <h2 className="text-2xl md:text-4xl font-medium bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4 flex items-center gap-2">
+          <div className="border-t border-purple-100 p-6 lg:p-8 bg-linear-to-br from-purple-50/50 to-pink-50/50">
+            <h2 className="text-2xl md:text-4xl font-medium bg-linear-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4 flex items-center gap-2">
               <Sparkles className="text-purple-600" size={24} />
               Product Description
             </h2>
@@ -540,28 +540,28 @@ export default function ProductDetail() {
 
           {/* Product Specifications */}
           <div className="border-t border-purple-100 p-6 lg:p-8">
-            <h2 className="text-2xl md:text-3xl font-medium bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-6">
+            <h2 className="text-2xl md:text-3xl font-medium bg-linear-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-6">
               Specifications
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <div className="bg-linear-to-br from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                 <span className="text-xl  text-gray-600 block mb-1">Product ID</span>
                 <p className="font-medium text-lg text-gray-900">#{product.id}</p>
               </div>
-              <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <div className="bg-linear-to-br from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                 <span className="text-xl text-gray-600 block mb-1">Category</span>
                 <p className="font-medium text-lg text-gray-900 capitalize">
                   {product.category}
                 </p>
               </div>
-              <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <div className="bg-linear-to-br from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                 <span className="text-xl text-gray-600 block mb-1">Rating</span>
                 <p className="font-medium text-lg text-gray-900 flex items-center gap-1">
                   {product.rating || "Not rated yet"}
                   {product.rating && <Star size={16} className="text-amber-400 fill-amber-400" />}
                 </p>
               </div>
-              <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <div className="bg-linear-to-br from-purple-50 to-pink-50 p-5 rounded-xl border border-purple-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                 <span className="text-xl text-gray-600 block mb-1">Availability</span>
                 <p className="font-medium text-lg text-gray-900">
                   {product.stock > 0
@@ -575,7 +575,7 @@ export default function ProductDetail() {
 
         {/* Similar Products Section */}
         <div className="mt-16 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-500">
-          <h2 className="text-3xl md:text-4xl font-medium bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent mb-8 flex items-center gap-2">
+          <h2 className="text-3xl md:text-4xl font-medium bg-linear-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent mb-8 flex items-center gap-2">
             <Sparkles className="text-purple-600" />
             Similar Products
           </h2>
@@ -600,7 +600,7 @@ export default function ProductDetail() {
                     className="group block bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden border border-white/20 hover:-translate-y-2"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    <div className="aspect-[4/5] bg-gradient-to-br from-purple-100 to-pink-100 overflow-hidden relative">
+                    <div className="aspect-[4/5] bg-linear-to-br from-purple-100 to-pink-100 overflow-hidden relative">
                       <img
                         src={img}
                         alt={sp.name}
@@ -609,7 +609,7 @@ export default function ProductDetail() {
                           e.target.src = "/placeholder.jpg";
                         }}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                     <div className="p-4">
                       <h3 className="text-2xl font-medium text-gray-800 mb-2 line-clamp-1 group-hover:text-purple-600 transition-colors">
@@ -625,7 +625,7 @@ export default function ProductDetail() {
                         </span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className="text-xl font-medium bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                        <span className="text-xl font-medium bg-linear-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                           {formatINR(sp.price)}
                         </span>
                         {sp.mrp && sp.mrp > sp.price && (

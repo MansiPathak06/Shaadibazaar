@@ -22,40 +22,40 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const totalItems = 0;
 
- 
+
 
   const [userRole, setUserRole] = useState(null);
-const [userName, setUserName] = useState("");
+  const [userName, setUserName] = useState("");
 
-// Initialize auth state from localStorage on mount
-useEffect(() => {
-  if (typeof window !== "undefined") {
-    const storedRole = localStorage.getItem("userRole");
-    const storedName = localStorage.getItem("userName");
-    
-    if (storedRole) {
-      setUserRole(storedRole);
-    }
-    if (storedName) {
-      setUserName(storedName);
-    }
-  }
-}, []);
+  // Initialize auth state from localStorage on mount
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedRole = localStorage.getItem("userRole");
+      const storedName = localStorage.getItem("userName");
 
-// Handle logout function
-const handleLogout = () => {
-  // Clear localStorage
-  localStorage.removeItem("userRole");
-  localStorage.removeItem("userName");
-  localStorage.removeItem("auth-token"); // if you have a token
-  
-  // Clear state
-  setUserRole(null);
-  setUserName("");
-  
-  // Optional: redirect to home
-  window.location.href = "/";
-};
+      if (storedRole) {
+        setUserRole(storedRole);
+      }
+      if (storedName) {
+        setUserName(storedName);
+      }
+    }
+  }, []);
+
+  // Handle logout function
+  const handleLogout = () => {
+    // Clear localStorage
+    localStorage.removeItem("userRole");
+    localStorage.removeItem("userName");
+    localStorage.removeItem("auth-token"); // if you have a token
+
+    // Clear state
+    setUserRole(null);
+    setUserName("");
+
+    // Optional: redirect to home
+    window.location.href = "/";
+  };
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -89,43 +89,93 @@ const handleLogout = () => {
               name: "Bridal Wear & Accessories",
               link: "/bride/hindu/bridal-wear",
             },
-            { name: "Bridal Jewellery", link: "/bride/hindu/jewellery" },
+            {
+              name: "Bridal Jewellery",
+              link: "/bride/hindu/jewellery"
+            },
             {
               name: "Makeup, Hair & Accessories",
               link: "/bride/hindu/makeup-hair",
             },
-            { name: "Ritual Items", link: "/bride/hindu/ritual-items" },
-            { name: "Bridal Services", link: "/bride/hindu/bridal-services" },
+            {
+              name: "Ritual Items",
+              link: "/bride/hindu/ritual-items"
+            },
+            {
+              name: "Bridal Services",
+              link: "/bride/hindu/bridal-services"
+            },
           ],
         },
         {
           name: "Muslim Wedding",
           icon: Moon,
           pages: [
-            { name: "Bridal Wear", link: "/bride/muslim/bridal-wear" },
-            { name: "Bridal Jewellery", link: "/bride/muslim/jewellery" },
-            { name: "Ritual Items", link: "/bride/muslim/ritual-items" },
-            { name: "Bridal Services", link: "/bride/muslim/bridal-services" },
+            {
+              name: "Bridal Wear",
+              link: "/bride/muslim/bridal-wear"
+            },
+            {
+              name: "Bridal Jewellery",
+              link: "/bride/muslim/jewellery"
+            },
+            {
+              name: "Ritual Items",
+              link: "/bride/muslim/ritual-items"
+            },
+            {
+              name: "Bridal Services",
+              link: "/bride/muslim/bridal-services"
+            },
           ],
         },
+
         {
           name: "Sikh Wedding",
           icon: Star,
           pages: [
-            { name: "Bridal Wear", link: "/bride/sikh/bridal-wear" },
-            { name: "Bridal Jewellery", link: "/bride/sikh/jewellery" },
-            { name: "Ritual Items", link: "/bride/sikh/ritual-items" },
-            { name: "Bridal Services", link: "/bride/sikh/bridal-services" },
+            {
+              name: "Bridal Wear",
+
+              link: "/bride/sikh/bridal-wear"
+            },
+            {
+              name: "Bridal Jewellery",
+
+              link: "/bride/sikh/jewellery"
+            },
+            {
+              name: "Ritual Items",
+
+
+              link: "/bride/sikh/ritual-items"
+            },
+            {
+              name: "Bridal Services",
+              link: "/bride/sikh/bridal-services"
+            },
           ],
         },
         {
           name: "Christian Wedding",
           icon: Cross,
           pages: [
-            { name: "Bridal Wear", link: "/bride/christian/bridal-wear" },
-            { name: "Bridal Jewellery", link: "/bride/christian/jewellery" },
-            { name: "Ritual Items", link: "/bride/christian/ritual-items" },
-            { name: "Services", link: "/bride/christian/services" },
+            {
+              name: "Bridal Wear",
+              link: "/bride/christian/bridal-wear"
+            },
+            {
+              name: "Bridal Jewellery",
+              link: "/bride/christian/jewellery"
+            },
+            {
+              name: "Ritual Items",
+              link: "/bride/christian/ritual-items"
+            },
+            {
+              name: "Services",
+              link: "/bride/christian/services"
+            },
           ],
         },
         {
@@ -163,8 +213,14 @@ const handleLogout = () => {
               name: "Groom Wear & Accessories",
               link: "/groom/hindu/groom-wear",
             },
-            { name: "Ritual Items", link: "/groom/hindu/ritual-items" },
-            { name: "Services", link: "/groom/hindu/services" },
+            {
+              name: "Ritual Items",
+              link: "/groom/hindu/ritual-items"
+            },
+            {
+              name: "Services",
+              link: "/groom/hindu/services"
+            },
           ],
         },
         {
@@ -214,9 +270,19 @@ const handleLogout = () => {
       hasMegaMenu: true,
       hasCategories: false,
       pages: [
-        { name: "Core Wedding Vendors", link: "/wedding-vendors/core-wedding-vendors" },
-        { name: "Bride & Groom Beauty Vendors", link: "/wedding-vendors/bride-and-groom-wedding-vendors" },
-        { name: "Decoration & Styling Vendors", link: "/wedding-vendors/decoration-and-styling-vendors" },
+        {
+          name: "Core Wedding Vendors",
+
+          link: "/wedding-vendors/core-wedding-vendors"
+        },
+        {
+          name: "Bride & Groom Beauty Vendors",
+
+          link: "/wedding-vendors/bride-and-groom-wedding-vendors"
+        },
+        {
+          name: "Decoration & Styling Vendors", link: "/wedding-vendors/decoration-and-styling-vendors"
+        },
         { name: "Entertainment Vendors", link: "/wedding-vendors/entertainment-vendors" },
         { name: "Invitation & Printing Vendors", link: "/wedding-vendors/invitation-and-printing-vendors" },
         { name: "Gifts & Packaging Vendors", link: "/wedding-vendors/gift-and-packaging-vendors" },
@@ -249,45 +315,98 @@ const handleLogout = () => {
           name: "Wedding Venues (By Category)",
           icon: Sparkles,
           pages: [
-            { name: "Banquet Venues", link: "/venue-and-accomodation/wedding-venues/banquet-venues" },
-            { name: "Outdoor Venues", link: "/venue-and-accomodation/wedding-venues/outdoor-venues" },
-            { name: "Mixed Venues", link: "/venue-and-accomodation/wedding-venues/mixed-venues" },
-            { name: "Destination Wedding Venues", link: "/venue-and-accomodation/wedding-venues/destination-wedding-venues" },
-            { name: "Religious Venues", link: "/venue-and-accomodation/wedding-venues/religious-venues" },
-            { name: "Cultural / Traditional Venues", link: "/venue-and-accomodation/wedding-venues/cultural-traditional-venues" },
-            { name: " Modern & Unique Venues", link: "/venue-and-accomodation/wedding-venues/modern-and-unique-venues" },
+            {
+              name: "Banquet Venues",
+              link: "/venue-and-accomodation/wedding-venues/banquet-venues"
+            },
+            {
+              name: "Outdoor Venues",
+              link: "/venue-and-accomodation/wedding-venues/outdoor-venues"
+            },
+            {
+              name: "Mixed Venues",
+              link: "/venue-and-accomodation/wedding-venues/mixed-venues"
+            },
+            {
+              name: "Destination Wedding Venues",
+              link: "/venue-and-accomodation/wedding-venues/destination-wedding-venues"
+            },
+            {
+              name: "Religious Venues",
+              link: "/venue-and-accomodation/wedding-venues/religious-venues"
+            },
+            {
+              name: "Cultural / Traditional Venues",
+              link: "/venue-and-accomodation/wedding-venues/cultural-traditional-venues"
+            },
+            {
+              name: " Modern & Unique Venues",
+              link: "/venue-and-accomodation/wedding-venues/modern-and-unique-venues"
+            },
+
           ],
         },
         {
           name: "Accommodation Types",
           icon: Moon,
           pages: [
-            { name: "Hotel Accommodation", link: "/venue-and-accomodation/accomodation-types/hotel-accomodation" },
-            { name: "Guest Houses", link: "/venue-and-accomodation/accomodation-types/guest-houses" },
-            { name: "Resort Accommodation", link: "/venue-and-accomodation/accomodation-types/resort-accomodation" },
-            { name: "Homestays & Rentals", link: "/venue-and-accomodation/accomodation-types/homestays-and-rentals" },
-            { name: "Wedding-Specific Accommodation", link: "/venue-and-accomodation/accomodation-types/wedding-specific"},
+            {
+              name: "Hotel Accommodation",
+              link: "/venue-and-accomodation/accomodation-types/hotel-accomodation"
+            },
+            {
+              name: "Guest Houses",
+              link: "/venue-and-accomodation/accomodation-types/guest-houses"
+            },
+            {
+              name: "Resort Accommodation",
+              link: "/venue-and-accomodation/accomodation-types/resort-accomodation"
+            },
+            {
+              name: "Homestays & Rentals",
+              link: "/venue-and-accomodation/accomodation-types/homestays-and-rentals"
+            },
+            {
+              name: "Wedding-Specific Accommodation",
+              link: "/venue-and-accomodation/accomodation-types/wedding-specific"
+            },
           ],
         },
         {
           name: "Venue Categories by Event Type",
           icon: Moon,
           pages: [
-            { name: "Pre-Wedding Venues", link: "/venue-and-accomodation/venue-categories-by-event-type/pre-wedding-venues" },
+            {
+              name: "Pre-Wedding Venues",
+              link: "/venue-and-accomodation/venue-categories-by-event-type/pre-wedding-venues"
+            },
             {
               name: "Main-Wedding Venues",
-              link: "/venue-and-accomodation/venue-categories-by-event-type/main-wedding-venues",
+              link: "/venue-and-accommodation/venue-categories-by-event-type/main-wedding-venues",
             },
-            { name: "Post-Wedding Venues", link: "/venue-and-accomodation/venue-categories-by-event-type/post-wedding-venues" },
+            {
+              name: "Post-Wedding Venues",
+
+              link: "/venue-and-accomodation/venue-categories-by-event-type/post-wedding-venues"
+            },
           ],
         },
         {
           name: "Additional Wedding Spaces Needed",
           icon: Moon,
           pages: [
-            { name: "Functional Spaces", link: "/venue-and-accomodation/additional-wedding-spaces/functional-spaces" },
-            { name: "Decorative Zones", link: "/venue-and-accomodation/additional-wedding-spaces/decorative-zones" },
-            { name: "Utility Spaces", link: "/venue-and-accomodation/additional-wedding-spaces/utility-spaces" },
+            {
+              name: "Functional Spaces",
+              link: "/venue-and-accomodation/additional-wedding-spaces/functional-spaces"
+            },
+            {
+              name: "Decorative Zones",
+              link: "/venue-and-accomodation/additional-wedding-spaces/decorative-zones"
+            },
+            {
+              name: "Utility Spaces",
+              link: "/venue-and-accomodation/additional-wedding-spaces/utility-spaces"
+            },
           ],
         },
       ],
@@ -299,14 +418,38 @@ const handleLogout = () => {
       hasMegaMenu: true,
       hasCategories: false,
       pages: [
-        { name: "Planning and Management Tools", link: "/wedding-planning-tools/planning-and-management" },
-        { name: "Design and Creativity Tools", link: "/wedding-planning-tools/design-and-creativity-tools" },
-        { name: "Communication Tools", link: "/wedding-planning-tools/communication-tools" },
-        { name: "Planning Kit", link: "/wedding-planning-tools/planning-kit" },
-        { name: "Coordination Tools", link: "/wedding-planning-tools/coordination-tools" },
-        { name: "Decor & Setup Tools", link: "/wedding-planning-tools/decor-and-setup-tools" },
-        { name: "Emergency Bridal/Groom Kit", link: "/wedding-planning-tools/emergency-bridal-groom-kit" },
-        { name: "Media & Production Tools", link: "/wedding-planning-tools/media-and-production-tools" },
+        {
+          name: "Planning and Management Tools",
+          link: "/wedding-planning-tools/planning-and-management"
+        },
+        {
+          name: "Design and Creativity Tools",
+          link: "/wedding-planning-tools/design-and-creativity-tools"
+        },
+        {
+          name: "Communication Tools",
+          link: "/wedding-planning-tools/communication-tools"
+        },
+        {
+          name: "Planning Kit",
+          link: "/wedding-planning-tools/planning-kit"
+        },
+        {
+          name: "Coordination Tools",
+          link: "/wedding-planning-tools/coordination-tools"
+        },
+        {
+          name: "Decor & Setup Tools",
+          link: "/wedding-planning-tools/decor-and-setup-tools"
+        },
+        {
+          name: "Emergency Bridal/Groom Kit",
+          link: "/wedding-planning-tools/emergency-bridal-groom-kit"
+        },
+        {
+          name: "Media & Production Tools",
+          link: "/wedding-planning-tools/media-and-production-tools"
+        },
         {
           name: "Hospitality & Guest Management Tools",
           link: "/wedding-planning-tools/hospitality-and-guest-management-tools",
@@ -319,14 +462,24 @@ const handleLogout = () => {
           name: "Cleanup & Maintenance Tools",
           link: "/wedding-planning-tools/cleanup-and-maintenance-tools",
         },
-        { name: "Technical Tools", link: "/wedding-planning-tools/technical-tools" },
-        { name: "Planning Templates", link: "/wedding-planning-tools/planning-templates" },
+        {
+          name: "Technical Tools",
+          link: "/wedding-planning-tools/technical-tools"
+        },
+        {
+          name: "Planning Templates",
+
+          link: "/wedding-planning-tools/planning-templates"
+        },
         {
           name: "Personal Kit for Wedding Planners",
           link: "/wedding-planning-tools/personal-kit-for-wedding-planner",
         },
-        { name: "Event Execution Tools", link: "/wedding-planning-tools/event-execution-tools" },
-       
+        {
+          name: "Event Execution Tools",
+          link: "/wedding-planning-tools/event-execution-tools"
+        },
+
       ],
     },
 
@@ -349,7 +502,7 @@ const handleLogout = () => {
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
           <div className="flex items-center justify-between h-16 gap-2">
             {/* Logo */}
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
               <Link href="/">
                 <img
                   src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1761844101/logo_sxozan.jpg"
@@ -375,74 +528,74 @@ const handleLogout = () => {
 
             {/* Right Icons */}
 
-{/* Right Icons */}
-<div className="flex items-center gap-3 sm:gap-4">
-  {userRole ? (
-    <div className="flex items-center gap-3">
-      <Link
-        href={
-          userRole === 'admin' 
-            ? "/admin-dashboard" 
-            : userRole === 'vendor' 
-            ? "/vendor-dashboard" 
-            : "/user-dashboard"
-        }
-        className="flex items-center gap-2 px-3 py-2 font-medium text-rose-500 hover:text-rose-700 text-base"
-      >
-        <User size={20} className="hidden sm:block" />
-        <User size={26} className="sm:hidden" />
-        <span className="hidden sm:inline">
-          {userRole === 'admin' ? 'Admin Panel' : userRole === 'vendor' ? 'Vendor Panel' : 'My Account'}
-        </span>
-      </Link>
+            {/* Right Icons */}
+            <div className="flex items-center gap-3 sm:gap-4">
+              {userRole ? (
+                <div className="flex items-center gap-3">
+                  <Link
+                    href={
+                      userRole === 'admin'
+                        ? "/admin-dashboard"
+                        : userRole === 'vendor'
+                          ? "/vendor-dashboard"
+                          : "/user-dashboard"
+                    }
+                    className="flex items-center gap-2 px-3 py-2 font-medium text-rose-500 hover:text-rose-700 text-base"
+                  >
+                    <User size={20} className="hidden sm:block" />
+                    <User size={26} className="sm:hidden" />
+                    <span className="hidden sm:inline">
+                      {userRole === 'admin' ? 'Admin Panel' : userRole === 'vendor' ? 'Vendor Panel' : 'My Account'}
+                    </span>
+                  </Link>
 
-      <button
-        className="hidden sm:block text-gray-500 hover:text-red-600 text-base font-medium cursor-pointer"
-        onClick={handleLogout}
-      >
-        Logout
-      </button>
-    </div>
-  ) : (
-    <Link
-      href="/auth"
-      className="flex items-center gap-1 text-gray-700 hover:text-rose-500 text-base font-medium"
-    >
-      <User size={26} className="sm:hidden" />
-      <User size={20} className="hidden sm:block" />
-      <span className="hidden sm:inline">Sign in</span>
-    </Link>
-  )}
+                  <button
+                    className="hidden sm:block text-gray-500 hover:text-red-600 text-base font-medium cursor-pointer"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </button>
+                </div>
+              ) : (
+                <Link
+                  href="/auth"
+                  className="flex items-center gap-1 text-gray-700 hover:text-rose-500 text-base font-medium"
+                >
+                  <User size={26} className="sm:hidden" />
+                  <User size={20} className="hidden sm:block" />
+                  <span className="hidden sm:inline">Sign in</span>
+                </Link>
+              )}
 
-  {/* Cart */}
-  <Link href="/cart" className="relative flex items-center gap-1">
-    <ShoppingCart className="w-7 h-7 sm:w-6 sm:h-6 text-gray-700 hover:text-rose-500" />
-    <span className="hidden sm:inline text-base font-medium text-gray-700">
-      Cart
-    </span>
-    {totalItems > 0 && (
-      <span className="absolute -top-2 -right-2 bg-rose-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
-        {totalItems}
-      </span>
-    )}
-  </Link>
+              {/* Cart */}
+              <Link href="/cart" className="relative flex items-center gap-1">
+                <ShoppingCart className="w-7 h-7 sm:w-6 sm:h-6 text-gray-700 hover:text-rose-500" />
+                <span className="hidden sm:inline text-base font-medium text-gray-700">
+                  Cart
+                </span>
+                {totalItems > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-rose-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
+                    {totalItems}
+                  </span>
+                )}
+              </Link>
 
-  {/* Wedding Website Button */}
-  <Link href="/wedding-website" className="hidden lg:block">
-    <button className="bg-rose-500 text-white rounded-full py-2 px-5 text-base font-medium hover:bg-rose-600 transition-colors duration-200 whitespace-nowrap">
-      Wedding Website
-    </button>
-  </Link>
+              {/* Wedding Website Button */}
+              <Link href="/wedding-website" className="hidden lg:block">
+                <button className="bg-rose-500 text-white rounded-full py-2 px-5 text-base font-medium hover:bg-rose-600 transition-colors duration-200 whitespace-nowrap">
+                  Wedding Website
+                </button>
+              </Link>
 
-  {/* Mobile Menu Button */}
-  <button
-    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-    className="lg:hidden text-gray-700 hover:text-rose-500 p-1 cursor-pointer"
-    aria-label="Toggle menu"
-  >
-    {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-  </button>
-</div>
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="lg:hidden text-gray-700 hover:text-rose-500 p-1 cursor-pointer"
+                aria-label="Toggle menu"
+              >
+                {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+              </button>
+            </div>
 
           </div>
 
@@ -463,7 +616,7 @@ const handleLogout = () => {
       </div>
 
       {/* Bottom Navigation Links */}
-      <div className="bg-gradient-to-b from-rose-50 to-white relative z-40">
+      <div className="bg-linear-to-b from-rose-50 to-white relative z-40">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center justify-center h-14 gap-2 overflow-x-auto">
@@ -480,11 +633,10 @@ const handleLogout = () => {
                 >
                   <Link
                     href={link.link || "#"}
-                    className={`px-4 py-2 text-base xl:text-lg font-medium rounded-full transition-all duration-200 whitespace-nowrap flex items-center gap-2 ${
-                      isOpen
-                        ? "bg-white text-rose-600 shadow-md border border-rose-200"
-                        : "text-gray-800 hover:text-rose-600 hover:bg-white hover:shadow-md"
-                    }`}
+                    className={`px-4 py-2 text-base xl:text-lg font-medium rounded-full transition-all duration-200 whitespace-nowrap flex items-center gap-2 ${isOpen
+                      ? "bg-white text-rose-600 shadow-md border border-rose-200"
+                      : "text-gray-800 hover:text-rose-600 hover:bg-white hover:shadow-md"
+                      }`}
                   >
                     <LinkIcon
                       icon={link.icon}
@@ -500,11 +652,10 @@ const handleLogout = () => {
 
           {/* Mobile Menu */}
           <div
-            className={`mobile-menu-container lg:hidden fixed inset-y-0 left-0 w-80 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 ${
-              mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
-            }`}
+            className={`mobile-menu-container lg:hidden fixed inset-y-0 left-0 w-80 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 ${mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+              }`}
           >
-            <div className="bg-gradient-to-r from-rose-500 to-pink-500 p-5 flex items-center justify-between">
+            <div className="bg-linear-to-r from-rose-500 to-pink-500 p-5 flex items-center justify-between">
               <h2 className="text-white font-bold text-2xl">Menu</h2>
               <button
                 onClick={() => {
@@ -526,7 +677,7 @@ const handleLogout = () => {
                   <LinkIcon
                     icon={link.icon}
                     size={26}
-                    className="text-rose-500 flex-shrink-0"
+                    className="text-rose-500 shrink-0"
                   />
                   <span>{link.name}</span>
                 </Link>
@@ -546,21 +697,21 @@ const handleLogout = () => {
         {openDropdown !== null &&
           navigationLinks[openDropdown]?.hasMegaMenu && (
             <div
-              className="hidden lg:block absolute left-0 right-0 top-full bg-white/95 backdrop-blur-sm border-t border-gray-200 shadow-2xl z-[60]"
+              className="hidden lg:block absolute left-0 right-0 top-full bg-white/95 backdrop-blur-sm border-t border-gray-200 shadow-2xl z-60"
               onMouseEnter={() => setOpenDropdown(openDropdown)}
               onMouseLeave={() => setOpenDropdown(null)}
             >
               <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8">
-                <h3 className="text-xl xl:text-2xl font-bold text-gray-900 mb-6 uppercase tracking-wide">
+                <h3 className="text-xl xl:text-3xl font-medium  text-gray-900 mb-6 uppercase tracking-wide">
                   {navigationLinks[openDropdown].heading}
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-8">
                   {navigationLinks[openDropdown].hasCategories &&
-                  navigationLinks[openDropdown].categories ? (
+                    navigationLinks[openDropdown].categories ? (
                     navigationLinks[openDropdown].categories.map(
                       (category, cIdx) => (
                         <div key={cIdx} className="space-y-4">
-                          <div className="flex items-center gap-3 font-bold text-rose-600 text-lg mb-3">
+                          <div className="flex items-center gap-3 font-normal text-rose-600 text-lg mb-3">
                             <LinkIcon
                               icon={category.icon}
                               size={22}

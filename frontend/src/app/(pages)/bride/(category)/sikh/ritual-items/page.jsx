@@ -28,7 +28,7 @@ const SikhRitualItemsPage = () => {
             className="w-full h-full object-cover"
           />
           {/* Lighter overlay for better visibility */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white/15 via-blue-50/70 to-orange-50/75"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-white/15 via-blue-50/70 to-orange-50/75"></div>
         </div>
 
         {/* Content */}
@@ -119,7 +119,7 @@ const SikhRitualItemsPage = () => {
               alt="Premium Rumala Sahib"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+            <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent"></div>
             <div className="absolute top-50 bottom-0 left-0 right-0 p-6 backdrop-blur-md bg-white/10">
               <div className="bg-orange-500/90 text-white text-xs font-semibold px-3 py-1 rounded-full inline-block mb-2">
                 30% OFF
@@ -143,7 +143,7 @@ const SikhRitualItemsPage = () => {
               alt="Elegant Flower Chadar"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+            <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent"></div>
             <div className="absolute top-50 bottom-0 left-0 right-0 p-6 backdrop-blur-md bg-white/10">
               <div className="bg-blue-500/90 text-white text-xs font-semibold px-3 py-1 rounded-full inline-block mb-2">
                 25% OFF
@@ -167,7 +167,7 @@ const SikhRitualItemsPage = () => {
               alt="Traditional Chooda Set"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+            <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent"></div>
             <div className="absolute top-50 bottom-0 left-0 right-0 p-6 backdrop-blur-md bg-white/10">
               <div className="bg-pink-500/90 text-white text-xs font-semibold px-3 py-1 rounded-full inline-block mb-2">
                 35% OFF
@@ -205,7 +205,7 @@ const SikhRitualItemsPage = () => {
         {/* Occasion Cards */}
         <div className="grid md:grid-cols-3 gap-6 px-25">
           {/* Anand Karaj Card */}
-          <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group">
+          <div className="bg-linear-to-br from-orange-50 to-amber-50 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group">
             <div className="text-4xl mb-4">🙏</div>
             <h3 className="text-xl font-semibold text-gray-800 mb-2">Anand Karaj Essentials</h3>
             <p className="text-gray-600 text-sm mb-4">Complete collection for the sacred wedding</p>
@@ -232,7 +232,7 @@ const SikhRitualItemsPage = () => {
           </div>
 
           {/* Chooda Ceremony Card */}
-          <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group">
+          <div className="bg-linear-to-br from-pink-50 to-rose-50 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group">
             <div className="text-4xl mb-4">💫</div>
             <h3 className="text-xl font-semibold text-gray-800 mb-2">Chooda Ceremony</h3>
             <p className="text-gray-600 text-sm mb-4">Everything for this beautiful tradition</p>
@@ -259,7 +259,7 @@ const SikhRitualItemsPage = () => {
           </div>
 
           {/* Festive & Gurpurab Card */}
-          <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group">
+          <div className="bg-linear-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group">
             <div className="text-4xl mb-4">🪔</div>
             <h3 className="text-xl font-semibold text-gray-800 mb-2">Gurpurab & Festive</h3>
             <p className="text-gray-600 text-sm mb-4">Sacred items for every celebration</p>

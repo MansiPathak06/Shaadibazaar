@@ -153,7 +153,7 @@ const WeddingServices = () => {
             alt="Wedding Services"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-black/60 via-black/40 to-transparent"></div>
         </div>
 
         <div className="relative z-10 h-full flex items-center">
@@ -184,12 +184,12 @@ const WeddingServices = () => {
       </section>
 
       {/* Main Services Section */}
-      <section className="pb-16 pt-26 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-rose-50/30">
+      <section className="pb-16 pt-26 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-white to-rose-50/30">
         <div className="max-w-7xl mx-auto">
 
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Featured <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Wedding Services</span>
+              Featured <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>Wedding Services</span>
             </h2>
             <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">  Choose from our wide range of professional services to make your wedding celebration grand and memorable</p>
           </div>
@@ -228,7 +228,7 @@ const WeddingServices = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
      
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
 
                 <div className="p-6">
@@ -277,7 +277,7 @@ const WeddingServices = () => {
 
       {/* Additional Services Section */}
       {/* Enhanced Additional Services Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-rose-50/30 to-white relative overflow-hidden">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-white via-rose-50/30 to-white relative overflow-hidden">
         {/* Background Decorative Elements */}
         <div className="absolute top-20 right-10 w-64 h-64 bg-rose-200/20 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 left-10 w-96 h-96 bg-pink-200/20 rounded-full blur-3xl"></div>
@@ -292,15 +292,15 @@ const WeddingServices = () => {
 
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium text-gray-900 mb-4">
               Complete Your
-              <span className="block mt-2 bg-gradient-to-r from-rose-500 to-pink-500 bg-clip-text text-transparent">
+              <span className="block mt-2 bg-linear-to-r from-rose-500 to-pink-500 bg-clip-text text-transparent">
                 Perfect Wedding
               </span>
             </h2>
 
             <div className="flex items-center justify-center gap-2 mb-6">
-              <div className="w-12 h-1 bg-gradient-to-r from-transparent to-rose-400"></div>
+              <div className="w-12 h-1 bg-linear-to-r from-transparent to-rose-400"></div>
               <div className="w-24 h-1 bg-rose-400"></div>
-              <div className="w-12 h-1 bg-gradient-to-l from-transparent to-rose-400"></div>
+              <div className="w-12 h-1 bg-linear-to-l from-transparent to-rose-400"></div>
             </div>
 
             <p className="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
@@ -319,7 +319,7 @@ const WeddingServices = () => {
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   {/* Card Background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-rose-400 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute inset-0 bg-linear-to-br from-rose-400 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                   {/* Image Layer */}
                   <img
@@ -329,8 +329,8 @@ const WeddingServices = () => {
   
                   />
 
-                  {/* Gradient Overlays */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/95 via-gray-900/60 to-transparent group-hover:from-rose-600/95 group-hover:via-rose-500/60 transition-all duration-500"></div>
+                  {/* linear Overlays */}
+                  <div className="absolute inset-0 bg-linear-to-t from-gray-900/95 via-gray-900/60 to-transparent group-hover:from-rose-600/95 group-hover:via-rose-500/60 transition-all duration-500"></div>
 
                   {/* Animated Border */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -367,7 +367,7 @@ const WeddingServices = () => {
 
                   {/* Corner Badge (Optional - for "Popular" or "New") */}
                   {index === 0 && (
-                    <div className="absolute top-3 right-3 bg-gradient-to-r from-yellow-400 to-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg flex items-center gap-1 animate-pulse">
+                    <div className="absolute top-3 right-3 bg-linear-to-r from-yellow-400 to-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg flex items-center gap-1 animate-pulse">
                       <Star size={12} className="fill-white" />
                       <span>Popular</span>
                     </div>
@@ -381,7 +381,7 @@ const WeddingServices = () => {
 
 
       {/* Why Choose Us Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-rose-50 to-white">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-linear-to-br from-rose-50 to-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -389,7 +389,7 @@ const WeddingServices = () => {
                 Why Choose Us
               </span>
               <h2 className="text-4xl md:text-5xl font-medium text-gray-800 mb-6">
-                Your <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Dream Wedding</span>, Our <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Priority</span>
+                Your <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>Dream Wedding</span>, Our <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>Priority</span>
               </h2>
               <div className="w-24 h-1 bg-rose-400 mb-6"></div>
               <p className="text-gray-600 text-lg mb-8">
@@ -416,7 +416,7 @@ const WeddingServices = () => {
                   }
                 ].map((item, index) => (
                   <div key={index} className="flex gap-4">
-                    <div className="flex-shrink-0">
+                    <div className="shrink-0">
                       <div className="w-12 h-12 bg-rose-400 rounded-full flex items-center justify-center">
                         <Check className="w-6 h-6 text-white" />
                       </div>
@@ -448,8 +448,8 @@ const WeddingServices = () => {
       {/* CTA Section */}
       {/* Enhanced CTA Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        {/* Animated Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-rose-500 via-rose-400 to-pink-500">
+        {/* Animated linear Background */}
+        <div className="absolute inset-0 bg-linear-to-br from-rose-500 via-rose-400 to-pink-500">
           {/* Animated Blob 1 */}
           <div className="absolute top-0 -left-4 w-72 h-72 bg-rose-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
           {/* Animated Blob 2 */}
@@ -468,10 +468,10 @@ const WeddingServices = () => {
             <span className="font-extralight">Limited Time Offer</span>
           </div>
 
-          {/* Main Heading with Gradient Text */}
+          {/* Main Heading with linear Text */}
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium text-white mb-6 leading-tight">
             Ready to Plan Your
-            <span className="block mt-2 bg-gradient-to-r from-white via-rose-50 to-white bg-clip-text text-transparent animate-pulse">
+            <span className="block mt-2 bg-linear-to-r from-white via-rose-50 to-white bg-clip-text text-transparent animate-pulse">
               Dream Wedding?
             </span>
           </h2>
@@ -486,7 +486,7 @@ const WeddingServices = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
             <button className="group relative bg-white text-rose-500 px-10 py-4 rounded-xl font-bold text-lg hover:bg-rose-50 transition-all duration-300 shadow-2xl hover:shadow-rose-200/50 transform hover:scale-105 flex items-center justify-center gap-3 overflow-hidden">
               {/* Button Shine Effect */}
-              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
+              <span className="absolute inset-0 w-full h-full bg-linear-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
 
               <div className="relative flex items-center gap-3">
                 <div className="bg-rose-500 text-white p-2 rounded-lg group-hover:rotate-12 transition-transform duration-300">
@@ -497,8 +497,8 @@ const WeddingServices = () => {
             </button>
 
             <button className="group relative bg-transparent border-2 border-white text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-rose-500 transition-all duration-300 shadow-lg hover:shadow-2xl flex items-center gap-3 overflow-hidden">
-              {/* Border Gradient Animation */}
-              <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-white/0 via-white/20 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+              {/* Border linear Animation */}
+              <span className="absolute inset-0 rounded-xl bg-linear-to-r from-white/0 via-white/20 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
 
               <div className="relative flex items-center gap-3">
                 <Mail size={20} className="group-hover:rotate-12 transition-transform duration-300" />

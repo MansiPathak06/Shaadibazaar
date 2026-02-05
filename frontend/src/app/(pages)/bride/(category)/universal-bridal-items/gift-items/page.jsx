@@ -182,7 +182,7 @@ const UniversalBridalGiftsPage = () => {
                 alt={slide.title}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-white/80 to-transparent flex items-center">
+              <div className="absolute inset-0 bg-linear-to-r from-white/80 to-transparent flex items-center">
                 <div className="max-w-7xl mx-auto px-8 w-full">
                   <div className="max-w-md">
                     <p className="text-sm text-gray-600 mb-2 uppercase tracking-wide">
@@ -250,7 +250,7 @@ const UniversalBridalGiftsPage = () => {
                     e.stopPropagation();
                     handleCategoryClick(category.subCategory);
                   }}
-                  className="flex-shrink-0 w-40 text-center group cursor-pointer hover:z-10"
+                  className="shrink-0 w-40 text-center group cursor-pointer hover:z-10"
                 >
                   <div className="relative mb-4 overflow-hidden rounded-full shadow-md hover:shadow-xl transition-shadow">
                     <img
@@ -285,7 +285,7 @@ const UniversalBridalGiftsPage = () => {
               alt="Luxury Gift Collections"
               className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-8">
+            <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent flex flex-col justify-end p-8">
               <h3 className="text-white text-2xl font-light mb-2">
                 Luxury Gift Collections
               </h3>
@@ -304,7 +304,7 @@ const UniversalBridalGiftsPage = () => {
               alt="Personalized Bridal Gifts"
               className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-8">
+            <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent flex flex-col justify-end p-8">
               <h3 className="text-white text-2xl font-light mb-2">
                 Personalized Bridal Gifts
               </h3>

@@ -83,7 +83,7 @@ export default function CartPage() {
         }
 
         .cart-item:hover {
-          background: linear-gradient(90deg, rgba(66, 43, 107, 0.02) 0%, rgba(184, 70, 142, 0.02) 100%);
+          background: linear-linear(90deg, rgba(66, 43, 107, 0.02) 0%, rgba(184, 70, 142, 0.02) 100%);
           transform: translateX(5px);
         }
 
@@ -96,7 +96,7 @@ export default function CartPage() {
         }
       `}</style>
 
-      <div className="min-h-screen bg-gradient-to-br from-[#E1CBDE]/20 via-white to-[#A1AEF4]/10">
+      <div className="min-h-screen bg-linear-to-br from-[#E1CBDE]/20 via-white to-[#A1AEF4]/10">
         {/* Breadcrumb */}
         <div className="bg-white border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -114,7 +114,7 @@ export default function CartPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           {/* Header */}
           <div className="mb-8 animate-fade-in-up">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium bg-gradient-to-r from-[#422B6B] to-[#B4468E] bg-clip-text text-transparent mb-2">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium bg-linear-to-r from-[#422B6B] to-[#B4468E] bg-clip-text text-transparent mb-2">
               Shopping Cart
             </h1>
             <p className="text-gray-600 md:text-lg">
@@ -124,13 +124,13 @@ export default function CartPage() {
 
           {cartItems.length === 0 ? (
             <div className="text-center py-20 animate-fade-in-up">
-              <div className="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-[#A1AEF4]/20 to-[#E1CBDE]/20 rounded-full flex items-center justify-center">
+              <div className="w-32 h-32 mx-auto mb-6 bg-linear-to-br from-[#A1AEF4]/20 to-[#E1CBDE]/20 rounded-full flex items-center justify-center">
                 <ShoppingCart className="w-16 h-16 text-[#422B6B]" />
               </div>
               <h2 className="text-2xl md:text-4xl font-medium text-gray-900 mb-3">Your cart is empty</h2>
               <p className="text-gray-600 mb-8">Add items to get started with your shopping</p>
               <Link href="/">
-                <button className="px-8 py-4 md:px-12 md:py-8 md:font- bg-gradient-to-r from-[#422B6B] to-[#B4468E] text-white rounded-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 font-normal cursor-pointer flex items-center gap-2 mx-auto">
+                <button className="px-8 py-4 md:px-12 md:py-8 md:font- bg-linear-to-r from-[#422B6B] to-[#B4468E] text-white rounded-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 font-normal cursor-pointer flex items-center gap-2 mx-auto">
                   Start Shopping
                   <ArrowRight className="w-5 h-5" />
                 </button>
@@ -141,7 +141,7 @@ export default function CartPage() {
               {/* Cart Items */}
               <div className="lg:col-span-2 space-y-4">
                 {/* Table Header */}
-                <div className="bg-gradient-to-r from-[#422B6B] to-[#B4468E] text-white rounded-t-2xl px-6 py-4 hidden md:grid md:grid-cols-12 gap-4 font-mediu text-ms md:text-xl">
+                <div className="bg-linear-to-r from-[#422B6B] to-[#B4468E] text-white rounded-t-2xl px-6 py-4 hidden md:grid md:grid-cols-12 gap-4 font-mediu text-ms md:text-xl">
                   <div className="col-span-6">Product</div>
                   <div className="col-span-2 text-center">Price</div>
                   <div className="col-span-2 text-center">Quantity</div>
@@ -163,7 +163,7 @@ export default function CartPage() {
                         <div className="md:hidden space-y-4">
                           <div className="flex gap-4">
                             {/* Product Image - Mobile */}
-                            <div className="w-20 h-20 bg-gradient-to-br from-[#A1AEF4]/10 to-[#E1CBDE]/10 rounded-xl overflow-hidden flex-shrink-0 relative">
+                            <div className="w-20 h-20 bg-linear-to-br from-[#A1AEF4]/10 to-[#E1CBDE]/10 rounded-xl overflow-hidden shrink-0 relative">
                               {productImage ? (
                                 <img
                                   src={productImage}
@@ -230,7 +230,7 @@ export default function CartPage() {
                         <div className="hidden md:grid md:grid-cols-12 gap-4 items-center">
                           <div className="col-span-6 flex items-center gap-4">
                             {/* Product Image - Desktop */}
-                            <div className="w-24 h-24 bg-gradient-to-br from-[#A1AEF4]/10 to-[#E1CBDE]/10 rounded-xl overflow-hidden flex-shrink-0 relative">
+                            <div className="w-24 h-24 bg-linear-to-br from-[#A1AEF4]/10 to-[#E1CBDE]/10 rounded-xl overflow-hidden shrink-0 relative">
                               {productImage ? (
                                 <img
                                   src={productImage}
@@ -351,7 +351,7 @@ export default function CartPage() {
                     <div className="border-t border-gray-200 pt-4">
                       <div className="flex justify-between items-center">
                         <span className="text-lg md:text-xl font-medium text-gray-900">Total</span>
-                        <span className="text-2xl md:text-3xl font-medium bg-gradient-to-r from-[#422B6B] to-[#B4468E] bg-clip-text text-transparent">
+                        <span className="text-2xl md:text-3xl font-medium bg-linear-to-r from-[#422B6B] to-[#B4468E] bg-clip-text text-transparent">
                           {formatINR(total)}
                         </span>
                       </div>
@@ -359,7 +359,7 @@ export default function CartPage() {
                   </div>
 
                   {/* Coupon Code */}
-                  <div className="mb-6 p-4 bg-gradient-to-r from-[#A1AEF4]/10 to-[#E1CBDE]/10 rounded-xl">
+                  <div className="mb-6 p-4 bg-linear-to-r from-[#A1AEF4]/10 to-[#E1CBDE]/10 rounded-xl">
                     <label className="block text-sm md:text-lg font-medium text-gray-700 mb-2">
                       Have a coupon code?
                     </label>
@@ -369,7 +369,7 @@ export default function CartPage() {
                         placeholder="Enter code"
                         className="flex-1 px-4 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#422B6B] focus:border-transparent transition-all"
                       />
-                      <button className="px-4 py-2 bg-gradient-to-r from-[#422B6B] to-[#B4468E] text-white rounded-lg hover:shadow-lg transition-all font-medium whitespace-nowrap">
+                      <button className="px-4 py-2 bg-linear-to-r from-[#422B6B] to-[#B4468E] text-white rounded-lg hover:shadow-lg transition-all font-medium whitespace-nowrap">
                         Apply
                       </button>
                     </div>
@@ -377,7 +377,7 @@ export default function CartPage() {
 
                   {/* Checkout Button */}
                   <Link href="/checkout">
-                    <button className="w-full bg-gradient-to-r from-[#422B6B] to-[#B4468E] text-white py-4 rounded-xl hover:shadow-2xl transition-all duration-300 transform cursor-pointer hover:scale-105 font-medium flex items-center justify-center gap-2 text-lg">
+                    <button className="w-full bg-linear-to-r from-[#422B6B] to-[#B4468E] text-white py-4 rounded-xl hover:shadow-2xl transition-all duration-300 transform cursor-pointer hover:scale-105 font-medium flex items-center justify-center gap-2 text-lg">
                       Proceed to Checkout
                       <ArrowRight className="w-5 h-5" />
                     </button>

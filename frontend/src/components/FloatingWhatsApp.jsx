@@ -30,7 +30,7 @@ const FloatingWhatsApp = () => {
         {isOpen && (
           <div className="mb-4 w-80 bg-white rounded-2xl shadow-2xl overflow-hidden animate-scale-up">
             {/* Header */}
-            <div className="bg-gradient-to-r from-green-500 to-green-600 p-4 flex items-center justify-between">
+            <div className="bg-linear-to-r from-green-500 to-green-600 p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
                   <FaWhatsapp className="text-green-600" size={28} />
@@ -51,7 +51,7 @@ const FloatingWhatsApp = () => {
             </div>
 
             {/* Chat Body */}
-            <div className="p-4 bg-gradient-to-b from-green-50 to-white">
+            <div className="p-4 bg-linear-to-b from-green-50 to-white">
               <div className="bg-white p-3 rounded-lg shadow-sm mb-3">
                 <p className="text-sm text-gray-700 mb-1">
                   👋 Hi there! How can we help you?
@@ -73,7 +73,7 @@ const FloatingWhatsApp = () => {
               {/* Send Button */}
               <button
                 onClick={handleSendMessage}
-                className="w-full mt-3 bg-gradient-to-r from-green-500 to-green-600 text-white py-3 rounded-lg font-semibold hover:from-green-600 hover:to-green-700 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
+                className="w-full mt-3 bg-linear-to-r from-green-500 to-green-600 text-white py-3 rounded-lg font-semibold hover:from-green-600 hover:to-green-700 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
               >
                 <FaWhatsapp size={20} />
                 Start Chat on WhatsApp
@@ -85,7 +85,7 @@ const FloatingWhatsApp = () => {
         {/* Main Floating Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 group relative cursor-pointer"
+          className="w-16 h-16 bg-linear-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 group relative cursor-pointer"
         >
           {/* Pulse Animation */}
           <span className="absolute inset-0 rounded-full bg-green-400 animate-ping opacity-75"></span>

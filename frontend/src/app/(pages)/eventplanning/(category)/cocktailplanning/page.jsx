@@ -92,7 +92,7 @@ export default function CocktailPlanning() {
           </video>
 
           {/* Reduced Pink Overlay - Changed from 90% to 40% opacity */}
-          <div className="absolute inset-0 bg-gradient-to-r from-rose-400/40 to-pink-500/40 z-10"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-rose-400/40 to-pink-500/40 z-10"></div>
 
           {/* Additional subtle dark overlay for text readability */}
           <div className="absolute inset-0 bg-black/20 z-10"></div>
@@ -127,7 +127,7 @@ export default function CocktailPlanning() {
       </div>
 
       {/* About Section */}
-      {/* <div className="py-20 px-4 bg-gradient-to-b from-white to-rose-50">
+      {/* <div className="py-20 px-4 bg-linear-to-b from-white to-rose-50">
         <div className="max-w-6xl mx-auto text-center">
 
 
@@ -173,7 +173,7 @@ export default function CocktailPlanning() {
       </div>
 
       {/* Video Section */}
-      <div className="py-20 px-2 bg-gradient-to-b from-rose-50 to-white">
+      <div className="py-20 px-2 bg-linear-to-b from-rose-50 to-white">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
@@ -183,7 +183,7 @@ export default function CocktailPlanning() {
           </div>
 
           {/* Autoplay Video Section */}
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-video bg-gradient-to-br from-rose-100 to-pink-100">
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-video bg-linear-to-br from-rose-100 to-pink-100">
             <video
               autoPlay
               loop
@@ -198,7 +198,7 @@ export default function CocktailPlanning() {
             </video>
 
             {/* Subtle Overlay for Better Visibility */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+            <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent"></div>
 
           </div>
         </div>
@@ -226,7 +226,7 @@ export default function CocktailPlanning() {
                   alt={item.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-rose-400/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <div className="absolute inset-0 bg-linear-to-t from-rose-400/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                   <h3 className="text-white text-2xl font-medium">{item.title}</h3>
                 </div>
               </div>
@@ -236,7 +236,7 @@ export default function CocktailPlanning() {
       </div>
 
       {/* Testimonials */}
-      <div className="py-12 px-4 bg-gradient-to-b from-rose-50 to-white">
+      <div className="py-12 px-4 bg-linear-to-b from-rose-50 to-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-5xl font-bold text-center text-gray-800 mb-16">
       
@@ -273,7 +273,7 @@ export default function CocktailPlanning() {
       </div>
 
       {/* CTA Section */}
-      {/* <div className="py-20 px-4 bg-gradient-to-r from-rose-400 to-pink-500 text-white">
+      {/* <div className="py-20 px-4 bg-linear-to-r from-rose-400 to-pink-500 text-white">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h2 className="text-5xl font-bold">Ready to Plan Your Perfect Cocktail?</h2>
           <p className="text-xl">

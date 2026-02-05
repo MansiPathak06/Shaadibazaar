@@ -79,8 +79,8 @@ export default function AdminSidebar({
               onClick={() => handleNavClick(item.id)}
               className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium text-lg cursor-pointer ${
                 activeTab === item.id
-                  ? "bg-gradient-to-r from-[#F04393] to-[#2A0B8B] text-white shadow-xl transform scale-105"
-                  : "text-gray-600 hover:bg-gradient-to-r hover:from-[#E8A4BC]/20 hover:to-[#F9C449]/20 hover:text-[#F04393]"
+                  ? "bg-linear-to-r from-[#F04393] to-[#2A0B8B] text-white shadow-xl transform scale-105"
+                  : "text-gray-600 hover:bg-linear-to-r hover:from-[#E8A4BC]/20 hover:to-[#F9C449]/20 hover:text-[#F04393]"
               }`}
             >
               <item.icon className="w-5 h-5" />
@@ -106,7 +106,7 @@ export default function AdminSidebar({
         </nav>
 
         {/* Footer */}
-        <div className="mt-8 p-4 bg-gradient-to-br from-[#E8A4BC]/20 to-[#F9C449]/20 rounded-xl">
+        <div className="mt-8 p-4 bg-linear-to-br from-[#E8A4BC]/20 to-[#F9C449]/20 rounded-xl">
           <p className="text-sm text-gray-700 text-center">Admin Panel v1.0</p>
         </div>
       </div>

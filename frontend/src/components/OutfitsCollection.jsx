@@ -111,7 +111,7 @@ const OutfitsCollection = () => {
   // };
 
   return (
-    <div className="w-full bg-gradient-to-b from-white to-rose-50 px-4 sm:px-6 pt-20 lg:px-8">
+    <div className="w-full bg-linear-to-b from-white to-rose-50 px-4 sm:px-6 pt-20 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Top Categories Section */}
         <h1 className="uppercase font-medium text-5xl md:text-5xl lg:text-6xl text-center mb-3 font-serif">
@@ -128,16 +128,16 @@ const OutfitsCollection = () => {
               href={category.link}
               className="group relative overflow-hidden rounded-xl md:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
             >
-              <div className="aspect-[5/5] bg-rose-100 relative overflow-hidden">
+              <div className="aspect-5/5 bg-rose-100 relative overflow-hidden">
                 <img
                   src={category.image}
                   alt={category.title}
-                  className="w-full h-[500px] object-cover object-top group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-125 object-cover object-top group-hover:scale-110 transition-transform duration-500"
                   onError={(e) => {
                     e.target.src = "/images/women-lehnga.jpg";
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent"></div>
               </div>
               <div className="absolute bottom-6 md:bottom-7 left-1/2 transform -translate-x-1/2 text-center">
                 <div className="w-10 h-10 md:w-12 md:h-12 mx-auto mb-2 bg-white/90 rounded-full flex items-center justify-center">
@@ -176,7 +176,7 @@ const OutfitsCollection = () => {
                     e.target.src = "/images/main-men-groomwear.jpg";
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-rose-900/60 via-transparent to-transparent"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-rose-900/60 via-transparent to-transparent"></div>
               </div>
 
               <div className="absolute bottom-3 md:bottom-5 left-3 md:left-5 right-3 md:right-5 text-white">
@@ -203,7 +203,7 @@ const OutfitsCollection = () => {
                   href={item.link}
                   className="group relative overflow-hidden rounded-xl md:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                 >
-                  <div className="h-[200px] lg:h-[270px] bg-gradient-to-br from-rose-200 to-rose-100 relative overflow-hidden">
+                  <div className="h-[200px] lg:h-[270px] bg-linear-to-br from-rose-200 to-rose-100 relative overflow-hidden">
                     <img
                       src={item.image}
                       alt={item.title}
@@ -213,7 +213,7 @@ const OutfitsCollection = () => {
                           "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=400";
                       }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                    <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent"></div>
                   </div>
 
                   <div className="absolute bottom-2 md:bottom-3 left-2 md:left-3 right-2 md:right-3 text-white">
@@ -244,7 +244,7 @@ const OutfitsCollection = () => {
                   href={item.link}
                   className="group relative overflow-hidden rounded-xl md:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                 >
-                  <div className="h-[200px] lg:h-[270px] bg-gradient-to-br from-rose-200 to-pink-100 relative overflow-hidden">
+                  <div className="h-[200px] lg:h-[270px] bg-linear-to-br from-rose-200 to-pink-100 relative overflow-hidden">
                     <img
                       src={item.image}
                       alt={item.title}
@@ -254,7 +254,7 @@ const OutfitsCollection = () => {
                           "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400";
                       }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-rose-900/70 via-transparent to-transparent"></div>
+                    <div className="absolute inset-0 bg-linear-to-t from-rose-900/70 via-transparent to-transparent"></div>
                   </div>
 
                   <div className="absolute bottom-2 md:bottom-3 left-2 md:left-3 right-2 md:right-3 text-white">
@@ -280,7 +280,7 @@ const OutfitsCollection = () => {
                       "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800";
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-rose-900/60 via-transparent to-transparent"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-rose-900/60 via-transparent to-transparent"></div>
               </div>
 
               <div className="absolute bottom-3 md:bottom-5 left-3 md:left-5 right-3 md:right-5 text-white">

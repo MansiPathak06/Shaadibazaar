@@ -37,7 +37,7 @@ const FloatingAstrologer = () => {
         {/* Popup message */}
         {showPopup && !isOpen && (
           <div
-            className="fixed -translate-y-1/2 bg-gradient-to-r from-rose-500 to-rose-400 text-white px-4 py-3 rounded-xl shadow-2xl animate-bounce-slow w-60"
+            className="fixed -translate-y-1/2 bg-linear-to-r from-rose-500 to-rose-400 text-white px-4 py-3 rounded-xl shadow-2xl animate-bounce-slow w-60"
             style={{
               bottom: "calc(7rem + 32px)",
               right: "calc(1.5rem + 64px + 8px)",
@@ -74,7 +74,7 @@ const FloatingAstrologer = () => {
             }}
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-rose-600 to-rose-700 p-4 flex items-center justify-between">
+            <div className="bg-linear-to-r from-rose-600 to-rose-700 p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center relative">
                   <GiCrystalBall className="text-rose-600" size={28} />
@@ -101,7 +101,7 @@ const FloatingAstrologer = () => {
             </div>
 
             {/* Chat Body */}
-            <div className="p-4 bg-gradient-to-b from-rose-50 to-white">
+            <div className="p-4 bg-linear-to-b from-rose-50 to-white">
               <div className="bg-white p-4 rounded-lg shadow-sm mb-4 border-l-4 border-rose-500">
                 <p className="text-sm text-gray-700 mb-2 font-medium">
                   🔮 Connect with our expert astrologers
@@ -131,7 +131,7 @@ const FloatingAstrologer = () => {
               <div className="space-y-2">
                 <button
                   onClick={handleCall}
-                  className="w-full bg-gradient-to-r from-rose-600 to-rose-700 text-white py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 shadow-lg touch-manipulation active:scale-95 active:shadow-md cursor-pointer"
+                  className="w-full bg-linear-to-r from-rose-600 to-rose-700 text-white py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 shadow-lg touch-manipulation active:scale-95 active:shadow-md cursor-pointer"
                 >
                   <Phone size={18} />
                   Call Now
@@ -139,7 +139,7 @@ const FloatingAstrologer = () => {
 
                 <button
                   onClick={handleWhatsApp}
-                  className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-3 rounded-lg font-semibold transition-all duration-300 flex items-center gap-2 justify-center shadow-lg touch-manipulation active:scale-95 active:shadow-md cursor-pointer"
+                  className="w-full bg-linear-to-r from-green-500 to-green-600 text-white py-3 rounded-lg font-semibold transition-all duration-300 flex items-center gap-2 justify-center shadow-lg touch-manipulation active:scale-95 active:shadow-md cursor-pointer"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -163,7 +163,7 @@ const FloatingAstrologer = () => {
             setIsOpen(!isOpen);
             setShowPopup(false);
           }}
-          className="absolute top-0 left-0 w-16 h-16 bg-gradient-to-r from-rose-500 to-rose-400 rounded-full flex items-center justify-center shadow-2xl group cursor-pointer"
+          className="absolute top-0 left-0 w-16 h-16 bg-linear-to-r from-rose-500 to-rose-400 rounded-full flex items-center justify-center shadow-2xl group cursor-pointer"
           style={{
             touchAction: "manipulation",
             WebkitTapHighlightColor: "transparent",

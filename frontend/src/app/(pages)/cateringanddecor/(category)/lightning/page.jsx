@@ -28,7 +28,7 @@ export default function Lightning() {
       </section>
 
       {/* About Section */}
-      <section className="py-16 px-4 md:px-8 lg:px-16 bg-gradient-to-b from-black to-gray-900">
+      <section className="py-16 px-4 md:px-8 lg:px-16 bg-linear-to-b from-black to-gray-900">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
           <div className="bg-rose-400/10 p-8 rounded-lg">
             <img
@@ -68,7 +68,7 @@ export default function Lightning() {
               alt="Wedding Lighting"
               className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent flex items-end p-6">
+            <div className="absolute inset-0 bg-linear-to-t from-black via-black/70 to-transparent flex items-end p-6">
               <div>
                 <h3 className="text-xl font-normal text-rose-400 mb-2">WEDDING LIGHTING</h3>
                 <p className="text-sm text-gray-300">Elegant lighting setups for your dream wedding</p>
@@ -82,7 +82,7 @@ export default function Lightning() {
               alt="DJ Setup"
               className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent flex items-end p-6">
+            <div className="absolute inset-0 bg-linear-to-t from-black via-black/70 to-transparent flex items-end p-6">
               <div>
                 <h3 className="text-xl font-normal text-rose-400 mb-2">DJ SYSTEMS</h3>
                 <p className="text-sm text-gray-300">High-quality sound with professional DJ equipment</p>
@@ -96,7 +96,7 @@ export default function Lightning() {
               alt="Party Decorations"
               className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent flex items-end p-6">
+            <div className="absolute inset-0 bg-linear-to-t from-black via-black/70 to-transparent flex items-end p-6">
               <div>
                 <h3 className="text-xl font-normal text-rose-400 mb-2">PARTY LIGHTING</h3>
                 <p className="text-sm text-gray-300">Dynamic lighting effects for unforgettable parties</p>
@@ -110,7 +110,7 @@ export default function Lightning() {
               alt="Decorative Lighting"
               className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent flex items-end p-6">
+            <div className="absolute inset-0 bg-linear-to-t from-black via-black/70 to-transparent flex items-end p-6">
               <div>
                 <h3 className="text-xl font-normal text-rose-400 mb-2">DECORATIONS</h3>
                 <p className="text-sm text-gray-300">Creative lighting decorations for all occasions</p>
@@ -121,7 +121,7 @@ export default function Lightning() {
       </section>
 
       {/* Gallery Section */}
-      <section className="py-24 px-4 md:px-8 lg:px-16 bg-gradient-to-b from-gray-900 to-black">
+      <section className="py-24 px-4 md:px-8 lg:px-16 bg-linear-to-b from-gray-900 to-black">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-white tracking-tight uppercase">

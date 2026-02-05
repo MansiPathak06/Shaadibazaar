@@ -28,7 +28,7 @@ const ChristianBridalItemsPage = () => {
             alt="Christian Wedding Ritual Items Background"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-white/15 via-blue-50/70 to-purple-50/75"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-white/15 via-blue-50/70 to-purple-50/75"></div>
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
@@ -114,7 +114,7 @@ const ChristianBridalItemsPage = () => {
               alt="Premium Wedding Rings"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+            <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent"></div>
             <div className="absolute top-50 bottom-0 left-0 right-0 p-6 backdrop-blur-md bg-white/10">
               <div className="bg-blue-500/90 text-white text-xs font-semibold px-3 py-1 rounded-full inline-block mb-2">
                 25% OFF
@@ -137,7 +137,7 @@ const ChristianBridalItemsPage = () => {
               alt="Unity Candle Set"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+            <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent"></div>
             <div className="absolute top-50 bottom-0 left-0 right-0 p-6 backdrop-blur-md bg-white/10">
               <div className="bg-purple-500/90 text-white text-xs font-semibold px-3 py-1 rounded-full inline-block mb-2">
                 30% OFF
@@ -160,7 +160,7 @@ const ChristianBridalItemsPage = () => {
               alt="Elegant Bridal Bouquet"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+            <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent"></div>
             <div className="absolute top-50 bottom-0 left-0 right-0 p-6 backdrop-blur-md bg-white/10">
               <div className="bg-pink-500/90 text-white text-xs font-semibold px-3 py-1 rounded-full inline-block mb-2">
                 20% OFF
@@ -198,7 +198,7 @@ const ChristianBridalItemsPage = () => {
         {/* Occasion Cards */}
         <div className="grid md:grid-cols-3 gap-6 px-25">
           {/* Church Wedding Card */}
-          <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group">
+          <div className="bg-linear-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group">
             <div className="text-4xl mb-4">⛪</div>
             <h3 className="text-xl font-semibold text-gray-800 mb-2">Church Wedding</h3>
             <p className="text-gray-600 text-sm mb-4">Complete collection for the sacred ceremony</p>
@@ -222,7 +222,7 @@ const ChristianBridalItemsPage = () => {
           </div>
 
           {/* Reception Card */}
-          <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group">
+          <div className="bg-linear-to-br from-purple-50 to-pink-50 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group">
             <div className="text-4xl mb-4">🎊</div>
             <h3 className="text-xl font-semibold text-gray-800 mb-2">Reception Celebration</h3>
             <p className="text-gray-600 text-sm mb-4">Everything for your grand celebration</p>
@@ -246,7 +246,7 @@ const ChristianBridalItemsPage = () => {
           </div>
 
           {/* Baptism & Communion Card */}
-          <div className="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group">
+          <div className="bg-linear-to-br from-teal-50 to-cyan-50 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group">
             <div className="text-4xl mb-4">🕊️</div>
             <h3 className="text-xl font-semibold text-gray-800 mb-2">Baptism & Communion</h3>
             <p className="text-gray-600 text-sm mb-4">Sacred items for holy sacraments</p>

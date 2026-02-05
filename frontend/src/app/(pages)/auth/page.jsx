@@ -256,8 +256,8 @@ const AuthPage = () => {
           animation: pulse 2s ease-in-out infinite;
         }
 
-        .gradient-text {
-          background: linear-gradient(135deg, #f04393 0%, #2a0b8b 100%);
+        .linear-text {
+          background: linear-linear(135deg, #f04393 0%, #2a0b8b 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -291,7 +291,7 @@ const AuthPage = () => {
           left: -100%;
           width: 100%;
           height: 100%;
-          background: linear-gradient(
+          background: linear-linear(
             90deg,
             transparent,
             rgba(255, 255, 255, 0.2),
@@ -320,7 +320,7 @@ const AuthPage = () => {
         }
       `}</style>
 
-      <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-12 bg-gradient-to-br from-[#3C4CAD] via-[#2A0B8B] to-[#F04393]">
+      <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-12 bg-linear-to-br from-[#3C4CAD] via-[#2A0B8B] to-[#F04393]">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div
@@ -341,7 +341,7 @@ const AuthPage = () => {
         <div className="w-full max-w-7xl mx-auto bg-white rounded-[40px] shadow-2xl overflow-hidden relative z-10">
           <div className="flex flex-col lg:flex-row min-h-[600px] lg:min-h-[700px]">
             {/* Left Side - Hero Section */}
-            <div className="w-full lg:w-1/2 relative bg-gradient-to-br from-[#E8A4BC] via-[#F04393] to-[#2A0B8B] min-h-[400px] lg:min-h-full flex items-center justify-center p-8 lg:p-12 rounded-t-[40px] lg:rounded-l-[40px] lg:rounded-tr-none">
+            <div className="w-full lg:w-1/2 relative bg-linear-to-br from-[#E8A4BC] via-[#F04393] to-[#2A0B8B] min-h-[400px] lg:min-h-full flex items-center justify-center p-8 lg:p-12 rounded-t-[40px] lg:rounded-l-[40px] lg:rounded-tr-none">
               <div className="absolute inset-0 rounded-t-[40px] lg:rounded-l-[40px] lg:rounded-tr-none overflow-hidden">
                 <img
                   src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1761373340/wedding-image_z4ig55.jpg"
@@ -352,7 +352,7 @@ const AuthPage = () => {
                       "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200";
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#2A0B8B]/80 via-[#2A0B8B]/40 to-transparent"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-[#2A0B8B]/80 via-[#2A0B8B]/40 to-transparent"></div>
               </div>
 
               <div className="relative z-10 max-w-lg animate-slide-in-left">
@@ -362,7 +362,7 @@ const AuthPage = () => {
                     className="w-8 h-8 text-[#F9C449] animate-pulse-slow"
                     fill="#F9C449"
                   />
-                  <div className="h-1 w-20 bg-gradient-to-r from-[#F9C449] to-transparent"></div>
+                  <div className="h-1 w-20 bg-linear-to-r from-[#F9C449] to-transparent"></div>
                 </div>
 
                 <h1 className="text-4xl md:text-5xl lg:text-8xl font-medium text-white mb-6 leading-tight">
@@ -415,9 +415,9 @@ const AuthPage = () => {
                   <Link href="/" className="inline-block mb-6 group">
                     <h2 className="text-3xl sm:text-7xl font-medium">
                       <span className="text-gray-800">Shaadi</span>
-                      <span className="gradient-text"> Baazar</span>
+                      <span className="linear-text"> Baazar</span>
                     </h2>
-                    <div className="h-1 w-0 group-hover:w-full bg-gradient-to-r from-[#F04393] to-[#2A0B8B] transition-all duration-300 mx-auto mt-1"></div>
+                    <div className="h-1 w-0 group-hover:w-full bg-linear-to-r from-[#F04393] to-[#2A0B8B] transition-all duration-300 mx-auto mt-1"></div>
                   </Link>
 
                   <h3 className="text-2xl sm:text-5xl font-medium text-gray-800 mb-3">
@@ -442,7 +442,7 @@ const AuthPage = () => {
                   <div className="mb-4 p-4 bg-red-50 border-l-4 border-red-500 text-red-700 rounded-xl animate-fade-in-up shadow-sm">
                     <div className="flex items-start">
                       <svg
-                        className="w-5 h-5 mr-3 mt-0.5 flex-shrink-0"
+                        className="w-5 h-5 mr-3 mt-0.5 shrink-0"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -461,7 +461,7 @@ const AuthPage = () => {
                   <div className="mb-4 p-4 bg-green-50 border-l-4 border-green-500 text-green-700 rounded-xl animate-fade-in-up shadow-sm">
                     <div className="flex items-start">
                       <svg
-                        className="w-5 h-5 mr-3 mt-0.5 flex-shrink-0"
+                        className="w-5 h-5 mr-3 mt-0.5 shrink-0"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -483,7 +483,7 @@ const AuthPage = () => {
                     className="w-full social-button flex items-center cursor-pointer justify-center gap-3 px-4 py-3.5 border-2 border-gray-200 rounded-xl hover:border-[#3C4CAD] hover:bg-[#3C4CAD]/5 transition-all duration-300 group"
                     disabled={loading}
                   >
-                    <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24">
                       <path
                         fill="#3C4CAD"
                         d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
@@ -499,7 +499,7 @@ const AuthPage = () => {
                     className="w-full social-button cursor-pointer flex items-center justify-center gap-3 px-4 py-3.5 border-2 border-gray-200 rounded-xl hover:border-[#F04393] hover:bg-[#F04393]/5 transition-all duration-300 group"
                     disabled={loading}
                   >
-                    <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24">
                       <path
                         fill="#4285F4"
                         d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -679,7 +679,7 @@ const AuthPage = () => {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="button-hover-effect w-full bg-gradient-to-r from-[#F04393] to-[#2A0B8B] text-white py-4 rounded-xl font-medium cursor-pointer hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2 mt-6 text-base sm:text-lg"
+                    className="button-hover-effect w-full bg-linear-to-r from-[#F04393] to-[#2A0B8B] text-white py-4 rounded-xl font-medium cursor-pointer hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2 mt-6 text-base sm:text-lg"
                   >
                     {loading ? (
                       <>
@@ -695,7 +695,7 @@ const AuthPage = () => {
                 {/* Vendor Login Button */}
                 <Link
                   href="/vendor-login"
-                  className="button-hover-effect block w-full bg-gradient-to-r from-[#F04393] to-[#2A0B8B] text-white py-4 rounded-xl font-medium curpoi' hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] text-center mt-6"
+                  className="button-hover-effect block w-full bg-linear-to-r from-[#F04393] to-[#2A0B8B] text-white py-4 rounded-xl font-medium curpoi' hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] text-center mt-6"
                 >
                   <span className="flex items-center justify-center gap-2">
                     <Sparkles className="w-5 h-5" />
@@ -736,7 +736,7 @@ export default function Page() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#3C4CAD] via-[#2A0B8B] to-[#F04393]">
+        <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-[#3C4CAD] via-[#2A0B8B] to-[#F04393]">
           <div className="text-center">
             <Loader2 className="w-12 h-12 animate-spin text-white mx-auto mb-4" />
             <p className="text-white font-semibold">Loading...</p>

@@ -123,9 +123,9 @@ const MuslimGroomWearPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-emerald-50 via-white to-teal-50">
+    <div className="min-h-screen bg-linear-to-b from-emerald-50 via-white to-teal-50">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-emerald-900 via-teal-900 to-emerald-900 overflow-hidden">
+      <div className="relative bg-linear-to-r from-emerald-900 via-teal-900 to-emerald-900 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0"
@@ -135,9 +135,9 @@ const MuslimGroomWearPage = () => {
           ></div>
         </div>
 
-        <div className="container mx-auto px-4 py-1 mt-2 relative">
+        <div className="container mx-auto px-4 py-1 mt-5 relative">
           <div className="text-center mb-12">
-            <h1 className="text-5xl md:text-6xl font-bold text-emerald-100 mb-4 tracking-wide">
+            <h1 className="text-5xl md:text-6xl font-medium uppercase text-emerald-100 mb-4 tracking-wide">
               Muslim Groom Collections
             </h1>
             <p className="text-xl text-emerald-200 font-light">
@@ -162,7 +162,7 @@ const MuslimGroomWearPage = () => {
                       e.target.src = `https://via.placeholder.com/300x400/10b981/ffffff?text=${encodeURIComponent(item.name)}`;
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent"></div>
 
                   <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[90%] text-center">
                     <p className="text-gray-400 text-sm md:text-base backdrop-blur font-medium drop-shadow-md">
@@ -177,7 +177,7 @@ const MuslimGroomWearPage = () => {
       </div>
 
       {/* Marquee Section */}
-      <div className="bg-gradient-to-r from-emerald-900 via-teal-800 to-emerald-900 shadow-md sticky top-0 z-10 overflow-hidden">
+      <div className="bg-linear-to-r from-emerald-900 via-teal-800 to-emerald-900 shadow-md sticky top-0 z-10 overflow-hidden">
         <div className="py-2">
           <div className="animate-marquee whitespace-nowrap inline-block">
             {[...taglines, ...taglines].map((tagline, index) => (
@@ -190,9 +190,9 @@ const MuslimGroomWearPage = () => {
       </div>
 
       {/* Circular Sliding Categories - Now Clickable */}
-      <div className="py-16 bg-white">
-        <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
-          Explore Our Collections
+      <div className="pt-16 bg-white">
+        <h2 className="text-4xl md:text-5xl font-medium text-center uppercase mb-12 text-gray-800">
+          Explore Our <span className='text-orange-600'>Collections</span>
         </h2>
         <div className="relative h-64 overflow-hidden">
           <div className="flex gap-8 animate-scroll-infinite">
@@ -200,7 +200,7 @@ const MuslimGroomWearPage = () => {
               <Link
                 key={index}
                 href={`/groom/all-products?category=groomwear&subCategory=${category.slug}&religion=muslim`}
-                className="flex-shrink-0 w-48 h-48 rounded-full overflow-hidden shadow-xl hover:scale-110 transition-transform duration-300 cursor-pointer relative group"
+                className="shrink-0 w-48 h-48 rounded-full overflow-hidden shadow-xl hover:scale-110 transition-transform duration-300 cursor-pointer relative group"
               >
                 <img
                   src={category.image}
@@ -210,8 +210,8 @@ const MuslimGroomWearPage = () => {
                     e.target.src = `https://via.placeholder.com/200/10b981/ffffff?text=${encodeURIComponent(category.name)}`;
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end justify-center pb-4">
-                  <p className="text-white font-bold text-sm text-center px-2">{category.name}</p>
+                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent flex items-end justify-center pb-4">
+                  <p className="text-white font-normal text-sm text-center px-2">{category.name}</p>
                 </div>
               </Link>
             ))}
@@ -221,11 +221,11 @@ const MuslimGroomWearPage = () => {
 
       {/* Featured Collections - Now Clickable */}
       <div className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-emerald-900 mb-8 uppercase tracking-wide">
-          Featured Collections
+        <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-8 uppercase tracking-wide">
+          Featured <span className='text-orange-600'>Collection</span>
         </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {categories.map((category, index) => (
             <Link
               key={index}
@@ -242,13 +242,13 @@ const MuslimGroomWearPage = () => {
                       e.target.src = `https://via.placeholder.com/300x400/10b981/ffffff?text=${encodeURIComponent(category.name)}`;
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="absolute top-2 right-2 bg-emerald-600 text-white text-xs px-2 py-1 rounded">
                     NEW
                   </div>
                 </div>
                 <div className="p-4 text-center">
-                  <h3 className="font-semibold text-gray-800 mb-2 capitalize">
+                  <h3 className="font-medium text-lg text-gray-800 mb-2 capitalize">
                     {category.name}
                   </h3>
                   <span
@@ -277,38 +277,137 @@ const MuslimGroomWearPage = () => {
       </div>
 
       {/* Feature Section */}
-      <div className="bg-gradient-to-r from-emerald-100 to-teal-100 py-16">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div className="p-8">
-              <div className="w-16 h-16 bg-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Sparkles className="w-8 h-8 text-white" />
+      <div className="relative py-20 overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0"></div>
+
+        {/* Animated Mesh Gradient */}
+        <div className="absolute inset-0 opacity-40">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-emerald-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-teal-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+          <div className="absolute bottom-0 left-1/2 w-96 h-96 bg-cyan-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
+        </div>
+
+        {/* Dot Pattern Overlay */}
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMSIgZmlsbD0iIzEwYjk4MSIgb3BhY2l0eT0iMC4yIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-30"></div>
+
+        <div className="relative max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Feature 1 */}
+            <div className="group relative">
+              <div className="relative bg-white/60 backdrop-blur-lg rounded-2xl p-8 border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                {/* Gradient Border Effect */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-emerald-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                {/* Icon Container */}
+                <div className="relative mb-6">
+                  <div className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto shadow-lg shadow-emerald-500/30 group-hover:shadow-emerald-500/50 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
+                    <Sparkles className="w-10 h-10 text-white" />
+                  </div>
+                  {/* Animated Ring */}
+                  <div className="absolute inset-0 w-20 h-20 mx-auto border-2 border-emerald-400/30 rounded-2xl animate-ping opacity-0 group-hover:opacity-100"></div>
+                </div>
+
+                {/* Content */}
+                <h3 className="text-3xl font-medium text-gray-900 mb-3 group-hover:text-emerald-700 transition-colors duration-300">
+                  Premium Quality
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Handpicked collections with finest craftsmanship
+                </p>
+
+                {/* Decorative Element */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">Premium Quality</h3>
-              <p className="text-gray-600">Handpicked collections with finest craftsmanship</p>
             </div>
-            <div className="p-8">
-              <div className="w-16 h-16 bg-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Star className="w-8 h-8 text-white fill-white" />
+
+            {/* Feature 2 */}
+            <div className="group relative">
+              <div className="relative bg-white/60 backdrop-blur-lg rounded-2xl p-8 border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                {/* Gradient Border Effect */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-teal-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                {/* Icon Container */}
+                <div className="relative mb-6">
+                  <div className="w-20 h-20 bg-gradient-to-br from-teal-500 to-teal-600 rounded-2xl flex items-center justify-center mx-auto shadow-lg shadow-teal-500/30 group-hover:shadow-teal-500/50 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
+                    <Star className="w-10 h-10 text-white fill-white" />
+                  </div>
+                  {/* Animated Ring */}
+                  <div className="absolute inset-0 w-20 h-20 mx-auto border-2 border-teal-400/30 rounded-2xl animate-ping opacity-0 group-hover:opacity-100"></div>
+                </div>
+
+                {/* Content */}
+                <h3 className="text-3xl font-medium text-gray-900 mb-3 group-hover:text-teal-700 transition-colors duration-300">
+                  Islamic Elegance
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Authentic designs that honor your faith and culture
+                </p>
+
+                {/* Decorative Element */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-teal-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">Islamic Elegance</h3>
-              <p className="text-gray-600">Authentic designs that honor your faith and culture</p>
             </div>
-            <div className="p-8">
-              <div className="w-16 h-16 bg-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Heart className="w-8 h-8 text-white" />
+
+            {/* Feature 3 */}
+            <div className="group relative">
+              <div className="relative bg-white/60 backdrop-blur-lg rounded-2xl p-8 border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                {/* Gradient Border Effect */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                {/* Icon Container */}
+                <div className="relative mb-6">
+                  <div className="w-20 h-20 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-2xl flex items-center justify-center mx-auto shadow-lg shadow-cyan-500/30 group-hover:shadow-cyan-500/50 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
+                    <Heart className="w-10 h-10 text-white" />
+                  </div>
+                  {/* Animated Ring */}
+                  <div className="absolute inset-0 w-20 h-20 mx-auto border-2 border-cyan-400/30 rounded-2xl animate-ping opacity-0 group-hover:opacity-100"></div>
+                </div>
+
+                {/* Content */}
+                <h3 className="text-3xl font-medium text-gray-900 mb-3 group-hover:text-cyan-700 transition-colors duration-300">
+                  Complete Collection
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Everything you need for your blessed day
+                </p>
+
+                {/* Decorative Element */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">Complete Collection</h3>
-              <p className="text-gray-600">Everything you need for your blessed day</p>
             </div>
           </div>
         </div>
+
+        {/* Bottom Decorative Line */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-400 to-transparent opacity-50"></div>
       </div>
+
+      <style jsx>{`
+  @keyframes blob {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(20px, -20px) scale(1.1); }
+    50% { transform: translate(-20px, 20px) scale(0.9); }
+    75% { transform: translate(20px, 20px) scale(1.05); }
+  }
+  
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+  
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+`}</style>
 
       {/* Collections Info Section */}
       <div className="container mx-auto px-4 py-16">
-        <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-12 shadow-xl">
-          <h2 className="text-3xl font-bold text-emerald-900 mb-8 text-center uppercase tracking-wide">
+        <div className="bg-linear-to-r from-emerald-50 to-teal-50 rounded-2xl p-12 shadow-xl">
+          <h2 className="text-4xl md:text-5xl font-medium text-emerald-900 mb-8 text-center uppercase tracking-wide">
             Complete Muslim Groom Collections
           </h2>
           <p className="text-center text-gray-700 max-w-3xl mx-auto mb-8 leading-relaxed">

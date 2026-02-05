@@ -626,7 +626,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
         }
       `}</style>
 
-      <div className="min-h-screen bg-gradient-to-br from-[#FFFEF7] via-[#FFF9E5] to-[#FFEDD5]">
+      <div className="min-h-screen bg-linear-to-br from-[#FFFEF7] via-[#FFF9E5] to-[#FFEDD5]">
         {/* Modern Header */}
 
         <header className="bg-white shadow-md border-b-4 border-[#FFBE00] top-0 z-50 backdrop-blur-lg ">
@@ -644,11 +644,11 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                   )}
                 </button>
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#CA1F3D] to-[#FFBE00] rounded-2xl flex items-center justify-center shadow-lg">
+                  <div className="w-12 h-12 bg-linear-to-br from-[#CA1F3D] to-[#FFBE00] rounded-2xl flex items-center justify-center shadow-lg">
                     <ShoppingBag className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h1 className="text-2xl md:text-3xl font-medium bg-gradient-to-r from-[#CA1F3D] to-[#25182E] bg-clip-text text-transparent">
+                    <h1 className="text-2xl md:text-3xl font-medium bg-linear-to-r from-[#CA1F3D] to-[#25182E] bg-clip-text text-transparent">
                       Vendor Dashboard
                     </h1>
                     <p className="text-md text-gray-500">Manage your store</p>
@@ -663,7 +663,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                 </button> */}
                 <button
                   onClick={handleLogout}
-                  className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#CA1F3D] to-[#25182E] text-white rounded-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 font-medium text-xl cursor-pointer"
+                  className="flex items-center gap-2 px-6 py-3 bg-linear-to-r from-[#CA1F3D] to-[#25182E] text-white rounded-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 font-medium text-xl cursor-pointer"
                 >
                   <LogOut className="w-4 h-4" />
                   <span className="hidden sm:inline">Logout</span>
@@ -676,7 +676,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
         {/* Notifications */}
         {error && (
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 animate-slide-in">
-            <div className="bg-gradient-to-r from-red-50 to-red-100 border-l-4 border-red-500 p-4 rounded-xl shadow-lg">
+            <div className="bg-linear-to-r from-red-50 to-red-100 border-l-4 border-red-500 p-4 rounded-xl shadow-lg">
               <div className="flex items-center">
                 <XCircle className="w-5 h-5 text-red-500 mr-3" />
                 <p className="text-red-700 font-medium">{error}</p>
@@ -687,7 +687,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
 
         {success && (
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 animate-slide-in">
-            <div className="bg-gradient-to-r from-green-50 to-emerald-100 border-l-4 border-green-500 p-4 rounded-xl shadow-lg">
+            <div className="bg-linear-to-r from-green-50 to-emerald-100 border-l-4 border-green-500 p-4 rounded-xl shadow-lg">
               <div className="flex items-center">
                 <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
                 <p className="text-green-700 font-medium">{success}</p>
@@ -707,7 +707,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                 {/* Profile Section */}
                 <div className="mb-6 pb-6 border-b border-gray-200">
                   <div className="flex flex-col items-center text-center">
-                    <div className="w-24 h-24 bg-gradient-to-br from-[#CA1F3D] to-[#FFBE00] rounded-full flex items-center justify-center text-white text-5xl font-medium mb-3 shadow-xl">
+                    <div className="w-24 h-24 bg-linear-to-br from-[#CA1F3D] to-[#FFBE00] rounded-full flex items-center justify-center text-white text-5xl font-medium mb-3 shadow-xl">
                       {vendorInfo?.business_name?.charAt(0).toUpperCase() ||
                         "V"}
                     </div>
@@ -717,7 +717,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                     <p className="text-md text-gray-500">
                       {vendorInfo?.email || "vendor@email.com"}
                     </p>
-                    <div className="mt-3 px-3 py-1 bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 rounded-full text-sm font-medium">
+                    <div className="mt-3 px-3 py-1 bg-linear-to-r from-green-100 to-emerald-100 text-green-700 rounded-full text-sm font-medium">
                       ✓ Verified Vendor
                     </div>
                   </div>
@@ -731,8 +731,8 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                       setSidebarOpen(false);
                     }}
                     className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium cursor-pointer text-xl ${activeTab === "dashboard"
-                      ? "bg-gradient-to-r from-[#CA1F3D] to-[#25182E] text-white shadow-xl transform scale-105"
-                      : "text-gray-600 hover:bg-gradient-to-r hover:from-[#FFBE00]/20 hover:to-[#CA1F3D]/20 hover:text-[#CA1F3D]"
+                      ? "bg-linear-to-r from-[#CA1F3D] to-[#25182E] text-white shadow-xl transform scale-105"
+                      : "text-gray-600 hover:bg-linear-to-r hover:from-[#FFBE00]/20 hover:to-[#CA1F3D]/20 hover:text-[#CA1F3D]"
                       }`}
                   >
                     <Home className="w-5 h-5" />
@@ -745,8 +745,8 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                       setSidebarOpen(false);
                     }}
                     className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium cursor-pointer text-xl ${activeTab === "products"
-                      ? "bg-gradient-to-r from-[#CA1F3D] to-[#25182E] text-white shadow-xl transform scale-105"
-                      : "text-gray-600 hover:bg-gradient-to-r hover:from-[#FFBE00]/20 hover:to-[#CA1F3D]/20 hover:text-[#CA1F3D]"
+                      ? "bg-linear-to-r from-[#CA1F3D] to-[#25182E] text-white shadow-xl transform scale-105"
+                      : "text-gray-600 hover:bg-linear-to-r hover:from-[#FFBE00]/20 hover:to-[#CA1F3D]/20 hover:text-[#CA1F3D]"
                       }`}
                   >
                     <Package className="w-5 h-5" />
@@ -767,8 +767,8 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                       setSidebarOpen(false);
                     }}
                     className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium cursor-pointer text-xl ${activeTab === "services"
-                      ? "bg-gradient-to-r from-emerald-500 to-green-700 text-white shadow-xl transform scale-105"
-                      : "text-gray-600 hover:bg-gradient-to-r hover:from-green-200/40 hover:to-emerald-400/30 hover:text-emerald-700"
+                      ? "bg-linear-to-r from-emerald-500 to-green-700 text-white shadow-xl transform scale-105"
+                      : "text-gray-600 hover:bg-linear-to-r hover:from-green-200/40 hover:to-emerald-400/30 hover:text-emerald-700"
                       }`}
                   >
                     <Sparkles className="w-5 h-5" />
@@ -789,8 +789,8 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                       setSidebarOpen(false);
                     }}
                     className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium cursor-pointer text-xl ${activeTab === "requests"
-                      ? "bg-gradient-to-r from-purple-500 to-indigo-700 text-white shadow-xl transform scale-105"
-                      : "text-gray-600 hover:bg-gradient-to-r hover:from-purple-200/40 hover:to-indigo-400/30 hover:text-purple-700"
+                      ? "bg-linear-to-r from-purple-500 to-indigo-700 text-white shadow-xl transform scale-105"
+                      : "text-gray-600 hover:bg-linear-to-r hover:from-purple-200/40 hover:to-indigo-400/30 hover:text-purple-700"
                       }`}
                   >
                     <User className="w-5 h-5" />
@@ -811,8 +811,8 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                       setSidebarOpen(false);
                     }}
                     className={`w-full flex items-center gap-4 px-5 py-4 rounded-xl transition-all duration-300 font-medium text-xl cursor-pointer ${activeTab === "analytics"
-                      ? "bg-gradient-to-r from-[#CA1F3D] to-[#25182E] text-white shadow-xl transform scale-105"
-                      : "text-gray-600 hover:bg-gradient-to-r hover:from-[#FFBE00]/20 hover:to-[#CA1F3D]/20 hover:text-[#CA1F3D]"
+                      ? "bg-linear-to-r from-[#CA1F3D] to-[#25182E] text-white shadow-xl transform scale-105"
+                      : "text-gray-600 hover:bg-linear-to-r hover:from-[#FFBE00]/20 hover:to-[#CA1F3D]/20 hover:text-[#CA1F3D]"
                       }`}
                   >
                     <BarChart3 className="w-5 h-5" />
@@ -820,7 +820,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                   </button>
                 </nav>
 
-                <div className="mt-8 p-4 bg-gradient-to-br from-[#FFBE00]/20 to-[#CA1F3D]/20 rounded-xl">
+                <div className="mt-8 p-4 bg-linear-to-br from-[#FFBE00]/20 to-[#CA1F3D]/20 rounded-xl">
                   <p className="text-md text-gray-800 text-center">
                     Vendor Portal v2.0
                   </p>
@@ -847,7 +847,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                     {/* Total Products Card */}
                     <div className="stat-card bg-white rounded-2xl shadow-lg p-6 border-2 border-transparent hover:border-[#CA1F3D] transition-all">
                       <div className="flex items-center justify-between mb-4">
-                        <div className="w-14 h-14 bg-gradient-to-br from-[#CA1F3D] to-[#FFBE00] rounded-2xl flex items-center justify-center shadow-lg">
+                        <div className="w-14 h-14 bg-linear-to-br from-[#CA1F3D] to-[#FFBE00] rounded-2xl flex items-center justify-center shadow-lg">
                           <Package className="w-7 h-7 text-white" />
                         </div>
                         <div className="px-3 py-1 bg-green-100 text-green-600 rounded-full text-xs font-normal">
@@ -861,7 +861,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                         {formatNumber(totalProducts)}
                       </p>
                       <div className="flex items-center gap-2 text-sm text-green-600">
-                        <TrendingUp className="w-4 h-4 flex-shrink-0" />
+                        <TrendingUp className="w-4 h-4 shrink-0" />
                         <span>Your catalog</span>
                       </div>
                     </div>
@@ -869,7 +869,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                     {/* Total Value Card */}
                     <div className="stat-card bg-white rounded-2xl shadow-lg p-6 border-2 border-transparent hover:border-[#FFBE00] transition-all">
                       <div className="flex items-center justify-between mb-4">
-                        <div className="w-14 h-14 bg-gradient-to-br from-[#FFBE00] to-[#CA1F3D] rounded-2xl flex items-center justify-center shadow-lg">
+                        <div className="w-14 h-14 bg-linear-to-br from-[#FFBE00] to-[#CA1F3D] rounded-2xl flex items-center justify-center shadow-lg">
                           <DollarSign className="w-7 h-7 text-white" />
                         </div>
                         <div className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-xs font-noraml">
@@ -883,7 +883,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                         {formatCurrency(totalRevenue)}
                       </p>
                       <div className="flex items-center gap-2 text-sm text-blue-600">
-                        <Activity className="w-4 h-4 flex-shrink-0" />
+                        <Activity className="w-4 h-4 shrink-0" />
                         <span>Inventory value</span>
                       </div>
                     </div>
@@ -891,7 +891,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                     {/* Avg Rating Card */}
                     <div className="stat-card bg-white rounded-2xl shadow-lg p-6 border-2 border-transparent hover:border-[#25182E] transition-all">
                       <div className="flex items-center justify-between mb-4">
-                        <div className="w-14 h-14 bg-gradient-to-br from-[#25182E] to-[#CA1F3D] rounded-2xl flex items-center justify-center shadow-lg">
+                        <div className="w-14 h-14 bg-linear-to-br from-[#25182E] to-[#CA1F3D] rounded-2xl flex items-center justify-center shadow-lg">
                           <Star className="w-7 h-7 text-white" />
                         </div>
                         <div className="px-3 py-1 bg-yellow-100 text-yellow-600 rounded-full text-xs font-normal">
@@ -905,7 +905,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                         {avgRating}
                       </p>
                       <div className="flex items-center gap-2 text-sm text-yellow-600">
-                        <Star className="w-4 h-4 flex-shrink-0" />
+                        <Star className="w-4 h-4 shrink-0" />
                         <span>Customer reviews</span>
                       </div>
                     </div>
@@ -913,7 +913,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                     {/* Total Views Card */}
                     <div className="stat-card bg-white rounded-2xl shadow-lg p-6 border-2 border-transparent hover:border-purple-500 transition-all">
                       <div className="flex items-center justify-between mb-4">
-                        <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
+                        <div className="w-14 h-14 bg-linear-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
                           <Eye className="w-7 h-7 text-white" />
                         </div>
                         <div className="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-xs font-normal">
@@ -927,7 +927,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                         {formatNumber(totalViews || 0)}
                       </p>
                       <div className="flex items-center gap-2 text-sm text-purple-600">
-                        <Activity className="w-4 h-4 flex-shrink-0" />
+                        <Activity className="w-4 h-4 shrink-0" />
                         <span>Product views</span>
                       </div>
                     </div>
@@ -952,9 +952,9 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                         {products.slice(0, 5).map((product, idx) => (
                           <div
                             key={idx}
-                            className="flex items-center gap-4 p-4 bg-gradient-to-r from-gray-50 to-[#FFBE00]/5 rounded-xl hover:shadow-md transition-all"
+                            className="flex items-center gap-4 p-4 bg-linear-to-r from-gray-50 to-[#FFBE00]/5 rounded-xl hover:shadow-md transition-all"
                           >
-                            <div className="w-12 h-12 bg-gradient-to-br from-[#CA1F3D]/20 to-[#FFBE00]/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <div className="w-12 h-12 bg-linear-to-br from-[#CA1F3D]/20 to-[#FFBE00]/20 rounded-xl flex items-center justify-center shrink-0">
                               <Package className="w-6 h-6 text-[#CA1F3D]" />
                             </div>
                             <div className="flex-1 min-w-0">
@@ -993,7 +993,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                     {/* Quick Actions & Activity */}
                     <div className="space-y-6">
                       {/* Quick Actions */}
-                      <div className="bg-gradient-to-br from-[#CA1F3D] to-[#25182E] rounded-2xl shadow-2xl p-6 text-white">
+                      <div className="bg-linear-to-br from-[#CA1F3D] to-[#25182E] rounded-2xl shadow-2xl p-6 text-white">
                         <h3 className="text-3xl font-medium mb-4">
                           Quick Actions
                         </h3>
@@ -1038,7 +1038,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                         </h3>
                         <div className="space-y-3">
                           <div className="flex items-start gap-3 p-3 bg-green-50 rounded-xl">
-                            <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                            <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center shrink-0">
                               <CheckCircle className="w-4 h-4 text-white" />
                             </div>
                             <div>
@@ -1049,7 +1049,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                             </div>
                           </div>
                           <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-xl">
-                            <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                            <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center shrink-0">
                               <Package className="w-4 h-4 text-white" />
                             </div>
                             <div>
@@ -1071,7 +1071,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                     <h3 className="text-3xl font-medium text-gray-900 mb-6">
                       Sales Overview
                     </h3>
-                    <div className="h-64 flex items-center justify-center bg-gradient-to-br from-[#FFBE00]/10 to-[#CA1F3D]/10 rounded-xl">
+                    <div className="h-64 flex items-center justify-center bg-linear-to-br from-[#FFBE00]/10 to-[#CA1F3D]/10 rounded-xl">
                       <div className="text-center">
                         <BarChart3 className="w-16 h-16 text-[#CA1F3D] mx-auto mb-3" />
                         <p className="text-gray-600 font-medium">
@@ -1104,7 +1104,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                           setShowBulkImport(!showBulkImport);
                           setShowProductForm(false);
                         }}
-                        className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 font-medium cursor-pointer text-lg"
+                        className="flex items-center gap-2 px-6 py-3 bg-linear-to-r from-green-500 to-emerald-600 text-white rounded-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 font-medium cursor-pointer text-lg"
                       >
                         <Upload className="w-4 h-4" />
                         Bulk Import
@@ -1127,7 +1127,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                             featured: false,
                           });
                         }}
-                        className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#CA1F3D] to-[#25182E] text-white rounded-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 font-medium text-lg cursor-pointer"
+                        className="flex items-center gap-2 px-6 py-3 bg-linear-to-r from-[#CA1F3D] to-[#25182E] text-white rounded-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 font-medium text-lg cursor-pointer"
                       >
                         <Plus className="w-4 h-4" />
                         Add Product
@@ -1143,9 +1143,9 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                         Bulk Import Products
                       </h3>
 
-                      <div className="mb-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl">
+                      <div className="mb-8 p-6 bg-linear-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl">
                         <div className="flex items-start gap-4">
-                          <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                          <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center shrink-0">
                             <FileSpreadsheet className="w-6 h-6 text-white" />
                           </div>
                           <div className="flex-1">
@@ -1188,7 +1188,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                       </div>
 
                       {importResults && (
-                        <div className="mb-6 p-6 bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl animate-slide-in">
+                        <div className="mb-6 p-6 bg-linear-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl animate-slide-in">
                           <h4 className="font-bold text-green-900 mb-4 text-lg flex items-center gap-2">
                             <CheckCircle className="w-5 h-5" />
                             Import Results
@@ -1211,7 +1211,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                         <button
                           onClick={handleBulkImport}
                           disabled={!excelFile || importing}
-                          className="px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl hover:shadow-2xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-3 font-bold"
+                          className="px-8 py-4 bg-linear-to-r from-green-500 to-emerald-600 text-white rounded-xl hover:shadow-2xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-3 font-bold"
                         >
                           {importing ? (
                             <>
@@ -1338,7 +1338,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                                     subCategory: "", // Reset sub-category!
                                   });
                                 }}
-                                className="w-full pl-14 pr-12 py-4 bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#F04393] focus:bg-white transition-all cursor-pointer appearance-none text-gray-700 font-medium shadow-sm hover:shadow-md group-hover:from-[#E8A4BC]/10 group-hover:to-[#F9C449]/10"
+                                className="w-full pl-14 pr-12 py-4 bg-linear-to-r from-gray-50 to-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#F04393] focus:bg-white transition-all cursor-pointer appearance-none text-gray-700 font-medium shadow-sm hover:shadow-md group-hover:from-[#E8A4BC]/10 group-hover:to-[#F9C449]/10"
                               >
                                 <option value="">Select Category</option>
                                 <option value="Jewellery">Jewellery</option>
@@ -1537,7 +1537,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                           />
                         </div>
 
-                        <div className="flex items-center p-4 bg-gradient-to-r from-[#FFBE00]/10 to-[#CA1F3D]/10 rounded-xl">
+                        <div className="flex items-center p-4 bg-linear-to-r from-[#FFBE00]/10 to-[#CA1F3D]/10 rounded-xl">
                           <input
                             type="checkbox"
                             id="featured"
@@ -1563,7 +1563,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                           <button
                             type="submit"
                             disabled={loading}
-                            className="px-8 py-4 bg-gradient-to-r from-[#CA1F3D] to-[#25182E] text-white rounded-xl hover:shadow-2xl transition-all duration-300 disabled:opacity-50 flex items-center gap-3 font-medium cursor-pointer text-lg"
+                            className="px-8 py-4 bg-linear-to-r from-[#CA1F3D] to-[#25182E] text-white rounded-xl hover:shadow-2xl transition-all duration-300 disabled:opacity-50 flex items-center gap-3 font-medium cursor-pointer text-lg"
                           >
                             {loading ? (
                               <>
@@ -1607,7 +1607,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                   <div className="bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-gray-100">
                     <div className="overflow-x-auto">
                       <table className="w-full">
-                        <thead className="bg-gradient-to-r from-[#CA1F3D] to-[#25182E] text-white">
+                        <thead className="bg-linear-to-r from-[#CA1F3D] to-[#25182E] text-white">
                           <tr>
                             <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">
                               Product
@@ -1633,7 +1633,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                           {filteredProducts.map((product, index) => (
                             <tr
                               key={product.id}
-                              className="hover:bg-gradient-to-r hover:from-[#FFBE00]/5 hover:to-[#CA1F3D]/5 transition-all"
+                              className="hover:bg-linear-to-r hover:from-[#FFBE00]/5 hover:to-[#CA1F3D]/5 transition-all"
                             >
                               <td className="px-6 py-5 whitespace-nowrap">
                                 <div className="text-lg font-medium text-gray-900">
@@ -1641,12 +1641,12 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                                 </div>
                               </td>
                               <td className="px-6 py-5 whitespace-nowrap">
-                                <span className="px-3 py-1 bg-gradient-to-r from-[#FFBE00]/20 to-[#CA1F3D]/20 text-[#CA1F3D] rounded-full text-lg font-medium">
+                                <span className="px-3 py-1 bg-linear-to-r from-[#FFBE00]/20 to-[#CA1F3D]/20 text-[#CA1F3D] rounded-full text-lg font-medium">
                                   {product.category}
                                 </span>
                               </td>
                               <td className="px-6 py-5 whitespace-nowrap">
-                                <span className="px-3 py-1 bg-gradient-to-r from-[#FFBE00]/20 to-[#CA1F3D]/20 text-[#CA1F3D] rounded-full text-lg font-medium">
+                                <span className="px-3 py-1 bg-linear-to-r from-[#FFBE00]/20 to-[#CA1F3D]/20 text-[#CA1F3D] rounded-full text-lg font-medium">
                                   {product.subCategory || "—"}
                                 </span>
                               </td>
@@ -1707,7 +1707,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                   </p>
                   {/* Table of services */}
                   <table className="w-full">
-                    <thead className="bg-gradient-to-r from-emerald-500 to-green-700 text-white">
+                    <thead className="bg-linear-to-r from-emerald-500 to-green-700 text-white">
                       <tr>
                         <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">
                           Service
@@ -1730,7 +1730,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                       {services.map((service) => (
                         <tr
                           key={service.id}
-                          className="hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 transition-all"
+                          className="hover:bg-linear-to-r hover:from-green-50 hover:to-emerald-50 transition-all"
                         >
                           <td className="px-6 py-5 whitespace-nowrap">
                             <div className="text-lg font-medium text-gray-900">
@@ -1738,12 +1738,12 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                             </div>
                           </td>
                           <td className="px-6 py-5 whitespace-nowrap">
-                            <span className="px-3 py-1 bg-gradient-to-r from-green-100 to-emerald-100 text-emerald-700 rounded-full text-lg font-medium">
+                            <span className="px-3 py-1 bg-linear-to-r from-green-100 to-emerald-100 text-emerald-700 rounded-full text-lg font-medium">
                               {service.category}
                             </span>
                           </td>
                            <td className="px-6 py-5 whitespace-nowrap">
-          <span className="px-3 py-1 bg-gradient-to-r from-blue-100 to-cyan-100 text-blue-700 rounded-full text-sm font-medium">
+          <span className="px-3 py-1 bg-linear-to-r from-blue-100 to-cyan-100 text-blue-700 rounded-full text-sm font-medium">
             {service.subCategory || "—"}
           </span>
         </td>
@@ -2023,7 +2023,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                           {" "}
                           <button
                             type="submit"
-                            className="px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl font-medium"
+                            className="px-8 py-4 bg-linear-to-r from-green-500 to-emerald-600 text-white rounded-xl font-medium"
                           >
                             Save Service
                             {" "}
@@ -2060,7 +2060,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                   </div>
 
                   <div className="bg-white rounded-2xl shadow-lg p-8">
-                    <div className="h-96 flex items-center justify-center bg-gradient-to-br from-[#FFBE00]/10 to-[#CA1F3D]/10 rounded-xl">
+                    <div className="h-96 flex items-center justify-center bg-linear-to-br from-[#FFBE00]/10 to-[#CA1F3D]/10 rounded-xl">
                       <div className="text-center">
                         <BarChart3 className="w-20 h-20 text-[#CA1F3D] mx-auto mb-4" />
                         <h3 className="text-xl font-medium text-gray-900 mb-2">
@@ -2087,7 +2087,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                   <div className="bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-gray-100">
                     <div className="overflow-x-auto">
                       <table className="w-full">
-                        <thead className="bg-gradient-to-r from-purple-500 to-indigo-700 text-white">
+                        <thead className="bg-linear-to-r from-purple-500 to-indigo-700 text-white">
                           <tr>
                             <th className="px-6 py-4 text-left text-md font-medium uppercase tracking-wider">
                               Customer
@@ -2113,7 +2113,7 @@ const SERVICE_CATEGORY_SUBCATEGORIES = {
                           {bookings.map((booking) => (
                             <tr
                               key={booking.id}
-                              className="hover:bg-gradient-to-r hover:from-purple-50 hover:to-indigo-50 transition-all"
+                              className="hover:bg-linear-to-r hover:from-purple-50 hover:to-indigo-50 transition-all"
                             >
                               <td className="px-6 py-5 whitespace-nowrap">
                                 <div className="text-lg font-medium text-gray-900">

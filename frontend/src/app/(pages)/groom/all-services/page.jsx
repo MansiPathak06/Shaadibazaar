@@ -114,9 +114,9 @@ const getCategoryInfo = () => {
         isHindu: false,
         isChristian: false,
         primaryColor: "green",
-        gradientFrom: "from-green-50",
-        gradientTo: "to-emerald-50",
-        headerGradient: "from-green-900 to-emerald-900",
+        linearFrom: "from-green-50",
+        linearTo: "to-emerald-50",
+        headerlinear: "from-green-900 to-emerald-900",
         accentColor: "emerald"
       };
     case "christian-groom-services":
@@ -126,9 +126,9 @@ const getCategoryInfo = () => {
         isHindu: false,
         isChristian: true,
         primaryColor: "blue",
-        gradientFrom: "from-blue-50",
-        gradientTo: "to-indigo-50",
-        headerGradient: "from-blue-900 to-indigo-900",
+        linearFrom: "from-blue-50",
+        linearTo: "to-indigo-50",
+        headerlinear: "from-blue-900 to-indigo-900",
         accentColor: "blue"
       };
     default: // hindu-groom-services
@@ -138,9 +138,9 @@ const getCategoryInfo = () => {
         isHindu: true,
         isChristian: false,
         primaryColor: "orange",
-        gradientFrom: "from-amber-50",
-        gradientTo: "to-orange-50",
-        headerGradient: "from-orange-900 to-red-900",
+        linearFrom: "from-amber-50",
+        linearTo: "to-orange-50",
+        headerlinear: "from-orange-900 to-red-900",
         accentColor: "amber"
       };
   }
@@ -190,9 +190,9 @@ const breadcrumbs = [
   }
 
   return (
-   <div className={`min-h-screen bg-gradient-to-b ${categoryInfo.gradientFrom} ${categoryInfo.gradientTo}`}>
+   <div className={`min-h-screen bg-linear-to-b ${categoryInfo.linearFrom} ${categoryInfo.linearTo}`}>
       {/* Header */}
-     <div className={`text-white py-8 bg-gradient-to-r ${categoryInfo.headerGradient}`}>
+     <div className={`text-white py-8 bg-linear-to-r ${categoryInfo.headerlinear}`}>
         <div className="container mx-auto px-4">
           <nav className="flex items-center space-x-2 text-sm mb-4 flex-wrap">
             {breadcrumbs.map((crumb, index) => (
@@ -228,7 +228,7 @@ const breadcrumbs = [
       <div className="container mx-auto px-4 py-8">
         <div className="flex gap-6">
           {/* Sidebar Filters - Desktop */}
-          <aside className="hidden lg:block w-64 flex-shrink-0">
+          <aside className="hidden lg:block w-64 shrink-0">
             <div className="bg-white rounded-lg shadow-md p-6 sticky top-4">
               <h3 className="text-lg font-bold text-gray-900 mb-4">Filters</h3>
 

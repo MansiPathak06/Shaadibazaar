@@ -104,14 +104,14 @@ const features = [
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="relative h-screen bg-gradient-to-br from-white via-rose-50 to-blue-50">
+      <div className="relative h-screen bg-linear-to-br from-white via-rose-50 to-blue-50">
         <div className="absolute inset-0 overflow-hidden">
           <img
             src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1762326577/image14_mao1nr.jpg"
             alt="Beach Wedding"
             className="w-full h-full object-cover opacity-80"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-white/80 to-transparent"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-white/80 to-transparent"></div>
         </div>
         <div className="relative z-10 flex items-center justify-center h-full">
           <div className="text-center px-4">
@@ -134,7 +134,7 @@ const features = [
         </div>
       </div>
 
-      <section className="py-20 px-6 bg-gradient-to-b from-rose-50 to-white">
+      <section className="py-20 px-6 bg-linear-to-b from-rose-50 to-white">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12">
           Why Choose ShaadiBazaar Beach Venues?
@@ -155,7 +155,7 @@ const features = [
     </section>
 
       {/* Beach Types Section */}
-      <div className="py-16 px-4 bg-gradient-to-br from-blue-50 to-rose-50">
+      <div className="py-16 px-4 bg-linear-to-br from-blue-50 to-rose-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">
             Beachside Venue Options
@@ -172,7 +172,7 @@ const features = [
                     alt={beach.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition duration-300"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+                  <div className="absolute inset-0 bg-linear-to-t from-blue-900/50 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
                     <div className="text-white">
                       <div className="text-4xl mb-2">{beach.icon}</div>
                       <h3 className="text-2xl font-bold">{beach.name}</h3>
@@ -209,7 +209,7 @@ const features = [
       </div>
 
       {/* Media Gallery Section */}
-      <div className="py-16 px-4 bg-gradient-to-br from-rose-50 to-white">
+      <div className="py-16 px-4 bg-linear-to-br from-rose-50 to-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">
             Experience Our Beautiful Beaches
@@ -276,7 +276,7 @@ const features = [
                       <Play size={32} className="text-white fill-white" />
                     </div>
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900 to-transparent p-4">
+                  <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-gray-900 to-transparent p-4">
                     <p className="text-white font-semibold">{video.title}</p>
                   </div>
                 </div>
@@ -293,19 +293,19 @@ const features = [
             Why Say 'I Do' at the Beach?
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="p-8 bg-gradient-to-br from-rose-50 to-white border-2 border-rose-200 rounded-lg">
+            <div className="p-8 bg-linear-to-br from-rose-50 to-white border-2 border-rose-200 rounded-lg">
               <h3 className="text-2xl font-bold text-rose-400 mb-4">🌅 Romantic Backdrop</h3>
               <p className="text-gray-700">Nature's most stunning venue with endless ocean views and golden hour magic for unforgettable photos.</p>
             </div>
-            <div className="p-8 bg-gradient-to-br from-blue-50 to-white border-2 border-rose-200 rounded-lg">
+            <div className="p-8 bg-linear-to-br from-blue-50 to-white border-2 border-rose-200 rounded-lg">
               <h3 className="text-2xl font-bold text-rose-400 mb-4">🎉 Unique Experience</h3>
               <p className="text-gray-700">Create lasting memories with a beachside celebration that's intimate, luxurious, and absolutely memorable.</p>
             </div>
-            <div className="p-8 bg-gradient-to-br from-rose-50 to-white border-2 border-rose-200 rounded-lg">
+            <div className="p-8 bg-linear-to-br from-rose-50 to-white border-2 border-rose-200 rounded-lg">
               <h3 className="text-2xl font-bold text-rose-400 mb-4">💆 Perfect Ambiance</h3>
               <p className="text-gray-700">Combine the soothing sound of waves, salt air breeze, and natural lighting for an enchanting celebration.</p>
             </div>
-            <div className="p-8 bg-gradient-to-br from-blue-50 to-white border-2 border-rose-200 rounded-lg">
+            <div className="p-8 bg-linear-to-br from-blue-50 to-white border-2 border-rose-200 rounded-lg">
               <h3 className="text-2xl font-bold text-rose-400 mb-4">✨ All Inclusive</h3>
               <p className="text-gray-700">Complete packages with catering, decor, entertainment, and logistics handled by our expert team.</p>
             </div>
@@ -314,7 +314,7 @@ const features = [
       </div>
 
       {/* Stats Section */}
-      <div className="py-16 px-4 bg-gradient-to-r from-rose-400 to-rose-300">
+      <div className="py-16 px-4 bg-linear-to-r from-rose-400 to-rose-300">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8 text-center text-white">
             <div>
@@ -358,7 +358,7 @@ const features = [
       </div>
 
       {/* Contact Section */}
-      <div className="py-12 px-4 bg-gradient-to-br from-blue-50 to-rose-50 border-t-2 border-rose-200">
+      <div className="py-12 px-4 bg-linear-to-br from-blue-50 to-rose-50 border-t-2 border-rose-200">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div className="p-6 bg-white rounded-lg border-2 border-rose-100">
