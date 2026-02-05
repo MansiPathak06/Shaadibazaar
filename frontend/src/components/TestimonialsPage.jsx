@@ -183,7 +183,7 @@ const Testimonials = () => {
           {/* Client Review - Top Right */}
           <Link
             href={testimonials[2].link}
-            className="group bg-gradient-to-br from-rose-50 to-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+            className="group bg-linear-to-br from-rose-50 to-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
           >
             <div className="flex justify-between items-start mb-4">
               <div>
@@ -259,7 +259,7 @@ const Testimonials = () => {
           {/* Hindley Micawber - Bottom Left */}
           <Link
             href={testimonials[5].link}
-            className="group bg-gradient-to-br from-white to-rose-50 rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+            className="group bg-linear-to-br from-white to-rose-50 rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
           >
             <h3 className="text-xl font-bold text-gray-900 mb-3">
               {testimonials[5].title}

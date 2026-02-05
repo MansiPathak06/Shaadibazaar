@@ -11,53 +11,53 @@ const MuslimGroomRitualItems = () => {
 
   // Categories with slugs for routing
   const categories = [
-    { 
-      id: 1, 
-      name: 'Mehr Amount', 
+    {
+      id: 1,
+      name: 'Mehr Amount',
       slug: 'mehr-amount',
-      image: 'https://i.pinimg.com/736x/b9/c4/5b/b9c45b236c2ed5c071f96c8ae24d9a8f.jpg' 
+      image: 'https://i.pinimg.com/736x/b9/c4/5b/b9c45b236c2ed5c071f96c8ae24d9a8f.jpg'
     },
-    { 
-      id: 2, 
-      name: 'Quran', 
+    {
+      id: 2,
+      name: 'Quran',
       slug: 'quran',
-      image: 'https://i.pinimg.com/736x/5b/07/a2/5b07a22eb399bb2628d2ca00cd488d8c.jpg' 
+      image: 'https://i.pinimg.com/736x/5b/07/a2/5b07a22eb399bb2628d2ca00cd488d8c.jpg'
     },
-    { 
-      id: 3, 
-      name: 'Tasbeeh', 
+    {
+      id: 3,
+      name: 'Tasbeeh',
       slug: 'tasbeeh',
       image: 'https://i.pinimg.com/736x/d3/dd/7c/d3dd7c4f5c4c494770c0ed83ef4ca268.jpg'
     },
-    { 
-      id: 4, 
-      name: 'Signature Pen', 
+    {
+      id: 4,
+      name: 'Signature Pen',
       slug: 'signature-pen',
-      image: 'https://i.pinimg.com/1200x/55/1f/5a/551f5a9aa3b9546cc436857a2356af36.jpg' 
+      image: 'https://i.pinimg.com/1200x/55/1f/5a/551f5a9aa3b9546cc436857a2356af36.jpg'
     },
-    { 
-      id: 5, 
-      name: 'Nikahnama Folder', 
+    {
+      id: 5,
+      name: 'Nikahnama Folder',
       slug: 'nikahnama-folder',
-      image: 'https://i.pinimg.com/736x/3f/b5/84/3fb5840b2b4a1b9b98bd7c3c947ed021.jpg' 
+      image: 'https://i.pinimg.com/736x/3f/b5/84/3fb5840b2b4a1b9b98bd7c3c947ed021.jpg'
     },
-    { 
-      id: 6, 
-      name: 'Dry Fruits & Sweets', 
+    {
+      id: 6,
+      name: 'Dry Fruits & Sweets',
       slug: 'dry-fruits-sweets',
-      image: 'https://i.pinimg.com/736x/07/4b/16/074b16f07e618926366044300c00a54a.jpg' 
+      image: 'https://i.pinimg.com/736x/07/4b/16/074b16f07e618926366044300c00a54a.jpg'
     },
-    { 
-      id: 7, 
-      name: 'Groom Welcome Stole', 
+    {
+      id: 7,
+      name: 'Groom Welcome Stole',
       slug: 'groom-welcome-stole',
-      image: 'https://i.pinimg.com/1200x/13/18/ff/1318ff7ed7a236acb7cf7c4c3dcf73c2.jpg' 
+      image: 'https://i.pinimg.com/1200x/13/18/ff/1318ff7ed7a236acb7cf7c4c3dcf73c2.jpg'
     },
-    { 
-      id: 8, 
-      name: 'Varmala (if required)', 
+    {
+      id: 8,
+      name: 'Varmala (if required)',
       slug: 'varmala',
-      image: 'https://i.pinimg.com/736x/d0/69/4c/d0694cedefc094787479aa6798609b67.jpg' 
+      image: 'https://i.pinimg.com/736x/d0/69/4c/d0694cedefc094787479aa6798609b67.jpg'
     }
   ];
 
@@ -87,10 +87,10 @@ const MuslimGroomRitualItems = () => {
     const container = scrollContainerRef.current;
     if (container) {
       const scrollAmount = 320;
-      const newPosition = direction === 'left' 
-        ? container.scrollLeft - scrollAmount 
+      const newPosition = direction === 'left'
+        ? container.scrollLeft - scrollAmount
         : container.scrollLeft + scrollAmount;
-      
+
       container.scrollTo({
         left: newPosition,
         behavior: 'smooth'
@@ -101,28 +101,56 @@ const MuslimGroomRitualItems = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Slim Banner */}
-      <div className="relative h-[30vh] bg-gradient-to-r from-emerald-100 via-teal-50 to-emerald-100 overflow-hidden bg-cover bg-center bg-blend-overlay">
-        <div className="absolute inset-0 bg-white/40"></div>
+      <div className="relative h-[30vh] overflow-hidden group">
+        {/* Background with Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-teal-50 to-emerald-100"></div>
 
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center px-4">
-            <h1 className="text-4xl md:text-5xl font-serif text-emerald-900 mb-2">
+        {/* Dynamic Gradient Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/60 via-transparent to-white/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-emerald-100/50 via-transparent to-transparent" />
+
+        {/* Pattern Overlay */}
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDAgTCA2MCAwIEwgNjAgNjAgTCAwIDYwIFoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzJDNUYyRCIgc3Ryb2tlLXdpZHRoPSIwLjUiIG9wYWNpdHk9IjAuMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-20"></div>
+
+        {/* Content Container */}
+        <div className="relative h-full flex items-center justify-center">
+          <div className="text-center px-4 max-w-3xl">
+            {/* Animated Tag */}
+            <div className="inline-flex items-center gap-2 mb-4">
+              <div className="flex items-center gap-2 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 backdrop-blur-sm border border-emerald-400/30 rounded-full px-4 py-1.5 shadow-lg shadow-emerald-500/10">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
+                </span>
+                <span className="text-xs text-emerald-800 font-normal tracking-widest">
+                  BLESSED CEREMONY
+                </span>
+              </div>
+            </div>
+
+            {/* Title with Gradient */}
+            <h1 className="text-4xl md:text-5xl font-medium uppercase text-gray-900 mb-3 leading-tight">
               Nikah Ritual Items
+              <div className="h-1 w-20 bg-gradient-to-r from-emerald-500 to-teal-600 mt-3 rounded-full mx-auto" />
             </h1>
-            <p className="text-lg text-emerald-800 font-light">
+
+            {/* Subtitle */}
+            <p className="text-base md:text-lg text-emerald-800/90 leading-relaxed max-w-lg mx-auto font-light">
               Sacred essentials for the groom's special day
             </p>
           </div>
         </div>
 
-        {/* Decorative overlay */}
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDAgTCA2MCAwIEwgNjAgNjAgTCAwIDYwIFoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzJDNUYyRCIgc3Ryb2tlLXdpZHRoPSIwLjUiIG9wYWNpdHk9IjAuMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-20"></div>
+        {/* Animated Decorative Elements */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none animate-pulse"
+          style={{ animationDuration: '4s' }} />
+        <div className="absolute bottom-0 left-0 w-48 h-48 bg-teal-500/5 rounded-full blur-3xl pointer-events-none" />
       </div>
 
       {/* Categories Section */}
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="mb-8">
-          <h2 className="text-3xl font-serif text-gray-800 mb-2">Our Collections</h2>
+          <h2 className="text-4xl md:text-5xl font-serif text-gray-800 mb-2">Our <span className='text-emerald-600'>Collections</span></h2>
           <div className="w-20 h-1 bg-emerald-600"></div>
         </div>
 
@@ -131,7 +159,7 @@ const MuslimGroomRitualItems = () => {
           {/* Left Arrow */}
           <button
             onClick={() => scroll('left')}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all duration-300 hover:scale-110"
+            className="absolute left-0 backdrop-blur-sm cursor-pointer top-1/2 -translate-y-1/2 z-10 hover:bg-white shadow-lg rounded-full p-3 transition-all duration-300 hover:scale-110"
             aria-label="Scroll left"
           >
             <ChevronLeft className="w-6 h-6 text-emerald-900" />
@@ -147,17 +175,17 @@ const MuslimGroomRitualItems = () => {
               <Link
                 key={category.id}
                 href={`/groom/all-products?category=ritual-items&subCategory=${category.slug}&religion=muslim`}
-                className="flex-shrink-0 w-72 group cursor-pointer"
+                className="shrink-0 w-72 group cursor-pointer"
               >
                 <div className="relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
-                  <div className="aspect-square bg-gradient-to-br from-emerald-50 to-teal-50">
+                  <div className="aspect-square bg-linear-to-br from-emerald-50 to-teal-50">
                     <img
                       src={category.image}
                       alt={category.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div className="mt-4 text-center">
                   <h3 className="text-lg font-medium text-gray-800 group-hover:text-emerald-700 transition-colors duration-300">
@@ -171,7 +199,7 @@ const MuslimGroomRitualItems = () => {
           {/* Right Arrow */}
           <button
             onClick={() => scroll('right')}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all duration-300 hover:scale-110"
+            className="absolute right-0 top-1/2 -translate-y-1/2  cursor-pointer backdrop-blur-sm  z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all duration-300 hover:scale-110"
             aria-label="Scroll right"
           >
             <ChevronRight className="w-6 h-6 text-emerald-900" />
@@ -190,10 +218,10 @@ const MuslimGroomRitualItems = () => {
       </div>
 
       {/* Featured Section - Now with Real Products */}
-      <div className="bg-gradient-to-b from-emerald-50 to-white py-16">
+      <div className="py-10">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-serif text-gray-800 mb-4">Featured Products</h2>
+            <h2 className="text-4xl md:text-5xl uppercase font-serif text-gray-800 mb-4">Featured <span className='text-emerald-600'>Products</span></h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Handpicked ritual items to make your Nikah ceremony truly memorable
             </p>
@@ -218,7 +246,7 @@ const MuslimGroomRitualItems = () => {
                     className="group cursor-pointer"
                   >
                     <div className="relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 bg-white">
-                      <div className="aspect-square bg-gradient-to-br from-emerald-50 to-teal-50">
+                      <div className="aspect-square bg-linear-to-br from-emerald-50 to-teal-50">
                         <img
                           src={item.image}
                           alt={item.name}
@@ -226,8 +254,8 @@ const MuslimGroomRitualItems = () => {
                         />
                       </div>
                       <div className="p-4">
-                        <h3 className="font-medium text-gray-800 mb-1">{item.name}</h3>
-                        <p className="text-sm text-gray-500">View Collection</p>
+                        <h3 className="font-medium text-gray-800 mb-1 text-lg">{item.name}</h3>
+                        <p className="text-sm text-gray-700">View Collection</p>
                       </div>
                     </div>
                   </Link>
@@ -241,7 +269,7 @@ const MuslimGroomRitualItems = () => {
                     className="group cursor-pointer"
                   >
                     <div className="relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 bg-white">
-                      <div className="aspect-square bg-gradient-to-br from-emerald-50 to-teal-50">
+                      <div className="aspect-square bg-linear-to-br from-emerald-50 to-teal-50">
                         <img
                           src={
                             typeof product.images === 'string'

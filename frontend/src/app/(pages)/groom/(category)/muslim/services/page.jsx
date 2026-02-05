@@ -8,29 +8,29 @@ const MuslimGroomServicesPage = () => {
   const router = useRouter(); // ✅ ADD THIS
   const [currentSlide, setCurrentSlide] = useState(0);
 
-   const [services, setServices] = useState([]);
+  const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
 
- // ✅ REPLACE WITH YOUR API:
-const fetchMuslimGroomServices = async () => {
-  try {
-    setLoading(true);
-    // Use your existing products API with groomwear filters
-    const response = await fetch(
-      `http://localhost:5000/api/products?category=groomwear&religion=muslim`
-    );
-    
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    
-    const result = await response.json();
-    setServices(result.products || []);
-  } catch (error) {
-    console.error('Error fetching services:', error);
-    setServices([]); // Fallback to empty array
-  } finally {
-    setLoading(false);
-  }
-};
+  // ✅ REPLACE WITH YOUR API:
+  const fetchMuslimGroomServices = async () => {
+    try {
+      setLoading(true);
+      // Use your existing products API with groomwear filters
+      const response = await fetch(
+        `http://localhost:5000/api/products?category=groomwear&religion=muslim`
+      );
+
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+      const result = await response.json();
+      setServices(result.products || []);
+    } catch (error) {
+      console.error('Error fetching services:', error);
+      setServices([]); // Fallback to empty array
+    } finally {
+      setLoading(false);
+    }
+  };
 
   // Hero slides data
   const heroSlides = [
@@ -184,86 +184,138 @@ const fetchMuslimGroomServices = async () => {
     setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
   };
 
-// ✅ REPLACE YOUR CURRENT FUNCTIONS WITH THESE:
-const handleCategoryClick = (subCategory) => {
-  router.push(`/groom/all-services?category=muslim-groom-services&subCategory=${subCategory}`);
-};
+  // ✅ REPLACE YOUR CURRENT FUNCTIONS WITH THESE:
+  const handleCategoryClick = (subCategory) => {
+    router.push(`/groom/all-services?category=muslim-groom-services&subCategory=${subCategory}`);
+  };
 
-const handleAllServicesClick = () => {
-  router.push("/groom/all-services?category=muslim-groom-services");
-};
+  const handleAllServicesClick = () => {
+    router.push("/groom/all-services?category=muslim-groom-services");
+  };
 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section with Slider */}
-      <div className="relative h-[250px] overflow-hidden">
-        <div
-          className="flex transition-transform duration-500 ease-out h-full"
-          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-        >
+      <div className="relative h-62.5 overflow-hidden group">
+        {/* Background Slides */}
+        <div className="absolute inset-0">
           {heroSlides.map((slide, index) => (
-            <div key={index} className="min-w-full h-full relative">
+            <div
+              key={index}
+              className={`absolute inset-0 transition-all duration-1000 ease-in-out ${currentSlide === index
+                ? "opacity-100 scale-100"
+                : "opacity-0 scale-110"
+                }`}
+            >
               <img
                 src={slide.image}
                 alt={slide.title}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-white/80 to-transparent flex items-center">
-                <div className="max-w-7xl mx-auto px-8 w-full">
-                  <div className="max-w-md">
-                    <p className="text-sm text-gray-600 mb-2 uppercase tracking-wide">
-                      MUSLIM GROOM SERVICES
-                    </p>
-                    <h1 className="text-5xl font-light text-gray-800 mb-4">
-                      {slide.title}
-                    </h1>
-                    <p className="text-gray-600 mb-6">{slide.subtitle}</p>
-                    <button 
-                      onClick={handleAllServicesClick}
-                      className="bg-green-700 text-white px-8 py-3 rounded hover:bg-green-800 transition-colors cursor-pointer"
-                    >
-                      BOOK NOW
-                    </button>
-                  </div>
-                </div>
-              </div>
+              {/* Dynamic Gradient Overlays */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             </div>
           ))}
         </div>
 
-        {/* Navigation Arrows */}
+        {/* Content Container */}
+        <div className="relative h-full flex items-center">
+          <div className="max-w-7xl mx-auto px-8 w-full">
+            <div className="max-w-2xl">
+              {/* Animated Content */}
+              {heroSlides.map((slide, index) => (
+                <div
+                  key={index}
+                  className={`transition-all duration-700 ${currentSlide === index
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-4 absolute"
+                    }`}
+                >
+                  {/* Animated Tag */}
+                  <div className="inline-flex items-center gap-2 mb-4">
+                    <div className="flex items-center gap-2 bg-gradient-to-r from-emerald-500/30 to-green-600/30 backdrop-blur-md border border-emerald-400/40 rounded-full px-4 py-1.5 shadow-lg shadow-emerald-500/20">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                      </span>
+                      <span className="text-xs text-emerald-100 font-normal tracking-widest">
+                        MUSLIM GROOM SERVICES
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Title with Gradient */}
+                  <h1 className="text-4xl md:text-5xl font-medium uppercase text-white mb-3 leading-tight">
+                    {slide.title}
+                    <div className="h-1 w-20 bg-gradient-to-r from-emerald-500 to-green-600 mt-3 rounded-full" />
+                  </h1>
+
+                  {/* Subtitle */}
+                  <p className="text-base text-gray-200/90 leading-relaxed max-w-lg font-light">
+                    {slide.subtitle}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Navigation Arrows - Minimalist */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all"
+          className="absolute cursor-pointer left-6 top-1/2 -translate-y-1/2 bg-white/5 backdrop-blur-xl hover:bg-white/15 p-3 rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110 border border-white/10 hover:border-white/30"
+          aria-label="Previous slide"
         >
-          <ChevronLeft className="w-6 h-6 text-gray-800" />
+          <ChevronLeft className="w-5 h-5 text-white" strokeWidth={2.5} />
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all"
+          className="absolute cursor-pointer right-6 top-1/2 -translate-y-1/2 bg-white/5 backdrop-blur-xl hover:bg-white/15 p-3 rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110 border border-white/10 hover:border-white/30"
+          aria-label="Next slide"
         >
-          <ChevronRight className="w-6 h-6 text-gray-800" />
+          <ChevronRight className="w-5 h-5 text-white" strokeWidth={2.5} />
         </button>
 
-        {/* Dots */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+        {/* Modern Progress Indicator */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2">
           {heroSlides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-2 h-2 rounded-full transition-all ${
-                currentSlide === index ? "bg-green-700 w-8" : "bg-white/60"
-              }`}
-            />
+              className="group/dot relative p-1"
+              aria-label={`Go to slide ${index + 1}`}
+            >
+              <div
+                className={`rounded-full transition-all duration-500 ${currentSlide === index
+                  ? "h-2 w-10 bg-gradient-to-r from-emerald-500 to-green-600 shadow-lg shadow-emerald-500/50"
+                  : "h-2 w-2 bg-white/30 group-hover/dot:bg-white/50 group-hover/dot:w-4"
+                  }`}
+              />
+            </button>
           ))}
+        </div>
+
+        {/* Animated Decorative Elements */}
+        <div
+          className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none animate-pulse"
+          style={{ animationDuration: '4s' }}
+        />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-green-500/5 rounded-full blur-3xl pointer-events-none" />
+
+        {/* Slide Counter */}
+        <div className="absolute top-6 right-8 bg-black/30 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
+          <span className="text-white text-sm font-medium">
+            {String(currentSlide + 1).padStart(2, '0')} / {String(heroSlides.length).padStart(2, '0')}
+          </span>
         </div>
       </div>
 
       {/* Popular Categories Section */}
       <div className="py-16 bg-gray-50">
         <div className="max-w-full mx-auto px-8">
-          <h2 className="text-3xl font-light text-center text-gray-800 mb-12">
-            Groom Services
+          <h2 className="text-4xl font-medium md:text-5xl uppercase text-center text-gray-800 mb-12">
+            Groom <span className="text-green-700">Services</span>
           </h2>
 
           <div className="relative overflow-hidden">
@@ -271,7 +323,7 @@ const handleAllServicesClick = () => {
               {[...categories, ...categories].map((category, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 w-40 text-center group cursor-pointer"
+                  className="shrink-0 w-40 text-center group cursor-pointer"
                   onClick={() => handleCategoryClick(category.subCategory)}
                 >
                   <div className="relative mb-4 overflow-hidden rounded-full">
@@ -281,8 +333,8 @@ const handleAllServicesClick = () => {
                       className="w-40 h-40 object-cover rounded-full group-hover:scale-110 transition-transform duration-300"
                     />
                   </div>
-                  <h3 className="text-sm font-medium text-gray-800 mb-1">
-                    {category.name.toUpperCase()}
+                  <h3 className="text-md font-medium text-gray-800 mb-1">
+                    {category.name}
                   </h3>
                 </div>
               ))}
@@ -294,7 +346,7 @@ const handleAllServicesClick = () => {
       {/* Featured Collections */}
       <div className="max-w-7xl mx-auto px-8 py-16">
         <div className="grid md:grid-cols-2 gap-8">
-          <div 
+          <div
             className="relative overflow-hidden rounded-lg group cursor-pointer"
             onClick={() => handleCategoryClick("groom-makeover")}
           >
@@ -303,7 +355,7 @@ const handleAllServicesClick = () => {
               alt="Complete Groom Package"
               className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
+            <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
               <h3 className="text-white text-2xl font-light mb-2">
                 Complete Groom Package
               </h3>
@@ -313,7 +365,7 @@ const handleAllServicesClick = () => {
             </div>
           </div>
 
-          <div 
+          <div
             className="relative overflow-hidden rounded-lg group cursor-pointer"
             onClick={handleAllServicesClick}
           >
@@ -322,7 +374,7 @@ const handleAllServicesClick = () => {
               alt="Premium Services"
               className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
+            <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
               <h3 className="text-white text-2xl font-light mb-2">
                 Premium Services Available
               </h3>
@@ -335,10 +387,10 @@ const handleAllServicesClick = () => {
       </div>
 
       {/* Trending Services */}
-      <div className="py-16 bg-gray-50">
+      <div className="py-8">
         <div className="max-w-7xl mx-auto px-8">
-          <h2 className="text-3xl font-light text-center text-gray-800 mb-4">
-            Featured Groom Services
+          <h2 className="text-4xl font-medium uppercase md:text-5xl text-center text-gray-800 mb-6">
+            Featured Groom <span className="text-green-700">Services</span>
           </h2>
           <div className="flex justify-center gap-4 mb-12">
             <button className="text-green-700 border-b-2 border-green-700 pb-2">
@@ -372,7 +424,7 @@ const handleAllServicesClick = () => {
                   />
                 </div>
                 <div className="p-4 text-center">
-                  <h3 className="text-md text-gray-800 mb-2">{service.name}</h3>
+                  <h3 className="text-lg text-gray-800 mb-2">{service.name}</h3>
                   <div className="flex items-center justify-center gap-2">
                     <span className="text-xs font-medium text-gray-800">
                       Click here to explore more!
@@ -393,14 +445,32 @@ const handleAllServicesClick = () => {
             ))}
           </div>
           <div className="text-center">
-            <button 
+            <button
               onClick={handleAllServicesClick}
-              className="group mt-12 relative inline-flex items-center gap-3 bg-green-700 text-white px-12 py-4 rounded-full text-lg font-medium hover:bg-green-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+              className="group relative mt-12 inline-flex items-center gap-3 
+               px-12 py-4 rounded-full text-lg font-semibold text-white
+               bg-gradient-to-r from-green-700 to-green-600
+               shadow-lg shadow-green-900/30
+               transition-all duration-300
+               hover:-translate-y-1 hover:shadow-2xl hover:shadow-green-900/40
+               active:scale-95 overflow-hidden"
             >
-              <span>VIEW ALL ITEMS</span>
-              <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              {/* Shine overlay */}
+              <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500">
+                <span className="absolute -inset-full bg-gradient-to-r from-transparent via-white/25 to-transparent rotate-12 translate-x-[-120%] group-hover:translate-x-[120%] transition duration-700" />
+              </span>
+
+              {/* Glow ring */}
+              <span className="absolute inset-0 rounded-full ring-0 group-hover:ring-4 ring-green-400/30 transition-all duration-300" />
+
+              {/* Text */}
+              <span className="relative tracking-wide">VIEW ALL ITEMS</span>
+
+              {/* Icon */}
+              <ChevronRight className="relative w-5 h-5 transition-transform duration-300 group-hover:translate-x-2 group-hover:scale-110" />
             </button>
           </div>
+
         </div>
       </div>
 

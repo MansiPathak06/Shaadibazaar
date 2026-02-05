@@ -142,7 +142,7 @@ export default function IndoorVenues() {
             sizes="100vw"
             className="opacity-50"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-purple-900/85 via-purple-700/75 to-purple-600/65"></div>
+          <div className="absolute inset-0 bg-linear-to-b from-purple-900/85 via-purple-700/75 to-purple-600/65"></div>
         </div>
         <div className="py-32 px-6 text-center max-w-5xl mx-auto">
           <h1 className="text-white text-5xl md:text-6xl font-extrabold mb-6 drop-shadow-2xl">
@@ -174,7 +174,7 @@ export default function IndoorVenues() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {venueTypes.map((venue, idx) => (
-              <div key={idx} className="bg-gradient-to-br from-purple-50 to-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 text-center border border-purple-100">
+              <div key={idx} className="bg-linear-to-br from-purple-50 to-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 text-center border border-purple-100">
                 <div className="text-5xl mb-4">{venue.icon}</div>
                 <h3 className="text-xl font-bold text-purple-700 mb-3">{venue.title}</h3>
                 <p className="text-gray-600">{venue.description}</p>
@@ -244,7 +244,7 @@ export default function IndoorVenues() {
         </section>
 
         {/* Features Section */}
-        <section className="bg-gradient-to-r from-purple-100 to-purple-50 rounded-2xl p-12">
+        <section className="bg-linear-to-r from-purple-100 to-purple-50 rounded-2xl p-12">
           <h2 className="text-4xl font-bold text-center mb-6 text-purple-700">
             Premium Venue Features
           </h2>
@@ -301,7 +301,7 @@ export default function IndoorVenues() {
         </section>
 
         {/* Call to Action */}
-        <section className="text-center bg-gradient-to-r from-purple-700 to-purple-800 rounded-2xl p-16 text-white shadow-2xl">
+        <section className="text-center bg-linear-to-r from-purple-700 to-purple-800 rounded-2xl p-16 text-white shadow-2xl">
           <h2 className="text-4xl font-bold mb-6">Begin Your Journey to the Perfect Celebration</h2>
           <p className="text-xl mb-10 max-w-2xl mx-auto">
             Book your dream indoor venue with ShaadiBazaar today and experience the perfect blend of luxury, comfort, and impeccable service!

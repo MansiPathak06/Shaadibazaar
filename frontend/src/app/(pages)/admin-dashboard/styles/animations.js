@@ -46,21 +46,21 @@ export const dashboardStyles = `
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   }
 
-  .gradient-border {
+  .linear-border {
     position: relative;
     background: white;
     border-radius: 1rem;
   }
 
-  .gradient-border::before {
+  .linear-border::before {
     content: "";
     position: absolute;
     inset: 0;
     border-radius: 1rem;
     padding: 2px;
-    background: linear-gradient(135deg, #f04393, #2a0b8b, #3c4cad);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
+    background: linear-linear(135deg, #f04393, #2a0b8b, #3c4cad);
+    -webkit-mask: linear-linear(#fff 0 0) content-box,
+      linear-linear(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
   }
@@ -70,7 +70,7 @@ export const dashboardStyles = `
   }
 
   .table-row:hover {
-    background: linear-gradient(
+    background: linear-linear(
       90deg,
       rgba(240, 67, 147, 0.05) 0%,
       rgba(42, 11, 139, 0.05) 100%

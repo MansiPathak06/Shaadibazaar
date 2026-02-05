@@ -76,7 +76,7 @@ export default function FarmhouseLanding() {
     <div className="bg-white font-sans antialiased">
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-emerald-50 via-white to-amber-50">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-linear-to-br from-emerald-50 via-white to-amber-50">
         <img src={images.heroBg} alt="Farmhouse venue background" className="absolute inset-0 w-full h-full object-cover opacity-40" />
         <motion.div 
           initial="hidden" 
@@ -149,7 +149,7 @@ export default function FarmhouseLanding() {
               aria-label="Farmhouse exterior"
               initial={{ scale: 1 }}
             >
-              <div className="aspect-[4/5] bg-gradient-to-br from-emerald-200 to-amber-200 rounded-3xl overflow-hidden shadow-2xl">
+              <div className="aspect-[4/5] bg-linear-to-br from-emerald-200 to-amber-200 rounded-3xl overflow-hidden shadow-2xl">
                 <img 
                   src={images.about} 
                   alt="Farmhouse exterior" 
@@ -188,7 +188,7 @@ export default function FarmhouseLanding() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div className="order-2 md:order-1 grid grid-cols-2 gap-4" whileHover={{ scale: 1.03 }}>
               {images.catering.map((img, i) => (
-                <div key={i} className="aspect-square bg-gradient-to-br from-orange-200 to-red-300 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                <div key={i} className="aspect-square bg-linear-to-br from-orange-200 to-red-300 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
                   <img src={img} alt="Catering preview" className="w-full h-full object-cover" loading="lazy" />
                 </div>
               ))}
@@ -215,7 +215,7 @@ export default function FarmhouseLanding() {
 
       {/* Decor Section */}
       <motion.section
-        className="py-24 bg-gradient-to-b from-amber-50 to-white"
+        className="py-24 bg-linear-to-b from-amber-50 to-white"
         initial="hidden" 
         whileInView="visible" 
         viewport={{ once: true, amount: 0.3 }}
@@ -238,7 +238,7 @@ export default function FarmhouseLanding() {
                 whileHover={{ scale: 1.05 }}
                 tabIndex={0}
               >
-                <div className="aspect-[4/3] bg-gradient-to-br from-rose-300 to-pink-400 relative overflow-hidden rounded-2xl">
+                <div className="aspect-[4/3] bg-linear-to-br from-rose-300 to-pink-400 relative overflow-hidden rounded-2xl">
                   <img src={img} alt={`Decor style ${i + 1}`} className="w-full h-full object-cover" loading="lazy" />
                 </div>
                 <div className="p-6">
@@ -371,14 +371,14 @@ export default function FarmhouseLanding() {
                 tabIndex={0}
                 aria-label={`Gallery image ${idx + 1}`}
               >
-                <div className="aspect-[4/5] bg-gradient-to-br from-rose-400 to-pink-600 relative rounded-2xl overflow-hidden">
+                <div className="aspect-[4/5] bg-linear-to-br from-rose-400 to-pink-600 relative rounded-2xl overflow-hidden">
                   <img
                     src={img}
                     alt={["Weddings & Receptions", "Décor & Lighting"][idx]}
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent rounded-2xl"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent rounded-2xl"></div>
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                     <h3 className="text-2xl font-bold mb-1">{["Weddings & Receptions", "Décor & Lighting"][idx]}</h3>
                     <p className="text-white/80 text-sm uppercase tracking-wider">{["Love Stories", "Design Excellence"][idx]}</p>
@@ -392,7 +392,7 @@ export default function FarmhouseLanding() {
 
       {/* CTA Section */}
       <motion.section
-        className="py-24 bg-gradient-to-br from-emerald-600 to-emerald-800 text-white relative overflow-hidden"
+        className="py-24 bg-linear-to-br from-emerald-600 to-emerald-800 text-white relative overflow-hidden"
         initial="hidden" 
         whileInView="visible" 
         viewport={{ once: true, amount: 0.4 }}

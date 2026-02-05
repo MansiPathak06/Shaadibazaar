@@ -143,7 +143,7 @@ const Accessories = () => {
 
             {/* Special Offers */}
             <div className="grid md:grid-cols-2 gap-6 mb-16">
-                <div className="bg-gradient-to-br from-rose-50 to-rose-50 rounded-lg overflow-hidden">
+                <div className="bg-linear-to-br from-rose-50 to-rose-50 rounded-lg overflow-hidden">
                     <div className="flex items-center h-48">
                         <div className="p-8 flex-1">
                             <p className="text-xs text-gray-600 mb-1 uppercase">special offer</p>
@@ -170,7 +170,7 @@ const Accessories = () => {
                 </div>
 
 
-                <div className="bg-gradient-to-br from-rose-50 to-rose-50 rounded-lg overflow-hidden">
+                <div className="bg-linear-to-br from-rose-50 to-rose-50 rounded-lg overflow-hidden">
                     <div className="flex items-center h-48">
                         <div className="p-8 flex-1">
                             <p className="text-xs text-gray-600 mb-1 uppercase">special offer</p>

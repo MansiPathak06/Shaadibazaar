@@ -5,7 +5,7 @@ import { blogData } from "@/lib/blogData";
 
 export default function BlogPage() {
   return (
-    <div className="bg-gradient-to-b from-rose-50/30 to-white min-h-screen flex flex-col">
+    <div className="bg-linear-to-b from-rose-50/30 to-white min-h-screen flex flex-col">
       <header className="relative w-full py-4 px-6 overflow-hidden">
         <div className="absolute inset-0 "></div>
         <div className="absolute top-0 right-0 w-64 h-44 bg-white/10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
@@ -13,7 +13,7 @@ export default function BlogPage() {
         <div
           className="absolute inset-0 opacity-10"
           style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+            backgroundImage: 'radial-linear(circle at 2px 2px, white 1px, transparent 0)',
             backgroundSize: '32px 32px'
           }}
         ></div>
@@ -24,7 +24,7 @@ export default function BlogPage() {
           
 
         <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-2 font-serif leading-tight">
-  <span className="inline-block transform hover:scale-105 bg-gradient-to-r from-rose-500 via-fuchsia-500 to-rose-400 bg-clip-text text-transparent transition-transform duration-300">
+  <span className="inline-block transform hover:scale-105 bg-linear-to-r from-rose-500 via-fuchsia-500 to-rose-400 bg-clip-text text-transparent transition-transform duration-300">
     Our Blogs
   </span>
 </h1>
@@ -59,7 +59,7 @@ export default function BlogPage() {
               }}
             >
               <div className="relative overflow-hidden rounded-t-xl h-48">
-                <div className="absolute inset-0 bg-gradient-to-t from-rose-500/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-rose-500/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500 z-[5]"></div>
                 <img
                   src={post.image}
@@ -77,7 +77,7 @@ export default function BlogPage() {
               </div>
               <div className="p-5 flex flex-col flex-1">
                 <div className="mb-2.5">
-                  <span className="inline-block px-3 py-1 bg-gradient-to-r from-rose-50 to-pink-50 text-rose-600 text-xs font-medium rounded-full shadow-sm group-hover:shadow-md group-hover:from-rose-100 group-hover:to-pink-100 transition-all duration-300">
+                  <span className="inline-block px-3 py-1 bg-linear-to-r from-rose-50 to-pink-50 text-rose-600 text-xs font-medium rounded-full shadow-sm group-hover:shadow-md group-hover:from-rose-100 group-hover:to-pink-100 transition-all duration-300">
                     {post.category}
                   </span>
                 </div>
@@ -93,7 +93,7 @@ export default function BlogPage() {
                 
                 <Link 
                   href={`/blogs/${post.id}`}
-                  className="mt-auto cursor-pointer px-5 py-2.5 bg-gradient-to-r from-rose-400 to-pink-600 text-white text-sm font-medium rounded-lg hover:from-rose-400 hover:to-pink-500 transition-all duration-300 outline-none focus:ring-4 focus:ring-rose-300 shadow-md hover:shadow-xl transform hover:scale-[1.02] active:scale-95 text-center group/btn relative overflow-hidden"
+                  className="mt-auto cursor-pointer px-5 py-2.5 bg-linear-to-r from-rose-400 to-pink-600 text-white text-sm font-medium rounded-lg hover:from-rose-400 hover:to-pink-500 transition-all duration-300 outline-none focus:ring-4 focus:ring-rose-300 shadow-md hover:shadow-xl transform hover:scale-[1.02] active:scale-95 text-center group/btn relative overflow-hidden"
                 >
                   <span className="relative z-10 flex items-center justify-center gap-2">
                     READ MORE

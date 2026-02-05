@@ -38,12 +38,12 @@ export default function BlogDetailPage() {
 
   if (!blog) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-pink-50 via-white to-pink-50 flex items-center justify-center">
+      <div className="min-h-screen bg-linear-to-b from-pink-50 via-white to-pink-50 flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">Blog not found</h2>
           <Link 
             href="/blogs"
-            className="inline-block px-6 py-3 bg-gradient-to-r from-rose-400 to-pink-500 text-white rounded-full hover:shadow-lg transition-all"
+            className="inline-block px-6 py-3 bg-linear-to-r from-rose-400 to-pink-500 text-white rounded-full hover:shadow-lg transition-all"
           >
             Back to Blogs
           </Link>
@@ -53,7 +53,7 @@ export default function BlogDetailPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-pink-50 via-white to-pink-50">
+    <div className="min-h-screen bg-linear-to-b from-pink-50 via-white to-pink-50">
       {/* Navigation Bar */}
       <nav className="bg-white shadow-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -81,10 +81,10 @@ export default function BlogDetailPage() {
           alt={blog.title}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent" />
         
         <div className="absolute top-8 left-1/2 transform -translate-x-1/2 max-w-6xl w-full px-6">
-          <span className="inline-block bg-gradient-to-r from-rose-400 to-pink-500 text-white px-5 py-2 rounded-full text-sm font-medium shadow-lg">
+          <span className="inline-block bg-linear-to-r from-rose-400 to-pink-500 text-white px-5 py-2 rounded-full text-sm font-medium shadow-lg">
             {blog.category}
           </span>
         </div>
@@ -135,7 +135,7 @@ export default function BlogDetailPage() {
                 case 'heading':
                   return (
                     <h2 key={index} className="text-2xl md:text-3xl font-medium text-gray-800 mt-12 mb-6 flex items-center gap-3">
-                      <span className="w-2 h-8 bg-gradient-to-b from-rose-400 to-pink-500 rounded-full"></span>
+                      <span className="w-2 h-8 bg-linear-to-b from-rose-400 to-pink-500 rounded-full"></span>
                       {block.text}
                     </h2>
                   );
@@ -145,7 +145,7 @@ export default function BlogDetailPage() {
                     <ul key={index} className="space-y-4 my-8">
                       {block.items.map((item, i) => (
                         <li key={i} className="flex items-start gap-3">
-                          <span className="w-2 h-2 bg-rose-400 rounded-full mt-2.5 flex-shrink-0"></span>
+                          <span className="w-2 h-2 bg-rose-400 rounded-full mt-2.5 shrink-0"></span>
                           <span className="text-gray-700 text-lg">{item}</span>
                         </li>
                       ))}
@@ -154,7 +154,7 @@ export default function BlogDetailPage() {
                 
                 case 'quote':
                   return (
-                    <div key={index} className="my-10 bg-gradient-to-r from-pink-50 to-purple-50 border-l-4 border-rose-400 p-8 rounded-r-2xl shadow-md">
+                    <div key={index} className="my-10 bg-linear-to-r from-pink-50 to-purple-50 border-l-4 border-rose-400 p-8 rounded-r-2xl shadow-md">
                       <p className="text-xl md:text-2xl text-gray-800 font-serif italic mb-3">
                         "{block.text}"
                       </p>
@@ -189,7 +189,7 @@ export default function BlogDetailPage() {
         </div>
 
         {/* Author Bio Card */}
-        <div className="bg-gradient-to-r from-rose-400 to-pink-500 rounded-3xl shadow-xl p-8 mb-12 text-white">
+        <div className="bg-linear-to-r from-rose-400 to-pink-500 rounded-3xl shadow-xl p-8 mb-12 text-white">
           <div className="flex items-center gap-6">
             <img 
               src={blog.author.avatar} 
@@ -210,7 +210,7 @@ export default function BlogDetailPage() {
         {relatedBlogs.length > 0 && (
           <div className="mb-16">
             <h2 className="text-3xl font-medium text-gray-800 mb-8 flex items-center gap-3">
-              <span className="w-2 h-8 bg-gradient-to-b from-rose-400 to-pink-500 rounded-full"></span>
+              <span className="w-2 h-8 bg-linear-to-b from-rose-400 to-pink-500 rounded-full"></span>
               You May Also Like
             </h2>
             
@@ -252,7 +252,7 @@ export default function BlogDetailPage() {
       </div>
 
       {/* Newsletter Section */}
-      {/* <div className="bg-gradient-to-r from-rose-400 via-pink-400 to-rose-500 py-16 px-6">
+      {/* <div className="bg-linear-to-r from-rose-400 via-pink-400 to-rose-500 py-16 px-6">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Never Miss a Wedding Trend

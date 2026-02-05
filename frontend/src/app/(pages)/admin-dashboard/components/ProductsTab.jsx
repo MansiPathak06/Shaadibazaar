@@ -79,8 +79,13 @@ export default function ProductsTab({
     { value: "groomwear", label: "Groom Wear" },
     { value: "ritual-items", label: "Ritual Items" },
     { value: "jewellery", label: "Jewellery" },
-    { value: "accessories", label: "Accessories" },
-    { value: "other", label: "Other" },
+    { value: "makeup-hair", label: "Mkaeup and Hair Accessories" },
+    { value: "general-essentials", label: "General Essentials" },
+ 
+    { value: "universal-bridal-gifts", label: "Universal Bridal Gifts" },
+    { value: "universal-groom-gifts", label: "Universal Groom Gifts" },
+    { value: "universal-groom-items", label: "Universal Groom Items" },
+   
   ];
 
   // Subcategories based on main category
@@ -99,61 +104,257 @@ export default function ProductsTab({
       { value: "bridal-sandals-flats", label: "Bridal Sandals/Flats" },
       { value: "hand-clutch-potli-bag", label: "Hand Clutch/Potli Bag" },
       { value: "bridal-robe-for-makeup", label: "Bridal Robe for Makeup" },
+      { value: "sharara-gharara", label: "Sharara/Gharara" },
+      { value: "anarkali-suit", label: "Anarkali Suit" },
+      { value: "bridal-hijab", label: "Bridal Hijab" },
+      { value: "bridal-burqa", label: "Bridal Burqa" },
+      { value: "bridal-footwear", label: "Bridal Footwear" },
+      { value: "punjabi-suit", label: "Punjabi Suit" },
+      { value: "phulkari-dupatta", label: "Phulkari Dupatta" },
+      { value: "chuni", label: "Chuni" },
+      { value: "wedding-gown", label: "Wedding Gown" },
+      { value: "bridal-veil", label: "Bridal Veil" },
+      { value: "bridal-gloves", label: "Bridal Gloves" },
+      { value: "hair-tiara", label: "Hair Tiara" },
+      { value: "petticoat", label: "Petticoat" },
+      { value: "bouquet", label: "Bouquet" },
+      { value: "bridesmaid-dresses", label: "Bridesmaid Dresses" },
     ],
-    "ritual-items": [
-    { value: "varmala", label: "Varmala" },
-    { value: "coconut", label: "Coconut" },
-    { value: "raksha-sutra-kalawa", label: "Raksha Sutra/Kalawa" },
-    { value: "puja-thali", label: "Puja Thali" },
-    { value: "haldi-ubtan-items", label: "Haldi/Ubtan Items" },
-    { value: "groom-kalgi", label: "Groom's Kalgi" },
-    { value: "gift-saree-lehenga", label: "Gift Saree/Lehenga" },
-    { value: "tilak-plate-items", label: "Tilak Plate Items" },
-     // Muslim - ADD THESE
-  { value: "mehr-amount", label: "Mehr Amount" },
-  { value: "quran", label: "Quran" },
-  { value: "tasbeeh", label: "Tasbeeh" },
-  { value: "signature-pen", label: "Signature Pen" },
-  { value: "nikahnama-folder", label: "Nikahnama Folder" },
-  { value: "dry-fruits-sweets", label: "Dry Fruits & Sweets" },
-  { value: "groom-welcome-stole", label: "Groom Welcome Stole" },
-  { value: "varmala", label: "Varmala (Muslim)" },
-  ],
-  
-    groomwear: [
-      { value: "sherwani-achkan", label: "Sherwani/Achkan" },
-      { value: "kurta-pajama", label: "Kurta-Pajama" },
-      { value: "dhoti-kurta", label: "Dhoti-Kurta" },
-      { value: "safa-turban", label: "Safa/Turban" },
-      { value: "stole-dupatta", label: "Stole/Dupatta" },
-      { value: "sehra", label: "Sehra" },
-      { value: "turban-brooch", label: "Turban Brooch" },
-      { value: "mojari-jutti", label: "Mojari/Jutti" },
-      { value: "cufflinks", label: "Cufflinks" },
-      { value: "wristwatch", label: "Wristwatch" },
-      { value: "rudraksha-pearl-mala", label: "Rudraksha/Pearl Mala" },
-      { value: "perfume-attar", label: "Perfume/Attar" },
+    jewellery: [
+      { value: "maang-tikka", label: "Maang Tikka" },
+      { value: "jhoomar", label: "Jhoomar" },
+      { value: "matha-patti", label: "Matha Patti" },
+      { value: "nath", label: "Nath (Nose Ring)" },
+      { value: "nose-studs", label: "Nose Studs" },
+      { value: "earrings", label: "Earrings" },
+      { value: "necklace", label: "Necklace" },
+      { value: "necklace-set", label: "Necklace Set" },
+      { value: "choker", label: "Choker" },
+      { value: "rani-haar", label: "Rani Haar" },
+      { value: "bangles", label: "Bangles" },
+      { value: "kada", label: "Kada" },
+      { value: "choora", label: "Bridal Chooda" },
+      { value: "kalira", label: "Kalira" },
+      { value: "hathphool", label: "Hathphool" },
+      { value: "kamarbandh", label: "Kamarbandh" },
+      { value: "payal", label: "Payal (Anklets)" },
+      { value: "bichhiya", label: "Bichhiya (Toe Rings)" },
+      { value: "rings", label: "Rings" },
+      { value: "bracelet", label: "Bracelet" },
+      { value: "tiara", label: "Tiara Accessories" },
+      { value: "hair-accessories", label: "Hair Accessories" },
+    ],
+    "makeup-hair": [
+      { value: "hair-extensions", label: "Hair Extensions" },
+      { value: "bun-accessories", label: "Bun Accessories (Gajra, Pins)" },
+      { value: "hair-tiara", label: "Hair Tiara / Juda Pins" },
+      { value: "makeup-setting-spray", label: "Makeup Setting Spray" },
+      { value: "nail-extensions", label: "Nail Extensions" },
+      { value: "nail-art-kit", label: "Nail Art Kit" },
+    ],
 
-       // Muslim Groom Wear
-    { value: "sherwani", label: "Sherwani (Muslim)" },
-    { value: "pathani-suit", label: "Pathani Suit" },
-    { value: "kurta-pajama-muslim", label: "Kurta-Pajama (Muslim)" },
-    { value: "long-coat", label: "Long Coat/Achkan (Muslim)" },
-    { value: "traditional-cap", label: "Traditional Cap/Topi" },
-    { value: "mojari", label: "Mojari/Leather Shoes (Muslim)" },
-    { value: "attar", label: "Attar (Muslim)" },
-    { value: "tasbih", label: "Tasbih/Prayer Beads" },
-    { value: "brooch", label: "Brooch/Pin" },
-    { value: "stole", label: "Stole/Shawl" },
+    "ritual-items": [
+      { value: "haldi-ubtan", label: "Haldi / Ubtan Items" },
+      { value: "mehendi-cones", label: "Mehendi Cones" },
+      { value: "choora-ceremony-items", label: "Choora Ceremony Items" },
+      { value: "kalire", label: "Kalire" },
+      { value: "varmala", label: "Varmala" },
+      { value: "puja-thali", label: "Puja Thali" },
+      { value: "sindoor-box", label: "Sindoor Box" },
+      { value: "mangalsutra", label: "Mangalsutra" },
+      { value: "kanyadaan-items", label: "Kanyadaan Items" },
+      { value: "coconut", label: "Coconut" },
+      { value: "cloth-for-muhurat", label: "Cloth for Muhurat" },
+
+      { value: "nikahnama-folder", label: "Nikahnama Folder" },
+      { value: "certificate-folder", label: "Certificate Folder" },
+      { value: "quran", label: "Quran" },
+      { value: "tasbeeh", label: "Tasbeeh" },
+      { value: "mehr-amount", label: "Mehr Amount" },
+      { value: "signature-pen", label: "Signature Pen" },
+
+      { value: "dry-fruits-sweets", label: "Dry Fruits & Sweets" },
+      { value: "sweet-boxes", label: "Sweet Boxes" },
+      { value: "gift-sets", label: "Gift Sets" },
+
+      { value: "bride-entry-flowers", label: "Bride Entry Flowers" },
+      { value: "flower-bouquet", label: "Flower Bouquet" },
+      { value: "flower-basket", label: "Flower Basket" },
+      { value: "garlands", label: "Garlands" },
+      { value: "flower-chadar", label: "Flower Chadar" },
+
+      { value: "car-decoration", label: "Car Decoration" },
+      { value: "unity-candle-set", label: "Unity Candle Set" },
+
+      { value: "wedding-rings", label: "Wedding Rings" },
+      { value: "engagement-rings", label: "Engagement Rings" },
+
+      { value: "bible", label: "Bible" },
+
+      { value: "rumala-sahib", label: "Rumala Sahib" },
+      { value: "rumaal", label: "Rumaal" },
+      { value: "raksha-sutra", label: "Raksha Sutra / Kalawa" },
+      { value: "tilak-plate-items", label: "Tilak Plate Items" },
+
+      { value: "groom-kalgi", label: "Groom’s Kalgi" },
+      { value: "groom-welcome-stole", label: "Groom Welcome Stole" },
+      { value: "pagri-handkerchief", label: "Pagri / Handkerchief" },
     ],
-    jewellery: [],
+    // "bridal-services": [
+    //   {
+    //     value: "bridal-makeup-hd-airbrush",
+    //     label: "Bridal Makeup (HD / Airbrush)",
+    //   },
+    //   {
+    //     value: "bridal-makeup-arabic-hd",
+    //     label: "Bridal Makeup (Arabic / HD)",
+    //   },
+    //   { value: "sikh-bridal-makeup", label: "Sikh Bridal Makeup" },
+    //   { value: "bridal-hairstyle", label: "Bridal Hairstyle" },
+    //   { value: "hijab-styling", label: "Hijab Styling" },
+
+    //   { value: "mehendi-artist", label: "Mehendi Artist" },
+    //   { value: "spa-facial", label: "Spa & Facial" },
+    //   { value: "pre-bridal-package", label: "Pre-Bridal Package" },
+    //   { value: "ubtan-ceremony-setup", label: "Ubtan Ceremony Setup" },
+
+    //   { value: "bridal-photoshoot", label: "Bridal Photoshoot" },
+    //   { value: "kaleera-photoshoot", label: "Kaleera Photoshoot" },
+
+    //   { value: "saree-draping-artist", label: "Saree Draping Artist" },
+    //   { value: "lehenga-pinning-expert", label: "Lehenga Pinning Expert" },
+    //   { value: "gown-tailoring", label: "Gown Tailoring" },
+
+    //   { value: "hair-accessories-service", label: "Hair Accessories" },
+    //   { value: "manicure-pedicure", label: "Manicure & Nails" },
+
+    //   { value: "choora-ceremony-expert", label: "Choora Ceremony Expert" },
+
+    //   { value: "car-decoration-service", label: "Car Decoration" },
+    //   { value: "stage-decoration", label: "Stage Decoration" },
+
+    //   { value: "doli-arrangement", label: "Doli Arrangement" },
+    //   { value: "bhagra-team", label: "Bhangra Team" },
+
+    //   { value: "church-choir", label: "Church Choir" },
+    //   { value: "wedding-planner", label: "Wedding Planner" },
+    // ],
+    "general-essentials": [
+      { value: "innerwear-shapewear", label: "Innerwear / Shapewear" },
+      { value: "safety-pins-u-pins", label: "Safety Pins, U-Pins" },
+      { value: "makeup-touch-up-kit", label: "Makeup Touch-Up Kit" },
+      { value: "wet-wipes", label: "Wet Wipes" },
+      { value: "power-bank", label: "Power Bank" },
+      { value: "clutch-potli", label: "Clutch / Potli" },
+      { value: "perfume", label: "Perfume" },
+      { value: "hand-sanitizer", label: "Hand Sanitizer" },
+    ],
+    // "pre-wedding-services": [
+    //   { value: "pre-bridal-package", label: "Pre-Bridal Package" },
+    //   { value: "spa", label: "Spa" },
+    //   { value: "facial", label: "Facial" },
+    //   { value: "manicure-pedicure", label: "Manicure & Pedicure" },
+    //   { value: "nail-extensions", label: "Nail Extensions" },
+    //   { value: "hair-coloring", label: "Hair Coloring" },
+    // ],
+    "universal-bridal-gifts": [
+      { value: "perfume-set", label: "Perfume Set" },
+      { value: "jewellery-box", label: "Jewellery Box" },
+      { value: "bridal-watch", label: "Bridal Watch" },
+      { value: "makeup-kit", label: "Makeup Kit" },
+      { value: "entry-props", label: "Entry Props" },
+      { value: "customized-hanger", label: "Customized Hanger" },
+      { value: "couple-photo-frame", label: "Couple Photo Frame" },
+    ],
+    // "groom-services": [
+    //   { value: "groom-styling", label: "Groom Styling" },
+    //   { value: "groom-makeup", label: "Groom Makeup" },
+    //   { value: "groom-makeover", label: "Groom Makeover" },
+
+    //   { value: "hairstyling", label: "Hairstyling" },
+    //   { value: "beard-trim-shave", label: "Beard Trim / Shave" },
+    //   { value: "beard-setting", label: "Beard Setting" },
+    //   { value: "beard-styling", label: "Beard Styling" },
+
+    //   { value: "suit-fitting", label: "Suit Fitting" },
+
+    //   { value: "ubtan-session", label: "Ubtan Session" },
+    //   { value: "arabic-henna", label: "Arabic Henna" },
+
+    //   { value: "groom-portrait-shoot", label: "Groom Portrait Shoot" },
+    //   { value: "groom-photoshoot", label: "Groom Photoshoot" },
+
+    //   { value: "turban-tying-expert", label: "Turban Tying Expert" },
+    //   { value: "sehra-tying-expert", label: "Sehra Tying Expert" },
+
+    //   { value: "choir-band", label: "Choir / Band" },
+    //   { value: "band-baja", label: "Band-Baja" },
+    //   { value: "dj-for-baraat", label: "DJ for Baraat" },
+    //   { value: "dhol-nagara", label: "Dhol / Nagara" },
+    //   { value: "bhangra-group", label: "Bhangra Group" },
+
+    //   { value: "ghodi-decoration", label: "Ghodi Decoration" },
+    //   { value: "car-decoration", label: "Car Decoration" },
+    //   { value: "baraat-management", label: "Baraat Management" },
+    // ],
+    "universal-groom-items": [
+      { value: "groom-perfume", label: "Groom Perfume" },
+      { value: "hair-gel-spray", label: "Hair Gel / Spray" },
+      { value: "wet-wipes", label: "Wet Wipes" },
+      { value: "power-bank", label: "Power Bank" },
+      { value: "wallet", label: "Wallet" },
+      { value: "belt", label: "Belt" },
+      { value: "shoe-polish-kit", label: "Shoe Polish Kit" },
+      { value: "innerwear-set", label: "Innerwear Set" },
+      { value: "handkerchief", label: "Handkerchief" },
+    ],
+    "universal-groom-gifts": [
+      { value: "watch", label: "Watch" },
+      { value: "perfume-set", label: "Perfume Set" },
+      { value: "bracelet", label: "Bracelet" },
+      { value: "wallet-belt-combo", label: "Wallet–Belt Combo" },
+      { value: "groom-entry-props", label: "Groom Entry Props" },
+    ],
+
+   groomwear: [
+  { value: "tuxedo", label: "Tuxedo" },
+  { value: "three-piece-suit", label: "3-Piece Suit" },
+  { value: "tie-bow-tie", label: "Tie / Bow Tie" },
+  { value: "boutonniere", label: "Boutonniere" },
+  { value: "pocket-square", label: "Pocket Square" },
+  { value: "leather-shoes", label: "Leather Shoes" },
+  { value: "cufflinks", label: "Cufflinks" },
+  { value: "wristwatch", label: "Wristwatch" },
+  { value: "perfume-attar", label: "Perfume / Attar" },
+
+  { value: "sherwani-achkan", label: "Sherwani / Achkan" },
+  { value: "punjabi-suit", label: "Punjabi Suit" },
+  { value: "pathani-suit", label: "Pathani Suit" },
+  { value: "kurta-pajama", label: "Kurta–Pajama" },
+  { value: "dhoti-kurta", label: "Dhoti–Kurta (Traditional)" },
+  { value: "long-coat-achkan", label: "Long Coat / Achkan" },
+
+  { value: "safa-turban-pagri", label: "Safa / Turban (Pagri)" },
+  { value: "turban-kalgi", label: "Turban Kalgi" },
+  { value: "turban-brooch", label: "Turban Brooch" },
+  { value: "sehra", label: "Sehra" },
+
+  { value: "stole-dupatta", label: "Stole / Dupatta" },
+
+  { value: "mojari-jutti", label: "Mojari / Jutti" },
+
+  { value: "kada", label: "Kada" },
+  { value: "kirpan", label: "Kirpan" },
+  { value: "rudraksha-pearl-mala", label: "Rudraksha / Pearl Mala" }
+],
+
+
     accessories: [],
     other: [],
   };
 
   // Get available subcategories based on selected category
-  const availableSubCategories =
-    subCategories[productForm.category] || [];
+  const availableSubCategories = subCategories[productForm.category] || [];
 
   return (
     <div className="space-y-6">
@@ -180,7 +381,7 @@ export default function ProductsTab({
               setShowBulkImport(false);
               setEditingProduct(null);
             }}
-            className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#E8A4BC] to-[#F04393] text-white rounded-lg hover:shadow-lg transition-all"
+            className="flex items-center gap-2 px-4 py-2 bg-linear-to-r from-[#E8A4BC] to-[#F04393] text-white rounded-lg hover:shadow-lg transition-all"
           >
             <Plus className="w-5 h-5" />
             Add Product
@@ -340,28 +541,31 @@ export default function ProductsTab({
                 </select>
               </div>
               {/* 👇 ADD THIS RELIGION FIELD */}
-{productForm.category === "groomwear" && (
-  <div>
-    <label className="block text-sm font-medium text-gray-700 mb-1">
-      Religion/Type
-    </label>
-    <select
-      value={productForm.religion}
-      onChange={(e) =>
-        setProductForm({
-          ...productForm,
-          religion: e.target.value,
-        })
-      }
-      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-    >
-      <option value="">Select Type</option>
-      <option value="hindu">Hindu</option>
-      <option value="muslim">Muslim</option>
-      <option value="general">General</option>
-    </select>
-  </div>
-)}
+              {/* {productForm.category === "groomwear" && (
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Religion/Type
+                  </label>
+                  <select
+                    value={productForm.religion}
+                    onChange={(e) =>
+                      setProductForm({
+                        ...productForm,
+                        religion: e.target.value,
+                      })
+                    }
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                  >
+                    <option value="">Select Type</option>
+                    <option value="hindu">Hindu</option>
+                    <option value="muslim">Muslim</option>
+                    <option value="muslim">Sikh</option>
+                    <option value="muslim">Christian</option>
+                    <option value="muslim">Universal Items</option>
+                    
+                  </select>
+                </div>
+              )} */}
 
               {/* Subcategory - Only show if category has subcategories */}
               {availableSubCategories.length > 0 && (
@@ -515,7 +719,7 @@ export default function ProductsTab({
               <button
                 type="submit"
                 disabled={loading}
-                className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-[#E8A4BC] to-[#F04393] text-white rounded-lg hover:shadow-lg disabled:opacity-50 transition-all"
+                className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-linear-to-r from-[#E8A4BC] to-[#F04393] text-white rounded-lg hover:shadow-lg disabled:opacity-50 transition-all"
               >
                 {loading ? (
                   <>
@@ -577,7 +781,7 @@ export default function ProductsTab({
       <div className="bg-white rounded-xl shadow-md overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-gradient-to-r from-[#E8A4BC]/20 to-[#F04393]/20">
+            <thead className="bg-linear-to-r from-[#E8A4BC]/20 to-[#F04393]/20">
               <tr>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
                   Product
@@ -624,8 +828,7 @@ export default function ProductsTab({
                             alt={product.name}
                             className="w-12 h-12 rounded-lg object-cover mr-3"
                             onError={(e) => {
-                              e.target.src =
-                                "https://via.placeholder.com/48";
+                              e.target.src = "https://via.placeholder.com/48";
                             }}
                           />
                         )}
@@ -668,8 +871,8 @@ export default function ProductsTab({
                           product.stock > 10
                             ? "bg-green-100 text-green-700"
                             : product.stock > 0
-                            ? "bg-yellow-100 text-yellow-700"
-                            : "bg-red-100 text-red-700"
+                              ? "bg-yellow-100 text-yellow-700"
+                              : "bg-red-100 text-red-700"
                         }`}
                       >
                         {product.stock || 0}

@@ -59,7 +59,7 @@ export default function Collection1() {
 
   return (
     <div className="w-full bg-white py-4">
-      <div className="max-w-[1600px] mx-auto px-2">
+      <div className="max-w-400 mx-auto px-2">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
           {categories.map((category, index) => (
             <div

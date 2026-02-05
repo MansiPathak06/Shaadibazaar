@@ -9,7 +9,7 @@ const ResortWebpage = () => {
 
             {/* Hero Section */}
             <section id="home" className="relative h-screen flex items-center justify-center">
-                <div className="absolute inset-0 bg-gradient-to-r from-rose-200/20 to-rose-300/30"></div>
+                <div className="absolute inset-0 bg-linear-to-r from-rose-200/20 to-rose-300/30"></div>
                 <img
                     src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1761544207/Resort_Paradise_View_zuuqqz.jpg"
                     alt="Resort Paradise View"
@@ -86,7 +86,7 @@ const ResortWebpage = () => {
             </section>
 
             {/* Accommodation Section */}
-            <section id="accommodation" className="py-20 bg-gradient-to-br from-rose-100 to-white">
+            <section id="accommodation" className="py-20 bg-linear-to-br from-rose-100 to-white">
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl md:text-5xl font-bold text-rose-400 mb-6">
@@ -246,7 +246,7 @@ const ResortWebpage = () => {
             </section>
 
             {/* Wellness & Spa Section */}
-            <section className="py-20 bg-gradient-to-br from-rose-100 to-white">
+            <section className="py-20 bg-linear-to-br from-rose-100 to-white">
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl md:text-5xl font-bold text-rose-400 mb-6">
@@ -329,7 +329,7 @@ const ResortWebpage = () => {
             </section>
 
             {/* Events & Celebrations */}
-            <section className="py-20 bg-gradient-to-br from-rose-100 to-white">
+            <section className="py-20 bg-linear-to-br from-rose-100 to-white">
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div>
@@ -408,7 +408,7 @@ const ResortWebpage = () => {
             </section>
 
             {/* Gallery Section */}
-            <section className="py-20 bg-gradient-to-br from-rose-100 to-white">
+            <section className="py-20 bg-linear-to-br from-rose-100 to-white">
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl md:text-5xl font-bold text-rose-400 mb-6">

@@ -234,7 +234,7 @@ const RitualsAndPuja = () => {
 
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-rose-50 to-white">
+    <div className="min-h-screen bg-linear-to-br from-rose-50 to-white">
       {/* Hero Section with Background Image */}
       <div 
         className="relative h-96 overflow-hidden bg-cover bg-center bg-no-repeat"
@@ -242,7 +242,7 @@ const RitualsAndPuja = () => {
           backgroundImage: 'url(https://i.pinimg.com/736x/1f/de/34/1fde34e64f47cbf40f5749cfd94aec7a.jpg)'
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-rose-400/80 to-rose-500/80"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-rose-400/80 to-rose-500/80"></div>
         <div className="relative z-10 container mx-auto px-6 md:px-8 lg:px-12 h-full flex flex-col justify-center items-center text-white">
           <h1 className="text-4xl md:text-6xl font-bold mb-4 text-center px-4 py-3">
             Sacred Rituals & Puja Services
@@ -275,7 +275,7 @@ const RitualsAndPuja = () => {
               key={provider.id}
               className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
             >
-              <div className="relative h-80 bg-gradient-to-br from-rose-100 to-rose-50">
+              <div className="relative h-80 bg-linear-to-br from-rose-100 to-rose-50">
                 <img
                   src={provider.image}
                   alt={provider.name}
@@ -355,7 +355,7 @@ const RitualsAndPuja = () => {
               key={item.id}
               className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
             >
-              <div className="relative h-72 bg-gradient-to-br from-rose-50 to-white">
+              <div className="relative h-72 bg-linear-to-br from-rose-50 to-white">
                 <img
                   src={item.image}
                   alt={item.name}

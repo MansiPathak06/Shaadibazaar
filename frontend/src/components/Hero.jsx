@@ -46,42 +46,42 @@ export default function ModernWeddingGate() {
       icon: Gem,
       title: 'Wedding Rings',
       desc: 'Elegant wedding bands crafted with precision',
-      gradient: 'from-rose-400 to-pink-600',
+      linear: 'from-rose-400 to-pink-600',
       href: '/products/wedding-rings'
     },
     {
       icon: Shirt,
       title: 'Bridal Wear',
       desc: 'Stunning bridal collections to shine',
-      gradient: 'from-purple-400 to-pink-600',
+      linear: 'from-purple-400 to-pink-600',
       href: '/products/bridal-wear'
     },
     {
       icon: Flower2,
       title: 'Flower Arrangements',
       desc: 'Artistic bouquets for your love story',
-      gradient: 'from-green-400 to-emerald-600',
+      linear: 'from-green-400 to-emerald-600',
       href: '/products/flower-arrangements'
     },
     {
       icon: Cake,
       title: 'Wedding Cakes',
       desc: 'Luxurious designer cakes with flavors',
-      gradient: 'from-orange-400 to-red-600',
+      linear: 'from-orange-400 to-red-600',
       href: '/products/wedding-cakes'
     },
     {
       icon: Mail,
       title: 'Invitations',
       desc: 'Bespoke cards blending tradition',
-      gradient: 'from-blue-400 to-indigo-600',
+      linear: 'from-blue-400 to-indigo-600',
       href: '/products/invitations'
     },
     {
       icon: Gift,
       title: 'Party Favors',
       desc: 'Charming keepsakes to treasure',
-      gradient: 'from-yellow-400 to-orange-600',
+      linear: 'from-yellow-400 to-orange-600',
       href: '/products/party-favors'
     },
   ];
@@ -92,42 +92,42 @@ export default function ModernWeddingGate() {
       icon: Camera,
       title: 'Photography',
       desc: 'Capture every smile with artistry',
-      gradient: 'from-cyan-400 to-blue-600',
+      linear: 'from-cyan-400 to-blue-600',
       href: '/services/photography'
     },
     {
       icon: Video,
       title: 'Videography',
       desc: 'Cinematic storytelling for your event',
-      gradient: 'from-violet-400 to-purple-600',
+      linear: 'from-violet-400 to-purple-600',
       href: '/services/videography'
     },
     {
       icon: Music,
       title: 'Live Music',
       desc: 'Soulful melodies keeping enchanted',
-      gradient: 'from-pink-400 to-rose-600',
+      linear: 'from-pink-400 to-rose-600',
       href: '/services/live-music'
     },
     {
       icon: Calendar,
       title: 'Event Planning',
       desc: 'Seamless coordination and designs',
-      gradient: 'from-indigo-400 to-blue-600',
+      linear: 'from-indigo-400 to-blue-600',
       href: '/services/event-planning'
     },
     {
       icon: Utensils,
       title: 'Catering',
       desc: 'Gourmet delights with grace',
-      gradient: 'from-emerald-400 to-green-600',
+      linear: 'from-emerald-400 to-green-600',
       href: '/services/catering'
     },
     {
       icon: Palette,
       title: 'Beauty Services',
       desc: 'Transformative bridal magic',
-      gradient: 'from-fuchsia-400 to-pink-600',
+      linear: 'from-fuchsia-400 to-pink-600',
       href: '/services/beauty'
     },
   ];
@@ -159,11 +159,11 @@ export default function ModernWeddingGate() {
   const DiamondPattern = () => (
     <svg className="w-full h-full opacity-30" viewBox="0 0 400 800" preserveAspectRatio="none">
       <defs>
-        <linearGradient id="diamondGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <linearlinear id="diamondGrad" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#f9a8d4" stopOpacity="0.4" />
           <stop offset="50%" stopColor="#fda4af" stopOpacity="0.6" />
           <stop offset="100%" stopColor="#fbbf24" stopOpacity="0.4" />
-        </linearGradient>
+        </linearlinear>
       </defs>
       {Array.from({ length: 12 }).map((_, row) =>
         Array.from({ length: 7 }).map((_, col) => {
@@ -206,7 +206,7 @@ export default function ModernWeddingGate() {
 
       {/* Background Effects */}
       <div className="absolute inset-0 opacity-50">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(244,114,182,0.15)_0%,transparent_70%)] animate-pulse-bg" />
+        <div className="absolute inset-0 bg-[radial-linear(ellipse_at_center,rgba(244,114,182,0.15)_0%,transparent_70%)] animate-pulse-bg" />
       </div>
 
 
@@ -236,7 +236,7 @@ export default function ModernWeddingGate() {
             style={{
               width: `${pos.width}px`,
               height: `${pos.width}px`,
-              background: `radial-gradient(circle, ${pos.background}, transparent)`,
+              background: `radial-linear(circle, ${pos.background}, transparent)`,
               left: `${pos.left}%`,
               top: `${pos.top}%`,
               animationDelay: `${pos.animationDelay}s`,
@@ -250,7 +250,7 @@ export default function ModernWeddingGate() {
 
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 animate-grid-move" style={{
-          backgroundImage: 'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)',
+          backgroundImage: 'linear-linear(rgba(255,255,255,0.05) 1px, transparent 1px), linear-linear(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)',
           backgroundSize: isMobile ? '30px 30px' : '50px 50px'
         }}></div>
       </div>
@@ -372,16 +372,16 @@ export default function ModernWeddingGate() {
       {gatesOpen && (
         <div className="absolute inset-0 z-10 flex flex-col md:flex-row">
           {/* Products Section - Left Side */}
-          <div className="w-full md:w-1/2 h-1/2 md:h-full bg-gradient-to-br from-rose-500/10 via-pink-500/10 to-purple-500/10 backdrop-blur-md flex items-center justify-center overflow-hidden border-r border-white/10">
+          <div className="w-full md:w-1/2 h-1/2 md:h-full bg-linear-to-br from-rose-500/10 via-pink-500/10 to-purple-500/10 backdrop-blur-md flex items-center justify-center overflow-hidden border-r border-white/10">
             <div className="w-full h-full flex flex-col py-16 sm:py-20 md:py-24 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12">
               <div className="text-center mb-4 sm:mb-6 md:mb-8 shrink-0">
-                <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-rose-400 to-pink-600 rounded-full shadow-2xl mb-2 sm:mb-3 md:mb-4">
+                <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 bg-linear-to-br from-rose-400 to-pink-600 rounded-full shadow-2xl mb-2 sm:mb-3 md:mb-4">
                   <Gem className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 text-white animate-pulse" />
                 </div>
                 <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 sm:mb-3 drop-shadow-2xl">
                   Our Products
                 </h3>
-                <div className="h-0.5 sm:h-1 w-16 sm:w-20 md:w-24 mx-auto bg-gradient-to-r from-rose-400 via-pink-500 to-purple-500 rounded-full shadow-lg mb-2 sm:mb-3"></div>
+                <div className="h-0.5 sm:h-1 w-16 sm:w-20 md:w-24 mx-auto bg-linear-to-r from-rose-400 via-pink-500 to-purple-500 rounded-full shadow-lg mb-2 sm:mb-3"></div>
                 <p className="text-rose-200/90 text-xs sm:text-sm md:text-base drop-shadow-md">
                   Curated collections for your perfect day
                 </p>
@@ -413,10 +413,10 @@ export default function ModernWeddingGate() {
                         >
                           {/* Shine effect on hover */}
                           <div className={`absolute inset-0 opacity-0 transition-opacity duration-500 ${isHovered ? 'opacity-100' : ''}`}>
-                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                            <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                           </div>
 
-                          <div className={`relative shrink-0 p-2 sm:p-2.5 md:p-3 bg-gradient-to-br ${item.gradient} rounded-lg sm:rounded-xl shadow-lg transition-all duration-500 ${isHovered ? 'scale-110 rotate-6' : ''
+                          <div className={`relative shrink-0 p-2 sm:p-2.5 md:p-3 bg-linear-to-br ${item.linear} rounded-lg sm:rounded-xl shadow-lg transition-all duration-500 ${isHovered ? 'scale-110 rotate-6' : ''
                             }`}>
                             <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
                           </div>
@@ -484,7 +484,7 @@ export default function ModernWeddingGate() {
                           </div>
 
 
-                          <div className={`relative shrink-0 p-2 sm:p-2.5 md:p-3 bg-linear-to-br ${item.gradient} rounded-lg sm:rounded-xl shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
+                          <div className={`relative shrink-0 p-2 sm:p-2.5 md:p-3 bg-linear-to-br ${item.linear} rounded-lg sm:rounded-xl shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
                             <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
                           </div>
 

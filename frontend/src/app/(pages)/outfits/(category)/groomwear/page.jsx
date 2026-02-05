@@ -192,7 +192,7 @@ const GroomWear = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative w-full bg-gradient-to-r from-gray-100 to-gray-200 overflow-hidden py-12 md:py-16 lg:py-20">
+      <section className="relative w-full bg-linear-to-r from-gray-100 to-gray-200 overflow-hidden py-12 md:py-16 lg:py-20">
         <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             {/* Left Content */}
@@ -305,7 +305,7 @@ const GroomWear = () => {
         <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              why <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>choose</span> our <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>collection</span>
+              why <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>choose</span> our <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>collection</span>
             </h2>
             <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Curated for Style, Crafted for You</p>
           </div>
@@ -318,8 +318,8 @@ const GroomWear = () => {
                   animationDelay: `${index * 100}ms`
                 }}
               >
-                {/* Animated gradient background with shimmer effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-rose-50 via-pink-50 to-transparent opacity-0 group-hover:opacity-100 transform translate-y-full group-hover:translate-y-0 transition-all duration-700 ease-out rounded-2xl" />
+                {/* Animated linear background with shimmer effect */}
+                <div className="absolute inset-0 bg-linear-to-br from-rose-50 via-pink-50 to-transparent opacity-0 group-hover:opacity-100 transform translate-y-full group-hover:translate-y-0 transition-all duration-700 ease-out rounded-2xl" />
 
                 {/* Radial glow effect on hover */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-500">
@@ -327,10 +327,10 @@ const GroomWear = () => {
                 </div>
 
                 {/* Shine effect overlay */}
-                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-linear-to-r from-transparent via-white/20 to-transparent" />
 
                 {/* Icon with enhanced animations */}
-                <div className="relative inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-rose-500 to-rose-600 text-white rounded-2xl mb-5 shadow-lg group-hover:shadow-rose-300 group-hover:shadow-2xl group-hover:-translate-y-2 group-hover:rotate-3 group-hover:scale-110 transition-all duration-500">
+                <div className="relative inline-flex items-center justify-center w-16 h-16 bg-linear-to-br from-rose-500 to-rose-600 text-white rounded-2xl mb-5 shadow-lg group-hover:shadow-rose-300 group-hover:shadow-2xl group-hover:-translate-y-2 group-hover:rotate-3 group-hover:scale-110 transition-all duration-500">
                   {/* Icon glow ring */}
                   <div className="absolute inset-0 rounded-2xl bg-rose-400 opacity-0 group-hover:opacity-50 blur-md group-hover:scale-125 transition-all duration-500" />
 
@@ -351,11 +351,11 @@ const GroomWear = () => {
                   </p>
 
                   {/* Animated underline accent */}
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-rose-400 to-pink-500 group-hover:w-16 transition-all duration-500 rounded-full" />
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-linear-to-r from-rose-400 to-pink-500 group-hover:w-16 transition-all duration-500 rounded-full" />
                 </div>
 
                 {/* Corner accent decoration */}
-                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-rose-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-bl-full" />
+                <div className="absolute top-0 right-0 w-20 h-20 bg-linear-to-br from-rose-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-bl-full" />
 
                 {/* Bottom left particle effect */}
                 <div className="absolute -bottom-2 -left-2 w-8 h-8 bg-rose-200 rounded-full opacity-0 group-hover:opacity-60 blur-sm group-hover:scale-150 transition-all duration-700" />
@@ -371,7 +371,7 @@ const GroomWear = () => {
         <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Fabric <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>guides</span>
+              Fabric <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>guides</span>
             </h2>
             <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Know your fabrics, perfect your look</p>
           </div>
@@ -385,17 +385,17 @@ const GroomWear = () => {
                   transformStyle: 'preserve-3d'
                 }}
               >
-                {/* Animated gradient background overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-rose-50/50 via-pink-50/30 to-purple-50/20 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-out" />
+                {/* Animated linear background overlay */}
+                <div className="absolute inset-0 bg-linear-to-br from-rose-50/50 via-pink-50/30 to-purple-50/20 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-out" />
 
                 {/* Diagonal shimmer effect */}
-                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12" />
+                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-linear-to-r from-transparent via-white/40 to-transparent skew-x-12" />
 
                 {/* Radial glow behind icon */}
                 <div className="absolute top-8 left-8 w-32 h-32 bg-rose-300/30 rounded-full blur-2xl opacity-0 group-hover:opacity-100 group-hover:scale-150 transition-all duration-700" />
 
                 {/* Icon with enhanced animations */}
-                <div className="relative w-16 h-16 bg-gradient-to-br from-rose-50 to-rose-100 group-hover:from-rose-100 group-hover:to-rose-200 rounded-full flex items-center justify-center mb-6 transition-all duration-500 group-hover:rotate-12 group-hover:scale-110 shadow-sm group-hover:shadow-rose-200 group-hover:shadow-lg">
+                <div className="relative w-16 h-16 bg-linear-to-br from-rose-50 to-rose-100 group-hover:from-rose-100 group-hover:to-rose-200 rounded-full flex items-center justify-center mb-6 transition-all duration-500 group-hover:rotate-12 group-hover:scale-110 shadow-sm group-hover:shadow-rose-200 group-hover:shadow-lg">
                   {/* Pulsing ring effect */}
                   <div className="absolute inset-0 rounded-full bg-rose-400/20 opacity-0 group-hover:opacity-100 group-hover:scale-150 transition-all duration-700 blur-sm" />
 
@@ -419,7 +419,7 @@ const GroomWear = () => {
                   {/* Best For section with enhanced styling */}
                   <div className="relative flex items-start gap-3 pt-2 pl-4 border-l-2 border-transparent group-hover:border-rose-300 transition-all duration-500">
                     {/* Icon container with glow */}
-                    <div className="relative flex-shrink-0 mt-1">
+                    <div className="relative shrink-0 mt-1">
                       <div className="absolute inset-0 bg-rose-400/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       <Award className="relative w-5 h-5 text-rose-500 group-hover:text-rose-600 transition-all duration-300 group-hover:scale-125 group-hover:-rotate-12" />
                     </div>
@@ -438,12 +438,12 @@ const GroomWear = () => {
                 </div>
 
                 {/* Decorative corner elements */}
-                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-rose-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-bl-3xl" />
+                <div className="absolute top-0 right-0 w-24 h-24 bg-linear-to-bl from-rose-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-bl-3xl" />
 
-                <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-pink-100/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-tr-3xl" />
+                <div className="absolute bottom-0 left-0 w-16 h-16 bg-linear-to-tr from-pink-100/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-tr-3xl" />
 
                 {/* Bottom accent line */}
-                <div className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-rose-400 via-pink-400 to-purple-400 group-hover:w-full transition-all duration-700 ease-out rounded-full" />
+                <div className="absolute bottom-0 left-0 w-0 h-1 bg-linear-to-r from-rose-400 via-pink-400 to-purple-400 group-hover:w-full transition-all duration-700 ease-out rounded-full" />
 
                 {/* Floating particles effect */}
                 <div className="absolute top-1/2 right-8 w-2 h-2 bg-rose-300 rounded-full opacity-0 group-hover:opacity-60 group-hover:-translate-y-8 transition-all duration-1000 blur-sm" />
@@ -460,7 +460,7 @@ const GroomWear = () => {
         <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-white tracking-tight uppercase">
-              2025 <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>styling</span> Tips
+              2025 <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>styling</span> Tips
             </h2>
             <p className="text-white text-lg tracking-widest uppercase mb-2">Stay ahead of the fashion curve with expert styling advice</p>
           </div>
@@ -478,7 +478,7 @@ const GroomWear = () => {
                     className="object-cover object-top object-fit group-hover:scale-110 transition-transform duration-500"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
                     <h3 className="text-xl font-medium mb-2 uppercase">
                       {item.title}
@@ -498,7 +498,7 @@ const GroomWear = () => {
           <div className="text-center mb-12">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-                our <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>collection</span>
+                our <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>collection</span>
               </h2>
               <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Perfect fabric, perfect look</p>
             </div>
@@ -667,7 +667,7 @@ const GroomWear = () => {
         <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              What <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>our</span> Customers <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>say</span>
+              What <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>our</span> Customers <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>say</span>
             </h2>
             <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Stories That Inspire Us Every Day</p>
           </div>
@@ -721,7 +721,7 @@ const GroomWear = () => {
       </section >
 
       {/* Footer Banner Section */}
-      < section className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 py-16 md:py-20" >
+      < section className="bg-linear-to-r from-gray-900 via-gray-800 to-gray-900 py-16 md:py-20" >
         <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl text-center">
           <h2 className="text-3xl md:text-5xl font-medium text-white mb-4 uppercase">
             Style meets Sophistication

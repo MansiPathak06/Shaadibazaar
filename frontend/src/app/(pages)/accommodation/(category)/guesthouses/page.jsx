@@ -24,7 +24,7 @@ const GuestHouses = () => {
             {/* Hero Section - Premium Style */}
             <section id="home" className="relative min-h-screen flex items-center">
                 <div className="absolute inset-0">
-                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-900/70 via-emerald-800/50 to-transparent z-10"></div>
+                    <div className="absolute inset-0 bg-linear-to-r from-emerald-900/70 via-emerald-800/50 to-transparent z-10"></div>
                     <img
                         src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1761545199/Guest_House_View_rdlsvo.jpg"
                         alt="Guest House View"
@@ -121,7 +121,7 @@ const GuestHouses = () => {
             </section>
 
             {/* Accommodation Section - Premium Cards */}
-            <section id="rooms" className="py-20 bg-gradient-to-br from-emerald-50 to-white">
+            <section id="rooms" className="py-20 bg-linear-to-br from-emerald-50 to-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
@@ -246,7 +246,7 @@ const GuestHouses = () => {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div className="group relative bg-gradient-to-br from-emerald-50 to-emerald-100 p-8 rounded-3xl hover:shadow-xl transition-all duration-300">
+                        <div className="group relative bg-linear-to-br from-emerald-50 to-emerald-100 p-8 rounded-3xl hover:shadow-xl transition-all duration-300">
                             <div className="bg-emerald-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                                 <SunIcon className="h-8 w-8 text-white" />
                             </div>
@@ -254,7 +254,7 @@ const GuestHouses = () => {
                             <p className="text-gray-600">Through scenic surroundings and peaceful trails</p>
                         </div>
 
-                        <div className="group relative bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-3xl hover:shadow-xl transition-all duration-300">
+                        <div className="group relative bg-linear-to-br from-blue-50 to-blue-100 p-8 rounded-3xl hover:shadow-xl transition-all duration-300">
                             <div className="bg-blue-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                                 <MapPinIcon className="h-8 w-8 text-white" />
                             </div>
@@ -262,7 +262,7 @@ const GuestHouses = () => {
                             <p className="text-gray-600">Cultural experiences and nearby attractions</p>
                         </div>
 
-                        <div className="group relative bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-3xl hover:shadow-xl transition-all duration-300">
+                        <div className="group relative bg-linear-to-br from-orange-50 to-orange-100 p-8 rounded-3xl hover:shadow-xl transition-all duration-300">
                             <div className="bg-orange-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                                 <SparklesIcon className="h-8 w-8 text-white" />
                             </div>
@@ -270,7 +270,7 @@ const GuestHouses = () => {
                             <p className="text-gray-600">Cozy gatherings under the starlit sky</p>
                         </div>
 
-                        <div className="group relative bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-3xl hover:shadow-xl transition-all duration-300">
+                        <div className="group relative bg-linear-to-br from-green-50 to-green-100 p-8 rounded-3xl hover:shadow-xl transition-all duration-300">
                             <div className="bg-green-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                                 <svg className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
@@ -280,7 +280,7 @@ const GuestHouses = () => {
                             <p className="text-gray-600">Reading corners and private patios</p>
                         </div>
 
-                        <div className="group relative bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-3xl hover:shadow-xl transition-all duration-300">
+                        <div className="group relative bg-linear-to-br from-purple-50 to-purple-100 p-8 rounded-3xl hover:shadow-xl transition-all duration-300">
                             <div className="bg-purple-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                                 <UsersIcon className="h-8 w-8 text-white" />
                             </div>
@@ -288,7 +288,7 @@ const GuestHouses = () => {
                             <p className="text-gray-600">Homemade breakfasts with regional touch</p>
                         </div>
 
-                        <div className="group relative bg-gradient-to-br from-indigo-50 to-indigo-100 p-8 rounded-3xl hover:shadow-xl transition-all duration-300">
+                        <div className="group relative bg-linear-to-br from-indigo-50 to-indigo-100 p-8 rounded-3xl hover:shadow-xl transition-all duration-300">
                             <div className="bg-indigo-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                                 <CalendarIcon className="h-8 w-8 text-white" />
                             </div>
@@ -300,7 +300,7 @@ const GuestHouses = () => {
             </section>
 
             {/* Dining Section - Split Layout */}
-            <section id="dining" className="py-20 bg-gradient-to-br from-emerald-50 to-white">
+            <section id="dining" className="py-20 bg-linear-to-br from-emerald-50 to-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div className="order-2 lg:order-1">
@@ -315,7 +315,7 @@ const GuestHouses = () => {
 
                             <div className="space-y-6">
                                 <div className="flex items-start space-x-4">
-                                    <div className="bg-emerald-100 p-3 rounded-full flex-shrink-0">
+                                    <div className="bg-emerald-100 p-3 rounded-full shrink-0">
                                         <span className="text-emerald-600 text-xl">🥞</span>
                                     </div>
                                     <div>
@@ -324,7 +324,7 @@ const GuestHouses = () => {
                                     </div>
                                 </div>
                                 <div className="flex items-start space-x-4">
-                                    <div className="bg-emerald-100 p-3 rounded-full flex-shrink-0">
+                                    <div className="bg-emerald-100 p-3 rounded-full shrink-0">
                                         <span className="text-emerald-600 text-xl">🌶️</span>
                                     </div>
                                     <div>
@@ -333,7 +333,7 @@ const GuestHouses = () => {
                                     </div>
                                 </div>
                                 <div className="flex items-start space-x-4">
-                                    <div className="bg-emerald-100 p-3 rounded-full flex-shrink-0">
+                                    <div className="bg-emerald-100 p-3 rounded-full shrink-0">
                                         <span className="text-emerald-600 text-xl">🌿</span>
                                     </div>
                                     <div>
@@ -376,7 +376,7 @@ const GuestHouses = () => {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 p-8 rounded-3xl">
+                        <div className="bg-linear-to-br from-emerald-50 to-emerald-100 p-8 rounded-3xl">
                             <div className="flex items-center mb-4">
                                 {[...Array(5)].map((_, i) => (
                                     <StarIcon key={i} className="h-5 w-5 text-yellow-500 fill-current" />
@@ -396,7 +396,7 @@ const GuestHouses = () => {
                             </div>
                         </div>
 
-                        <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-3xl">
+                        <div className="bg-linear-to-br from-blue-50 to-blue-100 p-8 rounded-3xl">
                             <div className="flex items-center mb-4">
                                 {[...Array(5)].map((_, i) => (
                                     <StarIcon key={i} className="h-5 w-5 text-yellow-500 fill-current" />
@@ -416,7 +416,7 @@ const GuestHouses = () => {
                             </div>
                         </div>
 
-                        <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-3xl">
+                        <div className="bg-linear-to-br from-purple-50 to-purple-100 p-8 rounded-3xl">
                             <div className="flex items-center mb-4">
                                 {[...Array(5)].map((_, i) => (
                                     <StarIcon key={i} className="h-5 w-5 text-yellow-500 fill-current" />
@@ -440,7 +440,7 @@ const GuestHouses = () => {
             </section>
 
             {/* Booking Section - Premium Form */}
-            <section className="py-20 bg-gradient-to-br from-emerald-600 to-emerald-800">
+            <section className="py-20 bg-linear-to-br from-emerald-600 to-emerald-800">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                         Your Home Awaits

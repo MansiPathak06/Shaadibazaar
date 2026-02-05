@@ -13,7 +13,7 @@ export default function FeaturedBrandsSlider() {
       brand: 'Android',
       title: 'Every shot has a story',
       subtitle: '50MP Camera',
-      bgColor: 'bg-gradient-to-br from-gray-800 to-gray-900',
+      bgColor: 'bg-linear-to-br from-gray-800 to-gray-900',
       image: '🤖',
       buttonText: 'Explore Now'
     },
@@ -24,7 +24,7 @@ export default function FeaturedBrandsSlider() {
       subtitle: 'Enigma Gem & Daze',
       description: 'Emergency SOS Always Ready',
       price: '₹2,799',
-      bgColor: 'bg-gradient-to-br from-blue-600 to-blue-800',
+      bgColor: 'bg-linear-to-br from-blue-600 to-blue-800',
       image: '⌚',
       buttonText: 'Shop Now'
     },
@@ -36,7 +36,7 @@ export default function FeaturedBrandsSlider() {
       description: 'India\'s top selling android smartphone',
       price: '₹40,999',
       originalPrice: '₹74,999',
-      bgColor: 'bg-gradient-to-br from-green-800 to-green-950',
+      bgColor: 'bg-linear-to-br from-green-800 to-green-950',
       image: '📱',
       buttonText: 'Buy Now'
     },
@@ -47,7 +47,7 @@ export default function FeaturedBrandsSlider() {
       subtitle: 'Titanium. So strong. So light.',
       description: 'A17 Pro chip. Game‑changing performance',
       price: '₹1,34,900',
-      bgColor: 'bg-gradient-to-br from-slate-700 to-slate-900',
+      bgColor: 'bg-linear-to-br from-slate-700 to-slate-900',
       image: '🍎',
       buttonText: 'Buy Now'
     },
@@ -58,7 +58,7 @@ export default function FeaturedBrandsSlider() {
       subtitle: 'Smooth Beyond Belief',
       description: 'Snapdragon 8 Gen 3',
       price: '₹64,999',
-      bgColor: 'bg-gradient-to-br from-red-700 to-red-900',
+      bgColor: 'bg-linear-to-br from-red-700 to-red-900',
       image: '📲',
       buttonText: 'Explore'
     },
@@ -69,7 +69,7 @@ export default function FeaturedBrandsSlider() {
       subtitle: 'Industry Leading Noise Cancellation',
       description: 'Premium sound quality',
       price: '₹29,990',
-      bgColor: 'bg-gradient-to-br from-indigo-700 to-indigo-900',
+      bgColor: 'bg-linear-to-br from-indigo-700 to-indigo-900',
       image: '🎧',
       buttonText: 'Shop Now'
     }
@@ -131,7 +131,7 @@ export default function FeaturedBrandsSlider() {
             {slides.map((slide) => (
               <div 
                 key={slide.id} 
-                className="flex-shrink-0 px-2"
+                className="shrink-0 px-2"
                 style={{ width: `${100 / cardsPerView}%` }}
               >
                 <div className={`${slide.bgColor} p-6 md:p-8 rounded-2xl h-[400px] flex flex-col justify-between text-white relative overflow-hidden`}>

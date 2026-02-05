@@ -212,7 +212,7 @@ const WesternWear = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative w-full bg-gradient-to-br from-rose-50 to-orange-50 overflow-hidden mb-12 md:mb-16">
+      <section className="relative w-full bg-linear-to-br from-rose-50 to-orange-50 overflow-hidden mb-12 md:mb-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-16 py-12 md:py-16 lg:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left Content */}
@@ -265,7 +265,7 @@ const WesternWear = () => {
       <section className="container mx-auto px-6 sm:px-8 lg:px-16 py-16 ">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-            Best <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>for</span> Your <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>categories</span>
+            Best <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>for</span> Your <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>categories</span>
           </h2>
           <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Best Suited to Your Style</p>
         </div>
@@ -300,7 +300,7 @@ const WesternWear = () => {
       < section className="container mx-auto px-6 sm:px-8 lg:px-16 py-12" >
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-            Trending <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>collections</span>
+            Trending <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>collections</span>
           </h2>
           <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Step Into Style with Our New Collections</p>
         </div>
@@ -314,7 +314,7 @@ const WesternWear = () => {
                 className="object-cover group-hover:scale-110 transition-transform duration-700"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
+              <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-transparent">
                 <div className="absolute bottom-10 left-10 right-10 text-white">
                   <span className="bg-rose-500 px-4 py-2 rounded-full text-sm font-extralight mb-4 inline-block">
                     {collection.discount}
@@ -377,7 +377,7 @@ const WesternWear = () => {
       < section className="container mx-auto px-6 sm:px-8 lg:px-16 py-16 md:py-20" >
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-            Fashion <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>booklook</span>
+            Fashion <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>booklook</span>
           </h2>
           <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Your Guide to the Season's Most Stunning Styles</p>
         </div>
@@ -391,7 +391,7 @@ const WesternWear = () => {
                 className="object-cover object-top group-hover:scale-110 transition-transform duration-700"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent">
+              <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent">
                 <div className="absolute bottom-6 left-6 right-6 text-white">
                   <h3 className="text-2xl font-medium">{item.title}</h3>
                 </div>
@@ -402,11 +402,11 @@ const WesternWear = () => {
       </section >
 
       {/* Popular Products Section */}
-      < section className="container mx-auto px-6 sm:px-8 lg:px-16 py-20 bg-gradient-to-b from-gray-50 to-white rounded-3xl my-12" >
+      < section className="container mx-auto px-6 sm:px-8 lg:px-16 py-20 bg-linear-to-b from-gray-50 to-white rounded-3xl my-12" >
         <div className="text-center mb-16">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Popular <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>products</span>
+              Popular <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>products</span>
             </h2>
             <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Discover our handpicked selection of trending western wear pieces</p>
           </div>
@@ -558,11 +558,11 @@ const WesternWear = () => {
       </section >
 
       {/* Deal Of The Week Section */}
-      < section className="bg-gradient-to-r from-gray-50 to-gray-100 py-20" >
+      < section className="bg-linear-to-r from-gray-50 to-gray-100 py-20" >
         <div className="container mx-auto px-6 sm:px-8 lg:px-16">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Deal <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Of</span> The <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Week</span>
+              Deal <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>Of</span> The <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>Week</span>
             </h2>
             <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Your Weekly Dose of Exclusive Savings</p>
           </div>
@@ -590,12 +590,12 @@ const WesternWear = () => {
 
       {/* Enhanced Explore More Collections Section */}
       < section className="container mx-auto px-6 sm:px-8 lg:px-16 py-8" >
-        <div className="relative bg-gradient-to-br from-rose-500 via-pink-500 to-orange-500 rounded-3xl overflow-hidden shadow-2xl">
-          {/* Animated Mesh Gradient Overlay */}
+        <div className="relative bg-linear-to-br from-rose-500 via-pink-500 to-orange-500 rounded-3xl overflow-hidden shadow-2xl">
+          {/* Animated Mesh linear Overlay */}
           <div className="absolute inset-0 opacity-30">
-            <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-radial from-yellow-300 to-transparent blur-3xl animate-blob"></div>
-            <div className="absolute top-1/2 right-0 w-80 h-80 bg-gradient-radial from-rose-300 to-transparent blur-3xl animate-blob animation-delay-2000"></div>
-            <div className="absolute bottom-0 left-1/3 w-72 h-72 bg-gradient-radial from-orange-300 to-transparent blur-3xl animate-blob animation-delay-4000"></div>
+            <div className="absolute top-0 left-0 w-96 h-96 bg-linear-radial from-yellow-300 to-transparent blur-3xl animate-blob"></div>
+            <div className="absolute top-1/2 right-0 w-80 h-80 bg-linear-radial from-rose-300 to-transparent blur-3xl animate-blob animation-delay-2000"></div>
+            <div className="absolute bottom-0 left-1/3 w-72 h-72 bg-linear-radial from-orange-300 to-transparent blur-3xl animate-blob animation-delay-4000"></div>
           </div>
 
           {/* Grain Texture Overlay */}
@@ -615,7 +615,7 @@ const WesternWear = () => {
             {/* Main Heading with Text Shadow */}
             <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium text-white mb-6 leading-tight drop-shadow-2xl">
               Explore More
-              <span className="block mt-2 bg-gradient-to-r from-white via-yellow-100 to-white bg-clip-text text-transparent">
+              <span className="block mt-2 bg-linear-to-r from-white via-yellow-100 to-white bg-clip-text text-transparent">
                 Collections
               </span>
             </h2>
@@ -637,7 +637,7 @@ const WesternWear = () => {
               <Link href={ALL_PRODUCTS_URL}>
                 <button className="group relative bg-white text-rose-600 px-12 py-5 rounded-full font-medium cursor-pointer uppercase tracking-wider transition-all duration-300 shadow-2xl hover:shadow-white/30 text-lg overflow-hidden hover:scale-105 transform">
                   {/* Shine Effect */}
-                  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
+                  <span className="absolute inset-0 w-full h-full bg-linear-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
 
                   <span className="relative flex items-center gap-3 font-normal">
                     <ShoppingBag size={22} className="group-hover:rotate-12 transition-transform duration-300 font-normal" />
@@ -674,8 +674,8 @@ const WesternWear = () => {
           </div>
 
           {/* Decorative Corner Elements with Improved Positioning */}
-          <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-yellow-300/30 to-transparent rounded-full blur-3xl -mr-40 -mt-40 animate-pulse"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-rose-300/30 to-transparent rounded-full blur-3xl -ml-32 -mb-32 animate-pulse animation-delay-2000"></div>
+          <div className="absolute top-0 right-0 w-80 h-80 bg-linear-to-br from-yellow-300/30 to-transparent rounded-full blur-3xl -mr-40 -mt-40 animate-pulse"></div>
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-linear-to-tr from-rose-300/30 to-transparent rounded-full blur-3xl -ml-32 -mb-32 animate-pulse animation-delay-2000"></div>
 
           {/* Floating Particles */}
           <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white/60 rounded-full animate-ping"></div>

@@ -44,7 +44,7 @@ export default function WeddingChoreographer() {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/30 z-10" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/50 to-black/30 z-10" />
         <div
           className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-105"
           style={{
@@ -76,7 +76,7 @@ export default function WeddingChoreographer() {
       </section>
 
       {/* Journey Section */}
-      <section className="py-20 px-4 md:px-8 bg-gradient-to-b from-white to-rose-50/30">
+      <section className="py-20 px-4 md:px-8 bg-linear-to-b from-white to-rose-50/30">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
             <div
@@ -91,7 +91,7 @@ export default function WeddingChoreographer() {
             </div>
             <div className="space-y-6">
               <h2 className="text-4xl md:text-5xl font-serif text-gray-800 mb-6">
-                YOUR <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500 uppercase'>journey</span> TO <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>FLAWLESS CELEBRATIONS</span>
+                YOUR <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500 uppercase'>journey</span> TO <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>FLAWLESS CELEBRATIONS</span>
               </h2>
               <p className="text-gray-600 leading-relaxed text-lg">
                 At ShaadiiBazaar, we understand that every wedding celebration deserves perfect choreography.
@@ -114,7 +114,7 @@ export default function WeddingChoreographer() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 order-2 md:order-1">
               <h2 className="text-4xl md:text-5xl font-serif text-gray-800 mb-6">
-                <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>PLANNING</span> THAT <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>TELLS</span> YOUR STORY
+                <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>PLANNING</span> THAT <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>TELLS</span> YOUR STORY
               </h2>
               <p className="text-gray-600 leading-relaxed text-lg">
                 We believe every dance should tell your unique love story. Our choreographers spend time
@@ -145,7 +145,7 @@ export default function WeddingChoreographer() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl font-serif text-gray-800 mb-6 tracking-wide">
-              OUR <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>SERVICES</span>
+              OUR <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>SERVICES</span>
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
               Comprehensive choreography solutions for every wedding celebration
@@ -169,7 +169,7 @@ export default function WeddingChoreographer() {
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent" />
 
                   <div className="absolute bottom-0 left-0 right-0 p-8 text-white transform transition-all duration-500">
                     <h3 className="text-2xl md:text-3xl font-serif mb-3 tracking-wide">
@@ -193,15 +193,15 @@ export default function WeddingChoreographer() {
 
       {/* Why Choose Us Section */}
       <section className="relative py-18 px-4 md:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-rose-50 via-pink-50/30 to-purple-50/20">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(251,207,232,0.3),transparent_50%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(254,205,211,0.2),transparent_50%)]" />
+        <div className="absolute inset-0 bg-linear-to-br from-rose-50 via-pink-50/30 to-purple-50/20">
+          <div className="absolute inset-0 bg-[radial-linear(circle_at_30%_20%,rgba(251,207,232,0.3),transparent_50%)]" />
+          <div className="absolute inset-0 bg-[radial-linear(circle_at_70%_80%,rgba(254,205,211,0.2),transparent_50%)]" />
         </div>
 
         <div className="relative max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Why <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Choose Us</span>
+              Why <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>Choose Us</span>
             </h2>
             <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Because your moments deserve the best</p>
           </div>
@@ -209,11 +209,11 @@ export default function WeddingChoreographer() {
           <div className="grid md:grid-cols-3 gap-8">
             {/* Card 1 */}
             <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-rose-400/20 to-pink-400/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
+              <div className="absolute inset-0 bg-linear-to-br from-rose-400/20 to-pink-400/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
               <div className="relative p-8 bg-white/70 backdrop-blur-lg rounded-2xl border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:bg-white/80">
                 <div className="relative w-20 h-20 mx-auto mb-6">
-                  <div className="absolute inset-0 bg-gradient-to-br from-rose-500 to-pink-500 rounded-2xl rotate-6 group-hover:rotate-12 transition-transform duration-500" />
-                  <div className="relative w-full h-full bg-gradient-to-br from-rose-400 to-pink-400 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                  <div className="absolute inset-0 bg-linear-to-br from-rose-500 to-pink-500 rounded-2xl rotate-6 group-hover:rotate-12 transition-transform duration-500" />
+                  <div className="relative w-full h-full bg-linear-to-br from-rose-400 to-pink-400 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
                     <Users className="w-10 h-10 text-white" strokeWidth={2.5} />
                   </div>
                 </div>
@@ -223,16 +223,16 @@ export default function WeddingChoreographer() {
                 <p className="text-gray-600 leading-relaxed">
                   Trained professionals with years of experience in wedding choreography and diverse dance styles
                 </p>
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-rose-500 to-pink-500 rounded-b-2xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-rose-500 to-pink-500 rounded-b-2xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               </div>
             </div>
             {/* Card 2 */}
             <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-pink-400/20 to-purple-400/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
+              <div className="absolute inset-0 bg-linear-to-br from-pink-400/20 to-purple-400/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
               <div className="relative p-8 bg-white/70 backdrop-blur-lg rounded-2xl border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:bg-white/80">
                 <div className="relative w-20 h-20 mx-auto mb-6">
-                  <div className="absolute inset-0 bg-gradient-to-br from-pink-500 to-purple-500 rounded-2xl rotate-6 group-hover:rotate-12 transition-transform duration-500" />
-                  <div className="relative w-full h-full bg-gradient-to-br from-pink-400 to-purple-400 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                  <div className="absolute inset-0 bg-linear-to-br from-pink-500 to-purple-500 rounded-2xl rotate-6 group-hover:rotate-12 transition-transform duration-500" />
+                  <div className="relative w-full h-full bg-linear-to-br from-pink-400 to-purple-400 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
                     <Music className="w-10 h-10 text-white" strokeWidth={2.5} />
                   </div>
                 </div>
@@ -242,16 +242,16 @@ export default function WeddingChoreographer() {
                 <p className="text-gray-600 leading-relaxed">
                   Personalized choreography tailored to your song choices, skill levels, and celebration theme
                 </p>
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-pink-500 to-purple-500 rounded-b-2xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-pink-500 to-purple-500 rounded-b-2xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               </div>
             </div>
             {/* Card 3 */}
             <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-400/20 to-rose-400/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
+              <div className="absolute inset-0 bg-linear-to-br from-purple-400/20 to-rose-400/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
               <div className="relative p-8 bg-white/70 backdrop-blur-lg rounded-2xl border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:bg-white/80">
                 <div className="relative w-20 h-20 mx-auto mb-6">
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-rose-500 rounded-2xl rotate-6 group-hover:rotate-12 transition-transform duration-500" />
-                  <div className="relative w-full h-full bg-gradient-to-br from-purple-400 to-rose-400 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                  <div className="absolute inset-0 bg-linear-to-br from-purple-500 to-rose-500 rounded-2xl rotate-6 group-hover:rotate-12 transition-transform duration-500" />
+                  <div className="relative w-full h-full bg-linear-to-br from-purple-400 to-rose-400 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
                     <Sparkles className="w-10 h-10 text-white" strokeWidth={2.5} />
                   </div>
                 </div>
@@ -261,7 +261,7 @@ export default function WeddingChoreographer() {
                 <p className="text-gray-600 leading-relaxed">
                   Flexible scheduling, patient instruction, and fun practice sessions that build confidence
                 </p>
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-rose-500 rounded-b-2xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-purple-500 to-rose-500 rounded-b-2xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               </div>
             </div>
           </div>

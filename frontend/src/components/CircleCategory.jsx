@@ -76,7 +76,7 @@ export default function ClothingCategories() {
   ];
 
   return (
-    <section className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-12 px-4 overflow-hidden">
+    <section className="relative bg-linear-to-br from-slate-50 via-blue-50 to-indigo-50 py-12 px-4 overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '2s' }}></div>
@@ -88,7 +88,7 @@ export default function ClothingCategories() {
           <div className="inline-block mb-3 animate-bounce-slow">
             
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-900 bg-clip-text text-transparent mb-3 animate-slide-up">
+          <h2 className="text-4xl md:text-5xl font-bold bg-linear-to-r from-gray-900 via-blue-800 to-purple-900 bg-clip-text text-transparent mb-3 animate-slide-up">
             Shop by Category
           </h2>
           <p className="text-gray-600 text-sm md:text-base max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: '0.1s' }}>
@@ -109,7 +109,7 @@ export default function ClothingCategories() {
             >
               <div className="relative">
                 {/* Decorative ring that appears on hover */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-rose-300 to-purple-300 opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-110 blur-sm transition-all duration-500"></div>
+                <div className="absolute inset-0 rounded-full bg-linear-to-r from-rose-300 to-purple-300 opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-110 blur-sm transition-all duration-500"></div>
                 
                 <div className="relative w-28 h-28 sm:w-28 sm:h-28 md:w-38 md:h-38 mx-auto rounded-full overflow-hidden bg-white shadow-lg group-hover:shadow-2xl transition-all duration-500 border-2 border-gray-200 group-hover:border-blue-400 transform group-hover:scale-110 group-hover:rotate-3">
                   <img
@@ -118,8 +118,8 @@ export default function ClothingCategories() {
                     className="w-full h-full object-cover group-hover:scale-125 group-hover:rotate-6 transition-all duration-700 ease-out"
                   />
                   
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  {/* linear overlay */}
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           
                   {/* Hover overlay with icon */}
                   <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
@@ -136,7 +136,7 @@ export default function ClothingCategories() {
               </div>
 
               <div className="text-center mt-3">
-                <h3 className="font-bold text-xs md:text-sm text-gray-800 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text transition-all duration-300 transform group-hover:scale-110">
+                <h3 className="font-bold text-xs md:text-sm text-gray-800 group-hover:text-transparent group-hover:bg-linear-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text transition-all duration-300 transform group-hover:scale-110">
                   {category.name}
                 </h3>
                 <p className="text-xs text-gray-500 mt-1 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
@@ -149,9 +149,9 @@ export default function ClothingCategories() {
 
         {/* Call to action */}
         {/* <div className="text-center mt-12 animate-fade-in" style={{ animationDelay: '0.5s' }}>
-          <button className="group relative inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold px-8 py-3.5 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 overflow-hidden">
+          <button className="group relative inline-flex items-center gap-2 bg-linear-to-r from-blue-600 to-purple-600 text-white font-semibold px-8 py-3.5 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 overflow-hidden">
             
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+            <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
             
             <span className="relative text-sm md:text-base">View All Categories</span>
             <svg className="relative w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -219,7 +219,7 @@ export default function DestinationWedding() {
       </div>
 
       {/* Why Destination Wedding Section */}
-      <section className="py-20 px-4 bg-gradient-to-b from-rose-50 to-white">
+      <section className="py-20 px-4 bg-linear-to-b from-rose-50 to-white">
         <div className="max-w-7xl mx-auto">
 
 
@@ -273,10 +273,10 @@ export default function DestinationWedding() {
                     alt={dest.name}
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent"></div>
 
                   {/* Floating badge */}
-                  <div className="absolute top-4 left-4 bg-gradient-to-r from-rose-400 to-rose-600 text-white px-4 py-2 rounded-full shadow-xl flex items-center gap-2">
+                  <div className="absolute top-4 left-4 bg-linear-to-r from-rose-400 to-rose-600 text-white px-4 py-2 rounded-full shadow-xl flex items-center gap-2">
                     {(() => {
                       const IconComponent = dest.icon;
                       return <IconComponent className="w-5 h-5" />;
@@ -316,7 +316,7 @@ export default function DestinationWedding() {
                   <div className="grid grid-cols-2 gap-2 md:gap-3 mb-4">
                     {dest.features.map((item, j) => (
                       <div key={j} className="flex items-center gap-2 bg-rose-50 px-2 md:px-3 py-2 rounded-lg hover:bg-rose-100 transition-colors">
-                        <item.icon className="w-4 h-4 text-rose-400 flex-shrink-0" />
+                        <item.icon className="w-4 h-4 text-rose-400 shrink-0" />
                         <span className="text-xs md:text-sm font-medium text-gray-700 truncate">{item.label}</span>
                       </div>
                     ))}
@@ -324,7 +324,7 @@ export default function DestinationWedding() {
 
                   {/* Action buttons */}
                   <div className="flex gap-2">
-                    <button className="flex-1 cursor-pointer bg-gradient-to-r from-rose-400 to-rose-600 hover:from-rose-500 hover:to-rose-700 text-white px-4 py-3 rounded-xl font-normal transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-sm md:text-base">
+                    <button className="flex-1 cursor-pointer bg-linear-to-r from-rose-400 to-rose-600 hover:from-rose-500 hover:to-rose-700 text-white px-4 py-3 rounded-xl font-normal transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-sm md:text-base">
                       Get Quote
                     </button>
                     <button className="px-4 py-3 bg-rose-50 cursor-pointer hover:bg-rose-100 text-rose-600 rounded-xl transition-all duration-300 transform hover:scale-105">
@@ -369,7 +369,7 @@ export default function DestinationWedding() {
                   className="w-full h-full object-cover"
                 />
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+              <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent flex items-end">
                 <div className="p-8 w-full">
                   <h3 className="text-3xl font-medium text-white mb-2">{weddingGallery[currentSlide].title}</h3>
                   <div className="flex items-center justify-between">
@@ -403,7 +403,7 @@ export default function DestinationWedding() {
               <div
                 key={i}
                 onClick={() => setCurrentSlide(i)}
-                className={`relative flex-shrink-0 w-32 h-24 rounded-lg overflow-hidden cursor-pointer transition-all ${currentSlide === i ? 'ring-4 ring-rose-400 scale-110' : 'opacity-60 hover:opacity-100'
+                className={`relative shrink-0 w-32 h-24 rounded-lg overflow-hidden cursor-pointer transition-all ${currentSlide === i ? 'ring-4 ring-rose-400 scale-110' : 'opacity-60 hover:opacity-100'
                   }`}
               >
                 {item.type === 'video' ? (
@@ -422,7 +422,7 @@ export default function DestinationWedding() {
       </section>
 
       {/* Packages Section */}
-      <section className="py-20 px-4 bg-gradient-to-b from-rose-50 to-white">
+      <section className="py-20 px-4 bg-linear-to-b from-rose-50 to-white">
         <div className="max-w-7xl mx-auto">
 
           <div className="text-center mb-16">
@@ -448,7 +448,7 @@ export default function DestinationWedding() {
                   <ul className="space-y-4">
                     {pkg.features.map((feature, j) => (
                       <li key={j} className="flex items-start">
-                        <Check className="w-6 h-6 text-rose-400 mr-3 flex-shrink-0 mt-0.5" />
+                        <Check className="w-6 h-6 text-rose-400 mr-3 shrink-0 mt-0.5" />
                         <span className="text-gray-700">{feature}</span>
                       </li>
                     ))}
@@ -465,7 +465,7 @@ export default function DestinationWedding() {
 
       {/* Services Included */}
       <section className="relative pb-32 pt-20 px-4 overflow-hidden">
-        {/* Animated Background Gradients */}
+        {/* Animated Background linears */}
     
 
         <div className="max-w-7xl mx-auto relative z-10">
@@ -486,56 +486,56 @@ export default function DestinationWedding() {
                 title: "Travel Arrangements",
                 desc: "Seamless flight bookings, airport transfers, and private transportation coordination for guests",
                 color: "rose",
-                gradient: "from-rose-500 to-pink-500"
+                linear: "from-rose-500 to-pink-500"
               },
               {
                 icon: Building2,
                 title: "Luxury Accommodation",
                 desc: "Handpicked 5-star hotels, heritage properties, and exclusive destination venues",
                 color: "pink",
-                gradient: "from-pink-500 to-rose-500"
+                linear: "from-pink-500 to-rose-500"
               },
               {
                 icon: Camera,
                 title: "Photography & Films",
                 desc: "Award-winning cinematography, drone coverage, and premium photo documentation",
                 color: "rose",
-                gradient: "from-rose-600 to-rose-400"
+                linear: "from-rose-600 to-rose-400"
               },
               {
                 icon: Utensils,
                 title: "Gourmet Catering",
                 desc: "Multi-cuisine dining with celebrity chefs, live counters, and signature menus",
                 color: "pink",
-                gradient: "from-pink-600 to-pink-400"
+                linear: "from-pink-600 to-pink-400"
               },
               {
                 icon: Music,
                 title: "Entertainment",
                 desc: "Celebrity performers, international DJs, live bands, and cultural showcases",
                 color: "rose",
-                gradient: "from-rose-500 to-red-400"
+                linear: "from-rose-500 to-red-400"
               },
               {
                 icon: Sparkles,
                 title: "Bespoke Decoration",
                 desc: "Dramatic drapery, sculptural florals, custom lighting, and immersive installations",
                 color: "pink",
-                gradient: "from-pink-500 to-rose-400"
+                linear: "from-pink-500 to-rose-400"
               },
               {
                 icon: Calendar,
                 title: "Event Orchestration",
                 desc: "End-to-end planning, real-time coordination, and seamless timeline execution",
                 color: "rose",
-                gradient: "from-rose-600 to-pink-500"
+                linear: "from-rose-600 to-pink-500"
               },
               {
                 icon: Users,
                 title: "Guest Experience",
                 desc: "24/7 concierge, personalized hospitality, and VIP guest management services",
                 color: "pink",
-                gradient: "from-pink-600 to-rose-500"
+                linear: "from-pink-600 to-rose-500"
               }
             ].map((service, i) => (
               <div
@@ -546,20 +546,20 @@ export default function DestinationWedding() {
                 }}
               >
                 {/* Animated Background Layers */}
-                <div className="absolute inset-0 bg-gradient-to-br from-rose-50/50 via-pink-50/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                <div className="absolute inset-0 bg-linear-to-br from-rose-50/50 via-pink-50/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-700`}></div>
+                <div className={`absolute inset-0 bg-linear-to-br ${service.linear} opacity-0 group-hover:opacity-5 transition-opacity duration-700`}></div>
 
                 {/* Shimmer Effect on Hover */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000">
-                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12"></div>
+                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-linear-to-r from-transparent via-white/40 to-transparent skew-x-12"></div>
                 </div>
 
                 {/* Content */}
                 <div className="relative z-10">
                   {/* Icon Container with Enhanced Animation */}
                   <div className="mb-6 inline-flex items-center justify-center">
-                    <div className={`relative p-5 bg-gradient-to-br ${service.gradient} rounded-2xl group-hover:rounded-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-700 shadow-lg group-hover:shadow-xl`}>
+                    <div className={`relative p-5 bg-linear-to-br ${service.linear} rounded-2xl group-hover:rounded-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-700 shadow-lg group-hover:shadow-xl`}>
                       <service.icon className="w-9 h-9 text-white relative z-10" strokeWidth={1.5} />
 
                       {/* Pulsing Ring Effect */}
@@ -567,8 +567,8 @@ export default function DestinationWedding() {
                     </div>
                   </div>
 
-                  {/* Title with Gradient on Hover */}
-                  <h3 className="font-medium text-gray-900 mb-4 text-xl md:text-2xl tracking-tight group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-rose-600 group-hover:to-pink-600 transition-all duration-500">
+                  {/* Title with linear on Hover */}
+                  <h3 className="font-medium text-gray-900 mb-4 text-xl md:text-2xl tracking-tight group-hover:text-transparent group-hover:bg-linear-to-r group-hover:bg-clip-text group-hover:from-rose-600 group-hover:to-pink-600 transition-all duration-500">
                     {service.title}
                   </h3>
 
@@ -586,7 +586,7 @@ export default function DestinationWedding() {
 
                 {/* Corner Accent */}
                 <div className="absolute top-0 right-0 w-20 h-20 overflow-hidden rounded-tr-3xl">
-                  <div className={`absolute -top-10 -right-10 w-20 h-20 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-20 rounded-full transition-all duration-700`}></div>
+                  <div className={`absolute -top-10 -right-10 w-20 h-20 bg-linear-to-br ${service.linear} opacity-0 group-hover:opacity-20 rounded-full transition-all duration-700`}></div>
                 </div>
               </div>
             ))}
@@ -665,7 +665,7 @@ export default function DestinationWedding() {
       </section>
 
       {/* Planning Timeline */}
-      <section className="py-20 px-4 bg-gradient-to-b from-rose-50 to-white">
+      <section className="py-20 px-4 bg-linear-to-b from-rose-50 to-white">
         <div className="max-w-5xl mx-auto">
 
           <div className="text-center mb-16">
@@ -684,12 +684,12 @@ export default function DestinationWedding() {
               { month: "Wedding Week", title: "Celebration Time", tasks: ["Vendor coordination", "Guest welcome", "Event execution", "Enjoy your day!"] }
             ].map((phase, i) => (
               <div key={i} className="flex flex-col md:flex-row gap-6 items-start cursor-pointer">
-                <div className="flex-shrink-0 w-full md:w-40 text-left md:text-right">
+                <div className="shrink-0 w-full md:w-40 text-left md:text-right">
                   <div className="bg-rose-400 text-white px-4 py-2 rounded-lg font-light inline-block">
                     {phase.month}
                   </div>
                 </div>
-                <div className="relative flex-shrink-0 hidden md:block">
+                <div className="relative shrink-0 hidden md:block">
                   <div className="w-6 h-6 bg-rose-400 rounded-full border-4 border-white shadow-lg"></div>
                   {i < 4 && <div className="absolute left-3 top-6 w-0.5 h-20 bg-rose-200"></div>}
                 </div>
@@ -698,7 +698,7 @@ export default function DestinationWedding() {
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     {phase.tasks.map((task, j) => (
                       <li key={j} className="flex items-center text-gray-600">
-                        <Check className="w-5 h-5 text-rose-400 mr-2 flex-shrink-0" />
+                        <Check className="w-5 h-5 text-rose-400 mr-2 shrink-0" />
                         {task}
                       </li>
                     ))}

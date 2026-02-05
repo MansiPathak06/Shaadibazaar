@@ -268,7 +268,7 @@ export default function GroomAllProductsPage() {
   const getThemeColors = () => {
     if (category === "sikh-groomwear") {
       return {
-        gradient: "from-orange-900 to-amber-900",
+        linear: "from-orange-900 to-amber-900",
         accent: "text-orange-300",
         accentDark: "text-orange-200",
         bg: "bg-orange-600",
@@ -280,7 +280,7 @@ export default function GroomAllProductsPage() {
     }
     if (religion === "muslim") {
       return {
-        gradient: "from-emerald-900 to-teal-900",
+        linear: "from-emerald-900 to-teal-900",
         accent: "text-emerald-300",
         accentDark: "text-emerald-200",
         bg: "bg-emerald-600",
@@ -292,7 +292,7 @@ export default function GroomAllProductsPage() {
     }
     if (religion === "christian" || category === "christian-ritual-items") {
       return {
-        gradient: "from-sky-900 to-blue-900",
+        linear: "from-sky-900 to-blue-900",
         accent: "text-sky-300",
         accentDark: "text-sky-200",
         bg: "bg-sky-700",
@@ -305,7 +305,7 @@ export default function GroomAllProductsPage() {
     // ADD THIS NEW BLOCK
     if (category === "universal-groom-gifts") {
       return {
-        gradient: "from-blue-900 to-indigo-900",
+        linear: "from-blue-900 to-indigo-900",
         accent: "text-blue-300",
         accentDark: "text-blue-200",
         bg: "bg-blue-600",
@@ -317,7 +317,7 @@ export default function GroomAllProductsPage() {
     }
     if (category === "general-essentials") {
       return {
-        gradient: "from-blue-900 to-indigo-900",
+        linear: "from-blue-900 to-indigo-900",
         accent: "text-blue-300",
         accentDark: "text-blue-200",
         bg: "bg-blue-600",
@@ -329,7 +329,7 @@ export default function GroomAllProductsPage() {
     }
     // Default Hindu theme
     return {
-      gradient: "from-orange-900 to-red-900",
+      linear: "from-orange-900 to-red-900",
       accent: "text-amber-300",
       accentDark: "text-amber-200",
       bg: "bg-orange-600",
@@ -488,19 +488,19 @@ export default function GroomAllProductsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-amber-50 to-orange-50">
+    <div className="min-h-screen bg-linear-to-b from-amber-50 to-orange-50">
       {/* Header */}
       <div
         className={`text-white py-8 ${
           religion === "muslim"
-            ? "bg-gradient-to-r from-emerald-900 to-teal-900"
+            ? "bg-linear-to-r from-emerald-900 to-teal-900"
             : religion === "christian" || category === "christian-ritual-items"
-              ? "bg-gradient-to-r from-sky-900 to-blue-900"
+              ? "bg-linear-to-r from-sky-900 to-blue-900"
               : category === "general-essentials"
-                ? "bg-gradient-to-r from-blue-900 to-indigo-900"
+                ? "bg-linear-to-r from-blue-900 to-indigo-900"
                 : category === "universal-groom-gifts" // ADD THIS LINE
-                  ? "bg-gradient-to-r from-blue-900 to-indigo-900" // ADD THIS LINE
-                  : "bg-gradient-to-r from-orange-900 to-red-900"
+                  ? "bg-linear-to-r from-blue-900 to-indigo-900" // ADD THIS LINE
+                  : "bg-linear-to-r from-orange-900 to-red-900"
         }`}
       >
         <div className="container mx-auto px-4">
@@ -567,7 +567,7 @@ export default function GroomAllProductsPage() {
       <div className="container mx-auto px-4 py-8">
         <div className="flex gap-6">
           {/* Sidebar Filters - Desktop */}
-          <aside className="hidden lg:block w-64 flex-shrink-0">
+          <aside className="hidden lg:block w-64 shrink-0">
             <div className="bg-white rounded-lg shadow-md p-6 sticky top-4">
               <h3 className="text-lg font-bold text-gray-900 mb-4">Filters</h3>
 

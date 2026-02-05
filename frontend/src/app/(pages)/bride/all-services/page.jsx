@@ -166,8 +166,8 @@ export default function BridalAllServicesPage() {
   const getThemeColors = () => {
     if (isMuslimServices) {
       return {
-        gradient: "from-green-50 to-emerald-50",
-        headerGradient: "from-green-900 to-emerald-900",
+        linear: "from-green-50 to-emerald-50",
+        headerlinear: "from-green-900 to-emerald-900",
         accent: "text-emerald-300",
         accentDark: "text-emerald-200",
         button: "bg-green-600 hover:bg-green-700",
@@ -176,8 +176,8 @@ export default function BridalAllServicesPage() {
       };
     } else if (isChristianServices) {
       return {
-        gradient: "from-blue-50 to-indigo-50",
-        headerGradient: "from-blue-900 to-indigo-900",
+        linear: "from-blue-50 to-indigo-50",
+        headerlinear: "from-blue-900 to-indigo-900",
         accent: "text-blue-300",
         accentDark: "text-blue-200",
         button: "bg-blue-600 hover:bg-blue-700",
@@ -186,8 +186,8 @@ export default function BridalAllServicesPage() {
       };
     } else if (isSikhServices) {
       return {
-        gradient: "from-orange-50 to-yellow-50",
-        headerGradient: "from-orange-900 to-yellow-900",
+        linear: "from-orange-50 to-yellow-50",
+        headerlinear: "from-orange-900 to-yellow-900",
         accent: "text-orange-300",
         accentDark: "text-orange-200",
         button: "bg-orange-600 hover:bg-orange-700",
@@ -196,8 +196,8 @@ export default function BridalAllServicesPage() {
       };
     } else if (isPreWeddingServices) {
     return {
-      gradient: "from-purple-50 to-pink-50",
-      headerGradient: "from-purple-900 to-pink-900",
+      linear: "from-purple-50 to-pink-50",
+      headerlinear: "from-purple-900 to-pink-900",
       accent: "text-purple-300",
       accentDark: "text-purple-200",
       button: "bg-purple-600 hover:bg-purple-700",
@@ -208,8 +208,8 @@ export default function BridalAllServicesPage() {
     else {
       // Hindu (default - amber/orange theme)
       return {
-        gradient: "from-amber-50 to-orange-50",
-        headerGradient: "from-orange-900 to-red-900",
+        linear: "from-amber-50 to-orange-50",
+        headerlinear: "from-orange-900 to-red-900",
         accent: "text-amber-300",
         accentDark: "text-amber-200",
         button: "bg-amber-600 hover:bg-amber-700",
@@ -247,9 +247,9 @@ export default function BridalAllServicesPage() {
   }
 
   return (
-    <div className={`min-h-screen bg-gradient-to-b ${theme.gradient}`}>
+    <div className={`min-h-screen bg-linear-to-b ${theme.linear}`}>
       {/* Header */}
-      <div className={`text-white py-8 bg-gradient-to-r ${theme.headerGradient}`}>
+      <div className={`text-white py-8 bg-linear-to-r ${theme.headerlinear}`}>
         <div className="container mx-auto px-4">
           <nav className="flex items-center space-x-2 text-sm mb-4 flex-wrap">
             {breadcrumbs.map((crumb, index) => (
@@ -285,7 +285,7 @@ export default function BridalAllServicesPage() {
       <div className="container mx-auto px-4 py-8">
         <div className="flex gap-6">
           {/* Sidebar Filters - Desktop */}
-          <aside className="hidden lg:block w-64 flex-shrink-0">
+          <aside className="hidden lg:block w-64 shrink-0">
             <div className="bg-white rounded-lg shadow-md p-6 sticky top-4">
               <h3 className="text-lg font-bold text-gray-900 mb-4">Filters</h3>
 

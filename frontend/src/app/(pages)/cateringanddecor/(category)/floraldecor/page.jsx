@@ -203,7 +203,7 @@ export default function FloralDecorWebsite() {
   };
 
   return (
-    <div className="bg-gradient-to-br from-rose-50 to-pink-50">
+    <div className="bg-linear-to-br from-rose-50 to-pink-50">
       {/* Hero Section */}
       <section
         id="home"
@@ -216,8 +216,8 @@ export default function FloralDecorWebsite() {
             alt="Elegant Wedding Flowers"
             className="w-full h-full object-cover"
           />
-          {/* Gradient Overlay */}
-          {/* <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div> */}
+          {/* linear Overlay */}
+          {/* <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-black/20"></div> */}
         </div>
 
         {/* Content at Bottom */}
@@ -225,11 +225,11 @@ export default function FloralDecorWebsite() {
           <div className="max-w-7xl mx-auto px-6">
             {/* Decorative floral elements */}
             <div className="flex items-center mb-6">
-              <div className="w-16 h-0.5 bg-gradient-to-r from-transparent to-white/40"></div>
+              <div className="w-16 h-0.5 bg-linear-to-r from-transparent to-white/40"></div>
               <div className="mx-6 p-3 rounded-full bg-white/20 backdrop-blur-sm border border-white/30">
                 <Flower className="w-6 h-6 text-white" />
               </div>
-              <div className="w-16 h-0.5 bg-gradient-to-l from-transparent to-white/40"></div>
+              <div className="w-16 h-0.5 bg-linear-to-l from-transparent to-white/40"></div>
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-white mb-6 leading-tight">
@@ -244,7 +244,7 @@ export default function FloralDecorWebsite() {
             <div className="flex items-center mb-6">
               <div className="w-8 h-0.5 bg-rose-300"></div>
               <div className="w-3 h-3 bg-rose-300 rounded-full mx-4"></div>
-              <div className="w-16 h-0.5 bg-gradient-to-r from-rose-300 to-amber-300"></div>
+              <div className="w-16 h-0.5 bg-linear-to-r from-rose-300 to-amber-300"></div>
               <div className="w-3 h-3 bg-amber-300 rounded-full mx-4"></div>
               <div className="w-8 h-0.5 bg-amber-300"></div>
             </div>
@@ -306,7 +306,7 @@ export default function FloralDecorWebsite() {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
               Welcome To{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">
+              <span className="bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500">
                 Floral Decorations
               </span>
             </h2>
@@ -322,7 +322,7 @@ export default function FloralDecorWebsite() {
                 alt="Welcome Arch"
                 className="w-full h-96 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-2xl"></div>
+              <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent rounded-2xl"></div>
               <div className="absolute bottom-6 left-6 right-6 text-white">
                 <h3 className="text-2xl font-medium mb-2">
                   Grand Welcome Arch
@@ -350,7 +350,7 @@ export default function FloralDecorWebsite() {
 
               <div className="grid grid-cols-1 gap-4">
                 <div className="flex items-start gap-4 p-4 bg-rose-50 rounded-lg">
-                  <MapPin className="w-6 h-6 text-rose-500 flex-shrink-0 mt-1" />
+                  <MapPin className="w-6 h-6 text-rose-500 shrink-0 mt-1" />
                   <div>
                     <h4 className="font-medium text-gray-800 mb-1">
                       Entrance Pathways
@@ -363,7 +363,7 @@ export default function FloralDecorWebsite() {
                 </div>
 
                 <div className="flex items-start gap-4 p-4 bg-rose-50 rounded-lg">
-                  <Crown className="w-6 h-6 text-rose-500 flex-shrink-0 mt-1" />
+                  <Crown className="w-6 h-6 text-rose-500 shrink-0 mt-1" />
                   <div>
                     <h4 className="font-medium text-gray-800 mb-1">
                       Welcome Signage
@@ -376,7 +376,7 @@ export default function FloralDecorWebsite() {
                 </div>
 
                 <div className="flex items-start gap-4 p-4 bg-rose-50 rounded-lg">
-                  <Sparkles className="w-6 h-6 text-rose-500 flex-shrink-0 mt-1" />
+                  <Sparkles className="w-6 h-6 text-rose-500 shrink-0 mt-1" />
                   <div>
                     <h4 className="font-medium text-gray-800 mb-1">
                       Greeting Areas
@@ -398,11 +398,11 @@ export default function FloralDecorWebsite() {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
               A{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">
+              <span className="bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500">
                 Symphony
               </span>{" "}
               of{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">
+              <span className="bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500">
                 Blooms
               </span>
             </h2>
@@ -443,8 +443,8 @@ export default function FloralDecorWebsite() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
 
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                {/* linear Overlay */}
+                <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                 {/* Content Overlay */}
                 <div className="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -484,7 +484,7 @@ export default function FloralDecorWebsite() {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
               Popular{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">
+              <span className="bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500">
                 Wedding Flower
               </span>{" "}
               Varieties
@@ -678,7 +678,7 @@ export default function FloralDecorWebsite() {
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
               Bridal{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">
+              <span className="bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500">
                 Bouquet Collection
               </span>
             </h2>
@@ -695,7 +695,7 @@ export default function FloralDecorWebsite() {
                   alt="Classic White Rose Bouquet"
                   className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-6 left-6 right-6 text-white">
                     <div className="flex items-center justify-between">
                       <div>
@@ -728,7 +728,7 @@ export default function FloralDecorWebsite() {
                   alt="Mixed Flower Bouquet"
                   className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-6 left-6 right-6 text-white">
                     <div className="flex items-center justify-between">
                       <div>
@@ -759,7 +759,7 @@ export default function FloralDecorWebsite() {
                   alt="Orchid Bouquet"
                   className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-6 left-6 right-6 text-white">
                     <div className="flex items-center justify-between">
                       <div>
@@ -848,16 +848,16 @@ export default function FloralDecorWebsite() {
       </section>
 
       {/* Stage Floral Décor Section */}
-      <section className="py-20 px-6 bg-gradient-to-br from-rose-50 to-pink-50">
+      <section className="py-20 px-6 bg-linear-to-br from-rose-50 to-pink-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
               Center{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">
+              <span className="bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500">
                 Stage
               </span>{" "}
               for{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">
+              <span className="bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500">
                 Your Love
               </span>
             </h2>
@@ -874,7 +874,7 @@ export default function FloralDecorWebsite() {
                 alt="Royal Stage Setup"
                 className="w-full h-80 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-2xl"></div>
+              <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent rounded-2xl"></div>
               <div className="absolute bottom-6 left-6 right-6 text-white">
                 <h3 className="text-2xl font-medium mb-2">
                   Royal Stage Backdrop
@@ -915,16 +915,16 @@ export default function FloralDecorWebsite() {
       {/* Modern Gallery Section */}
 
       {/* Custom Furniture Section */}
-      <section className="py-20 px-6 bg-gradient-to-br from-rose-50 to-pink-50">
+      <section className="py-20 px-6 bg-linear-to-br from-rose-50 to-pink-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
               Customized{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">
+              <span className="bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500">
                 chairs
               </span>{" "}
               and{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">
+              <span className="bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500">
                 sofas
               </span>
             </h2>
@@ -999,16 +999,16 @@ export default function FloralDecorWebsite() {
       </section>
 
       {/* Special Installations Section */}
-      <section className="py-12 px-6 bg-gradient-to-br from-rose-50 to-pink-50">
+      <section className="py-12 px-6 bg-linear-to-br from-rose-50 to-pink-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
               Create{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">
+              <span className="bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500">
                 Moments
               </span>{" "}
               That{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500">
+              <span className="bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500">
                 Wow
               </span>
             </h2>

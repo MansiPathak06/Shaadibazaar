@@ -53,10 +53,10 @@ export default function HospitalityAndGuestManagementTools() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-16 px-4">
+    <div className="min-h-screen bg-linear-to-b from-gray-50 to-white py-16 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-5xl font-bold bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent mb-6">
+          <h1 className="text-5xl md:text-5xl font-bold bg-linear-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent mb-6">
             Hospitality & Guest Management Tools
           </h1>
 
@@ -69,7 +69,7 @@ export default function HospitalityAndGuestManagementTools() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {tools.map((tool, index) => (
             <div key={index} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div className="w-full h-64 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center overflow-hidden">
+              <div className="w-full h-64 bg-linear-to-br from-gray-200 to-gray-300 flex items-center justify-center overflow-hidden">
                 {tool.image ? (
                   <img 
                     src={tool.image} 
@@ -98,7 +98,7 @@ export default function HospitalityAndGuestManagementTools() {
           ))}
         </div>
 
-        <div className="mt-20 text-center bg-gradient-to-r from-pink-50 to-purple-50 rounded-2xl p-12">
+        <div className="mt-20 text-center bg-linear-to-r from-pink-50 to-purple-50 rounded-2xl p-12">
           <h3 className="text-3xl font-bold text-gray-900 mb-4">
             Ready to Elevate Guest Experience?
           </h3>
@@ -106,7 +106,7 @@ export default function HospitalityAndGuestManagementTools() {
             Choose the hospitality tools that will make your guests feel truly special and cared for. 
             With thoughtful amenities and management solutions, you can create a memorable and comfortable experience for everyone.
           </p>
-          <button className="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-pink-600 hover:to-purple-600 transform hover:scale-105 transition-all duration-300 shadow-lg">
+          <button className="bg-linear-to-r from-pink-500 to-purple-500 text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-pink-600 hover:to-purple-600 transform hover:scale-105 transition-all duration-300 shadow-lg">
             Get Started Now
           </button>
         </div>
