@@ -233,10 +233,10 @@ export default function ConferenceHalls() {
     : conferenceHalls.filter(hall => hall.eventType === selectedEvent);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-rose-50">
+    <div className="min-h-screen bg-linear-to-b from-white to-rose-50">
       {/* Hero Section with Image */}
       <section className="relative h-[60vh] md:h-[70vh] lg:h-[80vh] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-rose-200/40 to-rose-200/40 z-10" />
+        <div className="absolute inset-0 bg-linear-to-r from-rose-200/40 to-rose-200/40 z-10" />
 
         {/* Cloudinary Background Image */}
         <Image
@@ -415,7 +415,7 @@ export default function ConferenceHalls() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-rose-50 to-white p-6 md:p-8 rounded-2xl shadow-lg 
+                className="bg-linear-to-br from-rose-50 to-white p-6 md:p-8 rounded-2xl shadow-lg 
                   transform hover:scale-105 transition-all duration-300 hover:shadow-xl"
               >
                 <div className="relative w-16 h-16 md:w-20 md:h-20 mb-4 mx-auto">
@@ -435,7 +435,7 @@ export default function ConferenceHalls() {
       </section>
 
       {/* Gallery Section */}
-      <section className="py-12 md:py-16 lg:py-20 px-4 bg-gradient-to-b from-white to-rose-50">
+      <section className="py-12 md:py-16 lg:py-20 px-4 bg-linear-to-b from-white to-rose-50">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4">
             Event Gallery
@@ -496,7 +496,7 @@ export default function ConferenceHalls() {
             {seatingLayouts.map((layout, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-rose-50 to-white p-6 rounded-xl shadow-lg 
+                className="bg-linear-to-br from-rose-50 to-white p-6 rounded-xl shadow-lg 
                   text-center transform hover:scale-105 transition-all duration-300 border border-rose-100"
               >
                 <div className="relative w-16 h-16 md:w-20 md:h-20 mb-3 mx-auto">
@@ -516,7 +516,7 @@ export default function ConferenceHalls() {
       </section>
 
       {/* Process Section with Images */}
-      <section className="py-12 md:py-16 lg:py-20 px-4 bg-gradient-to-b from-white to-rose-50">
+      <section className="py-12 md:py-16 lg:py-20 px-4 bg-linear-to-b from-white to-rose-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4">
             Simple Booking Process
@@ -571,7 +571,7 @@ export default function ConferenceHalls() {
             ].map((testimonial, index) => (
               <div key={index} className="bg-rose-50 p-6 rounded-xl shadow-lg border border-rose-100">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
+                  <div className="relative w-16 h-16 rounded-full overflow-hidden shrink-0">
                     <Image
                       src={testimonial.image}
                       alt={testimonial.name}

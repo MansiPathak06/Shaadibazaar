@@ -128,8 +128,8 @@ export default function ForgotPasswordPage() {
           animation: pulse 2s ease-in-out infinite;
         }
 
-        .gradient-text {
-          background: linear-gradient(135deg, #F04393 0%, #2A0B8B 100%);
+        .linear-text {
+          background: linear-linear(135deg, #F04393 0%, #2A0B8B 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -157,7 +157,7 @@ export default function ForgotPasswordPage() {
           left: -100%;
           width: 100%;
           height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+          background: linear-linear(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
           transition: left 0.5s ease;
         }
 
@@ -166,7 +166,7 @@ export default function ForgotPasswordPage() {
         }
       `}</style>
 
-      <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-12 bg-gradient-to-br from-[#3C4CAD] via-[#2A0B8B] to-[#F04393]">
+      <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-12 bg-linear-to-br from-[#3C4CAD] via-[#2A0B8B] to-[#F04393]">
 
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -180,7 +180,7 @@ export default function ForgotPasswordPage() {
           <div className="flex flex-col lg:flex-row min-h-[600px] lg:min-h-[700px]">
 
             {/* Left Side - Hero Section */}
-            <div className="w-full lg:w-1/2 relative bg-gradient-to-br from-[#E8A4BC] via-[#F04393] to-[#2A0B8B] min-h-[400px] lg:min-h-full flex items-center justify-center p-8 lg:p-12 rounded-t-[40px] lg:rounded-l-[40px] lg:rounded-tr-none">
+            <div className="w-full lg:w-1/2 relative bg-linear-to-br from-[#E8A4BC] via-[#F04393] to-[#2A0B8B] min-h-[400px] lg:min-h-full flex items-center justify-center p-8 lg:p-12 rounded-t-[40px] lg:rounded-l-[40px] lg:rounded-tr-none">
               <div className="absolute inset-0 rounded-t-[40px] lg:rounded-l-[40px] lg:rounded-tr-none overflow-hidden">
                 <img
                   src="https://res.cloudinary.com/dewxpvl5s/image/upload/v1761373340/wedding-image_z4ig55.jpg"
@@ -190,14 +190,14 @@ export default function ForgotPasswordPage() {
                     e.target.src = "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200";
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#2A0B8B]/80 via-[#2A0B8B]/40 to-transparent"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-[#2A0B8B]/80 via-[#2A0B8B]/40 to-transparent"></div>
               </div>
 
               <div className="relative z-10 max-w-lg animate-slide-in-left">
                 {/* Decorative Elements */}
                 <div className="flex items-center gap-3 mb-6">
                   <Mail className="w-8 h-8 text-[#F9C449] animate-pulse-slow" />
-                  <div className="h-1 w-20 bg-gradient-to-r from-[#F9C449] to-transparent"></div>
+                  <div className="h-1 w-20 bg-linear-to-r from-[#F9C449] to-transparent"></div>
                 </div>
 
                 <h1 className="text-4xl md:text-5xl lg:text-8xl font-medium text-white mb-6 leading-tight">
@@ -252,13 +252,13 @@ export default function ForgotPasswordPage() {
                   <Link href="/" className="inline-block mb-6 group">
                     <h2 className="text-3xl sm:text-7xl font-medium">
                       <span className="text-gray-800">Shaadi</span>
-                      <span className="gradient-text"> Baazar</span>
+                      <span className="linear-text"> Baazar</span>
                     </h2>
-                    <div className="h-1 w-0 group-hover:w-full bg-gradient-to-r from-[#F04393] to-[#2A0B8B] transition-all duration-300 mx-auto mt-1"></div>
+                    <div className="h-1 w-0 group-hover:w-full bg-linear-to-r from-[#F04393] to-[#2A0B8B] transition-all duration-300 mx-auto mt-1"></div>
                   </Link>
 
                   <h3 className="text-2xl sm:text-4xl font-medium text-gray-800 mb-3">
-                    Reset Your <span className="gradient-text">Password</span>
+                    Reset Your <span className="linear-text">Password</span>
                   </h3>
                   <p className="text-gray-600 text-sm sm:text-lg">
                     Enter your email address and we'll send you a link to reset your password.
@@ -266,8 +266,8 @@ export default function ForgotPasswordPage() {
                 </div>
 
                 {success ? (
-                  <div className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-2xl p-8 text-center animate-fade-in-up shadow-xl">
-                    <div className="w-20 h-20 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="bg-linear-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-2xl p-8 text-center animate-fade-in-up shadow-xl">
+                    <div className="w-20 h-20 bg-linear-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
                       <CheckCircle className="w-10 h-10 text-white" />
                     </div>
                     <h4 className="text-2xl font-bold text-green-800 mb-3">
@@ -283,7 +283,7 @@ export default function ForgotPasswordPage() {
                     </div>
                     <Link
                       href="/auth"
-                      className="inline-block px-8 py-3 bg-gradient-to-r from-[#F04393] to-[#2A0B8B] text-white rounded-xl hover:shadow-lg transition-all font-semibold"
+                      className="inline-block px-8 py-3 bg-linear-to-r from-[#F04393] to-[#2A0B8B] text-white rounded-xl hover:shadow-lg transition-all font-semibold"
                     >
                       Return to Login
                     </Link>
@@ -294,7 +294,7 @@ export default function ForgotPasswordPage() {
                     {error && (
                       <div className="mb-4 p-4 bg-red-50 border-l-4 border-red-500 text-red-700 rounded-xl animate-fade-in-up shadow-sm">
                         <div className="flex items-start">
-                          <svg className="w-5 h-5 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <svg className="w-5 h-5 mr-3 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
                           </svg>
                           <span className="font-medium text-sm">{error}</span>
@@ -331,7 +331,7 @@ export default function ForgotPasswordPage() {
                       <button
                         type="submit"
                         disabled={loading}
-                        className="button-hover-effect w-full bg-gradient-to-r from-[#F04393] to-[#2A0B8B] text-white cursor-pointer py-4 rounded-xl font-medium hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2 mt-6 text-base sm:text-lg"
+                        className="button-hover-effect w-full bg-linear-to-r from-[#F04393] to-[#2A0B8B] text-white cursor-pointer py-4 rounded-xl font-medium hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2 mt-6 text-base sm:text-lg"
                       >
                         {loading ? (
                           <>
@@ -361,9 +361,9 @@ export default function ForgotPasswordPage() {
                     </div>
 
                     {/* Help Text */}
-                    <div className="mt-8 p-4 bg-gradient-to-r from-[#F04393]/10 to-[#2A0B8B]/10 rounded-xl border border-[#F04393]/20">
+                    <div className="mt-8 p-4 bg-linear-to-r from-[#F04393]/10 to-[#2A0B8B]/10 rounded-xl border border-[#F04393]/20">
                       <div className="flex items-start gap-3">
-                        <Sparkles className="w-5 h-5 text-[#F04393] flex-shrink-0 mt-0.5" />
+                        <Sparkles className="w-5 h-5 text-[#F04393] shrink-0 mt-0.5" />
                         <div>
                           <p className="text-md text-gray-600 leading-relaxed">
                             <span className="text-gray-800 font-medium">Need help?</span> If you don't receive an email within a few minutes, please check your spam folder or contact our support team.

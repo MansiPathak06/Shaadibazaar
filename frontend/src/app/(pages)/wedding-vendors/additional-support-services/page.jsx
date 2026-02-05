@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useRef } from "react";
-import { useRouter } from "next/navigation";
-import { Home, ChevronRight } from "lucide-react";
+import { Home, ChevronRight as BreadcrumbArrow, Shield } from "lucide-react";
 
 const AdditionalSupportServicesPage = () => {
   const router = useRouter();
@@ -166,9 +165,9 @@ const AdditionalSupportServicesPage = () => {
             type="video/mp4"
           />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-black/60 via-black/40 to-black/60"></div>
         <div className="relative h-full flex flex-col items-center justify-center text-white px-4 z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-2 text-center drop-shadow-lg">
+          <h1 className="text-4xl md:text-6xl font-medium uppercase mb-2 text-center drop-shadow-lg">
             Additional Support Services
           </h1>
           <p className="text-lg md:text-xl text-center max-w-2xl drop-shadow-md">
@@ -228,6 +227,22 @@ const AdditionalSupportServicesPage = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className="bg-white border-b border-gray-200 py-3 px-4">
+        <div className="max-w-7xl mx-auto">
+          <nav className="flex items-center space-x-2 text-sm">
+            <button
+              onClick={() => router.push('/')}
+              className="flex items-center gap-1 text-gray-600 hover:text-rose-500 transition-colors cursor-pointer"
+            >
+              <Home className="w-4 h-4" />
+              <span>Home</span>
+            </button>
+            <BreadcrumbArrow className="w-4 h-4 text-gray-400" />
+            <span className="text-rose-500 font-medium text-lg">Additional Support Services</span>
+          </nav>
         </div>
       </div>
 

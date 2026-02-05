@@ -130,7 +130,7 @@ export default function WeddingVenuesComponent() {
             className="w-full h-full object-cover rounded-t-2xl"
           />
           <div
-            className={`absolute inset-0 bg-gradient-to-t ${category.color} opacity-60 rounded-t-2xl`}
+            className={`absolute inset-0 bg-linear-to-t ${category.color} opacity-60 rounded-t-2xl`}
           />
           <button
             onClick={onClose}
@@ -162,7 +162,7 @@ export default function WeddingVenuesComponent() {
           </div>
 
 
-          <div className="bg-gradient-to-r from-rose-50 to-pink-50 rounded-xl p-6 mb-6">
+          <div className="bg-linear-to-r from-rose-50 to-pink-50 rounded-xl p-6 mb-6">
             <h4 className="text-xl font-semibold text-gray-800 mb-3">
               Why Choose {category.title}?
             </h4>
@@ -175,19 +175,19 @@ export default function WeddingVenuesComponent() {
             </p>
             <ul className="space-y-2 text-gray-600">
               <li className="flex items-start">
-                <ChevronRight className="w-5 h-5 text-rose-500 mt-0.5 mr-2 flex-shrink-0" />
+                <ChevronRight className="w-5 h-5 text-rose-500 mt-0.5 mr-2 shrink-0" />
                 <span>Expert venue selection and coordination</span>
               </li>
               <li className="flex items-start">
-                <ChevronRight className="w-5 h-5 text-rose-500 mt-0.5 mr-2 flex-shrink-0" />
+                <ChevronRight className="w-5 h-5 text-rose-500 mt-0.5 mr-2 shrink-0" />
                 <span>End-to-end planning and management services</span>
               </li>
               <li className="flex items-start">
-                <ChevronRight className="w-5 h-5 text-rose-500 mt-0.5 mr-2 flex-shrink-0" />
+                <ChevronRight className="w-5 h-5 text-rose-500 mt-0.5 mr-2 shrink-0" />
                 <span>Customized packages to suit your budget and vision</span>
               </li>
               <li className="flex items-start">
-                <ChevronRight className="w-5 h-5 text-rose-500 mt-0.5 mr-2 flex-shrink-0" />
+                <ChevronRight className="w-5 h-5 text-rose-500 mt-0.5 mr-2 shrink-0" />
                 <span>Dedicated support throughout your wedding journey</span>
               </li>
             </ul>
@@ -195,7 +195,7 @@ export default function WeddingVenuesComponent() {
 
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="flex-1 bg-gradient-to-r from-rose-500 to-pink-600 text-white py-4 rounded-xl font-semibold hover:from-rose-600 hover:to-pink-700 transition-all transform hover:scale-105 shadow-lg">
+            <button className="flex-1 bg-linear-to-r from-rose-500 to-pink-600 text-white py-4 rounded-xl font-semibold hover:from-rose-600 hover:to-pink-700 transition-all transform hover:scale-105 shadow-lg">
               View Available Venues
             </button>
             <button className="flex-1 border-2 border-rose-500 text-rose-600 py-4 rounded-xl font-semibold hover:bg-rose-50 transition-all">
@@ -209,7 +209,7 @@ export default function WeddingVenuesComponent() {
 
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-white to-pink-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-linear-to-br from-rose-50 via-white to-pink-50 py-12 px-4 sm:px-6 lg:px-8">
       <style jsx>{`
         @keyframes fadeIn {
           from {
@@ -269,11 +269,11 @@ export default function WeddingVenuesComponent() {
         {/* Header Section */}
         <div className="text-center mb-16 animate-slideUp">
           <div className="inline-block mb-4">
-            <span className="bg-gradient-to-r from-rose-500 to-pink-600 text-white px-8 py-3 rounded-full text-base font-bold shadow-lg">
+            <span className="bg-linear-to-r from-rose-500 to-pink-600 text-white px-8 py-3 rounded-full text-base font-bold shadow-lg">
              Explore. Plan. Celebrate.
             </span>
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 bg-gradient-to-r from-rose-600 to-pink-600 bg-clip-text text-transparent">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4 bg-linear-to-r from-rose-600 to-pink-600 bg-clip-text text-transparent">
             Explore Your Dream Venue!
           </h1>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
@@ -305,9 +305,9 @@ export default function WeddingVenuesComponent() {
                   />
 
 
-                  {/* Gradient Overlay - LIGHTENED */}
+                  {/* linear Overlay - LIGHTENED */}
                   <div
-                    className={`absolute inset-0 bg-gradient-to-t ${category.color} opacity-35 group-hover:opacity-45 transition-opacity duration-300`}
+                    className={`absolute inset-0 bg-linear-to-t ${category.color} opacity-35 group-hover:opacity-45 transition-opacity duration-300`}
                   />
 
 

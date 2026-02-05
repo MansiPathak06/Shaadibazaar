@@ -147,7 +147,7 @@ export default function ShowCase4() {
               {products.map((product) => (
                 <div
                   key={product.id}
-                  className="flex-shrink-0 px-2"
+                  className="shrink-0 px-2"
                   style={{ width: `${100 / getVisibleCount()}%` }}
                 >
                   <div className="bg-gray-50 rounded-xl p-4 hover:shadow-lg transition-all duration-300 cursor-pointer group">

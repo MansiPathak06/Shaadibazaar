@@ -7,7 +7,7 @@ import {
     MoreVertical, Search, Filter,
     ArrowUpRight, ArrowDownRight,
     MapPin, Briefcase, CreditCard,
-    X, Check, ChevronRight, Heart
+    X, Check, ChevronRight, Heart, ArrowLeft, Home
 } from 'lucide-react';
 import {
     BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, Legend, ResponsiveContainer,
@@ -127,7 +127,7 @@ const TeamModule = ({ members, tasks, onAddMember, onAddTask, onToggleTaskStatus
                             <div key={member.id} className="flex items-center justify-between p-3 hover:bg-rose-50 rounded-xl transition-colors cursor-pointer group border border-transparent hover:border-rose-100">
                                 <div className="flex items-center gap-3">
                                     <div className="relative">
-                                        <div className="w-10 h-10 bg-gradient-to-br from-rose-400 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md shadow-rose-200">
+                                        <div className="w-10 h-10 bg-linear-to-br from-rose-400 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md shadow-rose-200">
                                             {member.avatar}
                                         </div>
                                         <span className={cn("absolute bottom-0 right-0 w-3 h-3 border-2 border-white rounded-full",
@@ -545,10 +545,10 @@ const AnalyticsModule = ({ expenses, expensesByDate }) => (
                         <ResponsiveContainer width="100%" height="100%">
                             <AreaChart data={expensesByDate}>
                                 <defs>
-                                    <linearGradient id="colorCost" x1="0" y1="0" x2="0" y2="1">
+                                    <linearlinear id="colorCost" x1="0" y1="0" x2="0" y2="1">
                                         <stop offset="5%" stopColor="#f43f5e" stopOpacity={0.8} />
                                         <stop offset="95%" stopColor="#f43f5e" stopOpacity={0} />
-                                    </linearGradient>
+                                    </linearlinear>
                                 </defs>
                                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#fae8ff" />
                                 <XAxis dataKey="date" axisLine={false} tickLine={false} />
@@ -610,10 +610,27 @@ const Onboarding = ({ onComplete }) => {
         onComplete(data);
     };
 
+    const handleGoBack = () => {
+        if (window.history.length > 1) {
+            window.history.back();
+        } else {
+            window.location.href = '/';
+        }
+    };
+
     return (
         <div className="fixed inset-0 z-50 bg-rose-50 flex items-center justify-center p-4 bg-[url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80')] bg-cover bg-center">
             <div className="absolute inset-0 bg-white/90 backdrop-blur-sm"></div>
             <div className="bg-white max-w-lg w-full rounded-2xl shadow-xl p-8 animate-in zoom-in-95 duration-500 relative z-10 border border-rose-100">
+                {/* Back Button */}
+                <button
+                    onClick={handleGoBack}
+                    className="absolute top-6 left-6 flex items-center gap-2 px-3 py-1.5 text-sm bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg transition-all duration-200"
+                >
+                    <ArrowLeft size={16} />
+                    <span>Back</span>
+                </button>
+                
                 <div className="text-center mb-8">
                     <div className="w-12 h-12 bg-rose-500 rounded-xl flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl shadow-lg shadow-rose-200">
                         <Heart fill="currentColor" size={24} />
@@ -712,6 +729,14 @@ export default function EventManagementSoftware() {
     const handleAddVendor = (vendor) => setVendors([...vendors, vendor]);
     const handleAddTravel = (trip) => setTravelDetails([...travelDetails, trip]);
 
+    const handleGoBack = () => {
+        if (window.history.length > 1) {
+            window.history.back();
+        } else {
+            window.location.href = '/';
+        }
+    };
+
     if (!isSetup) {
         return <Onboarding onComplete={handleOnboardingComplete} />;
     }
@@ -724,7 +749,8 @@ export default function EventManagementSoftware() {
     ];
 
     return (
-        <div className="flex w-full h-full min-h-screen bg-rose-50/30">{/* Sidebar */}
+        <div className="flex w-full h-full min-h-screen bg-rose-50/30">
+            {/* Sidebar */}
             <aside className={cn(
                 "bg-white border-r border-rose-100 flex flex-col transition-all duration-300 z-20",
                 isSidebarOpen ? "w-72" : "w-20"
@@ -764,7 +790,7 @@ export default function EventManagementSoftware() {
                         {isSidebarOpen && <span>Settings</span>}
                     </button>
                     <div className="mt-4 flex items-center gap-3 px-2">
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-rose-400 to-pink-500 border border-white ring-2 ring-rose-100" />
+                        <div className="w-8 h-8 rounded-full bg-linear-to-tr from-rose-400 to-pink-500 border border-white ring-2 ring-rose-100" />
                         {isSidebarOpen && (
                             <div className="flex-1 min-w-0">
                                 <p className="text-sm font-medium text-gray-900 truncate">Jane Cooper</p>
@@ -788,7 +814,21 @@ export default function EventManagementSoftware() {
                         </h1>
                     </div>
 
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-3">
+                        <button
+                            onClick={handleGoBack}
+                            className="flex items-center gap-2 px-3 py-1.5 text-sm bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg transition-all duration-200"
+                        >
+                            <ArrowLeft size={16} />
+                            <span className="hidden sm:inline">Back</span>
+                        </button>
+                        <button
+                            onClick={() => window.location.href = '/'}
+                            className="flex items-center gap-2 px-3 py-1.5 text-sm bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg transition-all duration-200"
+                        >
+                            <Home size={16} />
+                            <span className="hidden sm:inline">Home</span>
+                        </button>
                         <div className="relative hidden md:block">
                             <input type="text" placeholder="Search..." className="w-64 pl-10 pr-4 py-2 bg-rose-50/50 border border-transparent focus:bg-white focus:border-rose-200 rounded-full text-sm focus:outline-none transition-all placeholder-gray-400" />
                             <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />

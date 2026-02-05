@@ -217,74 +217,124 @@ const HinduGroomServicesPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section with Slider - UNCHANGED + navigation on BOOK NOW */}
-      <div className="relative h-[250px] overflow-hidden">
-        <div
-          className="flex transition-transform duration-500 ease-out h-full"
-          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-        >
+      <div className="relative h-62.5 overflow-hidden group">
+        {/* Background Slides */}
+        <div className="absolute inset-0">
           {heroSlides.map((slide, index) => (
-            <div key={index} className="min-w-full h-full relative">
+            <div
+              key={index}
+              className={`absolute inset-0 transition-all duration-1000 ease-in-out ${currentSlide === index
+                  ? "opacity-100 scale-100"
+                  : "opacity-0 scale-110"
+                }`}
+            >
               <img
                 src={slide.image}
                 alt={slide.title}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-white/80 to-transparent flex items-center">
-                <div className="max-w-7xl mx-auto px-8 w-full">
-                  <div className="max-w-md">
-                    <p className="text-sm text-gray-600 mb-2 uppercase tracking-wide">
-                      HINDU GROOM SERVICES
-                    </p>
-                    <h1 className="text-5xl font-light text-gray-800 mb-4">
-                      {slide.title}
-                    </h1>
-                    <p className="text-gray-600 mb-6">{slide.subtitle}</p>
-                    <button 
-                      onClick={handleAllServicesClick}
-                      className="bg-orange-600 text-white px-8 py-3 rounded hover:bg-orange-700 transition-colors cursor-pointer"
-                    >
-                      BOOK NOW
-                    </button>
-                  </div>
-                </div>
-              </div>
+              {/* Dynamic Gradient Overlays */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             </div>
           ))}
         </div>
 
-        {/* Navigation Arrows - UNCHANGED */}
+        {/* Content Container */}
+        <div className="relative h-full flex items-center">
+          <div className="max-w-7xl mx-auto px-8 w-full">
+            <div className="max-w-2xl">
+              {/* Animated Content */}
+              {heroSlides.map((slide, index) => (
+                <div
+                  key={index}
+                  className={`transition-all duration-700 ${currentSlide === index
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-4 absolute"
+                    }`}
+                >
+                  {/* Animated Tag */}
+                  <div className="inline-flex items-center gap-2 mb-4">
+                    <div className="flex items-center gap-2 bg-gradient-to-r from-orange-500/30 to-orange-600/30 backdrop-blur-md border border-orange-400/40 rounded-full px-4 py-1.5 shadow-lg shadow-orange-500/20">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
+                      </span>
+                      <span className="text-xs text-orange-100 font-normal tracking-widest">
+                        HINDU GROOM SERVICES
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Title with Gradient */}
+                  <h1 className="text-4xl md:text-5xl font-medium uppercase text-white mb-3 leading-tight">
+                    {slide.title}
+                    <div className="h-1 w-20 bg-linear-to-r from-orange-500 to-orange-600 mt-3 rounded-full" />
+                  </h1>
+
+                  {/* Subtitle */}
+                  <p className="text-base text-gray-200/90 leading-relaxed max-w-lg font-light">
+                    {slide.subtitle}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Navigation Arrows - Minimalist */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all"
+          className="absolute cursor-pointer left-6 top-1/2 -translate-y-1/2 bg-white/5 backdrop-blur-xl hover:bg-white/15 p-3 rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110 border border-white/10 hover:border-white/30"
+          aria-label="Previous slide"
         >
-          <ChevronLeft className="w-6 h-6 text-gray-800" />
+          <ChevronLeft className="w-5 h-5 text-white" strokeWidth={2.5} />
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all"
+          className="absolute cursor-pointer right-6 top-1/2 -translate-y-1/2 bg-white/5 backdrop-blur-xl hover:bg-white/15 p-3 rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110 border border-white/10 hover:border-white/30"
+          aria-label="Next slide"
         >
-          <ChevronRight className="w-6 h-6 text-gray-800" />
+          <ChevronRight className="w-5 h-5 text-white" strokeWidth={2.5} />
         </button>
 
-        {/* Dots - UNCHANGED */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+        {/* Modern Progress Indicator */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2">
           {heroSlides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-2 h-2 rounded-full transition-all ${
-                currentSlide === index ? "bg-orange-600 w-8" : "bg-white/60"
-              }`}
-            />
+              className="group/dot relative p-1"
+              aria-label={`Go to slide ${index + 1}`}
+            >
+              <div
+                className={`rounded-full transition-all duration-500 ${currentSlide === index
+                    ? "h-2 w-10 bg-gradient-to-r from-orange-500 to-orange-600 shadow-lg shadow-orange-500/50"
+                    : "h-2 w-2 bg-white/30 group-hover/dot:bg-white/50 group-hover/dot:w-4"
+                  }`}
+              />
+            </button>
           ))}
+        </div>
+
+        {/* Animated Decorative Elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none animate-pulse"
+          style={{ animationDuration: '4s' }} />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl pointer-events-none" />
+
+        {/* Slide Counter */}
+        <div className="absolute top-6 right-8 bg-black/30 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
+          <span className="text-white text-sm font-medium">
+            {String(currentSlide + 1).padStart(2, '0')} / {String(heroSlides.length).padStart(2, '0')}
+          </span>
         </div>
       </div>
 
       {/* Popular Categories Section - SAME LAYOUT + onClick ADDED */}
       <div className="py-16 bg-gray-50">
         <div className="max-w-full mx-auto px-8">
-          <h2 className="text-3xl font-light text-center text-gray-800 mb-12">
-            Groom Services
+          <h2 className="text-4xl md:text-5xl uppercase font-light text-center text-gray-800 mb-12">
+            Groom <span className="text-orange-600">Services</span>
           </h2>
 
           <div className="relative overflow-hidden">
@@ -292,7 +342,7 @@ const HinduGroomServicesPage = () => {
               {[...categories, ...categories].map((category, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 w-40 text-center group cursor-pointer"
+                  className="shrink-0 w-40 text-center group cursor-pointer"
                   onClick={() => handleCategoryClick(category.subCategory)} // 👈 ADDED
                 >
                   <div className="relative mb-4 overflow-hidden rounded-full">
@@ -302,8 +352,8 @@ const HinduGroomServicesPage = () => {
                       className="w-40 h-40 object-cover rounded-full group-hover:scale-110 transition-transform duration-300"
                     />
                   </div>
-                  <h3 className="text-sm font-medium text-gray-800 mb-1">
-                    {category.name.toUpperCase()}
+                  <h3 className="text-lg font-medium text-gray-800 mb-1">
+                    {category.name}
                   </h3>
                 </div>
               ))}
@@ -313,9 +363,9 @@ const HinduGroomServicesPage = () => {
       </div>
 
       {/* Featured Collections - SAME LAYOUT + onClick ADDED */}
-      <div className="max-w-7xl mx-auto px-8 py-16">
+      <div className="max-w-7xl mx-auto px-8 py-12">
         <div className="grid md:grid-cols-2 gap-8">
-          <div 
+          <div
             className="relative overflow-hidden rounded-lg group cursor-pointer"
             onClick={() => handleCategoryClick("groom-makeup")} // 👈 ADDED
           >
@@ -324,7 +374,7 @@ const HinduGroomServicesPage = () => {
               alt="Complete Groom Package"
               className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
+            <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
               <h3 className="text-white text-2xl font-light mb-2">
                 Complete Groom Package
               </h3>
@@ -334,7 +384,7 @@ const HinduGroomServicesPage = () => {
             </div>
           </div>
 
-          <div 
+          <div
             className="relative overflow-hidden rounded-lg group cursor-pointer"
             onClick={handleAllServicesClick} // 👈 ADDED
           >
@@ -343,7 +393,7 @@ const HinduGroomServicesPage = () => {
               alt="Premium Ritual Items"
               className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
+            <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent flex flex-col justify-end p-8">
               <h3 className="text-white text-2xl font-light mb-2">
                 Premium Services available
               </h3>
@@ -356,10 +406,10 @@ const HinduGroomServicesPage = () => {
       </div>
 
       {/* Trending Services - SAME LAYOUT + onClick ADDED */}
-      <div className="py-16 bg-gray-50">
+      <div className="py-16">
         <div className="max-w-7xl mx-auto px-8">
-          <h2 className="text-3xl font-light text-center text-gray-800 mb-4">
-            Featured Groom Services
+          <h2 className="text-4xl md:text-5xl font-light text-center uppercase text-gray-800 mb-6">
+            Featured Groom <span className="text-orange-600">Services</span>
           </h2>
           <div className="flex justify-center gap-4 mb-12">
             <button className="text-orange-600 border-b-2 border-orange-600 pb-2">
@@ -393,7 +443,7 @@ const HinduGroomServicesPage = () => {
                   />
                 </div>
                 <div className="p-4 text-center">
-                  <h3 className="text-md text-gray-800 mb-2">{service.name}</h3>
+                  <h3 className="text-lg text-gray-800 mb-2">{service.name}</h3>
                   <div className="flex items-center justify-center gap-2">
                     <span className="text-xs font-medium text-gray-800">
                       Click here to explore more!
@@ -404,7 +454,7 @@ const HinduGroomServicesPage = () => {
             ))}
           </div>
           <div className="text-center">
-            <button 
+            <button
               onClick={handleAllServicesClick} // 👈 ADDED
               className="group mt-12 relative inline-flex items-center gap-3 bg-orange-600 text-white px-12 py-4 rounded-full text-lg font-medium hover:bg-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
             >

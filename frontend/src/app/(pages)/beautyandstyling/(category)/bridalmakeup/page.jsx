@@ -28,7 +28,7 @@ export default function BridalMakeup() {
           <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
             Our Expertise
           </h2>
-          {/* <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-rose-400 to-rose-600 rounded-full"></div> */}
+          {/* <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-linear-to-r from-rose-400 to-rose-600 rounded-full"></div> */}
           <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Explore our professional makeup services designed to make your moments unforgettable</p>
         </div>
 
@@ -76,7 +76,7 @@ export default function BridalMakeup() {
                   alt="Bridal HD Makeup"
                   className="w-full h-64 object-cover object-top group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="absolute top-4 right-4 bg-rose-500 text-white px-3 py-1 rounded-full text-sm font-extralight">
                   HD Quality
                 </div>
@@ -107,7 +107,7 @@ export default function BridalMakeup() {
                   alt="Traditional Bridal"
                   className="w-full h-64 object-cover  object-top group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="absolute top-4 right-4 bg-rose-500 text-white px-3 py-1 rounded-full text-sm font-extralight">
                   Classic
                 </div>
@@ -141,7 +141,7 @@ export default function BridalMakeup() {
                   alt="Engagement Makeup"
                   className="w-full h-64 object-cover object-top group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="absolute top-4 right-4 bg-rose-500 text-white px-3 py-1 rounded-full text-sm font-extralight">
                   Elegant
                 </div>
@@ -172,7 +172,7 @@ export default function BridalMakeup() {
                   alt="Sagan HD"
                   className="w-full h-64 object-cover object-top group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="absolute top-4 right-4 bg-rose-500 text-white px-3 py-1 rounded-full text-sm font-extralight">
                   Ceremonial
                 </div>
@@ -204,7 +204,7 @@ export default function BridalMakeup() {
 
                   className="w-full h-64 object-cover object-top group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="absolute top-4 right-4 bg-rose-500 text-white px-3 py-1 rounded-full text-sm font-extralight">
                   Creative
                 </div>
@@ -252,7 +252,7 @@ export default function BridalMakeup() {
               alt="Red Bridal Look"
               className="w-full h-96 object-cover object-top transition-transform duration-500 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-6">
+            <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent flex items-end p-6">
               <div className="text-white">
                 <h3 className="text-2xl font-light mb-2">Classic Red Bridal</h3>
                 <p className="text-sm">Traditional elegance with modern flair</p>
@@ -267,7 +267,7 @@ export default function BridalMakeup() {
               alt="Golden Bridal Look"
               className="w-full h-96 object-cover object-top transition-transform duration-500 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-6">
+            <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent flex items-end p-6">
               <div className="text-white">
                 <h3 className="text-2xl font-light mb-2">Royal Golden Bridal</h3>
                 <p className="text-sm">Luxurious and radiant perfection</p>
@@ -300,7 +300,7 @@ export default function BridalMakeup() {
                   className="w-full h-72 object-cover object-top transition-all duration-500 group-hover:scale-110 group-hover:brightness-110"
                 />
                 {/* linearOverlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
 
                 {/* Enhanced Label */}
                 <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
@@ -330,7 +330,7 @@ export default function BridalMakeup() {
                   alt="Dewy Finish Makeup"
                   className="w-full h-72 object-cover object-top transition-all duration-500 group-hover:scale-110 group-hover:brightness-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
 
                 <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
                   <div className="bg-rose-500/95 backdrop-blur-sm rounded-lg px-4 py-3 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
@@ -357,7 +357,7 @@ export default function BridalMakeup() {
                   alt="Matte Look Makeup"
                   className="w-full h-72 object-cover object-top transition-all duration-500 group-hover:scale-110 group-hover:brightness-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
 
                 <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
                   <div className="bg-rose-500/95 backdrop-blur-sm rounded-lg px-4 py-3 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
@@ -384,7 +384,7 @@ export default function BridalMakeup() {
                   alt="Glam Look Makeup"
                   className="w-full h-72 object-cover object-top transition-all duration-500 group-hover:scale-110 group-hover:brightness-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
 
                 <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
                   <div className="bg-rose-500/95 backdrop-blur-sm rounded-lg px-4 py-3 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
@@ -533,11 +533,11 @@ export default function BridalMakeup() {
 
         {/* Welcome Card - Premium Glassmorphism */}
         <div className="relative flex-1 group">
-          <div className="absolute -inset-0.5 bg-gradient-to-r from-rose-400 to-pink-600 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-500"></div>
+          <div className="absolute -inset-0.5 bg-linear-to-r from-rose-400 to-pink-600 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-500"></div>
           <div className="relative bg-white/60 backdrop-blur-xl rounded-3xl p-10 shadow-2xl border border-white/60 hover:bg-white/70 transition-all duration-500">
             <div className="space-y-6">
               <div className="inline-block">
-                <h2 className="text-4xl font-mdeium bg-gradient-to-r from-rose-600 via-pink-500 to-rose-400 bg-clip-text text-transparent leading-tight">
+                <h2 className="text-4xl font-mdeium bg-linear-to-r from-rose-600 via-pink-500 to-rose-400 bg-clip-text text-transparent leading-tight">
                   Welcome to Bridal<br />Makeup Studio 24x7
                 </h2>
               </div>
@@ -551,8 +551,8 @@ export default function BridalMakeup() {
 
         {/* Quick Appointment Form - Advanced Glassmorphism */}
         <div className="relative flex-1 group">
-          <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-400 to-rose-600 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-500"></div>
-          <div className="relative bg-gradient-to-br from-rose-50/80 to-pink-50/80 backdrop-blur-xl rounded-3xl p-10 shadow-2xl border border-white/60 hover:border-rose-200 transition-all duration-500">
+          <div className="absolute -inset-0.5 bg-linear-to-r from-pink-400 to-rose-600 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-500"></div>
+          <div className="relative bg-linear-to-br from-rose-50/80 to-pink-50/80 backdrop-blur-xl rounded-3xl p-10 shadow-2xl border border-white/60 hover:border-rose-200 transition-all duration-500">
             <div className="flex items-center justify-center mb-8">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full">
                 <svg className="w-5 h-5 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -594,8 +594,8 @@ export default function BridalMakeup() {
                 type="submit"
                 className="relative w-full group/btn overflow-hidden rounded-2xl cursor-pointer"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-rose-600 to-pink-600 transition-all duration-300 group-hover/btn:scale-105"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-rose-600 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-linear-to-r from-rose-600 to-pink-600 transition-all duration-300 group-hover/btn:scale-105"></div>
+                <div className="absolute inset-0 bg-linear-to-r from-pink-600 to-rose-600 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
                 <span className="relative flex items-center justify-center gap-2 py-4 text-white font-light text-lg">
                   Send Enquiry
                   <svg className="w-5 h-5 transform group-hover/btn:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">

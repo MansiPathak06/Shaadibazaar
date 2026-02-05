@@ -31,7 +31,7 @@ export default function DashboardTab({ stats, setActiveTab }) {
         {/* Total Products Card */}
         <div className="stat-card bg-white rounded-2xl shadow-lg p-6 border-2 border-transparent hover:border-[#F04393] transition-all">
           <div className="flex items-center justify-between mb-4">
-            <div className="w-14 h-14 bg-gradient-to-br from-[#F04393] to-[#E8A4BC] rounded-2xl flex items-center justify-center shadow-lg">
+            <div className="w-14 h-14 bg-linear-to-br from-[#F04393] to-[#E8A4BC] rounded-2xl flex items-center justify-center shadow-lg">
               <Package className="w-7 h-7 text-white" />
             </div>
             <div className="px-3 py-1 bg-green-100 text-green-600 rounded-full text-xs font-semibold">
@@ -53,7 +53,7 @@ export default function DashboardTab({ stats, setActiveTab }) {
         {/* Total Users Card */}
         <div className="stat-card bg-white rounded-2xl shadow-lg p-6 border-2 border-transparent hover:border-[#3C4CAD] transition-all">
           <div className="flex items-center justify-between mb-4">
-            <div className="w-14 h-14 bg-gradient-to-br from-[#3C4CAD] to-[#2A0B8B] rounded-2xl flex items-center justify-center shadow-lg">
+            <div className="w-14 h-14 bg-linear-to-br from-[#3C4CAD] to-[#2A0B8B] rounded-2xl flex items-center justify-center shadow-lg">
               <Users className="w-7 h-7 text-white" />
             </div>
             <div className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-xs font-semibold">
@@ -75,7 +75,7 @@ export default function DashboardTab({ stats, setActiveTab }) {
         {/* Total Vendors Card */}
         <div className="stat-card bg-white rounded-2xl shadow-lg p-6 border-2 border-transparent hover:border-[#F9C449] transition-all">
           <div className="flex items-center justify-between mb-4">
-            <div className="w-14 h-14 bg-gradient-to-br from-[#F9C449] to-[#E8A4BC] rounded-2xl flex items-center justify-center shadow-lg">
+            <div className="w-14 h-14 bg-linear-to-br from-[#F9C449] to-[#E8A4BC] rounded-2xl flex items-center justify-center shadow-lg">
               <Store className="w-7 h-7 text-white" />
             </div>
             <div className="px-3 py-1 bg-yellow-100 text-yellow-600 rounded-full text-xs font-semibold">
@@ -97,7 +97,7 @@ export default function DashboardTab({ stats, setActiveTab }) {
         {/* Pending Vendors Card */}
         <div className="stat-card bg-white rounded-2xl shadow-lg p-6 border-2 border-transparent hover:border-orange-500 transition-all">
           <div className="flex items-center justify-between mb-4">
-            <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-yellow-500 rounded-2xl flex items-center justify-center shadow-lg">
+            <div className="w-14 h-14 bg-linear-to-br from-orange-500 to-yellow-500 rounded-2xl flex items-center justify-center shadow-lg">
               <Activity className="w-7 h-7 text-white" />
             </div>
             <div className="px-3 py-1 bg-orange-100 text-orange-600 rounded-full text-xs font-semibold">
@@ -120,7 +120,7 @@ export default function DashboardTab({ stats, setActiveTab }) {
       {/* Quick Actions & Recent Activity */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Quick Actions */}
-        <div className="bg-gradient-to-br from-[#F04393] to-[#2A0B8B] rounded-2xl shadow-2xl p-8 text-white">
+        <div className="bg-linear-to-br from-[#F04393] to-[#2A0B8B] rounded-2xl shadow-2xl p-8 text-white">
           <h3 className="text-3xl font-medium mb-4">
             Quick Actions
           </h3>
@@ -151,8 +151,8 @@ export default function DashboardTab({ stats, setActiveTab }) {
             Recent Activity
           </h3>
           <div className="space-y-4">
-            <div className="flex items-start gap-4 p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl">
-              <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+            <div className="flex items-start gap-4 p-4 bg-linear-to-r from-green-50 to-emerald-50 rounded-xl">
+              <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center shrink-0">
                 <CheckCircle className="w-5 h-5 text-white" />
               </div>
               <div>
@@ -164,8 +164,8 @@ export default function DashboardTab({ stats, setActiveTab }) {
                 </p>
               </div>
             </div>
-            <div className="flex items-start gap-4 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl">
-              <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+            <div className="flex items-start gap-4 p-4 bg-linear-to-r from-blue-50 to-indigo-50 rounded-xl">
+              <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center shrink-0">
                 <Users className="w-5 h-5 text-white" />
               </div>
               <div>
@@ -177,8 +177,8 @@ export default function DashboardTab({ stats, setActiveTab }) {
                 </p>
               </div>
             </div>
-            <div className="flex items-start gap-4 p-4 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl">
-              <div className="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0">
+            <div className="flex items-start gap-4 p-4 bg-linear-to-r from-yellow-50 to-orange-50 rounded-xl">
+              <div className="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center shrink-0">
                 <Store className="w-5 h-5 text-white" />
               </div>
               <div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { DollarSign, TrendingUp, TrendingDown, Loader2, Plus, Save, Edit2, Trash2 } from "lucide-react";
+import { DollarSign, TrendingUp, TrendingDown, Loader2, Plus, Save, Edit2, Trash2, ArrowLeft, Home } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 import { format } from "date-fns";
 
@@ -737,9 +737,17 @@ export default function BudgetCalculatorPage() {
         }
     };
 
+    const handleGoBack = () => {
+        if (window.history.length > 1) {
+            window.history.back();
+        } else {
+            window.location.href = '/';
+        }
+    };
+
     if (loading) {
         return (
-            <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-purple-50 flex items-center justify-center">
+            <div className="min-h-screen bg-linear-to-br from-pink-50 via-white to-purple-50 flex items-center justify-center">
                 <div className="text-center">
                     <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-pink-500 mx-auto"></div>
                     <p className="mt-4 text-gray-700 font-medium">Loading your wedding budget...</p>
@@ -752,9 +760,37 @@ export default function BudgetCalculatorPage() {
     const budgetUsagePercentage = (summary.totalSpent / summary.totalBudget) * 100;
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-purple-50">
+        <div className="min-h-screen bg-linear-to-br from-pink-50 via-white to-purple-50">
             {/* Header Section */}
+<<<<<<< HEAD
             <div className="bg-gradient-to-r from-pink-500 to-purple-600 py-16 px-4 shadow-lg">
+                <div className="max-w-7xl mx-auto">
+                    <div className="flex items-center justify-between mb-6">
+                        <button
+                            onClick={handleGoBack}
+                            className="flex items-center gap-2 px-4 py-2 bg-white/20 hover:bg-white/30 text-white rounded-lg transition-all duration-300 backdrop-blur-sm border border-white/30"
+                        >
+                            <ArrowLeft className="w-5 h-5" />
+                            <span className="font-medium">Back</span>
+                        </button>
+                        <button
+                            onClick={() => window.location.href = '/'}
+                            className="flex items-center gap-2 px-4 py-2 bg-white/20 hover:bg-white/30 text-white rounded-lg transition-all duration-300 backdrop-blur-sm border border-white/30"
+                        >
+                            <Home className="w-5 h-5" />
+                            <span className="font-medium">Home</span>
+                        </button>
+                    </div>
+                    <div className="text-center">
+                        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                            Wedding Budget Calculator
+                        </h1>
+                        <p className="text-lg text-white/90 max-w-2xl mx-auto">
+                            Plan your dream wedding with confidence. Track expenses, manage budgets, and stay organized every step of the way.
+                        </p>
+                    </div>
+=======
+            <div className="bg-linear-to-r from-pink-500 to-purple-600 py-16 px-4 shadow-lg">
                 <div className="max-w-7xl mx-auto text-center">
                     <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
                         Wedding Budget Calculator
@@ -762,6 +798,7 @@ export default function BudgetCalculatorPage() {
                     <p className="text-lg text-white/90 max-w-2xl mx-auto">
                         Plan your dream wedding with confidence. Track expenses, manage budgets, and stay organized every step of the way.
                     </p>
+>>>>>>> af7ff6e5dbcf091913896a782634a9d1670184ff
                 </div>
             </div>
 
@@ -865,7 +902,7 @@ export default function BudgetCalculatorPage() {
                 </div>
 
                 {/* Tips Section */}
-                <div className="bg-gradient-to-r from-pink-100 to-purple-100 p-8 rounded-xl border border-pink-200 shadow-sm">
+                <div className="bg-linear-to-r from-pink-100 to-purple-100 p-8 rounded-xl border border-pink-200 shadow-sm">
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">
                         💡 Budget Planning Tips
                     </h3>

@@ -134,9 +134,9 @@ const GroomEssentialsPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
+    <div className="min-h-screen bg-linear-to-br from-slate-50 via-white to-blue-50">
       {/* Header Banner */}
-      <div className="relative bg-gradient-to-r from-slate-100 to-blue-50 py-16 px-8">
+      <div className="relative bg-linear-to-r from-slate-100 to-blue-50 py-16 px-8">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="max-w-xl">
             <p className="text-blue-600 font-medium mb-2">
@@ -203,7 +203,7 @@ const GroomEssentialsPage = () => {
             <div
               key={index}
               onClick={() => handleCategoryClick(product.subCategory)}
-              className="relative bg-gradient-to-br from-slate-100 to-blue-50 rounded-3xl overflow-hidden group hover:shadow-xl transition-shadow cursor-pointer"
+              className="relative bg-linear-to-br from-slate-100 to-blue-50 rounded-3xl overflow-hidden group hover:shadow-xl transition-shadow cursor-pointer"
             >
               <span className="absolute top-4 right-4 bg-blue-600 text-white text-xs px-3 py-1 rounded-full z-10">
                 {product.tag}
@@ -297,7 +297,7 @@ const GroomEssentialsPage = () => {
         <div className="grid md:grid-cols-2 gap-6 mt-12">
           <div 
             onClick={() => handleCategoryClick('groom-perfume')}
-            className="bg-gradient-to-br from-amber-100 to-orange-50 rounded-3xl p-8 relative overflow-hidden cursor-pointer hover:shadow-xl transition-shadow"
+            className="bg-linear-to-br from-amber-100 to-orange-50 rounded-3xl p-8 relative overflow-hidden cursor-pointer hover:shadow-xl transition-shadow"
           >
             <div className="relative z-10">
               <p className="text-amber-700 font-semibold mb-2">
@@ -319,7 +319,7 @@ const GroomEssentialsPage = () => {
           </div>
           <div 
             onClick={() => handleCategoryClick('hair-gel-spray')}
-            className="bg-gradient-to-br from-emerald-100 to-teal-50 rounded-3xl p-8 relative overflow-hidden cursor-pointer hover:shadow-xl transition-shadow"
+            className="bg-linear-to-br from-emerald-100 to-teal-50 rounded-3xl p-8 relative overflow-hidden cursor-pointer hover:shadow-xl transition-shadow"
           >
             <div className="relative z-10">
               <p className="text-emerald-700 font-semibold mb-2">

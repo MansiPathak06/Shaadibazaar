@@ -4,10 +4,10 @@ import Link from 'next/link';
 
 const RitualItemsPage = () => {
   const [showAllCategories, setShowAllCategories] = useState(false);
-  
+
   const categories = [
     { name: 'Mehendi Cones', items: 25, image: 'https://i.pinimg.com/1200x/13/93/6a/13936a6f5571a4e2925f76e0a02c6904.jpg', slug: 'mehendi-cones' },
-    { name: 'Chooda (if tradition follows)', items: 18, image: 'https://i.pinimg.com/736x/48/f1/07/48f107cd30cc73a60259c9172b1f69e8.jpg', slug: 'chooda' },
+    { name: 'Chooda', items: 18, image: 'https://i.pinimg.com/736x/48/f1/07/48f107cd30cc73a60259c9172b1f69e8.jpg', slug: 'chooda' },
     { name: 'Kalire', items: 32, image: 'https://i.pinimg.com/736x/0e/e7/36/0ee7362893ae0b5a5f147c24e2e04269.jpg', slug: 'kalire' },
     { name: 'Varmala', items: 15, image: 'https://i.pinimg.com/736x/49/23/4e/49234e6679632498956352261063de39.jpg', slug: 'varmala' },
     { name: 'Pooja Thali', items: 28, image: 'https://i.pinimg.com/1200x/00/06/df/0006df0a75bc07e13a73437f7b09d455.jpg', slug: 'pooja-thali' },
@@ -30,19 +30,19 @@ const RitualItemsPage = () => {
       <div className="relative py-8 px-4 mx-15 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://i.pinimg.com/1200x/b0/4c/bd/b04cbd4200fe4fdc619d52a56f47037d.jpg" 
+          <img
+            src="https://i.pinimg.com/1200x/b0/4c/bd/b04cbd4200fe4fdc619d52a56f47037d.jpg"
             alt="Traditional Ritual Items Background"
             className="w-full h-full object-cover"
           />
           {/* Lighter overlay for better visibility */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white/15 via-amber-50/70 to-orange-50/75"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-white/15 via-amber-50/70 to-orange-50/75"></div>
         </div>
 
         {/* Content */}
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="max-w-2xl">
-            <h1 className="text-3xl md:text-4xl font-serif text-gray-900 mb-2 leading-tight drop-shadow-sm">
+            <h1 className="text-4xl md:text-5xl font-serif text-gray-900 mb-2 leading-tight drop-shadow-sm">
               Traditional Ritual Items
               <span className="text-xl md:text-2xl text-amber-700 ml-2">& Sacred Collection</span>
             </h1>
@@ -63,9 +63,9 @@ const RitualItemsPage = () => {
       </div>
 
       {/* Categories Section */}
-      <div className="max-w-7xl mx-auto px-4 py-5">
+      <div className="max-w-7xl mx-auto px-4 py-10">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl font-serif text-gray-800">Shop by Category</h2>
+          <h2 className="text-4xl font-light uppercase font-serif text-gray-800">Shop by Category</h2>
           <div className="flex gap-2">
             <button className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -83,21 +83,20 @@ const RitualItemsPage = () => {
         {/* Category Grid - Now Clickable */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-8">
           {(showAllCategories ? categories : categories.slice(0, 5)).map((category, index) => (
-            <Link 
+            <Link
               key={index}
               href={`/bride/all-products?category=ritual items&subCategory=${category.slug}`}
               className="bg-white rounded-lg overflow-hidden h-[300px] shadow-sm hover:shadow-md transition-shadow cursor-pointer group"
             >
               <div className="aspect-square bg-gray-100 overflow-hidden">
-                <img 
-                  src={category.image} 
+                <img
+                  src={category.image}
                   alt={category.name}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
               <div className="p-4 text-center">
-                <h3 className="font-medium text-gray-800 mb-1">{category.name}</h3>
-                <p className="text-sm text-gray-500">({category.items} Items)</p>
+                <h3 className="font-medium text-gray-800 mb-1 text-lg">{category.name}</h3>
               </div>
             </Link>
           ))}
@@ -106,7 +105,7 @@ const RitualItemsPage = () => {
         {/* View More / View Less Button */}
         {categories.length > 5 && (
           <div className="flex justify-center mb-12">
-            <button 
+            <button
               onClick={() => setShowAllCategories(!showAllCategories)}
               className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-lg text-sm font-medium transition-colors shadow-sm hover:shadow-md"
             >
@@ -123,12 +122,12 @@ const RitualItemsPage = () => {
               href={`/bride/all-products?category=ritual items&subCategory=${product.slug}`}
               className="relative h-80 rounded-xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
             >
-              <img 
-                src={product.image} 
+              <img
+                src={product.image}
                 alt={product.name}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+              <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent"></div>
               <div className="absolute top-50 bottom-0 left-0 right-0 p-6 backdrop-blur-md bg-white/10">
                 <div className={`${index === 0 ? 'bg-amber-500/90' : index === 1 ? 'bg-orange-500/90' : 'bg-yellow-500/90'} text-white text-xs font-semibold px-3 py-1 rounded-full inline-block mb-2`}>
                   {product.discount}
@@ -153,13 +152,12 @@ const RitualItemsPage = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
         </svg>
       </div>
-      
+
       {/* Shop by Occasion Section */}
       <div className="mb-12">
         {/* Section Header */}
         <div className="text-center mb-8">
-          <p className="text-amber-600 text-md font-medium mb-2">Curated Collections</p>
-          <h2 className="text-4xl font-serif text-gray-800 mb-4">Shop by Occasion</h2>
+          <h2 className="text-4xl md:text-5xl font-serif uppercase text-gray-800 mb-4">Shop by Occasion</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Find everything you need for your special moments with our carefully curated occasion-based collections!
           </p>
@@ -168,9 +166,9 @@ const RitualItemsPage = () => {
         {/* Occasion Cards */}
         <div className="grid md:grid-cols-3 gap-6 px-25">
           {/* Wedding Card */}
-          <div className="bg-gradient-to-br from-rose-50 to-pink-50 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group">
+          <div className="bg-linear-to-br from-rose-50 to-pink-50 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group">
             <div className="text-4xl mb-4">💑</div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">Wedding Essentials</h3>
+            <h3 className="text-xl font-medium text-gray-800 mb-2">Wedding Essentials</h3>
             <p className="text-gray-600 text-sm mb-4">Complete collection for the big day</p>
             <ul className="space-y-2 mb-6">
               <li className="text-sm text-gray-700 flex items-center gap-2">
@@ -194,9 +192,9 @@ const RitualItemsPage = () => {
           </div>
 
           {/* Engagement Card */}
-          <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group">
+          <div className="bg-linear-to-br from-purple-50 to-indigo-50 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group">
             <div className="text-4xl mb-4">💍</div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">Engagement Ceremony</h3>
+            <h3 className="text-xl font-medium text-gray-800 mb-2">Engagement Ceremony</h3>
             <p className="text-gray-600 text-sm mb-4">Everything for your special milestone</p>
             <ul className="space-y-2 mb-6">
               <li className="text-sm text-gray-700 flex items-center gap-2">
@@ -220,9 +218,9 @@ const RitualItemsPage = () => {
           </div>
 
           {/* Festive Card */}
-          <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group">
+          <div className="bg-linear-to-br from-orange-50 to-amber-50 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group">
             <div className="text-4xl mb-4">🪔</div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">Festive Celebrations</h3>
+            <h3 className="text-xl font-medium text-gray-800 mb-2">Festive Celebrations</h3>
             <p className="text-gray-600 text-sm mb-4">Sacred items for every occasion</p>
             <ul className="space-y-2 mb-6">
               <li className="text-sm text-gray-700 flex items-center gap-2">
@@ -250,25 +248,25 @@ const RitualItemsPage = () => {
         <div className="mt-8 bg-white rounded-2xl p-8 shadow-sm">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div>
-              <div className="text-3xl font-bold text-amber-600 mb-1">500+</div>
+              <div className="text-3xl font-medium text-amber-600 mb-1">500+</div>
               <div className="text-sm text-gray-600">Products</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-amber-600 mb-1">10K+</div>
+              <div className="text-3xl font-medium text-amber-600 mb-1">10K+</div>
               <div className="text-sm text-gray-600">Happy Customers</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-amber-600 mb-1">4.9★</div>
+              <div className="text-3xl font-medium text-amber-600 mb-1">4.9★</div>
               <div className="text-sm text-gray-600">Average Rating</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-amber-600 mb-1">15+</div>
+              <div className="text-3xl font-medium text-amber-600 mb-1">15+</div>
               <div className="text-sm text-gray-600">Years Experience</div>
             </div>
           </div>
         </div>
       </div>
-      
+
     </div>
   );
 };

@@ -78,7 +78,7 @@ const UtilitySpacesPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-cyan-50">
+    <div className="min-h-screen bg-linear-to-b from-blue-50 to-cyan-50">
       {/* Hero Section */}
       <div className="relative h-[70vh] md:h-[77vh] overflow-hidden">
         {/* Background Image with Blur */}
@@ -95,7 +95,7 @@ const UtilitySpacesPage = () => {
         {/* Content Overlay */}
         <div className="relative h-full flex flex-col items-center justify-center px-4 py-6">
           {/* Main Heading */}
-          <h1 className="text-3xl md:text-5xl mt-5 font-bold text-white mb-3 text-center leading-tight max-w-3xl">
+          <h1 className="text-3xl md:text-5xl mt-5 font-medium text-white mb-3 text-center leading-tight max-w-3xl uppercase">
             Essential Facilities for
             <br />
             Your Comfort & Security
@@ -128,18 +128,18 @@ const UtilitySpacesPage = () => {
                 href={`/wedding-venues/all-venues?category=utility-spaces&subCategory=${item.slug}`}
                 className="relative group"
               >
-                <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-xl relative">
+                <div className="aspect-3/4 overflow-hidden rounded-lg shadow-xl relative">
                   <img
                     src={item.image}
                     alt={item.label}
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                   />
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                  {/* linear overlay */}
+                  <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent"></div>
                   
                   {/* Text overlay */}
                   <div className="absolute bottom-2 left-0 right-0 px-2 text-center">
-                    <p className="text-white text-[10px] md:text-xs font-semibold drop-shadow-lg">
+                    <p className="text-white text-[10px] md:text-xs font-normal drop-shadow-lg">
                       {item.label}
                     </p>
                   </div>
@@ -158,7 +158,7 @@ const UtilitySpacesPage = () => {
       </div>
 
       {/* Marquee Tagline */}
-      <div className="bg-gradient-to-r from-blue-900 via-cyan-800 to-blue-900 shadow-md sticky top-0 z-10 overflow-hidden">
+      <div className="bg-linear-to-r from-blue-900 via-cyan-800 to-blue-900 shadow-md sticky top-0 z-10 overflow-hidden">
         <div className="py-2">
           <div className="animate-marquee whitespace-nowrap inline-block">
             <span className="text-blue-100 text-sm md:text-base font-light tracking-widest mx-8">
@@ -200,7 +200,7 @@ const UtilitySpacesPage = () => {
 
       {/* Featured Collections - Now Clickable */}
       <div className="container mx-auto px-40 py-16">
-        <h2 className="text-3xl font-bold text-blue-900 mb-8 uppercase tracking-wide">
+        <h2 className="text-3xl font-medium text-blue-900 mb-8 uppercase tracking-wide">
           Featured Utility Categories
         </h2>
 
@@ -219,7 +219,7 @@ const UtilitySpacesPage = () => {
                     alt={category.title}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
 
                 {/* Text */}
@@ -341,7 +341,7 @@ const UtilitySpacesPage = () => {
 
       {/* Collections Info Section */}
       <div className="container mx-auto px-4 py-16">
-        <div className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl p-12 shadow-xl">
+        <div className="bg-linear-to-r from-blue-50 to-cyan-50 rounded-2xl p-12 shadow-xl">
           <h2 className="text-3xl font-bold text-blue-900 mb-8 text-center uppercase tracking-wide">
             Complete Utility Space Solutions
           </h2>

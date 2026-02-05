@@ -74,7 +74,7 @@ export default function ShowCase2() {
                     </div>
 
                     {/* Right Side - Banner */}
-                    <div className="relative bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl shadow-lg overflow-hidden min-h-[600px]">
+                    <div className="relative bg-linear-to-br from-gray-100 to-gray-200 rounded-2xl shadow-lg overflow-hidden min-h-[600px]">
                         {/* Logo */}
                         <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-20">
                             <div className="bg-yellow-400 rounded-lg p-3 shadow-lg">
@@ -104,7 +104,7 @@ export default function ShowCase2() {
                         <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center gap-8 px-8 pb-8">
                             {/* Yellow Phone */}
                             <div className="relative transform hover:scale-105 transition-transform duration-300">
-                                <div className="w-48 md:w-64 h-80 md:h-[420px] bg-gradient-to-br from-yellow-300 to-yellow-400 rounded-3xl shadow-2xl p-3 md:p-4 relative">
+                                <div className="w-48 md:w-64 h-80 md:h-105 bg-linear-to-br from-yellow-300 to-yellow-400 rounded-3xl shadow-2xl p-3 md:p-4 relative">
                                     {/* Notch */}
                                     <div className="absolute top-4 md:top-6 left-1/2 transform -translate-x-1/2 w-20 md:w-24 h-5 md:h-6 bg-black rounded-full z-10" />
                                     {/* Screen */}
@@ -119,7 +119,7 @@ export default function ShowCase2() {
 
                             {/* Blue Phone */}
                             <div className="relative transform hover:scale-105 transition-transform duration-300">
-                                <div className="w-48 md:w-64 h-80 md:h-[420px] bg-gradient-to-br from-cyan-300 to-blue-400 rounded-3xl shadow-2xl p-3 md:p-4 relative">
+                                <div className="w-48 md:w-64 h-80 md:h-105 bg-linear-to-br from-cyan-300 to-blue-400 rounded-3xl shadow-2xl p-3 md:p-4 relative">
                                     {/* Notch */}
                                     <div className="absolute top-4 md:top-6 left-1/2 transform -translate-x-1/2 w-20 md:w-24 h-5 md:h-6 bg-black rounded-full z-10" />
                                     {/* Screen */}

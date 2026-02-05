@@ -18,8 +18,8 @@ const BeautyServices = () => {
         "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=400&h=250&fit=crop",
         "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&h=250&fit=crop"
       ],
-      gradient: "from-rose-300 to-pink-400",
-      hoverGradient: "from-rose-400 to-pink-500"
+      linear: "from-rose-300 to-pink-400",
+      hoverlinear: "from-rose-400 to-pink-500"
     },
     {
       id: 2,
@@ -32,8 +32,8 @@ const BeautyServices = () => {
         "https://i.pinimg.com/1200x/ea/7e/80/ea7e800cefd4427bfed87bd2388b5436.jpg",
         "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=400&h=250&fit=crop"
       ],
-      gradient: "from-pink-300 to-rose-400",
-      hoverGradient: "from-pink-400 to-rose-500"
+      linear: "from-pink-300 to-rose-400",
+      hoverlinear: "from-pink-400 to-rose-500"
     },
     {
       id: 3,
@@ -46,18 +46,18 @@ const BeautyServices = () => {
         "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=400&h=250&fit=crop",
         "https://images.unsplash.com/photo-1621607512214-68297480165e?w=400&h=250&fit=crop"
       ],
-      gradient: "from-rose-300 to-rose-400",
-      hoverGradient: "from-rose-400 to-purple-500"
+      linear: "from-rose-300 to-rose-400",
+      hoverlinear: "from-rose-400 to-purple-500"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-white py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-linear-to-br from-rose-50 via-pink-50 to-white py-12 px-4 sm:px-6 lg:px-8">
       {/* Header Section */}
       <div className="max-w-6xl mx-auto mb-12 text-center">
         <div className="inline-flex items-center gap-2 mb-4 animate-pulse">
           <Sparkles className="w-7 h-7 text-rose-400" />
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 bg-clip-text text-transparent">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold bg-linear-to-r from-rose-500 via-pink-500 to-rose-600 bg-clip-text text-transparent">
            “Plan Your Perfect Look”
           </h1>
           <Sparkles className="w-7 h-7 text-rose-400" />
@@ -65,7 +65,7 @@ const BeautyServices = () => {
         <p className="text-xl sm:text-2xl font-light text-gray-600 mb-3 italic">
          Effortlessly Beautiful, Effortlessly You
         </p>
-        <div className="w-24 h-1 bg-gradient-to-r from-transparent via-rose-400 to-transparent mx-auto mb-6"></div>
+        <div className="w-24 h-1 bg-linear-to-r from-transparent via-rose-400 to-transparent mx-auto mb-6"></div>
         <p className="text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
           At <span className="font-semibold text-rose-500">ShaadiBazaar</span>, we bring your wedding beauty dreams to life with our comprehensive suite of services
         </p>
@@ -127,9 +127,9 @@ const BeautyServices = () => {
               onMouseLeave={() => setHoveredService(null)}
             >
               {/* Service Container */}
-              <div className="relative overflow-hidden rounded-2xl bg-white shadow-xl hover:shadow-2xl transition-all duration-500 h-[360px]">
-                {/* Gradient Background */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${hoveredService === group.id ? group.hoverGradient : group.gradient} opacity-10 group-hover:opacity-20 transition-opacity duration-500`}></div>
+              <div className="relative overflow-hidden rounded-2xl bg-white shadow-xl hover:shadow-2xl transition-all duration-500 h-90">
+                {/* linear Background */}
+                <div className={`absolute inset-0 bg-linear-to-br ${hoveredService === group.id ? group.hoverlinear : group.linear} opacity-10 group-hover:opacity-20 transition-opacity duration-500`}></div>
                 
                 {/* Content */}
                 <div className="relative p-8 h-full flex flex-col">
@@ -144,7 +144,7 @@ const BeautyServices = () => {
                       const Icon = service.icon;
                       return (
                         <div key={idx} className="flex items-start gap-2">
-                          <div className={`flex-shrink-0 w-8 h-8 rounded-lg bg-gradient-to-br ${group.gradient} flex items-center justify-center`}>
+                          <div className={`shrink-0 w-8 h-8 rounded-lg bg-linear-to-br ${group.linear} flex items-center justify-center`}>
                             <Icon className="w-4 h-4 text-white" />
                           </div>
                           <div className="flex-1">
@@ -170,7 +170,7 @@ const BeautyServices = () => {
                   </div>
 
                   {/* Explore Button */}
-                  <button className="flex items-center justify-between gap-2 w-full px-4 py-2.5 bg-gradient-to-r from-rose-400 to-pink-400 text-white rounded-full font-medium text-sm hover:from-rose-500 hover:to-pink-500 transition-all duration-300 transform hover:translate-x-1 shadow-md hover:shadow-lg group/btn">
+                  <button className="flex items-center justify-between gap-2 w-full px-4 py-2.5 bg-linear-to-r from-rose-400 to-pink-400 text-white rounded-full font-medium text-sm hover:from-rose-500 hover:to-pink-500 transition-all duration-300 transform hover:translate-x-1 shadow-md hover:shadow-lg group/btn">
                     <span>Explore Services</span>
                     <ArrowRight className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" />
                   </button>

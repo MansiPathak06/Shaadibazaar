@@ -92,7 +92,7 @@ const ResortAccommodationPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-50 to-pink-50">
+    <div className="min-h-screen bg-linear-to-b from-purple-50 to-pink-50">
       {/* Hero Section */}
       <div className="relative h-[70vh] md:h-[77vh] overflow-hidden">
         {/* Background Image with Blur */}
@@ -147,8 +147,8 @@ const ResortAccommodationPage = () => {
                     alt={item.label}
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                   />
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                  {/* linear overlay */}
+                  <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent"></div>
                   
                   {/* Text overlay */}
                   <div className="absolute bottom-2 left-0 right-0 px-2 text-center">
@@ -171,7 +171,7 @@ const ResortAccommodationPage = () => {
       </div>
 
       {/* Marquee Tagline */}
-      <div className="bg-gradient-to-r from-amber-900 via-grey-700 to-amber-800 shadow-md sticky top-0 z-10 overflow-hidden">
+      <div className="bg-linear-to-r from-amber-900 via-grey-700 to-amber-800 shadow-md sticky top-0 z-10 overflow-hidden">
         <div className="py-2">
           <div className="animate-marquee whitespace-nowrap inline-block">
             <span className="text-purple-100 text-sm md:text-base font-light tracking-widest mx-8">
@@ -232,7 +232,7 @@ const ResortAccommodationPage = () => {
                     alt={category.title}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
 
                 {/* Text */}
@@ -350,7 +350,7 @@ const ResortAccommodationPage = () => {
 
       {/* Collections Info Section */}
       <div className="container mx-auto px-4 py-16">
-        <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-12 shadow-xl">
+        <div className="bg-linear-to-r from-purple-50 to-pink-50 rounded-2xl p-12 shadow-xl">
           <h2 className="text-3xl font-bold text-purple-900 mb-8 text-center uppercase tracking-wide">
             Complete Resort Collections
           </h2>

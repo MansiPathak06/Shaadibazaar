@@ -151,7 +151,7 @@ export default function RitualsSection() {
   };
 
   return (
-    <div className="w-full bg-gradient-to-b from-rose-50 via-white to-rose-100 overflow-hidden">
+    <div className="w-full bg-linear-to-b from-rose-50 via-white to-rose-100 overflow-hidden">
       {/* ======= Hero / Carousel Section ======= */}
       <div className="relative w-full h-[500px] overflow-hidden mx-auto my-14 max-w-7xl rounded-3xl shadow-2xl">
         {/* Background Images */}
@@ -163,7 +163,7 @@ export default function RitualsSection() {
                 idx === currentImageIndex ? "opacity-100" : "opacity-0"
               }`}
               style={{
-                backgroundImage: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.45)), url(${img})`,
+                backgroundImage: `linear-linear(rgba(0,0,0,0.55), rgba(0,0,0,0.45)), url(${img})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 filter: "brightness(1.1) contrast(1.1)",
@@ -362,7 +362,7 @@ export default function RitualsSection() {
       </div>
 
       {/* ======= Ritual Services Section ======= */}
-      <div className="bg-gradient-to-r from-rose-100 via-pink-50 to-rose-100 py-20">
+      <div className="bg-linear-to-r from-rose-100 via-pink-50 to-rose-100 py-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-14">
             <h3 className="text-4xl md:text-5xl font-semibold text-rose-500 mb-4">
@@ -427,7 +427,7 @@ export default function RitualsSection() {
               />
 
               {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-rose-800/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-linear-to-t from-rose-800/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
               {/* Caption */}
               <div className="absolute inset-0 flex items-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -500,7 +500,7 @@ export default function RitualsSection() {
       </div>
 
       {/* ======= CTA Section ======= */}
-      <div className="bg-gradient-to-r from-rose-500 to-pink-600 py-16">
+      <div className="bg-linear-to-r from-rose-500 to-pink-600 py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Ready to Plan Your Sacred Ceremony?

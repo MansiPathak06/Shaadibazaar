@@ -134,7 +134,7 @@ const AccommodationVendorsPage = () => {
             type="video/mp4"
           />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-black/60 via-black/40 to-black/60"></div>
         <div className="relative h-full flex flex-col items-center justify-center text-white px-4 z-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-2 text-center drop-shadow-lg">
             Accommodation Vendors

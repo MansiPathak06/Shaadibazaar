@@ -43,10 +43,10 @@ export default function LogisticsAndVendorManagementTools() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-16 px-4">
+    <div className="min-h-screen bg-linear-to-b from-gray-50 to-white py-16 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-5xl font-bold bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent mb-6">
+          <h1 className="text-5xl md:text-5xl font-bold bg-linear-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent mb-6">
             Logistics & Vendor Management Tools
           </h1>
 
@@ -59,7 +59,7 @@ export default function LogisticsAndVendorManagementTools() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {tools.map((tool, index) => (
             <div key={index} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div className="w-full h-64 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center overflow-hidden">
+              <div className="w-full h-64 bg-linear-to-br from-gray-200 to-gray-300 flex items-center justify-center overflow-hidden">
                 {tool.image ? (
                   <img 
                     src={tool.image} 
@@ -88,7 +88,7 @@ export default function LogisticsAndVendorManagementTools() {
           ))}
         </div>
 
-        <div className="mt-20 text-center bg-gradient-to-r from-pink-50 to-purple-50 rounded-2xl p-12">
+        <div className="mt-20 text-center bg-linear-to-r from-pink-50 to-purple-50 rounded-2xl p-12">
           <h3 className="text-3xl font-bold text-gray-900 mb-4">
             Ready to Streamline Your Logistics?
           </h3>
@@ -96,7 +96,7 @@ export default function LogisticsAndVendorManagementTools() {
             Take control of your wedding logistics with professional vendor management tools. 
             Coordinate deliveries, track payments, and manage materials efficiently for a perfectly executed celebration.
           </p>
-          <button className="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-pink-600 hover:to-purple-600 transform hover:scale-105 transition-all duration-300 shadow-lg">
+          <button className="bg-linear-to-r from-pink-500 to-purple-500 text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-pink-600 hover:to-purple-600 transform hover:scale-105 transition-all duration-300 shadow-lg">
             Get Started Now
           </button>
         </div>

@@ -126,9 +126,9 @@ const handleProductClick = (subCategory) => {
 };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-purple-50">
+    <div className="min-h-screen bg-linear-to-br from-pink-50 via-white to-purple-50">
       {/* Header Banner */}
-      <div className="relative bg-gradient-to-r from-rose-100 to-pink-50 py-16 px-8">
+      <div className="relative bg-linear-to-r from-rose-100 to-pink-50 py-16 px-8">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="max-w-xl">
             <p className="text-rose-600 font-medium mb-2">Universal Bridal Collection</p>
@@ -191,7 +191,7 @@ const handleProductClick = (subCategory) => {
             <div
               key={index}
               onClick={() => handleCategoryClick(product.subCategory)}
-              className="relative bg-gradient-to-br from-rose-100 to-pink-50 rounded-3xl overflow-hidden group hover:shadow-xl transition-shadow cursor-pointer"
+              className="relative bg-linear-to-br from-rose-100 to-pink-50 rounded-3xl overflow-hidden group hover:shadow-xl transition-shadow cursor-pointer"
             >
               <span className="absolute top-4 right-4 bg-rose-500 text-white text-xs px-3 py-1 rounded-full z-10">
                 {product.tag}
@@ -279,7 +279,7 @@ const handleProductClick = (subCategory) => {
         <div className="grid md:grid-cols-2 gap-6 mt-12">
           <div 
             onClick={() => handleCategoryClick('perfume')}
-            className="bg-gradient-to-br from-amber-100 to-orange-50 rounded-3xl p-8 relative overflow-hidden cursor-pointer hover:shadow-xl transition-shadow"
+            className="bg-linear-to-br from-amber-100 to-orange-50 rounded-3xl p-8 relative overflow-hidden cursor-pointer hover:shadow-xl transition-shadow"
           >
             <div className="relative z-10">
               <p className="text-amber-700 font-semibold mb-2">Premium Collection</p>
@@ -297,7 +297,7 @@ const handleProductClick = (subCategory) => {
           </div>
           <div 
             onClick={() => handleCategoryClick('hand-sanitizer')}
-            className="bg-gradient-to-br from-blue-100 to-cyan-50 rounded-3xl p-8 relative overflow-hidden cursor-pointer hover:shadow-xl transition-shadow"
+            className="bg-linear-to-br from-blue-100 to-cyan-50 rounded-3xl p-8 relative overflow-hidden cursor-pointer hover:shadow-xl transition-shadow"
           >
             <div className="relative z-10">
               <p className="text-blue-700 font-semibold mb-2">Essential Care</p>

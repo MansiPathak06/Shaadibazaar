@@ -86,7 +86,7 @@ const SikhRitualItemsPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Slim Banner */}
-      <div className="relative h-[30vh] bg-gradient-to-r from-orange-100 via-yellow-50 to-orange-100 overflow-hidden bg-[url('/your-image.jpg')] bg-cover bg-center bg-blend-overlay">
+      <div className="relative h-[30vh] bg-linear-to-r from-orange-100 via-yellow-50 to-orange-100 overflow-hidden bg-[url('/your-image.jpg')] bg-cover bg-center bg-blend-overlay">
         <div className="absolute inset-0 bg-white/40"></div>
 
         <div className="absolute inset-0 flex items-center justify-center">
@@ -138,17 +138,17 @@ const SikhRitualItemsPage = () => {
               <div
                 key={category.id}
                 onClick={() => handleCategoryClick(category.subCategory)}
-                className="flex-shrink-0 w-72 group cursor-pointer"
+                className="shrink-0 w-72 group cursor-pointer"
               >
                 <div className="relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
-                  <div className="aspect-square bg-gradient-to-br from-orange-50 to-yellow-50">
+                  <div className="aspect-square bg-linear-to-br from-orange-50 to-yellow-50">
                     <img
                       src={category.image}
                       alt={category.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div className="mt-4 text-center">
                   <h3 className="text-lg font-medium text-gray-800 group-hover:text-orange-700 transition-colors duration-300">
@@ -181,7 +181,7 @@ const SikhRitualItemsPage = () => {
       </div>
 
       {/* Featured Section - NOW CLICKABLE */}
-      <div className="bg-gradient-to-b from-orange-50 to-white py-16">
+      <div className="bg-linear-to-b from-orange-50 to-white py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-serif text-gray-800 mb-4">Featured Categories</h2>
@@ -198,7 +198,7 @@ const SikhRitualItemsPage = () => {
                 className="group cursor-pointer"
               >
                 <div className="relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 bg-white">
-                  <div className="aspect-square bg-gradient-to-br from-orange-50 to-yellow-50">
+                  <div className="aspect-square bg-linear-to-br from-orange-50 to-yellow-50">
                     <img
                       src={item.image}
                       alt={item.name}
@@ -230,7 +230,7 @@ const SikhRitualItemsPage = () => {
 
       {/* Info Section */}
       <div className="max-w-7xl mx-auto px-4 py-16">
-        <div className="bg-gradient-to-r from-orange-50 to-yellow-50 rounded-2xl p-12 shadow-xl">
+        <div className="bg-linear-to-r from-orange-50 to-yellow-50 rounded-2xl p-12 shadow-xl">
           <div className="text-center">
             <h2 className="text-3xl font-serif text-orange-900 mb-4">
               Sacred Essentials for Your Anand Karaj

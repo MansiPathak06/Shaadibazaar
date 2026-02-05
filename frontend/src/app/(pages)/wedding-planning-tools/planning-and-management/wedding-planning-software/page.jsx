@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import {
-    Heart, Users, ShoppingBag, Calendar, Mail, FileText, Plus, Trash, Check, Star, Menu, X
+    Heart, Users, ShoppingBag, Calendar, Mail, FileText, Plus, Trash, Check, Star, Menu, X, ArrowLeft, Home
 } from 'lucide-react';
 
 // ============================================================================
@@ -18,7 +18,7 @@ const Card = ({ children, className = "" }) => (
 const Button = ({ children, variant = "primary", onClick, className = "", size = "md" }) => {
     const baseStyle = "inline-flex items-center justify-center font-medium transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2";
     const variants = {
-        primary: "bg-gradient-to-r from-rose-500 to-pink-600 text-white hover:from-rose-600 hover:to-pink-700 focus:ring-rose-500 shadow-md hover:shadow-lg",
+        primary: "bg-linear-to-r from-rose-500 to-pink-600 text-white hover:from-rose-600 hover:to-pink-700 focus:ring-rose-500 shadow-md hover:shadow-lg",
         secondary: "bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 focus:ring-gray-200",
         danger: "bg-red-50 text-red-600 hover:bg-red-100 focus:ring-red-500",
         ghost: "text-gray-500 hover:text-gray-700 hover:bg-gray-100"
@@ -100,6 +100,14 @@ export default function WeddingPlanningSoftware() {
         setWedding(prev => ({ ...prev, events: prev.events.filter(e => e.id !== id) }));
     };
 
+    const handleGoBack = () => {
+        if (window.history.length > 1) {
+            window.history.back();
+        } else {
+            window.location.href = '/';
+        }
+    };
+
     const tabs = [
         { id: 'setup', label: 'Wedding Setup', icon: Heart },
         { id: 'guests', label: 'Guest List', icon: Users },
@@ -175,10 +183,26 @@ export default function WeddingPlanningSoftware() {
                             {wedding.date && <span className="ml-2 px-2 py-0.5 bg-rose-100 text-rose-600 rounded-full text-xs font-semibold">{daysLeft > 0 ? `${daysLeft} Days to go!` : 'Big Day!'}</span>}
                         </p>
                     </div>
-                    <div className="hidden md:block">
-                        <div className="text-right">
-                            <div className="text-sm text-gray-400">Wedding Date</div>
-                            <div className="text-lg font-medium text-gray-900">{wedding.date || 'Set a date'}</div>
+                    <div className="flex items-center gap-3">
+                        <button
+                            onClick={handleGoBack}
+                            className="flex items-center gap-2 px-3 py-1.5 text-sm bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg transition-all duration-200"
+                        >
+                            <ArrowLeft size={16} />
+                            <span className="hidden sm:inline">Back</span>
+                        </button>
+                        <button
+                            onClick={() => window.location.href = '/'}
+                            className="flex items-center gap-2 px-3 py-1.5 text-sm bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg transition-all duration-200"
+                        >
+                            <Home size={16} />
+                            <span className="hidden sm:inline">Home</span>
+                        </button>
+                        <div className="hidden lg:block">
+                            <div className="text-right">
+                                <div className="text-sm text-gray-400">Wedding Date</div>
+                                <div className="text-lg font-medium text-gray-900">{wedding.date || 'Set a date'}</div>
+                            </div>
                         </div>
                     </div>
                 </header>
@@ -518,7 +542,7 @@ export default function WeddingPlanningSoftware() {
                     {/* --- TASKS TAB --- */}
                     {activeTab === 'tasks' && (
                         <div className="max-w-3xl mx-auto">
-                            <div className="bg-gradient-to-r from-rose-500 to-pink-600 rounded-2xl p-8 text-white mb-8 shadow-xl">
+                            <div className="bg-linear-to-r from-rose-500 to-pink-600 rounded-2xl p-8 text-white mb-8 shadow-xl">
                                 <div className="flex justify-between items-center">
                                     <div>
                                         <h2 className="text-3xl font-bold mb-2">

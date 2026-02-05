@@ -167,7 +167,7 @@ const BridalWear = () => {
           <div className="text-center mb-8">
             <div className="text-center mb-12 mt-4">
               <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-                Celebrate <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Love</span> in <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>style</span>
+                Celebrate <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>Love</span> in <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>style</span>
               </h2>
               <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Elegance That Lasts Forever</p>
             </div>
@@ -298,7 +298,7 @@ const BridalWear = () => {
         <section className="container mx-auto px-4 pt-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Bridal <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Drapes</span> of <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Elegance</span>
+              Bridal <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>Drapes</span> of <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>Elegance</span>
             </h2>
             <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Grace That Walks Down the Aisle</p>
           </div>
@@ -436,7 +436,7 @@ const BridalWear = () => {
         <section className="container mx-auto px-4 pt-14">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Unveil the <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>beauty</span> of <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>silk</span>
+              Unveil the <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>beauty</span> of <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>silk</span>
             </h2>
             <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Silk That Defines Your Moment</p>
           </div>
@@ -555,7 +555,7 @@ const BridalWear = () => {
         <section className="container mx-auto px-4 pt-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Woolen <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Collection</span>
+              Woolen <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>Collection</span>
             </h2>
             <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Designed to Dazzle, Crafted to Impress</p>
           </div>
@@ -673,7 +673,7 @@ const BridalWear = () => {
         <section className="container mx-auto px-4 pt-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              new <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Arrival</span>
+              new <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>Arrival</span>
             </h2>
             <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Fresh Designs. Timeless Impressions</p>
           </div>
@@ -790,7 +790,7 @@ const BridalWear = () => {
         <section className="container mx-auto px-4 pt-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl mb-3 font-light text-neutral-800 tracking-tight uppercase">
-              Shop By <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>evening</span>
+              Shop By <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>evening</span>
             </h2>
             <p className="text-neutral-700 text-lg tracking-widest uppercase mb-2">Designs That Glow as the Night Unfolds</p>
           </div>
@@ -814,15 +814,15 @@ const BridalWear = () => {
                       href={`/outfits/all-products/${product.id}`}
                       className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden transform hover:-translate-y-2 border border-gray-100"
                     >
-                      <div className="relative h-80 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
+                      <div className="relative h-80 bg-linear-to-br from-gray-50 to-gray-100 overflow-hidden">
                         {product.discount > 0 && (
-                          <span className="absolute top-4 left-4 bg-gradient-to-r from-rose-500 to-pink-500 text-white px-3 py-1.5 rounded-full text-xs font-bold z-20 shadow-lg animate-pulse">
+                          <span className="absolute top-4 left-4 bg-linear-to-r from-rose-500 to-pink-500 text-white px-3 py-1.5 rounded-full text-xs font-bold z-20 shadow-lg animate-pulse">
                             -{product.discount}% OFF
                           </span>
                         )}
 
                         {product.featured && (
-                          <span className="absolute top-4 left-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-3 py-1.5 rounded-full text-xs font-bold z-20 shadow-lg">
+                          <span className="absolute top-4 left-4 bg-linear-to-r from-emerald-500 to-teal-500 text-white px-3 py-1.5 rounded-full text-xs font-bold z-20 shadow-lg">
                             NEW
                           </span>
                         )}
@@ -836,7 +836,7 @@ const BridalWear = () => {
                           }}
                         />
 
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                         <div className="absolute top-4 right-4 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0">
                           <button

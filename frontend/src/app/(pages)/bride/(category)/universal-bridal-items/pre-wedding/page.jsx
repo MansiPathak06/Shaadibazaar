@@ -222,9 +222,9 @@ const PreWeddingPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-white">
+    <div className="min-h-screen bg-linear-to-br from-purple-50 via-pink-50 to-white">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-purple-600 to-pink-500 text-white">
+      <div className="relative bg-linear-to-r from-purple-600 to-pink-500 text-white">
         <div className="max-w-7xl mx-auto px-8 py-20">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -312,7 +312,7 @@ const PreWeddingPage = () => {
                   alt={category.name}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 right-4 text-white">
                   <h3 className="text-xl font-bold mb-1">{category.name}</h3>
                   <p className="text-sm text-gray-200">{category.items}</p>
@@ -348,7 +348,7 @@ const PreWeddingPage = () => {
               <div
                 key={index}
                 onClick={() => handleCategoryClick(pkg.subCategory)}
-                className="relative bg-gradient-to-br from-purple-100 to-pink-100 rounded-3xl overflow-hidden group hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                className="relative bg-linear-to-br from-purple-100 to-pink-100 rounded-3xl overflow-hidden group hover:shadow-2xl transition-all duration-300 cursor-pointer"
               >
                 <span className="absolute top-6 right-6 bg-yellow-400 text-purple-800 text-sm font-bold px-4 py-2 rounded-full z-10 shadow-lg">
                   {pkg.tag}
@@ -520,13 +520,13 @@ const PreWeddingPage = () => {
         </div>
 
         {/* Why Choose Us Section */}
-        <div className="bg-gradient-to-br from-purple-600 to-pink-600 rounded-3xl p-12 mb-16 text-white">
+        <div className="bg-linear-to-br from-purple-600 to-pink-600 rounded-3xl p-12 mb-16 text-white">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold mb-6">Why Choose Our Pre-Wedding Services?</h2>
               <div className="space-y-6">
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                  <div className="shrink-0 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
                     <Star className="text-yellow-300" fill="currentColor" />
                   </div>
                   <div>
@@ -535,7 +535,7 @@ const PreWeddingPage = () => {
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                  <div className="shrink-0 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
                     <Heart className="text-pink-300" fill="currentColor" />
                   </div>
                   <div>
@@ -544,7 +544,7 @@ const PreWeddingPage = () => {
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                  <div className="shrink-0 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
                     <Clock className="text-blue-300" />
                   </div>
                   <div>
@@ -553,7 +553,7 @@ const PreWeddingPage = () => {
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                  <div className="shrink-0 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
                     <MapPin className="text-green-300" />
                   </div>
                   <div>
@@ -610,7 +610,7 @@ const PreWeddingPage = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="bg-gradient-to-r from-purple-100 to-pink-100 rounded-3xl p-12 text-center">
+        <div className="bg-linear-to-r from-purple-100 to-pink-100 rounded-3xl p-12 text-center">
           <h2 className="text-4xl font-bold text-gray-800 mb-4">Ready to Begin Your Bridal Journey?</h2>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             Book your pre-wedding beauty services today and get ready to shine on your special day. Our expert team is here to make you look and feel amazing.

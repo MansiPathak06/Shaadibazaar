@@ -4,11 +4,11 @@ export default function GateDoors({ gatesOpen, isMobile }) {
   const DiamondPattern = () => (
     <svg className="w-full h-full opacity-30" viewBox="0 0 400 800" preserveAspectRatio="none">
       <defs>
-        <linearGradient id="diamondGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <linearlinear id="diamondGrad" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#f9a8d4" stopOpacity="0.4" />
           <stop offset="50%" stopColor="#fda4af" stopOpacity="0.6" />
           <stop offset="100%" stopColor="#fbbf24" stopOpacity="0.4" />
-        </linearGradient>
+        </linearlinear>
       </defs>
       {Array.from({ length: 12 }).map((_, row) =>
         Array.from({ length: 7 }).map((_, col) => {
@@ -50,14 +50,14 @@ export default function GateDoors({ gatesOpen, isMobile }) {
             boxShadow: gatesOpen ? '-30px 0 60px rgba(0,0,0,0.9)' : 'inset -10px 0 30px rgba(0,0,0,0.5)'
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-rose-900/95 via-pink-900/95 to-rose-950/95 backdrop-blur-md border-r-2 border-rose-400/30">
+          <div className="absolute inset-0 bg-linear-to-br from-rose-900/95 via-pink-900/95 to-rose-950/95 backdrop-blur-md border-r-2 border-rose-400/30">
             <div className="absolute inset-0">
               <DiamondPattern />
             </div>
-            <div className="absolute inset-y-0 right-0 w-1 bg-gradient-to-b from-transparent via-rose-300 to-transparent animate-pulse-slow"></div>
+            <div className="absolute inset-y-0 right-0 w-1 bg-linear-to-b from-transparent via-rose-300 to-transparent animate-pulse-slow"></div>
 
             {/* Door handle */}
-            <div className={`absolute top-1/2 right-4 sm:right-8 transform -translate-y-1/2 ${isMobile ? 'w-5 h-16' : 'w-8 h-28'} bg-gradient-to-b from-rose-300 via-pink-400 to-rose-500 rounded-full border-2 border-rose-400/50 shadow-[0_0_20px_rgba(251,113,133,0.6)] animate-glow-pulse`}>
+            <div className={`absolute top-1/2 right-4 sm:right-8 transform -translate-y-1/2 ${isMobile ? 'w-5 h-16' : 'w-8 h-28'} bg-linear-to-b from-rose-300 via-pink-400 to-rose-500 rounded-full border-2 border-rose-400/50 shadow-[0_0_20px_rgba(251,113,133,0.6)] animate-glow-pulse`}>
               <div className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${isMobile ? 'w-3 h-3' : 'w-5 h-5'} bg-rose-400 rounded-full shadow-inner`}></div>
             </div>
 
@@ -87,14 +87,14 @@ export default function GateDoors({ gatesOpen, isMobile }) {
             boxShadow: gatesOpen ? '30px 0 60px rgba(0,0,0,0.9)' : 'inset 10px 0 30px rgba(0,0,0,0.5)'
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-bl from-rose-900/95 via-pink-900/95 to-rose-950/95 backdrop-blur-md border-l-2 border-rose-400/30">
+          <div className="absolute inset-0 bg-linear-to-bl from-rose-900/95 via-pink-900/95 to-rose-950/95 backdrop-blur-md border-l-2 border-rose-400/30">
             <div className="absolute inset-0">
               <DiamondPattern />
             </div>
-            <div className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-transparent via-rose-300 to-transparent animate-pulse-slow"></div>
+            <div className="absolute inset-y-0 left-0 w-1 bg-linear-to-b from-transparent via-rose-300 to-transparent animate-pulse-slow"></div>
 
             {/* Door handle */}
-            <div className={`absolute top-1/2 left-4 sm:left-8 transform -translate-y-1/2 ${isMobile ? 'w-5 h-16' : 'w-8 h-28'} bg-gradient-to-b from-rose-300 via-pink-400 to-rose-500 rounded-full border-2 border-rose-400/50 shadow-[0_0_20px_rgba(251,113,133,0.6)] animate-glow-pulse`}>
+            <div className={`absolute top-1/2 left-4 sm:left-8 transform -translate-y-1/2 ${isMobile ? 'w-5 h-16' : 'w-8 h-28'} bg-linear-to-b from-rose-300 via-pink-400 to-rose-500 rounded-full border-2 border-rose-400/50 shadow-[0_0_20px_rgba(251,113,133,0.6)] animate-glow-pulse`}>
               <div className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${isMobile ? 'w-3 h-3' : 'w-5 h-5'} bg-rose-400 rounded-full shadow-inner`}></div>
             </div>
 

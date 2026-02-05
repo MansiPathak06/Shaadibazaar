@@ -68,8 +68,8 @@ export default function WeddingService() {
             "url('https://res.cloudinary.com/dewxpvl5s/image/upload/v1762322200/bg-image_wqr8x3.jpg')",
         }}
       >
-        {/* Optional soft gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/60 to-rose-50/40 backdrop-blur-[1px]"></div>
+        {/* Optional soft linear overlay */}
+        <div className="absolute inset-0 bg-linear-to-br from-white/60 to-rose-50/40 backdrop-blur-[1px]"></div>
 
         {/* Animated blur circles */}
         <div className="absolute inset-0 overflow-hidden">
@@ -108,7 +108,7 @@ export default function WeddingService() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-serif text-gray-800 mb-4">
-              Everything <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>You</span> Need <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>For Your</span> Big <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Day</span>
+              Everything <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>You</span> Need <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>For Your</span> Big <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>Day</span>
             </h2>
             <div className="w-24 h-1 bg-rose-400 mx-auto mt-4"></div>
           </div>
@@ -160,12 +160,12 @@ export default function WeddingService() {
       </section>
 
       {/* Gallery Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-rose-50 to-white">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-br from-rose-50 to-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <div className="text-center mb-16">
               <h2 className="text-4xl sm:text-5xl font-serif text-gray-800  capitalize">
-                It will <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>only</span> take a <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>minute</span> of your <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>time</span>
+                It will <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>only</span> take a <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>minute</span> of your <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>time</span>
               </h2>
               <div className="w-24 h-1 bg-rose-400 mx-auto mt-4"></div>
             </div>
@@ -176,7 +176,7 @@ export default function WeddingService() {
             {galleryImages.map((img) => (
               <div
                 key={img.id}
-                className="aspect-[4/3] bg-gradient-to-br from-rose-100 to-rose-50 rounded-lg overflow-hidden group relative scroll-on-hover"
+                className="aspect-[4/3] bg-linear-to-br from-rose-100 to-rose-50 rounded-lg overflow-hidden group relative scroll-on-hover"
               >
                 <div className="w-full h-full overflow-hidden">
                   <img
@@ -200,13 +200,13 @@ export default function WeddingService() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-serif text-gray-800 mb-4">
-              All Your <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Details</span> in One <span className='bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-pink-500'>Place</span>
+              All Your <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>Details</span> in One <span className='bg-clip-text text-transparent bg-linear-to-r from-rose-500 to-pink-500'>Place</span>
             </h2>
             <div className="w-24 h-1 bg-rose-400 mx-auto mt-4"></div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-rose-50 to-white p-8 rounded-lg shadow-lg text-center border border-rose-100">
+            <div className="bg-linear-to-br from-rose-50 to-white p-8 rounded-lg shadow-lg text-center border border-rose-100">
               <Calendar className="w-12 h-12 text-rose-400 mx-auto mb-4" />
               <h3 className="text-xl font-serif text-gray-800 mb-2">
                 Event Schedule
@@ -217,7 +217,7 @@ export default function WeddingService() {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-rose-50 to-white p-8 rounded-lg shadow-lg text-center border border-rose-100">
+            <div className="bg-linear-to-br from-rose-50 to-white p-8 rounded-lg shadow-lg text-center border border-rose-100">
               <MapPin className="w-12 h-12 text-rose-400 mx-auto mb-4" />
               <h3 className="text-xl font-serif text-gray-800 mb-2">
                 Venue Information
@@ -228,7 +228,7 @@ export default function WeddingService() {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-rose-50 to-white p-8 rounded-lg shadow-lg text-center border border-rose-100">
+            <div className="bg-linear-to-br from-rose-50 to-white p-8 rounded-lg shadow-lg text-center border border-rose-100">
               <Heart
                 className="w-12 h-12 text-rose-400 mx-auto mb-4"
                 fill="currentColor"
@@ -248,7 +248,7 @@ export default function WeddingService() {
       {/* Sign Up Section */}
       <section
         id="signup"
-        className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-rose-50 to-white"
+        className="py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-br from-rose-50 to-white"
       >
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12">
@@ -330,7 +330,7 @@ export default function WeddingService() {
       {/* Why Choose Us Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Animated Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-pink-50 via-white to-purple-50">
+        <div className="absolute inset-0 bg-linear-to-br from-pink-50 via-white to-purple-50">
           <div className="absolute inset-0 opacity-30">
             <div className="absolute top-10 left-10 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
             <div className="absolute top-20 right-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
@@ -343,15 +343,15 @@ export default function WeddingService() {
           {/* Decorative Top Element */}
           <div className="flex justify-center mb-8 animate-fade-in">
             <div className="flex items-center gap-3">
-              <div className="h-px w-12 bg-gradient-to-r from-transparent to-rose-400"></div>
+              <div className="h-px w-12 bg-linear-to-r from-transparent to-rose-400"></div>
               <Heart className="w-6 h-6 text-rose-400 animate-pulse" fill="currentColor" />
-              <div className="h-px w-12 bg-gradient-to-l from-transparent to-rose-400"></div>
+              <div className="h-px w-12 bg-linear-to-l from-transparent to-rose-400"></div>
             </div>
           </div>
 
           {/* Main Heading */}
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-medium mb-6 animate-fade-in-up uppercase">
-            <span className="bg-gradient-to-r from-rose-600 via-pink-500 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-rose-600 via-pink-500 to-purple-600 bg-clip-text text-transparent">
               Simple, Beautiful
             </span>
             <br />
@@ -367,7 +367,7 @@ export default function WeddingService() {
           {/* Feature Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 animate-fade-in-up animation-delay-400">
             <div className="group p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-pink-100">
-              <div className="w-14 h-14 bg-gradient-to-br from-rose-400 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+              <div className="w-14 h-14 bg-linear-to-br from-rose-400 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
@@ -377,7 +377,7 @@ export default function WeddingService() {
             </div>
 
             <div className="group p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-purple-100">
-              <div className="w-14 h-14 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+              <div className="w-14 h-14 bg-linear-to-br from-purple-400 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
                 </svg>
@@ -387,7 +387,7 @@ export default function WeddingService() {
             </div>
 
             <div className="group p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-pink-100">
-              <div className="w-14 h-14 bg-gradient-to-br from-pink-400 to-rose-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+              <div className="w-14 h-14 bg-linear-to-br from-pink-400 to-rose-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>

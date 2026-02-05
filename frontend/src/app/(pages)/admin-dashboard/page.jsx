@@ -602,7 +602,7 @@ const handleDeleteService = async (id) => {
   // Loading State
   if (loading && !stats.totalProducts) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#3C4CAD] via-[#2A0B8B] to-[#F04393]">
+      <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-[#3C4CAD] via-[#2A0B8B] to-[#F04393]">
         <div className="text-center">
           <Loader2 className="w-12 h-12 animate-spin text-white mx-auto mb-4" />
           <p className="text-white font-semibold text-lg">
@@ -617,7 +617,7 @@ const handleDeleteService = async (id) => {
     <>
       <style jsx>{dashboardStyles}</style>
 
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 via-[#E8A4BC]/10 to-[#F9C449]/10">
+      <div className="min-h-screen bg-linear-to-br from-gray-50 via-[#E8A4BC]/10 to-[#F9C449]/10">
         {/* Header */}
         <AdminHeader 
           sidebarOpen={sidebarOpen} 

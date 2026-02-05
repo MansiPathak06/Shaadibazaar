@@ -91,14 +91,14 @@ export default function UserDashboard() {
 
   if (!user) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#58094F] via-[#841E62] to-[#2A445E] animate-gradient">
+      <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-[#58094F] via-[#841E62] to-[#2A445E] animate-linear">
         <div className="bg-white/90 backdrop-blur-lg rounded-3xl shadow-2xl p-12 text-center max-w-md transform animate-fadeInUp">
-          <div className="w-24 h-24 bg-gradient-to-br from-[#58094F] to-[#841E62] rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce">
+          <div className="w-24 h-24 bg-linear-to-br from-[#58094F] to-[#841E62] rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce">
             <User className="w-12 h-12 text-white" />
           </div>
           <h2 className="text-3xl font-bold mb-4 text-[#2A445E]">Please log in</h2>
           <p className="text-gray-600 mb-6">Access your personalized dashboard</p>
-          <a href="/auth" className="inline-block bg-gradient-to-r from-[#841E62] to-[#F3AA20] text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+          <a href="/auth" className="inline-block bg-linear-to-r from-[#841E62] to-[#F3AA20] text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
             Go to Login
           </a>
         </div>
@@ -107,7 +107,7 @@ export default function UserDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#58094F]/10 via-white to-[#346B6D]/10 pb-16">
+    <div className="min-h-screen bg-linear-to-br from-[#58094F]/10 via-white to-[#346B6D]/10 pb-16">
       {/* Animated Background Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#F3AA20]/10 rounded-full blur-3xl animate-pulse"></div>
@@ -116,11 +116,11 @@ export default function UserDashboard() {
       </div>
 
       {/* Header Section with Profile */}
-      <div className="relative bg-gradient-to-r from-[#58094F] via-[#841E62] to-[#2A445E] text-white pt-8 pb-32 px-6 overflow-hidden">
+      <div className="relative bg-linear-to-r from-[#58094F] via-[#841E62] to-[#2A445E] text-white pt-8 pb-32 px-6 overflow-hidden">
         {/* Animated pattern overlay */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
+            backgroundImage: `radial-linear(circle at 2px 2px, white 1px, transparent 0)`,
             backgroundSize: '40px 40px'
           }}></div>
         </div>
@@ -130,7 +130,7 @@ export default function UserDashboard() {
             <div className="flex items-center gap-6 animate-fadeInLeft">
               {/* Profile Photo Section with Animation */}
               <div className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#F3AA20] to-[#841E62] rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-300 animate-pulse"></div>
+                <div className="absolute inset-0 bg-linear-to-r from-[#F3AA20] to-[#841E62] rounded-3xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-300 animate-pulse"></div>
                 <div className="relative w-32 h-32 rounded-3xl overflow-hidden border-4 border-white/30 shadow-2xl transform group-hover:scale-105 transition-all duration-300">
                   <img 
                     src={user.profilePhoto || "/api/placeholder/128/128"} 
@@ -173,7 +173,7 @@ export default function UserDashboard() {
               <div className="flex items-center justify-between mb-4">
                 <div className="relative">
                   <div className="absolute inset-0 bg-[#841E62] rounded-2xl blur-md opacity-50 group-hover:opacity-75 transition-opacity animate-pulse"></div>
-                  <div className="relative w-14 h-14 bg-gradient-to-br from-[#841E62] to-[#58094F] rounded-2xl flex items-center justify-center shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <div className="relative w-14 h-14 bg-linear-to-br from-[#841E62] to-[#58094F] rounded-2xl flex items-center justify-center shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                     <Package className="w-7 h-7 text-white" />
                   </div>
                 </div>
@@ -184,7 +184,7 @@ export default function UserDashboard() {
               </div>
               <p className="text-white/90 font-semibold">Total Orders</p>
               <div className="mt-2 h-1 bg-white/20 rounded-full overflow-hidden">
-                <div className="h-full bg-gradient-to-r from-[#F3AA20] to-[#841E62] rounded-full animate-slideRight" style={{ width: '70%' }}></div>
+                <div className="h-full bg-linear-to-r from-[#F3AA20] to-[#841E62] rounded-full animate-slideRight" style={{ width: '70%' }}></div>
               </div>
             </div>
 
@@ -196,7 +196,7 @@ export default function UserDashboard() {
               <div className="flex items-center justify-between mb-4">
                 <div className="relative">
                   <div className="absolute inset-0 bg-[#F3AA20] rounded-2xl blur-md opacity-50 group-hover:opacity-75 transition-opacity animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-                  <div className="relative w-14 h-14 bg-gradient-to-br from-[#F3AA20] to-[#F3AA20]/70 rounded-2xl flex items-center justify-center shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <div className="relative w-14 h-14 bg-linear-to-br from-[#F3AA20] to-[#F3AA20]/70 rounded-2xl flex items-center justify-center shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                     <CheckCircle className="w-7 h-7 text-white" />
                   </div>
                 </div>
@@ -207,7 +207,7 @@ export default function UserDashboard() {
               </div>
               <p className="text-white/90 font-semibold">Completed</p>
               <div className="mt-2 h-1 bg-white/20 rounded-full overflow-hidden">
-                <div className="h-full bg-gradient-to-r from-[#F3AA20] to-[#F3AA20]/70 rounded-full animate-slideRight" style={{ width: `${satisfactionScore}%`, animationDelay: '0.3s' }}></div>
+                <div className="h-full bg-linear-to-r from-[#F3AA20] to-[#F3AA20]/70 rounded-full animate-slideRight" style={{ width: `${satisfactionScore}%`, animationDelay: '0.3s' }}></div>
               </div>
             </div>
 
@@ -219,7 +219,7 @@ export default function UserDashboard() {
               <div className="flex items-center justify-between mb-4">
                 <div className="relative">
                   <div className="absolute inset-0 bg-[#346B6D] rounded-2xl blur-md opacity-50 group-hover:opacity-75 transition-opacity animate-pulse" style={{ animationDelay: '1s' }}></div>
-                  <div className="relative w-14 h-14 bg-gradient-to-br from-[#346B6D] to-[#2A445E] rounded-2xl flex items-center justify-center shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <div className="relative w-14 h-14 bg-linear-to-br from-[#346B6D] to-[#2A445E] rounded-2xl flex items-center justify-center shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                     <TrendingUp className="w-7 h-7 text-white" />
                   </div>
                 </div>
@@ -230,7 +230,7 @@ export default function UserDashboard() {
               </div>
               <p className="text-white/90 font-semibold">Total Spent</p>
               <div className="mt-2 h-1 bg-white/20 rounded-full overflow-hidden">
-                <div className="h-full bg-gradient-to-r from-[#346B6D] to-[#2A445E] rounded-full animate-slideRight" style={{ width: '85%', animationDelay: '0.5s' }}></div>
+                <div className="h-full bg-linear-to-r from-[#346B6D] to-[#2A445E] rounded-full animate-slideRight" style={{ width: '85%', animationDelay: '0.5s' }}></div>
               </div>
             </div>
 
@@ -242,7 +242,7 @@ export default function UserDashboard() {
               <div className="flex items-center justify-between mb-4">
                 <div className="relative">
                   <div className="absolute inset-0 bg-[#841E62] rounded-2xl blur-md opacity-50 group-hover:opacity-75 transition-opacity animate-pulse" style={{ animationDelay: '1.5s' }}></div>
-                  <div className="relative w-14 h-14 bg-gradient-to-br from-[#841E62] to-[#58094F] rounded-2xl flex items-center justify-center shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <div className="relative w-14 h-14 bg-linear-to-br from-[#841E62] to-[#58094F] rounded-2xl flex items-center justify-center shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                     <Heart className="w-7 h-7 text-white animate-pulse" />
                   </div>
                 </div>
@@ -253,7 +253,7 @@ export default function UserDashboard() {
               </div>
               <p className="text-white/90 font-semibold">Wishlist</p>
               <div className="mt-2 h-1 bg-white/20 rounded-full overflow-hidden">
-                <div className="h-full bg-gradient-to-r from-[#841E62] to-[#58094F] rounded-full animate-slideRight" style={{ width: '60%', animationDelay: '0.7s' }}></div>
+                <div className="h-full bg-linear-to-r from-[#841E62] to-[#58094F] rounded-full animate-slideRight" style={{ width: '60%', animationDelay: '0.7s' }}></div>
               </div>
             </div>
           </div>
@@ -268,7 +268,7 @@ export default function UserDashboard() {
             onClick={() => setActiveTab("overview")}
             className={`flex-1 py-4 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 transform hover:scale-105 duration-300 ${
               activeTab === "overview"
-                ? "bg-gradient-to-r from-[#841E62] to-[#58094F] text-white shadow-lg"
+                ? "bg-linear-to-r from-[#841E62] to-[#58094F] text-white shadow-lg"
                 : "text-gray-600 hover:bg-gray-50"
             }`}
           >
@@ -279,7 +279,7 @@ export default function UserDashboard() {
             onClick={() => setActiveTab("orders")}
             className={`flex-1 py-4 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 transform hover:scale-105 duration-300 ${
               activeTab === "orders"
-                ? "bg-gradient-to-r from-[#841E62] to-[#58094F] text-white shadow-lg"
+                ? "bg-linear-to-r from-[#841E62] to-[#58094F] text-white shadow-lg"
                 : "text-gray-600 hover:bg-gray-50"
             }`}
           >
@@ -290,7 +290,7 @@ export default function UserDashboard() {
             onClick={() => setActiveTab("wishlist")}
             className={`flex-1 py-4 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 transform hover:scale-105 duration-300 ${
               activeTab === "wishlist"
-                ? "bg-gradient-to-r from-[#841E62] to-[#58094F] text-white shadow-lg"
+                ? "bg-linear-to-r from-[#841E62] to-[#58094F] text-white shadow-lg"
                 : "text-gray-600 hover:bg-gray-50"
             }`}
           >
@@ -311,7 +311,7 @@ export default function UserDashboard() {
                     <h3 className="text-2xl font-bold text-[#2A445E]">Weekly Activity</h3>
                     <p className="text-gray-500 text-sm mt-1">Order trends this week</p>
                   </div>
-                  <div className="bg-gradient-to-r from-[#346B6D]/20 to-[#F3AA20]/20 px-4 py-2 rounded-full animate-pulse">
+                  <div className="bg-linear-to-r from-[#346B6D]/20 to-[#F3AA20]/20 px-4 py-2 rounded-full animate-pulse">
                     <span className="text-[#2A445E] font-bold text-sm">This Week</span>
                   </div>
                 </div>
@@ -331,8 +331,8 @@ export default function UserDashboard() {
                             <div 
                               className={`w-full rounded-t-xl transition-all duration-1000 transform hover:scale-105 animate-growUp ${
                                 isToday 
-                                  ? 'bg-gradient-to-t from-[#F3AA20] to-[#F3AA20]/70 shadow-lg' 
-                                  : 'bg-gradient-to-t from-[#346B6D] to-[#2A445E] opacity-60 group-hover:opacity-100'
+                                  ? 'bg-linear-to-t from-[#F3AA20] to-[#F3AA20]/70 shadow-lg' 
+                                  : 'bg-linear-to-t from-[#346B6D] to-[#2A445E] opacity-60 group-hover:opacity-100'
                               }`}
                               style={{ 
                                 height: `${height}%`,
@@ -340,12 +340,12 @@ export default function UserDashboard() {
                               }}
                             >
                               {/* Shimmer effect */}
-                              <div className="absolute inset-0 bg-gradient-to-t from-transparent via-white/20 to-transparent animate-shimmer"></div>
+                              <div className="absolute inset-0 bg-linear-to-t from-transparent via-white/20 to-transparent animate-shimmer"></div>
                             </div>
                           </div>
                           {/* Value Badge - Only show for today */}
                           {isToday && (
-                            <div className="mt-2 bg-gradient-to-r from-[#F3AA20] to-[#F3AA20]/70 px-3 py-1 rounded-full animate-bounce shadow-lg">
+                            <div className="mt-2 bg-linear-to-r from-[#F3AA20] to-[#F3AA20]/70 px-3 py-1 rounded-full animate-bounce shadow-lg">
                               <span className="text-white font-bold text-xs">{day.orders}h</span>
                             </div>
                           )}
@@ -381,7 +381,7 @@ export default function UserDashboard() {
                       cx="96"
                       cy="96"
                       r="80"
-                      stroke="url(#gradientCircle)"
+                      stroke="url(#linearCircle)"
                       strokeWidth="12"
                       fill="none"
                       strokeDasharray={`${2 * Math.PI * 80}`}
@@ -391,11 +391,11 @@ export default function UserDashboard() {
                       style={{ animationDelay: '0.8s' }}
                     />
                     <defs>
-                      <linearGradient id="gradientCircle" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <linearlinear id="linearCircle" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stopColor="#F3AA20" />
                         <stop offset="50%" stopColor="#841E62" />
                         <stop offset="100%" stopColor="#58094F" />
-                      </linearGradient>
+                      </linearlinear>
                     </defs>
                   </svg>
                   <div className="absolute inset-0 flex flex-col items-center justify-center">
@@ -403,18 +403,18 @@ export default function UserDashboard() {
                     <span className="text-gray-500 text-sm mt-1">Score</span>
                   </div>
                   {/* Pulsing glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#F3AA20]/20 to-[#841E62]/20 rounded-full blur-xl animate-pulse"></div>
+                  <div className="absolute inset-0 bg-linear-to-r from-[#F3AA20]/20 to-[#841E62]/20 rounded-full blur-xl animate-pulse"></div>
                 </div>
 
                 {/* Action Buttons */}
                 <div className="flex gap-3 justify-center">
-                  <button className="w-12 h-12 rounded-full bg-gradient-to-br from-[#346B6D] to-[#2A445E] text-white flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-lg animate-fadeIn" style={{ animationDelay: '0.9s' }}>
+                  <button className="w-12 h-12 rounded-full bg-linear-to-br from-[#346B6D] to-[#2A445E] text-white flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-lg animate-fadeIn" style={{ animationDelay: '0.9s' }}>
                     <Activity className="w-5 h-5" />
                   </button>
                   <button className="w-12 h-12 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center hover:scale-110 hover:bg-[#F3AA20] hover:text-white transition-all duration-300 animate-fadeIn" style={{ animationDelay: '1s' }}>
                     <Clock className="w-5 h-5" />
                   </button>
-                  <button className="w-12 h-12 rounded-full bg-gradient-to-br from-[#841E62] to-[#58094F] text-white flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-lg animate-fadeIn" style={{ animationDelay: '1.1s' }}>
+                  <button className="w-12 h-12 rounded-full bg-linear-to-br from-[#841E62] to-[#58094F] text-white flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-lg animate-fadeIn" style={{ animationDelay: '1.1s' }}>
                     <Star className="w-5 h-5 animate-pulse" />
                   </button>
                 </div>
@@ -435,7 +435,7 @@ export default function UserDashboard() {
                   <div className="flex items-center gap-4 group animate-slideInLeft" style={{ animationDelay: '0.9s' }}>
                     <div className="relative">
                       <div className="absolute inset-0 bg-[#F3AA20] rounded-2xl blur-md opacity-50 group-hover:opacity-75 transition-opacity animate-pulse"></div>
-                      <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-[#F3AA20] to-[#F3AA20]/70 flex items-center justify-center shadow-lg transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                      <div className="relative w-16 h-16 rounded-2xl bg-linear-to-br from-[#F3AA20] to-[#F3AA20]/70 flex items-center justify-center shadow-lg transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                         <Clock className="w-8 h-8 text-white" />
                       </div>
                     </div>
@@ -446,10 +446,10 @@ export default function UserDashboard() {
                       </div>
                       <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
                         <div 
-                          className="bg-gradient-to-r from-[#F3AA20] to-[#F3AA20]/70 h-3 rounded-full transition-all duration-1000 animate-slideRight relative"
+                          className="bg-linear-to-r from-[#F3AA20] to-[#F3AA20]/70 h-3 rounded-full transition-all duration-1000 animate-slideRight relative"
                           style={{ width: `${orders.length > 0 ? (pendingOrders / orders.length) * 100 : 0}%` }}
                         >
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-shimmer"></div>
+                          <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/40 to-transparent animate-shimmer"></div>
                         </div>
                       </div>
                     </div>
@@ -459,7 +459,7 @@ export default function UserDashboard() {
                   <div className="flex items-center gap-4 group animate-slideInLeft" style={{ animationDelay: '1s' }}>
                     <div className="relative">
                       <div className="absolute inset-0 bg-[#346B6D] rounded-2xl blur-md opacity-50 group-hover:opacity-75 transition-opacity animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-                      <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-[#346B6D] to-[#2A445E] flex items-center justify-center shadow-lg transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                      <div className="relative w-16 h-16 rounded-2xl bg-linear-to-br from-[#346B6D] to-[#2A445E] flex items-center justify-center shadow-lg transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                         <Truck className="w-8 h-8 text-white" />
                       </div>
                     </div>
@@ -470,10 +470,10 @@ export default function UserDashboard() {
                       </div>
                       <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
                         <div 
-                          className="bg-gradient-to-r from-[#346B6D] to-[#2A445E] h-3 rounded-full transition-all duration-1000 animate-slideRight relative"
+                          className="bg-linear-to-r from-[#346B6D] to-[#2A445E] h-3 rounded-full transition-all duration-1000 animate-slideRight relative"
                           style={{ width: `${orders.length > 0 ? (shippedOrders / orders.length) * 100 : 0}%`, animationDelay: '0.3s' }}
                         >
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-shimmer"></div>
+                          <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/40 to-transparent animate-shimmer"></div>
                         </div>
                       </div>
                     </div>
@@ -483,7 +483,7 @@ export default function UserDashboard() {
                   <div className="flex items-center gap-4 group animate-slideInLeft" style={{ animationDelay: '1.1s' }}>
                     <div className="relative">
                       <div className="absolute inset-0 bg-[#841E62] rounded-2xl blur-md opacity-50 group-hover:opacity-75 transition-opacity animate-pulse" style={{ animationDelay: '1s' }}></div>
-                      <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-[#841E62] to-[#58094F] flex items-center justify-center shadow-lg transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                      <div className="relative w-16 h-16 rounded-2xl bg-linear-to-br from-[#841E62] to-[#58094F] flex items-center justify-center shadow-lg transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                         <CheckCircle className="w-8 h-8 text-white" />
                       </div>
                     </div>
@@ -494,10 +494,10 @@ export default function UserDashboard() {
                       </div>
                       <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
                         <div 
-                          className="bg-gradient-to-r from-[#841E62] to-[#58094F] h-3 rounded-full transition-all duration-1000 animate-slideRight relative"
+                          className="bg-linear-to-r from-[#841E62] to-[#58094F] h-3 rounded-full transition-all duration-1000 animate-slideRight relative"
                           style={{ width: `${orders.length > 0 ? (completedOrders / orders.length) * 100 : 0}%`, animationDelay: '0.6s' }}
                         >
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-shimmer"></div>
+                          <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/40 to-transparent animate-shimmer"></div>
                         </div>
                       </div>
                     </div>
@@ -525,12 +525,12 @@ export default function UserDashboard() {
                     {orders.slice(0, 5).map((order, i) => (
                       <div 
                         key={order.id} 
-                        className="flex items-center gap-4 p-4 bg-gradient-to-r from-[#346B6D]/10 to-transparent rounded-xl hover:from-[#346B6D]/20 transition-all group cursor-pointer border border-transparent hover:border-[#346B6D] transform hover:-translate-x-1 duration-300 animate-slideInRight"
+                        className="flex items-center gap-4 p-4 bg-linear-to-r from-[#346B6D]/10 to-transparent rounded-xl hover:from-[#346B6D]/20 transition-all group cursor-pointer border border-transparent hover:border-[#346B6D] transform hover:-translate-x-1 duration-300 animate-slideInRight"
                         style={{ animationDelay: `${1 + i * 0.1}s` }}
                       >
                         <div className="relative">
                           <div className="absolute inset-0 bg-[#346B6D] rounded-xl blur-md opacity-0 group-hover:opacity-50 transition-opacity"></div>
-                          <div className="relative w-14 h-14 bg-gradient-to-br from-[#346B6D] to-[#2A445E] rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                          <div className="relative w-14 h-14 bg-linear-to-br from-[#346B6D] to-[#2A445E] rounded-xl flex items-center justify-center shrink-0 shadow-lg transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                             <Package className="w-7 h-7 text-white" />
                           </div>
                         </div>
@@ -588,7 +588,7 @@ export default function UserDashboard() {
                           onError={e => { e.target.src = "/placeholder.jpg"; }}
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#58094F]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="absolute inset-0 bg-linear-to-t from-[#58094F]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         <div className="absolute top-3 right-3 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300">
                           <Heart className="w-5 h-5 fill-[#841E62] text-[#841E62] animate-pulse" />
                         </div>
@@ -611,7 +611,7 @@ export default function UserDashboard() {
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-2xl font-bold text-[#2A445E]">All Orders</h3>
               <div className="flex gap-2">
-                <button className="px-4 py-2 rounded-lg bg-gradient-to-r from-[#346B6D] to-[#2A445E] text-white font-semibold text-sm transform hover:scale-105 transition-all duration-300">
+                <button className="px-4 py-2 rounded-lg bg-linear-to-r from-[#346B6D] to-[#2A445E] text-white font-semibold text-sm transform hover:scale-105 transition-all duration-300">
                   All
                 </button>
                 <button className="px-4 py-2 rounded-lg text-gray-600 font-semibold text-sm hover:bg-[#F3AA20]/20 hover:text-[#2A445E] transition-all duration-300">
@@ -631,7 +631,7 @@ export default function UserDashboard() {
               <div className="text-center py-20 animate-fadeIn">
                 <ShoppingBag className="w-24 h-24 mx-auto mb-6 text-gray-300 animate-bounce" />
                 <p className="text-gray-500 text-lg mb-4">No orders found</p>
-                <a href="/accessories/all-products" className="inline-block bg-gradient-to-r from-[#841E62] to-[#F3AA20] text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+                <a href="/accessories/all-products" className="inline-block bg-linear-to-r from-[#841E62] to-[#F3AA20] text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
                   Start Shopping
                 </a>
               </div>
@@ -691,14 +691,14 @@ export default function UserDashboard() {
               <div className="text-center py-20 animate-fadeIn">
                 <Heart className="w-24 h-24 mx-auto mb-6 text-gray-300 animate-bounce" />
                 <p className="text-gray-500 text-lg mb-4">Your wishlist is empty</p>
-                <a href="/accessories/all-products" className="inline-block bg-gradient-to-r from-[#841E62] to-[#F3AA20] text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+                <a href="/accessories/all-products" className="inline-block bg-linear-to-r from-[#841E62] to-[#F3AA20] text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
                   Discover Products
                 </a>
               </div>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {wishlist.map((item, idx) => (
-                  <div key={item.id} className="group relative bg-gradient-to-br from-[#346B6D]/10 to-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 animate-fadeInUp" style={{ animationDelay: `${idx * 0.1}s` }}>
+                  <div key={item.id} className="group relative bg-linear-to-br from-[#346B6D]/10 to-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 animate-fadeInUp" style={{ animationDelay: `${idx * 0.1}s` }}>
                     <a href={`/accessories/all-products/${item.product_id}`} className="block">
                       <div className="relative aspect-square overflow-hidden">
                         <img
@@ -707,7 +707,7 @@ export default function UserDashboard() {
                           onError={e => { e.target.src = "/placeholder.jpg"; }}
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#58094F]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="absolute inset-0 bg-linear-to-t from-[#58094F]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       </div>
                     </a>
                     <div className="p-5">
@@ -721,7 +721,7 @@ export default function UserDashboard() {
                           ₹{item.price}
                         </div>
                       )}
-                      <button className="w-full bg-gradient-to-r from-[#346B6D] to-[#2A445E] text-white py-2 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+                      <button className="w-full bg-linear-to-r from-[#346B6D] to-[#2A445E] text-white py-2 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300">
                         Add to Cart
                       </button>
                     </div>

@@ -828,7 +828,7 @@ const serviceCategories = [
             });
             setPricingFields([{ pricing_type: "", pricing_value: "" }]);
           }}
-          className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#F04393] to-[#2A0B8B] text-white rounded-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 font-medium text-lg cursor-pointer"
+          className="flex items-center gap-2 px-6 py-3 bg-linear-to-r from-[#F04393] to-[#2A0B8B] text-white rounded-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 font-medium text-lg cursor-pointer"
         >
           <Plus className="w-4 h-4" />
           Add Service
@@ -856,7 +856,7 @@ const serviceCategories = [
           >
             {/* 1️⃣ BASIC INFORMATION */}
             <div className="border-b pb-8">
-              <h4 className="text-xl font-semibold text-gray-800 mb-6 bg-gradient-to-r from-[#F04393] to-[#2A0B8B] bg-clip-text text-transparent pb-2">
+              <h4 className="text-xl font-semibold text-gray-800 mb-6 bg-linear-to-r from-[#F04393] to-[#2A0B8B] bg-clip-text text-transparent pb-2">
                 Basic Information
               </h4>
 
@@ -929,6 +929,7 @@ const serviceCategories = [
                 </div>
               </div>
 
+<<<<<<< HEAD
               {/* ✅ SUBCATEGORY - Only show if category has subcategories */}
               {availableSubCategories.length > 0 && (
                 <div className="mt-6">
@@ -952,6 +953,20 @@ const serviceCategories = [
                       </option>
                     ))}
                   </select>
+=======
+              {/* ✅ SUBCATEGORY DISPLAY */}
+              <div className="mt-6 p-5 bg-linear-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-2xl">
+                <label className="block text-sm font-semibold text-green-800 mb-3">
+                  ✅ Sub Category (Auto-filled)
+                </label>
+                <div className="flex items-center gap-3 p-4 bg-white border-2 border-green-100 rounded-xl shadow-sm">
+                  <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
+                    <span className="text-xs font-bold text-white">✓</span>
+                  </div>
+                  <span className="text-lg font-semibold text-gray-900">
+                    {serviceForm.sub_category || "Select category above to auto-fill"}
+                  </span>
+>>>>>>> 0f786ad6fa23c13fde3ef7546ce3ede740ea8422
                 </div>
               )}
 
@@ -1019,7 +1034,7 @@ const serviceCategories = [
 
             {/* 2️⃣ SERVICE DETAILS - NOW FULLY WORKING */}
             <div className="border-b pb-8">
-              <h4 className="text-xl font-semibold text-gray-800 mb-6 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent pb-2">
+              <h4 className="text-xl font-semibold text-gray-800 mb-6 bg-linear-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent pb-2">
                 Service Details
               </h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -1184,7 +1199,7 @@ const serviceCategories = [
             {/* 3️⃣ PRICING */}
             <div className="border-b pb-8">
               <div className="flex items-center justify-between mb-6">
-                <h4 className="text-xl font-semibold text-gray-800 bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent pb-2">
+                <h4 className="text-xl font-semibold text-gray-800 bg-linear-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent pb-2">
                   Pricing Details
                 </h4>
                 <button
@@ -1245,7 +1260,7 @@ const serviceCategories = [
 
             {/* 4️⃣ CONTACT INFO */}
             <div className="pb-8">
-              <h4 className="text-xl font-semibold text-gray-800 mb-6 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent pb-2">
+              <h4 className="text-xl font-semibold text-gray-800 mb-6 bg-linear-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent pb-2">
                 Contact Information
               </h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -1337,7 +1352,7 @@ const serviceCategories = [
                 />
               </div>
               <div className="flex items-center justify-center md:justify-start">
-                <label className="flex items-center gap-3 p-4 bg-gradient-to-r from-yellow-50 to-orange-50 border-2 border-yellow-200 rounded-2xl cursor-pointer hover:shadow-lg transition-all duration-300 w-full md:w-auto">
+                <label className="flex items-center gap-3 p-4 bg-linear-to-r from-yellow-50 to-orange-50 border-2 border-yellow-200 rounded-2xl cursor-pointer hover:shadow-lg transition-all duration-300 w-full md:w-auto">
                   <input
                     type="checkbox"
                     id="featured"
@@ -1361,7 +1376,7 @@ const serviceCategories = [
             <button
               type="submit"
               disabled={loading}
-              className="w-full flex items-center justify-center gap-3 px-8 py-5 bg-gradient-to-r from-[#F04393] via-pink-500 to-[#2A0B8B] text-white rounded-2xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 font-semibold text-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none shadow-xl"
+              className="w-full flex items-center justify-center gap-3 px-8 py-5 bg-linear-to-r from-[#F04393] via-pink-500 to-[#2A0B8B] text-white rounded-2xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 font-semibold text-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none shadow-xl"
             >
               {loading ? (
                 <>
@@ -1396,7 +1411,7 @@ const serviceCategories = [
       <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-gradient-to-r from-[#F04393] via-pink-500 to-[#2A0B8B] text-white">
+            <thead className="bg-linear-to-r from-[#F04393] via-pink-500 to-[#2A0B8B] text-white">
               <tr>
                 <th className="px-8 py-5 text-left text-sm font-bold uppercase tracking-wider">
                   Service
@@ -1431,10 +1446,14 @@ const serviceCategories = [
                 </tr>
               ) : (
                 filteredServices.map((service) => (
+<<<<<<< HEAD
                   <tr
                     key={service.id}
                     className="hover:bg-gradient-to-r hover:from-gray-50 hover:to-blue-50 transition-all duration-200"
                   >
+=======
+                  <tr key={service.id} className="hover:bg-linear-to-r hover:from-gray-50 hover:to-blue-50 transition-all duration-200">
+>>>>>>> 0f786ad6fa23c13fde3ef7546ce3ede740ea8422
                     <td className="px-8 py-6">
                       <div className="flex items-center gap-4">
                         {service.images && service.images.length > 0 && (

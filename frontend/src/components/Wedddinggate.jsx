@@ -59,14 +59,14 @@ export default function ModernWeddingGate() {
   // Prevent hydration mismatch by not rendering dynamic content until mounted
   if (!isMounted) {
     return (
-      <div className="relative w-full h-screen overflow-hidden bg-gradient-to-br from-slate-950 via-rose-950 to-slate-900">
+      <div className="relative w-full h-screen overflow-hidden bg-linear-to-br from-slate-950 via-rose-950 to-slate-900">
         <GlobalStyles />
       </div>
     );
   }
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-gradient-to-br from-slate-950 via-rose-950 to-slate-900">
+    <div className="relative w-full h-screen overflow-hidden bg-linear-to-br from-slate-950 via-rose-950 to-slate-900">
       {/* Background Effects */}
       <BackgroundEffects isMobile={isMobile} />
 
@@ -149,7 +149,7 @@ function GlobalStyles() {
         50% { transform: translate(-5px, -20px); }
         75% { transform: translate(-10px, -10px); }
       }
-      @keyframes gradient-shift {
+      @keyframes linear-shift {
         0%, 100% { opacity: 0.5; }
         50% { opacity: 0.8; }
       }
@@ -157,7 +157,7 @@ function GlobalStyles() {
         0% { background-position: 0 0; }
         100% { background-position: 50px 50px; }
       }
-      @keyframes gradient-text {
+      @keyframes linear-text {
         0%, 100% { background-position: 0% 50%; }
         50% { background-position: 100% 50%; }
       }
@@ -181,9 +181,9 @@ function GlobalStyles() {
       .animate-glow-pulse { animation: glow-pulse 2s ease-in-out infinite; }
       .animate-float-hearts { animation: float-hearts linear infinite; }
       .animate-float-particle { animation: float-particle ease-in-out infinite; }
-      .animate-gradient-shift { animation: gradient-shift 3s ease-in-out infinite; }
+      .animate-linear-shift { animation: linear-shift 3s ease-in-out infinite; }
       .animate-grid-move { animation: grid-move 20s linear infinite; }
-      .animate-gradient-text { background-size: 200% auto; animation: gradient-text 3s ease infinite; }
+      .animate-linear-text { background-size: 200% auto; animation: linear-text 3s ease infinite; }
       .animate-glow { animation: glow 2s ease-in-out infinite; }
       .animate-spin-slow { animation: spin-slow 3s linear infinite; }
 

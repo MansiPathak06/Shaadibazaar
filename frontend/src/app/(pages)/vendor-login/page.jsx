@@ -208,15 +208,15 @@ const VendorAuthPage = () => {
           box-shadow: 0 8px 20px rgba(202, 31, 61, 0.15);
         }
 
-        .gradient-text {
-          background: linear-gradient(135deg, #CA1F3D 0%, #FFBE00 100%);
+        .linear-text {
+          background: linear-linear(135deg, #CA1F3D 0%, #FFBE00 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
         }
       `}</style>
 
-      <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8 bg-gradient-to-br from-[#25182E] via-[#CA1F3D] to-[#25182E] relative overflow-hidden">
+      <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8 bg-linear-to-br from-[#25182E] via-[#CA1F3D] to-[#25182E] relative overflow-hidden">
         
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -231,7 +231,7 @@ const VendorAuthPage = () => {
             <div className="flex flex-col lg:flex-row min-h-[700px]">
               
               {/* Left Side - Branding */}
-              <div className="w-full lg:w-2/5 bg-gradient-to-br from-[#CA1F3D] to-[#25182E] p-8 lg:p-12 flex items-center justify-center relative overflow-hidden">
+              <div className="w-full lg:w-2/5 bg-linear-to-br from-[#CA1F3D] to-[#25182E] p-8 lg:p-12 flex items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDE2djhoMnYtOGgyVjhoLTJ2LTJoLTJ2Mmgtdi0yeiIvPjwvZz48L2c+PC9zdmc+')] opacity-30"></div>
                 
                 <div className="relative z-10 text-center lg:text-left max-w-md animate-fade-in">
@@ -249,7 +249,7 @@ const VendorAuthPage = () => {
                   {/* Benefits */}
                   <div className="space-y-4 mb-8">
                     <div className="flex items-start gap-3 text-white/90">
-                      <div className="w-8 h-8 bg-[#FFBE00]/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                      <div className="w-8 h-8 bg-[#FFBE00]/20 rounded-lg flex items-center justify-center shrink-0 mt-1">
                         <CheckCircle className="w-5 h-5 text-[#FFBE00]" />
                       </div>
                       <div>
@@ -259,7 +259,7 @@ const VendorAuthPage = () => {
                     </div>
 
                     <div className="flex items-start gap-3 text-white/90">
-                      <div className="w-8 h-8 bg-[#FFBE00]/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                      <div className="w-8 h-8 bg-[#FFBE00]/20 rounded-lg flex items-center justify-center shrink-0 mt-1">
                         <CheckCircle className="w-5 h-5 text-[#FFBE00]" />
                       </div>
                       <div>
@@ -269,7 +269,7 @@ const VendorAuthPage = () => {
                     </div>
 
                     <div className="flex items-start gap-3 text-white/90">
-                      <div className="w-8 h-8 bg-[#FFBE00]/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                      <div className="w-8 h-8 bg-[#FFBE00]/20 rounded-lg flex items-center justify-center shrink-0 mt-1">
                         <CheckCircle className="w-5 h-5 text-[#FFBE00]" />
                       </div>
                       <div>
@@ -319,7 +319,7 @@ const VendorAuthPage = () => {
                   {error && (
                     <div className="mb-6 p-4 bg-red-50 border-l-4 border-red-500 rounded-xl animate-slide-in-up">
                       <div className="flex items-start gap-3">
-                        <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                        <AlertCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
                         <p className="text-red-700 font-medium text-sm">{error}</p>
                       </div>
                     </div>
@@ -328,7 +328,7 @@ const VendorAuthPage = () => {
                   {success && (
                     <div className="mb-6 p-4 bg-green-50 border-l-4 border-green-500 rounded-xl animate-slide-in-up">
                       <div className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                        <CheckCircle className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
                         <p className="text-green-700 font-medium text-sm">{success}</p>
                       </div>
                     </div>
@@ -543,9 +543,9 @@ const VendorAuthPage = () => {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="w-full bg-gradient-to-r from-[#CA1F3D] to-[#25182E] text-white py-4 rounded-xl font-medium cursor-pointer hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2 text-base sm:text-lg mt-8 relative overflow-hidden group"
+                      className="w-full bg-linear-to-r from-[#CA1F3D] to-[#25182E] text-white py-4 rounded-xl font-medium cursor-pointer hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2 text-base sm:text-lg mt-8 relative overflow-hidden group"
                     >
-                      <div className="absolute inset-0 bg-gradient-to-r from-[#FFBE00] to-[#CA1F3D] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute inset-0 bg-linear-to-r from-[#FFBE00] to-[#CA1F3D] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       <span className="relative z-10 flex items-center gap-2 font-medium text-xl cursor-pointer">
                         {loading ? (
                           <>
@@ -564,7 +564,7 @@ const VendorAuthPage = () => {
 
                   {/* Additional Info */}
                   {!isSignIn && (
-                    <div className="mt-6 p-4 bg-gradient-to-r from-[#FFBE00]/10 to-[#CA1F3D]/10 rounded-xl border border-[#FFBE00]/20">
+                    <div className="mt-6 p-4 bg-linear-to-r from-[#FFBE00]/10 to-[#CA1F3D]/10 rounded-xl border border-[#FFBE00]/20">
                       <p className="text-xs text-gray-600 text-center leading-relaxed">
                         By registering, you agree to our Terms of Service and Privacy Policy. Your account will be reviewed by our team within 24-48 hours.
                       </p>

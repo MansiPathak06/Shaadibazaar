@@ -76,7 +76,7 @@ const Footer = () => {
     };
 
     return (
-        <footer className="bg-gradient-to-br from-gray-50 to-white">
+        <footer className="bg-linear-to-br from-gray-50 to-white">
             {/* Stats Section */}
 
             {/* Newsletter Section */}
@@ -87,7 +87,7 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
                     {/* Logo and Description */}
                     <div className="lg:col-span-1">
-                        <div className="flex-shrink-0 mb-6">
+                        <div className="shrink-0 mb-6">
                             <img
                                 src="/images/logo.png"
                                 alt="Logo"
@@ -106,18 +106,18 @@ const Footer = () => {
                                 href="tel:+919876543210"
                                 className="flex items-start text-sm text-gray-600 hover:text-rose-500 transition-colors duration-200 group"
                             >
-                                <Phone className="w-4 h-4 text-rose-500 mr-3 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-200" />
+                                <Phone className="w-4 h-4 text-rose-500 mr-3 mt-0.5 shrink-0 group-hover:scale-110 transition-transform duration-200" />
                                 <span>+91 98765 43210</span>
                             </a>
                             <a
                                 href="mailto:info@yourcompany.com"
                                 className="flex items-start text-sm text-gray-600 hover:text-rose-500 transition-colors duration-200 group"
                             >
-                                <Mail className="w-4 h-4 text-rose-500 mr-3 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-200" />
+                                <Mail className="w-4 h-4 text-rose-500 mr-3 mt-0.5 shrink-0 group-hover:scale-110 transition-transform duration-200" />
                                 <span>info@yourcompany.com</span>
                             </a>
                             <div className="flex items-start text-sm text-gray-600 group">
-                                <MapPin className="w-4 h-4 text-rose-500 mr-3 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-200" />
+                                <MapPin className="w-4 h-4 text-rose-500 mr-3 mt-0.5 shrink-0 group-hover:scale-110 transition-transform duration-200" />
                                 <span>123 Business Street, City, State 12345</span>
                             </div>
                         </div>
@@ -159,7 +159,7 @@ const Footer = () => {
             </div>
 
             {/* Bottom Footer */}
-            <div className="bg-gradient-to-r from-rose-500 to-pink-500">
+            <div className="bg-linear-to-r from-rose-500 to-pink-500">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                         {/* Copyright */}
