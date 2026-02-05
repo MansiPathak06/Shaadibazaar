@@ -7,7 +7,7 @@ import {
     MoreVertical, Search, Filter,
     ArrowUpRight, ArrowDownRight,
     MapPin, Briefcase, CreditCard,
-    X, Check, ChevronRight, Heart
+    X, Check, ChevronRight, Heart, ArrowLeft, Home
 } from 'lucide-react';
 import {
     BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, Legend, ResponsiveContainer,
@@ -610,10 +610,27 @@ const Onboarding = ({ onComplete }) => {
         onComplete(data);
     };
 
+    const handleGoBack = () => {
+        if (window.history.length > 1) {
+            window.history.back();
+        } else {
+            window.location.href = '/';
+        }
+    };
+
     return (
         <div className="fixed inset-0 z-50 bg-rose-50 flex items-center justify-center p-4 bg-[url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80')] bg-cover bg-center">
             <div className="absolute inset-0 bg-white/90 backdrop-blur-sm"></div>
             <div className="bg-white max-w-lg w-full rounded-2xl shadow-xl p-8 animate-in zoom-in-95 duration-500 relative z-10 border border-rose-100">
+                {/* Back Button */}
+                <button
+                    onClick={handleGoBack}
+                    className="absolute top-6 left-6 flex items-center gap-2 px-3 py-1.5 text-sm bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg transition-all duration-200"
+                >
+                    <ArrowLeft size={16} />
+                    <span>Back</span>
+                </button>
+                
                 <div className="text-center mb-8">
                     <div className="w-12 h-12 bg-rose-500 rounded-xl flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl shadow-lg shadow-rose-200">
                         <Heart fill="currentColor" size={24} />
@@ -712,6 +729,14 @@ export default function EventManagementSoftware() {
     const handleAddVendor = (vendor) => setVendors([...vendors, vendor]);
     const handleAddTravel = (trip) => setTravelDetails([...travelDetails, trip]);
 
+    const handleGoBack = () => {
+        if (window.history.length > 1) {
+            window.history.back();
+        } else {
+            window.location.href = '/';
+        }
+    };
+
     if (!isSetup) {
         return <Onboarding onComplete={handleOnboardingComplete} />;
     }
@@ -724,7 +749,8 @@ export default function EventManagementSoftware() {
     ];
 
     return (
-        <div className="flex w-full h-full min-h-screen bg-rose-50/30">{/* Sidebar */}
+        <div className="flex w-full h-full min-h-screen bg-rose-50/30">
+            {/* Sidebar */}
             <aside className={cn(
                 "bg-white border-r border-rose-100 flex flex-col transition-all duration-300 z-20",
                 isSidebarOpen ? "w-72" : "w-20"
@@ -788,7 +814,21 @@ export default function EventManagementSoftware() {
                         </h1>
                     </div>
 
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-3">
+                        <button
+                            onClick={handleGoBack}
+                            className="flex items-center gap-2 px-3 py-1.5 text-sm bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg transition-all duration-200"
+                        >
+                            <ArrowLeft size={16} />
+                            <span className="hidden sm:inline">Back</span>
+                        </button>
+                        <button
+                            onClick={() => window.location.href = '/'}
+                            className="flex items-center gap-2 px-3 py-1.5 text-sm bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg transition-all duration-200"
+                        >
+                            <Home size={16} />
+                            <span className="hidden sm:inline">Home</span>
+                        </button>
                         <div className="relative hidden md:block">
                             <input type="text" placeholder="Search..." className="w-64 pl-10 pr-4 py-2 bg-rose-50/50 border border-transparent focus:bg-white focus:border-rose-200 rounded-full text-sm focus:outline-none transition-all placeholder-gray-400" />
                             <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />

@@ -19,7 +19,7 @@ export default function PlanningAndManagementTools() {
       title: "Google Sheets / Excel Planning Sheets",
       description: "Customizable spreadsheet templates for DIY couples. Easily share with partners and vendors for real-time collaboration and unlimited customization.",
       image: "https://i.pinimg.com/736x/be/8f/a2/be8fa2da56cafa72020a797b371049f1.jpg",
-      link: "/excel-planning-sheets"
+      link: "/wedding-planning-tools/planning-and-management/Google-sheets"
     },
     {
       title: "Budget Calculator",
@@ -32,19 +32,19 @@ export default function PlanningAndManagementTools() {
       title: "Guest List Manager",
       description: "Manage RSVPs, dietary restrictions, plus-ones, and seating preferences in one place. Send digital invitations and monitor response rates effortlessly.",
       image: "https://i.pinimg.com/1200x/6c/dc/12/6cdc121ea4f3a50f38798f53be30f03c.jpg",
-      link: "/guest-list-manager"
+      link: "/wedding-planning-tools/planning-and-management/Guest-list-manager"
     },
     {
       title: "Vendor Management System",
       description: "Coordinate with all service providers efficiently. Store contracts, track payments, and maintain communication with photographers, caterers, florists, and more.",
       image: "https://i.pinimg.com/736x/66/c5/81/66c5814e6969f9de6e86ce2a44bb480e.jpg",
-      link: "/vendor-management-system"
+      link: "/wedding-planning-tools/planning-and-management/Vendor-Management-System"
     },
     {
       title: "Timeline & Checklist Creator",
       description: "Break down wedding preparation into manageable tasks with clear deadlines. Set reminders, mark completed tasks, and visualize your progress.",
       image: "https://i.pinimg.com/1200x/78/42/2f/78422f627a4c889ea7e6e92907b2bbcf.jpg",
-      link: "/timeline-checklist-creator"
+      link: "/wedding-planning-tools/planning-and-management/Timeline-&-Checklist-Creator"
     },
     {
       title: "Seating Chart Designer",
