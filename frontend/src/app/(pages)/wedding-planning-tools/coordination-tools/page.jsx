@@ -3,42 +3,42 @@ export default function CoordinationTools() {
     {
       title: "Walkie-Talkies",
       description: "Essential communication devices for real-time coordination between wedding staff and vendors. Ensure seamless communication across venues with reliable range and instant connectivity.",
-      image: "https://i.pinimg.com/1200x/6e/77/f8/6e77f844142e60f5ae66b449a6c477d8.jpg"
+      image: "https://i.pinimg.com/736x/40/53/a7/4053a770e9f86862de6c75976ecb8bde.jpg"
     },
     {
       title: "Bluetooth Headsets",
       description: "Hands-free communication solution for coordinators and staff on the move. Stay connected while managing multiple tasks simultaneously with crystal-clear audio quality.",
-      image: "https://i.pinimg.com/736x/5e/7f/7a/5e7f7a57b4cc5dc9b1f82aa90f35b2d6.jpg"
+      image: "https://i.pinimg.com/736x/e2/a4/d3/e2a4d30cba0d6c8dab4c1bd52bbfba30.jpg"
     },
     {
       title: "Clipboard",
       description: "Classic organizational tool for keeping schedules, checklists, and important documents at hand. Perfect for quick note-taking and managing day-of details efficiently.",
-      image: "https://i.pinimg.com/736x/be/8f/a2/be8fa2da56cafa72020a797b371049f1.jpg"
+      image: "https://i.pinimg.com/1200x/1f/97/7f/1f977f1b8b83ed03e6de0d7f1e8e5a9a.jpg"
     },
     {
       title: "Portable Printer",
       description: "Print last-minute seating cards, schedules, or signage on-site. Handle unexpected changes and additions with compact, wireless printing capability.",
-      image: "https://i.pinimg.com/1200x/fc/0e/d2/fc0ed2dd7130a5fe1584359e5b4846cd.jpg"
+      image: "https://i.pinimg.com/1200x/93/7a/aa/937aaa0420a45e04625f3bee6582961a.jpg"
     },
     {
       title: "Label Printer",
       description: "Create professional labels for gift bags, place settings, and organizational purposes. Streamline identification and categorization with quick, on-demand label printing.",
-      image: "https://i.pinimg.com/1200x/6c/dc/12/6cdc121ea4f3a50f38798f53be30f03c.jpg"
+      image: "https://i.pinimg.com/1200x/4b/f6/ef/4bf6ef38ba85298bb5306a8201c14106.jpg"
     },
     {
       title: "QR Code Check-in Scanner",
       description: "Modernize guest check-in with fast, contactless QR code scanning. Track attendance in real-time and reduce congestion at entry points with efficient digital verification.",
-      image: "https://i.pinimg.com/736x/66/c5/81/66c5814e6969f9de6e86ce2a44bb480e.jpg"
+      image: "https://i.pinimg.com/736x/18/97/62/18976264e6f1798b988b77474c1ce366.jpg"
     },
     {
       title: "Power Banks",
       description: "Keep all devices charged throughout the event day. Ensure phones, tablets, and equipment stay powered for uninterrupted coordination and communication.",
-      image: "https://i.pinimg.com/1200x/78/42/2f/78422f627a4c889ea7e6e92907b2bbcf.jpg"
+      image: "https://i.pinimg.com/736x/fc/52/07/fc52077f7f40842ca2637114c0ac0a9f.jpg"
     },
     {
       title: "Wi-Fi Hotspot Device",
       description: "Provide reliable internet connectivity for digital tools and live streaming. Ensure backup connectivity for critical online services and guest social media sharing.",
-      image: "https://i.pinimg.com/1200x/a2/58/93/a2589338b74e223b88ae73589ee2ccc2.jpg"
+      image: "https://i.pinimg.com/736x/7f/0c/bc/7f0cbcba348dfdeb599bb5d6e72ae0d3.jpg"
     }
   ];
 

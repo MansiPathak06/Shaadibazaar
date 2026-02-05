@@ -3,12 +3,12 @@ export default function CommunicationTools() {
     {
       title: "WhatsApp Business",
       description: "Connect with guests instantly using WhatsApp Business features. Send bulk messages, automated replies, and updates about your wedding to keep everyone informed in real-time.",
-      image: "https://i.pinimg.com/1200x/6e/77/f8/6e77f844142e60f5ae66b449a6c477d8.jpg"
+      image: "https://i.pinimg.com/1200x/fe/72/6c/fe726c09d43d4b1391c0e9ae26704ceb.jpg"
     },
     {
       title: "Email Automation Tools",
       description: "Design beautiful email campaigns for save-the-dates, invitations, and updates. Schedule automated reminders and track email opens for better guest engagement.",
-      image: "https://i.pinimg.com/736x/5e/7f/7a/5e7f7a57b4cc5dc9b1f82aa90f35b2d6.jpg"
+      image: "https://i.pinimg.com/736x/0b/0e/88/0b0e88ae39f60e7d0a18fb09ecd4501a.jpg"
     },
     {
       title: "SMS Invite Tools",
@@ -18,17 +18,17 @@ export default function CommunicationTools() {
     {
       title: "Google Meet",
       description: "Host virtual planning sessions with vendors, family, and your wedding party. Perfect for destination weddings or coordinating with long-distance guests and planners.",
-      image: "https://i.pinimg.com/1200x/fc/0e/d2/fc0ed2dd7130a5fe1584359e5b4846cd.jpg"
+      image: "https://i.pinimg.com/1200x/e1/75/ca/e175caefec6113c1d3c5ccf8d12ea897.jpg"
     },
     {
       title: "Zoom Video Conferencing",
       description: "Conduct professional video meetings with unlimited participants. Share screens for venue tours, dress fittings, or include remote guests in your special moments.",
-      image: "https://i.pinimg.com/1200x/6c/dc/12/6cdc121ea4f3a50f38798f53be30f03c.jpg"
+      image: "https://i.pinimg.com/1200x/cf/41/e9/cf41e9bcaeabe438236d57ce462e97e7.jpg"
     },
     {
       title: "Client Portal System",
       description: "Create a centralized hub where guests can access all wedding information. Share itineraries, accommodation details, and important updates in one secure location.",
-      image: "https://i.pinimg.com/736x/66/c5/81/66c5814e6969f9de6e86ce2a44bb480e.jpg"
+      image: "https://i.pinimg.com/1200x/17/46/2b/17462be4ebc6625450904147d93f186a.jpg"
     },
    
   ];

@@ -3,37 +3,37 @@ export default function CleanupAndMaintenanceTools() {
     {
       title: "Garbage Bags",
       description: "Heavy-duty waste disposal bags in various sizes for efficient cleanup. Essential for managing waste throughout your wedding venue, from preparation to post-event cleanup.",
-      image: ""
+      image: "https://i.pinimg.com/736x/c9/e3/f9/c9e3f942ffd43a24eb8bd7ee339973a9.jpg"
     },
     {
       title: "Sanitizers",
       description: "Keep your wedding venue hygienic and safe for all guests. Hand sanitizers and surface sanitizers ensure cleanliness in high-touch areas throughout your celebration.",
-      image: ""
+      image: "https://i.pinimg.com/1200x/8c/a5/4d/8ca54d7a791c78e5cc4209eba3c15381.jpg"
     },
     {
       title: "Tissue Rolls",
       description: "Soft, absorbent tissue papers for guest convenience and quick cleanups. Perfect for restrooms, dining areas, and emergency spill management during your event.",
-      image: ""
+      image: "https://i.pinimg.com/1200x/5f/f2/50/5ff250276549e319cca978f88b7a0434.jpg"
     },
     {
       title: "Cleaning Cloth",
       description: "Reusable microfiber and cotton cloths for wiping surfaces and maintaining spotless venues. Ideal for quick touch-ups and keeping tables, counters, and décor dust-free.",
-      image: ""
+      image: "https://i.pinimg.com/1200x/06/c3/94/06c3942861d6e2e26b7b0de1c6b5cd4b.jpg"
     },
     {
       title: "Mop Bucket",
       description: "Professional cleaning buckets with wringer systems for efficient floor maintenance. Keep your venue floors clean and safe throughout the wedding festivities.",
-      image: ""
+      image: "https://i.pinimg.com/736x/d3/82/ea/d382ea446532481f93ba45f1fc7ae4d9.jpg"
     },
     {
       title: "Disinfectant Sprays",
       description: "Powerful antibacterial sprays for sanitizing surfaces and eliminating germs. Ensure a healthy environment for your guests with regular disinfection of key areas.",
-      image: ""
+      image: "https://i.pinimg.com/1200x/c3/1b/01/c31b019508d2f1d8946232e99855271d.jpg"
     },
     {
       title: "Brooms & Sweepers",
       description: "Essential tools for keeping floors clean from debris and dirt. Quick and efficient cleanup solutions for both indoor and outdoor wedding venues.",
-      image: ""
+      image: "https://i.pinimg.com/1200x/fa/a9/0e/faa90efe576727c2a8c4a7c51f204ce1.jpg"
     },
     
   ];
