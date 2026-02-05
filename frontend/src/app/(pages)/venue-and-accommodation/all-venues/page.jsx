@@ -27,6 +27,15 @@ export default function AllVenuesPage() {
 
   // Category display names mapping
   const categoryDisplayNames = {
+    "banquet-venues": "Banquet Venues",
+    "cultural-traditional-venues": "Cultural & Traditional Venues",
+    
+"destination-wedding-venues": "Destination Wedding Venues",
+"modern-and-unique-venues": "Modern & Unique Venues",
+"mixed-venues": "Mixed Venues",
+"outdoor-venues": "Outdoor Venues",
+"religious-venues": "Religious Venues",
+
     "guest-houses": "Guest Houses",
     "homestays-and-rentals": "Homestays & Rentals",
     "hotel-accommodation": "Hotel Accommodation",
@@ -35,10 +44,76 @@ export default function AllVenuesPage() {
        "main-wedding-venues": "Main Wedding Venues",
        "pre-wedding-venues": "Pre-Wedding Venues", 
        "post-wedding-venues": "Post-Wedding Venues",
+
   };
 
   // Subcategory display names mapping
   const subCategoryDisplayNames = {
+"indoor-banquet-halls": "Indoor Banquet Halls",
+"luxury-banquets": "Luxury Banquets",
+"budget-banquet-halls": "Budget Banquet Halls",
+"ac-non-ac-banquets": "AC/Non-AC Banquets",
+"hotel-banquet-halls": "Hotel Banquet Halls",
+"community-center-banquets": "Community Center Banquets",
+"government-banquet-halls": "Government Banquet Halls",
+
+"haveli-style-venues": "Haveli-style Wedding Venues",
+"royal-palace-venues": "Royal Palace Venues",
+"heritage-properties": "Heritage Properties",
+"rajasthani-dharamshalas": "Rajasthani Dharamshalas",
+"kalyana-mandapam": "Kalyana Mandapam (South India)",
+"traditional-courtyard-venues": "Traditional Courtyard Venues",
+"cultural-wedding-halls": "Cultural Wedding Halls",
+
+// Destination Wedding Venues subcategories
+"beach-resorts": "Beach Resorts (Goa, Kerala)",
+"palace-hotels": "Palace Hotels (Rajasthan)",
+"hill-resorts": "Hill Resorts (Nainital, Manali, Mussoorie)",
+"desert-camps": "Desert Camps (Jaisalmer)",
+"luxury-international-resorts": "Luxury International Resorts (Dubai, Bali, Thailand)",
+
+// Cultural & Traditional Venues subcategories
+"haveli-style-venues": "Haveli-style Wedding Venues",
+"royal-palace-venues": "Royal Palace Venues",
+"heritage-properties": "Heritage Properties",
+"rajasthani-dharamshalas": "Rajasthani Dharamshalas",
+"kalyana-mandapam": "Kalyana Mandapam (South India)",
+"traditional-courtyard-venues": "Traditional Courtyard Venues",
+"cultural-wedding-halls": "Cultural Wedding Halls",
+
+// Modern & Unique Venues subcategories
+"rooftop-venues": "Rooftop Venues",
+"private-villas": "Private Villas",
+"glass-house-venues": "Glass House Venues",
+"riverfront-venues": "Riverfront Venues",
+"lakeside-venues": "Lakeside Venues",
+"boathouse-wedding-spaces": "Boathouse Wedding Spaces",
+"cruise-wedding-venue": "Cruise Wedding Venue",
+"barn-style-venues": "Barn-Style Venues",
+"factory-warehouse-venues": "Factory / Warehouse Converted Venues",
+"art-galleries": "Art Galleries",
+"sports-clubs-gymkhana": "Sports Clubs / Gymkhana",
+
+// Mixed Venues subcategories
+"lawn-banquet-combination": "Lawn + Banquet Combination",
+"hall-terrace-venue": "Hall + Terrace Venue",
+"hall-poolside-venue": "Hall + Poolside Venue",
+"lawn-pool-area": "Lawn + Pool Area",
+"tent-lawn-setup": "Tent + Lawn Setup",
+
+"open-lawns": "Open Lawns",
+"wedding-gardens": "Wedding Gardens",
+"farmhouses": "Farmhouses",
+"resort-lawns": "Resort Lawns",
+"club-lawns": "Club Lawns",
+"poolside-lawns": "Poolside Lawns",
+
+// Religious Venues subcategories
+"temple-mandapams": "Temples (Mandapam Wedding Halls)",
+"gurudwaras": "Gurudwaras (Anand Karaj)",
+"churches": "Churches",
+"nikah-halls": "Mosques (Nikah Halls)",
+
     // Guest Houses
     "family-guest-houses": "Family Guest Houses",
     "government-guest-houses": "Government Guest Houses",
@@ -120,7 +195,18 @@ export default function AllVenuesPage() {
     "dharamshalas": "https://i.pinimg.com/1200x/33/6a/f3/336af32ebc15345c997adfdf3932fb41.jpg",
     "budget-guest-houses": "https://i.pinimg.com/1200x/d2/91/63/d29163e94bf7966e319479ddb0eb9433.jpg",
     "luxury-guest-houses": "https://i.pinimg.com/736x/95/c3/d4/95c3d47c44f4c52f6528d6f9af552874.jpg",
+
+    "cultural-traditional-venues": "https://i.pinimg.com/736x/50/d3/0f/50d30fce47714a9ba7f5a3ea4b893e3f.jpg",
+"haveli-style-venues": "https://i.pinimg.com/1200x/43/30/34/43303435691d0b46485cb2a24fcf3af8.jpg",
+"royal-palace-venues": "https://i.pinimg.com/1200x/f1/1a/76/f11a7623f97d7748e47da44483a0dd00.jpg",
+"heritage-properties": "https://i.pinimg.com/736x/0c/89/00/0c89006e0ab83d3dbbea1ce919578cd4.jpg",
+"rajasthani-dharamshalas": "https://i.pinimg.com/736x/a1/a5/18/a1a5187030beb080da79a8f069938149.jpg",
+"kalyana-mandapam": "https://i.pinimg.com/1200x/15/34/60/153460b69b859ff62d91c941f4ba6074.jpg",
+"traditional-courtyard-venues": "https://i.pinimg.com/1200x/be/7c/f3/be7cf33ee4176aaacc2d4ac114e4a3b2.jpg",
+"cultural-wedding-halls": "https://i.pinimg.com/736x/b5/ba/30/b5ba30682346fed0ac1decf643aab118.jpg",
     
+
+
     // Homestays & Rentals
     "homestays-and-rentals": "https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg",
     "airbnb-style-apartments": "https://i.pinimg.com/1200x/ce/b6/fc/ceb6fc58f4cbf7ecd2fe0cadde9b6d37.jpg",
@@ -190,6 +276,65 @@ export default function AllVenuesPage() {
 "pagphera-ceremony-venues": "https://i.pinimg.com/1200x/ed/20/f4/ed20f47675d71323e0eb59499e48c1d7.jpg",
 "home-lawn-venues": "https://i.pinimg.com/736x/6a/a8/c4/6aa8c453890d963aafc60f1aa33a01bb.jpg",
 "dining-halls": "https://i.pinimg.com/736x/da/b3/d7/dab3d7ab973170b6e1d5598a6a30012b.jpg",
+
+"banquet-venues": "https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg",
+"indoor-banquet-halls": "https://i.pinimg.com/736x/b1/fd/97/b1fd971d0d42a56c183b6e17077211f3.jpg",
+"luxury-banquets": "https://i.pinimg.com/1200x/33/68/f9/3368f983eeafd946d980c91f15c51c20.jpg",
+"budget-banquet-halls": "https://i.pinimg.com/1200x/9f/40/f2/9f40f2eb683ab08a3df20f82387e5cfd.jpg",
+"ac-non-ac-banquets": "https://i.pinimg.com/1200x/52/28/25/522825bf91e8e09c848c9e8d783c9873.jpg",
+"hotel-banquet-halls": "https://i.pinimg.com/736x/ed/be/25/edbe25b54256439d445e5a879930ce55.jpg",
+"community-center-banquets": "https://i.pinimg.com/736x/60/bd/39/60bd394c51249e65e1b1616e1a88ff79.jpg",
+"government-banquet-halls": "https://i.pinimg.com/1200x/4c/f1/2e/4cf12e29898c1646395e1cb4971f304e.jpg",
+
+// Add to categoryImages object (around line 88):
+// Destination Wedding Venues
+"destination-wedding-venues": "https://i.pinimg.com/736x/59/47/75/59477586d4cd30d51871a454ab9db6b9.jpg",
+"beach-resorts": "https://i.pinimg.com/1200x/6e/97/8f/6e978fabb958c5c4fa891f2b82c53f49.jpg",
+"palace-hotels": "https://i.pinimg.com/736x/7a/e3/28/7ae3287d8c8e257abf52822e97ee46b2.jpg",
+"hill-resorts": "https://i.pinimg.com/736x/8e/7f/68/8e7f689b109986c05ada50c75d259482.jpg",
+"desert-camps": "https://i.pinimg.com/736x/35/c5/53/35c553dfa7441da5b7b837cf869b5a34.jpg",
+"luxury-international-resorts": "https://i.pinimg.com/736x/33/4a/4c/334a4c9c6760f1efaea3cd114256f1f2.jpg",
+
+// Modern & Unique Venues
+"modern-and-unique-venues": "https://i.pinimg.com/736x/fc/0e/51/fc0e51f4d1b3f8f6dd47dadb546e310a.jpg",
+"rooftop-venues": "https://i.pinimg.com/736x/e8/9c/e5/e89ce55c0ee2b9c4b22ffbefe4988187.jpg",
+"private-villas": "https://i.pinimg.com/736x/04/cb/42/04cb4237b77bdd0a196be6133718d7db.jpg",
+"glass-house-venues": "https://i.pinimg.com/736x/d9/54/27/d954277b1cbac2aaff149b04a3e596bf.jpg",
+"riverfront-venues": "https://i.pinimg.com/736x/0f/47/65/0f4765daac5d011252b1dc37c56ecfae.jpg",
+"lakeside-venues": "https://i.pinimg.com/1200x/d1/09/2b/d1092bdbb202db257c28a1cf5dcad628.jpg",
+"boathouse-wedding-spaces": "https://i.pinimg.com/736x/43/49/6e/43496e95584979a98dd6efc02fae06d9.jpg",
+"cruise-wedding-venue": "https://i.pinimg.com/1200x/6f/40/2d/6f402df5a1aae2d2c733de809caa5216.jpg",
+"barn-style-venues": "https://i.pinimg.com/736x/d6/a5/cd/d6a5cdad2540482b748a7bd06f2eb437.jpg",
+"factory-warehouse-venues": "https://i.pinimg.com/1200x/19/67/84/1967843497a6ff1110c53b90bf3198aa.jpg",
+"art-galleries": "https://i.pinimg.com/736x/0a/20/63/0a20635d9e9054fd4a789ee28a1a6082.jpg",
+"sports-clubs-gymkhana": "https://i.pinimg.com/736x/2a/c5/56/2ac5568540233b2dcc4f416577558299.jpg",
+
+// Mixed Venues
+"mixed-venues": "https://i.pinimg.com/736x/c5/90/b9/c590b97211860a2fb4fd973eacbf39e3.jpg",
+"lawn-banquet-combination": "https://i.pinimg.com/1200x/be/27/92/be279238db5476f932c612d7eb691fc7.jpg",
+"hall-terrace-venue": "https://i.pinimg.com/736x/c5/66/ef/c566ef7bfb27fb50a4eb35ec10a8c5bd.jpg",
+"hall-poolside-venue": "https://i.pinimg.com/736x/88/2d/52/882d52d3b25d66060361b1ee5ed30101.jpg",
+"lawn-pool-area": "https://i.pinimg.com/736x/9d/4d/11/9d4d119ef43ee1a73c1377c43d3c94bc.jpg",
+"tent-lawn-setup": "https://i.pinimg.com/736x/07/0f/67/070f67c54156c47225a6c473271077a8.jpg",
+
+
+// Add to categoryImages object (around line 88):
+// Outdoor Venues
+"outdoor-venues": "https://i.pinimg.com/1200x/bf/f3/4c/bff34c2085a150f82ded232ce33ccfb5.jpg",
+"open-lawns": "https://i.pinimg.com/1200x/36/7d/31/367d31111a8156af8fea237881740158.jpg",
+"wedding-gardens": "https://i.pinimg.com/1200x/4c/ca/aa/4ccaaae25d614c0e2a57c004b967ffdf.jpg",
+"farmhouses": "https://i.pinimg.com/736x/ce/44/b1/ce44b12fd02c9d179454844b494c06dc.jpg",
+"resort-lawns": "https://i.pinimg.com/1200x/ba/60/27/ba6027d1ddfa96036dbc5a403cfe5c82.jpg",
+"club-lawns": "https://i.pinimg.com/1200x/1c/a6/48/1ca648f55bf4609fbe5e1eaa7cad3a5d.jpg",
+"poolside-lawns": "https://i.pinimg.com/736x/b6/fe/db/b6fedbaa5fa68a79abb6f2c7dc61f1ad.jpg",
+
+// Religious Venues
+"religious-venues": "https://i.pinimg.com/736x/aa/ad/9c/aaad9c436f18f974a03924fa1d512b34.jpg",
+"temple-mandapams": "https://i.pinimg.com/736x/15/90/0c/15900c0080433a719e0eda92f62d9709.jpg",
+"gurudwaras": "https://i.pinimg.com/1200x/2f/e7/73/2fe77367a959fac7a53bd4adf1613faf.jpg",
+"churches": "https://i.pinimg.com/1200x/5b/11/ed/5b11ed7811dc7c518686d5aa71e6a1e8.jpg",
+"nikah-halls": "https://i.pinimg.com/1200x/4b/a1/ed/4ba1eda75452de467ccbec81d9e1549b.jpg",
+
   };
 
   const currentTitle = subCategory 
@@ -254,18 +399,47 @@ const handleBackClick = () => {
       router.push(`/wedding-venues/pre-wedding-venues`);
     } else if (category === "post-wedding-venues") {
       router.push(`/wedding-venues/post-wedding-venues`);
+    } else if (category === "banquet-venues") {
+      router.push(`/wedding-venues/banquet-venues`);
+    } else if (category === "cultural-traditional-venues") {
+      router.push(`/wedding-venues/cultural-traditional-venues`);
+    } else if (category === "destination-wedding-venues") {
+      router.push(`/wedding-venues/destination-wedding-venues`);
+    } else if (category === "mixed-venues") {
+      router.push(`/wedding-venues/mixed-venues`);
+    } else if (category === "modern-and-unique-venues") {
+      router.push(`/wedding-venues/modern-and-unique-venues`);
+    } else if (category === "outdoor-venues") {
+      router.push(`/wedding-venues/outdoor-venues`);
+    } else if (category === "religious-venues") {
+      router.push(`/wedding-venues/religious-venues`);
     } else {
       router.push(`/venue-and-accommodation/accommodation-types/${category}`);
     }
   } else {
     // If viewing category, go back to main page
-    if (category === "main-wedding-venues" || category === "pre-wedding-venues" || category === "post-wedding-venues") {
+    if (
+      category === "main-wedding-venues" || 
+      category === "pre-wedding-venues" || 
+      category === "post-wedding-venues" || 
+      category === "banquet-venues" || 
+      category === "cultural-traditional-venues" ||
+      category === "destination-wedding-venues" ||
+      category === "mixed-venues" ||
+      category === "modern-and-unique-venues" ||
+      category === "outdoor-venues" ||
+      category === "religious-venues"
+    ) {
       router.push("/wedding-venues");
     } else {
       router.push("/venue-and-accommodation");
     }
   }
 };
+
+
+
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -309,26 +483,40 @@ const handleBackClick = () => {
       <div className="bg-white/80 backdrop-blur-md border-b border-white/20 py-4 px-4">
         <div className="max-w-7xl mx-auto">
          <nav className="flex items-center space-x-2 text-sm">
-  <button
-    onClick={() => router.push("/")}
-    className="flex items-center gap-1 text-gray-700 hover:text-purple-500 transition-colors cursor-pointer font-medium"
-  >
-    <span className="w-4 h-4">🏠</span>
-    <span>Home</span>
-  </button>
-  <span className="text-gray-400">/</span>
- <button
+
+
+<button
   onClick={() => router.push(
-    category === "main-wedding-venues" || category === "pre-wedding-venues" || category === "post-wedding-venues"
+    category === "main-wedding-venues" || 
+    category === "pre-wedding-venues" || 
+    category === "post-wedding-venues" || 
+    category === "banquet-venues" || 
+    category === "cultural-traditional-venues" ||
+    category === "destination-wedding-venues" ||
+    category === "mixed-venues" ||
+    category === "modern-and-unique-venues" ||
+    category === "outdoor-venues" ||
+    category === "religious-venues"
       ? "/wedding-venues" 
       : "/venue-and-accommodation"
   )}
   className="text-gray-600 hover:text-purple-500 transition-colors cursor-pointer font-medium"
 >
-  {category === "main-wedding-venues" || category === "pre-wedding-venues" || category === "post-wedding-venues"
+  {category === "main-wedding-venues" || 
+   category === "pre-wedding-venues" || 
+   category === "post-wedding-venues" || 
+   category === "banquet-venues" || 
+   category === "cultural-traditional-venues" ||
+   category === "destination-wedding-venues" ||
+   category === "mixed-venues" ||
+   category === "modern-and-unique-venues" ||
+   category === "outdoor-venues" ||
+   category === "religious-venues"
     ? "Wedding Venues" 
     : "Venues & Accommodation"}
 </button>
+
+
   {category && (
     <>
       <span className="text-gray-400">/</span>
