@@ -50,31 +50,31 @@ export default function PlanningAndManagementTools() {
       title: "Seating Chart Designer",
       description: "Drag and drop guests into tables with interactive visual tools. Visualize your venue layout and create the perfect seating arrangement.",
       image: "https://i.pinimg.com/1200x/a2/58/93/a2589338b74e223b88ae73589ee2ccc2.jpg",
-      link: "/seating-chart-designer"
+      link: "/wedding-planning-tools/planning-and-management/Seating-Chart-Designer"
     },
     {
       title: "RSVP Tracking Tool",
       description: "Monitor guest confirmations in real-time. Send automated reminders, track meal choices, and communicate final numbers to vendors effortlessly.",
       image: "https://i.pinimg.com/1200x/c3/46/61/c346611a9859cf0f5224f498ac9a5ae1.jpg",
-      link: "/rsvp-tracking-tool"
+      link: "/wedding-planning-tools/planning-and-management/RSVP-tracking-tool"
     },
     {
       title: "Calendar Scheduler",
       description: "Coordinate appointments and important dates throughout your planning journey. Sync calendars with your partner and wedding party for seamless coordination.",
       image: "https://i.pinimg.com/1200x/66/81/0d/66810d3dea919815a11ef99649fba02f.jpg",
-      link: "/calendar-scheduler"
+      link: "/wedding-planning-tools/planning-and-management/Calendar-Scheduler"
     },
     {
       title: "Payment Tracker",
       description: "Track deposits, installments, and final payments to vendors. Set payment reminders and maintain a clear overview of outstanding balances.",
       image: "https://i.pinimg.com/736x/16/18/0f/16180f598dc535f01062bb16db038cc9.jpg",
-      link: "/payment-tracker"
+      link: "/wedding-planning-tools/planning-and-management/Payment-Tracker"
     },
     {
       title: "Contract Storage System",
       description: "Store all wedding contracts and documents in a secure, cloud-based location. Access paperwork anytime, anywhere with peace of mind.",
       image: "https://i.pinimg.com/1200x/11/1e/fb/111efb470cf544efb7bca779d2e5a880.jpg",
-      link: "/contract-storage-system"
+      link: "/wedding-planning-tools/planning-and-management/Contract-Storage-System"
     }
   ];
 

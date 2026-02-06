@@ -747,7 +747,7 @@ export default function BudgetCalculatorPage() {
 
     if (loading) {
         return (
-            <div className="min-h-screen bg-linear-to-br from-pink-50 via-white to-purple-50 flex items-center justify-center">
+            <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-purple-50 flex items-center justify-center">
                 <div className="text-center">
                     <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-pink-500 mx-auto"></div>
                     <p className="mt-4 text-gray-700 font-medium">Loading your wedding budget...</p>
@@ -760,9 +760,8 @@ export default function BudgetCalculatorPage() {
     const budgetUsagePercentage = (summary.totalSpent / summary.totalBudget) * 100;
 
     return (
-        <div className="min-h-screen bg-linear-to-br from-pink-50 via-white to-purple-50">
+        <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-purple-50">
             {/* Header Section */}
-<<<<<<< HEAD
             <div className="bg-gradient-to-r from-pink-500 to-purple-600 py-16 px-4 shadow-lg">
                 <div className="max-w-7xl mx-auto">
                     <div className="flex items-center justify-between mb-6">
@@ -789,16 +788,6 @@ export default function BudgetCalculatorPage() {
                             Plan your dream wedding with confidence. Track expenses, manage budgets, and stay organized every step of the way.
                         </p>
                     </div>
-=======
-            <div className="bg-linear-to-r from-pink-500 to-purple-600 py-16 px-4 shadow-lg">
-                <div className="max-w-7xl mx-auto text-center">
-                    <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                        Wedding Budget Calculator
-                    </h1>
-                    <p className="text-lg text-white/90 max-w-2xl mx-auto">
-                        Plan your dream wedding with confidence. Track expenses, manage budgets, and stay organized every step of the way.
-                    </p>
->>>>>>> af7ff6e5dbcf091913896a782634a9d1670184ff
                 </div>
             </div>
 
@@ -902,14 +891,14 @@ export default function BudgetCalculatorPage() {
                 </div>
 
                 {/* Tips Section */}
-                <div className="bg-linear-to-r from-pink-100 to-purple-100 p-8 rounded-xl border border-pink-200 shadow-sm">
+                <div className="bg-gradient-to-r from-pink-100 to-purple-100 p-8 rounded-xl border border-pink-200 shadow-sm">
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">
                         💡 Budget Planning Tips
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700">
                         <div className="flex items-start gap-3">
                             <div className="w-2 h-2 bg-pink-500 rounded-full mt-2"></div>
-                            <p>Set aside 10-15% of your budget for unexpected expense</p>
+                            <p>Set aside 10-15% of your budget for unexpected expenses</p>
                         </div>
                         <div className="flex items-start gap-3">
                             <div className="w-2 h-2 bg-pink-500 rounded-full mt-2"></div>
