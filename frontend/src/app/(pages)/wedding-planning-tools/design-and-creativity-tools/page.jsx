@@ -3,37 +3,37 @@ export default function DesignAndCreativityTools() {
     {
       title: "Canva",
       description: "User-friendly design platform perfect for creating wedding invitations, save-the-dates, menus, and signage. Access thousands of templates and customize them to match your wedding theme effortlessly.",
-      image: ""
+      image: "https://i.pinimg.com/736x/08/12/d0/0812d00683a7a9d123f4ac4eb84847d5.jpg"
     },
     {
       title: "Photoshop / Lightroom",
       description: "Professional photo editing software for perfecting engagement photos and creating stunning wedding graphics. Advanced tools for color correction, retouching, and creating custom designs.",
-      image: ""
+      image: "https://i.pinimg.com/1200x/64/7e/4d/647e4d15a48873106714bd74a099bc43.jpg"
     },
     {
       title: "Video Editing Tools",
       description: "Create engaging save-the-date videos, wedding teasers, and social media content. Edit footage with professional transitions, music, and effects to tell your love story beautifully.",
-      image: ""
+      image: "https://i.pinimg.com/736x/d5/2d/7c/d52d7cdd20736a01b0978e04ac276d39.jpg"
     },
     {
       title: "Moodboard Creator",
       description: "Visualize your wedding aesthetic by compiling colors, textures, flowers, and decor inspiration. Share your vision with vendors and ensure everyone understands your style perfectly.",
-      image: ""
+      image: "https://i.pinimg.com/1200x/13/6b/49/136b496ff92cfc189c6cb46a6110e505.jpg"
     },
     {
       title: "Floor Plan Layout Designer",
       description: "Design your venue layout with precision. Plan table arrangements, dance floor placement, and traffic flow to maximize space and create the perfect atmosphere for your celebration.",
-      image: ""
+      image: "https://i.pinimg.com/736x/16/b0/d1/16b0d11e2df173774dcc4de526d556bf.jpg"
     },
     {
       title: "Stage & Decor Visualization Software",
       description: "Bring your decor ideas to life with 3D visualization tools. Experiment with different stage setups, backdrops, and decoration arrangements before the big day.",
-      image: ""
+      image: "https://i.pinimg.com/1200x/f9/ce/c5/f9cec53621d6df51f9ee1e8526573378.jpg"
     },
     {
       title: "Color Palette Generator",
       description: "Create harmonious color schemes for your wedding theme. Generate complementary colors, test combinations, and ensure consistency across all wedding elements from invitations to decor.",
-      image: ""
+      image: "https://i.pinimg.com/1200x/ee/19/30/ee1930e0b0663a1537a80405ba325337.jpg"
     },
     
   ];

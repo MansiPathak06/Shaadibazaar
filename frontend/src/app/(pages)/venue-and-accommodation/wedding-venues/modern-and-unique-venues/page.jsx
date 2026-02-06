@@ -167,7 +167,7 @@ const ModernUniqueVenuesPage = () => {
             {heroItems.map((item, index) => (
               <Link
                 key={index}
-                href={`/wedding-venues/all-venues?category=modern-and-unique-venues&subCategory=${item.slug}`}
+                href={`/venue-and-accommodation/all-venues?category=modern-and-unique-venues&subCategory=${item.slug}`}
                 className="relative group"
               >
                 <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-xl relative">
@@ -250,7 +250,7 @@ const ModernUniqueVenuesPage = () => {
           {categories.map((category, index) => (
             <Link
               key={index}
-              href={`/wedding-venues/all-venues?category=modern-and-unique-venues&subCategory=${category.slug}`}
+               href={`/venue-and-accommodation/all-venues?category=modern-and-unique-venues&subCategory=${category.slug}`}
               className="group cursor-pointer"
             >
               <div className="bg-white rounded-lg shadow-md overflow-hidden transform group-hover:scale-105 transition-all duration-300 group-hover:shadow-lg">

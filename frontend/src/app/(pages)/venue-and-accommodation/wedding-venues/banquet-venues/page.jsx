@@ -94,9 +94,6 @@ const BanquetVenuesPage = () => {
   return (
     <div className="min-h-screen bg-linear-to-b from-purple-50 to-pink-50">
       {/* Hero Section */}
-
-      {/* Hero Section */}
-      {/* Hero Section */}
       <div className="relative h-[70vh] md:h-[77vh] overflow-hidden">
         {/* Background Image with Blur */}
         <div className="absolute inset-0">
@@ -119,8 +116,8 @@ const BanquetVenuesPage = () => {
           </h1>
           {/* Description */}
           <p className="text-sm md:text-base text-white/90 text-center max-w-xl mb-4 leading-relaxed">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
           {/* Features */}
           <div className="flex flex-wrap gap-3 justify-center mb-4">
@@ -138,10 +135,10 @@ const BanquetVenuesPage = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-3xl w-full">
             {heroItems.map((item, index) => (
               <Link
-                key={index}
-                href={`/wedding-venues/all-venues?category=banquet-venues&subCategory=${item.slug}`}
-                className="relative group"
-              >
+  key={index}
+  href={`/venue-and-accommodation/all-venues?category=banquet-venues&subCategory=${item.slug}`}
+  className="relative group"
+>
                 <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-xl relative">
                   <img
                     src={item.image}
@@ -219,35 +216,35 @@ const BanquetVenuesPage = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mb-10">
           {categories.map((category, index) => (
-          <Link
+            <Link
   key={index}
-  href={`/wedding-venues/banquet-venues/${category.slug}`}
+  href={`/venue-and-accommodation/all-venues?category=banquet-venues&subCategory=${category.slug}`}
   className="group cursor-pointer"
 >
               <div className="bg-white rounded-lg shadow-md overflow-hidden transform group-hover:scale-105 transition-all duration-300 group-hover:shadow-lg">
-    {/* Image */}
-    <div className="h-42 md:h-65 overflow-hidden relative">
-      <img
-        src={category.image}
-        alt={category.title}
-        className="w-full h-full object-cover"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-    </div>
+                {/* Image */}
+                <div className="h-42 md:h-65 overflow-hidden relative">
+                  <img
+                    src={category.image}
+                    alt={category.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
 
-                 {/* Text */}
-    <div className="p-3 text-center">
-      <h3 className="text-sm font-semibold text-gray-800 mb-1 capitalize">
-        {category.title}
-      </h3>
-      <span
-        className="text-[10px] px-3 py-1.5 rounded-full border transition-colors duration-300 inline-block group-hover:text-white"
-        style={{
-          borderColor: category.accent,
-          color: category.accent,
-          backgroundColor: "transparent",
-        }}
-      >
+                {/* Text */}
+                <div className="p-3 text-center">
+                  <h3 className="text-sm font-semibold text-gray-800 mb-1 capitalize">
+                    {category.title}
+                  </h3>
+                  <span
+                    className="text-[10px] px-3 py-1.5 rounded-full border transition-colors duration-300 inline-block group-hover:text-white"
+                    style={{
+                      borderColor: category.accent,
+                      color: category.accent,
+                      backgroundColor: "transparent",
+                    }}
+                  >
                     EXPLORE
                   </span>
                 </div>

@@ -51,7 +51,7 @@ const MuslimBridalWearPage = () => {
       accent: "#ff9800",
     },
     {
-      slug: "bridal-hijab-dupatta",
+      slug: "bridal-hijab",
       title: "Bridal Hijab / Dupatta",
       image: "https://i.pinimg.com/736x/a6/68/75/a66875f019d14c232236e05571991aca.jpg",
       accent: "#9c27b0",
