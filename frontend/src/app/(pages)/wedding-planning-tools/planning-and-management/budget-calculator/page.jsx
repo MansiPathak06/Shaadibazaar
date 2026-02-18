@@ -794,7 +794,7 @@ export default function BudgetCalculatorPage() {
     // ── Loading state
     if (loading && !dashboardData) {
         return (
-            <div className="min-h-screen bg-linear-to-br from-pink-50 via-white to-purple-50 flex items-center justify-center">
+            <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-purple-50 flex items-center justify-center">
                 <div className="text-center">
                     <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-pink-500 mx-auto"></div>
                     <p className="mt-4 text-gray-700 font-medium">Loading your wedding budget...</p>
@@ -814,7 +814,7 @@ export default function BudgetCalculatorPage() {
     const budgetUsagePercentage = (summary.totalSpent / summary.totalBudget) * 100;
 
     return (
-        <div className="min-h-screen bg-linear-to-br from-pink-50 via-white to-purple-50">
+        <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-purple-50">
             {/* Header Section */}
             <div className="bg-linear-to-r from-pink-500 to-purple-600 py-16 px-4 shadow-lg">
                 <div className="max-w-7xl mx-auto text-center">
