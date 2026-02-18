@@ -14,7 +14,9 @@ const orderRoutes = require('./routes/orderRoutes');
 const wishlistRoutes = require('./routes/wishlistRoutes');
 const serviceRoutes = require('./routes/serviceRoutes');
 const contactRoutes = require('./routes/contactRoutes');
-
+const budgetRoutes = require('./routes/budgetRoutes');
+const weddingRoutes = require('./routes/weddingRoutes');
+const weddingToolsRoutes = require('./routes/weddingToolsRoutes');
 
 
 
@@ -25,7 +27,10 @@ require('./config/facebookStrategy');
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: process.env.FRONTEND_URL || "http://localhost:3000",
+    credentials: true
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -43,18 +48,28 @@ app.use((req, res, next) => {
   next();
 });
 
+// Add this BEFORE all your app.use() route lines
+app.use((req, res, next) => {
+  console.log(`Incoming: ${req.method} ${req.originalUrl}`);
+  next();
+});
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/vendor', vendorRoutes);
 app.use('/api/admin', adminRoutes); // 👈 ADD THIS LINE
 app.use('/api/products', productRoutes);
 app.use('/api/vendor/products', vendorProductRoutes);
+app.use('/api/wedding', weddingRoutes);
+app.use('/api/wedding-tools', weddingToolsRoutes);
+console.log('✅ Wedding Tools routes registered at /api/wedding-tools');
 
 app.use('/api/orders', orderRoutes);
 app.use('/api/wishlist', wishlistRoutes);
 app.use('/api/service-vendors', require('./routes/serviceVendorRoutes'));
+app.use('/api/budget', budgetRoutes);
 app.use('/api', serviceRoutes);
 app.use('/api', contactRoutes);
+
 
 // Test route
 app.get('/', (req, res) => {
@@ -64,7 +79,9 @@ app.get('/', (req, res) => {
     endpoints: {
       auth: '/api/auth',
       vendor: '/api/vendor',
-      admin: '/api/admin' // 👈 ADD THIS
+      admin: '/api/admin' ,
+      budget: '/api/budget'// 👈 ADD THIS
+     
     }
   });
 });

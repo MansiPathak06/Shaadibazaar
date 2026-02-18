@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, useCallback } from 'react';
 import {
     Users, DollarSign, Plane, BarChart3,
     Calendar, CheckSquare, MessageSquare,
@@ -7,20 +7,62 @@ import {
     MoreVertical, Search, Filter,
     ArrowUpRight, ArrowDownRight,
     MapPin, Briefcase, CreditCard,
-    X, Check, ChevronRight, Heart, ArrowLeft, Home
+    X, Check, ChevronRight, Heart, ArrowLeft, Home, Loader2
 } from 'lucide-react';
 import {
     BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, Legend, ResponsiveContainer,
     PieChart, Pie, Cell, LineChart, Line, AreaChart, Area
 } from 'recharts';
 
-// --- UTILITY FUNCTIONS ---
+// ─────────────────────────────────────────────────────────────────
+// CONFIGURATION
+// ─────────────────────────────────────────────────────────────────
+
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+
+// Helper: get JWT token from localStorage
+const getToken = () => localStorage.getItem('token');
+
+// Helper: authenticated fetch wrapper
+const apiFetch = async (endpoint, options = {}) => {
+    const token = getToken();
+    const headers = {
+        'Content-Type': 'application/json',
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        ...options.headers,
+    };
+
+    const res = await fetch(`${API_BASE}${endpoint}`, {
+        ...options,
+        headers,
+        credentials: 'include', // also supports session-based auth
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+        // 401 = not logged in, redirect to login page
+        if (res.status === 401) {
+            window.location.href = '/login';
+            return null;
+        }
+        throw new Error(data.message || 'API request failed');
+    }
+
+    return data;
+};
+
+// ─────────────────────────────────────────────────────────────────
+// UTILITY
+// ─────────────────────────────────────────────────────────────────
 
 function cn(...classes) {
     return classes.filter(Boolean).join(' ');
 }
 
-// --- COMPONENTS ---
+// ─────────────────────────────────────────────────────────────────
+// UI COMPONENTS
+// ─────────────────────────────────────────────────────────────────
 
 const Card = ({ children, className }) => (
     <div className={cn("bg-white p-6 rounded-2xl shadow-sm border border-rose-100 hover:shadow-md transition-shadow", className)}>
@@ -43,7 +85,7 @@ const Badge = ({ children, variant = "default" }) => {
     );
 };
 
-const Button = ({ children, variant = "primary", className, ...props }) => {
+const Button = ({ children, variant = "primary", className, loading, ...props }) => {
     const variants = {
         primary: "bg-rose-500 hover:bg-rose-600 text-white shadow-lg shadow-rose-200",
         secondary: "bg-white border-rose-200 border text-rose-700 hover:bg-rose-50",
@@ -51,7 +93,12 @@ const Button = ({ children, variant = "primary", className, ...props }) => {
         success: "bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg shadow-emerald-200"
     };
     return (
-        <button className={cn("px-4 py-2 rounded-xl flex items-center gap-2 transition-all duration-200 font-medium", variants[variant], className)} {...props}>
+        <button
+            className={cn("px-4 py-2 rounded-xl flex items-center gap-2 transition-all duration-200 font-medium disabled:opacity-60 disabled:cursor-not-allowed", variants[variant], className)}
+            disabled={loading || props.disabled}
+            {...props}
+        >
+            {loading && <Loader2 size={16} className="animate-spin" />}
             {children}
         </button>
     );
@@ -67,8 +114,8 @@ const Input = ({ label, ...props }) => (
 const Modal = ({ isOpen, onClose, title, children }) => {
     if (!isOpen) return null;
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-rose-900/20 backdrop-blur-sm animate-in fade-in duration-200">
-            <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md mx-4 overflow-hidden animate-in zoom-in-95 duration-200 border border-rose-100">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-rose-900/20 backdrop-blur-sm">
+            <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md mx-4 overflow-hidden border border-rose-100">
                 <div className="flex justify-between items-center p-4 border-b border-rose-50">
                     <h3 className="font-semibold text-lg text-gray-800">{title}</h3>
                     <button onClick={onClose} className="text-gray-400 hover:text-rose-500"><X size={20} /></button>
@@ -79,26 +126,43 @@ const Modal = ({ isOpen, onClose, title, children }) => {
     );
 };
 
-// --- MODULES ---
+// Error toast component
+const Toast = ({ message, type = 'error', onClose }) => (
+    <div className={cn(
+        "fixed bottom-6 right-6 z-50 flex items-center gap-3 px-5 py-3 rounded-2xl shadow-xl text-sm font-medium",
+        type === 'error' ? 'bg-red-500 text-white' : 'bg-emerald-500 text-white'
+    )}>
+        {message}
+        <button onClick={onClose}><X size={16} /></button>
+    </div>
+);
 
-const TeamModule = ({ members, tasks, onAddMember, onAddTask, onToggleTaskStatus }) => {
+// ─────────────────────────────────────────────────────────────────
+// TEAM MODULE
+// ─────────────────────────────────────────────────────────────────
+
+const TeamModule = ({ members, tasks, onAddMember, onAddTask, onToggleTaskStatus, loading }) => {
     const [isMemberModalOpen, setMemberModalOpen] = useState(false);
     const [isTaskModalOpen, setTaskModalOpen] = useState(false);
+    const [submitting, setSubmitting] = useState(false);
 
-    // Forms state
     const [newMember, setNewMember] = useState({ name: '', role: 'Staff' });
     const [newTask, setNewTask] = useState({ title: '', assignee: '', priority: 'Medium', due: '' });
 
-    const handleAddMember = (e) => {
+    const handleAddMember = async (e) => {
         e.preventDefault();
-        onAddMember({ ...newMember, id: Date.now(), status: 'offline', avatar: newMember.name.substring(0, 2).toUpperCase() });
+        setSubmitting(true);
+        await onAddMember(newMember);
+        setSubmitting(false);
         setMemberModalOpen(false);
         setNewMember({ name: '', role: 'Staff' });
     };
 
-    const handleAddTask = (e) => {
+    const handleAddTask = async (e) => {
         e.preventDefault();
-        onAddTask({ ...newTask, id: Date.now(), status: 'Pending' });
+        setSubmitting(true);
+        await onAddTask(newTask);
+        setSubmitting(false);
         setTaskModalOpen(false);
         setNewTask({ title: '', assignee: '', priority: 'Medium', due: '' });
     };
@@ -122,33 +186,37 @@ const TeamModule = ({ members, tasks, onAddMember, onAddTask, onToggleTaskStatus
                     <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
                         <Users size={20} className="text-rose-500" /> Active Members
                     </h3>
-                    <div className="space-y-4 max-h-[500px] overflow-y-auto pr-2">
-                        {members.length > 0 ? members.map(member => (
-                            <div key={member.id} className="flex items-center justify-between p-3 hover:bg-rose-50 rounded-xl transition-colors cursor-pointer group border border-transparent hover:border-rose-100">
-                                <div className="flex items-center gap-3">
-                                    <div className="relative">
-                                        <div className="w-10 h-10 bg-linear-to-br from-rose-400 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md shadow-rose-200">
-                                            {member.avatar}
+                    {loading ? (
+                        <div className="flex justify-center py-8"><Loader2 className="animate-spin text-rose-400" /></div>
+                    ) : (
+                        <div className="space-y-4 max-h-[500px] overflow-y-auto pr-2">
+                            {members.length > 0 ? members.map(member => (
+                                <div key={member.id} className="flex items-center justify-between p-3 hover:bg-rose-50 rounded-xl transition-colors cursor-pointer group border border-transparent hover:border-rose-100">
+                                    <div className="flex items-center gap-3">
+                                        <div className="relative">
+                                            <div className="w-10 h-10 bg-gradient-to-br from-rose-400 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md shadow-rose-200">
+                                                {member.avatar}
+                                            </div>
+                                            <span className={cn("absolute bottom-0 right-0 w-3 h-3 border-2 border-white rounded-full",
+                                                member.status === 'online' ? 'bg-green-500' :
+                                                    member.status === 'busy' ? 'bg-red-500' : 'bg-gray-400'
+                                            )} />
                                         </div>
-                                        <span className={cn("absolute bottom-0 right-0 w-3 h-3 border-2 border-white rounded-full",
-                                            member.status === 'online' ? 'bg-green-500' :
-                                                member.status === 'busy' ? 'bg-red-500' : 'bg-gray-400'
-                                        )} />
+                                        <div>
+                                            <p className="font-medium text-sm text-gray-900">{member.name}</p>
+                                            <p className="text-xs text-gray-500">{member.role}</p>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <p className="font-medium text-sm text-gray-900">{member.name}</p>
-                                        <p className="text-xs text-gray-500">{member.role}</p>
-                                    </div>
+                                    <MessageSquare size={16} className="text-gray-300 group-hover:text-rose-500 transition-colors" />
                                 </div>
-                                <MessageSquare size={16} className="text-gray-300 group-hover:text-rose-500 transition-colors" />
-                            </div>
-                        )) : (
-                            <div className="text-center py-6 text-gray-400 border border-dashed border-rose-200 rounded-xl bg-rose-50/50">
-                                <Users className="mx-auto mb-2 opacity-50 text-rose-300" size={24} />
-                                <p>No active members</p>
-                            </div>
-                        )}
-                    </div>
+                            )) : (
+                                <div className="text-center py-6 text-gray-400 border border-dashed border-rose-200 rounded-xl bg-rose-50/50">
+                                    <Users className="mx-auto mb-2 opacity-50 text-rose-300" size={24} />
+                                    <p>No active members</p>
+                                </div>
+                            )}
+                        </div>
+                    )}
                 </Card>
 
                 {/* Task Board */}
@@ -156,35 +224,37 @@ const TeamModule = ({ members, tasks, onAddMember, onAddTask, onToggleTaskStatus
                     <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
                         <CheckSquare size={20} className="text-rose-500" /> Current Tasks
                     </h3>
-                    <div className="space-y-3 max-h-[500px] overflow-y-auto pr-2">
-                        {tasks.length > 0 ? tasks.map(task => (
-                            <div key={task.id} onClick={() => onToggleTaskStatus(task.id)} className="flex items-center justify-between p-4 border border-rose-100 rounded-xl hover:border-rose-200 transition-all bg-white hover:shadow-sm hover:shadow-rose-100 cursor-pointer select-none">
-                                <div className="flex items-start gap-4">
-                                    <div className={cn("mt-1.5 w-2.5 h-2.5 rounded-full shrink-0",
-                                        task.priority === 'Critical' ? 'bg-red-500' :
-                                            task.priority === 'High' ? 'bg-orange-400' : 'bg-blue-400'
-                                    )} />
-                                    <div>
-                                        <p className={cn("font-medium text-sm text-gray-900 transition-all", task.status === 'Completed' && "line-through text-gray-400")}>{task.title}</p>
-                                        <div className="flex items-center gap-2 mt-1.5">
-                                            <span className="text-xs text-gray-400 flex items-center gap-1">
-                                                <Calendar size={12} /> {task.due}
-                                            </span>
-                                            {task.assignee && <span className="text-xs bg-rose-50 px-2 py-0.5 rounded-md text-rose-600 font-medium">{task.assignee}</span>}
+                    {loading ? (
+                        <div className="flex justify-center py-8"><Loader2 className="animate-spin text-rose-400" /></div>
+                    ) : (
+                        <div className="space-y-3 max-h-[500px] overflow-y-auto pr-2">
+                            {tasks.length > 0 ? tasks.map(task => (
+                                <div key={task.id} onClick={() => onToggleTaskStatus(task.id)} className="flex items-center justify-between p-4 border border-rose-100 rounded-xl hover:border-rose-200 transition-all bg-white hover:shadow-sm hover:shadow-rose-100 cursor-pointer select-none">
+                                    <div className="flex items-start gap-4">
+                                        <div className={cn("mt-1.5 w-2.5 h-2.5 rounded-full shrink-0",
+                                            task.priority === 'Critical' ? 'bg-red-500' :
+                                                task.priority === 'High' ? 'bg-orange-400' : 'bg-blue-400'
+                                        )} />
+                                        <div>
+                                            <p className={cn("font-medium text-sm text-gray-900 transition-all", task.status === 'Completed' && "line-through text-gray-400")}>{task.title}</p>
+                                            <div className="flex items-center gap-2 mt-1.5">
+                                                {task.due && <span className="text-xs text-gray-400 flex items-center gap-1"><Calendar size={12} /> {task.due}</span>}
+                                                {task.assignee && <span className="text-xs bg-rose-50 px-2 py-0.5 rounded-md text-rose-600 font-medium">{task.assignee}</span>}
+                                            </div>
                                         </div>
                                     </div>
+                                    <Badge variant={task.status === 'Completed' ? 'success' : task.status === 'In Progress' ? 'primary' : 'default'}>
+                                        {task.status}
+                                    </Badge>
                                 </div>
-                                <Badge variant={task.status === 'Completed' ? 'success' : task.status === 'In Progress' ? 'primary' : 'default'}>
-                                    {task.status}
-                                </Badge>
-                            </div>
-                        )) : (
-                            <div className="text-center py-8 text-gray-400 border border-dashed border-rose-200 rounded-xl bg-rose-50/50">
-                                <CheckSquare className="mx-auto mb-2 opacity-50 text-rose-300" size={24} />
-                                <p>No tasks found for this event</p>
-                            </div>
-                        )}
-                    </div>
+                            )) : (
+                                <div className="text-center py-8 text-gray-400 border border-dashed border-rose-200 rounded-xl bg-rose-50/50">
+                                    <CheckSquare className="mx-auto mb-2 opacity-50 text-rose-300" size={24} />
+                                    <p>No tasks found for this event</p>
+                                </div>
+                            )}
+                        </div>
+                    )}
                 </Card>
             </div>
 
@@ -193,7 +263,7 @@ const TeamModule = ({ members, tasks, onAddMember, onAddTask, onToggleTaskStatus
                 <form onSubmit={handleAddMember} className="space-y-4">
                     <Input label="Name" value={newMember.name} onChange={e => setNewMember({ ...newMember, name: e.target.value })} required placeholder="e.g. John Doe" />
                     <Input label="Role" value={newMember.role} onChange={e => setNewMember({ ...newMember, role: e.target.value })} required placeholder="e.g. Planner" />
-                    <Button type="submit" className="w-full justify-center">Add Member</Button>
+                    <Button type="submit" loading={submitting} className="w-full justify-center">Add Member</Button>
                 </form>
             </Modal>
 
@@ -221,19 +291,24 @@ const TeamModule = ({ members, tasks, onAddMember, onAddTask, onToggleTaskStatus
                             </select>
                         </div>
                     </div>
-                    <Button type="submit" className="w-full justify-center">Create Task</Button>
+                    <Button type="submit" loading={submitting} className="w-full justify-center">Create Task</Button>
                 </form>
             </Modal>
         </div>
     );
 };
 
-const BudgetModule = ({ expenses, totalBudget, onAddExpense }) => {
+// ─────────────────────────────────────────────────────────────────
+// BUDGET MODULE
+// ─────────────────────────────────────────────────────────────────
+
+const BudgetModule = ({ expenses, totalBudget, onAddExpense, loading }) => {
     const [isExpenseModalOpen, setExpenseModalOpen] = useState(false);
     const [newExpense, setNewExpense] = useState({ category: 'Venue', amount: '', vendor: '' });
+    const [submitting, setSubmitting] = useState(false);
 
-    // Computed Stats
     const totalSpent = useMemo(() => expenses.reduce((acc, curr) => acc + Number(curr.amount), 0), [expenses]);
+
     const budgetData = useMemo(() => {
         const categories = {};
         expenses.forEach(exp => {
@@ -247,10 +322,11 @@ const BudgetModule = ({ expenses, totalBudget, onAddExpense }) => {
         }));
     }, [expenses]);
 
-
-    const handleAddExpense = (e) => {
+    const handleAddExpense = async (e) => {
         e.preventDefault();
-        onAddExpense({ ...newExpense, id: Date.now(), date: new Date().toLocaleDateString() });
+        setSubmitting(true);
+        await onAddExpense(newExpense);
+        setSubmitting(false);
         setExpenseModalOpen(false);
         setNewExpense({ category: 'Venue', amount: '', vendor: '' });
     };
@@ -270,7 +346,6 @@ const BudgetModule = ({ expenses, totalBudget, onAddExpense }) => {
                 </div>
             </div>
 
-            {/* Top Stats */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <Card className="p-4">
                     <p className="text-sm text-gray-500">Total Budget</p>
@@ -307,11 +382,12 @@ const BudgetModule = ({ expenses, totalBudget, onAddExpense }) => {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                {/* Chart */}
                 <Card className="col-span-2">
                     <h3 className="font-semibold text-lg mb-6">Budget Breakdown</h3>
                     <div className="h-80 w-full flex items-center justify-center">
-                        {budgetData.length > 0 ? (
+                        {loading ? (
+                            <Loader2 className="animate-spin text-rose-400" />
+                        ) : budgetData.length > 0 ? (
                             <ResponsiveContainer width="100%" height="100%">
                                 <BarChart data={budgetData}>
                                     <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#fae8ff" />
@@ -329,7 +405,6 @@ const BudgetModule = ({ expenses, totalBudget, onAddExpense }) => {
                     </div>
                 </Card>
 
-                {/* Recent Transactions */}
                 <Card className="col-span-1">
                     <h3 className="font-semibold text-lg mb-4">Recent Transactions</h3>
                     <div className="space-y-4 max-h-[350px] overflow-y-auto pr-2">
@@ -371,30 +446,39 @@ const BudgetModule = ({ expenses, totalBudget, onAddExpense }) => {
                         <Input type="number" label="Amount ($)" value={newExpense.amount} onChange={e => setNewExpense({ ...newExpense, amount: e.target.value })} required min="0" />
                     </div>
                     <Input label="Vendor / Description" value={newExpense.vendor} onChange={e => setNewExpense({ ...newExpense, vendor: e.target.value })} placeholder="e.g. Grand Plaza" required />
-                    <Button type="submit" variant="success" className="w-full justify-center">Add Expense</Button>
+                    <Button type="submit" variant="success" loading={submitting} className="w-full justify-center">Add Expense</Button>
                 </form>
             </Modal>
         </div>
     );
 };
 
-const VendorModule = ({ vendors, travelDetails, onAddVendor, onAddTravel }) => {
+// ─────────────────────────────────────────────────────────────────
+// VENDOR MODULE
+// ─────────────────────────────────────────────────────────────────
+
+const VendorModule = ({ vendors, travelDetails, onAddVendor, onAddTravel, loading }) => {
     const [isVendorModalOpen, setVendorModalOpen] = useState(false);
     const [isTravelModalOpen, setTravelModalOpen] = useState(false);
+    const [submitting, setSubmitting] = useState(false);
 
     const [newVendor, setNewVendor] = useState({ name: '', type: 'Venue', status: 'Contracted' });
     const [newTravel, setNewTravel] = useState({ guest: '', mode: 'Flight', time: '', status: 'Scheduled' });
 
-    const handleAddVendor = (e) => {
+    const handleAddVendor = async (e) => {
         e.preventDefault();
-        onAddVendor({ ...newVendor, id: Date.now() });
+        setSubmitting(true);
+        await onAddVendor(newVendor);
+        setSubmitting(false);
         setVendorModalOpen(false);
         setNewVendor({ name: '', type: 'Venue', status: 'Contracted' });
     };
 
-    const handleAddTravel = (e) => {
+    const handleAddTravel = async (e) => {
         e.preventDefault();
-        onAddTravel({ ...newTravel, id: Date.now() });
+        setSubmitting(true);
+        await onAddTravel(newTravel);
+        setSubmitting(false);
         setTravelModalOpen(false);
         setNewTravel({ guest: '', mode: 'Flight', time: '', status: 'Scheduled' });
     };
@@ -413,47 +497,46 @@ const VendorModule = ({ vendors, travelDetails, onAddVendor, onAddTravel }) => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Vendors */}
                 <Card>
                     <div className="flex justify-between items-center mb-4">
                         <h3 className="font-semibold text-lg flex items-center gap-2">
                             <Briefcase size={20} className="text-pink-600" /> Vendors
                         </h3>
-                        <button className="text-xs text-pink-600 font-medium hover:underline">View All</button>
                     </div>
-                    <div className="overflow-x-auto max-h-[400px]">
-                        <table className="w-full text-sm text-left">
-                            <thead className="bg-rose-50/50 text-gray-500">
-                                <tr>
-                                    <th className="px-3 py-3 rounded-l-lg">Name</th>
-                                    <th className="px-3 py-3">Category</th>
-                                    <th className="px-3 py-3 text-right rounded-r-lg">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody className="divide-y divide-rose-50">
-                                {vendors.length > 0 ? vendors.map(vendor => (
-                                    <tr key={vendor.id} className="hover:bg-rose-50/30">
-                                        <td className="px-3 py-3 font-medium text-gray-900">{vendor.name}</td>
-                                        <td className="px-3 py-3 text-gray-500">{vendor.type}</td>
-                                        <td className="px-3 py-3 text-right">
-                                            <Badge variant={vendor.status === 'Paid' ? 'success' : vendor.status === 'Contracted' ? 'primary' : 'warning'}>
-                                                {vendor.status}
-                                            </Badge>
-                                        </td>
-                                    </tr>
-                                )) : (
+                    {loading ? (
+                        <div className="flex justify-center py-8"><Loader2 className="animate-spin text-rose-400" /></div>
+                    ) : (
+                        <div className="overflow-x-auto max-h-[400px]">
+                            <table className="w-full text-sm text-left">
+                                <thead className="bg-rose-50/50 text-gray-500">
                                     <tr>
-                                        <td colSpan={3} className="px-3 py-8 text-center text-gray-400">
-                                            No vendors found
-                                        </td>
+                                        <th className="px-3 py-3 rounded-l-lg">Name</th>
+                                        <th className="px-3 py-3">Category</th>
+                                        <th className="px-3 py-3 text-right rounded-r-lg">Status</th>
                                     </tr>
-                                )}
-                            </tbody>
-                        </table>
-                    </div>
+                                </thead>
+                                <tbody className="divide-y divide-rose-50">
+                                    {vendors.length > 0 ? vendors.map(vendor => (
+                                        <tr key={vendor.id} className="hover:bg-rose-50/30">
+                                            <td className="px-3 py-3 font-medium text-gray-900">{vendor.name}</td>
+                                            <td className="px-3 py-3 text-gray-500">{vendor.type}</td>
+                                            <td className="px-3 py-3 text-right">
+                                                <Badge variant={vendor.status === 'Paid' ? 'success' : vendor.status === 'Contracted' ? 'primary' : 'warning'}>
+                                                    {vendor.status}
+                                                </Badge>
+                                            </td>
+                                        </tr>
+                                    )) : (
+                                        <tr>
+                                            <td colSpan={3} className="px-3 py-8 text-center text-gray-400">No vendors found</td>
+                                        </tr>
+                                    )}
+                                </tbody>
+                            </table>
+                        </div>
+                    )}
                 </Card>
 
-                {/* Travel Logistics */}
                 <Card>
                     <div className="flex justify-between items-center mb-4">
                         <h3 className="font-semibold text-lg flex items-center gap-2">
@@ -461,30 +544,33 @@ const VendorModule = ({ vendors, travelDetails, onAddVendor, onAddTravel }) => {
                         </h3>
                         <Badge variant="primary">{travelDetails.length} Bookings</Badge>
                     </div>
-                    <div className="space-y-4 max-h-[400px] overflow-y-auto pr-2">
-                        {travelDetails.length > 0 ? travelDetails.map(trip => (
-                            <div key={trip.id} className="flex items-center justify-between p-3 border border-rose-100 rounded-xl bg-rose-50/20">
-                                <div>
-                                    <p className="font-medium text-gray-900">{trip.guest}</p>
-                                    <div className="flex items-center gap-2 text-xs text-gray-500 mt-1">
-                                        <span className="flex items-center gap-1"><Plane size={12} /> {trip.mode}</span>
-                                        <span>•</span>
-                                        <span>{trip.time}</span>
+                    {loading ? (
+                        <div className="flex justify-center py-8"><Loader2 className="animate-spin text-rose-400" /></div>
+                    ) : (
+                        <div className="space-y-4 max-h-[400px] overflow-y-auto pr-2">
+                            {travelDetails.length > 0 ? travelDetails.map(trip => (
+                                <div key={trip.id} className="flex items-center justify-between p-3 border border-rose-100 rounded-xl bg-rose-50/20">
+                                    <div>
+                                        <p className="font-medium text-gray-900">{trip.guest}</p>
+                                        <div className="flex items-center gap-2 text-xs text-gray-500 mt-1">
+                                            <span className="flex items-center gap-1"><Plane size={12} /> {trip.mode}</span>
+                                            <span>•</span>
+                                            <span>{trip.time}</span>
+                                        </div>
                                     </div>
+                                    <Badge variant="default">{trip.status}</Badge>
                                 </div>
-                                <Badge variant="default">{trip.status}</Badge>
-                            </div>
-                        )) : (
-                            <div className="flex flex-col items-center justify-center py-8 text-gray-400 bg-rose-50/20 rounded-xl border border-rose-100 border-dashed">
-                                <Plane className="opacity-50 mb-2 text-rose-300" size={24} />
-                                <p className="text-sm">No impending arrivals</p>
-                            </div>
-                        )}
-                    </div>
+                            )) : (
+                                <div className="flex flex-col items-center justify-center py-8 text-gray-400 bg-rose-50/20 rounded-xl border border-rose-100 border-dashed">
+                                    <Plane className="opacity-50 mb-2 text-rose-300" size={24} />
+                                    <p className="text-sm">No impending arrivals</p>
+                                </div>
+                            )}
+                        </div>
+                    )}
                 </Card>
             </div>
 
-            {/* Modals */}
             <Modal isOpen={isVendorModalOpen} onClose={() => setVendorModalOpen(false)} title="Add Vendor">
                 <form onSubmit={handleAddVendor} className="space-y-4">
                     <Input label="Business Name" value={newVendor.name} onChange={e => setNewVendor({ ...newVendor, name: e.target.value })} required placeholder="e.g. Royal Catering" />
@@ -498,7 +584,7 @@ const VendorModule = ({ vendors, travelDetails, onAddVendor, onAddTravel }) => {
                             <option>Photo/Video</option>
                         </select>
                     </div>
-                    <Button type="submit" className="w-full justify-center">Add Vendor</Button>
+                    <Button type="submit" loading={submitting} className="w-full justify-center">Add Vendor</Button>
                 </form>
             </Modal>
 
@@ -517,15 +603,18 @@ const VendorModule = ({ vendors, travelDetails, onAddVendor, onAddTravel }) => {
                             </select>
                         </div>
                     </div>
-                    <Button type="submit" className="w-full justify-center">Save Logistics</Button>
+                    <Button type="submit" loading={submitting} className="w-full justify-center">Save Logistics</Button>
                 </form>
             </Modal>
-
         </div>
     );
 };
 
-const AnalyticsModule = ({ expenses, expensesByDate }) => (
+// ─────────────────────────────────────────────────────────────────
+// ANALYTICS MODULE
+// ─────────────────────────────────────────────────────────────────
+
+const AnalyticsModule = ({ expenses, expensesByDate, loading }) => (
     <div className="space-y-6 animate-in fade-in duration-500">
         <div className="flex justify-between items-center">
             <div>
@@ -541,14 +630,16 @@ const AnalyticsModule = ({ expenses, expensesByDate }) => (
             <Card>
                 <h3 className="font-semibold text-lg mb-6">Spending Over Time</h3>
                 <div className="h-64 flex items-center justify-center">
-                    {expensesByDate.length > 0 ? (
+                    {loading ? (
+                        <Loader2 className="animate-spin text-rose-400" />
+                    ) : expensesByDate.length > 0 ? (
                         <ResponsiveContainer width="100%" height="100%">
                             <AreaChart data={expensesByDate}>
                                 <defs>
-                                    <linearlinear id="colorCost" x1="0" y1="0" x2="0" y2="1">
+                                    <linearGradient id="colorCost" x1="0" y1="0" x2="0" y2="1">
                                         <stop offset="5%" stopColor="#f43f5e" stopOpacity={0.8} />
                                         <stop offset="95%" stopColor="#f43f5e" stopOpacity={0} />
-                                    </linearlinear>
+                                    </linearGradient>
                                 </defs>
                                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#fae8ff" />
                                 <XAxis dataKey="date" axisLine={false} tickLine={false} />
@@ -593,149 +684,290 @@ const AnalyticsModule = ({ expenses, expensesByDate }) => (
                         </div>
                     </div>
                 </div>
-                <div className="mt-4 flex flex-wrap justify-center gap-2">
-                    {/* Legend could go here */}
-                </div>
             </Card>
         </div>
     </div>
 );
 
+// ─────────────────────────────────────────────────────────────────
+// ONBOARDING
+// ─────────────────────────────────────────────────────────────────
+
 const Onboarding = ({ onComplete }) => {
-    const [step, setStep] = useState(1);
     const [data, setData] = useState({ name: '', destination: '', guests: '', budget: '' });
+    const [submitting, setSubmitting] = useState(false);
+    const [error, setError] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        onComplete(data);
-    };
-
-    const handleGoBack = () => {
-        if (window.history.length > 1) {
-            window.history.back();
-        } else {
-            window.location.href = '/';
+        setSubmitting(true);
+        setError('');
+        try {
+            const result = await apiFetch('/wedding-tools/event', {
+                method: 'POST',
+                body: JSON.stringify(data),
+            });
+            if (result?.success) {
+                onComplete(result.data);
+            }
+        } catch (err) {
+            setError(err.message || 'Failed to save wedding details.');
+        } finally {
+            setSubmitting(false);
         }
     };
 
     return (
-        <div className="fixed inset-0 z-50 bg-rose-50 flex items-center justify-center p-4 bg-[url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80')] bg-cover bg-center">
+        <div className="fixed inset-0 z-50 bg-rose-50 flex items-center justify-center p-4 bg-cover bg-center"
+            style={{ backgroundImage: "url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80')" }}>
             <div className="absolute inset-0 bg-white/90 backdrop-blur-sm"></div>
-            <div className="bg-white max-w-lg w-full rounded-2xl shadow-xl p-8 animate-in zoom-in-95 duration-500 relative z-10 border border-rose-100">
-                {/* Back Button */}
-                <button
-                    onClick={handleGoBack}
-                    className="absolute top-6 left-6 flex items-center gap-2 px-3 py-1.5 text-sm bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg transition-all duration-200"
-                >
-                    <ArrowLeft size={16} />
-                    <span>Back</span>
+            <div className="bg-white max-w-lg w-full rounded-2xl shadow-xl p-8 relative z-10 border border-rose-100">
+                <button onClick={() => window.history.back()} className="absolute top-6 left-6 flex items-center gap-2 px-3 py-1.5 text-sm bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg transition-all">
+                    <ArrowLeft size={16} /> Back
                 </button>
-                
+
                 <div className="text-center mb-8">
-                    <div className="w-12 h-12 bg-rose-500 rounded-xl flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl shadow-lg shadow-rose-200">
+                    <div className="w-12 h-12 bg-rose-500 rounded-xl flex items-center justify-center mx-auto mb-4 text-white shadow-lg shadow-rose-200">
                         <Heart fill="currentColor" size={24} />
                     </div>
                     <h1 className="text-2xl font-bold text-gray-900">Welcome to Shadi Bazar</h1>
                     <p className="text-gray-500">Plan your dream wedding with love & perfection.</p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
-                    <Input
-                        label="Event Name"
-                        placeholder="e.g. Rahul & Priya's Wedding"
-                        value={data.name}
-                        onChange={e => setData({ ...data, name: e.target.value })}
-                        required
-                        autoFocus
-                    />
-                    <Input
-                        label="Destination / Location"
-                        placeholder="e.g. Udaipur, Rajasthan"
-                        value={data.destination}
-                        onChange={e => setData({ ...data, destination: e.target.value })}
-                        required
-                    />
-                    <div className="grid grid-cols-2 gap-4">
-                        <Input
-                            type="number"
-                            label="Est. Guests"
-                            placeholder="500"
-                            value={data.guests}
-                            onChange={e => setData({ ...data, guests: e.target.value })}
-                            required
-                        />
-                        <Input
-                            type="number"
-                            label="Total Budget ($)"
-                            placeholder="50000"
-                            value={data.budget}
-                            onChange={e => setData({ ...data, budget: e.target.value })}
-                            required
-                        />
-                    </div>
+                {error && (
+                    <div className="mb-4 p-3 bg-red-50 border border-red-100 rounded-xl text-sm text-red-600">{error}</div>
+                )}
 
-                    <Button type="submit" size="lg" className="w-full justify-center py-3 text-lg">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                    <Input label="Event Name" placeholder="e.g. Rahul & Priya's Wedding" value={data.name} onChange={e => setData({ ...data, name: e.target.value })} required autoFocus />
+                    <Input label="Destination / Location" placeholder="e.g. Udaipur, Rajasthan" value={data.destination} onChange={e => setData({ ...data, destination: e.target.value })} required />
+                    <div className="grid grid-cols-2 gap-4">
+                        <Input type="number" label="Est. Guests" placeholder="500" value={data.guests} onChange={e => setData({ ...data, guests: e.target.value })} required />
+                        <Input type="number" label="Total Budget ($)" placeholder="50000" value={data.budget} onChange={e => setData({ ...data, budget: e.target.value })} required />
+                    </div>
+                    <Button type="submit" loading={submitting} className="w-full justify-center py-3 text-lg">
                         Start Planning <ChevronRight size={20} />
                     </Button>
                 </form>
             </div>
         </div>
     );
-}
+};
 
-// --- MAIN LAYOUT ---
+// ─────────────────────────────────────────────────────────────────
+// MAIN APP
+// ─────────────────────────────────────────────────────────────────
 
 export default function EventManagementSoftware() {
     const [activeTab, setActiveTab] = useState('team');
     const [isSidebarOpen, setSidebarOpen] = useState(true);
-
-    // Application State
     const [isSetup, setIsSetup] = useState(false);
+    const [initializing, setInitializing] = useState(true);
+
+    // Application state — all from DB
     const [weddingDetails, setWeddingDetails] = useState(null);
     const [teamMembers, setTeamMembers] = useState([]);
     const [tasks, setTasks] = useState([]);
     const [expenses, setExpenses] = useState([]);
-
-    // New State for Vendor & Travel
     const [vendors, setVendors] = useState([]);
     const [travelDetails, setTravelDetails] = useState([]);
+    const [expensesByDate, setExpensesByDate] = useState([]);
 
-    // Computed Analytics Data
-    const expensesByDate = useMemo(() => {
-        const grouped = {};
-        expenses.forEach(e => {
-            if (!grouped[e.date]) grouped[e.date] = 0;
-            grouped[e.date] += Number(e.amount);
-        });
-        return Object.keys(grouped).map(date => ({ date, amount: grouped[date] }));
-    }, [expenses]);
+    // Loading states per section
+    const [loadingTeam, setLoadingTeam] = useState(false);
+    const [loadingBudget, setLoadingBudget] = useState(false);
+    const [loadingVendor, setLoadingVendor] = useState(false);
 
-    // Handlers
+    // Toast
+    const [toast, setToast] = useState(null);
+    const showToast = (message, type = 'success') => {
+        setToast({ message, type });
+        setTimeout(() => setToast(null), 3500);
+    };
+
+    // ── Initial load: check if wedding event exists ──
+    useEffect(() => {
+        const init = async () => {
+            try {
+                const result = await apiFetch('/wedding-tools/event');
+                if (result?.success) {
+                    setWeddingDetails(result.data);
+                    setIsSetup(true);
+                }
+            } catch {
+                // 404 = not set up yet — show onboarding
+            } finally {
+                setInitializing(false);
+            }
+        };
+        init();
+    }, []);
+
+    // ── Load data when tab changes ──
+    useEffect(() => {
+        if (!isSetup) return;
+        if (activeTab === 'team') loadTeamData();
+        if (activeTab === 'budget') loadBudgetData();
+        if (activeTab === 'vendor') loadVendorData();
+        if (activeTab === 'analytics') loadBudgetData(); // analytics uses expense data
+    }, [activeTab, isSetup]);
+
+    const loadTeamData = async () => {
+        setLoadingTeam(true);
+        try {
+            const [membersRes, tasksRes] = await Promise.all([
+                apiFetch('/wedding-tools/team'),
+                apiFetch('/wedding-tools/tasks'),
+            ]);
+            if (membersRes?.success) setTeamMembers(membersRes.data);
+            if (tasksRes?.success) setTasks(tasksRes.data);
+        } catch (err) {
+            showToast('Failed to load team data.', 'error');
+        } finally {
+            setLoadingTeam(false);
+        }
+    };
+
+    const loadBudgetData = async () => {
+        setLoadingBudget(true);
+        try {
+            const [expRes, dateRes] = await Promise.all([
+                apiFetch('/wedding-tools/expenses'),
+                apiFetch('/wedding-tools/expenses/by-date'),
+            ]);
+            if (expRes?.success) setExpenses(expRes.data);
+            if (dateRes?.success) setExpensesByDate(dateRes.data);
+        } catch (err) {
+            showToast('Failed to load expenses.', 'error');
+        } finally {
+            setLoadingBudget(false);
+        }
+    };
+
+    const loadVendorData = async () => {
+        setLoadingVendor(true);
+        try {
+            const [vendorRes, travelRes] = await Promise.all([
+                apiFetch('/wedding-tools/vendors'),
+                apiFetch('/wedding-tools/travel'),
+            ]);
+            if (vendorRes?.success) setVendors(vendorRes.data);
+            if (travelRes?.success) setTravelDetails(travelRes.data);
+        } catch (err) {
+            showToast('Failed to load vendor data.', 'error');
+        } finally {
+            setLoadingVendor(false);
+        }
+    };
+
+    // ── Handlers ──
     const handleOnboardingComplete = (details) => {
         setWeddingDetails(details);
         setIsSetup(true);
     };
 
-    const handleAddMember = (member) => setTeamMembers([...teamMembers, member]);
-    const handleAddTask = (task) => setTasks([...tasks, task]);
-    const handleToggleTask = (id) => {
-        setTasks(tasks.map(t => {
-            if (t.id !== id) return t;
-            const nextStatus = t.status === 'Pending' ? 'In Progress' : t.status === 'In Progress' ? 'Completed' : 'Pending';
-            return { ...t, status: nextStatus };
-        }));
-    };
-    const handleAddExpense = (expense) => setExpenses([...expenses, expense]);
-    const handleAddVendor = (vendor) => setVendors([...vendors, vendor]);
-    const handleAddTravel = (trip) => setTravelDetails([...travelDetails, trip]);
-
-    const handleGoBack = () => {
-        if (window.history.length > 1) {
-            window.history.back();
-        } else {
-            window.location.href = '/';
+    const handleAddMember = async (member) => {
+        try {
+            const result = await apiFetch('/wedding-tools/team', {
+                method: 'POST',
+                body: JSON.stringify(member),
+            });
+            if (result?.success) {
+                setTeamMembers(prev => [...prev, result.data]);
+                showToast('Team member added!');
+            }
+        } catch (err) {
+            showToast(err.message, 'error');
         }
     };
+
+    const handleAddTask = async (task) => {
+        try {
+            const result = await apiFetch('/wedding-tools/tasks', {
+                method: 'POST',
+                body: JSON.stringify(task),
+            });
+            if (result?.success) {
+                setTasks(prev => [...prev, result.data]);
+                showToast('Task created!');
+            }
+        } catch (err) {
+            showToast(err.message, 'error');
+        }
+    };
+
+    const handleToggleTask = async (id) => {
+        try {
+            const result = await apiFetch(`/wedding-tools/tasks/${id}/toggle`, { method: 'PATCH' });
+            if (result?.success) {
+                setTasks(prev => prev.map(t => t.id === id ? { ...t, status: result.data.status } : t));
+            }
+        } catch (err) {
+            showToast(err.message, 'error');
+        }
+    };
+
+    const handleAddExpense = async (expense) => {
+        try {
+            const result = await apiFetch('/wedding-tools/expenses', {
+                method: 'POST',
+                body: JSON.stringify(expense),
+            });
+            if (result?.success) {
+                setExpenses(prev => [...prev, result.data]);
+                // Refresh analytics data
+                const dateRes = await apiFetch('/wedding-tools/expenses/by-date');
+                if (dateRes?.success) setExpensesByDate(dateRes.data);
+                showToast('Expense recorded!');
+            }
+        } catch (err) {
+            showToast(err.message, 'error');
+        }
+    };
+
+    const handleAddVendor = async (vendor) => {
+        try {
+            const result = await apiFetch('/wedding-tools/vendors', {
+                method: 'POST',
+                body: JSON.stringify(vendor),
+            });
+            if (result?.success) {
+                setVendors(prev => [...prev, result.data]);
+                showToast('Vendor added!');
+            }
+        } catch (err) {
+            showToast(err.message, 'error');
+        }
+    };
+
+    const handleAddTravel = async (trip) => {
+        try {
+            const result = await apiFetch('/wedding-tools/travel', {
+                method: 'POST',
+                body: JSON.stringify(trip),
+            });
+            if (result?.success) {
+                setTravelDetails(prev => [...prev, result.data]);
+                showToast('Logistics saved!');
+            }
+        } catch (err) {
+            showToast(err.message, 'error');
+        }
+    };
+
+    if (initializing) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-rose-50">
+                <div className="flex flex-col items-center gap-4">
+                    <div className="w-12 h-12 bg-rose-500 rounded-xl flex items-center justify-center shadow-lg shadow-rose-200">
+                        <Heart fill="white" className="text-white" size={24} />
+                    </div>
+                    <Loader2 className="animate-spin text-rose-400" size={28} />
+                    <p className="text-gray-500 text-sm">Loading your event...</p>
+                </div>
+            </div>
+        );
+    }
 
     if (!isSetup) {
         return <Onboarding onComplete={handleOnboardingComplete} />;
@@ -750,54 +982,34 @@ export default function EventManagementSoftware() {
 
     return (
         <div className="flex w-full h-full min-h-screen bg-rose-50/30">
+            {/* Toast */}
+            {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
+
             {/* Sidebar */}
-            <aside className={cn(
-                "bg-white border-r border-rose-100 flex flex-col transition-all duration-300 z-20",
-                isSidebarOpen ? "w-72" : "w-20"
-            )}>
+            <aside className={cn("bg-white border-r border-rose-100 flex flex-col transition-all duration-300 z-20", isSidebarOpen ? "w-72" : "w-20")}>
                 <div className="h-16 flex items-center px-6 border-b border-rose-100">
                     <div className="w-8 h-8 bg-rose-500 rounded-lg flex items-center justify-center shrink-0 shadow-lg shadow-rose-200">
                         <Heart className="text-white fill-white" size={18} />
                     </div>
                     {isSidebarOpen && <span className="ml-3 font-bold text-lg tracking-tight text-gray-900">Shadi Bazar</span>}
                 </div>
-
                 <nav className="flex-1 py-6 space-y-1.5 px-3">
                     {menuItems.map(item => (
-                        <button
-                            key={item.id}
-                            onClick={() => setActiveTab(item.id)}
-                            className={cn(
-                                "w-full flex items-center gap-3 px-3 py-3 rounded-xl transition-all duration-200 group font-medium",
-                                activeTab === item.id
-                                    ? "bg-rose-50 text-rose-600"
-                                    : "text-gray-500 hover:bg-rose-50/50 hover:text-rose-500"
-                            )}
-                        >
+                        <button key={item.id} onClick={() => setActiveTab(item.id)}
+                            className={cn("w-full flex items-center gap-3 px-3 py-3 rounded-xl transition-all duration-200 group font-medium",
+                                activeTab === item.id ? "bg-rose-50 text-rose-600" : "text-gray-500 hover:bg-rose-50/50 hover:text-rose-500"
+                            )}>
                             <item.icon size={22} className={cn("shrink-0", activeTab === item.id ? "text-rose-600" : "text-gray-400 group-hover:text-rose-500")} />
                             {isSidebarOpen && <span className="whitespace-nowrap">{item.label}</span>}
-
-                            {activeTab === item.id && isSidebarOpen && (
-                                <div className="ml-auto w-1.5 h-1.5 rounded-full bg-rose-400" />
-                            )}
+                            {activeTab === item.id && isSidebarOpen && <div className="ml-auto w-1.5 h-1.5 rounded-full bg-rose-400" />}
                         </button>
                     ))}
                 </nav>
-
                 <div className="p-4 border-t border-rose-100">
                     <button className="flex items-center gap-3 text-gray-400 hover:text-rose-600 transition-colors w-full px-2 py-2">
                         <Settings size={20} />
                         {isSidebarOpen && <span>Settings</span>}
                     </button>
-                    <div className="mt-4 flex items-center gap-3 px-2">
-                        <div className="w-8 h-8 rounded-full bg-linear-to-tr from-rose-400 to-pink-500 border border-white ring-2 ring-rose-100" />
-                        {isSidebarOpen && (
-                            <div className="flex-1 min-w-0">
-                                <p className="text-sm font-medium text-gray-900 truncate">Jane Cooper</p>
-                                <p className="text-xs text-rose-500 truncate">Admin</p>
-                            </div>
-                        )}
-                    </div>
                 </div>
             </aside>
 
@@ -810,22 +1022,17 @@ export default function EventManagementSoftware() {
                             <MoreVertical size={20} className="rotate-90" />
                         </button>
                         <h1 className="text-xl font-semibold text-gray-800">
-                            {weddingDetails.name} <span className="text-rose-300 mx-2">•</span> <span className="text-sm font-normal text-gray-500">{weddingDetails.destination}</span>
+                            {weddingDetails.name}
+                            <span className="text-rose-300 mx-2">•</span>
+                            <span className="text-sm font-normal text-gray-500">{weddingDetails.destination}</span>
                         </h1>
                     </div>
-
                     <div className="flex items-center gap-3">
-                        <button
-                            onClick={handleGoBack}
-                            className="flex items-center gap-2 px-3 py-1.5 text-sm bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg transition-all duration-200"
-                        >
+                        <button onClick={() => window.history.back()} className="flex items-center gap-2 px-3 py-1.5 text-sm bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg transition-all">
                             <ArrowLeft size={16} />
                             <span className="hidden sm:inline">Back</span>
                         </button>
-                        <button
-                            onClick={() => window.location.href = '/'}
-                            className="flex items-center gap-2 px-3 py-1.5 text-sm bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg transition-all duration-200"
-                        >
+                        <button onClick={() => window.location.href = '/'} className="flex items-center gap-2 px-3 py-1.5 text-sm bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg transition-all">
                             <Home size={16} />
                             <span className="hidden sm:inline">Home</span>
                         </button>
@@ -850,6 +1057,7 @@ export default function EventManagementSoftware() {
                                 onAddMember={handleAddMember}
                                 onAddTask={handleAddTask}
                                 onToggleTaskStatus={handleToggleTask}
+                                loading={loadingTeam}
                             />
                         )}
                         {activeTab === 'budget' && (
@@ -857,6 +1065,7 @@ export default function EventManagementSoftware() {
                                 expenses={expenses}
                                 totalBudget={weddingDetails.budget}
                                 onAddExpense={handleAddExpense}
+                                loading={loadingBudget}
                             />
                         )}
                         {activeTab === 'vendor' && (
@@ -865,9 +1074,16 @@ export default function EventManagementSoftware() {
                                 travelDetails={travelDetails}
                                 onAddVendor={handleAddVendor}
                                 onAddTravel={handleAddTravel}
+                                loading={loadingVendor}
                             />
                         )}
-                        {activeTab === 'analytics' && <AnalyticsModule expenses={expenses} expensesByDate={expensesByDate} />}
+                        {activeTab === 'analytics' && (
+                            <AnalyticsModule
+                                expenses={expenses}
+                                expensesByDate={expensesByDate}
+                                loading={loadingBudget}
+                            />
+                        )}
                     </div>
                 </div>
             </main>

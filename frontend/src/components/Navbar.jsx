@@ -317,31 +317,31 @@ const Navbar = () => {
           pages: [
             {
               name: "Banquet Venues",
-              link: "/venue-and-accomodation/wedding-venues/banquet-venues"
+              link: "/venue-and-accommodation/wedding-venues/banquet-venues"
             },
             {
               name: "Outdoor Venues",
-              link: "/venue-and-accomodation/wedding-venues/outdoor-venues"
+              link: "/venue-and-accommodation/wedding-venues/outdoor-venues"
             },
             {
               name: "Mixed Venues",
-              link: "/venue-and-accomodation/wedding-venues/mixed-venues"
+              link: "/venue-and-accommodation/wedding-venues/mixed-venues"
             },
             {
               name: "Destination Wedding Venues",
-              link: "/venue-and-accomodation/wedding-venues/destination-wedding-venues"
+              link: "/venue-and-accommodation/wedding-venues/destination-wedding-venues"
             },
             {
               name: "Religious Venues",
-              link: "/venue-and-accomodation/wedding-venues/religious-venues"
+              link: "/venue-and-accommodation/wedding-venues/religious-venues"
             },
             {
               name: "Cultural / Traditional Venues",
-              link: "/venue-and-accomodation/wedding-venues/cultural-traditional-venues"
+              link: "/venue-and-accommodation/wedding-venues/cultural-traditional-venues"
             },
             {
               name: " Modern & Unique Venues",
-              link: "/venue-and-accomodation/wedding-venues/modern-and-unique-venues"
+              link: "/venue-and-accommodation/wedding-venues/modern-and-unique-venues"
             },
 
           ],
@@ -352,23 +352,23 @@ const Navbar = () => {
           pages: [
             {
               name: "Hotel Accommodation",
-              link: "/venue-and-accomodation/accomodation-types/hotel-accomodation"
+              link: "/venue-and-accommodation/accomodation-types/hotel-accomodation"
             },
             {
               name: "Guest Houses",
-              link: "/venue-and-accomodation/accomodation-types/guest-houses"
+              link: "/venue-and-accommodation/accomodation-types/guest-houses"
             },
             {
               name: "Resort Accommodation",
-              link: "/venue-and-accomodation/accomodation-types/resort-accomodation"
+              link: "/venue-and-accommodation/accomodation-types/resort-accomodation"
             },
             {
               name: "Homestays & Rentals",
-              link: "/venue-and-accomodation/accomodation-types/homestays-and-rentals"
+              link: "/venue-and-accommodation/accomodation-types/homestays-and-rentals"
             },
             {
               name: "Wedding-Specific Accommodation",
-              link: "/venue-and-accomodation/accomodation-types/wedding-specific"
+              link: "/venue-and-accommodation/accomodation-types/wedding-specific"
             },
           ],
         },
@@ -378,7 +378,7 @@ const Navbar = () => {
           pages: [
             {
               name: "Pre-Wedding Venues",
-              link: "/venue-and-accomodation/venue-categories-by-event-type/pre-wedding-venues"
+              link: "/venue-and-accommodation/venue-categories-by-event-type/pre-wedding-venues"
             },
             {
               name: "Main-Wedding Venues",
@@ -387,7 +387,7 @@ const Navbar = () => {
             {
               name: "Post-Wedding Venues",
 
-              link: "/venue-and-accomodation/venue-categories-by-event-type/post-wedding-venues"
+              link: "/venue-and-accommodation/venue-categories-by-event-type/post-wedding-venues"
             },
           ],
         },
@@ -397,15 +397,15 @@ const Navbar = () => {
           pages: [
             {
               name: "Functional Spaces",
-              link: "/venue-and-accomodation/additional-wedding-spaces/functional-spaces"
+              link: "/venue-and-accommodation/additional-wedding-spaces/functional-spaces"
             },
             {
               name: "Decorative Zones",
-              link: "/venue-and-accomodation/additional-wedding-spaces/decorative-zones"
+              link: "/venue-and-accommodation/additional-wedding-spaces/decorative-zones"
             },
             {
               name: "Utility Spaces",
-              link: "/venue-and-accomodation/additional-wedding-spaces/utility-spaces"
+              link: "/venue-and-accommodation/additional-wedding-spaces/utility-spaces"
             },
           ],
         },

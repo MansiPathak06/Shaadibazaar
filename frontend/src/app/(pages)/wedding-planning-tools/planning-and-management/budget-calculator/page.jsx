@@ -1,9 +1,16 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { DollarSign, TrendingUp, TrendingDown, Loader2, Plus, Save, Edit2, Trash2, ArrowLeft, Home } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
+import { DollarSign, TrendingUp, TrendingDown, Loader2, Plus, Save, Edit2, Trash2, AlertCircle } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 import { format } from "date-fns";
+
+
+
+// ============================================================================
+// CONFIG
+// ============================================================================
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
 // ============================================================================
 // UTILITY FUNCTIONS
@@ -18,88 +25,136 @@ const formatCurrency = (amount) => {
         style: "currency",
         currency: "INR",
         maximumFractionDigits: 0,
-    }).format(amount);
+    }).format(amount || 0);
 };
 
 // ============================================================================
-// MOCK DATA & API
+// REAL API LAYER
 // ============================================================================
 
-const MOCK_CATEGORIES = [
-    { id: "1", name: "Venue", planned: 500000, spent: 0, color: "#b76e79" },
-    { id: "2", name: "Catering", planned: 300000, spent: 0, color: "#dcae96" },
-    { id: "3", name: "Decoration", planned: 150000, spent: 0, color: "#8a9a5b" },
-    { id: "4", name: "Clothing", planned: 200000, spent: 0, color: "#c5a059" },
-    { id: "5", name: "Jewellery", planned: 300000, spent: 0, color: "#36454f" },
-    { id: "6", name: "Photography", planned: 100000, spent: 0, color: "#e3d5ca" },
-    { id: "7", name: "Music / DJ", planned: 50000, spent: 0, color: "#f4a261" },
-    { id: "8", name: "Invitations", planned: 20000, spent: 0, color: "#e76f51" },
-    { id: "9", name: "Transportation", planned: 40000, spent: 0, color: "#2a9d8f" },
-    { id: "10", name: "Gifts", planned: 50000, spent: 0, color: "#264653" },
-    { id: "11", name: "Miscellaneous", planned: 50000, spent: 0, color: "#6d6d6d" },
-];
+const getToken = () =>
+    (typeof window !== "undefined" && localStorage.getItem("token")) || null;
 
-let MOCK_EXPENSES = [];
-let USER_BUDGET = 1760000;
+const apiFetch = async (path, options = {}) => {
+    const token = getToken();
+    const res = await fetch(`${API_BASE}${path}`, {
+        ...options,
+        headers: {
+            "Content-Type": "application/json",
+            ...(token ? { Authorization: `Bearer ${token}` } : {}),
+            ...(options.headers || {}),
+        },
+    });
+
+    if (res.status === 401) {
+        // Token expired — redirect to login
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        window.location.href = "/login"; // adjust to your login route
+        return null;
+    }
+
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.message || "Request failed");
+    return data;
+};
 
 const api = {
-    getDashboardData: async () => {
-        await new Promise((resolve) => setTimeout(resolve, 800));
-        const totalSpent = MOCK_EXPENSES.reduce((sum, exp) => sum + exp.amount, 0);
-        const categoriesWithSpent = MOCK_CATEGORIES.map(cat => {
-            const spent = MOCK_EXPENSES
-                .filter(e => e.category === cat.name)
-                .reduce((sum, e) => sum + e.amount, 0);
-            return { ...cat, spent };
+    // Auth
+    login: async (email, password) => {
+        const res = await fetch(`${API_BASE}/auth/login`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password }),
         });
-        return {
-            summary: {
-                totalBudget: USER_BUDGET,
-                totalSpent,
-                remaining: USER_BUDGET - totalSpent,
-            },
-            categories: categoriesWithSpent,
-            recentExpenses: MOCK_EXPENSES.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()),
-        };
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.message || "Login failed");
+        return data;
     },
 
-    addExpense: async (expense) => {
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-        const newExpense = { ...expense, id: Math.random().toString(36).substr(2, 9) };
-        MOCK_EXPENSES.push(newExpense);
-        return newExpense;
+    register: async (name, email, password) => {
+        const res = await fetch(`${API_BASE}/auth/register`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email, password }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.message || "Registration failed");
+        return data;
     },
 
-    deleteExpense: async (id) => {
-        await new Promise((resolve) => setTimeout(resolve, 500));
-        const index = MOCK_EXPENSES.findIndex(e => e.id === id);
-        if (index > -1) MOCK_EXPENSES.splice(index, 1);
-    },
+    // Budget routes
+    getDashboardData: () => apiFetch("/budget/dashboard"),
 
-    updateExpense: async (updatedExpense) => {
-        await new Promise((resolve) => setTimeout(resolve, 500));
-        const index = MOCK_EXPENSES.findIndex(e => e.id === updatedExpense.id);
-        if (index > -1) {
-            MOCK_EXPENSES[index] = updatedExpense;
-        }
-        return updatedExpense;
-    },
+    addExpense: (expense) =>
+        apiFetch("/budget/expenses", { method: "POST", body: JSON.stringify(expense) }),
 
-    updateCategory: async (updatedCategory) => {
-        await new Promise((resolve) => setTimeout(resolve, 500));
-        const index = MOCK_CATEGORIES.findIndex(c => c.id === updatedCategory.id);
-        if (index > -1) {
-            MOCK_CATEGORIES[index] = { ...updatedCategory };
-        }
-        return updatedCategory;
-    },
+    updateExpense: (id, expense) =>
+        apiFetch(`/budget/expenses/${id}`, { method: "PUT", body: JSON.stringify(expense) }),
 
-    updateTotalBudget: async (amount) => {
-        await new Promise((resolve) => setTimeout(resolve, 500));
-        USER_BUDGET = amount;
-        return USER_BUDGET;
-    }
+    deleteExpense: (id) =>
+        apiFetch(`/budget/expenses/${id}`, { method: "DELETE" }),
+
+    updateCategory: (id, data) =>
+        apiFetch(`/budget/categories/${id}`, { method: "PUT", body: JSON.stringify(data) }),
+
+    updateTotalBudget: (amount) =>
+        apiFetch("/budget/settings", { method: "PUT", body: JSON.stringify({ amount }) }),
+
+    addCategory: (data) =>
+        apiFetch("/budget/categories", { method: "POST", body: JSON.stringify(data) }),
 };
+
+// ============================================================================
+// BUDGET SETUP SCREEN  (first-time users, totalBudget === 0)
+// ============================================================================
+
+function BudgetSetupScreen({ onSetBudget, isSubmitting }) {
+    const [amount, setAmount] = useState("");
+    const [error, setError] = useState("");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!amount || Number(amount) <= 0) { setError("Please enter a valid budget amount"); return; }
+        onSetBudget(parseFloat(amount));
+    };
+
+    return (
+        <div className="min-h-screen bg-linear-to-br from-pink-50 via-white to-purple-50 flex items-center justify-center p-4">
+            <div className="bg-white rounded-xl shadow-md border border-gray-200 w-full max-w-md overflow-hidden">
+                <div className="bg-linear-to-r from-pink-500 to-purple-600 py-12 px-6 text-center">
+                    <h1 className="text-3xl font-bold text-white mb-2">Set Your Budget</h1>
+                    <p className="text-white/80 text-sm max-w-xs mx-auto">
+                        Enter your total wedding budget to get started. You can always change this later.
+                    </p>
+                </div>
+                <div className="p-8">
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                        <div className="space-y-2">
+                            <label className="text-sm font-medium text-gray-900">Total Wedding Budget (₹)</label>
+                            <input
+                                type="number" autoFocus min="1"
+                                className={cn(
+                                    "w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 font-mono text-lg bg-white text-gray-900",
+                                    error ? "border-red-500" : "border-gray-200"
+                                )}
+                                value={amount}
+                                onChange={(e) => { setAmount(e.target.value); setError(""); }}
+                                placeholder="e.g. 2000000"
+                            />
+                            {error && <p className="text-xs text-red-500">{error}</p>}
+                        </div>
+                        <button type="submit" disabled={isSubmitting}
+                            className="w-full flex items-center justify-center gap-2 px-6 py-2 text-sm font-medium text-white bg-pink-500 hover:bg-pink-600 rounded-md shadow-sm transition-all disabled:opacity-70">
+                            {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Plus className="w-4 h-4" />}
+                            Start Planning
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    );
+}
 
 // ============================================================================
 // UI COMPONENTS
@@ -168,12 +223,10 @@ function CategoryCard({ category, onEdit }) {
                             Edit
                         </button>
                     )}
-                    <span
-                        className={cn(
-                            "text-xs font-bold px-2 py-1 rounded-full",
-                            isOverBudget ? "bg-red-100 text-red-700" : "bg-green-100 text-green-700"
-                        )}
-                    >
+                    <span className={cn(
+                        "text-xs font-bold px-2 py-1 rounded-full",
+                        isOverBudget ? "bg-red-100 text-red-700" : "bg-green-100 text-green-700"
+                    )}>
                         {isOverBudget ? "Over Budget" : "On Track"}
                     </span>
                 </div>
@@ -217,7 +270,6 @@ function ExpenseForm({ categories, initialData, onSubmit, onCancel, isSubmitting
             notes: "",
         }
     );
-
     const [errors, setErrors] = useState({});
 
     const validate = () => {
@@ -232,9 +284,7 @@ function ExpenseForm({ categories, initialData, onSubmit, onCancel, isSubmitting
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (validate()) {
-            await onSubmit(formData);
-        }
+        if (validate()) await onSubmit(formData);
     };
 
     return (
@@ -246,13 +296,11 @@ function ExpenseForm({ categories, initialData, onSubmit, onCancel, isSubmitting
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                     <label className="text-sm font-medium text-gray-900">Title</label>
-                    <input
-                        type="text"
+                    <input type="text"
                         className={cn("w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 bg-white text-gray-900", errors.title ? "border-red-500" : "border-gray-200")}
                         value={formData.title}
                         onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                        placeholder="e.g. Venue Advance"
-                    />
+                        placeholder="e.g. Venue Advance" />
                     {errors.title && <p className="text-xs text-red-500">{errors.title}</p>}
                 </div>
 
@@ -261,8 +309,7 @@ function ExpenseForm({ categories, initialData, onSubmit, onCancel, isSubmitting
                     <select
                         className="w-full px-3 py-2 border rounded-md border-gray-200 focus:outline-none focus:ring-2 focus:ring-pink-500 bg-white text-gray-900"
                         value={formData.category}
-                        onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                    >
+                        onChange={(e) => setFormData({ ...formData, category: e.target.value })}>
                         {categories.map((cat) => (
                             <option key={cat.id} value={cat.name}>{cat.name}</option>
                         ))}
@@ -271,23 +318,19 @@ function ExpenseForm({ categories, initialData, onSubmit, onCancel, isSubmitting
 
                 <div className="space-y-2">
                     <label className="text-sm font-medium text-gray-900">Amount (₹)</label>
-                    <input
-                        type="number"
+                    <input type="number"
                         className={cn("w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 bg-white text-gray-900", errors.amount ? "border-red-500" : "border-gray-200")}
                         value={formData.amount}
-                        onChange={(e) => setFormData({ ...formData, amount: parseFloat(e.target.value) || 0 })}
-                    />
+                        onChange={(e) => setFormData({ ...formData, amount: parseFloat(e.target.value) || 0 })} />
                     {errors.amount && <p className="text-xs text-red-500">{errors.amount}</p>}
                 </div>
 
                 <div className="space-y-2">
                     <label className="text-sm font-medium text-gray-900">Date</label>
-                    <input
-                        type="date"
+                    <input type="date"
                         className={cn("w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 bg-white text-gray-900", errors.date ? "border-red-500" : "border-gray-200")}
                         value={formData.date}
-                        onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                    />
+                        onChange={(e) => setFormData({ ...formData, date: e.target.value })} />
                     {errors.date && <p className="text-xs text-red-500">{errors.date}</p>}
                 </div>
 
@@ -296,11 +339,12 @@ function ExpenseForm({ categories, initialData, onSubmit, onCancel, isSubmitting
                     <select
                         className="w-full px-3 py-2 border rounded-md border-gray-200 focus:outline-none focus:ring-2 focus:ring-pink-500 bg-white text-gray-900"
                         value={formData.paymentMethod}
-                        onChange={(e) => setFormData({ ...formData, paymentMethod: e.target.value })}
-                    >
+                        onChange={(e) => setFormData({ ...formData, paymentMethod: e.target.value })}>
                         <option value="Cash">Cash</option>
                         <option value="UPI">UPI</option>
                         <option value="Card">Card</option>
+                        <option value="Bank Transfer">Bank Transfer</option>
+                        <option value="Cheque">Cheque</option>
                     </select>
                 </div>
             </div>
@@ -311,24 +355,16 @@ function ExpenseForm({ categories, initialData, onSubmit, onCancel, isSubmitting
                     className="w-full px-3 py-2 border rounded-md border-gray-200 focus:outline-none focus:ring-2 focus:ring-pink-500 min-h-[80px] bg-white text-gray-900"
                     value={formData.notes || ""}
                     onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                    placeholder="Add any details..."
-                />
+                    placeholder="Add any details..." />
             </div>
 
             <div className="flex justify-end gap-3 pt-4">
-                <button
-                    type="button"
-                    onClick={onCancel}
-                    className="px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-md transition-colors"
-                    disabled={isSubmitting}
-                >
+                <button type="button" onClick={onCancel} disabled={isSubmitting}
+                    className="px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-md transition-colors">
                     Cancel
                 </button>
-                <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="flex items-center gap-2 px-6 py-2 text-sm font-medium text-white bg-pink-500 hover:bg-pink-600 rounded-md shadow-sm transition-all disabled:opacity-70"
-                >
+                <button type="submit" disabled={isSubmitting}
+                    className="flex items-center gap-2 px-6 py-2 text-sm font-medium text-white bg-pink-500 hover:bg-pink-600 rounded-md shadow-sm transition-all disabled:opacity-70">
                     {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : (initialData ? <Save className="w-4 h-4" /> : <Plus className="w-4 h-4" />)}
                     {initialData ? "Save Changes" : "Add Expense"}
                 </button>
@@ -382,20 +418,16 @@ function ExpenseTable({ expenses, onEdit, onDelete, isDeletingId }) {
                             </td>
                             <td className="px-6 py-4 text-center">
                                 <div className="flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                    <button
-                                        onClick={() => onEdit(expense)}
-                                        className="p-1.5 text-blue-600 hover:bg-blue-50 rounded-md transition-colors"
-                                        title="Edit"
-                                    >
+                                    <button onClick={() => onEdit(expense)}
+                                        className="p-1.5 text-blue-600 hover:bg-blue-50 rounded-md transition-colors" title="Edit">
                                         <Edit2 className="w-4 h-4" />
                                     </button>
-                                    <button
-                                        onClick={() => onDelete(expense.id)}
+                                    <button onClick={() => onDelete(expense.id)}
                                         disabled={isDeletingId === expense.id}
-                                        className="p-1.5 text-red-600 hover:bg-red-50 rounded-md transition-colors disabled:opacity-50"
-                                        title="Delete"
-                                    >
-                                        <Trash2 className="w-4 h-4" />
+                                        className="p-1.5 text-red-600 hover:bg-red-50 rounded-md transition-colors disabled:opacity-50" title="Delete">
+                                        {isDeletingId === expense.id
+                                            ? <Loader2 className="w-4 h-4 animate-spin" />
+                                            : <Trash2 className="w-4 h-4" />}
                                     </button>
                                 </div>
                             </td>
@@ -413,10 +445,7 @@ function EditBudgetModal({ category, onSave, onClose, isSubmitting = false }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (plannedAmount < 0) {
-            setError("Budget cannot be negative");
-            return;
-        }
+        if (plannedAmount < 0) { setError("Budget cannot be negative"); return; }
         await onSave({ ...category, planned: plannedAmount });
     };
 
@@ -427,40 +456,23 @@ function EditBudgetModal({ category, onSave, onClose, isSubmitting = false }) {
                     <h3 className="text-xl font-bold text-gray-900 mb-4">
                         Edit Budget: <span className="text-pink-600">{category.name}</span>
                     </h3>
-
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <div className="space-y-2">
                             <label className="text-sm font-medium text-gray-900">Planned Amount (₹)</label>
-                            <input
-                                type="number"
-                                className={cn(
-                                    "w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 font-mono text-lg text-gray-900",
-                                    error ? "border-red-500" : "border-gray-200"
-                                )}
+                            <input type="number" autoFocus
+                                className={cn("w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 font-mono text-lg text-gray-900",
+                                    error ? "border-red-500" : "border-gray-200")}
                                 value={plannedAmount}
-                                onChange={(e) => {
-                                    setPlannedAmount(parseFloat(e.target.value) || 0);
-                                    setError("");
-                                }}
-                                autoFocus
-                            />
+                                onChange={(e) => { setPlannedAmount(parseFloat(e.target.value) || 0); setError(""); }} />
                             {error && <p className="text-xs text-red-500">{error}</p>}
                         </div>
-
                         <div className="flex justify-end gap-3 pt-2">
-                            <button
-                                type="button"
-                                onClick={onClose}
-                                className="px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-md transition-colors"
-                                disabled={isSubmitting}
-                            >
+                            <button type="button" onClick={onClose} disabled={isSubmitting}
+                                className="px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-md transition-colors">
                                 Cancel
                             </button>
-                            <button
-                                type="submit"
-                                disabled={isSubmitting}
-                                className="flex items-center gap-2 px-6 py-2 text-sm font-medium text-white bg-pink-500 hover:bg-pink-600 rounded-md shadow-sm transition-all disabled:opacity-70"
-                            >
+                            <button type="submit" disabled={isSubmitting}
+                                className="flex items-center gap-2 px-6 py-2 text-sm font-medium text-white bg-pink-500 hover:bg-pink-600 rounded-md shadow-sm transition-all disabled:opacity-70">
                                 {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
                                 Save
                             </button>
@@ -478,10 +490,7 @@ function EditTotalBudgetModal({ currentAmount, onSave, onClose, isSubmitting = f
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (amount < 0) {
-            setError("Budget cannot be negative");
-            return;
-        }
+        if (amount < 0) { setError("Budget cannot be negative"); return; }
         await onSave(amount);
     };
 
@@ -489,45 +498,90 @@ function EditTotalBudgetModal({ currentAmount, onSave, onClose, isSubmitting = f
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
             <div className="bg-white rounded-lg shadow-xl w-full max-w-sm overflow-hidden">
                 <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">
-                        Set Total Budget
-                    </h3>
-
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">Set Total Budget</h3>
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <div className="space-y-2">
                             <label className="text-sm font-medium text-gray-900">Total Amount (₹)</label>
-                            <input
-                                type="number"
-                                className={cn(
-                                    "w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 font-mono text-lg text-gray-900",
-                                    error ? "border-red-500" : "border-gray-200"
-                                )}
+                            <input type="number" autoFocus
+                                className={cn("w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 font-mono text-lg text-gray-900",
+                                    error ? "border-red-500" : "border-gray-200")}
                                 value={amount}
-                                onChange={(e) => {
-                                    setAmount(parseFloat(e.target.value) || 0);
-                                    setError("");
-                                }}
-                                autoFocus
-                            />
+                                onChange={(e) => { setAmount(parseFloat(e.target.value) || 0); setError(""); }} />
                             {error && <p className="text-xs text-red-500">{error}</p>}
                         </div>
-
                         <div className="flex justify-end gap-3 pt-2">
-                            <button
-                                type="button"
-                                onClick={onClose}
-                                className="px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-md transition-colors"
-                                disabled={isSubmitting}
-                            >
+                            <button type="button" onClick={onClose} disabled={isSubmitting}
+                                className="px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-md transition-colors">
                                 Cancel
                             </button>
-                            <button
-                                type="submit"
-                                disabled={isSubmitting}
-                                className="flex items-center gap-2 px-6 py-2 text-sm font-medium text-white bg-pink-500 hover:bg-pink-600 rounded-md shadow-sm transition-all disabled:opacity-70"
-                            >
+                            <button type="submit" disabled={isSubmitting}
+                                className="flex items-center gap-2 px-6 py-2 text-sm font-medium text-white bg-pink-500 hover:bg-pink-600 rounded-md shadow-sm transition-all disabled:opacity-70">
                                 {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
                                 Save
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+function AddCategoryModal({ onSave, onClose, isSubmitting = false }) {
+    const [form, setForm] = useState({ name: "", planned: 0, color: "#b76e79" });
+    const [error, setError] = useState("");
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (!form.name.trim()) { setError("Category name is required"); return; }
+        await onSave(form);
+    };
+
+    return (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
+            <div className="bg-white rounded-lg shadow-xl w-full max-w-sm overflow-hidden">
+                <div className="p-6">
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">Add New Category</h3>
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                        <div className="space-y-2">
+                            <label className="text-sm font-medium text-gray-900">Category Name</label>
+                            <input
+                                type="text" autoFocus
+                                className={cn("w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 bg-white text-gray-900",
+                                    error ? "border-red-500" : "border-gray-200")}
+                                value={form.name}
+                                onChange={(e) => { setForm({ ...form, name: e.target.value }); setError(""); }}
+                                placeholder="e.g. Honeymoon" />
+                            {error && <p className="text-xs text-red-500">{error}</p>}
+                        </div>
+                        <div className="space-y-2">
+                            <label className="text-sm font-medium text-gray-900">Planned Amount (₹)</label>
+                            <input
+                                type="number"
+                                className="w-full px-3 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-500 font-mono text-lg bg-white text-gray-900"
+                                value={form.planned}
+                                onChange={(e) => setForm({ ...form, planned: parseFloat(e.target.value) || 0 })} />
+                        </div>
+                        <div className="space-y-2">
+                            <label className="text-sm font-medium text-gray-900">Color</label>
+                            <div className="flex items-center gap-3">
+                                <input
+                                    type="color"
+                                    className="h-10 w-16 rounded border border-gray-200 cursor-pointer"
+                                    value={form.color}
+                                    onChange={(e) => setForm({ ...form, color: e.target.value })} />
+                                <span className="text-sm text-gray-500">{form.color}</span>
+                            </div>
+                        </div>
+                        <div className="flex justify-end gap-3 pt-2">
+                            <button type="button" onClick={onClose} disabled={isSubmitting}
+                                className="px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-md transition-colors">
+                                Cancel
+                            </button>
+                            <button type="submit" disabled={isSubmitting}
+                                className="flex items-center gap-2 px-6 py-2 text-sm font-medium text-white bg-pink-500 hover:bg-pink-600 rounded-md shadow-sm transition-all disabled:opacity-70">
+                                {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Plus className="w-4 h-4" />}
+                                Add Category
                             </button>
                         </div>
                     </form>
@@ -543,12 +597,8 @@ function BudgetBarChart({ data }) {
             return (
                 <div className="bg-white p-3 border border-gray-100 shadow-lg rounded-lg z-50">
                     <p className="font-bold text-gray-900 mb-1">{label}</p>
-                    <p className="text-sm text-green-600">
-                        Planned: {formatCurrency(payload[0].value)}
-                    </p>
-                    <p className="text-sm text-pink-600">
-                        Spent: {formatCurrency(payload[1].value)}
-                    </p>
+                    <p className="text-sm text-green-600">Planned: {formatCurrency(payload[0].value)}</p>
+                    <p className="text-sm text-pink-600">Spent: {formatCurrency(payload[1].value)}</p>
                 </div>
             );
         }
@@ -560,28 +610,10 @@ function BudgetBarChart({ data }) {
             <h3 className="text-lg font-bold text-gray-900 mb-4 text-center shrink-0">Budget vs Actual</h3>
             <div className="flex-1 w-full min-h-0">
                 <ResponsiveContainer width="100%" height="100%" minWidth={0}>
-                    <BarChart
-                        data={data}
-                        margin={{
-                            top: 20,
-                            right: 30,
-                            left: 20,
-                            bottom: 5,
-                        }}
-                    >
+                    <BarChart data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                         <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
-                        <XAxis
-                            dataKey="name"
-                            tick={{ fontSize: 10, fill: '#666' }}
-                            interval={0}
-                            angle={-30}
-                            textAnchor="end"
-                            height={60}
-                        />
-                        <YAxis
-                            tick={{ fontSize: 10, fill: '#666' }}
-                            tickFormatter={(value) => `₹${value / 1000}k`}
-                        />
+                        <XAxis dataKey="name" tick={{ fontSize: 10, fill: '#666' }} interval={0} angle={-30} textAnchor="end" height={60} />
+                        <YAxis tick={{ fontSize: 10, fill: '#666' }} tickFormatter={(value) => `₹${value / 1000}k`} />
                         <Tooltip content={<CustomTooltip />} cursor={{ fill: 'transparent' }} />
                         <Legend wrapperStyle={{ paddingTop: '0px' }} />
                         <Bar name="Planned" dataKey="planned" fill="#8a9a5b" radius={[4, 4, 0, 0]} barSize={20} />
@@ -609,9 +641,7 @@ function ExpensesPieChart({ data }) {
             return (
                 <div className="bg-white p-3 border border-gray-100 shadow-lg rounded-lg">
                     <p className="font-bold text-gray-900">{payload[0].name}</p>
-                    <p className="text-sm font-mono text-gray-600">
-                        {formatCurrency(payload[0].value)}
-                    </p>
+                    <p className="text-sm font-mono text-gray-600">{formatCurrency(payload[0].value)}</p>
                 </div>
             );
         }
@@ -624,15 +654,7 @@ function ExpensesPieChart({ data }) {
             <div className="flex-1 w-full min-h-0">
                 <ResponsiveContainer width="100%" height="100%" minWidth={0}>
                     <PieChart>
-                        <Pie
-                            data={activeData}
-                            cx="50%"
-                            cy="50%"
-                            labelLine={false}
-                            outerRadius={100}
-                            fill="#8884d8"
-                            dataKey="spent"
-                        >
+                        <Pie data={activeData} cx="50%" cy="50%" labelLine={false} outerRadius={100} fill="#8884d8" dataKey="spent">
                             {activeData.map((entry, index) => (
                                 <Cell key={`cell-${index}`} fill={entry.color || "#ec4899"} stroke="white" strokeWidth={2} />
                             ))}
@@ -647,40 +669,72 @@ function ExpensesPieChart({ data }) {
 }
 
 // ============================================================================
-// MAIN PAGE COMPONENT
+// MAIN PAGE  — auth removed, loads dashboard directly using token from localStorage
 // ============================================================================
 
 export default function BudgetCalculatorPage() {
+    // ── Data
     const [dashboardData, setDashboardData] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
+
+    // ── UI
     const [showExpenseForm, setShowExpenseForm] = useState(false);
     const [editingExpense, setEditingExpense] = useState(null);
     const [editingCategory, setEditingCategory] = useState(null);
     const [editingTotalBudget, setEditingTotalBudget] = useState(false);
     const [deletingId, setDeletingId] = useState(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [addingCategory, setAddingCategory] = useState(false);
 
-    useEffect(() => {
-        loadDashboardData();
-    }, []);
-
-    const loadDashboardData = async () => {
+    const loadDashboardData = useCallback(async () => {
         setLoading(true);
         try {
-            const data = await api.getDashboardData();
-            setDashboardData(data);
+            const res = await api.getDashboardData();
+            setDashboardData(res.data);
         } catch (error) {
             console.error("Error loading dashboard data:", error);
         } finally {
             setLoading(false);
         }
+    }, []);
+
+    // ── Load dashboard on mount (token already in localStorage from login page)
+    useEffect(() => {
+        loadDashboardData();
+    }, [loadDashboardData]);
+
+    // ── First-time budget
+    const handleSetInitialBudget = async (amount) => {
+        setIsSubmitting(true);
+        try {
+            await api.updateTotalBudget(amount);
+            await loadDashboardData();
+        } catch (error) {
+            console.error("Error setting budget:", error);
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
+    const handleAddCategory = async (categoryData) => {
+        setIsSubmitting(true);
+        try {
+            await api.addCategory(categoryData);
+            await loadDashboardData();
+            setAddingCategory(false);
+        } catch (error) {
+            console.error("Error adding category:", error);
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
+    // ── Expense handlers
     const handleAddExpense = async (expenseData) => {
         setIsSubmitting(true);
         try {
             if (editingExpense) {
-                await api.updateExpense({ ...expenseData, id: editingExpense.id });
+                await api.updateExpense(editingExpense.id, expenseData);
             } else {
                 await api.addExpense(expenseData);
             }
@@ -714,7 +768,7 @@ export default function BudgetCalculatorPage() {
     const handleUpdateCategory = async (updatedCategory) => {
         setIsSubmitting(true);
         try {
-            await api.updateCategory(updatedCategory);
+            await api.updateCategory(updatedCategory.id, { planned: updatedCategory.planned });
             await loadDashboardData();
             setEditingCategory(null);
         } catch (error) {
@@ -737,15 +791,8 @@ export default function BudgetCalculatorPage() {
         }
     };
 
-    const handleGoBack = () => {
-        if (window.history.length > 1) {
-            window.history.back();
-        } else {
-            window.location.href = '/';
-        }
-    };
-
-    if (loading) {
+    // ── Loading state
+    if (loading && !dashboardData) {
         return (
             <div className="min-h-screen bg-linear-to-br from-pink-50 via-white to-purple-50 flex items-center justify-center">
                 <div className="text-center">
@@ -756,40 +803,19 @@ export default function BudgetCalculatorPage() {
         );
     }
 
+    // ── New user with no budget set
+    if (dashboardData && (!dashboardData.summary.totalBudget || dashboardData.summary.totalBudget === 0)) {
+        return <BudgetSetupScreen onSetBudget={handleSetInitialBudget} isSubmitting={isSubmitting} />;
+    }
+
+    if (!dashboardData) return null;
+
     const { summary, categories, recentExpenses } = dashboardData;
     const budgetUsagePercentage = (summary.totalSpent / summary.totalBudget) * 100;
 
     return (
         <div className="min-h-screen bg-linear-to-br from-pink-50 via-white to-purple-50">
             {/* Header Section */}
-<<<<<<< HEAD
-            <div className="bg-gradient-to-r from-pink-500 to-purple-600 py-16 px-4 shadow-lg">
-                <div className="max-w-7xl mx-auto">
-                    <div className="flex items-center justify-between mb-6">
-                        <button
-                            onClick={handleGoBack}
-                            className="flex items-center gap-2 px-4 py-2 bg-white/20 hover:bg-white/30 text-white rounded-lg transition-all duration-300 backdrop-blur-sm border border-white/30"
-                        >
-                            <ArrowLeft className="w-5 h-5" />
-                            <span className="font-medium">Back</span>
-                        </button>
-                        <button
-                            onClick={() => window.location.href = '/'}
-                            className="flex items-center gap-2 px-4 py-2 bg-white/20 hover:bg-white/30 text-white rounded-lg transition-all duration-300 backdrop-blur-sm border border-white/30"
-                        >
-                            <Home className="w-5 h-5" />
-                            <span className="font-medium">Home</span>
-                        </button>
-                    </div>
-                    <div className="text-center">
-                        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                            Wedding Budget Calculator
-                        </h1>
-                        <p className="text-lg text-white/90 max-w-2xl mx-auto">
-                            Plan your dream wedding with confidence. Track expenses, manage budgets, and stay organized every step of the way.
-                        </p>
-                    </div>
-=======
             <div className="bg-linear-to-r from-pink-500 to-purple-600 py-16 px-4 shadow-lg">
                 <div className="max-w-7xl mx-auto text-center">
                     <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -798,49 +824,29 @@ export default function BudgetCalculatorPage() {
                     <p className="text-lg text-white/90 max-w-2xl mx-auto">
                         Plan your dream wedding with confidence. Track expenses, manage budgets, and stay organized every step of the way.
                     </p>
->>>>>>> af7ff6e5dbcf091913896a782634a9d1670184ff
                 </div>
             </div>
 
             <div className="max-w-7xl mx-auto px-4 py-8 space-y-8">
                 {/* Summary Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <SummaryCard
-                        title="Total Budget"
-                        amount={summary.totalBudget}
-                        icon={DollarSign}
-                        variant="default"
-                    />
-                    <SummaryCard
-                        title="Total Spent"
-                        amount={summary.totalSpent}
-                        icon={TrendingUp}
-                        variant={budgetUsagePercentage > 100 ? "warning" : "default"}
-                    />
-                    <SummaryCard
-                        title="Remaining"
-                        amount={summary.remaining}
-                        icon={TrendingDown}
-                        variant={summary.remaining < 0 ? "warning" : "success"}
-                    />
+                    <SummaryCard title="Total Budget" amount={summary.totalBudget} icon={DollarSign} variant="default" />
+                    <SummaryCard title="Total Spent" amount={summary.totalSpent} icon={TrendingUp}
+                        variant={budgetUsagePercentage > 100 ? "warning" : "default"} />
+                    <SummaryCard title="Remaining" amount={summary.remaining} icon={TrendingDown}
+                        variant={summary.remaining < 0 ? "warning" : "success"} />
                 </div>
 
                 {/* Budget Overview */}
                 <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
                     <div className="flex justify-between items-center mb-4">
                         <h2 className="text-2xl font-bold text-gray-900">Budget Overview</h2>
-                        <button
-                            onClick={() => setEditingTotalBudget(true)}
-                            className="px-4 py-2 text-sm font-medium text-white bg-pink-500 hover:bg-pink-600 rounded-md transition-colors"
-                        >
+                        <button onClick={() => setEditingTotalBudget(true)}
+                            className="px-4 py-2 text-sm font-medium text-white bg-pink-500 hover:bg-pink-600 rounded-md transition-colors">
                             Edit Total Budget
                         </button>
                     </div>
-                    <ProgressBar
-                        value={summary.totalSpent}
-                        max={summary.totalBudget}
-                        label="Overall Budget Progress"
-                    />
+                    <ProgressBar value={summary.totalSpent} max={summary.totalBudget} label="Overall Budget Progress" />
                 </div>
 
                 {/* Charts */}
@@ -851,14 +857,16 @@ export default function BudgetCalculatorPage() {
 
                 {/* Category Breakdown */}
                 <div>
-                    <h2 className="text-2xl font-bold text-gray-900 mb-6">Category Breakdown</h2>
+                    <div className="flex justify-between items-center mb-6">
+                        <h2 className="text-2xl font-bold text-gray-900">Category Breakdown</h2>
+                        <button onClick={() => setAddingCategory(true)}
+                            className="px-6 py-2 text-sm font-medium text-white bg-pink-500 hover:bg-pink-600 rounded-md shadow-sm transition-all">
+                            Add Category
+                        </button>
+                    </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {categories.map((category) => (
-                            <CategoryCard
-                                key={category.id}
-                                category={category}
-                                onEdit={setEditingCategory}
-                            />
+                            <CategoryCard key={category.id} category={category} onEdit={setEditingCategory} />
                         ))}
                     </div>
                 </div>
@@ -868,12 +876,8 @@ export default function BudgetCalculatorPage() {
                     <div className="flex justify-between items-center mb-6">
                         <h2 className="text-2xl font-bold text-gray-900">Recent Expenses</h2>
                         <button
-                            onClick={() => {
-                                setEditingExpense(null);
-                                setShowExpenseForm(true);
-                            }}
-                            className="px-6 py-2 text-sm font-medium text-white bg-pink-500 hover:bg-pink-600 rounded-md shadow-sm transition-all"
-                        >
+                            onClick={() => { setEditingExpense(null); setShowExpenseForm(true); }}
+                            className="px-6 py-2 text-sm font-medium text-white bg-pink-500 hover:bg-pink-600 rounded-md shadow-sm transition-all">
                             Add Expense
                         </button>
                     </div>
@@ -884,10 +888,7 @@ export default function BudgetCalculatorPage() {
                                 categories={categories}
                                 initialData={editingExpense}
                                 onSubmit={handleAddExpense}
-                                onCancel={() => {
-                                    setShowExpenseForm(false);
-                                    setEditingExpense(null);
-                                }}
+                                onCancel={() => { setShowExpenseForm(false); setEditingExpense(null); }}
                                 isSubmitting={isSubmitting}
                             />
                         </div>
@@ -903,13 +904,11 @@ export default function BudgetCalculatorPage() {
 
                 {/* Tips Section */}
                 <div className="bg-linear-to-r from-pink-100 to-purple-100 p-8 rounded-xl border border-pink-200 shadow-sm">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                        💡 Budget Planning Tips
-                    </h3>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">💡 Budget Planning Tips</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700">
                         <div className="flex items-start gap-3">
                             <div className="w-2 h-2 bg-pink-500 rounded-full mt-2"></div>
-                            <p>Set aside 10-15% of your budget for unexpected expense</p>
+                            <p>Set aside 10-15% of your budget for unexpected expenses</p>
                         </div>
                         <div className="flex items-start gap-3">
                             <div className="w-2 h-2 bg-pink-500 rounded-full mt-2"></div>
@@ -936,12 +935,18 @@ export default function BudgetCalculatorPage() {
                     isSubmitting={isSubmitting}
                 />
             )}
-
             {editingTotalBudget && (
                 <EditTotalBudgetModal
                     currentAmount={summary.totalBudget}
                     onSave={handleUpdateTotalBudget}
                     onClose={() => setEditingTotalBudget(false)}
+                    isSubmitting={isSubmitting}
+                />
+            )}
+            {addingCategory && (
+                <AddCategoryModal
+                    onSave={handleAddCategory}
+                    onClose={() => setAddingCategory(false)}
                     isSubmitting={isSubmitting}
                 />
             )}
