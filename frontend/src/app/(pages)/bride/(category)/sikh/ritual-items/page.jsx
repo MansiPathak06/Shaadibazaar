@@ -24,7 +24,7 @@ const SikhRitualItemsPage = () => {
         <div className="absolute inset-0 z-0">
           <img 
             src="https://i.pinimg.com/1200x/2e/a3/e4/2ea3e41c04b3771472c31531eca12cfa.jpg" 
-            alt="Traditional Sikh Ritual Items Background"
+            alt="Traditional Sikh ritual-items Background"
             className="w-full h-full object-cover"
           />
           {/* Lighter overlay for better visibility */}
@@ -35,14 +35,14 @@ const SikhRitualItemsPage = () => {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="max-w-2xl">
             <h1 className="text-3xl md:text-4xl font-serif text-gray-900 mb-2 leading-tight drop-shadow-sm">
-              Sikh Ritual Items
+              Sikh ritual-items
               <span className="text-xl md:text-2xl text-orange-700 ml-2">& Sacred Collection</span>
             </h1>
             <p className="text-gray-700 text-base mb-4 max-w-xl font-medium">
               Discover authentic Anand Karaj essentials crafted with devotion and tradition
             </p>
             <Link 
-              href="/bride/all-products?category=ritual items"
+              href="/bride/all-products?category=ritual-items"
               className="inline-block bg-orange-600 hover:bg-orange-700 text-white px-8 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
             >
               Shop Now
@@ -78,7 +78,7 @@ const SikhRitualItemsPage = () => {
           {(showAllCategories ? categories : categories.slice(0, 5)).map((category, index) => (
             <Link 
               key={index}
-              href={`/bride/all-products?category=ritual items&subCategory=${encodeURIComponent(category.slug)}`}
+              href={`/bride/all-products?category=ritual-items&subCategory=${encodeURIComponent(category.slug)}`}
               className="bg-white rounded-lg overflow-hidden h-[300px] shadow-sm hover:shadow-md transition-shadow cursor-pointer group"
             >
               <div className="aspect-square bg-gray-100 overflow-hidden">
@@ -111,7 +111,7 @@ const SikhRitualItemsPage = () => {
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           {/* Rumala Sahib Card */}
           <Link 
-            href="/bride/all-products?category=ritual items&subCategory=rumala-sahib-set"
+            href="/bride/all-products?category=ritual-items&subCategory=rumala-sahib-set"
             className="relative h-80 rounded-xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
           >
             <img 
@@ -135,7 +135,7 @@ const SikhRitualItemsPage = () => {
 
           {/* Flower Chadar Card */}
           <Link 
-            href="/bride/all-products?category=ritual items&subCategory=flower-chadar"
+            href="/bride/all-products?category=ritual-items&subCategory=flower-chadar"
             className="relative h-80 rounded-xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
           >
             <img 
@@ -159,7 +159,7 @@ const SikhRitualItemsPage = () => {
 
           {/* Chooda Set Card */}
           <Link 
-            href="/bride/all-products?category=ritual items&subCategory=chooda-ceremony-items"
+            href="/bride/all-products?category=ritual-items&subCategory=chooda-ceremony-items"
             className="relative h-80 rounded-xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
           >
             <img 
@@ -224,7 +224,7 @@ const SikhRitualItemsPage = () => {
               </li>
             </ul>
             <Link 
-              href="/bride/all-products?category=ritual items"
+              href="/bride/all-products?category=ritual-items"
               className="block w-full bg-orange-600 hover:bg-orange-700 text-white py-2.5 rounded-lg text-sm font-medium transition-colors group-hover:shadow-md text-center"
             >
               Explore Anand Karaj Items →
@@ -251,7 +251,7 @@ const SikhRitualItemsPage = () => {
               </li>
             </ul>
             <Link 
-              href="/bride/all-products?category=ritual items&subCategory=chooda-ceremony-items"
+              href="/bride/all-products?category=ritual-items&subCategory=chooda-ceremony-items"
               className="block w-full bg-orange-600 hover:bg-orange-700 text-white py-2.5 rounded-lg text-sm font-medium transition-colors group-hover:shadow-md text-center"
             >
               Explore Chooda Items →
@@ -278,7 +278,7 @@ const SikhRitualItemsPage = () => {
               </li>
             </ul>
             <Link 
-              href="/bride/all-products?category=ritual items"
+              href="/bride/all-products?category=ritual-items"
               className="block w-full bg-orange-600 hover:bg-orange-700 text-white py-2.5 rounded-lg text-sm font-medium transition-colors group-hover:shadow-md text-center"
             >
               Explore Festive Items →

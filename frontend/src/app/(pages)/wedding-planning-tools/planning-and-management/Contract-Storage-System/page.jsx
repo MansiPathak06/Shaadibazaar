@@ -1,25 +1,50 @@
 "use client";
-import React, { useState, useEffect } from 'react';
-import { Menu, Bell, Search, FileText, Clock, AlertCircle, TrendingUp, Upload, X, Check, User, Mail, Phone, Briefcase, Save, Lock, UserPlus, LogOut, Home, Settings, MoreVertical, Download, Filter, ArrowLeft } from 'lucide-react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Menu, Bell, Search, FileText, Clock, AlertCircle, TrendingUp, Upload, X, Check, User, Mail, Phone, Briefcase, Save, Lock, UserPlus, LogOut, Home, Settings, MoreVertical, Download, Filter, ArrowLeft, Trash2, RefreshCw } from 'lucide-react';
 import { format, isBefore, addDays } from 'date-fns';
 
-// Dashboard Component
-const Dashboard = ({ documents }) => {
-  const totalDocs = documents.length;
-  const expiringSoon = documents.filter(doc => {
-    if (!doc.expiryDate) return false;
-    const expiry = new Date(doc.expiryDate);
-    const today = new Date();
-    const warningDate = addDays(today, 30);
-    return isBefore(expiry, warningDate) && !isBefore(expiry, today);
-  }).length;
+// ─── API HELPERS ──────────────────────────────────────────────────────────────
+const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
 
-  const expired = documents.filter(doc => {
-    if (!doc.expiryDate) return false;
-    return isBefore(new Date(doc.expiryDate), new Date());
-  }).length;
+const apiCall = async (endpoint, options = {}, token = null) => {
+  const headers = { 'Content-Type': 'application/json' };
+  if (token) headers['Authorization'] = `Bearer ${token}`;
 
-  const recentDocs = [...documents].sort((a, b) => 
+  const res = await fetch(`${API_BASE}${endpoint}`, { ...options, headers });
+  const data = await res.json();
+
+  if (!res.ok) throw new Error(data.message || 'Request failed');
+  return data;
+};
+
+// ─── DASHBOARD ────────────────────────────────────────────────────────────────
+const Dashboard = ({ documents, token }) => {
+  const [stats, setStats] = useState({ total: 0, expiringSoon: 0, expired: 0, thisMonth: 0 });
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        const data = await apiCall('/documents/stats', {}, token);
+        if (data.success) setStats(data.stats);
+      } catch (e) {
+        // fallback: compute from local documents array
+        const today = new Date();
+        const in30 = addDays(today, 30);
+        setStats({
+          total: documents.length,
+          expiringSoon: documents.filter(d => d.expiryDate && new Date(d.expiryDate) >= today && new Date(d.expiryDate) <= in30).length,
+          expired: documents.filter(d => d.expiryDate && isBefore(new Date(d.expiryDate), today)).length,
+          thisMonth: documents.filter(d => new Date(d.uploadDate).getMonth() === today.getMonth()).length,
+        });
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchStats();
+  }, [documents, token]);
+
+  const recentDocs = [...documents].sort((a, b) =>
     new Date(b.uploadDate) - new Date(a.uploadDate)
   ).slice(0, 5);
 
@@ -27,7 +52,7 @@ const Dashboard = ({ documents }) => {
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex items-start justify-between">
       <div>
         <p className="text-sm text-gray-500 mb-1">{label}</p>
-        <p className="text-3xl font-bold text-gray-900">{value}</p>
+        <p className="text-3xl font-bold text-gray-900">{loading ? '—' : value}</p>
       </div>
       <div className={`${bg} p-3 rounded-xl`}>
         <Icon className={`w-6 h-6 ${color}`} />
@@ -38,16 +63,10 @@ const Dashboard = ({ documents }) => {
   return (
     <div className="space-y-8">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <StatCard label="Total Documents" value={totalDocs} icon={FileText} color="text-pink-600" bg="bg-pink-50" />
-        <StatCard label="Expiring Soon" value={expiringSoon} icon={Clock} color="text-orange-600" bg="bg-orange-50" />
-        <StatCard label="Expired" value={expired} icon={AlertCircle} color="text-red-600" bg="bg-red-50" />
-        <StatCard 
-          label="This Month" 
-          value={documents.filter(d => new Date(d.uploadDate).getMonth() === new Date().getMonth()).length} 
-          icon={TrendingUp} 
-          color="text-green-600" 
-          bg="bg-green-50" 
-        />
+        <StatCard label="Total Documents" value={stats.total} icon={FileText} color="text-pink-600" bg="bg-pink-50" />
+        <StatCard label="Expiring Soon" value={stats.expiringSoon} icon={Clock} color="text-orange-600" bg="bg-orange-50" />
+        <StatCard label="Expired" value={stats.expired} icon={AlertCircle} color="text-red-600" bg="bg-red-50" />
+        <StatCard label="This Month" value={stats.thisMonth} icon={TrendingUp} color="text-green-600" bg="bg-green-50" />
       </div>
 
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
@@ -86,8 +105,8 @@ const Dashboard = ({ documents }) => {
   );
 };
 
-// Document List Component
-const DocumentList = ({ documents }) => {
+// ─── DOCUMENT LIST ────────────────────────────────────────────────────────────
+const DocumentList = ({ documents, onDelete, loading }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('All');
 
@@ -95,7 +114,7 @@ const DocumentList = ({ documents }) => {
 
   const filteredDocs = documents.filter(doc => {
     const matchesSearch = doc.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      doc.vendor?.toLowerCase().includes(searchTerm.toLowerCase());
+      (doc.vendor?.toLowerCase() || '').includes(searchTerm.toLowerCase());
     const matchesCategory = categoryFilter === 'All' || doc.category === categoryFilter;
     return matchesSearch && matchesCategory;
   });
@@ -113,7 +132,7 @@ const DocumentList = ({ documents }) => {
             className="w-full pl-10 pr-4 py-2 bg-gray-50 border-none rounded-xl text-sm focus:ring-2 focus:ring-pink-100 outline-none"
           />
         </div>
-        <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 hide-scrollbar">
+        <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0">
           {categories.map(cat => (
             <button
               key={cat}
@@ -130,55 +149,65 @@ const DocumentList = ({ documents }) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredDocs.map((doc) => (
-          <div key={doc.id} className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all group">
-            <div className="p-5">
-              <div className="flex items-start justify-between">
-                <div className="w-12 h-12 bg-pink-50 rounded-xl flex items-center justify-center text-pink-500 mb-4 group-hover:bg-pink-500 group-hover:text-white transition-colors">
-                  <FileText className="w-6 h-6" />
+      {loading ? (
+        <div className="flex items-center justify-center py-16">
+          <RefreshCw className="w-8 h-8 text-pink-400 animate-spin" />
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredDocs.map((doc) => (
+            <div key={doc.id} className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all group">
+              <div className="p-5">
+                <div className="flex items-start justify-between">
+                  <div className="w-12 h-12 bg-pink-50 rounded-xl flex items-center justify-center text-pink-500 mb-4 group-hover:bg-pink-500 group-hover:text-white transition-colors">
+                    <FileText className="w-6 h-6" />
+                  </div>
+                  <button
+                    onClick={() => onDelete(doc.id)}
+                    className="text-gray-300 hover:text-red-500 transition-colors p-1"
+                    title="Delete document"
+                  >
+                    <Trash2 className="w-4 h-4" />
+                  </button>
                 </div>
-                <button className="text-gray-400 hover:text-gray-600">
-                  <MoreVertical className="w-5 h-5" />
+
+                <h3 className="font-bold text-gray-900 truncate" title={doc.title}>{doc.title}</h3>
+                <p className="text-sm text-gray-500 mb-4">{doc.vendor || 'No vendor'}</p>
+
+                <div className="space-y-2 text-xs text-gray-500">
+                  <div className="flex justify-between">
+                    <span>Category</span>
+                    <span className="font-medium text-gray-700">{doc.category}</span>
+                  </div>
+                  {doc.expiryDate && (
+                    <div className="flex justify-between">
+                      <span>Expires</span>
+                      <span className={`font-medium ${new Date(doc.expiryDate) < new Date() ? 'text-red-500' : 'text-gray-700'}`}>
+                        {format(new Date(doc.expiryDate), 'MMM d, yyyy')}
+                      </span>
+                    </div>
+                  )}
+                  <div className="flex justify-between">
+                    <span>Uploaded</span>
+                    <span className="font-medium text-gray-700">{format(new Date(doc.uploadDate), 'MMM d, yyyy')}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="px-5 py-4 border-t border-gray-50 bg-gray-50/50 rounded-b-2xl flex justify-between items-center">
+                <span className="text-xs font-medium px-2 py-1 bg-white border border-gray-200 rounded text-gray-600">
+                  {doc.fileType?.includes('pdf') ? 'PDF' : doc.fileType?.split('/')[1]?.toUpperCase() || 'FILE'}
+                </span>
+                <button className="text-sm font-medium text-pink-600 hover:text-pink-700 flex items-center gap-1">
+                  Download <Download className="w-4 h-4" />
                 </button>
               </div>
-
-              <h3 className="font-bold text-gray-900 truncate" title={doc.title}>{doc.title}</h3>
-              <p className="text-sm text-gray-500 mb-4">{doc.vendor || 'No vendor'}</p>
-
-              <div className="space-y-2 text-xs text-gray-500">
-                <div className="flex justify-between">
-                  <span>Category</span>
-                  <span className="font-medium text-gray-700">{doc.category}</span>
-                </div>
-                {doc.expiryDate && (
-                  <div className="flex justify-between">
-                    <span>Expires</span>
-                    <span className={`font-medium ${new Date(doc.expiryDate) < new Date() ? 'text-red-500' : 'text-gray-700'}`}>
-                      {format(new Date(doc.expiryDate), 'MMM d, yyyy')}
-                    </span>
-                  </div>
-                )}
-                <div className="flex justify-between">
-                  <span>Uploaded</span>
-                  <span className="font-medium text-gray-700">{format(new Date(doc.uploadDate), 'MMM d, yyyy')}</span>
-                </div>
-              </div>
             </div>
+          ))}
+        </div>
+      )}
 
-            <div className="px-5 py-4 border-t border-gray-50 bg-gray-50/50 rounded-b-2xl flex justify-between items-center">
-              <span className="text-xs font-medium px-2 py-1 bg-white border border-gray-200 rounded text-gray-600">
-                PDF
-              </span>
-              <button className="text-sm font-medium text-pink-600 hover:text-pink-700 flex items-center gap-1">
-                Download <Download className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {filteredDocs.length === 0 && (
+      {!loading && filteredDocs.length === 0 && (
         <div className="text-center py-12 bg-white rounded-2xl border border-gray-100 border-dashed">
           <div className="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-4">
             <Search className="w-8 h-8 text-gray-300" />
@@ -191,11 +220,12 @@ const DocumentList = ({ documents }) => {
   );
 };
 
-// Upload Form Component
-const UploadForm = ({ onUpload, setActiveTab }) => {
+// ─── UPLOAD FORM ──────────────────────────────────────────────────────────────
+const UploadForm = ({ onUpload, setActiveTab, token }) => {
   const [dragActive, setDragActive] = useState(false);
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
   const [formData, setFormData] = useState({
     title: '',
     vendor: '',
@@ -208,46 +238,45 @@ const UploadForm = ({ onUpload, setActiveTab }) => {
   const handleDrag = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    if (e.type === "dragenter" || e.type === "dragover") {
-      setDragActive(true);
-    } else if (e.type === "dragleave") {
-      setDragActive(false);
-    }
+    setDragActive(e.type === "dragenter" || e.type === "dragover");
   };
 
   const handleDrop = (e) => {
     e.preventDefault();
     e.stopPropagation();
     setDragActive(false);
-    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-      setFile(e.dataTransfer.files[0]);
-    }
+    if (e.dataTransfer.files?.[0]) setFile(e.dataTransfer.files[0]);
   };
 
-  const handleChange = (e) => {
-    setFile(e.target.files[0]);
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!file || !formData.title) return;
 
     setLoading(true);
+    setError('');
 
-    setTimeout(() => {
-      const newDoc = {
-        id: Date.now().toString(),
+    try {
+      const payload = {
         ...formData,
         fileName: file.name,
         fileType: file.type,
         fileSize: file.size,
-        uploadDate: new Date().toISOString(),
       };
 
-      onUpload(newDoc);
+      const data = await apiCall('/documents', {
+        method: 'POST',
+        body: JSON.stringify(payload),
+      }, token);
+
+      if (data.success) {
+        onUpload(data.document);
+        setActiveTab('documents');
+      }
+    } catch (err) {
+      setError(err.message || 'Failed to upload document');
+    } finally {
       setLoading(false);
-      setActiveTab('documents');
-    }, 1500);
+    }
   };
 
   return (
@@ -259,6 +288,7 @@ const UploadForm = ({ onUpload, setActiveTab }) => {
         </div>
 
         <form onSubmit={handleSubmit} className="p-8 space-y-6">
+          {/* Drop Zone */}
           <div
             className={`border-2 border-dashed rounded-2xl p-8 text-center transition-colors ${
               dragActive ? 'border-pink-500 bg-pink-50' : 'border-gray-200 hover:border-pink-300'
@@ -268,12 +298,7 @@ const UploadForm = ({ onUpload, setActiveTab }) => {
             onDragOver={handleDrag}
             onDrop={handleDrop}
           >
-            <input
-              type="file"
-              className="hidden"
-              id="file-upload"
-              onChange={handleChange}
-            />
+            <input type="file" className="hidden" id="file-upload" onChange={e => setFile(e.target.files[0])} />
             <label htmlFor="file-upload" className="cursor-pointer block">
               {file ? (
                 <div className="flex flex-col items-center gap-2">
@@ -282,10 +307,7 @@ const UploadForm = ({ onUpload, setActiveTab }) => {
                   </div>
                   <p className="font-medium text-green-800">{file.name}</p>
                   <p className="text-xs text-green-600">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
-                  <button
-                    onClick={(e) => { e.preventDefault(); setFile(null); }}
-                    className="text-xs text-red-500 hover:underline mt-2"
-                  >
+                  <button onClick={(e) => { e.preventDefault(); setFile(null); }} className="text-xs text-red-500 hover:underline mt-2">
                     Remove
                   </button>
                 </div>
@@ -303,30 +325,26 @@ const UploadForm = ({ onUpload, setActiveTab }) => {
             </label>
           </div>
 
+          {/* Fields */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-700">Document Title *</label>
-              <input
-                required
-                type="text"
+              <input required type="text"
                 className="w-full px-4 py-2 rounded-xl bg-gray-50 border-transparent focus:bg-white focus:ring-2 focus:ring-pink-100 transition-all outline-none"
                 placeholder="e.g. Venue Contract Final"
                 value={formData.title}
                 onChange={e => setFormData({ ...formData, title: e.target.value })}
               />
             </div>
-
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-700">Vendor Name</label>
-              <input
-                type="text"
+              <input type="text"
                 className="w-full px-4 py-2 rounded-xl bg-gray-50 border-transparent focus:bg-white focus:ring-2 focus:ring-pink-100 transition-all outline-none"
                 placeholder="e.g. The Grand Palace"
                 value={formData.vendor}
                 onChange={e => setFormData({ ...formData, vendor: e.target.value })}
               />
             </div>
-
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-700">Category</label>
               <select
@@ -334,19 +352,12 @@ const UploadForm = ({ onUpload, setActiveTab }) => {
                 value={formData.category}
                 onChange={e => setFormData({ ...formData, category: e.target.value })}
               >
-                <option>Venue</option>
-                <option>Catering</option>
-                <option>Photography</option>
-                <option>Decor</option>
-                <option>Legal</option>
-                <option>Other</option>
+                {['Venue','Catering','Photography','Decor','Legal','Other'].map(c => <option key={c}>{c}</option>)}
               </select>
             </div>
-
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-700">Expiry Date</label>
-              <input
-                type="date"
+              <input type="date"
                 className="w-full px-4 py-2 rounded-xl bg-gray-50 border-transparent focus:bg-white focus:ring-2 focus:ring-pink-100 transition-all outline-none"
                 value={formData.expiryDate}
                 onChange={e => setFormData({ ...formData, expiryDate: e.target.value })}
@@ -356,32 +367,26 @@ const UploadForm = ({ onUpload, setActiveTab }) => {
 
           <div className="space-y-2">
             <label className="text-sm font-medium text-gray-700">Notes</label>
-            <textarea
-              rows="3"
+            <textarea rows="3"
               className="w-full px-4 py-2 rounded-xl bg-gray-50 border-transparent focus:bg-white focus:ring-2 focus:ring-pink-100 transition-all outline-none resize-none"
               placeholder="Any additional details..."
               value={formData.notes}
               onChange={e => setFormData({ ...formData, notes: e.target.value })}
-            ></textarea>
+            />
           </div>
 
+          {error && <p className="text-red-500 text-sm">{error}</p>}
+
           <div className="pt-4 flex justify-end gap-3">
-            <button
-              type="button"
-              onClick={() => setActiveTab('documents')}
-              className="px-6 py-2.5 rounded-xl text-gray-600 font-medium hover:bg-gray-100 transition-colors"
-            >
+            <button type="button" onClick={() => setActiveTab('documents')}
+              className="px-6 py-2.5 rounded-xl text-gray-600 font-medium hover:bg-gray-100 transition-colors">
               Cancel
             </button>
-            <button
-              type="submit"
-              disabled={loading || !file}
+            <button type="submit" disabled={loading || !file}
               className={`px-6 py-2.5 rounded-xl text-white font-medium shadow-lg shadow-pink-200 transition-all ${
-                loading || !file
-                  ? 'bg-gray-300 cursor-not-allowed shadow-none'
+                loading || !file ? 'bg-gray-300 cursor-not-allowed shadow-none'
                   : 'bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 hover:shadow-xl'
-              }`}
-            >
+              }`}>
               {loading ? 'Uploading...' : 'Save Document'}
             </button>
           </div>
@@ -391,32 +396,34 @@ const UploadForm = ({ onUpload, setActiveTab }) => {
   );
 };
 
-// User Profile Component
-const UserProfile = ({ user, onUpdateUser }) => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    company: ''
-  });
+// ─── USER PROFILE ─────────────────────────────────────────────────────────────
+const UserProfile = ({ user, onUpdateUser, token }) => {
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', company: '' });
   const [message, setMessage] = useState('');
+  const [error, setError] = useState('');
 
   useEffect(() => {
-    if (user) {
-      setFormData({
-        name: user.name || '',
-        email: user.email || '',
-        phone: user.phone || '',
-        company: user.company || ''
-      });
-    }
+    if (user) setFormData({ name: user.name || '', email: user.email || '', phone: user.phone || '', company: user.company || '' });
   }, [user]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onUpdateUser({ ...user, ...formData });
-    setMessage('Profile updated successfully!');
-    setTimeout(() => setMessage(''), 3000);
+    setError('');
+    try {
+      // Call your existing auth update-profile endpoint, or adjust to yours
+      const data = await apiCall('/auth/update-profile', {
+        method: 'PUT',
+        body: JSON.stringify(formData),
+      }, token);
+
+      if (data.success) {
+        onUpdateUser({ ...user, ...formData });
+        setMessage('Profile updated successfully!');
+        setTimeout(() => setMessage(''), 3000);
+      }
+    } catch (err) {
+      setError(err.message || 'Failed to update profile');
+    }
   };
 
   return (
@@ -433,47 +440,39 @@ const UserProfile = ({ user, onUpdateUser }) => {
               <label className="text-sm font-medium text-gray-700">Full Name</label>
               <div className="relative">
                 <User className="absolute left-3 top-3 w-4 h-4 text-gray-400" />
-                <input
-                  type="text"
+                <input type="text"
                   className="w-full pl-10 pr-4 py-2 rounded-xl bg-gray-50 border-transparent focus:bg-white focus:ring-2 focus:ring-pink-100 transition-all outline-none"
                   value={formData.name}
                   onChange={e => setFormData({ ...formData, name: e.target.value })}
                 />
               </div>
             </div>
-
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-700">Email Address</label>
               <div className="relative">
                 <Mail className="absolute left-3 top-3 w-4 h-4 text-gray-400" />
-                <input
-                  type="email"
-                  disabled
+                <input type="email" disabled
                   className="w-full pl-10 pr-4 py-2 rounded-xl bg-gray-100/50 text-gray-500 border-transparent outline-none cursor-not-allowed"
                   value={formData.email}
                 />
               </div>
             </div>
-
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-700">Phone Number</label>
               <div className="relative">
                 <Phone className="absolute left-3 top-3 w-4 h-4 text-gray-400" />
-                <input
-                  type="tel"
+                <input type="tel"
                   className="w-full pl-10 pr-4 py-2 rounded-xl bg-gray-50 border-transparent focus:bg-white focus:ring-2 focus:ring-pink-100 transition-all outline-none"
                   value={formData.phone}
                   onChange={e => setFormData({ ...formData, phone: e.target.value })}
                 />
               </div>
             </div>
-
             <div className="space-y-2">
               <label className="text-sm font-medium text-gray-700">Company / Organization</label>
               <div className="relative">
                 <Briefcase className="absolute left-3 top-3 w-4 h-4 text-gray-400" />
-                <input
-                  type="text"
+                <input type="text"
                   className="w-full pl-10 pr-4 py-2 rounded-xl bg-gray-50 border-transparent focus:bg-white focus:ring-2 focus:ring-pink-100 transition-all outline-none"
                   value={formData.company}
                   onChange={e => setFormData({ ...formData, company: e.target.value })}
@@ -482,12 +481,12 @@ const UserProfile = ({ user, onUpdateUser }) => {
             </div>
           </div>
 
+          {error && <p className="text-red-500 text-sm">{error}</p>}
+
           <div className="pt-4 flex items-center justify-between">
             {message && <span className="text-green-600 text-sm font-medium">{message}</span>}
-            <button
-              type="submit"
-              className="px-6 py-2.5 rounded-xl text-white font-medium bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 hover:shadow-lg shadow-pink-200 transition-all flex items-center gap-2 ml-auto"
-            >
+            <button type="submit"
+              className="px-6 py-2.5 rounded-xl text-white font-medium bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 hover:shadow-lg shadow-pink-200 transition-all flex items-center gap-2 ml-auto">
               <Save className="w-4 h-4" /> Save Changes
             </button>
           </div>
@@ -497,47 +496,55 @@ const UserProfile = ({ user, onUpdateUser }) => {
   );
 };
 
-// Login Component
+// ─── LOGIN ────────────────────────────────────────────────────────────────────
 const Login = ({ onLogin, onNavigateToSignup }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!email || !password) {
-      setError('Please fill in all fields');
-      return;
+    if (!email || !password) { setError('Please fill in all fields'); return; }
+
+    setLoading(true);
+    setError('');
+
+    try {
+      const data = await apiCall('/auth/signin', {
+        method: 'POST',
+        body: JSON.stringify({ email, password }),
+      });
+
+      console.log('Login response:', data); // check browser console to see exact shape
+
+      // Handles all common shapes: { token, user } / { token, data } / { accessToken, user }
+      const token = data.token || data.accessToken;
+      const user  = data.user || data.data || data.userData;
+
+      if (token && user) {
+        onLogin(user, token);
+      } else if (token && !user) {
+        // Fallback: decode user from JWT payload
+        try {
+          const payload = JSON.parse(atob(token.split('.')[1]));
+          onLogin({ id: payload.id || payload.userId, email: payload.email, name: payload.name || payload.email }, token);
+        } catch {
+          setError('Login succeeded but user info is missing from response.');
+        }
+      } else {
+        setError(data.message || 'Login failed — no token returned');
+      }
+    } catch (err) {
+      setError(err.message || 'Invalid email or password');
+    } finally {
+      setLoading(false);
     }
-
-    const storedUsers = JSON.parse(localStorage.getItem('shadi_bazar_users') || '[]');
-    const user = storedUsers.find(u => u.email === email && u.password === password);
-
-    if (user) {
-      onLogin(user);
-    } else {
-      setError('Invalid email or password');
-    }
-  };
-
-  const handleBack = () => {
-    window.history.back();
   };
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
       <div className="bg-white max-w-sm w-full rounded-2xl shadow-xl p-8 space-y-6">
-        <div className="flex items-center justify-between mb-4">
-          <button
-            onClick={handleBack}
-            className="p-2 hover:bg-gray-100 rounded-full transition-colors text-gray-600"
-            aria-label="Go back"
-          >
-            <ArrowLeft size={20} />
-          </button>
-          <div className="flex-1"></div>
-        </div>
-
         <div className="text-center">
           <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto text-pink-500 mb-4">
             <Lock className="w-8 h-8" />
@@ -551,42 +558,35 @@ const Login = ({ onLogin, onNavigateToSignup }) => {
             <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
             <div className="relative">
               <Mail className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
-              <input
-                type="email"
+              <input type="email"
                 className="w-full pl-10 pr-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition-all"
                 placeholder="you@example.com"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={e => setEmail(e.target.value)}
                 autoFocus
               />
             </div>
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
-            <input
-              type="password"
+            <input type="password"
               className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition-all"
               placeholder="••••••••"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={e => setPassword(e.target.value)}
             />
           </div>
 
           {error && <p className="text-red-500 text-sm">{error}</p>}
 
-          <button
-            type="submit"
-            className="w-full py-3 rounded-xl bg-pink-500 text-white font-bold shadow-lg shadow-pink-200 hover:bg-pink-600 hover:shadow-xl transition-all"
-          >
-            Sign In
+          <button type="submit" disabled={loading}
+            className="w-full py-3 rounded-xl bg-pink-500 text-white font-bold shadow-lg shadow-pink-200 hover:bg-pink-600 hover:shadow-xl transition-all disabled:opacity-60">
+            {loading ? 'Signing in...' : 'Sign In'}
           </button>
         </form>
 
         <div className="text-center">
-          <button
-            onClick={onNavigateToSignup}
-            className="text-sm text-pink-500 hover:text-pink-600 font-medium"
-          >
+          <button onClick={onNavigateToSignup} className="text-sm text-pink-500 hover:text-pink-600 font-medium">
             Don't have an account? Sign Up
           </button>
         </div>
@@ -595,36 +595,39 @@ const Login = ({ onLogin, onNavigateToSignup }) => {
   );
 };
 
-// Signup Component
+// ─── SIGNUP ───────────────────────────────────────────────────────────────────
 const Signup = ({ onSignup, onNavigateToLogin }) => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    phone: '',
-    company: ''
-  });
+  const [formData, setFormData] = useState({ name: '', email: '', password: '', phone: '', company: '' });
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.password) {
-      setError('Please fill in all required fields');
-      return;
+      setError('Please fill in all required fields'); return;
     }
 
-    const storedUsers = JSON.parse(localStorage.getItem('shadi_bazar_users') || '[]');
+    setLoading(true);
+    setError('');
 
-    if (storedUsers.some(u => u.email === formData.email)) {
-      setError('Email already exists');
-      return;
+    try {
+      const data = await apiCall('/auth/register', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+      });
+
+      const token = data.token || data.accessToken;
+      const user  = data.user || data.data || data.userData;
+      if (token && user) {
+        onSignup(user, token);
+      } else {
+        setError(data.message || 'Signup failed — no token returned');
+      }
+    } catch (err) {
+      setError(err.message || 'Signup failed');
+    } finally {
+      setLoading(false);
     }
-
-    const newUser = { ...formData, id: Date.now().toString() };
-    const updatedUsers = [...storedUsers, newUser];
-    localStorage.setItem('shadi_bazar_users', JSON.stringify(updatedUsers));
-
-    onSignup(newUser);
   };
 
   return (
@@ -639,83 +642,39 @@ const Signup = ({ onSignup, onNavigateToLogin }) => {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <div className="relative">
-              <User className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
-              <input
-                type="text"
+          {[
+            { icon: User, type: 'text', placeholder: 'Full Name *', key: 'name' },
+            { icon: Mail, type: 'email', placeholder: 'Email Address *', key: 'email' },
+            { icon: Phone, type: 'tel', placeholder: 'Phone Number', key: 'phone' },
+            { icon: Briefcase, type: 'text', placeholder: 'Company Name', key: 'company' },
+          ].map(({ icon: Icon, type, placeholder, key }) => (
+            <div key={key} className="relative">
+              <Icon className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+              <input type={type}
                 className="w-full pl-10 pr-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition-all"
-                placeholder="Full Name *"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                placeholder={placeholder}
+                value={formData[key]}
+                onChange={e => setFormData({ ...formData, [key]: e.target.value })}
               />
             </div>
-          </div>
-
-          <div>
-            <div className="relative">
-              <Mail className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
-              <input
-                type="email"
-                className="w-full pl-10 pr-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition-all"
-                placeholder="Email Address *"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              />
-            </div>
-          </div>
-
-          <div>
-            <input
-              type="password"
-              className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition-all"
-              placeholder="Password *"
-              value={formData.password}
-              onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-            />
-          </div>
-
-          <div>
-            <div className="relative">
-              <Phone className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
-              <input
-                type="tel"
-                className="w-full pl-10 pr-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition-all"
-                placeholder="Phone Number"
-                value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              />
-            </div>
-          </div>
-
-          <div>
-            <div className="relative">
-              <Briefcase className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
-              <input
-                type="text"
-                className="w-full pl-10 pr-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition-all"
-                placeholder="Company Name"
-                value={formData.company}
-                onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-              />
-            </div>
-          </div>
+          ))}
+          <input type="password"
+            className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition-all"
+            placeholder="Password *"
+            value={formData.password}
+            onChange={e => setFormData({ ...formData, password: e.target.value })}
+          />
 
           {error && <p className="text-red-500 text-sm">{error}</p>}
 
-          <button
-            type="submit"
-            className="w-full py-3 rounded-xl bg-pink-500 text-white font-bold shadow-lg shadow-pink-200 hover:bg-pink-600 hover:shadow-xl transition-all"
-          >
-            Create Account
+          <button type="submit" disabled={loading}
+            className="w-full py-3 rounded-xl bg-pink-500 text-white font-bold shadow-lg shadow-pink-200 hover:bg-pink-600 hover:shadow-xl transition-all disabled:opacity-60">
+            {loading ? 'Creating...' : 'Create Account'}
           </button>
         </form>
 
         <div className="text-center">
-          <button
-            onClick={onNavigateToLogin}
-            className="text-sm text-pink-500 hover:text-pink-600 font-medium"
-          >
+          <button onClick={onNavigateToLogin} className="text-sm text-pink-500 hover:text-pink-600 font-medium">
             Already have an account? Sign In
           </button>
         </div>
@@ -724,39 +683,26 @@ const Signup = ({ onSignup, onNavigateToLogin }) => {
   );
 };
 
-// Header Component
-const Header = ({ title, setMobileMenuOpen }) => {
-  return (
-    <header className="bg-white/80 backdrop-blur-md sticky top-0 z-10 border-b border-gray-100 px-4 sm:px-6 h-16 flex items-center justify-between">
-      <div className="flex items-center gap-4">
-        <button
-          onClick={() => setMobileMenuOpen(true)}
-          className="p-2 -ml-2 text-gray-500 hover:bg-gray-100 rounded-lg md:hidden"
-        >
-          <Menu className="w-6 h-6" />
-        </button>
-        <h1 className="text-xl font-semibold text-gray-900">{title}</h1>
-      </div>
+// ─── HEADER ───────────────────────────────────────────────────────────────────
+const Header = ({ title, setMobileMenuOpen }) => (
+  <header className="bg-white/80 backdrop-blur-md sticky top-0 z-10 border-b border-gray-100 px-4 sm:px-6 h-16 flex items-center justify-between">
+    <div className="flex items-center gap-4">
+      <button onClick={() => setMobileMenuOpen(true)}
+        className="p-2 -ml-2 text-gray-500 hover:bg-gray-100 rounded-lg md:hidden">
+        <Menu className="w-6 h-6" />
+      </button>
+      <h1 className="text-xl font-semibold text-gray-900">{title}</h1>
+    </div>
+    <div className="flex items-center gap-4">
+      <button className="p-2 text-gray-400 hover:text-pink-500 hover:bg-pink-50 rounded-full transition-colors relative">
+        <Bell className="w-5 h-5" />
+        <span className="absolute top-2 right-2 w-2 h-2 bg-pink-500 rounded-full border-2 border-white"></span>
+      </button>
+    </div>
+  </header>
+);
 
-      <div className="flex items-center gap-4">
-        <div className="hidden md:flex items-center relative">
-          <Search className="w-4 h-4 absolute left-3 text-gray-400" />
-          <input
-            type="text"
-            placeholder="Search docs..."
-            className="pl-9 pr-4 py-2 w-64 bg-gray-50 border-none rounded-full text-sm focus:ring-2 focus:ring-pink-100 focus:bg-white transition-all"
-          />
-        </div>
-        <button className="p-2 text-gray-400 hover:text-pink-500 hover:bg-pink-50 rounded-full transition-colors relative">
-          <Bell className="w-5 h-5" />
-          <span className="absolute top-2 right-2 w-2 h-2 bg-pink-500 rounded-full border-2 border-white"></span>
-        </button>
-      </div>
-    </header>
-  );
-};
-
-// Sidebar Component
+// ─── SIDEBAR ──────────────────────────────────────────────────────────────────
 const Sidebar = ({ activeTab, setActiveTab, mobileMenuOpen, setMobileMenuOpen, user, onLogout }) => {
   const menuItems = [
     { id: 'dashboard', label: 'Dashboard', icon: Home },
@@ -768,16 +714,9 @@ const Sidebar = ({ activeTab, setActiveTab, mobileMenuOpen, setMobileMenuOpen, u
   return (
     <>
       {mobileMenuOpen && (
-        <div
-          className="fixed inset-0 bg-black/50 z-20 md:hidden"
-          onClick={() => setMobileMenuOpen(false)}
-        />
+        <div className="fixed inset-0 bg-black/50 z-20 md:hidden" onClick={() => setMobileMenuOpen(false)} />
       )}
-
-      <div className={`
-        fixed md:static inset-y-0 left-0 z-30 w-64 bg-white border-r border-gray-100 transform transition-transform duration-200 ease-in-out flex flex-col
-        ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
-      `}>
+      <div className={`fixed md:static inset-y-0 left-0 z-30 w-64 bg-white border-r border-gray-100 transform transition-transform duration-200 ease-in-out flex flex-col ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}`}>
         <div className="flex items-center h-16 px-6 border-b border-gray-100 shrink-0">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-pink-500 rounded-lg flex items-center justify-center">
@@ -790,30 +729,16 @@ const Sidebar = ({ activeTab, setActiveTab, mobileMenuOpen, setMobileMenuOpen, u
         </div>
 
         <nav className="p-4 space-y-1 flex-1 overflow-y-auto">
-          {menuItems.map((item) => {
-            const Icon = item.icon;
-            const isActive = activeTab === item.id;
-
-            return (
-              <button
-                key={item.id}
-                onClick={() => {
-                  setActiveTab(item.id);
-                  setMobileMenuOpen(false);
-                }}
-                className={`
-                  w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200
-                  ${isActive
-                    ? 'bg-pink-50 text-pink-600 shadow-sm'
-                    : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-                  }
-                `}
-              >
-                <Icon className={`w-5 h-5 ${isActive ? 'text-pink-500' : 'text-gray-400'}`} />
-                {item.label}
-              </button>
-            );
-          })}
+          {menuItems.map(({ id, label, icon: Icon }) => (
+            <button key={id}
+              onClick={() => { setActiveTab(id); setMobileMenuOpen(false); }}
+              className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
+                activeTab === id ? 'bg-pink-50 text-pink-600 shadow-sm' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+              }`}>
+              <Icon className={`w-5 h-5 ${activeTab === id ? 'text-pink-500' : 'text-gray-400'}`} />
+              {label}
+            </button>
+          ))}
         </nav>
 
         <div className="p-4 border-t border-gray-100 shrink-0">
@@ -826,13 +751,9 @@ const Sidebar = ({ activeTab, setActiveTab, mobileMenuOpen, setMobileMenuOpen, u
               <p className="text-xs text-gray-500 truncate">{user?.company || 'Member'}</p>
             </div>
           </div>
-
-          <button
-            onClick={onLogout}
-            className="w-full flex items-center gap-3 px-4 py-2 rounded-xl text-sm font-medium text-red-600 hover:bg-red-50 transition-colors"
-          >
-            <LogOut className="w-5 h-5" />
-            Sign Out
+          <button onClick={onLogout}
+            className="w-full flex items-center gap-3 px-4 py-2 rounded-xl text-sm font-medium text-red-600 hover:bg-red-50 transition-colors">
+            <LogOut className="w-5 h-5" /> Sign Out
           </button>
         </div>
       </div>
@@ -840,101 +761,116 @@ const Sidebar = ({ activeTab, setActiveTab, mobileMenuOpen, setMobileMenuOpen, u
   );
 };
 
-// Main App Component
 function App() {
-  const [user, setUser] = useState(null);
+  // ── ALL STATE/HOOKS FIRST ──────────────────────────────
   const [authView, setAuthView] = useState('login');
   const [activeTab, setActiveTab] = useState('dashboard');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [documents, setDocuments] = useState([]);
+  const [docsLoading, setDocsLoading] = useState(false);
+  const [user, setUser] = useState(null);
+  const [token, setToken] = useState(null);
+  const [authLoading, setAuthLoading] = useState(true);
 
+  // Session restore
   useEffect(() => {
-    const storedUser = localStorage.getItem('shadi_bazar_current_user');
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
+    try {
+      const storedUser = localStorage.getItem('shadi_bazar_user');
+      const storedToken = localStorage.getItem('shadi_bazar_token');
+      if (storedUser && storedToken) {
+        setUser(JSON.parse(storedUser));
+        setToken(storedToken);
+      }
+    } catch (e) {
+      console.error('Session restore failed', e);
+    } finally {
+      setAuthLoading(false);
     }
   }, []);
 
-  useEffect(() => {
-    if (user) {
-      const storedDocs = JSON.parse(localStorage.getItem('shadi_bazar_docs_v1') || '[]');
-      setDocuments(storedDocs);
+  // Fetch documents
+  const fetchDocuments = useCallback(async () => {
+    if (!token) return;
+    setDocsLoading(true);
+    try {
+      const data = await apiCall('/documents', {}, token);
+      if (data.success) setDocuments(data.documents);
+    } catch (e) {
+      console.error('Failed to fetch documents', e);
+    } finally {
+      setDocsLoading(false);
     }
-  }, [user]);
+  }, [token]);
 
-  const handleLogin = (loggedInUser) => {
+  useEffect(() => {
+    if (token) fetchDocuments();
+  }, [token, fetchDocuments]);
+
+  // ── HANDLERS ──────────────────────────────────────────
+  const handleLogin = (loggedInUser, jwtToken) => {
     setUser(loggedInUser);
-    localStorage.setItem('shadi_bazar_current_user', JSON.stringify(loggedInUser));
+    setToken(jwtToken);
+    localStorage.setItem('shadi_bazar_user', JSON.stringify(loggedInUser));
+    localStorage.setItem('shadi_bazar_token', jwtToken);
   };
 
   const handleLogout = () => {
     setUser(null);
-    localStorage.removeItem('shadi_bazar_current_user');
+    setToken(null);
+    setDocuments([]);
+    localStorage.removeItem('shadi_bazar_user');
+    localStorage.removeItem('shadi_bazar_token');
     setAuthView('login');
     setActiveTab('dashboard');
   };
 
   const handleUpdateUser = (updatedUser) => {
     setUser(updatedUser);
-    localStorage.setItem('shadi_bazar_current_user', JSON.stringify(updatedUser));
-
-    const allUsers = JSON.parse(localStorage.getItem('shadi_bazar_users') || '[]');
-    const newUsers = allUsers.map(u => u.id === updatedUser.id ? updatedUser : u);
-    localStorage.setItem('shadi_bazar_users', JSON.stringify(newUsers));
+    localStorage.setItem('shadi_bazar_user', JSON.stringify(updatedUser));
   };
 
-  const handleUpload = (newDoc) => {
-    const updatedDocs = [newDoc, ...documents];
-    setDocuments(updatedDocs);
-    localStorage.setItem('shadi_bazar_docs_v1', JSON.stringify(updatedDocs));
-  };
+  const handleUpload = (newDoc) => setDocuments(prev => [newDoc, ...prev]);
 
-  if (!user) {
-    if (authView === 'signup') {
-      return (
-        <Signup
-          onSignup={(newUser) => {
-            handleLogin(newUser);
-          }}
-          onNavigateToLogin={() => setAuthView('login')}
-        />
-      );
+  const handleDelete = async (docId) => {
+    if (!window.confirm('Delete this document?')) return;
+    try {
+      await apiCall(`/documents/${docId}`, { method: 'DELETE' }, token);
+      setDocuments(prev => prev.filter(d => d.id !== docId));
+    } catch (e) {
+      alert('Failed to delete document');
     }
+  };
+
+  // ── CONDITIONAL RETURNS AFTER ALL HOOKS ───────────────
+  if (authLoading) {
     return (
-      <Login
-        onLogin={handleLogin}
-        onNavigateToSignup={() => setAuthView('signup')}
-      />
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <RefreshCw className="w-8 h-8 text-pink-400 animate-spin" />
+      </div>
     );
   }
 
+  if (!user) {
+    if (authView === 'signup') {
+      return <Signup onSignup={handleLogin} onNavigateToLogin={() => setAuthView('login')} />;
+    }
+    return <Login onLogin={handleLogin} onNavigateToSignup={() => setAuthView('signup')} />;
+  }
+
+  const tabTitles = { dashboard: 'Overview', documents: 'Documents', upload: 'Upload', profile: 'Profile' };
+
   return (
     <div className="flex h-screen bg-gray-50 overflow-hidden font-sans text-gray-900">
-      <Sidebar
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-        mobileMenuOpen={mobileMenuOpen}
-        setMobileMenuOpen={setMobileMenuOpen}
-        user={user}
-        onLogout={handleLogout}
-      />
-
+      <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} mobileMenuOpen={mobileMenuOpen}
+        setMobileMenuOpen={setMobileMenuOpen} user={user} onLogout={handleLogout} />
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
-        <Header
-          title={
-            activeTab === 'dashboard' ? 'Overview' :
-            activeTab === 'documents' ? 'Documents' :
-            activeTab === 'profile' ? 'Profile' : 'Upload'
-          }
-          setMobileMenuOpen={setMobileMenuOpen}
-        />
-
+        <Header title={tabTitles[activeTab] || 'App'} setMobileMenuOpen={setMobileMenuOpen} />
         <main className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
           <div className="max-w-6xl mx-auto space-y-8">
-            {activeTab === 'dashboard' && <Dashboard documents={documents} />}
-            {activeTab === 'documents' && <DocumentList documents={documents} />}
-            {activeTab === 'upload' && <UploadForm onUpload={handleUpload} setActiveTab={setActiveTab} />}
-            {activeTab === 'profile' && <UserProfile user={user} onUpdateUser={handleUpdateUser} />}
+            {activeTab === 'dashboard' && <Dashboard documents={documents} token={token} />}
+            {activeTab === 'documents' && <DocumentList documents={documents} onDelete={handleDelete} loading={docsLoading} />}
+            {activeTab === 'upload' && <UploadForm onUpload={handleUpload} setActiveTab={setActiveTab} token={token} />}
+            {activeTab === 'profile' && <UserProfile user={user} onUpdateUser={handleUpdateUser} token={token} />}
           </div>
         </main>
       </div>

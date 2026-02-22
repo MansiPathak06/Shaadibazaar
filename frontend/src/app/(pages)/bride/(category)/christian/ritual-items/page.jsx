@@ -8,7 +8,7 @@ const ChristianBridalItemsPage = () => {
   const categories = [
     { name: 'Wedding Rings', items: 42, image: 'https://i.pinimg.com/1200x/12/bd/ec/12bdec92a5563b6b75339890f87a5016.jpg', slug: 'wedding-rings' },
     { name: 'Holy Bible', items: 28, image: 'https://i.pinimg.com/1200x/1e/e7/3f/1ee73f92c311d738b4185442201ae825.jpg', slug: 'holy-bible' },
-    { name: 'Bridal Bouquet', items: 35, image: 'https://i.pinimg.com/1200x/f2/85/b0/f285b0c51dd735092be426188666ee75.jpg', slug: 'bridal-bouquet' },
+    { name: 'Bridal Bouquet', items: 35, image: 'https://i.pinimg.com/1200x/f2/85/b0/f285b0c51dd735092be426188666ee75.jpg', slug: 'flower-bouquet' },
     { name: 'Unity Candle Set', items: 24, image: 'https://i.pinimg.com/1200x/1e/6a/62/1e6a62a094e0adea6626772371c5ac46.jpg', slug: 'unity-candle-set' },
     { name: 'Car Decoration', items: 18, image: 'https://i.pinimg.com/736x/ad/ad/db/adaddb01b8e5ab22971cd26428b5c1f4.jpg', slug: 'car-decoration' },
     { name: 'Flower Basket', items: 31, image: 'https://i.pinimg.com/1200x/0d/5e/b7/0d5eb7653de37a47961c231c0c185dc6.jpg', slug: 'flower-basket' },
@@ -152,7 +152,7 @@ const ChristianBridalItemsPage = () => {
           </Link>
 
           <Link 
-            href="/bride/all-products?category=ritual-items&subCategory=bridal-bouquet"
+            href="/bride/all-products?category=ritual-items&subCategory=flower-bouquet"
             className="relative h-80 rounded-xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
           >
             <img 

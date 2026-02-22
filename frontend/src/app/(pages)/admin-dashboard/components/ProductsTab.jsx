@@ -327,7 +327,7 @@ export default function ProductsTab({
   { value: "wristwatch", label: "Wristwatch" },
   { value: "perfume-attar", label: "Perfume / Attar" },
 
-  { value: "sherwani-achkan", label: "Sherwani / Achkan" },
+  { value: "sherwani", label: "Sherwani" },
   { value: "punjabi-suit", label: "Punjabi Suit" },
   { value: "pathani-suit", label: "Pathani Suit" },
   { value: "kurta-pajama", label: "Kurta–Pajama" },

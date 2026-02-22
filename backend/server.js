@@ -17,6 +17,13 @@ const contactRoutes = require('./routes/contactRoutes');
 const budgetRoutes = require('./routes/budgetRoutes');
 const weddingRoutes = require('./routes/weddingRoutes');
 const weddingToolsRoutes = require('./routes/weddingToolsRoutes');
+const seatingRoutes = require('./routes/seatingRoutes');
+const calendarRoutes = require('./routes/calendarRoutes');
+const paymentTrackerRoutes = require('./routes/paymentTrackerRoutes');
+// In your app.js / server.js — add this with your other routes
+const documentsRoutes = require('./routes/documentsRoutes'); // adjust path as needed
+const weddingWebsiteRoutes = require('./routes/weddingWebsiteRoutes');
+
 
 
 
@@ -69,6 +76,12 @@ app.use('/api/service-vendors', require('./routes/serviceVendorRoutes'));
 app.use('/api/budget', budgetRoutes);
 app.use('/api', serviceRoutes);
 app.use('/api', contactRoutes);
+app.use('/api/seating', seatingRoutes);
+app.use('/api/calendar', calendarRoutes);
+app.use('/api/payment-tracker', paymentTrackerRoutes);
+app.use('/api/documents', documentsRoutes);
+app.use('/api/wedding-website', weddingWebsiteRoutes);
+
 
 
 // Test route

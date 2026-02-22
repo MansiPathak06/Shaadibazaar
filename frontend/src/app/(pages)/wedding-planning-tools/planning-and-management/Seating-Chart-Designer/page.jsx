@@ -1,7 +1,41 @@
 "use client";
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { Search, Plus, X, UserMinus, ArrowLeft } from 'lucide-react';
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import { Search, Plus, X, UserMinus, ArrowLeft, Loader2 } from 'lucide-react';
 import { DndContext, useSensor, useSensors, PointerSensor, DragOverlay, useDraggable, useDroppable } from '@dnd-kit/core';
+
+// ============================================================================
+// API HELPER
+// ============================================================================
+
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+
+const apiFetch = async (path, options = {}) => {
+    const token = localStorage.getItem('token'); // ← use whatever key your login saves it as
+
+    if (!token) {
+        window.location.href = '/login';
+        return null;
+    }
+
+    const res = await fetch(`${API_BASE}/api/seating${path}`, {
+        ...options,
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,  // ← this is the key change
+            ...options.headers,
+        },
+        // remove credentials: 'include' — not needed for JWT in headers
+    });
+
+    if (res.status === 401) {
+        window.location.href = '/login';
+        return null;
+    }
+
+    const data = await res.json();
+    if (!data.success) throw new Error(data.message || 'API error');
+    return data;
+};
 
 // ============================================================================
 // CONTEXT
@@ -9,69 +43,98 @@ import { DndContext, useSensor, useSensors, PointerSensor, DragOverlay, useDragg
 
 const SeatingContext = createContext();
 
-const generateId = () => Math.random().toString(36).substr(2, 9);
-
 export const SeatingProvider = ({ children }) => {
-    const [guests, setGuests] = useState(() => {
-        const saved = localStorage.getItem('shadi_bazar_guests');
-        return saved ? JSON.parse(saved) : [];
-    });
+    const [guests, setGuests] = useState([]);
+    const [tables, setTables] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError]   = useState(null);
 
-    const [tables, setTables] = useState(() => {
-        const saved = localStorage.getItem('shadi_bazar_tables');
-        return saved ? JSON.parse(saved) : [];
-    });
-
+    // ── Load everything on mount ──────────────────────────────────────────────
     useEffect(() => {
-        localStorage.setItem('shadi_bazar_guests', JSON.stringify(guests));
-    }, [guests]);
-
-    useEffect(() => {
-        localStorage.setItem('shadi_bazar_tables', JSON.stringify(tables));
-    }, [tables]);
-
-    const addGuest = (guest) => {
-        setGuests([...guests, { ...guest, id: generateId(), tableId: null }]);
-    };
-
-    const updateGuest = (id, updates) => {
-        setGuests(guests.map(g => g.id === id ? { ...g, ...updates } : g));
-    };
-
-    const removeGuest = (id) => {
-        setGuests(guests.filter(g => g.id !== id));
-    };
-
-    const addTable = (table) => {
-        setTables([...tables, { ...table, id: generateId() }]);
-    };
-
-    const updateTable = (id, updates) => {
-        setTables(tables.map(t => t.id === id ? { ...t, ...updates } : t));
-    };
-
-    const removeTable = (id) => {
-        setGuests(guests.map(g => g.tableId === id ? { ...g, tableId: null } : g));
-        setTables(tables.filter(t => t.id !== id));
-    };
-
-    const assignGuestToTable = (guestId, tableId) => {
-        setGuests(guests.map(g => {
-            if (g.id === guestId) {
-                return { ...g, tableId };
+        const load = async () => {
+            try {
+                setLoading(true);
+                const [gData, tData] = await Promise.all([
+                    apiFetch('/guests'),
+                    apiFetch('/tables'),
+                ]);
+                if (gData) setGuests(gData.guests);
+                if (tData) setTables(tData.tables);
+            } catch (e) {
+                setError(e.message);
+            } finally {
+                setLoading(false);
             }
-            return g;
-        }));
-    };
+        };
+        load();
+    }, []);
 
-    const unassignGuest = (guestId) => {
-        setGuests(guests.map(g => g.id === guestId ? { ...g, tableId: null } : g));
-    };
+    // ── Guests ────────────────────────────────────────────────────────────────
+
+    const addGuest = useCallback(async (guest) => {
+        const data = await apiFetch('/guests', {
+            method: 'POST',
+            body: JSON.stringify(guest),
+        });
+        if (data) setGuests(prev => [...prev, data.guest]);
+    }, []);
+
+    const updateGuest = useCallback(async (id, updates) => {
+        const data = await apiFetch(`/guests/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify(updates),
+        });
+        if (data) setGuests(prev => prev.map(g => g.id === id ? data.guest : g));
+    }, []);
+
+    const removeGuest = useCallback(async (id) => {
+        await apiFetch(`/guests/${id}`, { method: 'DELETE' });
+        setGuests(prev => prev.filter(g => g.id !== id));
+    }, []);
+
+    const assignGuestToTable = useCallback(async (guestId, tableId) => {
+        const data = await apiFetch(`/guests/${guestId}/assign`, {
+            method: 'PATCH',
+            body: JSON.stringify({ tableId }),
+        });
+        if (data) setGuests(prev => prev.map(g => g.id === guestId ? data.guest : g));
+    }, []);
+
+    const unassignGuest = useCallback(async (guestId) => {
+        await assignGuestToTable(guestId, null);
+    }, [assignGuestToTable]);
+
+    // ── Tables ────────────────────────────────────────────────────────────────
+
+    const addTable = useCallback(async (table) => {
+        const data = await apiFetch('/tables', {
+            method: 'POST',
+            body: JSON.stringify(table),
+        });
+        if (data) setTables(prev => [...prev, data.table]);
+    }, []);
+
+    const updateTable = useCallback(async (id, updates) => {
+        const data = await apiFetch(`/tables/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify(updates),
+        });
+        if (data) setTables(prev => prev.map(t => t.id === id ? data.table : t));
+    }, []);
+
+    const removeTable = useCallback(async (id) => {
+        await apiFetch(`/tables/${id}`, { method: 'DELETE' });
+        // Backend already unassigns guests; reflect locally
+        setGuests(prev => prev.map(g => g.tableId === id ? { ...g, tableId: null } : g));
+        setTables(prev => prev.filter(t => t.id !== id));
+    }, []);
 
     return (
         <SeatingContext.Provider value={{
             guests,
             tables,
+            loading,
+            error,
             addGuest,
             updateGuest,
             removeGuest,
@@ -79,7 +142,7 @@ export const SeatingProvider = ({ children }) => {
             updateTable,
             removeTable,
             assignGuestToTable,
-            unassignGuest
+            unassignGuest,
         }}>
             {children}
         </SeatingContext.Provider>
@@ -88,23 +151,18 @@ export const SeatingProvider = ({ children }) => {
 
 const useSeating = () => {
     const context = useContext(SeatingContext);
-    if (!context) {
-        throw new Error('useSeating must be used within a SeatingProvider');
-    }
+    if (!context) throw new Error('useSeating must be used within a SeatingProvider');
     return context;
 };
 
 // ============================================================================
-// COMPONENTS
+// COMPONENTS  (unchanged UI — only wired to context)
 // ============================================================================
 
 const DraggableGuest = ({ guest }) => {
     const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
         id: guest.id,
-        data: {
-            type: 'guest',
-            guest
-        },
+        data: { type: 'guest', guest },
     });
 
     return (
@@ -118,8 +176,8 @@ const DraggableGuest = ({ guest }) => {
                 <h4 className="font-medium text-gray-800">{guest.name}</h4>
                 <div className="flex gap-2 text-xs text-gray-500">
                     <span className={`px-1.5 py-0.5 rounded-full ${guest.rsvp === 'confirmed' ? 'bg-green-100 text-green-700' :
-                            guest.rsvp === 'declined' ? 'bg-red-100 text-red-700' : 'bg-yellow-100 text-yellow-700'
-                        }`}>
+                        guest.rsvp === 'declined' ? 'bg-red-100 text-red-700' : 'bg-yellow-100 text-yellow-700'
+                    }`}>
                         {guest.rsvp}
                     </span>
                     <span>{guest.meal}</span>
@@ -131,9 +189,10 @@ const DraggableGuest = ({ guest }) => {
 
 const GuestListPanel = () => {
     const { guests, addGuest } = useSeating();
-    const [searchTerm, setSearchTerm] = useState('');
-    const [filterRsvp, setFilterRsvp] = useState('all');
+    const [searchTerm, setSearchTerm]   = useState('');
+    const [filterRsvp, setFilterRsvp]   = useState('all');
     const [showAddForm, setShowAddForm] = useState(false);
+    const [saving, setSaving]           = useState(false);
 
     const [newGuestName, setNewGuestName] = useState('');
     const [newGuestRsvp, setNewGuestRsvp] = useState('confirmed');
@@ -141,27 +200,26 @@ const GuestListPanel = () => {
 
     const { setNodeRef, isOver } = useDroppable({
         id: 'guest-list-panel',
-        data: { type: 'guest-list' }
+        data: { type: 'guest-list' },
     });
 
-    const handleAddGuest = (e) => {
+    const handleAddGuest = async (e) => {
         e.preventDefault();
         if (!newGuestName.trim()) return;
-
-        addGuest({
-            name: newGuestName,
-            rsvp: newGuestRsvp,
-            meal: newGuestMeal,
-        });
-
-        setNewGuestName('');
-        setShowAddForm(false);
+        setSaving(true);
+        try {
+            await addGuest({ name: newGuestName, rsvp: newGuestRsvp, meal: newGuestMeal });
+            setNewGuestName('');
+            setShowAddForm(false);
+        } finally {
+            setSaving(false);
+        }
     };
 
     const filteredGuests = guests.filter(g => {
         const matchesSearch = g.name.toLowerCase().includes(searchTerm.toLowerCase());
         const matchesFilter = filterRsvp === 'all' || g.rsvp === filterRsvp;
-        const isUnassigned = !g.tableId;
+        const isUnassigned  = !g.tableId;
         return matchesSearch && matchesFilter && isUnassigned;
     });
 
@@ -212,8 +270,10 @@ const GuestListPanel = () => {
                         </div>
                         <button
                             type="submit"
-                            className="w-full bg-purple-600 text-white text-xs font-bold py-2 rounded hover:bg-purple-700 transition"
+                            disabled={saving}
+                            className="w-full bg-purple-600 text-white text-xs font-bold py-2 rounded hover:bg-purple-700 transition flex items-center justify-center gap-2"
                         >
+                            {saving && <Loader2 size={14} className="animate-spin" />}
                             Add Guest
                         </button>
                     </form>
@@ -226,7 +286,7 @@ const GuestListPanel = () => {
                         placeholder="Search guests..."
                         className="w-full pl-9 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
                         value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
+                        onChange={e => setSearchTerm(e.target.value)}
                     />
                 </div>
 
@@ -236,9 +296,9 @@ const GuestListPanel = () => {
                             key={status}
                             onClick={() => setFilterRsvp(status)}
                             className={`px-3 py-1 rounded-full text-xs font-medium capitalize whitespace-nowrap transition-colors ${filterRsvp === status
-                                    ? 'bg-purple-100 text-purple-700 border border-purple-200'
-                                    : 'bg-gray-100 text-gray-600 border border-transparent hover:bg-gray-200'
-                                }`}
+                                ? 'bg-purple-100 text-purple-700 border border-purple-200'
+                                : 'bg-gray-100 text-gray-600 border border-transparent hover:bg-gray-200'
+                            }`}
                         >
                             {status}
                         </button>
@@ -278,7 +338,7 @@ const GuestListPanel = () => {
 const SeatedGuest = ({ guest, unassignGuest }) => {
     const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
         id: guest.id,
-        data: { type: 'guest', guest }
+        data: { type: 'guest', guest },
     });
 
     return (
@@ -286,10 +346,7 @@ const SeatedGuest = ({ guest, unassignGuest }) => {
             ref={setNodeRef}
             {...listeners}
             {...attributes}
-            className={`
-                relative group/seat cursor-grab active:cursor-grabbing
-                ${isDragging ? 'opacity-30' : 'opacity-100'}
-            `}
+            className={`relative group/seat cursor-grab active:cursor-grabbing ${isDragging ? 'opacity-30' : 'opacity-100'}`}
         >
             <div
                 className="text-[10px] sm:text-xs bg-purple-100/90 text-purple-800 px-2 py-1.5 rounded-md border border-purple-200 truncate max-w-[80px] sm:max-w-[100px] text-center shadow-sm hover:shadow hover:bg-purple-200 transition-all font-medium"
@@ -300,13 +357,8 @@ const SeatedGuest = ({ guest, unassignGuest }) => {
 
             <div className="absolute -top-2 -right-2 opacity-0 group-hover/seat:opacity-100 transition-opacity z-10">
                 <button
-                    onPointerDown={(e) => {
-                        e.stopPropagation();
-                    }}
-                    onClick={(e) => {
-                        e.stopPropagation();
-                        unassignGuest(guest.id);
-                    }}
+                    onPointerDown={e => e.stopPropagation()}
+                    onClick={e => { e.stopPropagation(); unassignGuest(guest.id); }}
                     className="bg-red-500 text-white rounded-full p-0.5 shadow-sm hover:scale-110 flex items-center justify-center h-4 w-4"
                 >
                     <UserMinus size={10} />
@@ -319,7 +371,7 @@ const SeatedGuest = ({ guest, unassignGuest }) => {
 const TableNode = ({ table }) => {
     const { setNodeRef, isOver } = useDroppable({
         id: table.id,
-        data: { type: 'table', table }
+        data: { type: 'table', table },
     });
 
     const { guests, unassignGuest } = useSeating();
@@ -345,11 +397,11 @@ const TableNode = ({ table }) => {
                 ${table.type === 'round' ? 'rounded-full flex flex-col items-center justify-center' : 'rounded-xl'}
             `}
         >
-            <div className={`absolute -top-3 left-1/2 transform -translate-x-1/2 z-10`}>
+            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
                 <div className={`
-                 px-3 py-1 rounded-full shadow-sm border text-xs font-bold whitespace-nowrap flex items-center gap-2
-                 ${isFull ? 'bg-red-50 text-red-700 border-red-200' : 'bg-white text-gray-700 border-gray-200'}
-               `}>
+                    px-3 py-1 rounded-full shadow-sm border text-xs font-bold whitespace-nowrap flex items-center gap-2
+                    ${isFull ? 'bg-red-50 text-red-700 border-red-200' : 'bg-white text-gray-700 border-gray-200'}
+                `}>
                     <span>{table.name}</span>
                     <span className={`px-1.5 rounded-full text-[10px] ${isFull ? 'bg-red-200' : 'bg-gray-100'}`}>
                         {assignedGuests.length}/{table.capacity}
@@ -360,7 +412,7 @@ const TableNode = ({ table }) => {
             <div className={`
                 flex flex-wrap gap-2 w-full
                 ${table.type === 'round' ? 'justify-center items-center content-center h-full pt-4' : 'justify-start content-start pt-4'}
-             `}>
+            `}>
                 {assignedGuests.map(guest => (
                     <SeatedGuest key={guest.id} guest={guest} unassignGuest={unassignGuest} />
                 ))}
@@ -378,30 +430,34 @@ const TableNode = ({ table }) => {
 const VenueCanvas = () => {
     const { tables, addTable } = useSeating();
     const [showAddForm, setShowAddForm] = useState(false);
+    const [saving, setSaving]           = useState(false);
 
-    const [tableName, setTableName] = useState('');
+    const [tableName, setTableName]         = useState('');
     const [tableCapacity, setTableCapacity] = useState(8);
-    const [tableType, setTableType] = useState('round');
+    const [tableType, setTableType]         = useState('round');
 
-    const handleAddTable = (e) => {
+    const handleAddTable = async (e) => {
         e.preventDefault();
         if (!tableName.trim()) return;
-
-        addTable({
-            name: tableName,
-            capacity: parseInt(tableCapacity),
-            type: tableType,
-            x: 50 + (tables.length % 5) * 220,
-            y: 50 + Math.floor(tables.length / 5) * 220,
-        });
-
-        setTableName('');
-        setShowAddForm(false);
+        setSaving(true);
+        try {
+            await addTable({
+                name: tableName,
+                capacity: parseInt(tableCapacity),
+                type: tableType,
+                x: 50 + (tables.length % 5) * 220,
+                y: 50 + Math.floor(tables.length / 5) * 220,
+            });
+            setTableName('');
+            setShowAddForm(false);
+        } finally {
+            setSaving(false);
+        }
     };
 
     const gridStyle = {
         backgroundImage: 'radial-gradient(circle, #ddd 1px, transparent 1px)',
-        backgroundSize: '20px 20px'
+        backgroundSize: '20px 20px',
     };
 
     return (
@@ -444,8 +500,10 @@ const VenueCanvas = () => {
                             </div>
                             <button
                                 type="submit"
-                                className="w-full bg-purple-600 text-white text-xs font-bold py-2 rounded hover:bg-purple-700 transition"
+                                disabled={saving}
+                                className="w-full bg-purple-600 text-white text-xs font-bold py-2 rounded hover:bg-purple-700 transition flex items-center justify-center gap-2"
                             >
+                                {saving && <Loader2 size={14} className="animate-spin" />}
                                 Create Table
                             </button>
                         </form>
@@ -479,11 +537,10 @@ const VenueCanvas = () => {
 const StatsBar = ({ onBack }) => {
     const { guests, tables } = useSeating();
 
-    const totalGuests = guests.length;
-    const assignedGuests = guests.filter(g => g.tableId).length;
+    const totalGuests     = guests.length;
+    const assignedGuests  = guests.filter(g => g.tableId).length;
     const unassignedGuests = totalGuests - assignedGuests;
-
-    const totalCapacity = tables.reduce((acc, t) => acc + t.capacity, 0);
+    const totalCapacity   = tables.reduce((acc, t) => acc + t.capacity, 0);
 
     return (
         <div className="h-16 border-b border-gray-200 bg-white flex items-center justify-between px-6 shadow-sm">
@@ -523,47 +580,62 @@ const StatsBar = ({ onBack }) => {
 };
 
 const Layout = ({ onBack }) => {
-    const { assignGuestToTable, guests } = useSeating();
+    const { assignGuestToTable, guests, loading, error } = useSeating();
     const [activeId, setActiveId] = useState(null);
 
     const sensors = useSensors(
-        useSensor(PointerSensor, {
-            activationConstraint: {
-                distance: 8,
-            },
-        })
+        useSensor(PointerSensor, { activationConstraint: { distance: 8 } })
     );
 
-    const handleDragStart = (event) => {
-        setActiveId(event.active.id);
-    };
+    const handleDragStart = (event) => setActiveId(event.active.id);
 
     const handleDragEnd = (event) => {
         const { active, over } = event;
         setActiveId(null);
-
         if (!over) return;
 
         if (active.data.current?.type === 'guest') {
             const guestId = active.id;
-
             if (over.id === 'guest-list-panel') {
                 assignGuestToTable(guestId, null);
             } else if (over.data.current?.type === 'table') {
-                const tableId = over.id;
-                assignGuestToTable(guestId, tableId);
+                assignGuestToTable(guestId, over.id);
             }
         }
     };
 
     const activeGuest = activeId ? guests.find(g => g.id === activeId) : null;
 
+    if (loading) {
+        return (
+            <div className="flex h-screen w-screen items-center justify-center bg-gray-50">
+                <div className="flex flex-col items-center gap-3 text-gray-500">
+                    <Loader2 size={32} className="animate-spin text-purple-500" />
+                    <p className="text-sm">Loading seating plan…</p>
+                </div>
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className="flex h-screen w-screen items-center justify-center bg-gray-50">
+                <div className="text-center text-red-500">
+                    <p className="font-semibold">Failed to load data</p>
+                    <p className="text-sm mt-1">{error}</p>
+                    <button
+                        onClick={() => window.location.reload()}
+                        className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-lg text-sm hover:bg-purple-700 transition"
+                    >
+                        Retry
+                    </button>
+                </div>
+            </div>
+        );
+    }
+
     return (
-        <DndContext
-            sensors={sensors}
-            onDragStart={handleDragStart}
-            onDragEnd={handleDragEnd}
-        >
+        <DndContext sensors={sensors} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
             <div className="flex h-screen w-screen flex-col bg-gray-50 text-gray-900">
                 <StatsBar onBack={onBack} />
 
@@ -595,9 +667,7 @@ const Layout = ({ onBack }) => {
 // ============================================================================
 
 export default function App() {
-    const handleBack = () => {
-        window.history.back();
-    };
+    const handleBack = () => window.history.back();
 
     return (
         <SeatingProvider>

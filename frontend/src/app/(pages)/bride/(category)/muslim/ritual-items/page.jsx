@@ -6,7 +6,7 @@ import Link from "next/link";
 const MuslimRitualItemsPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Hero slides for Muslim Ritual Items
+  // Hero slides for Muslim ritual-items
   const heroSlides = [
     {
       title: "Nikahnama Folder & Certificate",
@@ -28,7 +28,7 @@ const MuslimRitualItemsPage = () => {
     },
   ];
 
-  // Categories for Muslim Ritual Items - with subcategory values
+  // Categories for Muslim ritual-items - with subcategory values
   const categories = [
     {
       name: "Nikahnama Folder",
@@ -88,7 +88,7 @@ const MuslimRitualItemsPage = () => {
     },
   ];
 
-  // Trending Muslim Ritual Items
+  // Trending Muslim ritual-items
   const trendingProducts = [
   {
     name: "Nikahnama Folder",
@@ -184,14 +184,14 @@ const MuslimRitualItemsPage = () => {
                 <div className="max-w-7xl mx-auto px-8 w-full">
                   <div className="max-w-md">
                     <p className="text-sm text-gray-600 mb-2 uppercase tracking-wide">
-                      MUSLIM RITUAL ITEMS
+                      MUSLIM ritual-items
                     </p>
                     <h1 className="text-5xl font-light text-gray-800 mb-4">
                       {slide.title}
                     </h1>
                     <p className="text-gray-600 mb-6">{slide.subtitle}</p>
                     <Link 
-                      href="/bride /all-products?category=ritual items"
+                      href="/bride /all-products?category=ritual-items"
                       className="inline-block bg-amber-600 text-white px-8 py-3 rounded hover:bg-amber-700 transition-colors"
                     >
                       SHOP NOW
@@ -243,7 +243,7 @@ const MuslimRitualItemsPage = () => {
               {[...categories, ...categories].map((category, index) => (
                 <Link
                   key={index}
-                  href={`/bride/all-products?category=ritual items&subCategory=${category.subCategory}`}
+                  href={`/bride/all-products?category=ritual-items&subCategory=${category.subCategory}`}
                   className="shrink-0 w-40 text-center group cursor-pointer"
                 >
                   <div className="relative mb-4 overflow-hidden rounded-full">
@@ -267,7 +267,7 @@ const MuslimRitualItemsPage = () => {
       <div className="max-w-7xl mx-auto px-8 py-16">
         <div className="grid md:grid-cols-2 gap-8">
           <Link
-            href="/bride/all-products?category=ritual items&subCategory=mehr-gift-items"
+            href="/bride/all-products?category=ritual-items&subCategory=mehr-gift-items"
             className="relative overflow-hidden rounded-lg group cursor-pointer"
           >
             <img
@@ -286,7 +286,7 @@ const MuslimRitualItemsPage = () => {
           </Link>
 
           <Link
-            href="/bride/all-products?category=ritual items&subCategory=perfume-attar"
+            href="/bride/all-products?category=ritual-items&subCategory=perfume-attar"
             className="relative overflow-hidden rounded-lg group cursor-pointer"
           >
             <img
@@ -328,7 +328,7 @@ const MuslimRitualItemsPage = () => {
   {trendingProducts.map((product, index) => (
     <Link
       key={index}
-      href={`/bride/all-products?category=ritual items&subCategory=${product.subCategory}`}
+      href={`/bride/all-products?category=ritual-items&subCategory=${product.subCategory}`}
       className="bg-white rounded-lg overflow-hidden group cursor-pointer shadow-sm hover:shadow-xl transition-shadow"
     >
       <div className="relative overflow-hidden">
@@ -351,7 +351,7 @@ const MuslimRitualItemsPage = () => {
 </div>
           <div className="text-center">
             <Link
-              href="/bride/all-products?category=ritual items"
+              href="/bride/all-products?category=ritual-items"
               className="group mt-12 relative inline-flex items-center gap-3 bg-amber-600 text-white px-12 py-4 rounded-full text-lg font-medium hover:bg-amber-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               <span>EXPLORE FULL COLLECTION</span>

@@ -32,7 +32,7 @@ const RitualItemsPage = () => {
         <div className="absolute inset-0 z-0">
           <img
             src="https://i.pinimg.com/1200x/b0/4c/bd/b04cbd4200fe4fdc619d52a56f47037d.jpg"
-            alt="Traditional Ritual Items Background"
+            alt="Traditional ritual-items Background"
             className="w-full h-full object-cover"
           />
           {/* Lighter overlay for better visibility */}
@@ -43,13 +43,13 @@ const RitualItemsPage = () => {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="max-w-2xl">
             <h1 className="text-4xl md:text-5xl font-serif text-gray-900 mb-2 leading-tight drop-shadow-sm">
-              Traditional Ritual Items
+              Traditional ritual-items
               <span className="text-xl md:text-2xl text-amber-700 ml-2">& Sacred Collection</span>
             </h1>
             <p className="text-gray-700 text-base mb-4 max-w-xl font-medium">
               Discover authentic ritual essentials crafted with devotion and tradition
             </p>
-            <Link href="/bride/all-products?category=ritual items">
+            <Link href="/bride/all-products?category=ritual-items">
               <button className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                 Shop Now
               </button>
@@ -85,7 +85,7 @@ const RitualItemsPage = () => {
           {(showAllCategories ? categories : categories.slice(0, 5)).map((category, index) => (
             <Link
               key={index}
-              href={`/bride/all-products?category=ritual items&subCategory=${category.slug}`}
+              href={`/bride/all-products?category=ritual-items&subCategory=${category.slug}`}
               className="bg-white rounded-lg overflow-hidden h-[300px] shadow-sm hover:shadow-md transition-shadow cursor-pointer group"
             >
               <div className="aspect-square bg-gray-100 overflow-hidden">
@@ -119,7 +119,7 @@ const RitualItemsPage = () => {
           {featuredProducts.map((product, index) => (
             <Link
               key={index}
-              href={`/bride/all-products?category=ritual items&subCategory=${product.slug}`}
+              href={`/bride/all-products?category=ritual-items&subCategory=${product.slug}`}
               className="relative h-80 rounded-xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
             >
               <img
@@ -184,7 +184,7 @@ const RitualItemsPage = () => {
                 <span className="text-amber-600">✓</span> Varmala & Garlands
               </li>
             </ul>
-            <Link href="/bride/all-products?category=ritual items">
+            <Link href="/bride/all-products?category=ritual-items">
               <button className="w-full bg-amber-600 hover:bg-amber-700 text-white py-2.5 rounded-lg text-sm font-medium transition-colors group-hover:shadow-md">
                 Explore Wedding Items →
               </button>
@@ -210,7 +210,7 @@ const RitualItemsPage = () => {
                 <span className="text-amber-600">✓</span> Decorative Items
               </li>
             </ul>
-            <Link href="/bride/all-products?category=ritual items">
+            <Link href="/bride/all-products?category=ritual-items">
               <button className="w-full bg-amber-600 hover:bg-amber-700 text-white py-2.5 rounded-lg text-sm font-medium transition-colors group-hover:shadow-md">
                 Explore Engagement →
               </button>
@@ -236,7 +236,7 @@ const RitualItemsPage = () => {
                 <span className="text-amber-600">✓</span> Festival Decor
               </li>
             </ul>
-            <Link href="/bride/all-products?category=ritual items">
+            <Link href="/bride/all-products?category=ritual-items">
               <button className="w-full bg-amber-600 hover:bg-amber-700 text-white py-2.5 rounded-lg text-sm font-medium transition-colors group-hover:shadow-md">
                 Explore Festive →
               </button>

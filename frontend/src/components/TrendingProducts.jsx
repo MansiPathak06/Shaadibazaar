@@ -31,7 +31,7 @@ export default function TrendingProducts() {
           linear: "from-purple-500 to-indigo-600",
           image:
             "https://i.pinimg.com/1200x/1b/e7/70/1be7705cdd1b9ebd64a6ad67a46700af.jpg",
-          redirect_link: "/groom/all-products?category=sikh-groomwear&subCategory=sherwani-achkan",
+          redirect_link: "/groom/all-products?category=sikh-groomwear&subCategory=sherwani",
         },
         {
           title: "Kurta Pajama",

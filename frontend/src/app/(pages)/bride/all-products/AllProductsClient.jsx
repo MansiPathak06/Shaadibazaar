@@ -6,12 +6,9 @@ import { ShoppingCart, Star } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 
 export default function AllProductsClient() {
-  
- 
- const searchParams = useSearchParams();
-const category = searchParams.get("category") || "bridalwear";
-const subCategory = searchParams.get("subCategory") || "";
-
+  const searchParams = useSearchParams();
+  const category = searchParams.get("category") || "bridalwear";
+  const subCategory = searchParams.get("subCategory") || "";
 
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -25,12 +22,12 @@ const subCategory = searchParams.get("subCategory") || "";
     try {
       setLoading(true);
       let url = `http://localhost:5000/api/products?category=${encodeURIComponent(
-        category
+        category,
       )}`;
-//       let url = `${process.env.NEXT_PUBLIC_API_URL}/api/products?category=${encodeURIComponent(
-//   category
-// )}`;
-if (subCategory) url += `&subCategory=${encodeURIComponent(subCategory)}`;
+      //       let url = `${process.env.NEXT_PUBLIC_API_URL}/api/products?category=${encodeURIComponent(
+      //   category
+      // )}`;
+      if (subCategory) url += `&subCategory=${encodeURIComponent(subCategory)}`;
 
       const response = await fetch(url);
       const data = await response.json();
@@ -160,22 +157,21 @@ if (subCategory) url += `&subCategory=${encodeURIComponent(subCategory)}`;
                   )}
 
                   {/* Action Buttons */}
-                 {/* Action Buttons */}
-<div className="flex gap-2">
-  <Link
-    href={`/bride/category/bridalattire/product/${product.id}`}
-    className="flex-1 bg-rose-500 text-white py-2 rounded-lg hover:bg-rose-600 transition-colors text-center text-sm font-medium"
-  >
-    Buy Now
-  </Link>
-  <Link
-    href={`/bride/category/bridalattire/product/${product.id}`}
-    className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
-  >
-    <ShoppingCart className="w-5 h-5 text-gray-600" />
-  </Link>
-</div>
-
+                  {/* Action Buttons */}
+                  <div className="flex gap-2">
+                    <Link
+                      href={`/bride/all-products/${product.id}`}
+                      className="flex-1 bg-rose-500 text-white py-2 rounded-lg hover:bg-rose-600 transition-colors text-center text-sm font-medium"
+                    >
+                      Buy Now
+                    </Link>
+                    <Link
+                      href={`/bride/all-products/${product.id}`}
+                      className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                    >
+                      <ShoppingCart className="w-5 h-5 text-gray-600" />
+                    </Link>
+                  </div>
                 </div>
               </div>
             );

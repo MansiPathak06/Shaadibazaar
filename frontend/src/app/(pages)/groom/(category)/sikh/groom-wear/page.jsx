@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { ChevronRight, Sparkles, Heart, Star } from 'lucide-react';
 
 const SikhGroomWearPage = () => {
@@ -14,35 +15,43 @@ const SikhGroomWearPage = () => {
   const categories = [
     {
       name: "Sherwani / Achkan",
-      image: "https://i.pinimg.com/736x/0e/77/b5/0e77b5d168001085c61bb72176f83752.jpg"
+      image: "https://i.pinimg.com/736x/0e/77/b5/0e77b5d168001085c61bb72176f83752.jpg",
+      slug: "sherwani"
     },
     {
       name: "Punjabi Suit",
-      image: "https://i.pinimg.com/1200x/c4/c6/9d/c4c69d1b94ea143e51f805edf965280a.jpg"
+      image: "https://i.pinimg.com/1200x/c4/c6/9d/c4c69d1b94ea143e51f805edf965280a.jpg",
+      slug: "punjabi-suit"
     },
     {
       name: "Turban (Pagri)",
-      image: "https://i.pinimg.com/736x/54/db/1f/54db1fc696235044265c8b55f364e1b8.jpg"
+      image: "https://i.pinimg.com/736x/54/db/1f/54db1fc696235044265c8b55f364e1b8.jpg",
+      slug: "turban-pagri"
     },
     {
       name: "Turban Kalgi",
-      image: "https://i.pinimg.com/736x/66/d3/35/66d3356ac8bf9638bb8833823ba44fbf.jpg"
+      image: "https://i.pinimg.com/736x/66/d3/35/66d3356ac8bf9638bb8833823ba44fbf.jpg",
+      slug: "turban-kalgi"
     },
     {
       name: "Kada",
-      image: "https://i.pinimg.com/736x/cf/2c/13/cf2c13eac1da175ee654b6ec4f287a38.jpg"
+      image: "https://i.pinimg.com/736x/cf/2c/13/cf2c13eac1da175ee654b6ec4f287a38.jpg",
+      slug: "kada"
     },
     {
       name: "Kirpan",
-      image: "https://i.pinimg.com/736x/9e/09/59/9e09599fd6439a0a97b62936176dbe04.jpg"
+      image: "https://i.pinimg.com/736x/9e/09/59/9e09599fd6439a0a97b62936176dbe04.jpg",
+      slug: "kirpan"
     },
     {
       name: "Jutti",
-      image: "https://i.pinimg.com/736x/e5/6b/b2/e56bb254ff06d64471aef33e6feb108f.jpg"
+      image: "https://i.pinimg.com/736x/e5/6b/b2/e56bb254ff06d64471aef33e6feb108f.jpg",
+      slug: "jutti"
     },
     {
       name: "Stole",
-      image: "https://i.pinimg.com/1200x/4f/35/a3/4f35a3285bbb84eddc70b66a8e0fef9c.jpg"
+      image: "https://i.pinimg.com/1200x/4f/35/a3/4f35a3285bbb84eddc70b66a8e0fef9c.jpg",
+      slug: "stole"
     }
   ];
 
@@ -100,8 +109,9 @@ const SikhGroomWearPage = () => {
         <div className="relative h-64 overflow-hidden">
           <div className="flex gap-8 animate-scroll-infinite">
             {[...categories, ...categories].map((category, index) => (
-              <div
+              <Link
                 key={index}
+                href={`/groom/all-products?category=groomwear&subCategory=${category.slug}&religion=sikh`}
                 className="shrink-0 w-48 h-48 rounded-full overflow-hidden shadow-xl hover:scale-110 transition-transform duration-300 cursor-pointer relative group"
               >
                 <img
@@ -115,7 +125,7 @@ const SikhGroomWearPage = () => {
                 <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent flex items-end justify-center pb-4">
                   <p className="text-white font-bold text-sm text-center px-2">{category.name}</p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -134,8 +144,9 @@ const SikhGroomWearPage = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {categories.map((category, index) => (
-            <div
+            <Link
               key={index}
+              href={`/groom/all-products?category=groomwear&subCategory=${category.slug}&religion=sikh`}
               className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer group"
             >
               <div className="relative aspect-[3/4] overflow-hidden bg-gray-100">
@@ -156,7 +167,7 @@ const SikhGroomWearPage = () => {
                   {category.name}
                 </h3>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

@@ -331,3 +331,232 @@ exports.deleteManagedGuest = async (req, res) => {
     res.status(500).json({ success: false, message: 'Server error' });
   }
 };
+
+
+// ═══════════════════════════════════════════════════════════════════════════
+// ▼▼▼  NEW EXPORTS — SHADI BAZAR GUEST MANAGER (Dashboard App)  ▼▼▼
+// Nothing above this line was changed.
+//
+// These 5 new exports serve the Shadi Bazar standalone Guest Manager page.
+// They use the SAME wedding_guests table with the same extra columns.
+//
+// ── ADDITIONAL ONE-TIME MIGRATION (add only if not already run above) ───────
+//
+//   ALTER TABLE wedding_guests
+//     ADD COLUMN IF NOT EXISTS meal          ENUM('Veg','Non-Veg','Vegan','Kids','Custom') DEFAULT NULL,
+//     ADD COLUMN IF NOT EXISTS diet          VARCHAR(255) DEFAULT NULL,
+//     ADD COLUMN IF NOT EXISTS count         INT          DEFAULT 1,
+//     ADD COLUMN IF NOT EXISTS plus_one      TINYINT(1)   DEFAULT 0,
+//     ADD COLUMN IF NOT EXISTS date_responded DATE        DEFAULT NULL;
+//
+// ═══════════════════════════════════════════════════════════════════════════
+
+/** Convert a DB row → shape expected by the Shadi Bazar Guest Manager UI */
+const rowToShadiBazarGuest = (row) => ({
+  id:      row.id,
+  name:    row.name    || '',
+  side:    row.side    || 'Groom',
+  phone:   row.phone   || row.contact || '',
+  email:   row.email   || '',
+  // rsvp_status (new column) takes priority; fall back to old rsvp column
+  status:  row.rsvp_status || row.rsvp || 'Pending',
+  count:   row.count   ?? row.invited_count ?? 1,
+  plusOne: Boolean(row.plus_one ?? row.plus_one_allowed),
+  date:    row.date_responded
+    ? new Date(row.date_responded).toISOString().split('T')[0]
+    : '',
+  meal:    row.meal || row.dietary_preference || '',
+  diet:    row.diet || row.dietary_notes      || '',
+});
+
+// ─────────────────────────────────────────────────────────
+// GET /api/wedding/guests/shadi-bazar/stats
+// Aggregated stats for the Shadi Bazar dashboard
+// Must be declared BEFORE shadi-bazar/:id routes
+// ─────────────────────────────────────────────────────────
+exports.getShadiBazarStats = async (req, res) => {
+  try {
+    const weddingId = await getWeddingId(req.user.id);
+    if (!weddingId)
+      return res.status(404).json({ success: false, message: 'Wedding not set up yet' });
+
+    const [rows] = await db.query(
+      'SELECT * FROM wedding_guests WHERE wedding_id = ?',
+      [weddingId]
+    );
+
+    const guests         = rows.map(rowToShadiBazarGuest);
+    const totalInvited   = guests.length;
+    const confirmed      = guests.filter(g => g.status === 'Confirmed');
+    const totalConfirmed = confirmed.reduce((acc, g) => acc + (g.count || 0), 0);
+    const totalDeclined  = guests.filter(g => g.status === 'Not Coming').length;
+    const pending        = guests.filter(g => g.status === 'Pending').length;
+    const responded      = guests.filter(g => g.status !== 'Pending').length;
+    const responseRate   = totalInvited > 0
+      ? Math.round((responded / totalInvited) * 100)
+      : 0;
+
+    const meals = { Veg: 0, 'Non-Veg': 0, Vegan: 0, Kids: 0, Custom: 0 };
+    confirmed.forEach(g => {
+      if (g.meal && meals[g.meal] !== undefined) {
+        meals[g.meal] += (g.count || 1);
+      }
+    });
+
+    res.json({
+      success: true,
+      data: { totalInvited, totalConfirmed, totalDeclined, pending, responseRate, meals },
+    });
+  } catch (err) {
+    console.error('getShadiBazarStats error:', err);
+    res.status(500).json({ success: false, message: 'Server error' });
+  }
+};
+
+// ─────────────────────────────────────────────────────────
+// GET /api/wedding/guests/shadi-bazar
+// Returns all guests in Shadi Bazar shape
+// ─────────────────────────────────────────────────────────
+exports.getShadiBazarGuests = async (req, res) => {
+  try {
+    const weddingId = await getWeddingId(req.user.id);
+    if (!weddingId)
+      return res.status(404).json({ success: false, message: 'Wedding not set up yet' });
+
+    const [rows] = await db.query(
+      'SELECT * FROM wedding_guests WHERE wedding_id = ? ORDER BY id ASC',
+      [weddingId]
+    );
+
+    res.json({ success: true, data: rows.map(rowToShadiBazarGuest) });
+  } catch (err) {
+    console.error('getShadiBazarGuests error:', err);
+    res.status(500).json({ success: false, message: 'Server error' });
+  }
+};
+
+// ─────────────────────────────────────────────────────────
+// POST /api/wedding/guests/shadi-bazar
+// Add guest in Shadi Bazar shape
+// ─────────────────────────────────────────────────────────
+exports.addShadiBazarGuest = async (req, res) => {
+  try {
+    const weddingId = await getWeddingId(req.user.id);
+    if (!weddingId)
+      return res.status(404).json({ success: false, message: 'Wedding not set up yet' });
+
+    const {
+      name, side = 'Groom', phone = '', email = '',
+      status = 'Pending', count = 1, plusOne = false,
+      date = null, meal = null, diet = null,
+    } = req.body;
+
+    if (!name || !name.trim())
+      return res.status(400).json({ success: false, message: 'Guest name is required' });
+
+    const [result] = await db.query(
+      `INSERT INTO wedding_guests
+         (wedding_id, name, contact, email, side,
+          phone, rsvp_status, count, plus_one,
+          date_responded, meal, diet,
+          invited_count, plus_one_allowed)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        weddingId, name.trim(),
+        phone,          // contact = phone (keeps old page happy)
+        email, side,
+        phone, status, count, plusOne ? 1 : 0,
+        date || null, meal || null, diet || null,
+        count,          // keep invited_count in sync
+        plusOne ? 1 : 0 // keep plus_one_allowed in sync
+      ]
+    );
+
+    const [rows] = await db.query('SELECT * FROM wedding_guests WHERE id = ?', [result.insertId]);
+    res.status(201).json({ success: true, data: rowToShadiBazarGuest(rows[0]) });
+  } catch (err) {
+    console.error('addShadiBazarGuest error:', err);
+    res.status(500).json({ success: false, message: 'Server error' });
+  }
+};
+
+// ─────────────────────────────────────────────────────────
+// PUT /api/wedding/guests/shadi-bazar/:id
+// Full update in Shadi Bazar shape
+// ─────────────────────────────────────────────────────────
+exports.updateShadiBazarGuest = async (req, res) => {
+  try {
+    const weddingId = await getWeddingId(req.user.id);
+    if (!weddingId)
+      return res.status(404).json({ success: false, message: 'Wedding not set up yet' });
+
+    const [existing] = await db.query(
+      'SELECT * FROM wedding_guests WHERE id = ? AND wedding_id = ?',
+      [req.params.id, weddingId]
+    );
+    if (!existing.length)
+      return res.status(404).json({ success: false, message: 'Guest not found' });
+
+    const row  = existing[0];
+    const body = req.body;
+
+    const name    = body.name    ?? row.name;
+    const side    = body.side    ?? row.side;
+    const phone   = body.phone   ?? row.phone   ?? row.contact ?? '';
+    const email   = body.email   ?? row.email   ?? '';
+    const status  = body.status  ?? row.rsvp_status ?? row.rsvp ?? 'Pending';
+    const count   = body.count   ?? row.count   ?? row.invited_count ?? 1;
+    const plusOne = body.plusOne !== undefined
+      ? (body.plusOne ? 1 : 0)
+      : (row.plus_one ?? row.plus_one_allowed ?? 0);
+    const date    = body.date    ?? row.date_responded ?? null;
+    const meal    = body.meal    ?? row.meal    ?? null;
+    const diet    = body.diet    ?? row.diet    ?? null;
+
+    await db.query(
+      `UPDATE wedding_guests SET
+         name = ?, contact = ?, email = ?, side = ?,
+         phone = ?, rsvp_status = ?, count = ?, plus_one = ?,
+         date_responded = ?, meal = ?, diet = ?,
+         invited_count = ?, plus_one_allowed = ?
+       WHERE id = ? AND wedding_id = ?`,
+      [
+        name, phone, email, side,
+        phone, status, count, plusOne,
+        date || null, meal || null, diet || null,
+        count, plusOne,
+        req.params.id, weddingId,
+      ]
+    );
+
+    const [updated] = await db.query('SELECT * FROM wedding_guests WHERE id = ?', [req.params.id]);
+    res.json({ success: true, data: rowToShadiBazarGuest(updated[0]) });
+  } catch (err) {
+    console.error('updateShadiBazarGuest error:', err);
+    res.status(500).json({ success: false, message: 'Server error' });
+  }
+};
+
+// ─────────────────────────────────────────────────────────
+// DELETE /api/wedding/guests/shadi-bazar/:id
+// ─────────────────────────────────────────────────────────
+exports.deleteShadiBazarGuest = async (req, res) => {
+  try {
+    const weddingId = await getWeddingId(req.user.id);
+    if (!weddingId)
+      return res.status(404).json({ success: false, message: 'Wedding not set up yet' });
+
+    const [result] = await db.query(
+      'DELETE FROM wedding_guests WHERE id = ? AND wedding_id = ?',
+      [req.params.id, weddingId]
+    );
+
+    if (result.affectedRows === 0)
+      return res.status(404).json({ success: false, message: 'Guest not found' });
+
+    res.json({ success: true, message: 'Guest deleted successfully' });
+  } catch (err) {
+    console.error('deleteShadiBazarGuest error:', err);
+    res.status(500).json({ success: false, message: 'Server error' });
+  }
+};

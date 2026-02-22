@@ -77,4 +77,25 @@ router.post('/tasks',        taskCtrl.addTask);
 router.patch('/tasks/:id', taskCtrl.toggleTaskStatus);
 router.delete('/tasks/:id',  taskCtrl.deleteTask);
 
+// ════════════════════════════════════════════════════════════════════════════
+// ▼▼▼  NEW ROUTES — SHADI BAZAR GUEST MANAGER  ▼▼▼
+// Nothing above this line was changed.
+//
+// IMPORTANT: These /shadi-bazar sub-routes are placed at the END of this file
+// so they cannot interfere with any existing route above.
+// The /stats route is registered before /:id to prevent Express
+// treating the literal string "stats" as a guest id.
+//
+// GET    /api/wedding/guests/shadi-bazar/stats  → dashboard stats
+// GET    /api/wedding/guests/shadi-bazar         → list all guests
+// POST   /api/wedding/guests/shadi-bazar         → add a guest
+// PUT    /api/wedding/guests/shadi-bazar/:id     → update a guest
+// DELETE /api/wedding/guests/shadi-bazar/:id     → delete a guest
+// ════════════════════════════════════════════════════════════════════════════
+router.get('/guests/shadi-bazar/stats',    guestCtrl.getShadiBazarStats);
+router.get('/guests/shadi-bazar',          guestCtrl.getShadiBazarGuests);
+router.post('/guests/shadi-bazar',         guestCtrl.addShadiBazarGuest);
+router.put('/guests/shadi-bazar/:id',      guestCtrl.updateShadiBazarGuest);
+router.delete('/guests/shadi-bazar/:id',   guestCtrl.deleteShadiBazarGuest);
+
 module.exports = router;
